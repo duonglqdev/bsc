@@ -14,13 +14,21 @@ module.exports = {
 		// Extend the default Tailwind theme.
 		extend: {
 			colors: {
-				primary: '#3b3663',
-				secondary: '#f47514',
+				primary: {"50":"#EBF4FA","100":"#E5F0FF","200":"#E8F1FF","300":"#1C478C","400":"#262E69","500":"#235BA8","600":"#295CA9"},
+				green:"#009E87",
+				yellow:{"100":"#FFB81C","200":"#FDB525"},
+				black :"#31333F",
 				
 			},
+			fontSize: {
+				sm: '15px',
+			  },
 			fontFamily: {
-				body: ['SVN-Poppins', 'sans-serif'],
+				body: ['Barlow', 'sans-serif'],
 			},
+			backgroundImage: {
+				'gradient-blue': 'linear-gradient(90deg, #1C478C 0%, #262E69 100%)',
+			  },
 
 		},
 		container: {
@@ -31,7 +39,7 @@ module.exports = {
 				md: '728px',
 				lg: '984px',
 				xl: '1240px',
-				'2xl': '1460px',
+				'2xl': '3240px',
 			  },
 		},
 	},

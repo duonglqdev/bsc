@@ -1,5 +1,20 @@
 @font-face {
-    font-family: "SVN-Poppins";
-    src: url(./SVN-PoppinsRegular.ttf);
+    font-family: "Barlow";
+    src: url(./Barlow-Regular.ttf);
     font-weight: 400;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url(./Barlow-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url(./Barlow-SemiBold.ttf);
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url(./Barlow-Bold.ttf);
+    font-weight: 700;
 }
