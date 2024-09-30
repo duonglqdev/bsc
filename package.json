@@ -53,5 +53,9 @@
 		"zip": "node node_scripts/zip.js bsc",
 		"bundle": "run-s production zip"
 	},
-	"prettier": "@wordpress/prettier-config"
+	"prettier": "@wordpress/prettier-config",
+	"dependencies": {
+		"apexcharts": "^3.54.0",
+		"flowbite": "^2.5.1"
+	}
 }

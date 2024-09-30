@@ -1,0 +1,36 @@
+@mixin dot-style($color) {
+    .flickity-page-dots {
+        .dot {
+            @apply opacity-100;
+            background-color: $color;
+        }
+    }
+}
+
+.dots-white {
+    @include dot-style(white);
+}
+
+.dots-blue {
+    @include dot-style(theme("colors.primary.300"));
+}
+
+@mixin block-slider-show($visible) {
+    &:not(.flickity-enabled) {
+        @apply flex overflow-hidden;
+
+        .block_slider-item {
+            &:nth-child(n + #{$visible + 1}) {
+                @apply hidden;
+            }
+        }
+    }
+}
+
+.block_slider-show-1 {
+    @include block-slider-show(1);
+}
+
+.block_slider-show-2 {
+    @include block-slider-show(2);
+}
