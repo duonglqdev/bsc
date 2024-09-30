@@ -1,7 +1,7 @@
 <?php
 
 /**
-Template Name: Trang chủ
+Template Name: Home
  */
 
 get_header();
