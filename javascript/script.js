@@ -15,6 +15,7 @@ import ApexCharts from 'apexcharts';
 				moveLine($activeButton);
 			}
 			handleChart();
+			aboutHistory();
 		});
 	};
 	function menuMobile() {
@@ -303,5 +304,47 @@ import ApexCharts from 'apexcharts';
 
 		var chart = new ApexCharts(document.querySelector('#chart'), options);
 		chart.render();
+	}
+
+	function aboutHistory() {
+		$('.about_history-content').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.about_history-nav',
+		});
+		$('.about_history-nav').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			asNavFor: '.about_history-content',
+			dots: false,
+			prevArrow:
+				'<button class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>',
+			nextArrow:
+				'<button class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>',
+			focusOnSelect: true,
+			infinite: false, 
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 5,
+					},
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 3,
+					},
+				},
+				{
+					breakpoint: 0,
+					settings: {
+						slidesToShow: 2,
+					},
+				},
+			],
+		});
 	}
 })(jQuery);

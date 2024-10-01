@@ -128,7 +128,7 @@
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
 							<?php echo svg( 'play' ) ?>
 						</div>
 					</a>

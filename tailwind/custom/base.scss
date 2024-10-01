@@ -108,8 +108,23 @@
 	}
 }
 
-.partner-item{
+.partner-item {
 	@apply bg-no-repeat;
 	background-size: 100% 100%;
-	background:lightgray 21.6px 18.347px / 75.784% 54.133% no-repeat;
+	background: lightgray 21.6px 18.347px / 75.784% 54.133% no-repeat;
 }
+
+.about_history-nav {
+	.slick-next {
+		@apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+	}
+	.slick-prev {
+		@apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+	}
+	.slick-current {
+		@apply after:bg-gradient-blue before:absolute before:w-[18px] before:h-[18px] before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-[#235BA8] before:backdrop-blur-sm before:bg-opacity-50;
+		
+		
+	}
+}
+

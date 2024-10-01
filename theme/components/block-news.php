@@ -4,10 +4,10 @@
 		<div class="grid grid-cols-5 gap-5">
 			<div class="md:col-span-3 col-span-full">
 				<div class="flex flex-col">
-					<a href="" class="block relative w-full pt-[52%] mb-6">
+					<a href="" class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 							alt=""
-							class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
+							class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 					</a>
 					<h3
 						class="lg:text-[22px] text-lg font-bold mb-[12px] transition-all duration-500 hover:text-primary-300">
