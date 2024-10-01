@@ -20,7 +20,6 @@
 .the_content h4,
 .the_content h5,
 .the_content h6 {
-    color: #3b3663;
     font-weight: bold;
     margin-bottom: 1rem;
 }
@@ -66,13 +65,7 @@
     font-size: 16px;
 }
 
-.the_content ul li a {
-    color: #ff5912;
-}
 
-.the_content a {
-    color: #6254e7;
-}
 
 .the_content ol {
     list-style: decimal;
@@ -86,14 +79,11 @@
     margin-bottom: 10px;
 }
 
-.the_content ol li a {
-    color: #ff5912;
-}
 
 .the_content blockquote {
     padding: 10px 20px;
     margin: 0 0 20px;
-    border-left: 5px solid #6254e7;
+    border-left: 5px solid #0955c7;
 }
 
 .the_content blockquote p {
