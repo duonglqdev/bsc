@@ -11,31 +11,31 @@ get_header();
 	<section class="bg-primary-50 shadow-menu !shadow-[#0000001A] about_nav sticky top-0 z-10">
 		<div class="container">
 			<ul class="flex items-center justify-between gap-5">
-				<li><a href=""
+				<li><a href="#about_info"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giới
 						thiệu BSC</a></li>
-				<li><a href=""
+				<li><a href="#about_mission"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Tầm
 						nhìn & Sứ mệnh</a></li>
-				<li><a href=""
+				<li><a href="#about_history"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Lịch
 						sử hình thành</a></li>
-				<li><a href=""
+				<li><a href="#about_leadership"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đội
 						ngũ lãnh đạo</a></li>
-				<li><a href=""
+				<li><a href="#strategic__partner"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đối
 						tác chiến lược</a></li>
-				<li><a href=""
+				<li><a href="#about_culture"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Văn
 						hóa BSC</a></li>
-				<li><a href=""
+				<li><a href="#about_award"
 						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giải
 						thưởng nổi bật</a></li>
 			</ul>
 		</div>
 	</section>
-	<section class="about_info lg:py-32 py-20">
+	<section class="about_info lg:py-32 py-20" id="about_info">
 		<div class="container">
 			<h2 class="heading-title text-center mb-4">
 				Về chúng tôi
@@ -80,7 +80,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="about_mission lg:mb-[100px] mb-20">
+	<section class="about_mission lg:mb-[100px] mb-20" id="about_mission">
 		<div class="container">
 			<div class="grid gap-5 md:grid-cols-2 grid-cols-1">
 				<div class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-9 px-4 lg:py-20 py-10">
@@ -154,7 +154,7 @@ get_header();
 
 		</div>
 	</section>
-	<section class="about_history bg-primary-50 py-14">
+	<section class="about_history bg-primary-50 py-14" id="about_history">
 		<div class="container">
 			<h2 class="heading-title text-primary-700 mb-12">
 				LỊCH SỬ HÌNH THÀNH
@@ -239,7 +239,7 @@ get_header();
 
 		</div>
 	</section>
-	<section class="about_leadership lg:mt-[100px] mt-10">
+	<section class="about_leadership lg:mt-[100px] mt-10" id="about_leadership">
 		<div class="container">
 			<h2 class="heading-title mb-12">
 				Đội ngũ lãnh đạo
@@ -550,7 +550,7 @@ get_header();
 		</div>
 	</div>
 
-	<section class="lg:py-[100px] py-16 bg-gradient-blue-to-top">
+	<section class="lg:py-[100px] py-16 bg-gradient-blue-to-top" id="about_chart">
 		<div class="container">
 			<h2 class="heading-title mb-10 text-center">
 				Sơ đồ tổ chức
@@ -565,7 +565,7 @@ get_header();
 	</section>
 
 	<section
-		class="strategic__partner lg:py-[105px] py-16 relative after:absolute after:inset-0 after:w-full after:h-full after:pointer-events-none after:bg-gradient-blue-to-bottom after:opacity-40">
+		class="strategic__partner lg:py-[105px] py-16 relative after:absolute after:inset-0 after:w-full after:h-full after:pointer-events-none after:bg-gradient-blue-to-bottom after:opacity-40" id="strategic__partner">
 		<div class="container">
 			<div class="grid lg:grid-cols-2 xl:gap-[110px] gap-10">
 				<div class="col-span-1">
@@ -592,7 +592,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:my-[100px] my-16 about_culture">
+	<section class="lg:my-[100px] my-16 about_culture" id="about_culture">
 		<div class="container">
 			<h2 class="heading-title text-center mb-6">
 				VĂN HÓA BSC
@@ -677,7 +677,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="about_award py-[50px] bg-primary-100">
+	<section class="about_award py-[50px] bg-primary-100" id="about_award">
 		<div class="container">
 			<h2 class="heading-title text-center mb-10">
 				GIẢI THƯỞNG NỔI BẬT
@@ -723,7 +723,7 @@ get_header();
 
 	</section>
 
-	<section class="about_award-other my-16">
+	<section class="about_award-other my-16" id="about_award-other">
 		<div class="container">
 			<h3 class="text-2xl font-bold mb-[30px] text-center">
 				Giải thưởng khác
