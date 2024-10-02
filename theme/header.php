@@ -11,7 +11,7 @@
  */
 
 ?><!doctype html>
-<html <?php language_attributes(); ?> class="scroll-smooth">
+<html <?php language_attributes(); ?> class="scroll-smooth scroll-pt-10">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
