@@ -45,10 +45,15 @@ module.exports = {
 					'linear-gradient(90deg, #1C478C 0%, #262E69 100%)',
 				'gradient-green':
 					'linear-gradient(180deg, #009C88 15.25%, #2A5CAA 110.41%, #2A5CAA 111.37%)',
-				'gradient-menu':
+				'gradient-blue-50':
 					'linear-gradient(270deg, #EBF4FA 0%, #F3FBFE 100%)',
 				'gradient-banner':
 					'linear-gradient(251.37deg, rgba(27, 70, 141, 0) 21.94%, rgba(34, 52, 114, 0.738462) 58.49%, #252D69 98.08%)',
+				'gradient-blue-to-top':
+					'linear-gradient(180deg, #FFF 1.59%, #E5F0FF 29.32%)',
+				'gradient-blue-to-bottom':
+					'linear-gradient(357.62deg, rgba(180, 208, 255, 0) -45.93%, rgba(180, 208, 255, 0.1) 30.67%, #6DB0ED 109.57%), ' +
+					'linear-gradient(351.48deg, #6DB0ED -71.46%, rgba(180, 208, 255, 0.1) 10.05%, rgba(180, 208, 255, 0) 89.17%)',
 			},
 			boxShadow: {
 				menu: ' 0px 4px 10px 0px rgba(0, 0, 0, 0.1)',
