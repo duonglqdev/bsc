@@ -1,6 +1,5 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
-
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -15,7 +14,8 @@ import ApexCharts from 'apexcharts';
 				moveLine($activeButton);
 			}
 			handleChart();
-			aboutHistory();
+			aboutUsSlider();
+			aboutDynamicPopup();
 		});
 	};
 	function menuMobile() {
@@ -245,68 +245,69 @@ import ApexCharts from 'apexcharts';
 		});
 	}
 	function handleChart() {
-		// Dữ liệu biểu đồ
-		var options = {
-			chart: {
-				type: 'line',
-				height: 350,
-				toolbar: {
-					show: false,
+		if ($('#chart').length) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 350,
+					toolbar: {
+						show: false,
+					},
 				},
-			},
-			series: [
-				{
-					name: 'BSC10',
-					data: [30, 40, 35, 50, 49, 60, 70, 91],
-				},
-				{
-					name: 'VNINDEX',
-					data: [20, 30, 40, 45, 50, 49, 60, 80],
-				},
-				{
-					name: 'VNDIAMOND',
-					data: [10, 20, 15, 25, 30, 35, 45, 55],
-				},
-			],
-			xaxis: {
-				categories: [
-					'19 Sep',
-					'20 Sep',
-					'21 Sep',
-					'22 Sep',
-					'23 Sep',
-					'24 Sep',
-					'25 Sep',
+				series: [
+					{
+						name: 'BSC10',
+						data: [30, 40, 35, 50, 49, 60, 70, 91],
+					},
+					{
+						name: 'VNINDEX',
+						data: [20, 30, 40, 45, 50, 49, 60, 80],
+					},
+					{
+						name: 'VNDIAMOND',
+						data: [10, 20, 15, 25, 30, 35, 45, 55],
+					},
 				],
-			},
-			yaxis: {
-				min: 0,
-				max: 180,
-			},
-			stroke: {
-				curve: 'smooth',
-				width: 3,
-			},
-			markers: {
-				size: 5,
-			},
-			colors: ['#008FFB', '#FEB019', '#00E396'],
-			legend: {
-				show: true,
-				position: 'top',
-			},
-			tooltip: {
-				x: {
-					format: 'dd/MM/yy HH:mm',
+				xaxis: {
+					categories: [
+						'19 Sep',
+						'20 Sep',
+						'21 Sep',
+						'22 Sep',
+						'23 Sep',
+						'24 Sep',
+						'25 Sep',
+					],
 				},
-			},
-		};
+				yaxis: {
+					min: 0,
+					max: 180,
+				},
+				stroke: {
+					curve: 'smooth',
+					width: 3,
+				},
+				markers: {
+					size: 5,
+				},
+				colors: ['#008FFB', '#FEB019', '#00E396'],
+				legend: {
+					show: true,
+					position: 'top',
+				},
+				tooltip: {
+					x: {
+						format: 'dd/MM/yy HH:mm',
+					},
+				},
+			};
 
-		var chart = new ApexCharts(document.querySelector('#chart'), options);
-		chart.render();
+			var chart = new ApexCharts($('#chart')[0], options);
+			chart.render();
+		}
 	}
 
-	function aboutHistory() {
+	function aboutUsSlider() {
 		$('.about_history-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -324,7 +325,7 @@ import ApexCharts from 'apexcharts';
 			nextArrow:
 				'<button class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>',
 			focusOnSelect: true,
-			infinite: false, 
+			infinite: false,
 			responsive: [
 				{
 					breakpoint: 1024,
@@ -345,6 +346,78 @@ import ApexCharts from 'apexcharts';
 					},
 				},
 			],
+		});
+		$('.about_award-content').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			fade: true,
+			asNavFor: '.about_award-nav',
+		});
+		$('.about_award-nav').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			asNavFor: '.about_award-content',
+			dots: false,
+			prevArrow:
+				'<button class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>',
+			nextArrow:
+				'<button class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>',
+			focusOnSelect: true,
+			infinite: false,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 5,
+					},
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 3,
+					},
+				},
+				{
+					breakpoint: 0,
+					settings: {
+						slidesToShow: 2,
+					},
+				},
+			],
+		});
+
+		var mySwiper = new Swiper ('.about_culture-list', {
+			loop: true,
+			slidesPerView : 2,
+			centeredSlides : true,
+			effect : 'coverflow',
+			coverflow: {
+					  rotate: 0,
+					  stretch: 0,
+					  depth: 300,
+					  modifier: 2,
+					  slideShadows : true
+				  },
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			  
+			}) 
+	}
+
+	function aboutDynamicPopup() {
+		$('.about_leadership-item').on('click', function () {
+			var imgSrc = $(this).find('.leader_img').attr('src');
+			$('.leader_popup-content .leader_img img').attr('src', imgSrc);
+
+			var leaderName = $(this).find('.about_leadership-title h4').text();
+			$('.leader_popup-content .leader_name').text(leaderName);
+
+			var leaderRole = $(this).find('.about_leadership-title p').text();
+			$('.leader_popup-content .leader_role').text(leaderRole);
+
+			var contentHtml = $(this).find('.about_leadership-content').html();
+			$('.leader_popup-content .main__content').html(contentHtml);
 		});
 	}
 })(jQuery);
