@@ -16,7 +16,7 @@ import ApexCharts from 'apexcharts';
 			handleChart();
 			aboutUsSlider();
 			aboutDynamicPopup();
-			handleNavAbout();
+			handleScrollNav();
 		});
 	};
 	function menuMobile() {
@@ -420,38 +420,51 @@ import ApexCharts from 'apexcharts';
 			$('.leader_popup-content .main__content').html(contentHtml);
 		});
 	}
-	function handleNavAbout() {
-			$('.about_nav a').click(function (e) {
-				e.preventDefault();
+	function handleScrollNav() {
+		$('.scroll_nav a').click(function (e) {
+			e.preventDefault();
 
-				$('.about_nav a').removeClass('active');
+			$('.scroll_nav a').removeClass('active');
 
-				$(this).addClass('active');
+			$(this).addClass('active');
 
+			var target = $(this).attr('href');
+			$('html, body').animate(
+				{
+					scrollTop: $(target).offset().top - 100,
+				},
+				50
+			);
+		});
+
+		function onScroll() {
+			var scrollPosition = $(window).scrollTop();
+			var windowHeight = $(window).height();
+
+			$('.scroll_nav a').each(function () {
 				var target = $(this).attr('href');
-				$('html, body').animate(
-					{
-						scrollTop:
-							$(target).offset().top -
-							$('.about_nav').outerHeight(), 
-					},
-					50
-				);
+				var sectionOffset = $(target).offset().top - 110;
+
+				var sectionHeight = $(target).outerHeight();
+
+				if (
+					scrollPosition >= sectionOffset &&
+					scrollPosition < sectionOffset + sectionHeight
+				) {
+					$('.scroll_nav a').removeClass('active');
+					$(this).addClass('active');
+				}
 			});
+		}
 
-			$(window).scroll(function () {
-				var scrollPosition = $(window).scrollTop();
+		var debounceTimeout;
+		$(window).scroll(function () {
+			if (debounceTimeout) {
+				clearTimeout(debounceTimeout);
+			}
+			debounceTimeout = setTimeout(onScroll, 10);
+		});
 
-				$('.about_nav a').each(function () {
-					var target = $(this).attr('href');
-					var sectionOffset =
-						$(target).offset().top - $('.about_nav').outerHeight();
-
-					if (scrollPosition >= sectionOffset) {
-						$('.about_nav a').removeClass('active');
-						$(this).addClass('active');
-					}
-				});
-			});
+		onScroll();
 	}
 })(jQuery);

@@ -54,9 +54,10 @@ module.exports = {
 				'gradient-blue-to-bottom':
 					'linear-gradient(357.62deg, rgba(180, 208, 255, 0) -45.93%, rgba(180, 208, 255, 0.1) 30.67%, #6DB0ED 109.57%), ' +
 					'linear-gradient(351.48deg, #6DB0ED -71.46%, rgba(180, 208, 255, 0.1) 10.05%, rgba(180, 208, 255, 0) 89.17%)',
+				'gradient-blue-to-bottom-50':
+					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
 			},
 			boxShadow: {
-				menu: ' 0px 4px 10px 0px rgba(0, 0, 0, 0.1)',
 				header: '0px 4px 10px 0px #0000000D',
 			},
 		},
