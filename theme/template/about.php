@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-primary-50 shadow-menu !shadow-[#0000001A] about_nav sticky top-0 z-10">
+	<section class="bg-primary-50 shadow-menu  scroll_nav sticky top-0 z-10">
 		<div class="container">
 			<ul class="flex items-center justify-between gap-5">
 				<li><a href="#about_info"
@@ -73,7 +73,7 @@ get_header();
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-info.png"
 						alt="" class="absolute w-full h-full inset-0 object-cover">
 					<div
-						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110">
 						<?php echo svg( 'play' ) ?>
 					</div>
 				</a>
@@ -682,7 +682,7 @@ get_header();
 			<h2 class="heading-title text-center mb-10">
 				GIẢI THƯỞNG NỔI BẬT
 			</h2>
-			<div class="grid grid-cols-3 gap-10 font-Helvetica xl:mx-16">
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica xl:mx-16">
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award1.png"

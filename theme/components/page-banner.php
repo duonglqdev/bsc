@@ -5,7 +5,7 @@
             <?php get_template_part( 'components/breadcrumb' ) ?>
         </div>
         <h1 class="lg:text-[40px] text-4xl font-bold">
-            Về chúng tôi
+           <?php the_title() ?>
         </h1>
 	</div>
 </section>

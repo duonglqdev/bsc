@@ -119,7 +119,7 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
+							class="main_menu-navbar bg-white w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
