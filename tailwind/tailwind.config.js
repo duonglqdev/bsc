@@ -27,7 +27,7 @@ module.exports = {
 				green: '#009E87',
 				yellow: { 100: '#FFB81C', 200: '#FDB525' },
 				black: '#31333F',
-				menu: '#4A5568',
+				paragraph: '#4A5568',
 			},
 			fontSize: {
 				sm: '15px',

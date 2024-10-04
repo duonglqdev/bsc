@@ -58,7 +58,7 @@
 
 					</form>
 					<ul
-						class="lg:flex menu_top items-center text-sm font-semibold xl:ml-12 lg:ml-10">
+						class="lg:flex hidden menu_top items-center text-sm font-semibold xl:ml-12 lg:ml-10">
 						<li>
 							<a href="">
 								Hỗ trợ
@@ -106,6 +106,11 @@
 						<div class="main_menu">
 							<ul
 								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
+								<li>
+									<a href="<?php echo get_home_url()?>">
+										<?php echo svg('home', '20') ?>
+									</a>
+								</li>
 								<?php
 								wp_nav_menu( array(
 									'theme_location' => 'menu-1',
@@ -119,7 +124,7 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar bg-white w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
+							class="main_menu-navbar bg-white w-full lg:absolute shadow-base lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl lg:flex hidden">
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
@@ -133,7 +138,7 @@
 
 						
 
-						<div class="flex items-center gap-x-4 xl:ml-[60px] lg:ml-5">
+						<div class="lg:flex hidden items-center gap-x-4 xl:ml-[60px] lg:ml-5">
 							<a href=""
 								class="inline-block px-6 py-3 rounded-md bg-green text-white font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-yellow-100 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-black">
 								<span class="block relative z-10">

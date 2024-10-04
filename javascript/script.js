@@ -100,7 +100,6 @@ import ApexCharts from 'apexcharts';
 				$('.main_menu > ul > li').removeClass('active');
 
 				$('.main_menu-navbar').addClass('active');
-				console.log('add');
 
 				$(
 					'.submenu-wrapper > li[data-menu="' + dataMenuValue + '"]'
