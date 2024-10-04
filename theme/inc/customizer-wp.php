@@ -45,42 +45,6 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
 /**
- * Setup Plugin ACF
- */
-// 1. customize ACF path
-add_filter('acf/settings/path', 'willgroup_acf_settings_path');
-function willgroup_acf_settings_path($path)
-{
-    $path = get_stylesheet_directory() . '/inc/acf/';
-    return $path;
-}
-
-// 2. customize ACF dir
-add_filter('acf/settings/dir', 'willgroup_acf_settings_dir');
-function willgroup_acf_settings_dir($dir)
-{
-    $dir = get_stylesheet_directory_uri() . '/inc/acf/';
-    return $dir;
-}
-
-// 3. Include ACF
-include_once(get_stylesheet_directory() . '/inc/acf/acf.php');
-
-
-// Add save and load points for ACF JSON
-add_filter( 'acf/settings/save_json', 'cysp_acf_json_save_point' );
-function cysp_acf_json_save_point( $path ) {
-    $path = get_stylesheet_directory() . '/acf-json';
-    return $path;
-}
-
-add_filter( 'acf/settings/load_json', 'cysp_acf_json_load_point' );
-function cysp_acf_json_load_point( $paths ) {
-    $paths[] = get_stylesheet_directory() . '/acf-json';
-    return $paths;
-}
-
-/**
  * Style Dashboard
  */
 //Css Admin
@@ -102,28 +66,6 @@ if (!function_exists('bsc_css_admin_login')) :
 endif;
 
 /**
- * Create Option Page from ACF
- */
-add_action('acf/init', 'my_acf_op_init');
-function my_acf_op_init()
-{
-    acf_add_options_sub_page(array(
-        'page_title'  => 'Header',
-        'menu_title'  => 'Header',
-        'parent_slug' => 'themes.php',
-    ));
-    acf_add_options_sub_page(array(
-        'page_title'  => 'Footer',
-        'menu_title'  => 'Footer',
-        'parent_slug' => 'themes.php',
-    ));
-    acf_add_options_sub_page(array(
-        'page_title'  => 'Script',
-        'menu_title'  => 'Script',
-        'parent_slug' => 'themes.php',
-    ));
-}
-/**
  * Get home url Author
  */
 add_filter('login_headerurl', 'my_custom_login_url');
@@ -134,34 +76,6 @@ function my_custom_login_url($url)
     return $theme_uri;
 }
 
-/**
- * Automatically set the image Title, Alt-Text, Caption & Description upload (image tab)
- */
-add_action('add_attachment', 'hazo_set_image_meta_image_upload');
-function hazo_set_image_meta_image_upload($post_ID)
-{
-    if (wp_attachment_is_image($post_ID)) {
-        $hazo_image_title = get_post($post_ID)->post_title;
-        $hazo_image_title = preg_replace(
-            '%\s*[-_\s]+\s*%',
-            ' ',
-            $hazo_image_title
-        );
-        $hazo_image_title = ucwords(strtolower($hazo_image_title));
-        $hazo_my_image_meta = array(
-            'ID' => $post_ID,
-            'post_title' => $hazo_image_title,
-            'post_excerpt' => '',
-            'post_content' => '',
-        );
-        update_post_meta($post_ID, '_wp_attachment_image_alt',    $hazo_image_title);
-        wp_update_post($hazo_my_image_meta);
-    }
-}
-/**
- * Automatically resizes uploaded images (image tab)
- */
-require get_template_directory() . '/inc/auto-resize-image.php';
 
 /**
  * Disable XMLRPC
@@ -190,12 +104,7 @@ remove_action('wp_head', 'wp_generator');
 // Remove version from rss
 add_filter('the_generator', '__return_empty_string');
 
-add_filter('contextual_help', 'bsc_remove_help_tabs', 999, 3);
-function bsc_remove_help_tabs($bsc_old_help, $screen_id, $screen)
-{
-    $screen->remove_help_tabs();
-    return $bsc_old_help;
-}
+
 add_action('admin_bar_menu', 'remove_wp_logo', 999);
 function remove_wp_logo($wp_admin_bar)
 {
@@ -268,19 +177,19 @@ add_filter('wp_terms_checklist_args', function ($args, $idPost) {
 /**
  * Disable Remove HTML ACF 6.2.5
  */
-add_filter( 'acf/admin/prevent_escaped_html_notice', '__return_true' );
-add_filter( 'wp_kses_allowed_html', 'acf_add_allowed_iframe_tag', 10, 2 );
-function acf_add_allowed_iframe_tag( $tags, $context ) {
-	if ( $context === 'acf' )
-	{
-		$tags['iframe'] = array(
-			'src' => true,
-			'height' => true,
-			'width' => true,
-			'frameborder' => true,
-			'allowfullscreen' => true,
-		);
-	}
+add_filter('acf/admin/prevent_escaped_html_notice', '__return_true');
+add_filter('wp_kses_allowed_html', 'acf_add_allowed_iframe_tag', 10, 2);
+function acf_add_allowed_iframe_tag($tags, $context)
+{
+    if ($context === 'acf') {
+        $tags['iframe'] = array(
+            'src' => true,
+            'height' => true,
+            'width' => true,
+            'frameborder' => true,
+            'allowfullscreen' => true,
+        );
+    }
 
-	return $tags;
+    return $tags;
 }
