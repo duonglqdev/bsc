@@ -82,14 +82,28 @@
 		<div class="bg-white lg:py-[14px] py-3">
 			<div class="container">
 				<div class="lg:flex lg:justify-between lg:items-center lg:gap-3">
-					<a href="" class="block">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/logo.png"
-							alt="" class="max-w-24">
-					</a>
+					<?php
+					$custom_logo_id = get_theme_mod('custom_logo');
+					if ($custom_logo_id) {
+						$image = wp_get_attachment_image_src($custom_logo_id, 'full');
+						printf(
+							'<a class="block" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s"></a>',
+							get_bloginfo('url'),
+							get_bloginfo('description'),
+							$image[0],
+
+						);
+					}
+					?>
 					<div class="relative lg:flex items-center">
 						<div class="main_menu">
 							<ul
 								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
+								<li>
+									<a href="<?php echo get_home_url() ?>">
+										<?php echo svg('home', 20) ?>
+									</a>
+								</li>
 								<?php
 								wp_nav_menu(array(
 									'theme_location' => 'menu-1',
@@ -104,6 +118,11 @@
 						</div>
 						<ul
 							class="main_menu-navbar bg-white w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
+							<li class="hidden">
+								<a href="<?php echo get_home_url() ?>">
+									<?php echo svg('home', 20) ?>
+								</a>
+							</li>
 							<?php
 							wp_nav_menu(array(
 								'theme_location' => 'menu-1',
@@ -114,18 +133,15 @@
 							));
 							?>
 						</ul>
-
-
-
 						<div class="flex items-center gap-x-4 xl:ml-[60px] lg:ml-5">
 							<a href=""
-								class="inline-block px-6 py-3 rounded-md bg-green text-white font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-yellow-100 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-black">
+								class="bg-green text-white after:bg-yellow-100 hover:text-black inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100">
 								<span class="block relative z-10">
 									Giao dịch trực tuyến
 								</span>
 							</a>
 							<a href=""
-								class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
+								class="bg-yellow-100 text-black after:bg-green hover:text-white inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100">
 								<span class="block relative z-10">Mở tài khoản</span>
 							</a>
 						</div>
