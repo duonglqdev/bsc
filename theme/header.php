@@ -71,9 +71,9 @@
 						?>
 					</ul>
 					<button id="change_language" data-dropdown-toggle="dropdownLanguage"
-						class="text-white flex items-center gap-2 lg:ml-6" type="button">
+						class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
 						<?php echo svg('global', '24', '24') ?>
-						VI
+						<?php echo get_locale(); ?>
 						<?php echo svg('down') ?>
 					</button>
 				</div>
@@ -133,19 +133,25 @@
 							));
 							?>
 						</ul>
-						<div class="flex items-center gap-x-4 xl:ml-[60px] lg:ml-5">
-							<a href=""
-								class="bg-green text-white after:bg-yellow-100 hover:text-black inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100">
-								<span class="block relative z-10">
-									Giao dịch trực tuyến
-								</span>
-							</a>
-							<a href=""
-								class="bg-yellow-100 text-black after:bg-green hover:text-white inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100">
-								<span class="block relative z-10">Mở tài khoản</span>
-							</a>
-						</div>
-
+						<?php if (have_rows('h1_button', 'option')) { ?>
+							<div class="flex items-center gap-x-4 xl:ml-[60px] lg:ml-5">
+								<?php
+								$i = 1;
+								while (have_rows('h1_button', 'option')): the_row();
+									$i++;
+									if (get_sub_field('title')) {
+								?>
+										<a href="<?php echo check_link(get_sub_field('link')) ?>"
+											class="<?php echo ($i % 2 == 0) ? 'bg-green text-white after:bg-yellow-100 hover:text-black' : 'bg-yellow-100 text-black after:bg-green hover:text-white'; ?> inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100">
+											<span class="block relative z-10">
+												<?php the_sub_field('title') ?>
+											</span>
+										</a>
+								<?php
+									}
+								endwhile; ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -154,19 +160,7 @@
 			class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 			<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 				aria-labelledby="change_language">
-				<li>
-					<a href="#"
-						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">English</a>
-				</li>
-				<li>
-					<a href="#"
-						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Japan</a>
-				</li>
-				<li>
-					<a href="#"
-						class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Korea</a>
-				</li>
+				<?php add_custom_class_to_current_lang(array('show_flags' => 0, 'show_names' => 1)); ?>
 			</ul>
-
 		</div>
 	</header>

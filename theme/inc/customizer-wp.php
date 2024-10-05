@@ -220,3 +220,17 @@ function my_wp_nav_menu_objects($items, $args)
     // return
     return $items;
 }
+
+/**
+ * Add Menu Item
+ */
+function custom_pll_the_languages($output, $args)
+{
+    foreach ($output as &$language) {
+        if ($language['current_lang']) {
+            $language['classes'] .= ' abc';
+        }
+    }
+    return $output;
+}
+add_filter('pll_the_languages', 'custom_pll_the_languages', 10, 2);

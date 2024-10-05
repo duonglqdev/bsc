@@ -269,3 +269,20 @@ function check_link($value)
 		return 'javascript:void(0)';
 	}
 }
+
+/**
+ * Custom Flag
+ */
+function add_custom_class_to_current_lang($args)
+{
+	// Bắt đầu lưu output vào buffer
+	ob_start();
+	pll_the_languages($args);
+	$languages_html = ob_get_clean();
+
+	// Thêm class 'abc' vào thẻ <li> có class 'current-lang'
+	$languages_html = str_replace('<a', '<a class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" ', $languages_html);
+
+	// Trả lại HTML đã chỉnh sửa
+	echo $languages_html;
+}
