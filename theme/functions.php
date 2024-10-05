@@ -84,7 +84,6 @@ if (! function_exists('bsc_setup')) :
 			array(
 				'menu-top-header' => __('Menu Top Header', 'bsc'),
 				'menu-1' => __('Menu Chính', 'bsc'),
-				'menu-2' => __('Footer Menu', 'bsc'),
 			)
 		);
 
@@ -168,13 +167,7 @@ function bsc_scripts()
 	if (is_404()) {
 		wp_enqueue_style('bsc-404', get_template_directory_uri() . '/css/404.min.css', array(), bsc_VERSION);
 	}
-	if (class_exists('WooCommerce')) {
-		wp_enqueue_style('bsc-woo', get_template_directory_uri() . '/css/woocommerce.min.css', array(), bsc_VERSION);
-	}
-	if (class_exists('WPCF7')) {
-		wp_enqueue_script('bsc-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), bsc_VERSION, true);
-		wp_enqueue_script('bsc-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert2.all.min.js', array(), bsc_VERSION, true);
-	}
+
 	wp_enqueue_style('bsc-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css');
 	wp_enqueue_style('bsc-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css');
 	wp_enqueue_style('bsc-css-slick', get_template_directory_uri() . '/assets/libs/slick.min.css');
@@ -184,6 +177,11 @@ function bsc_scripts()
 
 	//JS
 	wp_enqueue_script('bsc-jquery', get_template_directory_uri() . '/assets/libs/jquery.js', array(), bsc_VERSION, true);
+	if (class_exists('WPCF7')) {
+		wp_enqueue_style('gnws-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css');
+		wp_enqueue_script('bsc-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), bsc_VERSION, true);
+		wp_enqueue_script('bsc-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert2.all.min.js', array(), bsc_VERSION, true);
+	}
 	wp_enqueue_script('bsc-js-flickity', get_template_directory_uri() . '/assets/libs/flickity.pkgd.js', array(), bsc_VERSION, true);
 	wp_enqueue_script('bsc-js-slick', get_template_directory_uri() . '/assets/libs/slick.js', array(), bsc_VERSION, true);
 	wp_enqueue_script('bsc-js-swipper', get_template_directory_uri() . '/assets/libs/swiper.js', array(), bsc_VERSION, true);

@@ -221,16 +221,8 @@ function my_wp_nav_menu_objects($items, $args)
     return $items;
 }
 
+
 /**
- * Add Menu Item
+ * Remove <p> and <br> from Contact Form 7
  */
-function custom_pll_the_languages($output, $args)
-{
-    foreach ($output as &$language) {
-        if ($language['current_lang']) {
-            $language['classes'] .= ' abc';
-        }
-    }
-    return $output;
-}
-add_filter('pll_the_languages', 'custom_pll_the_languages', 10, 2);
+add_filter('wpcf7_autop_or_not', '__return_false');

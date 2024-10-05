@@ -32,7 +32,6 @@ function svg($name, $width = false, $height = false)
 {
 	$dir = TEMPLATEPATH . '/assets/svg/';
 	$path = $dir . $name . '.svg';
-
 	if ($name && file_exists($path)) {
 		$svg = file_get_contents($path);
 		if ($width) {
