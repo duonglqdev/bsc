@@ -74,12 +74,12 @@
 									echo svgClass($icon_name, $icon_width, $icon_height, $icon_class);
 								}
 								?>
-								<p>
+								<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank" rel="nofollow">
 									<?php if (get_sub_field('bold')) { ?>
 										<strong><?php the_sub_field('bold') ?></strong>
 									<?php } ?>
 									<?php the_sub_field('mota') ?>
-								</p>
+								</a>
 							</li>
 					<?php endwhile;
 					} ?>

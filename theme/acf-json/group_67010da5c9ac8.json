@@ -208,11 +208,11 @@
                     "parent_repeater": "field_67010fe463fe8"
                 },
                 {
-                    "key": "field_670111b263fea",
-                    "label": "Chữ in đậm",
-                    "name": "bold",
+                    "key": "field_67023c695f369",
+                    "label": "Đường dẫn",
+                    "name": "link",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -223,9 +223,30 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "rows": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_67010fe463fe8"
+                },
+                {
+                    "key": "field_670111b263fea",
+                    "label": "Chữ in đậm",
+                    "name": "bold",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "rows": "",
                     "parent_repeater": "field_67010fe463fe8"
                 },
                 {
@@ -760,5 +781,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728134529
+    "modified": 1728199815
 }
