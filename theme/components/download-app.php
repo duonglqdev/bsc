@@ -2,145 +2,145 @@
 	<div class="container">
 		<div class="grid grid-cols-2 gap-5">
 			<div class="md:col-span-1 col-span-full">
-				<h2 class="heading-title mb-4">Trải nghiệm đầu tư chứng khoán</h2>
-				<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
-					an toàn - nhanh chóng - vượt trội
-				</p>
-				<div data-download="1">
-					<div class="flex lg:gap-11 gap-5 items-center">
-						<div class="qr w-52 max-w-[40%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qr-download1.png"
-								alt="">
-						</div>
-						<ul class="flex-1 space-y-[18px] list-icon">
-							<li class="text-lg font-semibold list-icon-item">
-								Giao diện hiện đại
-							</li>
-							<li class="text-lg font-semibold list-icon-item">
-								Giao dịch thông minh
-							</li>
-							<li class="text-lg font-semibold list-icon-item">
-								Đầu tư hiệu quả
-							</li>
-							<li>
-								<a href=""
-									class="inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white leading-none">
-									<span
-										class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg( 'arrow-btn', '20' ) ?>Tải
-										APP ngay</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="lg:mt-[88px] mt-10">
-						<ul class="flex items-center gap-3">
-							<li>
-								<a href=""
-									class="w-12 h-12 p-2 rounded-md bg-gradient-menu inline-block group">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ch.png"
-										alt="" class="transition-all group-hover:scale-110">
-								</a>
-							</li>
-							<li>
-								<a href=""
-									class="w-12 h-12 p-2 rounded-md bg-gradient-menu inline-block group">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame-ios.png"
-										alt="" class="transition-all group-hover:scale-110">
-								</a>
-							</li>
-							<li>
-								<a href=""
-									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 ml-9">
-									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
-									Xem chi tiết
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div data-download="2" class="hidden">
-					<div class="flex lg:gap-11 gap-5 items-center">
-						<div class="qr w-52 max-w-[40%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qr-download1.png"
-								alt="">
-						</div>
-						<ul class="flex-1 space-y-[18px] list-icon">
-							<li class="text-lg font-semibold list-icon-item">
-								Cá nhân hóa trải nghiệm
-							</li>
-							<li class="text-lg font-semibold list-icon-item">
-								Giao dịch dễ dàng
-							</li>
-							<li class="text-lg font-semibold list-icon-item">
-								Đầu tư hiệu quả
-							</li>
-							<li>
-								<a href=""
-									class="inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white leading-none">
-									<span
-										class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg( 'arrow-btn', '20' ) ?>Giao
-										dịch ngay</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="lg:mt-[88px] mt-10">
-						<ul class="flex items-center gap-3">
-							<li>
-								<a href=""
-									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300">
-									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
-									Dành cho nội bộ BIDV
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-			<div class="md:col-span-1 col-span-full ">
-				<div data-download="1">
-					<div class="flex justify-center items-center gap-6">
-						<div class="w-[210px] max-w-[50%]">
-							<div class="relative pt-[203%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img1.png"
-									alt=""
-									class="absolute w-full h-full inset-0 object-cover border-[5px] rounded-2xl border-[#e3e3e3]">
+				<?php if (get_sub_field('title')) { ?>
+					<h2 class="heading-title mb-4"><?php the_sub_field('title') ?></h2>
+				<?php } ?>
+				<?php if (get_sub_field('mota')) { ?>
+					<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
+						<?php the_sub_field('mota') ?>
+					</p>
+				<?php  } ?>
+				<?php if (have_rows('trai_nghiem')) {
+					$i = 0;
+					while (have_rows('trai_nghiem')): the_row();
+						$i++; ?>
+						<div data-download="<?php echo $i ?>" class="<?php if ($i > 1) echo 'hidden' ?>">
+							<?php if (have_rows('qr_code')) {
+								while (have_rows('qr_code')): the_row(); ?>
+									<div class="flex lg:gap-11 gap-5 items-center">
+										<div class="qr w-52 max-w-[40%]">
+											<?php echo wp_get_attachment_image(get_sub_field('img'), 'medium') ?>
+										</div>
+										<ul class="flex-1 space-y-[18px] list-icon">
+											<?php if (have_rows('mota')) {
+												while (have_rows('mota')): the_row(); ?>
+													<li class="text-lg font-semibold list-icon-item">
+														<?php the_sub_field('content') ?>
+													</li>
+											<?php
+												endwhile;
+											}
+											?>
+											<?php if (have_rows('button')) {
+												while (have_rows('button')): the_row();
+													if (get_sub_field('title')) { ?>
+														<li>
+															<a href="<?php echo check_link(get_sub_field('link')) ?>"
+																class="inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white leading-none">
+																<span
+																	class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg('arrow-btn', '20') ?><?php the_sub_field('title') ?></span>
+															</a>
+														</li>
+											<?php
+													};
+												endwhile;
+											}
+											?>
+										</ul>
+									</div>
+							<?php
+								endwhile;
+							}
+							?>
+							<div class="lg:mt-[88px] mt-10">
+								<ul class="flex items-center gap-3">
+									<?php if (have_rows('icon_app')) {
+										while (have_rows('icon_app')): the_row() ?>
+											<li>
+												<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank" rel="nofollow"
+													class="w-12 h-12 p-2 rounded-md bg-gradient-menu inline-block group">
+													<?php echo wp_get_attachment_image(get_sub_field('icon'), 'medium', '', array('class' => 'transition-all group-hover:scale-110')) ?>
+												</a>
+											</li>
+									<?php endwhile;
+									} ?>
+									<?php if (have_rows('button')) {
+										while (have_rows('button')): the_row();
+											if (get_sub_field('title')) { ?>
+												<li>
+													<a href="<?php echo check_link(get_sub_field('link')) ?>"
+														class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 <?php if (have_rows('icon_app')) echo 'ml-9' ?>">
+														<?php echo svg('arrow-btn', '20', '20') ?>
+														<?php the_sub_field('title') ?>
+													</a>
+												</li>
+									<?php };
+										endwhile;
+									} ?>
+								</ul>
 							</div>
 						</div>
-						<div class="w-[210px] max-w-[50%]">
-							<div class="relative pt-[203%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img2.png"
-									alt=""
-									class="absolute w-full h-full inset-0 object-cover border-[5px] rounded-2xl border-[#e3e3e3]">
-
-							</div>
+				<?php endwhile;
+				} ?>
+			</div>
+			<?php if (have_rows('trai_nghiem')) {
+			?>
+				<div class="md:col-span-1 col-span-full ">
+					<?php
+					$i = 0;
+					while (have_rows('trai_nghiem')): the_row();
+						$i++;
+					?>
+						<div data-download="<?php echo $i ?>" class="<?php if ($i > 1) echo 'hidden' ?>">
+							<?php
+							$images = get_sub_field('gallery');
+							$total_images = count($images);
+							if ($images): ?>
+								<?php if ($total_images > 1) { ?>
+									<div class="flex justify-center items-center gap-6">
+										<?php foreach ($images as $image): ?>
+											<div class="w-[210px] max-w-[50%]">
+												<div class="relative pt-[203%]">
+													<img src="<?php echo esc_url($image['sizes']['medium']); ?>"
+														alt="<?php echo esc_attr($image['alt']); ?>"
+														class="absolute w-full h-full inset-0 object-cover border-[5px] rounded-2xl border-[#e3e3e3]">
+												</div>
+											</div>
+										<?php endforeach; ?>
+									</div>
+								<?php } else {
+								?>
+									<?php foreach ($images as $image): ?>
+										<img src="<?php echo esc_url($image['sizes']['large']); ?>"
+											alt="" class="w-full h-auto max-h-[426px]">
+									<?php endforeach; ?>
+								<?php
+								} ?>
+							<?php endif; ?>
 						</div>
+					<?php endwhile;
+					?>
+					<div class="text-center">
+						<ul class="inline-flex justify-center gap-8 mt-[30px] pb-2 border-b border-[#D9D9D9] relative">
+							<?php
+							$i = 0;
+							while (have_rows('trai_nghiem')): the_row();
+								$i++;
+							?>
+								<li>
+									<button type="button" data-tab-download="<?php echo $i ?>"
+										class="font-bold text-black [&:not(.active)]:text-opacity-70 <?php if ($i == 1) echo 'active' ?>">
+										<?php the_sub_field('title') ?>
+									</button>
+								</li>
+							<?php endwhile; ?>
+							<span class="line absolute w-1/2 bottom-0 h-[2px] bg-yellow-100 duration-500 transition-all"></span>
+						</ul>
+
 					</div>
 				</div>
-				<div data-download="2" class="hidden">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/trading.png"
-						alt="" class="w-full h-auto max-h-[426px]">
-				</div>
-                <div class="text-center">
-                    <ul class="inline-flex justify-center gap-8 mt-[30px] pb-2 border-b border-[#D9D9D9] relative">
-                        <li>
-                            <button type="button" data-tab-download="1"
-                                class="font-bold text-black [&:not(.active)]:text-opacity-70 active">
-                                BSC Smart Invest
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" data-tab-download="2"
-                                class="font-bold text-black [&:not(.active)]:text-opacity-70">
-                                BSC Webtrading
-                            </button>
-                        </li>
-                        <span class="line absolute w-1/2 bottom-0 h-[2px] bg-yellow-100 duration-500 transition-all"></span>
-                    </ul>
-
-                </div>
-			</div>
+			<?php
+			} ?>
 		</div>
 	</div>
 </section>
