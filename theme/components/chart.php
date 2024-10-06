@@ -1,4 +1,4 @@
-<section class="bg-primary-200 lg:py-[77px] py-14">
+<section class="bg-primary-200 lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid grid-cols-3 gap-5">
 			<div class="md:col-span-2 col-span-full">

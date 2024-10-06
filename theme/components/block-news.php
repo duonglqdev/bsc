@@ -1,4 +1,4 @@
-<section class="home_news bg-white lg:py-[77px] py-14">
+<section class="home_news bg-white lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title')) { ?>
 			<h2 class="heading-title mb-12"><?php the_sub_field('title') ?></h2>

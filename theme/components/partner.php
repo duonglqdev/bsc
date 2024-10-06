@@ -1,4 +1,4 @@
-<section class="block_partner lg:py-[77px] py-14 relative" style="background-color: <?php the_sub_field('background') ?>">
+<section class="block_partner lg:py-[77px] py-14 relative" style="background-color: <?php the_sub_field('background') ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <h2 class="heading-title text-center mb-12"><?php the_sub_field('title') ?></h2>

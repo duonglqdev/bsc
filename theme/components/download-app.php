@@ -1,4 +1,4 @@
-<section class="download__app lg:py-[75px] py-12">
+<section class="download__app lg:py-[75px] py-12" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid grid-cols-2 gap-5">
 			<div class="md:col-span-1 col-span-full">

@@ -1,4 +1,4 @@
-<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider">
+<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10">
 			<div class="col-span-1">
