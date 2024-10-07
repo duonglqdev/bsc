@@ -21,17 +21,17 @@
   background-color: theme("colors.primary.300");
 }
 
-.block_slider-show-1:not(.flickity-enabled) {
+.block_slider-show-1:not(.flickity-enabled, .slick-initialized) {
   @apply flex overflow-hidden;
 }
-.block_slider-show-1:not(.flickity-enabled) .block_slider-item:nth-child(n+2) {
+.block_slider-show-1:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+2) {
   @apply hidden;
 }
 
-.block_slider-show-2:not(.flickity-enabled) {
+.block_slider-show-2:not(.flickity-enabled, .slick-initialized) {
   @apply flex overflow-hidden;
 }
-.block_slider-show-2:not(.flickity-enabled) .block_slider-item:nth-child(n+3) {
+.block_slider-show-2:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+3) {
   @apply hidden;
 }
 
@@ -131,13 +131,16 @@
   background: lightgray 21.6px 18.347px/75.784% 54.133% no-repeat;
 }
 
-.about_history-nav .slick-next, .about_award-nav .slick-next {
+.about_history-nav .slick-next,
+.about_award-nav .slick-next {
   @apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
 }
-.about_history-nav .slick-prev, .about_award-nav .slick-prev {
+.about_history-nav .slick-prev,
+.about_award-nav .slick-prev {
   @apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
 }
-.about_history-nav .slick-current, .about_award-nav .slick-current {
+.about_history-nav .slick-current,
+.about_award-nav .slick-current {
   @apply after:bg-gradient-blue before:absolute before:w-[18px] before:h-[18px] before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-[#235BA8] before:backdrop-blur-sm before:bg-opacity-50;
 }
 
@@ -192,6 +195,61 @@
 .featured_news .flickity-button.next {
   @apply right-0;
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='18' viewBox='0 0 24 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.9594 17.7071C13.5689 17.3166 13.5689 16.6834 13.9594 16.2929L20.2523 10L1.33317 10C0.780888 10 0.333172 9.55228 0.333172 9C0.333172 8.44771 0.780888 8 1.33317 8L20.2523 8L13.9594 1.70711C13.5689 1.31658 13.5689 0.683416 13.9594 0.292893C14.3499 -0.0976314 14.9831 -0.0976314 15.3736 0.292893L23.3736 8.29289C23.7641 8.68342 23.7641 9.31658 23.3736 9.70711L15.3736 17.7071C14.9831 18.0976 14.3499 18.0976 13.9594 17.7071Z' fill='%2331333F'/%3E%3C/svg%3E%0A");
+}
+
+.select_custom {
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.9336 0.816895H5.74195H1.06695C0.266945 0.816895 -0.133055 1.78356 0.433612 2.35023L4.75028 6.66689C5.44195 7.35856 6.56695 7.35856 7.25861 6.66689L8.90028 5.02523L11.5753 2.35023C12.1336 1.78356 11.7336 0.816895 10.9336 0.816895Z' fill='%23292D32'/%3E%3C/svg%3E%0A") !important;
+}
+
+.community_nav-item.active > svg .com-svg-path {
+  fill: url(#gradientFill);
+}
+.community_nav-item.active .icon svg path {
+  @apply transition-all duration-500;
+  fill: #fff;
+  stroke: #fff;
+}
+.community_nav-item > svg .com-svg-path {
+  fill: white;
+}
+.community_nav-item:nth-child(2) {
+  @apply -translate-x-[20px] translate-y-5;
+}
+.community_nav-item:nth-child(3) {
+  @apply translate-x-[130px] -translate-y-[60px];
+}
+.community_nav-item:nth-child(4) {
+  @apply -translate-x-1 translate-y-20;
+}
+
+.community_content-bg {
+  @apply max-h-full;
+}
+.community_content-bg .slick-list {
+  @apply max-h-full;
+}
+.community_content-bg .item {
+  @apply max-h-full;
+}
+.community_content-bg .item::after {
+  @apply absolute w-full h-full pointer-events-none inset-0;
+  filter: blur(0.5px);
+  content: "";
+  background: linear-gradient(0deg, rgba(157, 185, 230, 0.25), rgba(164, 177, 198, 0.25)), linear-gradient(266.22deg, rgba(248, 253, 254, 0) -13.47%, rgba(255, 255, 255, 0.62) 42.77%, #ffffff 63.79%);
+}
+
+.community_content-list .slick-dots {
+  @apply mt-9;
+}
+
+.slick-dots {
+  @apply flex gap-2;
+}
+.slick-dots .dot {
+  @apply inline-block w-3 h-3 rounded-full bg-primary-400 bg-opacity-50 transition-all duration-500 cursor-pointer;
+}
+.slick-dots .slick-active .dot {
+  @apply w-[50px] bg-opacity-100;
 }
 
 /*# sourceMappingURL=base.css.map */

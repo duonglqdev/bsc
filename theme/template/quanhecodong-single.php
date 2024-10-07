@@ -23,6 +23,7 @@ get_header();
 								<a href="#"
 									class="active flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
 									Đại hội đồng cổ đông
+
 								</a>
 							</li>
 							<li>
@@ -49,6 +50,35 @@ get_header();
 					</div>
 				</div>
 				<div class="md:col-span-3 col-span-full">
+					<form action="">
+						<div class="flex gap-5 mb-12 md:flex-nowrap flex-wrap">
+							<div
+								class="md:w-[518px] w-full md:max-w-[50%] max-w-full flex items-center gap-4 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3">
+								<?php echo svg( 'search' ) ?>
+								<input type="text" name="s" placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>"
+									class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent">
+							</div>
+							<div class="flex gap-4 flex-1">
+								<div
+									class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
+									<label for="" class="font-bold">
+										<?php _e('Năm:', 'bsc') ?>
+									</label>
+									<select id="select_year" class="select_custom py-0 border-0 focus:ring-0">
+										<option value="">2024</option>
+										<option value="">2023</option>
+										<option value="">2022</option>
+									</select>
+								</div>
+								<div class="md:w-[55%] w-1/2">
+									<button type="submit"
+										class="inline-block w-full h-full px-6 py-3 rounded-xl bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-xl hover:after:w-full hover:after:opacity-100 hover:text-white">
+										<span class="block relative z-10">Tìm kiếm</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</form>
 					<div class="space-y-6">
 						<?php
 						for ( $i = 0; $i < 10; $i++ )
@@ -102,7 +132,11 @@ get_header();
 						}
 						?>
 					</div>
+					<div class="mt-12">
+						<?php get_template_part( 'components/pagination' ) ?>
+					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section>
