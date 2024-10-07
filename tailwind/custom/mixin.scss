@@ -16,7 +16,7 @@
 }
 
 @mixin block-slider-show($visible) {
-    &:not(.flickity-enabled) {
+    &:not(.flickity-enabled,.slick-initialized) {
         @apply flex overflow-hidden;
 
         .block_slider-item {
