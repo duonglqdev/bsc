@@ -1,13 +1,21 @@
 <?php
 if (get_sub_field('background')) {
-    $banner = wp_get_attachment_image_url(get_sub_field('background'));
+    $banner = wp_get_attachment_image_url(get_sub_field('background'), 'full');
 } elseif (get_field('cdc1_background_banner', 'option')) {
-    $banner = wp_get_attachment_image_url(get_field('cdc1_background_banner', 'option'));
+    $banner = wp_get_attachment_image_url(get_field('cdc1_background_banner', 'option'), 'full');
+} elseif (is_tax() && get_field('background_banner', get_queried_object())) {
+    $banner = get_field('background_banner', get_queried_object());
 } else {
     $banner = get_stylesheet_directory_uri() . '/assets/images/about.png';
 };
 if (get_sub_field('title')) {
     $title = get_sub_field('title');
+} elseif (is_tax()) {
+    if (get_field('title', get_queried_object())) {
+        $title = get_field('title', get_queried_object());
+    } else {
+        $title = get_the_archive_title();
+    }
 } else {
     $title = get_the_title();
 }
@@ -18,8 +26,8 @@ if (get_sub_field('title')) {
         <div class="mb-5">
             <?php get_template_part('components/breadcrumb') ?>
         </div>
-        <h1 class="lg:text-[40px] text-4xl font-bold">
+        <h2 class="lg:text-[40px] text-4xl font-bold">
             <?php echo $title; ?>
-        </h1>
+        </h2>
     </div>
 </section>

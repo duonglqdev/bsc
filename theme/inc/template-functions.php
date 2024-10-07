@@ -145,6 +145,40 @@ if (! function_exists('bsc_post_thumbnail')) :
 	}
 endif;
 
+if (! function_exists('bsc_post_thumbnail_medium')) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function bsc_post_thumbnail_medium()
+	{
+		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
+			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+		} else {
+			the_post_thumbnail_url('medium');
+		}
+	}
+endif;
+
+if (! function_exists('bsc_post_thumbnail_large')) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function bsc_post_thumbnail_large()
+	{
+		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
+			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+		} else {
+			the_post_thumbnail_url('large');
+		}
+	}
+endif;
+
 if (! function_exists('bsc_post_thumbnail_full')) :
 	/**
 	 * Displays an optional post thumbnail.
@@ -195,7 +229,7 @@ function bsc_pagination()
 		$links[] = $paged + 1;
 	}
 
-	echo '<div class="bsc-pagination"><ul>' . "\n";
+	echo '<ul class="flex items-center gap-[11px] h-9 text-base">' . "\n";
 
 	/** Previous Post Link */
 	if (get_previous_posts_link())
@@ -205,7 +239,7 @@ function bsc_pagination()
 	if (! in_array(1, $links)) {
 		$class = 1 == $paged ? ' class="active"' : '';
 
-		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+		printf('<li%s><a class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
 
 		if (! in_array(2, $links))
 			echo '<li>…</li>';
@@ -214,8 +248,8 @@ function bsc_pagination()
 	/** Link to current page, plus 2 pages in either direction if necessary */
 	sort($links);
 	foreach ((array) $links as $link) {
-		$class = $paged == $link ? ' class="active"' : '';
-		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+		$class = $paged == $link ? ' active' : '';
+		printf('<li><a class="%s flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
 	}
 
 	/** Link to last page, plus ellipses if necessary */
@@ -223,15 +257,16 @@ function bsc_pagination()
 		if (! in_array($max - 1, $links))
 			echo '<li>…</li>' . "\n";
 
-		$class = $paged == $max ? ' class="active"' : '';
-		printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+		$class = $paged == $max ? 'active' : '';
+		printf('<li><a class="%s flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
 	}
 
 	/** Next Post Link */
 	if (get_next_posts_link())
 		printf('<li>%s</li>' . "\n", get_next_posts_link(svg('angle-right')));
-
-	echo '</ul></div>' . "\n";
+?>
+	</ul>
+<?php
 }
 
 

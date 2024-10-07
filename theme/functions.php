@@ -146,10 +146,10 @@ function bsc_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => __('Footer', 'bsc'),
-			'id'            => 'sidebar-1',
-			'description'   => __('Add widgets here to appear in your footer.', 'bsc'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'name'          => __('Quan hệ cổ đông', 'bsc'),
+			'id'            => 'sidebar-quan-he-co-dong',
+			'description'   => __('Thêm thông tin ở quan hệ cổ đông', 'bsc'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s mt-12">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
@@ -178,7 +178,7 @@ function bsc_scripts()
 	//JS
 	wp_enqueue_script('bsc-jquery', get_template_directory_uri() . '/assets/libs/jquery.js', array(), bsc_VERSION, true);
 	if (class_exists('WPCF7')) {
-		wp_enqueue_style('gnws-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css');
+		wp_enqueue_style('bsc-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css');
 		wp_enqueue_script('bsc-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), bsc_VERSION, true);
 		wp_enqueue_script('bsc-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert2.all.min.js', array(), bsc_VERSION, true);
 	}
@@ -200,7 +200,6 @@ add_action('wp_enqueue_scripts', 'bsc_scripts');
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-
 
 /**
  * Customizer Wordpress.

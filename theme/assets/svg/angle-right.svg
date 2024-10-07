@@ -1,3 +1,5 @@
-<svg width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.839844 1.41L5.41984 6L0.839844 10.59L2.24984 12L8.24984 6L2.24984 0L0.839844 1.41Z" fill="#A1A4B1"/>
-</svg>
+<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+						stroke-width="2" d="m1 9 4-4-4-4" />
+				</svg>

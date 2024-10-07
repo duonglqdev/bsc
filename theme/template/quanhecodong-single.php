@@ -7,7 +7,7 @@ Template Name: Công bố thông tin
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
 			<div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
@@ -50,40 +50,11 @@ get_header();
 					</div>
 				</div>
 				<div class="md:col-span-3 col-span-full">
-					<form action="">
-						<div class="flex gap-5 mb-12 md:flex-nowrap flex-wrap">
-							<div
-								class="md:w-[518px] w-full md:max-w-[50%] max-w-full flex items-center gap-4 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3">
-								<?php echo svg( 'search' ) ?>
-								<input type="text" name="s" placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>"
-									class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent">
-							</div>
-							<div class="flex gap-4 flex-1">
-								<div
-									class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
-									<label for="" class="font-bold">
-										<?php _e('Năm:', 'bsc') ?>
-									</label>
-									<select id="select_year" class="select_custom py-0 border-0 focus:ring-0">
-										<option value="">2024</option>
-										<option value="">2023</option>
-										<option value="">2022</option>
-									</select>
-								</div>
-								<div class="md:w-[55%] w-1/2">
-									<button type="submit"
-										class="inline-block w-full h-full px-6 py-3 rounded-xl bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-xl hover:after:w-full hover:after:opacity-100 hover:text-white">
-										<span class="block relative z-10">Tìm kiếm</span>
-									</button>
-								</div>
-							</div>
-						</div>
-					</form>
+
 					<div class="space-y-6">
 						<?php
-						for ( $i = 0; $i < 10; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 10; $i++) {
+						?>
 							<div
 								class="news_service-item md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6">
 								<div class="flex items-center">
@@ -125,18 +96,18 @@ get_header();
 								<a href="" download=""
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 									Tải xuống
-									<?php echo svg( 'download' ) ?>
+									<?php echo svg('download') ?>
 								</a>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
 					<div class="mt-12">
-						<?php get_template_part( 'components/pagination' ) ?>
+						<?php get_template_part('components/pagination') ?>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

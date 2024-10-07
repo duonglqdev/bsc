@@ -226,3 +226,88 @@ function my_wp_nav_menu_objects($items, $args)
  * Remove <p> and <br> from Contact Form 7
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+/**
+ * Add Class to Image Widget
+ */
+function add_custom_class_to_widget_image($attr, $attachment, $size)
+{
+    // Check if we're inside the media image widget
+    if (is_active_widget(false, false, 'media_image')) {
+        // Add your custom class
+        $attr['class'] .= ' rounded-lg transition-all duration-500 hover:scale-105';
+    }
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'add_custom_class_to_widget_image', 10, 3);
+
+/**
+ * Add Class Previous/Next Link
+ */
+function add_class_to_posts_link()
+{
+    return 'class="flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"';
+}
+add_filter('previous_posts_link_attributes', 'add_class_to_posts_link');
+add_filter('next_posts_link_attributes', 'add_class_to_posts_link');
+
+
+/**
+ * Hàm thay đổi số lượng bài viết hiển thị trên mỗi trang
+ */
+function filter_posts($query)
+{
+    if ($query->is_main_query() && ! is_admin()) :
+        if (isset($_GET['posts_to_show'])) :
+            $posts_to_show = $_GET['posts_to_show'];
+        else :
+            $posts_to_show = get_option('posts_per_page');
+        endif;
+        $query->set('posts_per_page', $posts_to_show);
+    endif;
+}
+add_action('pre_get_posts', 'filter_posts');
+
+
+/**
+ * Lọc quan hệ cổ đông
+ */
+function custom_search_filter($query)
+{
+    // Kiểm tra nếu đang trong trang archive của taxonomy 'danh-muc-bao-cao' thuộc post type 'quan-he-co-dong'
+    if (!is_admin() && $query->is_main_query() && is_tax('danh-muc-bao-cao')) {
+
+        // Xử lý tìm kiếm theo từ khóa
+        if (!empty($_GET['key'])) {
+            $query->set('s', sanitize_text_field($_GET['key']));
+        }
+
+        // Xử lý lọc theo năm
+        if (!empty($_GET['years'])) {
+            $query->set('year', sanitize_text_field($_GET['years']));
+        }
+
+        // Đảm bảo kết quả trả về của post type 'quan-he-co-dong'
+        $query->set('post_type', 'quan-he-co-dong');
+    }
+}
+add_action('pre_get_posts', 'custom_search_filter');
+
+/**
+ * Thay Breadcrumb
+ */
+add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs, $class) {
+    if (is_tax('danh-muc-bao-cao')) {
+        if (isset($crumbs[1])) {
+            $page = get_post(get_field('cdqhcd_trang_luu_tru', 'option'));
+            if ($page) {
+                $crumbs[1] = array(
+                    get_the_title($page->ID),
+                    get_permalink($page->ID)
+                );
+            }
+        }
+    }
+
+    return $crumbs;
+}, 10, 2);

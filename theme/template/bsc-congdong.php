@@ -7,7 +7,7 @@ Template Name: Trách nhiệm với cộng đồng
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="relative lg:pt-[130px] lg:pb-[100px] pt-10 pb-10">
 		<div class="container">
 			<div class="grid lg:grid-cols-2 lg:gap-20 gap-10">
@@ -78,30 +78,30 @@ get_header();
 						class="community_nav flex flex-wrap justify-between md:max-w-[470px] h-full">
 						<div class="community_nav-item cursor-pointer relative w-1/2 md:max-w-[200px]"
 							data-index="0">
-							<?php echo svgClass( 'comunity' ) ?>
+							<?php echo svgClass('comunity') ?>
 							<div class="icon absolute top-3 right-5">
-								<?php echo svgClass( 'com_1' ) ?>
+								<?php echo svgClass('com_1') ?>
 							</div>
 						</div>
 						<div class="community_nav-item cursor-pointer relative w-1/2 md:max-w-[200px]"
 							data-index="1">
-							<?php echo svgClass( 'comunity' ) ?>
+							<?php echo svgClass('comunity') ?>
 							<div class="icon absolute top-3 right-5">
-								<?php echo svgClass( 'com_2' ) ?>
+								<?php echo svgClass('com_2') ?>
 							</div>
 						</div>
 						<div class="community_nav-item cursor-pointer relative w-1/2 md:max-w-[200px]"
 							data-index="2">
-							<?php echo svgClass( 'comunity' ) ?>
+							<?php echo svgClass('comunity') ?>
 							<div class="icon absolute top-3 right-5">
-								<?php echo svgClass( 'com_3' ) ?>
+								<?php echo svgClass('com_3') ?>
 							</div>
 						</div>
 						<div class="community_nav-item cursor-pointer relative w-1/2 md:max-w-[200px]"
 							data-index="3">
-							<?php echo svgClass( 'comunity' ) ?>
+							<?php echo svgClass('comunity') ?>
 							<div class="icon absolute top-3 right-5">
-								<?php echo svgClass( 'com_4' ) ?>
+								<?php echo svgClass('com_4') ?>
 							</div>
 						</div>
 					</div>
@@ -171,9 +171,8 @@ get_header();
 				<div class="md:col-span-3 col-span-full">
 					<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
 						<?php
-						for ( $i = 0; $i < 10; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 10; $i++) {
+						?>
 							<div class="post_item font-Helvetica">
 								<a href=""
 									class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
@@ -182,7 +181,7 @@ get_header();
 										class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 								</a>
 								<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-									<?php echo svg( 'date' ) ?>
+									<?php echo svg('date') ?>
 									<span>
 										Ngày 26/06/2024
 									</span>
@@ -206,15 +205,15 @@ get_header();
 								<a href=""
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 									Xem chi tiết
-									<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
 					<div class="mt-12">
-						<?php get_template_part( 'components/pagination' ) ?>
+						<?php get_template_part('components/pagination') ?>
 					</div>
 				</div>
 			</div>
