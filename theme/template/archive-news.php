@@ -57,7 +57,7 @@ get_header();
 			<div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
 				<div class="md:col-span-1 col-span-full">
 					<div class="sticky top-5 z-10 scroll_nav">
-						<ul class="shadow-menu py-6 pr-4 rounded-lg">
+						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white">
 							<li>
 								<a href="#news_product"
 									class="flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Tin
@@ -129,7 +129,7 @@ get_header();
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
-									<div class="line-clamp-3 text-[#4A5568] mb-4">
+									<div class="line-clamp-3 text-paragraph mb-4">
 										BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới trái phiếu
 										chính phủ trên HNX. Năm 2020, BSC giữ vững vị thế Top 10 công ty
 										chứng khoán có thị phần môi giới cổ phiếu, chứng chỉ quỹ và
@@ -183,7 +183,7 @@ get_header();
 												trả lãi, gốc trái phiếu mã BSI32301
 											</a>
 											<div
-												class="line-clamp-2 font-Helvetica leading-normal text-[#4A5568]">
+												class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
 												BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
 												trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
 												thế Top 10 công ty chứng khoán có thị phần môi giới cổ
@@ -241,7 +241,7 @@ get_header();
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
-									<div class="line-clamp-3 text-[#4A5568] mb-4">
+									<div class="line-clamp-3 text-paragraph mb-4">
 										BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới trái phiếu
 										chính phủ trên HNX. Năm 2020, BSC giữ vững vị thế Top 10 công ty
 										chứng khoán có thị phần môi giới cổ phiếu, chứng chỉ quỹ và
@@ -296,7 +296,7 @@ get_header();
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
-									<div class="line-clamp-3 text-[#4A5568] mb-4">
+									<div class="line-clamp-3 text-paragraph mb-4">
 										BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới trái phiếu
 										chính phủ trên HNX. Năm 2020, BSC giữ vững vị thế Top 10 công ty
 										chứng khoán có thị phần môi giới cổ phiếu, chứng chỉ quỹ và
@@ -351,7 +351,7 @@ get_header();
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
-									<div class="line-clamp-3 text-[#4A5568] mb-4">
+									<div class="line-clamp-3 text-paragraph mb-4">
 										BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới trái phiếu
 										chính phủ trên HNX. Năm 2020, BSC giữ vững vị thế Top 10 công ty
 										chứng khoán có thị phần môi giới cổ phiếu, chứng chỉ quỹ và

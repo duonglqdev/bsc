@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-primary-50 shadow-menu  scroll_nav sticky top-0 z-10">
+	<section class="bg-primary-50 shadow-base  scroll_nav sticky top-0 z-10">
 		<div class="container">
 			<ul class="flex items-center justify-between gap-5">
 				<li><a href="#about_info"
@@ -244,8 +244,8 @@ get_header();
 			<h2 class="heading-title mb-12">
 				Đội ngũ lãnh đạo
 			</h2>
-			<div class="grid md:grid-cols-4 lg:gap-[50px] gap-9">
-				<div class="md:col-span-1">
+			<div class="grid lg:grid-cols-4 lg:gap-[50px] gap-9">
+				<div class="lg:col-span-1 col-span-full">
 					<ul class="flex flex-col about_leadership-nav py-[15px] pr-[15px] rounded-[15px] space-y-3"
 						data-tabs-toggle="#about_leadership-tab" role="tablist"
 						data-tabs-active-classes="text-white bg-primary-400 rounded-tr-xl rounded-br-xl"
@@ -286,7 +286,7 @@ get_header();
 
 					</ul>
 				</div>
-				<div class="md:col-span-3">
+				<div class="lg:col-span-3 col-span-full">
 					<div id="about_leadership-tab">
 						<div class="hidden" id="directors" role="tabpanel"
 							aria-labelledby="directors-tab">
