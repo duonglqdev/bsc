@@ -52,7 +52,7 @@
 						</div>
 						<div class="relative pl-3 ml-3 pr-6">
 							<input type="text" name="s" placeholder="Tra cứu..."
-								class="bg-transparent py-1 border-none focus:outline-0  font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none"
+								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent  font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none"
 								autocomplete="off">
 							<span
 								class="absolute w-full h-full inset-0 border border-green rounded-lg transition-all duration-500 opacity-0 pointer-events-none peer-focus:opacity-100"></span>
@@ -99,7 +99,7 @@
 						<div class="main_menu">
 							<ul
 								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
-								<li>
+								<li class="menu-home">
 									<a href="<?php echo get_home_url() ?>">
 										<?php echo svg('home', 20) ?>
 									</a>
@@ -117,12 +117,8 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar bg-white w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
-							<li class="hidden">
-								<a href="<?php echo get_home_url() ?>">
-									<?php echo svg('home', 20) ?>
-								</a>
-							</li>
+							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
+							
 							<?php
 							wp_nav_menu(array(
 								'theme_location' => 'menu-1',
