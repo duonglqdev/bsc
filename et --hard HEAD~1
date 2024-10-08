@@ -1,0 +1,247 @@
+[33mcommit 2f520904eacd6d442f281457584e01e7525979bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevginiwebseo[m[33m)[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Tue Oct 8 13:44:54 2024 +0700
+
+    Revert "fix bug"
+    
+    This reverts commit 28194db7f781e001c8d23b9c0aef7f31067d674b.
+
+[33mcommit 96d3e26d2c44b93b46d2951feb3b97364825a14f[m[33m ([m[1;31morigin/devginiwebseo[m[33m)[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Tue Oct 8 13:43:24 2024 +0700
+
+    fix bug
+
+[33mcommit 2f2221aa1a0a843a0f29e1533a6f93672afe5f02[m[33m ([m[1;31morigin/backend[m[33m, [m[1;32mmain[m[33m)[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Tue Oct 8 03:06:27 2024 +0700
+
+    Hoàn thành quan hệ cổ đông
+
+[33mcommit 5daebf24836062a82a15f2b25d6c306bed9a6ef7[m
+Merge: 2fa1bb2 7ddac24
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Mon Oct 7 23:20:06 2024 +0700
+
+    Merge branch 'main' into backend
+    
+    # Conflicts:
+    #       theme/style-editor.css.map
+    #       theme/style.css.map
+
+[33mcommit 7ddac24e34d400f4aef5ff793d02e2fd9a43c6b2[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Mon Oct 7 23:19:07 2024 +0700
+
+    Push style
+
+[33mcommit 2fa1bb229f9b437cd11be2504e99cea61e382cf7[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Mon Oct 7 23:17:53 2024 +0700
+
+    púhs build
+
+[33mcommit 9c63bad7f313245438871680239c4ab33682834f[m
+Merge: 111feb4 cf1261a
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Mon Oct 7 18:00:47 2024 +0700
+
+    Merge pull request #8 from duonglqdev/devginiwebseo
+    
+    Devginiwebseo update page
+
+[33mcommit cf1261a40f575a9bc3fe9c1cac5062ffcd8ddd25[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Mon Oct 7 17:58:05 2024 +0700
+
+    update page
+
+[33mcommit 5d7c6eaa62f9aee8a2fc78be9c3a9c9044130831[m
+Merge: 9e908a8 111feb4
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Mon Oct 7 17:55:35 2024 +0700
+
+    Merge branch 'main' of github.com:duonglqdev/bsc into devginiwebseo
+
+[33mcommit 9e908a8e3836209ef8ef35cf8271f78751bc27e5[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Mon Oct 7 17:52:31 2024 +0700
+
+    update file map css #2
+
+[33mcommit 4216e5f61336483bfb41277abddb7a6fd4061732[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Mon Oct 7 17:51:35 2024 +0700
+
+    update file map css
+
+[33mcommit 111feb4f2d5159dbcfaf15e8134943dabab057f8[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Mon Oct 7 00:41:21 2024 +0700
+
+    Remove Group
+
+[33mcommit 1e526a50903c8d4a5df1186f488833d1437849e7[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Mon Oct 7 00:37:38 2024 +0700
+
+    Done về chúng tôi
+
+[33mcommit 5bf9eefbf58046abb833c1be48da3ab199cf75d1[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Sun Oct 6 21:37:23 2024 +0700
+
+    Push Homepage  base
+
+[33mcommit c115f1ce3fed9dd743772cad687e2f68c7ed43c9[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Sun Oct 6 14:35:30 2024 +0700
+
+    Fix Footer
+
+[33mcommit ea8b44a910beb7b6f3e64e532b5793679e182437[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Sat Oct 5 21:43:22 2024 +0700
+
+    Setup Footer
+
+[33mcommit fce042a763447fbce1d3a30e7966970d63932cd5[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Sat Oct 5 16:55:14 2024 +0700
+
+    Cơ bản done Header
+
+[33mcommit 1ae2fb93f1e69774691e91a8dbd15d8eb93f1b1a[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Fri Oct 4 21:15:39 2024 +0700
+
+    Start up  header
+
+[33mcommit 2e6f0b15123b767af8aff9d754bcd25e20b3ccfb[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Fri Oct 4 17:41:43 2024 +0700
+
+    upate page - dai hoi co dong
+
+[33mcommit ce5916d8643d1b909f37ec5a1037e81d47d62827[m
+Author: Gini Webseo <87066567+giniwebseo@users.noreply.github.com>
+Date:   Fri Oct 4 16:31:53 2024 +0700
+
+    Upload base code
+
+[33mcommit 1ec84ae4446f393a8111964c74f04990930f13f8[m
+Merge: 38965a5 2a23bcd
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Thu Oct 3 17:41:06 2024 +0700
+
+    Merge pull request #7 from duonglqdev/devginiwebseo
+    
+    Adding news page
+
+[33mcommit 2a23bcd0ee2acc19d69e843d33680c518aada107[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Thu Oct 3 17:40:23 2024 +0700
+
+    Adding news page
+
+[33mcommit 38965a522ae788a881f9ae131c6b8fa14fc0ebbc[m
+Merge: 805daf4 36a4add
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Wed Oct 2 21:24:49 2024 +0700
+
+    Merge pull request #6 from duonglqdev/devginiwebseo
+    
+    update about page #2
+
+[33mcommit 36a4adda775391fa223df7e811a1872cd64f8921[m
+Author: duonglqdev <duonglq.dev@gmail.com>
+Date:   Wed Oct 2 21:23:47 2024 +0700
+
+    update about page #2
+
+[33mcommit 805daf4efd4372853ae0012e6bf0e06f86c4f084[m
+Merge: 2f68169 79cffaa
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Wed Oct 2 17:39:41 2024 +0700
+
+    Merge pull request #5 from duonglqdev/devginiwebseo
+    
+    Update about page
+
+[33mcommit 79cffaaeffcec86ce37e29882cb952ba186ac7f2[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Wed Oct 2 17:38:57 2024 +0700
+
+    Update about page
+
+[33mcommit 2f681696091b98a16634314515f752bced85bf74[m
+Merge: ad7d7ea 1015925
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Tue Oct 1 17:38:50 2024 +0700
+
+    Merge pull request #4 from duonglqdev/devginiwebseo
+    
+    Devginiwebseo
+
+[33mcommit 1015925e10fa0f96d8839c66d49e3c99e9218d73[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Tue Oct 1 17:38:10 2024 +0700
+
+    update about us #1
+
+[33mcommit fe8df287551cc8efc82697b79458a6c3e45480b9[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Tue Oct 1 09:31:00 2024 +0700
+
+    update home #3
+
+[33mcommit ad7d7eaef90394fc1d0dee84c31df543b3a50a3c[m
+Merge: 0b1f1d4 1e225cc
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Tue Oct 1 08:53:53 2024 +0700
+
+    Merge pull request #3 from duonglqdev/devginiwebseo
+    
+    update homepage #2
+
+[33mcommit 1e225cc0a670d57defd06a722ff196252a902799[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Tue Oct 1 08:53:14 2024 +0700
+
+    update homepage #2
+
+[33mcommit 0b1f1d40eb9f1b3f348382029fbeeb4864de8038[m
+Merge: ede82c3 680c025
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Mon Sep 30 21:24:02 2024 +0700
+
+    Merge pull request #2 from duonglqdev/devginiwebseo
+    
+    update home page #1
+
+[33mcommit 680c0252ddedff796455367047cdc05c9e103761[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Mon Sep 30 17:38:46 2024 +0700
+
+    update home page #1
+
+[33mcommit ede82c332e44955564a8b2c2a2921b347d8efd22[m
+Merge: d9b2f9f ad7264f
+Author: duonglqdev <161835228+duonglqdev@users.noreply.github.com>
+Date:   Thu Sep 26 10:10:02 2024 +0700
+
+    Merge pull request #1 from duonglqdev/devginiwebseo
+    
+    Custom Utility Classes
+
+[33mcommit ad7264f05258babba0b17f14b49c497100396f5a[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Thu Sep 26 10:08:33 2024 +0700
+
+    Custom Utility Classes
+
+[33mcommit d9b2f9f57dae2f6d7e3fba9b664d2b8cff5bb87a[m
+Author: duonglq.dev <duonglq.dev@gmail.com>
+Date:   Thu Sep 26 09:08:47 2024 +0700
+
+    init project
