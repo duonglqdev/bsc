@@ -16,6 +16,9 @@ if (get_sub_field('title')) {
     } else {
         $title = get_the_archive_title();
     }
+} elseif (is_singular('post')) {
+    $category = get_the_category();
+    $title = $category[0]->name;
 } else {
     $title = get_the_title();
 }
