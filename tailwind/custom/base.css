@@ -43,10 +43,10 @@
     .menu_top li a {
       @apply block transition-all duration-500 hover:text-yellow-100;
     }
-    .main_menu > ul > li {
+    .main_menu > ul > li:not(.menu-home) {
       @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[1px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active)]:after:w-0 [&:not(.active)]:text-black text-yellow-100;
     }
-    .main_menu > ul > li a {
+    .main_menu > ul > li:not(.menu-home) a {
       @apply block transition-all duration-500;
     }
     .main_menu-navbar {
@@ -73,6 +73,9 @@
     .main_menu-navbar > .submenu-content > li > a {
       @apply flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold;
     }
+    .main_menu-navbar > .submenu-content > li > a img {
+      @apply w-6 h-6;
+    }
     .main_menu-navbar > .submenu-content .sub-menu {
       @apply grid grid-cols-3 gap-3 mt-5;
     }
@@ -85,10 +88,23 @@
   }
 }
 .form_newsletter {
-  @apply bg-white bg-opacity-30 rounded-[10px] border border-white py-3 pr-2 pl-4 flex gap-x-4 items-center;
+  @apply bg-white bg-opacity-30 rounded-[10px] border border-white py-3 pr-2 pl-4 flex gap-x-4 items-center relative;
 }
 .form_newsletter input {
-  @apply bg-transparent border-none focus:outline-0 flex-1 text-white placeholder:text-white focus:border-none;
+  @apply bg-transparent border-none focus:outline-0 flex-1 text-white placeholder:text-white focus:border-none max-w-full focus:ring-transparent;
+}
+.form_newsletter .wpcf7-form-control-wrap {
+  @apply block max-w-[60%];
+}
+.form_newsletter svg {
+  @apply shrink-0;
+}
+.form_newsletter button {
+  @apply whitespace-nowrap ml-auto;
+}
+
+.wpcf7-spinner {
+  @apply absolute right-0 top-3;
 }
 
 .home__banner .flickity-viewport {
@@ -250,6 +266,59 @@
 }
 .slick-dots .slick-active .dot {
   @apply w-[50px] bg-opacity-100;
+}
+
+.apexcharts-legend {
+  @apply lg:max-w-[50%];
+}
+.apexcharts-legend .apexcharts-legend-series {
+  @apply rounded-lg bg-[#F8F8FF] uppercase px-4 py-[12px];
+}
+
+.subscribe {
+  @apply flex justify-between items-center gap-x-3 py-1 px-4 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
+}
+.subscribe input {
+  @apply border-none focus:outline-0 focus:ring-transparent max-w-full;
+}
+.subscribe .wpcf7-form-control-wrap {
+  @apply flex-1 max-w-[60%];
+}
+.subscribe button {
+  @apply ml-auto whitespace-nowrap;
+}
+.subscribe svg {
+  @apply shrink-0;
+}
+
+#leader-modal .main__content p {
+  @apply mb-4;
+}
+#leader-modal .main__content ul {
+  @apply max-h-[260px] overflow-y-auto;
+}
+#leader-modal .main__content ul::-webkit-scrollbar {
+  width: 4px;
+}
+#leader-modal .main__content ul::-webkit-scrollbar-track {
+  background: rgba(49, 51, 63, 0.2);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#leader-modal .main__content ul::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #235ba8;
+}
+
+.sidebar-report .has-child {
+  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl transition-all duration-500 bg-primary-300;
+}
+.sidebar-report .has-child.active {
+  @apply text-white;
+}
+.sidebar-report .has-child .li-plus.active {
+  @apply rotate-180;
 }
 
 /*# sourceMappingURL=base.css.map */
