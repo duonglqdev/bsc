@@ -17,6 +17,7 @@ import ApexCharts from 'apexcharts';
 			aboutUsSlider();
 			aboutDynamicPopup();
 			handleScrollNav();
+			toggleContent();
 		});
 	};
 	function menuMobile() {
@@ -71,7 +72,7 @@ import ApexCharts from 'apexcharts';
 
 	function handleMegamenu() {
 		if ($(window).width() > 1024) {
-			$('.main_menu > ul > li').each(function (index) {
+			$('.main_menu > ul > li:not(.menu-home)').each(function (index) {
 				var menuId = $(this).attr('id');
 				$(this).attr('data-menu', menuId);
 				$('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
@@ -94,10 +95,10 @@ import ApexCharts from 'apexcharts';
 			var timeout;
 			var isMouseInNavbar = false;
 
-			$('.main_menu > ul > li').mouseenter(function () {
+			$('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
 				var dataMenuValue = $(this).attr('data-menu');
 
-				$('.main_menu > ul > li').removeClass('active');
+				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
 
 				$('.main_menu-navbar').addClass('active');
 
@@ -110,11 +111,13 @@ import ApexCharts from 'apexcharts';
 				clearTimeout(timeout);
 			});
 
-			$('.main_menu > ul > li').mouseleave(function () {
+			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
 				if (isMouseInNavbar) {
 					timeout = setTimeout(() => {
 						$('.main_menu-navbar').removeClass('active');
-						$('.main_menu > ul > li').removeClass('active');
+						$('.main_menu > ul > li:not(.menu-home)').removeClass(
+							'active'
+						);
 						$('.submenu-wrapper > li').removeClass('active');
 						$('.submenu-content').html('');
 						$('.submenu-content').css('max-height', '0');
@@ -131,7 +134,9 @@ import ApexCharts from 'apexcharts';
 				isMouseInNavbar = false;
 				timeout = setTimeout(() => {
 					$('.main_menu-navbar').removeClass('active');
-					$('.main_menu > ul > li').removeClass('active');
+					$('.main_menu > ul > li:not(.menu-home)').removeClass(
+						'active'
+					);
 					$('.submenu-wrapper > li').removeClass('active');
 					$('.submenu-content').html('');
 					$('.submenu-content').css('max-height', '0');
@@ -210,7 +215,7 @@ import ApexCharts from 'apexcharts';
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-list',
-			initialSlide: 1, // Bắt đầu từ slide thứ 2
+			initialSlide: 1,
 		});
 
 		$('.community_content-list').slick({
@@ -221,9 +226,9 @@ import ApexCharts from 'apexcharts';
 			fade: true,
 			asNavFor: '.community_content-bg',
 			initialSlide: 1,
-			customPaging: function(slider, i) {
+			customPaging: function (slider, i) {
 				return '<span class="dot"></span>';
-			}
+			},
 		});
 
 		$('.community_nav-item[data-index="1"]').addClass('active');
@@ -293,7 +298,7 @@ import ApexCharts from 'apexcharts';
 			var options = {
 				chart: {
 					type: 'line',
-					height: 350,
+					height: 430,
 					toolbar: {
 						show: false,
 					},
@@ -329,7 +334,7 @@ import ApexCharts from 'apexcharts';
 				},
 				stroke: {
 					curve: 'smooth',
-					width: 3,
+					width: 2,
 				},
 				markers: {
 					size: 5,
@@ -337,7 +342,9 @@ import ApexCharts from 'apexcharts';
 				colors: ['#008FFB', '#FEB019', '#00E396'],
 				legend: {
 					show: true,
-					position: 'top',
+					position: 'bottom',
+					horizontalAlign: 'left',
+					offsetY: 10,
 				},
 				tooltip: {
 					x: {
@@ -509,5 +516,22 @@ import ApexCharts from 'apexcharts';
 		});
 
 		onScroll();
+	}
+
+	function toggleContent() {
+		$('.sidebar-report li').each(function () {
+			if ($(this).find('ul.sub-menu').length) {
+				$(this).addClass('has-child')
+					.find('ul.sub-menu')
+					.before(
+						'<span class="li-plus cursor-pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.43057 8.51192C4.70014 8.19743 5.17361 8.161 5.48811 8.43057L12 14.0122L18.5119 8.43057C18.8264 8.16101 19.2999 8.19743 19.5695 8.51192C19.839 8.82642 19.8026 9.29989 19.4881 9.56946L12.4881 15.5695C12.2072 15.8102 11.7928 15.8102 11.5119 15.5695L4.51192 9.56946C4.19743 9.29989 4.161 8.82641 4.43057 8.51192Z" fill="currentColor"/></svg></span>'
+					);
+			}
+		});
+
+		$('.sidebar-report').on('click', '.li-plus', function () {
+			$(this).toggleClass('active');
+			$(this).next('ul.sub-menu').slideToggle(200);
+		});
 	}
 })(jQuery);

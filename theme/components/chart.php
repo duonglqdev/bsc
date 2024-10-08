@@ -28,15 +28,7 @@
 
 					<div id="chart"></div>
 
-					<div class="flex justify-center mt-6">
-						<div class="space-x-2">
-							<button class="px-4 py-2 bg-blue-500 text-white rounded">BSC10</button>
-							<button
-								class="px-4 py-2 bg-gray-200 text-gray-700 rounded">VNINDEX</button>
-							<button
-								class="px-4 py-2 bg-gray-200 text-gray-700 rounded">VNDIAMOND</button>
-						</div>
-					</div>
+					
 					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 				</div>
 			</div>
