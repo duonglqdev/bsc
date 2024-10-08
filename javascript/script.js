@@ -208,11 +208,14 @@ import ApexCharts from 'apexcharts';
 				});
 			}
 		});
-		$('.data-slick').slick({
-			customPaging: function (slider, i) {
-				return '<span class="dot"></span>';
-			},
+		$('.data-slick').each(function () {
+			$(this).slick({
+				customPaging: function (slider, i) {
+					return '<span class="dot"></span>';
+				},
+			});
 		});
+
 		$('.community_content-bg').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
