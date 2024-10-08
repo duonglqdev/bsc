@@ -289,8 +289,90 @@ get_header();
 			<h2 class="heading-title mb-10">
 				khoảnh khắc bsc
 			</h2>
-			<div class="staff_content data-slick block_slider-show-1"
-				data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 0, "dots": false, "arrows": false,"cssEase": "linear", "speed": 3000,"centerMode":true}'>
+
+		</div>
+		<div class="max-w-full w-full lg:px-0 px-4 overflow-hidden space-y-[30px]">
+			<div class="data-slick block_slider-show-1 -mx-3" data-slick='{
+			"slidesToShow": 4, 
+			"slidesToScroll": 1, 
+			"autoplay": true, 
+			"autoplaySpeed": 0, 
+			"pauseOnHover": true, 
+			"pauseOnFocus": true,
+			"dots": false, 
+			"arrows": false, 
+			"cssEase": "linear", 
+			"speed": 6000, 
+			"centerMode": true, 
+			"centerPadding": "0", 
+			"infinite": true,
+			"responsive": [
+				{
+					"breakpoint": 768,
+					"settings": {
+						"slidesToShow": 2,
+						"slidesToScroll": 1
+					}
+				}
+			]
+		}'>
+				<?php
+				for ( $i = 0; $i < 8; $i++ )
+				{
+					?>
+					<div class="slider-item mx-3">
+						<a href="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk1.jpg"
+							class="block w-full relative pt-[60%]" data-fancybox>
+							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk1.jpg"
+								alt=""
+								class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
+						</a>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+
+			<div class="data-slick block_slider-show-1 -mx-3" dir="rtl" data-slick='{
+			"slidesToShow": 4, 
+			"slidesToScroll": 1, 
+			"autoplay": true, 
+			"autoplaySpeed": 0, 
+			"pauseOnHover": true, 
+			"pauseOnFocus": true,
+			"dots": false, 
+			"arrows": false, 
+			"cssEase": "linear", 
+			"speed": 6000, 
+			"centerMode": true, 
+			"centerPadding": "0", 
+			"infinite": true,
+			"rtl": true,
+			"responsive": [
+				{
+					"breakpoint": 768,
+					"settings": {
+						"slidesToShow": 2,
+						"slidesToScroll": 1
+					}
+				}
+			]
+		}'>
+				<?php
+				for ( $i = 0; $i < 8; $i++ )
+				{
+					?>
+					<div class="slider-item mx-3">
+						<a href="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk2.jpg"
+							class="block w-full relative pt-[60%]" data-fancybox>
+							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk2.jpg"
+								alt=""
+								class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
+						</a>
+					</div>
+					<?php
+				}
+				?>
 			</div>
 		</div>
 	</section>
