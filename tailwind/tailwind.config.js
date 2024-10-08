@@ -28,6 +28,7 @@ module.exports = {
 				yellow: { 100: '#FFB81C', 200: '#FDB525' },
 				black: '#31333F',
 				paragraph: '#4A5568',
+				gray: { 100: '#898A8D'}
 			},
 			fontSize: {
 				sm: '15px',
@@ -38,7 +39,7 @@ module.exports = {
 			},
 			fontFamily: {
 				body: ['Barlow', 'sans-serif'],
-				Helvetica: ['Helvetica', 'sans-serif'],
+				Helvetica: ['Helvetica Neue', 'sans-serif'],
 			},
 			backgroundImage: {
 				'gradient-blue':
@@ -47,6 +48,8 @@ module.exports = {
 					'linear-gradient(180deg, #009C88 15.25%, #2A5CAA 110.41%, #2A5CAA 111.37%)',
 				'gradient-blue-50':
 					'linear-gradient(270deg, #EBF4FA 0%, #F3FBFE 100%)',
+					'gradient-blue-100':
+					'linear-gradient(90deg, rgba(62, 127, 231, 0.1) 0%, rgba(5, 48, 118, 0.1) 100%)',
 				'gradient-banner':
 					'linear-gradient(251.37deg, rgba(27, 70, 141, 0) 21.94%, rgba(34, 52, 114, 0.738462) 58.49%, #252D69 98.08%)',
 				'gradient-blue-to-top':
@@ -60,9 +63,7 @@ module.exports = {
 			boxShadow: {
 				header: '0px 4px 10px 0px #0000000D',
 			},
-			ringColor: {
-				DEFAULT: 'transparent',
-			},
+			
 		},
 		container: {
 			center: true,
