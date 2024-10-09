@@ -80,7 +80,10 @@
       @apply grid grid-cols-3 gap-3 mt-5;
     }
     .main_menu-navbar > .submenu-content .sub-menu a {
-      @apply transition-all duration-500 hover:text-yellow-100 font-medium;
+      @apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px];
+    }
+    .main_menu-navbar > .submenu-content .sub-menu a img {
+      @apply w-6 h-6;
     }
     .footer-item li a {
       @apply transition-all duration-500 hover:text-yellow-100;
@@ -321,6 +324,9 @@
 }
 .sidebar-report .has-child:hover {
   @apply bg-primary-300 text-white;
+}
+.sidebar-report .has-child:hover > a {
+  @apply bg-primary-300 text-white before:bg-white;
 }
 .sidebar-report .has-child.active {
   @apply bg-primary-300;
