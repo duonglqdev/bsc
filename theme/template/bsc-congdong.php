@@ -112,19 +112,19 @@ get_header();
 		<div class="absolute w-full h-full inset-0 -z-10">
 			<div class="community_content-bg block_slider-show-1">
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/com1.jpg"
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity1.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/com2.jpg"
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity2.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/com3.jpg"
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity3.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/com4.jpg"
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity4.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 			</div>
