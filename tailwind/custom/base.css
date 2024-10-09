@@ -317,7 +317,13 @@
 }
 
 .sidebar-report .has-child {
-  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl transition-all duration-500 bg-primary-300;
+  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl;
+}
+.sidebar-report .has-child:hover {
+  @apply bg-primary-300 text-white;
+}
+.sidebar-report .has-child.active {
+  @apply bg-primary-300;
 }
 .sidebar-report .has-child.active {
   @apply text-white;
