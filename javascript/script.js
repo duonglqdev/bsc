@@ -56,15 +56,6 @@ import ApexCharts from 'apexcharts';
 
 	function backToTop() {
 		var $backToTop = $('.back-to-top');
-		$backToTop.hide();
-
-		$(window).on('scroll', function () {
-			if ($(this).scrollTop() > 200) {
-				$backToTop.fadeIn();
-			} else {
-				$backToTop.fadeOut();
-			}
-		});
 
 		$backToTop.on('click', function (e) {
 			$('html, body').animate({ scrollTop: 0 }, 50);
@@ -542,6 +533,14 @@ import ApexCharts from 'apexcharts';
 			$(this).toggleClass('active');
 			$(this).next('ul.sub-menu').slideToggle(200);
 		});
+
+		$('.utilities_button').click(function () {
+			$('.utilities_button,.utilities_button-list').addClass('active');
+		});
+		$('.collapse-button').click(function () {
+			$('.utilities_button,.utilities_button-list').removeClass('active');
+		});
+		
 	}
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
