@@ -227,34 +227,35 @@ endif;
 /**
  * Displays pagination style by number page
  */
-function bsc_pagination()
+function bsc_pagination($custom_query = null, $custom_paged = null)
 {
 
-	if (is_singular())
-		return;
-
-	global $wp_query;
-
-	/** Stop execution if there's only 1 page */
-	if ($wp_query->max_num_pages <= 1)
-		return;
-
-	$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-	$max = intval($wp_query->max_num_pages);
+	if (!$custom_query) {
+		global $wp_query;
+		$custom_query = $wp_query;
+	}
+	if ($custom_query->max_num_pages <= 1) {
+		return; // Dừng nếu chỉ có 1 trang
+	}
+	if (!$custom_paged) {
+		$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+		$custom_paged = $paged;
+	}
+	$max = intval($custom_query->max_num_pages);
 
 	/** Add current page to the array */
-	if ($paged >= 1)
-		$links[] = $paged;
+	if ($custom_paged >= 1)
+		$links[] = $custom_paged;
 
 	/** Add the pages around the current page to the array */
-	if ($paged >= 3) {
-		$links[] = $paged - 1;
-		$links[] = $paged - 2;
+	if ($custom_paged >= 3) {
+		$links[] = $custom_paged - 1;
+		$links[] = $custom_paged - 2;
 	}
 
-	if (($paged + 2) <= $max) {
-		$links[] = $paged + 2;
-		$links[] = $paged + 1;
+	if (($custom_paged + 2) <= $max) {
+		$links[] = $custom_paged + 2;
+		$links[] = $custom_paged + 1;
 	}
 
 	echo '<ul class="flex items-center gap-[11px] h-9 text-base">' . "\n";
@@ -265,9 +266,8 @@ function bsc_pagination()
 
 	/** Link to first page, plus ellipses if necessary */
 	if (! in_array(1, $links)) {
-		$class = 1 == $paged ? ' class="active"' : '';
-
-		printf('<li%s><a class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+		$class = 1 == $custom_paged ? ' class="active"' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
 
 		if (! in_array(2, $links))
 			echo '<li>…</li>';
@@ -276,8 +276,8 @@ function bsc_pagination()
 	/** Link to current page, plus 2 pages in either direction if necessary */
 	sort($links);
 	foreach ((array) $links as $link) {
-		$class = $paged == $link ? ' active' : '';
-		printf('<li><a class="%s flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+		$class = $custom_paged == $link ? ' active' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
 	}
 
 	/** Link to last page, plus ellipses if necessary */
@@ -285,8 +285,8 @@ function bsc_pagination()
 		if (! in_array($max - 1, $links))
 			echo '<li>…</li>' . "\n";
 
-		$class = $paged == $max ? 'active' : '';
-		printf('<li><a class="%s flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+		$class = $custom_paged == $max ? 'active' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
 	}
 
 	/** Next Post Link */

@@ -8,8 +8,9 @@ get_header();
 ?>
 <main>
 	<?php
-	if (have_rows('home_components')) {
-		while (have_rows('home_components')) :
+	$page_id = get_the_ID();
+	if (have_rows('home_components', $page_id)) {
+		while (have_rows('home_components', $page_id)) :
 			the_row();
 			$module_name = get_row_layout();
 			switch ($module_name):
