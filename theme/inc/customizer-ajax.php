@@ -33,27 +33,65 @@ function filter_jobs_ajax()
         );
     }
 
-    $jobs_query = new WP_Query($args);
+    $filter_job = new WP_Query($args);
 
-    if ($jobs_query->have_posts()) :
-        echo '<div class="job-listings">';
-        while ($jobs_query->have_posts()) : $jobs_query->the_post();
+    if ($filter_job->have_posts()) :
+        while ($filter_job->have_posts()) : $filter_job->the_post();
             get_template_part('template-parts/content', get_post_type());
         endwhile;
-        echo '</div>';
+?>
+        <div class="bsc-pagination mt-12 flex justify-center">
+            <?php bsc_pagination($filter_job, $paged) ?>
+        </div>
 
-        // Phân trang
-        echo '<div class="bsc-pagination">';
-        for ($i = 1; $i <= $jobs_query->max_num_pages; $i++) {
-            echo '<a href="#" data-page="' . $i . '">' . $i . '</a>';
-        }
-        echo '</div>';
-
+        <script>
+            jQuery(document).ready(function($) {
+                function load_jobs(page = 1) {
+                    ajaxurl = '<?php echo admin_url("admin-ajax.php") ?>';
+                    var nghiep_vu = $('#nghiep_vu').val();
+                    var noi_lam_viec = $('#noi_lam_viec').val();
+                    $.ajax({
+                        url: ajaxurl,
+                        type: 'POST',
+                        data: {
+                            action: 'filter_jobs',
+                            nghiep_vu: nghiep_vu,
+                            noi_lam_viec: noi_lam_viec,
+                            paged: page
+                        },
+                        beforeSend: function() {
+                            $('#vi-tri-tuyen-dung').html('');
+                            $('#tuyen-dung-loading').removeClass('hidden');
+                        },
+                        success: function(response) {
+                            $('#tuyen-dung-loading').addClass('hidden');
+                            $('#vi-tri-tuyen-dung').html(response);
+                        }
+                    });
+                }
+                $('#vi-tri-tuyen-dung .bsc-pagination a').add('#tuyen-dung-tim-kiem').on('click', function(e) {
+                    e.preventDefault();
+                    var page = parseInt($('#vi-tri-tuyen-dung').attr('data-paged'));
+                    if ($(this).hasClass('item-paged')) {
+                        page = parseInt($(this).text());
+                    } else if ($(this).hasClass('prev')) {
+                        page = page - 1;
+                    } else if ($(this).hasClass('next')) {
+                        page = page + 1;
+                    } else if ($(this).is('button')) {
+                        page = 1;
+                    }
+                    $('#vi-tri-tuyen-dung').attr('data-paged', page);
+                    load_jobs(page);
+                });
+            });
+        </script>
+<?php
     else :
-        echo '<p>' . __('No jobs found', 'bsc') . '</p>';
+        echo '<p>' . __('Không có công việc nào phù hợp', 'bsc') . '</p>';
     endif;
 
     wp_reset_postdata();
 
-    die(); // Kết thúc AJAX
+    die();
 }

@@ -112,28 +112,6 @@ function remove_wp_logo($wp_admin_bar)
 }
 
 /**
- * Disabled Template
- */
-function my_remove_page_template()
-{
-    if (!class_exists('WooCommerce')) {
-        global $pagenow;
-        if (in_array($pagenow, array('post-new.php', 'post.php')) && get_post_type() == 'page') { ?>
-            <script>
-                (function($) {
-                    $(document).ready(function() {
-                        $('#page_template option[value="template-page/content-woocommerce.php"]').remove();
-                    })
-                })(jQuery)
-            </script>
-<?php
-        }
-    }
-}
-add_action('admin_footer', 'my_remove_page_template', 10);
-
-
-/**
  * Remove Tag, Category from archive title
  */
 add_filter('get_the_archive_title', 'my_theme_archive_title');
@@ -244,12 +222,17 @@ add_filter('wp_get_attachment_image_attributes', 'add_custom_class_to_widget_ima
 /**
  * Add Class Previous/Next Link
  */
-function add_class_to_posts_link()
+function add_class_to_posts_link_prev()
 {
-    return 'class="flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"';
+    return 'class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"';
 }
-add_filter('previous_posts_link_attributes', 'add_class_to_posts_link');
-add_filter('next_posts_link_attributes', 'add_class_to_posts_link');
+add_filter('previous_posts_link_attributes', 'add_class_to_posts_link_prev');
+
+function add_class_to_posts_link_next()
+{
+    return 'class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"';
+}
+add_filter('next_posts_link_attributes', 'add_class_to_posts_link_next');
 
 
 /**
