@@ -39,10 +39,11 @@
 					endwhile;
 				} ?>
 				<div class="mt-8 relative z-10">
-					<div class="lg:block hidden absolute -top-28 right-0">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/offers-after.svg"
-							alt="<?php _e('Offer', 'bsc') ?>">
-					</div>
+					<?php if (get_sub_field('icon')) { ?>
+						<div class="lg:block hidden absolute -top-28 right-0">
+							<img src="<?php echo wp_get_attachment_image_url(get_sub_field('icon'), 'large') ?>" alt="<?php the_sub_field('title') ?>">
+						</div>
+					<?php } ?>
 					<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'm-auto relative z-10')) ?>
 
 				</div>
@@ -173,8 +174,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="lg:block hidden absolute bottom-0 left-0">
-		<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/offers-before.png"
-			alt="<?php _e('Offer', 'bsc') ?>">
-	</div>
+	<?php if (get_sub_field('background')) { ?>
+		<div class="lg:block hidden absolute bottom-0 left-0">
+			<?php echo wp_get_attachment_image(get_sub_field('background'), 'large') ?>
+		</div>
+	<?php } ?>
 </section>

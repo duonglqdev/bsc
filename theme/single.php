@@ -92,7 +92,7 @@ get_header();
 		</div>
 	</section>
 	<?php
-	$custom_taxterms = wp_get_object_terms($post->ID, 'country', array('fields' => 'ids'));
+	$custom_taxterms = wp_get_object_terms($post->ID, 'category', array('fields' => 'ids'));
 	$args = array(
 		'post_type' => 'post',
 		'post_status' => 'publish',

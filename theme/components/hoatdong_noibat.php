@@ -1,8 +1,10 @@
-<section class="lg:my-24 mb-10 hoatdong_noibat">
+<section class="lg:my-24 mb-10 hoatdong_noibat" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <h2 class="heading-title mb-10">
-            HOẠT ĐỘNG NỔI BẬT
-        </h2>
+        <?php if (get_sub_field('title')) { ?>
+            <h2 class="heading-title mb-10">
+                <?php the_sub_field('title') ?>
+            </h2>
+        <?php } ?>
         <div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
             <div class="md:col-span-1 col-span-full">
                 <div class="sticky top-5 z-10">
