@@ -121,15 +121,7 @@ if (! function_exists('bsc_setup')) :
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height' => 250,
-				'width' => 250,
-				'flex-width' => true,
-				'flex-height' => true,
-			)
-		);
+
 
 		// Remove support for block templates.
 		remove_theme_support('block-templates');
@@ -194,7 +186,6 @@ function bsc_scripts()
 		wp_enqueue_script('bsc-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), bsc_VERSION, true);
 		wp_enqueue_script('bsc-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert2.all.min.js', array(), bsc_VERSION, true);
 		wp_enqueue_script('bsc-intitelinputjs', get_template_directory_uri() . '/assets/libs/intitelinput.js', array(), bsc_VERSION, true);
-
 	}
 	wp_enqueue_script('bsc-js-flickity', get_template_directory_uri() . '/assets/libs/flickity.pkgd.js', array(), bsc_VERSION, true);
 	wp_enqueue_script('bsc-js-slick', get_template_directory_uri() . '/assets/libs/slick.js', array(), bsc_VERSION, true);
@@ -224,3 +215,8 @@ require get_template_directory() . '/inc/customizer-wp.php';
  * Customizer Widget.
  */
 require get_template_directory() . '/inc/customizer-widget.php';
+
+/**
+ * Customizer Ajax.
+ */
+require get_template_directory() . '/inc/customizer-ajax.php';

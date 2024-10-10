@@ -29,5 +29,3 @@
 		</script>
 	</nav>
 </div>
-</nav>
-</div>

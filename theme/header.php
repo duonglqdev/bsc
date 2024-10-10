@@ -83,15 +83,14 @@
 			<div class="container">
 				<div class="lg:flex lg:justify-between lg:items-center lg:gap-3">
 					<?php
-					$custom_logo_id = get_theme_mod('custom_logo');
+					$custom_logo_id = get_field('h0_logo', 'option');
 					if ($custom_logo_id) {
-						$image = wp_get_attachment_image_src($custom_logo_id, 'full');
+						$image = wp_get_attachment_image_src($custom_logo_id, 'medium');
 						printf(
 							'<a class="block" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s"></a>',
 							get_bloginfo('url'),
 							get_bloginfo('description'),
 							$image[0],
-
 						);
 					}
 					?>
@@ -118,7 +117,7 @@
 						</div>
 						<ul
 							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-6 lg:p-10 lg:backdrop-blur-2xl">
-							
+
 							<?php
 							wp_nav_menu(array(
 								'theme_location' => 'menu-1',

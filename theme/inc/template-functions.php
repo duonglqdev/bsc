@@ -128,6 +128,34 @@ function svg_dir($path, $width = false, $height = false)
 	return '';
 }
 
+/**
+ * Function help call file SVG from url with class
+ */
+function svgClass_dir($path, $width = false, $height = false, $class = '')
+{
+
+	if ($path) {
+		$svg = file_get_contents($path);
+		$dom = new DOMDocument();
+		$dom->loadXML($svg);
+
+		$svgElement = $dom->getElementsByTagName('svg')->item(0);
+
+		if ($width) {
+			$svgElement->setAttribute('width', $width . 'px');
+		}
+		if ($height) {
+			$svgElement->setAttribute('height', $height . 'px');
+		}
+		if ($class) {
+			$svgElement->setAttribute('class', $class);
+		}
+
+		return $dom->saveXML($svgElement);
+	}
+	return '';
+}
+
 if (! function_exists('bsc_post_thumbnail')) :
 	/**
 	 * Displays an optional post thumbnail.

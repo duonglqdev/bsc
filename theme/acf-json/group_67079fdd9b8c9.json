@@ -1,0 +1,42 @@
+{
+    "key": "group_67079fdd9b8c9",
+    "title": "[Option] Cài đặt tuyển dụng",
+    "fields": [
+        {
+            "key": "field_67079fdd9801d",
+            "label": "Mẫu CV",
+            "name": "cdtd_mau_cv",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cai-dat-tuyen-dung"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1728553378
+}
