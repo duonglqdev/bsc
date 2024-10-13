@@ -4,6 +4,8 @@ if (get_sub_field('background')) {
     $banner = wp_get_attachment_image_url(get_sub_field('background'), 'full');
 } elseif (is_tax() && get_field('background_banner', get_queried_object())) {
     $banner = wp_get_attachment_image_url(get_field('background_banner', get_queried_object()), 'full');
+} elseif (is_singular('tuyen-dung') && get_field('cdtd_background_banner', 'option')) {
+    $banner = wp_get_attachment_image_url(get_field('cdtd_background_banner', 'option'), 'full');
 } elseif (get_field('cdc1_background_banner', 'option')) {
     $banner = wp_get_attachment_image_url(get_field('cdc1_background_banner', 'option'), 'full');
 } else {
