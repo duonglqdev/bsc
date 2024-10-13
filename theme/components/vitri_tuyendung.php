@@ -85,7 +85,8 @@
                                     action: 'filter_jobs',
                                     nghiep_vu: nghiep_vu,
                                     noi_lam_viec: noi_lam_viec,
-                                    paged: page
+                                    paged: page,
+                                    security: '<?php echo wp_create_nonce('load_jobs') ?>',
                                 },
                                 beforeSend: function() {
                                     $('#vi-tri-tuyen-dung').html('');

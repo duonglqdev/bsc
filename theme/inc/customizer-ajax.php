@@ -4,6 +4,7 @@ add_action('wp_ajax_nopriv_filter_jobs', 'filter_jobs_ajax'); // Cho người d�
 
 function filter_jobs_ajax()
 {
+    check_ajax_referer('load_jobs', 'security');
     $nghiep_vu = isset($_POST['nghiep_vu']) ? intval($_POST['nghiep_vu']) : '';
     $noi_lam_viec = isset($_POST['noi_lam_viec']) ? intval($_POST['noi_lam_viec']) : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
@@ -57,7 +58,8 @@ function filter_jobs_ajax()
                             action: 'filter_jobs',
                             nghiep_vu: nghiep_vu,
                             noi_lam_viec: noi_lam_viec,
-                            paged: page
+                            paged: page,
+                            security: '<?php echo wp_create_nonce('load_jobs') ?>',
                         },
                         beforeSend: function() {
                             $('#vi-tri-tuyen-dung').html('');
