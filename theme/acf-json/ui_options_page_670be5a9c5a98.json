@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_670be5a9c5a98",
+    "title": "Cài đặt tin tức",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Cài đặt tin tức",
+    "menu_slug": "cai-dat-tin-tuc",
+    "parent_slug": "edit.php",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1728832949
+}

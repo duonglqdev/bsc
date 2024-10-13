@@ -1,9 +1,9 @@
 {
-    "key": "group_6704153693519",
-    "title": "Thông tin danh mục báo cáo",
+    "key": "group_670be80ef362b",
+    "title": "Thông tin danh mục tin tức",
     "fields": [
         {
-            "key": "field_67043e4cbd46e",
+            "key": "field_670bea308d280",
             "label": "Banner",
             "name": "",
             "aria-label": "",
@@ -20,7 +20,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_670bd6cf7160a",
+            "key": "field_670bea4b8d281",
             "label": "Hiển thị Background",
             "name": "background_banner_display",
             "aria-label": "",
@@ -46,7 +46,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_67043e80bd46f",
+            "key": "field_670bea5e8d282",
             "label": "Background Banner",
             "name": "background_banner",
             "aria-label": "",
@@ -71,70 +71,7 @@
             "preview_size": "thumbnail"
         },
         {
-            "key": "field_67043ea0bd470",
-            "label": "Tiêu đề",
-            "name": "title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_67043e42bd46d",
-            "label": "Loại danh mục",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_67041536a5b50",
-            "label": "Loại danh mục",
-            "name": "type_danh_muc",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Không ảnh đại diện",
-                "avatar": "Có ảnh đại diện"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_670be945adfc4",
+            "key": "field_670be80f7cae5",
             "label": "Sidebar",
             "name": "",
             "aria-label": "",
@@ -151,7 +88,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_670bead6adfc5",
+            "key": "field_670be824fe0f8",
             "label": "Hình ảnh Sidebar",
             "name": "hinh_anh_sidebar",
             "aria-label": "",
@@ -167,7 +104,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_670beaeeadfc6",
+                    "key": "field_670be858fe0f9",
                     "label": "Đường dẫn",
                     "name": "link",
                     "aria-label": "",
@@ -187,7 +124,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_670beaf7adfc7",
+                    "key": "field_670be85dfe0fa",
                     "label": "Hình ảnh",
                     "name": "img",
                     "aria-label": "",
@@ -219,7 +156,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "danh-muc-bao-cao"
+                "value": "category"
             }
         ]
     ],
@@ -232,5 +169,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728834306
+    "modified": 1728834241
 }

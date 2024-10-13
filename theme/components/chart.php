@@ -1,5 +1,8 @@
-<section class="bg-primary-200 lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="chart bg-primary-200 lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
+		<?php if (get_sub_field('title_main')) { ?>
+			<h2 class="heading-title mb-12"><?php the_sub_field('title_main') ?></h2>
+		<?php } ?>
 		<div class="grid grid-cols-3 gap-5">
 			<div class="md:col-span-2 col-span-full">
 				<?php if (get_sub_field('title')) { ?>
@@ -28,7 +31,7 @@
 
 					<div id="chart"></div>
 
-					
+
 					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 				</div>
 			</div>

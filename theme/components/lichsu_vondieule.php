@@ -69,9 +69,9 @@
                 <picture>
                     <?php if (get_sub_field('image_mb')) { ?>
                         <source media="(max-width:767px)"
-                            srcset="<?php echo wp_get_attachment_image_url(get_sub_field('image_mb'), 'full') ?>">
+                            srcset="<?php echo wp_get_attachment_image_url(get_sub_field('image_mb'), 'large') ?>">
                     <?php } ?>
-                    <?php echo wp_get_attachment_image(get_sub_field('image_desktop'), 'full', '', array('class' => 'w-full h-auto')) ?>
+                    <?php echo wp_get_attachment_image(get_sub_field('image_desktop'), 'large', '', array('class' => 'w-full h-auto')) ?>
                 </picture>
             </div>
         </div>

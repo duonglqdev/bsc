@@ -50,7 +50,19 @@ get_header();
 								<?php endforeach; ?>
 							</ul>
 						<?php endif; ?>
-						<?php get_sidebar() ?>
+						<?php
+						$post_id = get_the_ID();
+						$taxonomy = get_the_terms($post->ID, 'category');
+						if ($taxonomy) {
+							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', $taxonomy[0]);
+							if ($hinh_anh_sidebar) { ?>
+								<div class="mt-12">
+									<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
+										<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
+									</a>
+								</div>
+						<?php };
+						} ?>
 					</div>
 				</div>
 				<div class="md:col-span-3 col-span-full">

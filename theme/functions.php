@@ -129,37 +129,6 @@ if (! function_exists('bsc_setup')) :
 endif;
 add_action('after_setup_theme', 'bsc_setup');
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function bsc_widgets_init()
-{
-	register_sidebar(
-		array(
-			'name'          => __('Tin tức', 'bsc'),
-			'id'            => 'sidebar-tin-tuc',
-			'description'   => __('Thêm thông tin ở Tin tức', 'bsc'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s mt-12">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_sidebar(
-		array(
-			'name'          => __('Quan hệ cổ đông', 'bsc'),
-			'id'            => 'sidebar-quan-he-co-dong',
-			'description'   => __('Thêm thông tin ở quan hệ cổ đông', 'bsc'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s mt-12">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action('widgets_init', 'bsc_widgets_init');
 
 /**
  * Enqueue scripts and styles.

@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_670beb662345b",
+    "title": "Cài đặt quan hệ cổ đông",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Cài đặt quan hệ cổ đông",
+    "menu_slug": "cai-dat-quan-he-co-dong",
+    "parent_slug": "edit.php?post_type=quan-he-co-dong",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1728834420
+}

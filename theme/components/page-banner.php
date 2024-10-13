@@ -1,16 +1,26 @@
 <?php
 if (get_sub_field('background')) {
     $banner = wp_get_attachment_image_url(get_sub_field('background'), 'full');
+    $style = get_sub_field('display_background') ?: 'default';
+} elseif (is_tax() || is_category()) {
+    if (get_field('background_banner', get_queried_object())) {
+        $banner = wp_get_attachment_image_url(get_field('background_banner', get_queried_object()), 'full');
+    }
+    $style = get_field('background_banner_display', get_queried_object()) ?: 'default';
+} elseif (is_singular('tuyen-dung')) {
+    if (get_field('cdtd_background_banner', 'option')) {
+        $banner = wp_get_attachment_image_url(get_field('cdtd_background_banner ', 'option'), 'full');
+    }
+    $style = get_field('cdtd_background_display', 'option') ?: 'default';
 } elseif (get_field('cdc1_background_banner', 'option')) {
     $banner = wp_get_attachment_image_url(get_field('cdc1_background_banner', 'option'), 'full');
-} elseif (is_tax() && get_field('background_banner', get_queried_object())) {
-    $banner = get_field('background_banner', get_queried_object());
+    $style = get_field('cdc1_background_display', 'option') ?: 'default';
 } else {
     $banner = get_stylesheet_directory_uri() . '/assets/images/about.png';
 };
 if (get_sub_field('title')) {
     $title = get_sub_field('title');
-} elseif (is_tax()) {
+} elseif (is_tax() || is_category()) {
     if (get_field('title', get_queried_object())) {
         $title = get_field('title', get_queried_object());
     } else {

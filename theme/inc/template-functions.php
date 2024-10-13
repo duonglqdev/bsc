@@ -166,7 +166,11 @@ if (! function_exists('bsc_post_thumbnail')) :
 	function bsc_post_thumbnail()
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
-			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			if (get_field('cdc1_thumbnail', 'option')) {
+				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+			} else {
+				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			}
 		} else {
 			the_post_thumbnail_url('thumbnail');
 		}
@@ -183,7 +187,11 @@ if (! function_exists('bsc_post_thumbnail_medium')) :
 	function bsc_post_thumbnail_medium()
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
-			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			if (get_field('cdc1_thumbnail', 'option')) {
+				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+			} else {
+				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			}
 		} else {
 			the_post_thumbnail_url('medium');
 		}
@@ -200,7 +208,11 @@ if (! function_exists('bsc_post_thumbnail_large')) :
 	function bsc_post_thumbnail_large()
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
-			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			if (get_field('cdc1_thumbnail', 'option')) {
+				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+			} else {
+				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			}
 		} else {
 			the_post_thumbnail_url('large');
 		}
@@ -217,7 +229,11 @@ if (! function_exists('bsc_post_thumbnail_full')) :
 	function bsc_post_thumbnail_full()
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
-			echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			if (get_field('cdc1_thumbnail', 'option')) {
+				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+			} else {
+				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+			}
 		} else {
 			the_post_thumbnail_url();
 		}
