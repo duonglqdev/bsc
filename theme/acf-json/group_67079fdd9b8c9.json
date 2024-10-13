@@ -103,6 +103,89 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_670bec53f20f9",
+            "label": "Breadcrumb",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_670bec62f20fa",
+            "label": "Breacrumb",
+            "name": "cdtd1_breacrumb",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm đường dẫn",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_670bec73f20fb",
+                    "label": "Đường dẫn",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670bec62f20fa"
+                },
+                {
+                    "key": "field_670bec7bf20fc",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670bec62f20fa"
+                }
+            ]
         }
     ],
     "location": [
@@ -123,5 +206,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728829046
+    "modified": 1728834690
 }

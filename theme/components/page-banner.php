@@ -2,7 +2,7 @@
 if (get_sub_field('background')) {
     $banner = wp_get_attachment_image_url(get_sub_field('background'), 'full');
     $style = get_sub_field('display_background') ?: 'default';
-} elseif (is_tax()) {
+} elseif (is_tax() || is_category()) {
     if (get_field('background_banner', get_queried_object())) {
         $banner = wp_get_attachment_image_url(get_field('background_banner', get_queried_object()), 'full');
     }
@@ -20,7 +20,7 @@ if (get_sub_field('background')) {
 };
 if (get_sub_field('title')) {
     $title = get_sub_field('title');
-} elseif (is_tax()) {
+} elseif (is_tax() || is_category()) {
     if (get_field('title', get_queried_object())) {
         $title = get_field('title', get_queried_object());
     } else {

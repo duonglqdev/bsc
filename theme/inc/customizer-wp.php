@@ -325,22 +325,3 @@ function custom_search_filter($query)
     }
 }
 add_action('pre_get_posts', 'custom_search_filter');
-
-/**
- * Thay Breadcrumb
- */
-add_filter('rank_math/frontend/breadcrumb/items', function ($crumbs, $class) {
-    if (is_tax('danh-muc-bao-cao')) {
-        if (isset($crumbs[1])) {
-            $page = get_post(get_field('cdqhcd_trang_luu_tru', 'option'));
-            if ($page) {
-                $crumbs[1] = array(
-                    get_the_title($page->ID),
-                    get_permalink($page->ID)
-                );
-            }
-        }
-    }
-
-    return $crumbs;
-}, 10, 2);

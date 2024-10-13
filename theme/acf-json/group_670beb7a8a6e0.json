@@ -1,0 +1,108 @@
+{
+    "key": "group_670beb7a8a6e0",
+    "title": "[Option] Cài đặt quan hệ cổ đông",
+    "fields": [
+        {
+            "key": "field_670beb7adcbab",
+            "label": "Breadcrumb",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_670beb7ae0617",
+            "label": "Breadcrumb",
+            "name": "cdqhcd1_breadcrumb",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Breadcrumb cuối cùng sẽ tự nhận diện chuyên mục, vì vậy không cần điền đường dẫn cuối cùng",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm đường dẫn",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_670beb7b12780",
+                    "label": "Đường dẫn",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670beb7ae0617"
+                },
+                {
+                    "key": "field_670beb7b161c4",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670beb7ae0617"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cai-dat-quan-he-co-dong"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1728834446
+}
