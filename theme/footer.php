@@ -242,7 +242,7 @@
 			<?php while ( have_rows( 'cdc2_tien_ich', 'option' ) ) :
 				the_row(); ?>
 				<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
-					class="utilities_button-item transition-all duration-500 w-full text-center flex flex-col justify-center items-center py-4 px-3 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
+					class="utilities_button-item utilities_button-hover transition-all duration-500 w-full text-center flex flex-col justify-center items-center py-4 px-3 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
 					<?php if ( get_sub_field( 'icon' ) )
 					{ ?>
 						<?php echo svgClass_dir( get_sub_field( 'icon' ), '', '', 'w-8 h-8' ) ?>
@@ -250,7 +250,8 @@
 					<?php the_sub_field( 'title' ) ?>
 				</a>
 			<?php endwhile; ?>
-			<div class="collapse-button w-full flex flex-col justify-center items-center py-4 px-3">
+			<div
+				class="collapse-button w-full flex flex-col justify-center items-center py-4 px-3 utilities_button-hover transition-all duration-500">
 				<?php echo svgClass( 'down-2', '', '', 'rotate-180' ) ?>
 				<?php _e( 'Thu gọn', 'bsc' ) ?>
 			</div>
@@ -269,7 +270,7 @@
 			BSC livestream
 		</div>
 	</a>
-	<a href="" class="relative group block text-white">
+	<div class="relative group block text-white open-utilities cursor-pointer">
 		<div
 			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center">
 			<?php echo svg( 'settings', '20' ) ?>
@@ -278,7 +279,79 @@
 			class="rounded-full absolute bg-primary-300 shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12 ">
 			Tiện ích
 		</div>
-	</a>
+		<div
+			class="md:w-[432px] w-[80vw] md:py-12 py-5 md:px-8 px-5 rounded-[10px] shadow-base bg-white absolute bottom-0 right-14 hidden open-utilities-box">
+			<div
+				class="flex items-center justify-between pb-6 border-b border-black border-opacity-10 text-black">
+				<div class="inline-flex items-center gap-4 font-bold uppercase text-xl">
+					<?php echo svg( 'keyvisual', '24', '24' ) ?>
+					<?php _e( 'Tiện ích', 'gnws' ) ?>
+				</div>
+				<div
+					class="inline-flex items-center gap-1 font-bold uppercase text-primary-700 text-xs hidden-utilities">
+					<?php echo svg( 'close-icon', '20', '20' ) ?>
+					<?php _e( 'Ẩn đi', 'gnws' ) ?>
+				</div>
+			</div>
+			<div class="grid grid-cols-3">
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'category', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						Danh mục <br> khuyến nghị
+					</div>
+				</div>
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'question', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						Hướng dẫn <br> giao dịch
+					</div>
+				</div>
+
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'sp', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						Hỗ trợ <br> trực tuyến
+					</div>
+				</div>
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'fee', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						Biểu phí
+					</div>
+				</div>
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'discount', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						Ưu đãi
+					</div>
+				</div>
+				<div
+					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+					<?php echo svg( 'faq', '40', '40' ) ?>
+					<div class="font-bold text-xs">
+						FAQs
+					</div>
+				</div>
+			</div>
+			<div class="pt-8 border-t border-black border-opacity-10 grid grid-cols-2 gap-3">
+				<a href=""
+					class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(242,33,33,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#F22121]">
+					<?php echo svg( 'live' ) ?>
+					BSC LIVE
+				</a>
+				<a href=""
+					class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(0,92,238,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#005DEE]">
+					<?php echo svg( 'chat' ) ?>
+					Chat với tư vấn viên
+				</a>
+			</div>
+		</div>
+	</div>
 
 	<div
 		class="back-to-top w-10 h-10 rounded-full m-auto bg-slate-200  cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
@@ -320,7 +393,7 @@ if ( have_rows( 'home_components', $page_id ) )
 							</h3>
 
 						</div>
-					
+
 						<div class=" space-y-4 document-modal-content italic mb-12">
 
 						</div>
@@ -329,7 +402,7 @@ if ( have_rows( 'home_components', $page_id ) )
 								class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold"
 								download>
 								<?php _e( 'Xem nội dung', 'bsc' ) ?>
-								<?php echo svgpath( 'download', '20', '20','fill-black' ) ?>
+								<?php echo svgpath( 'download', '20', '20', 'fill-black' ) ?>
 							</a>
 						</div>
 

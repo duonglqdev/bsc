@@ -589,6 +589,14 @@ import ApexCharts from 'apexcharts';
 		$('.collapse-button').click(function () {
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
+		$('.open-utilities').click(function () {
+			$(this).find('.open-utilities-box').show(350);
+		});
+		$('.hidden-utilities').click(function (e) {
+			e.stopPropagation();
+			$('.open-utilities-box').hide(350);
+		});
+		
 	}
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
@@ -628,7 +636,6 @@ import ApexCharts from 'apexcharts';
 			);
 			$('#document-modal .document-modal-title').text(title);
 			$('#document-modal .document-modal-content').text(content);
-			
 		});
 	}
 })(jQuery);

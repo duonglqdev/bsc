@@ -376,4 +376,9 @@
   @apply justify-center;
 }
 
+.utilities_button-hover:hover {
+  background-color: rgba(34, 95, 191, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 24px 0px inset;
+}
+
 /*# sourceMappingURL=base.css.map */
