@@ -19,6 +19,7 @@ import ApexCharts from 'apexcharts';
 			handleScrollNav();
 			toggleContent();
 			handlePhoneCf7();
+			dynamicPopupDocument();
 		});
 	};
 	function menuMobile() {
@@ -201,11 +202,48 @@ import ApexCharts from 'apexcharts';
 			}
 		});
 		$('.data-slick').each(function () {
-			$(this).slick({
+			var $slider = $(this); // Lưu tham chiếu đến slider hiện tại
+
+			$slider.slick({
 				customPaging: function (slider, i) {
 					return '<span class="dot"></span>';
 				},
 			});
+
+			if ($slider.find('.custom_arrow_slick').length) {
+				var $prevBtn = $slider.find('.prev-btn'); // Nút prev cho slider này
+				var $nextBtn = $slider.find('.next-btn'); // Nút next cho slider này
+				var $slickList = $slider.find('.slick-list'); // Slider hiện tại
+
+				$prevBtn.click(function () {
+					$slider.slick('slickPrev'); // Chỉ điều khiển slider hiện tại
+				});
+
+				$nextBtn.click(function () {
+					$slider.slick('slickNext'); // Chỉ điều khiển slider hiện tại
+				});
+
+				$prevBtn.addClass('slick-disabled'); // Disable nút prev mặc định
+
+				$slider.on('afterChange', function () {
+					// Kiểm tra trạng thái của nút prev và next sau khi thay đổi slide
+					if (
+						$slider.find('.slick-prev').hasClass('slick-disabled')
+					) {
+						$prevBtn.addClass('slick-disabled');
+					} else {
+						$prevBtn.removeClass('slick-disabled');
+					}
+
+					if (
+						$slider.find('.slick-next').hasClass('slick-disabled')
+					) {
+						$nextBtn.addClass('slick-disabled');
+					} else {
+						$nextBtn.removeClass('slick-disabled');
+					}
+				});
+			}
 		});
 
 		$('.community_content-bg').slick({
@@ -297,9 +335,20 @@ import ApexCharts from 'apexcharts';
 			var options = {
 				chart: {
 					type: 'line',
-					height: 430,
+					height: 500,
 					toolbar: {
-						show: false,
+						show: true,
+						tools: {
+							zoom: true, // Kích hoạt công cụ zoom mặc định
+							zoomin: true, // Nút zoom in
+							zoomout: true, // Nút zoom out
+							pan: true, // Kích hoạt kéo (pan)
+							reset: true, // Nút để đặt lại zoom
+						},
+						autoSelected: 'zoom',
+					},
+					zoom: {
+						enabled: true, // Kích hoạt zoom
 					},
 				},
 				series: [
@@ -540,18 +589,46 @@ import ApexCharts from 'apexcharts';
 		$('.collapse-button').click(function () {
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
-		
 	}
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
-		window.intlTelInput(input, {
-			initialCountry: 'vn',
-			separateDialCode: true,
-			preferredCountries: ['vn', 'us', 'jp'],
-		});
-		$('#upload_file-input').on('change', function (e) {
-			var fileName = e.target.files[0].name;
-			$('.upload_file').text(fileName);
+
+		if (input) {
+			window.intlTelInput(input, {
+				initialCountry: 'vn',
+				separateDialCode: true,
+				preferredCountries: ['vn', 'us', 'jp'],
+			});
+
+			$('#upload_file-input').on('change', function (e) {
+				var fileName = e.target.files[0].name;
+				$('.upload_file').text(fileName);
+			});
+		} else {
+			return;
+		}
+	}
+
+	function dynamicPopupDocument() {
+		$('.document_item-popup').on('click', function () {
+			var documentLink = $(this).data('doccument');
+
+			var title = $(this)
+				.closest('.document_item-popup')
+				.find('.main_title')
+				.text();
+			var content = $(this)
+				.closest('.document_item-popup')
+				.find('.main_content')
+				.text();
+
+			$('#document-modal .document-modal-link').attr(
+				'href',
+				documentLink
+			);
+			$('#document-modal .document-modal-title').text(title);
+			$('#document-modal .document-modal-content').text(content);
+			
 		});
 	}
 })(jQuery);

@@ -1,14 +1,17 @@
-<section class="chart bg-primary-200 lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="chart bg-primary-200 lg:py-[77px] py-14" <?php if ( get_sub_field( 'id_class' ) )
+{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<?php if (get_sub_field('title_main')) { ?>
-			<h2 class="heading-title mb-12"><?php the_sub_field('title_main') ?></h2>
+		<?php if ( get_sub_field( 'title_main' ) )
+		{ ?>
+			<h2 class="heading-title mb-12"><?php the_sub_field( 'title_main' ) ?></h2>
 		<?php } ?>
 		<div class="grid grid-cols-3 gap-5">
 			<div class="md:col-span-2 col-span-full">
-				<?php if (get_sub_field('title')) { ?>
+				<?php if ( get_sub_field( 'title' ) )
+				{ ?>
 					<h2
 						class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold mb-7 text-primary-300 leading-none">
-						<?php the_sub_field('title') ?>
+						<?php the_sub_field( 'title' ) ?>
 					</h2>
 				<?php } ?>
 				<div class="bg-white rounded-2xl p-7">
@@ -32,44 +35,52 @@
 					<div id="chart"></div>
 
 
-					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
+					<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
 				</div>
 			</div>
 			<div class="md:col-span-1 col-span-full">
 				<div class="flex items-center justify-between mb-7">
-					<?php if (get_sub_field('title_2')) { ?>
+					<?php if ( get_sub_field( 'title_2' ) )
+					{ ?>
 						<h2
 							class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold text-primary-300 leading-none">
-							<?php the_sub_field('title_2') ?>
+							<?php the_sub_field( 'title_2' ) ?>
 						</h2>
 					<?php } ?>
-					<?php if (have_rows('button_xem_tat_ca')) {
-						while (have_rows('button_xem_tat_ca')): the_row();
-							if (get_sub_field('title')) {
-					?>
-								<a href="<?php echo check_link(get_sub_field('link')) ?>"
+					<?php if ( have_rows( 'button_xem_tat_ca' ) )
+					{
+						while ( have_rows( 'button_xem_tat_ca' ) ) :
+							the_row();
+							if ( get_sub_field( 'title' ) )
+							{
+								?>
+								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 ml-9">
-									<?php echo svg('arrow-btn', '20', '20') ?>
-									<?php the_sub_field('title') ?>
+									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+									<?php the_sub_field( 'title' ) ?>
 								</a>
-					<?php
+								<?php
 							}
 						endwhile;
 					}
 					?>
 				</div>
-				<?php if (have_rows('khuyen_nghi')) {
-					while (have_rows('khuyen_nghi')): the_row(); ?>
+				<?php if ( have_rows( 'khuyen_nghi' ) )
+				{
+					while ( have_rows( 'khuyen_nghi' ) ) :
+						the_row(); ?>
 						<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
-							<?php if (get_sub_field('title')) { ?>
+							<?php if ( get_sub_field( 'title' ) )
+							{ ?>
 								<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
-									<?php the_sub_field('title') ?>
+									<?php the_sub_field( 'title' ) ?>
 								</p>
 							<?php } ?>
 							<ul class="space-y-4">
 								<?php
-								for ($i = 0; $i < 5; $i++) {
-								?>
+								for ( $i = 0; $i < 5; $i++ )
+								{
+									?>
 									<li class="flex font-bold gap-[14px] items-center justify-between">
 										<p class="line-clamp-1 flex-1">
 											BID <span class="text-green">(+25%) MUA MẠNH</span> - Ngân hàng đầu
@@ -80,73 +91,87 @@
 											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
 											Hot</p>
 										<a href="">
-											<?php echo svg('download') ?>
+											<?php echo svg( 'download' ) ?>
 										</a>
 									</li>
-								<?php
+									<?php
 								}
 								?>
 							</ul>
-							<?php if (have_rows('button_xem_them')) {
-								while (have_rows('button_xem_them')): the_row(); ?>
-									<a href="<?php echo check_link(get_sub_field('link')) ?>"
+							<?php if ( have_rows( 'button_xem_them' ) )
+							{
+								while ( have_rows( 'button_xem_them' ) ) :
+									the_row(); ?>
+									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 mt-6">
-										<?php echo svg('arrow-btn', '20', '20') ?>
-										<?php the_sub_field('title') ?>
+										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										<?php the_sub_field( 'title' ) ?>
 									</a>
-							<?php
+									<?php
 								endwhile;
 							}
 							?>
 						</div>
-				<?php
+						<?php
 					endwhile;
 				}
 				?>
-				<?php if (have_rows('nganh_doanh_nghiep')) {
-					while (have_rows('nganh_doanh_nghiep')): the_row(); ?>
-						<div class="bg-white rounded-[10px] px-6 py-4">
-							<?php if (get_sub_field('title')) { ?>
-								<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9] text-center">
-									<?php the_sub_field('title') ?>
-								</p>
-							<?php } ?>
-							<ul class="space-y-4">
-								<?php
-								for ($i = 0; $i < 4; $i++) {
-								?>
-									<li class="flex font-bold gap-[14px] items-center justify-between">
-										<p class="line-clamp-1 flex-1">
-											BID <span class="text-green">(+25%) MUA MẠNH</span> - Ngân hàng đầu
-											tư
-										</p>
+
+				<?php if ( have_rows( 'nganh_doanh_nghiep' ) ) : ?>
+					<div class="data-slick block_slider-show-1 slick-dots-center"
+						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": true}'>
+						<?php while ( have_rows( 'nganh_doanh_nghiep' ) ) :
+							the_row(); ?>
+							<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
+								<?php if ( get_sub_field( 'title' ) )
+								{ ?>
+									<div class="flex items-center justify-center gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9]">
+										<button class="prev-btn"><?php echo svg('prev-slick') ?></button>
 										<p
-											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
-											Hot</p>
-										<a href="">
-											<?php echo svg('download') ?>
+											class="font-bold text-lg  text-center">
+											<?php the_sub_field( 'title' ) ?>
+										</p>
+										<button class="next-btn"><?php echo svg('next-slick') ?></button>
+									</div>
+								<?php } ?>
+								<ul class="space-y-4">
+									<?php
+									for ( $i = 0; $i < 4; $i++ )
+									{
+										?>
+										<li class="flex gap-[14px] items-center justify-between">
+											<p class="line-clamp-1 flex-1">
+												Báo cáo tháng 05/2024_Cơ hội của Việt Nam khi được Hoa Kỳ công
+												nhận
+											</p>
+											<p
+												class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+												Hot</p>
+											<a href="">
+												<?php echo svg( 'download' ) ?>
+											</a>
+										</li>
+										<?php
+									}
+									?>
+								</ul>
+								<?php if ( have_rows( 'button_xem_them' ) )
+								{
+									while ( have_rows( 'button_xem_them' ) ) :
+										the_row(); ?>
+										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 mt-6">
+											<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+											<?php the_sub_field( 'title' ) ?>
 										</a>
-									</li>
-								<?php
+										<?php
+									endwhile;
 								}
 								?>
-							</ul>
-							<?php if (have_rows('button_xem_them')) {
-								while (have_rows('button_xem_them')): the_row(); ?>
-									<a href="<?php echo check_link(get_sub_field('link')) ?>"
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 mt-6">
-										<?php echo svg('arrow-btn', '20', '20') ?>
-										<?php the_sub_field('title') ?>
-									</a>
-							<?php
-								endwhile;
-							}
-							?>
-						</div>
-				<?php
-					endwhile;
-				}
-				?>
+							</div>
+						<?php endwhile; ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
