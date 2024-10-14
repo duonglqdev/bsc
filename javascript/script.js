@@ -20,6 +20,7 @@ import ApexCharts from 'apexcharts';
 			toggleContent();
 			handlePhoneCf7();
 			dynamicPopupDocument();
+			stickyHeader();
 		});
 	};
 	function menuMobile() {
@@ -596,7 +597,6 @@ import ApexCharts from 'apexcharts';
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
 		});
-		
 	}
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
@@ -636,6 +636,31 @@ import ApexCharts from 'apexcharts';
 			);
 			$('#document-modal .document-modal-title').text(title);
 			$('#document-modal .document-modal-content').text(content);
+		});
+	}
+	function stickyHeader() {
+		$(document).ready(function () {
+			let lastScrollTop = 0; // Biến lưu vị trí cuộn trước đó
+			const header = $('header'); // Lấy header
+			const stickyClass = 'sticky-header'; // Lớp sticky
+
+			$(window).scroll(function () {
+				let scrollTop = $(this).scrollTop(); // Lấy vị trí cuộn hiện tại
+
+				if (scrollTop > lastScrollTop) {
+					// Cuộn xuống
+					if (header.hasClass(stickyClass)) {
+						header.removeClass(stickyClass); // Bỏ sticky khi cuộn xuống
+					}
+				} else {
+					// Cuộn lên
+					if (!header.hasClass(stickyClass) && scrollTop > 0) {
+						header.addClass(stickyClass); // Thêm sticky khi cuộn lên
+					}
+				}
+
+				lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
+			});
 		});
 	}
 })(jQuery);
