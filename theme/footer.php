@@ -229,7 +229,7 @@
 <?php if ( get_field( 'cdc2_tien_ich_on', 'option' ) )
 { ?>
 	<div
-		class="utilities_button  [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed right-0 top-2/4 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0">
+		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed right-0 top-2/4 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0">
 		<?php the_field( 'cdc2_title', 'option' ) ?>
 		<div class="-rotate-90">
 			<?php echo svg( 'down-2' ) ?>
@@ -259,7 +259,7 @@
 	<?php } ?>
 <?php } ?>
 
-<div class="inline-flex flex-col fixed bottom-14 right-6 gap-4">
+<div class="inline-flex flex-col fixed bottom-14 right-3 gap-4">
 	<a href="" class="relative group block">
 		<div
 			class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center">
@@ -354,8 +354,8 @@
 	</div>
 
 	<div
-		class="back-to-top w-10 h-10 rounded-full m-auto bg-slate-200  cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
-		<?php echo svgClass( 'back-top', '20', '20', 'm-auto h-full' ) ?>
+		class="back-to-top w-10 h-10 rounded-full m-auto bg-white  cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
+		<?php echo svgClass( 'back-top', '', '', 'm-auto h-full' ) ?>
 	</div>
 </div>
 
