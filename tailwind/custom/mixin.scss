@@ -5,6 +5,12 @@
             background-color: $color;
         }
     }
+    .slick-dots{
+        .dot{
+            @apply bg-white;
+        }
+    }
+
 }
 
 .dots-white {

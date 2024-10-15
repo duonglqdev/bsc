@@ -18,7 +18,7 @@ get_header();
 						?>
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white">
 								<?php foreach ($terms as $term) :
-									$active_class = (is_tax('category', $term->term_id)) ? 'active' : '';
+									$active_class = (has_term($term->term_id, 'category')) ? 'active' : '';
 								?>
 									<li class="<?php echo esc_attr($active_class); ?>">
 										<a href="<?php echo get_term_link($term); ?>"

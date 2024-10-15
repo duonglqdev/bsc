@@ -15,10 +15,16 @@
   @apply opacity-100;
   background-color: white;
 }
+.dots-white .slick-dots .dot {
+  @apply bg-white;
+}
 
 .dots-blue .flickity-page-dots .dot {
   @apply opacity-100;
   background-color: theme("colors.primary.300");
+}
+.dots-blue .slick-dots .dot {
+  @apply bg-white;
 }
 
 .block_slider-show-1:not(.flickity-enabled, .slick-initialized) {
@@ -97,24 +103,48 @@
     }
   }
 }
-.sticky-header {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  animation: stuck-header 1s;
-  z-index: 999;
+header.active {
+  transition: 0.5s ease;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
+  z-index: 99;
+  animation: stuck-header 1s;
   box-shadow: 0px -2px 10px 0px #807474;
 }
 
 @keyframes stuck-header {
   0% {
-    transform: translateY(-300px);
+    transform: translateY(-100px);
   }
   100% {
     transform: translateY(0);
   }
 }
+.home__banner {
+  overflow: hidden;
+  position: relative;
+}
+.home__banner .slick-slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__banner .slick-track,
+.home__banner .slick-list {
+  max-height: 100%;
+}
+.home__banner .slick-slide {
+  max-height: 100%;
+}
+.home__banner .slick-slide img,
+.home__banner .slick-slide video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .form_newsletter {
   @apply bg-white bg-opacity-30 rounded-[10px] border border-white py-3 pr-2 pl-4 flex gap-x-4 items-center relative;
 }

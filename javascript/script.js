@@ -296,7 +296,7 @@ import ApexCharts from 'apexcharts';
 		function updateBannerHeight() {
 			var headerHeight = $('header').outerHeight();
 			var bannerHeight = $(window).height() - headerHeight;
-			$('.home__banner').css('height', bannerHeight + 'px');
+			$('.home__banner,.home__banner .block_slider-item').css('height', bannerHeight + 'px');
 		}
 		updateBannerHeight();
 		$(window).resize(updateBannerHeight);
@@ -639,28 +639,20 @@ import ApexCharts from 'apexcharts';
 		});
 	}
 	function stickyHeader() {
-		$(document).ready(function () {
-			let lastScrollTop = 0; // Biến lưu vị trí cuộn trước đó
-			const header = $('header'); // Lấy header
-			const stickyClass = 'sticky-header'; // Lớp sticky
-
-			$(window).scroll(function () {
-				let scrollTop = $(this).scrollTop(); // Lấy vị trí cuộn hiện tại
-
-				if (scrollTop > lastScrollTop) {
-					// Cuộn xuống
-					if (header.hasClass(stickyClass)) {
-						header.removeClass(stickyClass); // Bỏ sticky khi cuộn xuống
-					}
-				} else {
-					// Cuộn lên
-					if (!header.hasClass(stickyClass) && scrollTop > 0) {
-						header.addClass(stickyClass); // Thêm sticky khi cuộn lên
-					}
-				}
-
-				lastScrollTop = scrollTop; // Cập nhật vị trí cuộn trước đó
-			});
+		var lastScroll = 0;
+		var isScrolled = false;
+		window.addEventListener('scroll', function () {
+			var topHeader = document.querySelector('header');
+			var currentScroll =
+				window.pageYOffset ||
+				document.documentElement.scrollTop ||
+				document.body.scrollTop ||
+				0;
+			var scrollDirection = currentScroll < lastScroll;
+			var shouldToggle = isScrolled && scrollDirection;
+			isScrolled = currentScroll > 100;
+			topHeader.classList.toggle('active', shouldToggle);
+			lastScroll = currentScroll;
 		});
 	}
 })(jQuery);
