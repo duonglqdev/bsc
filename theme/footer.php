@@ -232,95 +232,89 @@
 <?php } ?>
 
 <div class="inline-flex flex-col fixed bottom-14 right-3 gap-4">
-	<a href="" class="relative group block">
-		<div
-			class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center">
-			<?php echo svg('ytb', '20') ?>
-		</div>
-		<div
-			class="rounded-full absolute bg-white shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12">
-			BSC livestream
-		</div>
-	</a>
+	<?php if (get_field('cdc3_link', 'option')) { ?>
+		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>" class="relative group block">
+			<div
+				class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center">
+				<?php echo svg('ytb', '20') ?>
+			</div>
+			<?php if (get_field('cdc3_title', 'option')) { ?>
+				<div
+					class="rounded-full absolute bg-white shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12">
+					<?php the_field('cdc3_title', 'option') ?>
+				</div>
+			<?php } ?>
+		</a>
+	<?php  } ?>
 	<div class="relative group block text-white open-utilities cursor-pointer">
 		<div
 			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center">
 			<?php echo svg('settings', '20') ?>
 		</div>
-		<div
-			class="rounded-full absolute bg-primary-300 shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12 ">
-			Tiện ích
-		</div>
+		<?php if (get_field('cdc4_title', 'option')) { ?>
+			<div
+				class="rounded-full absolute bg-primary-300 shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12 ">
+				<?php the_field('cdc4_title', 'option') ?>
+			</div>
+		<?php } ?>
 		<div
 			class="md:w-[432px] w-[80vw] md:py-12 py-5 md:px-8 px-5 rounded-[10px] shadow-base bg-white absolute bottom-0 right-14 hidden open-utilities-box">
 			<div
 				class="flex items-center justify-between pb-6 border-b border-black border-opacity-10 text-black">
-				<div class="inline-flex items-center gap-4 font-bold uppercase text-xl">
-					<?php echo svg('keyvisual', '24', '24') ?>
-					<?php _e('Tiện ích', 'gnws') ?>
-				</div>
+				<?php if (get_field('cdc4_title_khoi', 'option')) { ?>
+					<div class="inline-flex items-center gap-4 font-bold uppercase text-xl">
+						<?php echo svg('keyvisual', '24', '24') ?>
+						<?php the_field('cdc4_title_khoi', 'option') ?>
+					</div>
+				<?php } ?>
 				<div
 					class="inline-flex items-center gap-1 font-bold uppercase text-primary-700 text-xs hidden-utilities">
 					<?php echo svg('close-icon', '20', '20') ?>
 					<?php _e('Ẩn đi', 'gnws') ?>
 				</div>
 			</div>
-			<div class="grid grid-cols-3">
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('category', '40', '40') ?>
-					<div class="font-bold text-xs">
-						Danh mục <br> khuyến nghị
-					</div>
+			<?php if (have_rows('cdc4_menu', 'option')) { ?>
+				<div class="grid grid-cols-3">
+					<?php while (have_rows('cdc4_menu', 'option')): the_row(); ?>
+						<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank"
+							class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+							<?php echo svg_dir(get_sub_field('icon'), '40', '40') ?>
+							<?php if (get_sub_field('title')) { ?>
+								<div class="font-bold text-xs">
+									<?php the_sub_field('title') ?>
+								</div>
+							<?php } ?>
+						</a>
+					<?php endwhile; ?>
 				</div>
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('question', '40', '40') ?>
-					<div class="font-bold text-xs">
-						Hướng dẫn <br> giao dịch
-					</div>
-				</div>
-
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('sp', '40', '40') ?>
-					<div class="font-bold text-xs">
-						Hỗ trợ <br> trực tuyến
-					</div>
-				</div>
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('fee', '40', '40') ?>
-					<div class="font-bold text-xs">
-						Biểu phí
-					</div>
-				</div>
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('discount', '40', '40') ?>
-					<div class="font-bold text-xs">
-						Ưu đãi
-					</div>
-				</div>
-				<div
-					class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-					<?php echo svg('faq', '40', '40') ?>
-					<div class="font-bold text-xs">
-						FAQs
-					</div>
-				</div>
-			</div>
+			<?php } ?>
 			<div class="pt-8 border-t border-black border-opacity-10 grid grid-cols-2 gap-3">
-				<a href=""
-					class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(242,33,33,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#F22121]">
-					<?php echo svg('live') ?>
-					BSC LIVE
-				</a>
-				<a href=""
-					class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(0,92,238,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#005DEE]">
-					<?php echo svg('chat') ?>
-					Chat với tư vấn viên
-				</a>
+				<?php
+				if (have_rows('cdc4_khoi_bsc_live', 'option')) {
+					while (have_rows('cdc4_khoi_bsc_live', 'option')): the_row();
+				?>
+						<a href="<?php echo check_link(get_sub_field('link')) ?>"
+							class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(242,33,33,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#F22121]">
+							<?php echo svg('live') ?>
+							<?php the_sub_field('title') ?>
+						</a>
+				<?php
+					endwhile;
+				}
+				?>
+				<?php
+				if (have_rows('cdc4_khoi_chat_support', 'option')) {
+					while (have_rows('cdc4_khoi_chat_support', 'option')): the_row();
+				?>
+						<a href="<?php echo check_link(get_sub_field('link')) ?>"
+							class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(0,92,238,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#005DEE]">
+							<?php echo svg('chat') ?>
+							<?php the_sub_field('title') ?>
+						</a>
+				<?php
+					endwhile;
+				}
+				?>
 			</div>
 		</div>
 	</div>
