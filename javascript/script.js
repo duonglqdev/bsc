@@ -296,7 +296,10 @@ import ApexCharts from 'apexcharts';
 		function updateBannerHeight() {
 			var headerHeight = $('header').outerHeight();
 			var bannerHeight = $(window).height() - headerHeight;
-			$('.home__banner,.home__banner .block_slider-item').css('height', bannerHeight + 'px');
+			$('.home__banner,.home__banner .block_slider-item').css(
+				'height',
+				bannerHeight + 'px'
+			);
 		}
 		updateBannerHeight();
 		$(window).resize(updateBannerHeight);
@@ -314,9 +317,9 @@ import ApexCharts from 'apexcharts';
 
 			var tabDownloadValue = $(this).attr('data-tab-download');
 
-			$('[data-download]').hide(200);
+			$('[data-download]').removeClass('active');
 
-			$('[data-download="' + tabDownloadValue + '"]').show(200);
+			$('[data-download="' + tabDownloadValue + '"]').addClass('active');
 
 			moveLine($(this));
 		});
@@ -336,7 +339,7 @@ import ApexCharts from 'apexcharts';
 			var options = {
 				chart: {
 					type: 'line',
-					height: 500,
+					height: 475,
 					toolbar: {
 						show: true,
 						tools: {

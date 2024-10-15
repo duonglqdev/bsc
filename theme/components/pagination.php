@@ -5,7 +5,7 @@
 		$default_posts_per_page = (int) get_option('posts_per_page');
 		$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 		?>
-		<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium">
+		<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
 			<?php
 			foreach ($posts_to_show as $number) :
 				$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
