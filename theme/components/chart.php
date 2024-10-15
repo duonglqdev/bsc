@@ -103,9 +103,9 @@
 								while ( have_rows( 'button_xem_them' ) ) :
 									the_row(); ?>
 									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 mt-6">
-										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:text-primary-300 mt-6 text-xs">
 										<?php the_sub_field( 'title' ) ?>
+										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 									</a>
 									<?php
 								endwhile;
@@ -125,10 +125,10 @@
 							<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
 								<?php if ( get_sub_field( 'title' ) )
 								{ ?>
-									<div class="flex items-center justify-center gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9]">
+									<div class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
 										<button class="prev-btn"><?php echo svg('prev-slick') ?></button>
 										<p
-											class="font-bold text-lg  text-center">
+											class="font-bold text-lg text-center line-clamp-1">
 											<?php the_sub_field( 'title' ) ?>
 										</p>
 										<button class="next-btn"><?php echo svg('next-slick') ?></button>
@@ -160,9 +160,9 @@
 									while ( have_rows( 'button_xem_them' ) ) :
 										the_row(); ?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 mt-6">
-											<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+											class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:text-primary-300 mt-6 text-xs">
 											<?php the_sub_field( 'title' ) ?>
+											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 										</a>
 										<?php
 									endwhile;

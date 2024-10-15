@@ -20,6 +20,7 @@ import ApexCharts from 'apexcharts';
 			toggleContent();
 			handlePhoneCf7();
 			dynamicPopupDocument();
+			stickyHeader();
 		});
 	};
 	function menuMobile() {
@@ -295,7 +296,7 @@ import ApexCharts from 'apexcharts';
 		function updateBannerHeight() {
 			var headerHeight = $('header').outerHeight();
 			var bannerHeight = $(window).height() - headerHeight;
-			$('.home__banner').css('height', bannerHeight + 'px');
+			$('.home__banner,.home__banner .block_slider-item').css('height', bannerHeight + 'px');
 		}
 		updateBannerHeight();
 		$(window).resize(updateBannerHeight);
@@ -596,7 +597,6 @@ import ApexCharts from 'apexcharts';
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
 		});
-		
 	}
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
@@ -636,6 +636,23 @@ import ApexCharts from 'apexcharts';
 			);
 			$('#document-modal .document-modal-title').text(title);
 			$('#document-modal .document-modal-content').text(content);
+		});
+	}
+	function stickyHeader() {
+		var lastScroll = 0;
+		var isScrolled = false;
+		window.addEventListener('scroll', function () {
+			var topHeader = document.querySelector('header');
+			var currentScroll =
+				window.pageYOffset ||
+				document.documentElement.scrollTop ||
+				document.body.scrollTop ||
+				0;
+			var scrollDirection = currentScroll < lastScroll;
+			var shouldToggle = isScrolled && scrollDirection;
+			isScrolled = currentScroll > 100;
+			topHeader.classList.toggle('active', shouldToggle);
+			lastScroll = currentScroll;
 		});
 	}
 })(jQuery);
