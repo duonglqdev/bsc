@@ -46,7 +46,7 @@
                                         while (have_rows('content_row')): the_row();
                                             $y++;
                                         ?>
-                                            <div class="grid grid-cols-7 gap-5 <?php if ($i == 1) echo  'font-bold' ?>">
+                                            <div class="grid grid-cols-7 gap-5 <?php if ($y == 1) echo  'font-bold' ?>">
                                                 <div class="col-span-1 lg:py-4 py-3 px-4 text-center">
                                                     <?php the_sub_field('stt') ?>
                                                 </div>
