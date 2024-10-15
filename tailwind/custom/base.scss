@@ -461,3 +461,15 @@ header {
 		@apply px-3;
 	}
 }
+
+.partner_list {
+	@apply after:absolute after:left-0 after:top-0 after:w-20 after:h-full before:absolute before:right-0 before:w-20 before:h-full before:top-0;
+	&::after {
+		background: linear-gradient(270deg, rgba(229, 240, 255, 0.00) 0%, #E5F0FF 100%);
+		z-index: 2;
+	}
+	&:before{
+		background: linear-gradient(81deg, rgba(229, 240, 255, 0) 0%, #E5F0FF 100%);
+		z-index: 2;
+	}
+}
