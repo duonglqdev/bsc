@@ -9,7 +9,7 @@
                     </h2>
                 <?php } ?>
                 <?php if (get_sub_field('content')) { ?>
-                    <div class="mt-5">
+                    <div class="mt-5 font-Helvetica the_content">
                         <?php the_sub_field('content') ?>
                     </div>
                 <?php } ?>

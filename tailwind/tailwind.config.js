@@ -52,6 +52,8 @@ module.exports = {
 					'linear-gradient(90deg, rgba(62, 127, 231, 0.1) 0%, rgba(5, 48, 118, 0.1) 100%)',
 				'gradient-banner':
 					'linear-gradient(251.37deg, rgba(27, 70, 141, 0) 21.94%, rgba(34, 52, 114, 0.738462) 58.49%, #252D69 98.08%)',
+					'gradient-banner-bold':
+					'linear-gradient(270deg, rgba(27, 70, 141, 0) 28.22%, #252D69 98.45%)',
 				'gradient-blue-to-top':
 					'linear-gradient(180deg, #FFF 1.59%, #E5F0FF 29.32%)',
 				'gradient-blue-to-bottom':

@@ -30,6 +30,7 @@
 							<p class="mt-4">
 								<a href="<?php echo check_link(get_sub_field('link')) ?>"
 									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
+									<?php echo svg('keyvisual', '24','24') ?>
 									<?php the_sub_field('title') ?>
 									<?php echo svg('arrow-btn', '14', '14') ?>
 								</a>
@@ -163,6 +164,7 @@
 							<p class="mt-4">
 								<a href="<?php echo check_link(get_sub_field('link')) ?>"
 									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
+								   <?php echo svg('keyvisual', '24','24') ?>
 									<?php the_sub_field('title') ?>
 									<?php echo svg('arrow-btn', '14', '14') ?>
 								</a>
