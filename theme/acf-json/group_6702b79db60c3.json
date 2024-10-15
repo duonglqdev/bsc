@@ -1831,6 +1831,31 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_670e23c380882",
+                            "label": "Ảnh mặc định",
+                            "name": "default_thumbnail",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
                         }
                     ],
                     "min": "",
@@ -4748,5 +4773,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728832401
+    "modified": 1728979928
 }
