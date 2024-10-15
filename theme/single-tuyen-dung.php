@@ -185,7 +185,7 @@ get_header();
             </h2>
             <?php if (get_field('cdtd_mau_cv', 'option')) { ?>
                 <div class="rounded-lg bg-primary-50 px-5 py-4 mb-3">
-                    <a href="<?php the_field('cdtd_mau_cv', 'option') ?>" class="flex items-center justify-between" download>
+                    <a target="_blank" href="<?php the_field('cdtd_mau_cv', 'option') ?>" class="flex items-center justify-between" download>
                         <div class="flex items-center gap-3 font-Helvetica font-medium">
                             <?php echo svg('docs') ?>
                             <p><?php _e('Mẫu CV BSC. docx', 'bsc') ?></p>
