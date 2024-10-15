@@ -28,7 +28,7 @@ module.exports = {
 				yellow: { 100: '#FFB81C', 200: '#FDB525' },
 				black: '#31333F',
 				paragraph: '#4A5568',
-				gray: { 100: '#898A8D'}
+				gray: { 100: '#898A8D' },
 			},
 			fontSize: {
 				sm: '15px',
@@ -48,11 +48,11 @@ module.exports = {
 					'linear-gradient(180deg, #009C88 15.25%, #2A5CAA 110.41%, #2A5CAA 111.37%)',
 				'gradient-blue-50':
 					'linear-gradient(270deg, #EBF4FA 0%, #F3FBFE 100%)',
-					'gradient-blue-100':
+				'gradient-blue-100':
 					'linear-gradient(90deg, rgba(62, 127, 231, 0.1) 0%, rgba(5, 48, 118, 0.1) 100%)',
 				'gradient-banner':
 					'linear-gradient(251.37deg, rgba(27, 70, 141, 0) 21.94%, rgba(34, 52, 114, 0.738462) 58.49%, #252D69 98.08%)',
-					'gradient-banner-bold':
+				'gradient-banner-bold':
 					'linear-gradient(270deg, rgba(27, 70, 141, 0) 28.22%, #252D69 98.45%)',
 				'gradient-blue-to-top':
 					'linear-gradient(180deg, #FFF 1.59%, #E5F0FF 29.32%)',
@@ -61,14 +61,13 @@ module.exports = {
 					'linear-gradient(351.48deg, #6DB0ED -71.46%, rgba(180, 208, 255, 0.1) 10.05%, rgba(180, 208, 255, 0) 89.17%)',
 				'gradient-blue-to-bottom-50':
 					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
-					'gradient-blue-to-right-50':
+				'gradient-blue-to-right-50':
 					'linear-gradient(265deg, rgba(27, 70, 141, 0) 4.02%, rgba(37, 45, 105, 0.8) 95.98%)',
 			},
 
 			boxShadow: {
 				header: '0px 4px 10px 0px #0000000D',
 			},
-			
 		},
 		container: {
 			center: true,
