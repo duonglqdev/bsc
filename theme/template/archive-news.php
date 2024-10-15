@@ -325,7 +325,7 @@ get_header();
 							</a>
 						</div>
 						<div
-							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
+							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10">
 							<?php
 							for ( $i = 0; $i < 4; $i++ )
 							{
