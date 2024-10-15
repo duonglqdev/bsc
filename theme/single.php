@@ -18,7 +18,7 @@ get_header();
 						?>
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white">
 								<?php foreach ($terms as $term) :
-									$active_class = (is_tax('category', $term->term_id)) ? 'active' : '';
+									$active_class = (is_tax('category', $term->term_id) || has_term($term->term_id, 'category')) ? 'active' : '';
 								?>
 									<li class="<?php echo esc_attr($active_class); ?>">
 										<a href="<?php echo get_term_link($term); ?>"
@@ -35,7 +35,7 @@ get_header();
 										if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
 											<ul class="pl-5 hidden sub-menu w-full bg-white">
 												<?php foreach ($child_terms as $child_term) :
-													$child_active_class = (is_tax('category', $child_term->term_id)) ? 'active' : '';
+													$child_active_class = (is_tax('category', $child_term->term_id) || has_term($child_term->term_id, 'category')) ? 'active' : '';
 												?>
 													<li class="pl-5">
 														<a href="<?php echo get_term_link($child_term); ?>"
