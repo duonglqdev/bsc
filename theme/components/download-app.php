@@ -10,18 +10,19 @@
 						<?php the_sub_field('mota') ?>
 					</p>
 				<?php  } ?>
+				<div class="relative ">
 				<?php if (have_rows('trai_nghiem')) {
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++; ?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i > 1) echo 'hidden' ?>">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-500 absolute w-full h-full top-0 left-0">
 							<?php if (have_rows('qr_code')) {
 								while (have_rows('qr_code')): the_row(); ?>
 									<div class="flex lg:gap-11 gap-5 items-center">
 										<div class="qr w-52 max-w-[40%]">
 											<?php echo wp_get_attachment_image(get_sub_field('img'), 'medium') ?>
 										</div>
-										<ul class="flex-1 space-y-[18px] list-icon">
+										<ul class="flex-1 space-y-4 list-icon">
 											<?php if (have_rows('mota')) {
 												while (have_rows('mota')): the_row(); ?>
 													<li class="text-lg font-semibold list-icon-item">
@@ -82,6 +83,8 @@
 						</div>
 				<?php endwhile;
 				} ?>
+
+				</div>
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>

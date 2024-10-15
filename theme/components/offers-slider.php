@@ -1,58 +1,69 @@
-<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider" <?php if ( get_sub_field( 'id_class' ) )
+{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10">
+		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10 overflow-hidden">
 			<div class="col-span-1">
-				<?php if (get_sub_field('title')) { ?>
-					<h2 class="heading-title mb-4"><?php the_sub_field('title') ?></h2>
+				<?php if ( get_sub_field( 'title' ) )
+				{ ?>
+					<h2 class="heading-title mb-4"><?php the_sub_field( 'title' ) ?></h2>
 				<?php } ?>
-				<?php if (get_sub_field('mota')) { ?>
+				<?php if ( get_sub_field( 'mota' ) )
+				{ ?>
 					<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
-						<?php the_sub_field('mota') ?>
+						<?php the_sub_field( 'mota' ) ?>
 					</p>
 				<?php } ?>
-				<?php if (have_rows('button')) {
-					while (have_rows('button')): the_row();
-						if (get_sub_field('title')) {
-				?>
-							<a href="<?php echo check_link(get_sub_field('link')) ?>"
-								class="btn-base-yellow">
+				<?php if ( have_rows( 'button' ) )
+				{
+					while ( have_rows( 'button' ) ) :
+						the_row();
+						if ( get_sub_field( 'title' ) )
+						{
+							?>
+							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" class="btn-base-yellow">
 								<span
-									class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg('arrow-btn', '20') ?><?php the_sub_field('title') ?></span>
+									class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg( 'arrow-btn', '20' ) ?><?php the_sub_field( 'title' ) ?></span>
 							</a>
-				<?php
+							<?php
 						}
 					endwhile;
 				} ?>
-				<?php if (have_rows('button_1')) {
-					while (have_rows('button_1')): the_row();
-						if (get_sub_field('title')) {
-				?>
+				<?php if ( have_rows( 'button_1' ) )
+				{
+					while ( have_rows( 'button_1' ) ) :
+						the_row();
+						if ( get_sub_field( 'title' ) )
+						{
+							?>
 							<p class="mt-4">
-								<a href="<?php echo check_link(get_sub_field('link')) ?>"
+								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
-									<?php echo svg('keyvisual', '24','24') ?>
-									<?php the_sub_field('title') ?>
-									<?php echo svg('arrow-btn', '14', '14') ?>
+									<?php echo svg( 'keyvisual', '24', '24' ) ?>
+									<?php the_sub_field( 'title' ) ?>
+									<?php echo svg( 'arrow-btn', '14', '14' ) ?>
 								</a>
 							</p>
-				<?php
+							<?php
 						}
 					endwhile;
 				} ?>
 				<div class="mt-8 relative z-10">
-					<?php if (get_sub_field('icon')) { ?>
-						<div class="lg:block hidden absolute -top-28 right-0">
-							<img src="<?php echo wp_get_attachment_image_url(get_sub_field('icon'), 'large') ?>" alt="<?php the_sub_field('title') ?>">
+					<?php if ( get_sub_field( 'icon' ) )
+					{ ?>
+						<div class="lg:block hidden absolute -top-28 right-0 lg:translate-x-10">
+							<img src="<?php echo wp_get_attachment_image_url( get_sub_field( 'icon' ), 'large' ) ?>"
+								alt="<?php the_sub_field( 'title' ) ?>">
 						</div>
 					<?php } ?>
-					<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'm-auto relative z-10')) ?>
+					<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'large', '', array( 'class' => 'm-auto relative z-10' ) ) ?>
 
 				</div>
 			</div>
 			<div class="col-span-1">
-				<?php if (get_sub_field('title_2')) { ?>
+				<?php if ( get_sub_field( 'title_2' ) )
+				{ ?>
 					<h2 class="heading-title mb-8">
-						<?php the_sub_field('title_2') ?>
+						<?php the_sub_field( 'title_2' ) ?>
 					</h2>
 				<?php } ?>
 				<div class="block_slider block_slider-show-2 no-dots -mx-4">
@@ -140,45 +151,58 @@
 						</div>
 					</div>
 				</div>
-				<?php if (have_rows('video_youtube')) {
-					while (have_rows('video_youtube')): the_row();
-						if (get_sub_field('avatar')) { ?>
+				<?php if ( have_rows( 'video_youtube' ) )
+				{
+					while ( have_rows( 'video_youtube' ) ) :
+						the_row();
+						if ( get_sub_field( 'avatar' ) )
+						{ ?>
 							<div class="mt-[12px]">
-								<a href="<?php the_sub_field('url_youtube') ?>" data-fancybox
+								<a href="<?php the_sub_field( 'url_youtube' ) ?>" data-fancybox
 									class="rounded-md overflow-hidden pt-[60%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-									<?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
+									<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'large', '', array( 'class' => 'absolute w-full h-full inset-0 object-cover' ) ) ?>
 									<div
 										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-										<?php echo svg('play') ?>
+										<?php echo svg( 'play' ) ?>
+									</div>
+									<div
+										class="absolute w-full bottom-0 left-0 py-4 px-8 flex items-center gap-3 text-white font-bold bg-gradient-blue-to-right-50 z-10 line-clamp-1">
+										<?php echo svg( 'pause' ) ?>
+										Lệnh điều kiện
 									</div>
 								</a>
 							</div>
-				<?php  };
+						<?php }
+						;
 					endwhile;
 				}
 				?>
-				<?php if (have_rows('button_2')) {
-					while (have_rows('button_2')): the_row();
-						if (get_sub_field('title')) {
-				?>
+				<?php if ( have_rows( 'button_2' ) )
+				{
+					while ( have_rows( 'button_2' ) ) :
+						the_row();
+						if ( get_sub_field( 'title' ) )
+						{
+							?>
 							<p class="mt-4">
-								<a href="<?php echo check_link(get_sub_field('link')) ?>"
+								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
-								   <?php echo svg('keyvisual', '24','24') ?>
-									<?php the_sub_field('title') ?>
-									<?php echo svg('arrow-btn', '14', '14') ?>
+									<?php echo svg( 'keyvisual', '24', '24' ) ?>
+									<?php the_sub_field( 'title' ) ?>
+									<?php echo svg( 'arrow-btn', '14', '14' ) ?>
 								</a>
 							</p>
-				<?php
+							<?php
 						}
 					endwhile;
 				} ?>
 			</div>
 		</div>
 	</div>
-	<?php if (get_sub_field('background')) { ?>
+	<?php if ( get_sub_field( 'background' ) )
+	{ ?>
 		<div class="lg:block hidden absolute bottom-0 left-0">
-			<?php echo wp_get_attachment_image(get_sub_field('background'), 'large') ?>
+			<?php echo wp_get_attachment_image( get_sub_field( 'background' ), 'large' ) ?>
 		</div>
 	<?php } ?>
 </section>

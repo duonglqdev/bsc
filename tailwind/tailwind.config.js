@@ -61,7 +61,10 @@ module.exports = {
 					'linear-gradient(351.48deg, #6DB0ED -71.46%, rgba(180, 208, 255, 0.1) 10.05%, rgba(180, 208, 255, 0) 89.17%)',
 				'gradient-blue-to-bottom-50':
 					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
+					'gradient-blue-to-right-50':
+					'linear-gradient(265deg, rgba(27, 70, 141, 0) 4.02%, rgba(37, 45, 105, 0.8) 95.98%)',
 			},
+
 			boxShadow: {
 				header: '0px 4px 10px 0px #0000000D',
 			},
@@ -75,7 +78,7 @@ module.exports = {
 				md: '728px',
 				lg: '984px',
 				xl: '1240px',
-				'2xl': '1340px',
+				'2xl': '1372px',
 			},
 		},
 	},

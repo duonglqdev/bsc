@@ -17,7 +17,7 @@
 	@screen lg {
 		.menu_top {
 			li {
-				@apply [&:not(:last-child)]:mr-6 [&:not(:last-child)]:pr-6 [&:not(:last-child)]:border-r [&:not(:last-child)]:border-white leading-none;
+				@apply [&:not(:last-child)]:mr-6 [&:not(:last-child)]:pr-6 leading-none relative [&:not(:last-child)]:after:absolute after:w-[1px] [&:not(:last-child)]:after:bg-white [&:not(:last-child)]:after:h-[10px] [&:not(:last-child)]:after:top-1/2 [&:not(:last-child)]:after:-translate-y-1/2  [&:not(:last-child)]:after:right-0;
 				a {
 					@apply block transition-all duration-500 hover:text-yellow-100;
 				}
@@ -354,15 +354,15 @@ header {
 	}
 }
 .subscribe {
-	@apply flex justify-between items-center gap-x-3 py-1 px-3 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
+	@apply flex justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
 	input {
-		@apply border-none focus:outline-0 focus:ring-transparent max-w-full;
+		@apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black font-semibold flex-1;
 	}
 	.wpcf7-form-control-wrap {
-		@apply flex-1 max-w-[60%];
+		@apply flex-1 max-w-[65%];
 	}
 	button {
-		@apply ml-auto whitespace-nowrap;
+		@apply whitespace-nowrap px-4;
 	}
 	svg {
 		@apply shrink-0;

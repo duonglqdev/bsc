@@ -1,12 +1,12 @@
-<section class="chart bg-primary-200 lg:py-[77px] py-14" <?php if ( get_sub_field( 'id_class' ) )
+<section class="chart bg-primary-200 lg:py-[77px] relative py-14" <?php if ( get_sub_field( 'id_class' ) )
 { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<?php if ( get_sub_field( 'title_main' ) )
 		{ ?>
 			<h2 class="heading-title mb-12"><?php the_sub_field( 'title_main' ) ?></h2>
 		<?php } ?>
-		<div class="grid grid-cols-3 gap-5">
-			<div class="md:col-span-2 col-span-full">
+		<div class="md:flex">
+			<div class="flex-1 md:mr-5">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>
 					<h2
@@ -26,9 +26,9 @@
 						</div>
 
 						<div class="flex items-center space-x-4">
-							<span>Thời gian:</span>
-							<input type="date" class="border rounded p-2" value="Mar 02, 2024">
-							<input type="date" class="border rounded p-2" value="Aug 02, 2024">
+							<strong>Thời gian:</strong>
+							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="Mar 02, 2024">
+							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="Aug 02, 2024">
 						</div>
 					</div>
 
@@ -38,12 +38,12 @@
 					<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
 				</div>
 			</div>
-			<div class="md:col-span-1 col-span-full">
+			<div class="md:w-[33.181%]">
 				<div class="flex items-center justify-between mb-7">
 					<?php if ( get_sub_field( 'title_2' ) )
 					{ ?>
 						<h2
-							class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold text-primary-300 leading-none">
+							class="lg:pl-6 pl-4 border-l-2 border-primary-300 xl:text-[28px] text-xl font-bold text-primary-300 leading-none">
 							<?php the_sub_field( 'title_2' ) ?>
 						</h2>
 					<?php } ?>
@@ -55,7 +55,7 @@
 							{
 								?>
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 ml-9">
+									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300">
 									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
 									<?php the_sub_field( 'title' ) ?>
 								</a>
@@ -83,12 +83,13 @@
 									?>
 									<li class="flex font-bold gap-[14px] items-center justify-between">
 										<p class="line-clamp-1 flex-1">
-											BID <span class="text-green">(+25%) MUA MẠNH</span> - Ngân hàng đầu
+											BID <span class="text-[#00BD62]">(+25%) MUA MẠNH</span> - Ngân hàng
+											đầu
 											tư
 										</p>
 
 										<p
-											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 											Hot</p>
 										<a href="">
 											<?php echo svg( 'download' ) ?>
@@ -125,13 +126,13 @@
 							<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
 								<?php if ( get_sub_field( 'title' ) )
 								{ ?>
-									<div class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-										<button class="prev-btn"><?php echo svg('prev-slick') ?></button>
-										<p
-											class="font-bold text-lg text-center line-clamp-1">
+									<div
+										class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
+										<button class="prev-btn"><?php echo svg( 'prev-slick' ) ?></button>
+										<p class="font-bold text-lg text-center line-clamp-1">
 											<?php the_sub_field( 'title' ) ?>
 										</p>
-										<button class="next-btn"><?php echo svg('next-slick') ?></button>
+										<button class="next-btn"><?php echo svg( 'next-slick' ) ?></button>
 									</div>
 								<?php } ?>
 								<ul class="space-y-4">
@@ -174,5 +175,8 @@
 				<?php endif; ?>
 			</div>
 		</div>
+	</div>
+	<div class="absolute bottom-0 right-0 lg:block hidden">
+		<?php echo svg( 'icon-char' ) ?>
 	</div>
 </section>
