@@ -41,6 +41,52 @@
   @apply hidden;
 }
 
+.btn-base-yellow {
+  @apply bg-yellow-100;
+  @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+}
+.btn-base-yellow:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: none;
+}
+.btn-base-yellow:hover {
+  box-shadow: rgba(255, 184, 28, 0.5) 0px 4px 16px 0px;
+}
+.btn-base-yellow:hover::after {
+  width: 120%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-base-green {
+  @apply bg-green;
+  @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+}
+.btn-base-green:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: none;
+}
+.btn-base-green:hover {
+  box-shadow: rgba(0, 158, 135, 0.4) 0px 4px 16px 0px;
+}
+.btn-base-green:hover::after {
+  width: 120%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: all 0.4s ease-in-out;
+}
+
 @layer components {
   @screen lg {
     .menu_top li {
@@ -339,7 +385,7 @@ header.active {
 }
 
 .subscribe {
-  @apply flex justify-between items-center gap-x-3 py-1 px-4 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
+  @apply flex justify-between items-center gap-x-3 py-1 px-3 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
 }
 .subscribe input {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full;

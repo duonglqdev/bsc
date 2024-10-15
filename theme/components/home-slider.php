@@ -53,7 +53,7 @@ if (have_rows('slider')) {
 													if (get_sub_field('title')) {
 											?>
 														<a href="<?php echo check_link(get_sub_field('link')) ?>"
-															class="inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white leading-none">
+															class="btn-base-yellow">
 															<span
 																class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg('arrow-btn', '20') ?><?php the_sub_field('title') ?></span>
 														</a>

@@ -354,7 +354,7 @@ header {
 	}
 }
 .subscribe {
-	@apply flex justify-between items-center gap-x-3 py-1 px-4 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
+	@apply flex justify-between items-center gap-x-3 py-1 px-3 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
 	input {
 		@apply border-none focus:outline-0 focus:ring-transparent max-w-full;
 	}
