@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="py-12 featured_news bg-gradient-blue-to-bottom-50">
+	<section class="pt-12 featured_news bg-gradient-blue-to-bottom-50">
 		<div class="container">
 			<div class="featured_news-list block_slider-show-1"
 				data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": true, "pageDots": false, "cellAlign": "left","contain": true, "autoPlay":3000,"selectedAttraction": 0.01, "friction": 0.2}'>
