@@ -5,14 +5,14 @@
 		<?php } ?>
 		<div class="grid grid-cols-5 gap-5">
 			<div class="md:col-span-3 col-span-full">
-				<div class="flex flex-col">
+				<div class="flex flex-col group">
 					<a href="" class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 					</a>
 					<h3
-						class="lg:text-[22px] text-lg font-bold mb-[12px] transition-all duration-500 hover:text-primary-300">
+						class="lg:text-[22px] text-lg font-bold mb-[12px] transition-all duration-500 group-hover:text-green">
 						<a href="" class="line-clamp-3">Hiệu suất đầu tư gấp 3 lần VN-index, danh
 							mục BSC10
 							có gì đặc biệt?</a>
@@ -34,9 +34,9 @@
 					<?php
 					for ($i = 0; $i < 4; $i++) {
 					?>
-						<li class="lg:p-6 p-4 bg-[#F5FCFF] rounded-lg">
+						<li class="lg:p-6 p-4 bg-[#F5FCFF] rounded-lg group">
 							<h3
-								class="text-lg font-bold mb-3 transition-all duration-500 hover:text-primary-300 ">
+								class="text-lg font-bold mb-3 transition-all duration-500 group-hover:text-green">
 								<a href="" class="line-clamp-2">
 									Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10
 									có gì đặc biệt?

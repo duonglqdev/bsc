@@ -5,6 +5,11 @@
             background-color: $color;
         }
     }
+    .slick-dots {
+        .dot {
+            @apply bg-white;
+        }
+    }
 }
 
 .dots-white {
@@ -16,7 +21,7 @@
 }
 
 @mixin block-slider-show($visible) {
-    &:not(.flickity-enabled,.slick-initialized) {
+    &:not(.flickity-enabled, .slick-initialized) {
         @apply flex overflow-hidden;
 
         .block_slider-item {
@@ -33,4 +38,39 @@
 
 .block_slider-show-2 {
     @include block-slider-show(2);
+}
+
+@mixin btn-base($shadow-color) {
+    @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: none;
+    }
+
+    &:hover {
+        box-shadow: $shadow-color 0px 4px 16px 0px;
+
+        &::after {
+            width: 120%;
+            background-color: rgba(255, 255, 255, 0);
+            transition: all 0.4s ease-in-out;
+        }
+    }
+}
+
+.btn-base-yellow {
+    @apply bg-yellow-100;
+    @include btn-base(rgba(255, 184, 28, 0.5));
+}
+
+.btn-base-green {
+    @apply bg-green;
+    @include btn-base(rgba(0, 158, 135, 0.4));
 }
