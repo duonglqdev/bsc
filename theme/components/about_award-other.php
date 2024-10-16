@@ -32,7 +32,7 @@
                             while (have_rows('content')): the_row(); ?>
                                 <div
                                     class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start ">
-                                    <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'max-w-100')) ?>
+                                    <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'max-w-[40px]')) ?>
                                     <div class="the_content mt-2">
                                         <?php the_sub_field('mota') ?>
                                     </div>
