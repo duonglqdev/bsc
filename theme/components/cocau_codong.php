@@ -14,7 +14,7 @@
                 <?php if (have_rows('table')) { ?>
                     <div class="table_custom rounded-[10px] overflow-hidden">
                         <div
-                            class="table_custom-header grid grid-cols-7 gap-5 bg-[#E6F2FA] font-bold lg:leading-loose">
+                            class="table_custom-header grid grid-cols-7 gap-5 bg-[#E6F2FA] font-bold lg:leading-loose text-primary-400">
                             <div class="col-span-1 py-6 px-4 text-center">
                                 <?php _e('STT', 'bsc') ?>
                             </div>
@@ -68,7 +68,7 @@
                     </div>
                 <?php } ?>
                 <?php if (get_sub_field('mota_nho')) { ?>
-                    <div class="text-right italic mt-4">
+                    <div class="text-right italic mt-4 font-Helvetica">
                         <?php the_sub_field('mota_nho') ?>
                     </div>
                 <?php } ?>
