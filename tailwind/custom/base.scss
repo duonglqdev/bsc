@@ -38,7 +38,7 @@
 			> .submenu-wrapper {
 				@apply w-1/3;
 				> li {
-					@apply transition-all duration-500 pl-5 text-xl [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+					@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
 					a {
 						@apply block;
 					}
@@ -190,10 +190,10 @@ header {
 .about_history-nav,
 .about_award-nav {
 	.slick-next {
-		@apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+		@apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D] z-10;
 	}
 	.slick-prev {
-		@apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+		@apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D] z-10;
 	}
 	.slick-current {
 		@apply after:bg-gradient-blue before:absolute before:w-[18px] before:h-[18px] before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-[#235BA8] before:backdrop-blur-sm before:bg-opacity-50;
