@@ -8,7 +8,7 @@
         <div class="flex md:flex-row flex-col md:gap-[38px] gap-8">
             <div class="md:max-w-80 w-full">
                 <div
-                    class="bg-gradient-[#D1ECFF] lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
+                    class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
                     <div class="flex gap-6">
                         <div
                             class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
