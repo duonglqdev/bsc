@@ -25,13 +25,13 @@ get_header();
                         ));
                         if (!empty($terms) && !is_wp_error($terms)) :
                         ?>
-                            <ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report">
+                            <ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
                                 <?php foreach ($terms as $term) :
                                     $active_class = (is_tax('danh-muc-bao-cao', $term->term_id)) ? 'active' : '';
                                 ?>
                                     <li class="<?php echo esc_attr($active_class); ?>">
                                         <a href="<?php echo get_term_link($term); ?>"
-                                            class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
+                                            class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
                                             <?php echo esc_html($term->name); ?>
                                         </a>
                                         <?php
