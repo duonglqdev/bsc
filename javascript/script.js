@@ -421,6 +421,7 @@ import ApexCharts from 'apexcharts';
 		$('.about_history-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
+			autoplay:true,
 			asNavFor: '.about_history-content',
 			dots: false,
 			prevArrow:

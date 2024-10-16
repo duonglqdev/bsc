@@ -255,19 +255,7 @@ function my_wp_nav_menu_objects($items, $args)
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-/**
- * Add Class to Image Widget
- */
-function add_custom_class_to_widget_image($attr, $attachment, $size)
-{
-    // Check if we're inside the media image widget
-    if (is_active_widget(false, false, 'media_image')) {
-        // Add your custom class
-        $attr['class'] .= ' rounded-lg transition-all duration-500 hover:scale-105';
-    }
-    return $attr;
-}
-add_filter('wp_get_attachment_image_attributes', 'add_custom_class_to_widget_image', 10, 3);
+
 
 /**
  * Add Class Previous/Next Link

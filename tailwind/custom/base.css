@@ -96,7 +96,7 @@
       @apply block transition-all duration-500 hover:text-yellow-100;
     }
     .main_menu > ul > li:not(.menu-home) {
-      @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[1px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item)]:after:w-0 [&:not(.active,.current-menu-item)]:text-black text-yellow-100;
+      @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[2px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item)]:after:w-0 [&:not(.active,.current-menu-item)]:text-black text-yellow-100;
     }
     .main_menu > ul > li:not(.menu-home) a {
       @apply block transition-all duration-500;
@@ -108,7 +108,7 @@
       @apply w-1/3;
     }
     .main_menu-navbar > .submenu-wrapper > li {
-      @apply transition-all duration-500 pl-5 text-xl [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+      @apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
     }
     .main_menu-navbar > .submenu-wrapper > li a {
       @apply block;
@@ -120,16 +120,25 @@
       @apply w-2/3 overflow-hidden max-h-0 transition-all duration-500;
     }
     .main_menu-navbar > .submenu-content > li {
-      @apply text-paragraph  [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:border-opacity-50 [&:not(:last-child)]:mb-6 pb-1 leading-normal;
+      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  [&:not(:last-child)]:mb-6 pb-1 leading-normal;
     }
     .main_menu-navbar > .submenu-content > li > a {
-      @apply flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold;
+      @apply inline-flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold hover:-ml-8 relative bg-no-repeat  hover:pr-8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' focusable='false' viewBox='0 0 24 24' color='var(--token-cd35b17b-eeac-44bd-9757-ecd519fe3587, rgb(255, 184, 28))' style='user-select: none; width: 100%25; height: 100%25; display: inline-block; fill: var(--token-cd35b17b-eeac-44bd-9757-ecd519fe3587, rgb(255, 184, 28)); flex-shrink: 0; transform: rotate(90deg);'%3E%3Cpath d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'%3E%3C/path%3E%3C/svg%3E%0A");
+      background-size: 0 0;
+      background-position: 95%;
     }
     .main_menu-navbar > .submenu-content > li > a img {
-      @apply w-6 h-6;
+      @apply w-6 h-6 transition-all duration-500 object-contain;
+    }
+    .main_menu-navbar > .submenu-content > li > a:hover {
+      @apply bg-right bg-contain;
+    }
+    .main_menu-navbar > .submenu-content > li > a:hover img {
+      @apply opacity-0 invisible;
     }
     .main_menu-navbar > .submenu-content .sub-menu {
-      @apply grid grid-cols-3 gap-3 mt-5;
+      @apply grid grid-cols-3 gap-3 pl-9 pt-4 mt-1 border-t border-[#E1E1E1];
     }
     .main_menu-navbar > .submenu-content .sub-menu a {
       @apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px];
@@ -167,28 +176,8 @@ header.active {
     transform: translateY(0);
   }
 }
-.home__banner {
-  overflow: hidden;
-  position: relative;
-}
-.home__banner .slick-slide {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.home__banner .slick-track,
-.home__banner .slick-list {
-  max-height: 100%;
-}
-.home__banner .slick-slide {
-  max-height: 100%;
-}
-.home__banner .slick-slide img,
-.home__banner .slick-slide video {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.home__banner .slick-dots {
+  @apply relative -mt-10;
 }
 
 .form_newsletter {
@@ -253,11 +242,11 @@ header.active {
 
 .about_history-nav .slick-next,
 .about_award-nav .slick-next {
-  @apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+  @apply absolute right-0 top-1/2 -translate-y-1/2 fill-[#1B468D] z-10;
 }
 .about_history-nav .slick-prev,
 .about_award-nav .slick-prev {
-  @apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D];
+  @apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D] z-10;
 }
 .about_history-nav .slick-current,
 .about_award-nav .slick-current {
@@ -477,6 +466,9 @@ header.active {
 
 .rank-math-breadcrumb .separator {
   @apply px-3;
+}
+.rank-math-breadcrumb a {
+  @apply font-bold;
 }
 
 .partner_list {

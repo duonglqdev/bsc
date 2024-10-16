@@ -8,15 +8,16 @@
         <?php if (have_rows('reward')) { ?>
             <div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica xl:mx-16">
                 <?php while (have_rows('reward')): the_row(); ?>
-                    <div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
+                    <div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group relative">
                         <div class="mb-10">
                             <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'h-full object-contain w-auto m-auto max-h-[140px] transition-all duration-500 group-hover:scale-105')) ?>
                         </div>
                         <?php if (get_sub_field('mota')) { ?>
-                            <div class="line-clamp-6">
+                            <div class="line-clamp-6 text-justify">
                                 <?php the_sub_field('mota') ?>
                             </div>
                         <?php } ?>
+                         <?php echo svgClass('shadow', '','','absolute top-0 right-0 pointer-events-none') ?>
                     </div>
                 <?php endwhile; ?>
             </div>

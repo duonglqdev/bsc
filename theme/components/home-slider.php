@@ -2,7 +2,7 @@
 $id_class = get_sub_field('id_class');
 if (have_rows('slider')) {
 ?>
-	<section class="home__banner data-slick slick-dots-center dots-white block_slider-show-1" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": false, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}' <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
+	<section class="home__banner data-slick slick-dots-center dots-white block_slider-show-1" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}' <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while (have_rows('slider')): the_row();
 			$type_slider = get_sub_field('type_slider');
 			if ($type_slider == 'image') {
@@ -18,7 +18,7 @@ if (have_rows('slider')) {
 				?>
 					<div
 						class="block_slider-item">
-						<div class="w-full relative after:absolute after:w-3/4 after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none">
+						<div class="w-full relative max-h-full after:absolute after:w-3/4 after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none">
 							<video id="video-banner" class="object-cover w-full max-w-full" autoplay="" muted="" playsinline=""
 								loop=""
 								src="<?php the_sub_field('video') ?>"></video>

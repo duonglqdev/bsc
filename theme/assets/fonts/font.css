@@ -23,11 +23,21 @@
     src: url(./Barlow-ExtraBold.ttf);
     font-weight: 800;
 }
-
 @font-face {
     font-family: "Helvetica Neue";
     src: url(./helveticaneuelight.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(./helveticaneue.ttf);
     font-weight: 400;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(./helveticaneueitalic.ttf);
+    font-weight: 400;
+    font-style: italic;
 }
 @font-face {
     font-family: "Helvetica Neue";

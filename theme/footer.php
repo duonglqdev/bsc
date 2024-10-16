@@ -43,7 +43,7 @@
 			<?php } ?>
 		</div>
 		<div
-			class="grid grid-cols-8 2xl:gap-12 lg:gap-10 gap-5 mb-10 pb-10 border-b border-[#f3f3f3] border-opacity-50">
+			class="grid grid-cols-8 2xl:gap-12 lg:gap-10 gap-5 mb-10 pb-10 border-b border-[#f3f3f3] border-opacity-50 font-light">
 			<div class="lg:col-span-3 md:col-span-4 col-span-full">
 				<?php
 				$custom_logo_id = get_field('f1_logo', 'option');
@@ -369,7 +369,7 @@ if ($true_form_modal == 1) {
 
 				</div>
 
-				<div class=" space-y-4 document-modal-content italic mb-12">
+				<div class="font-Helvetica space-y-4 document-modal-content italic mb-12 scroll-bar-custom max-h-80 overflow-y-auto">
 
 				</div>
 				<div class="text-right">

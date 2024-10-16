@@ -6,9 +6,9 @@
             </h3>
         <?php } ?>
         <?php if (have_rows('reward')) { ?>
-            <div class="max-w-[940px] mx-auto mt-[45px]">
+            <div class="max-w-[764px] mx-auto">
                 <div
-                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2 ">
+                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2">
                     <?php
                     while (have_rows('reward')): the_row();
                     ?>
@@ -23,7 +23,7 @@
                     ?>
                 </div>
             </div>
-            <div class="about_award-content mt-10">
+            <div class="about_award-content mt-10 max-w-[886px] mx-auto">
                 <?php
                 while (have_rows('reward')): the_row();
                 ?>
@@ -32,7 +32,7 @@
                             while (have_rows('content')): the_row(); ?>
                                 <div
                                     class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start ">
-                                    <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'max-w-100')) ?>
+                                    <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'max-w-[40px]')) ?>
                                     <div class="the_content mt-2">
                                         <?php the_sub_field('mota') ?>
                                     </div>

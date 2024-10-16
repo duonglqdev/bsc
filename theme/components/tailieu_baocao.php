@@ -16,7 +16,7 @@
             <div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
                 <div class="md:col-span-1 col-span-full">
                     <div class="sticky top-5 z-10">
-                        <ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav">
+                        <ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav space-y-2">
                             <?php
                             $i = 0;
                             foreach ($terms as $term) :
@@ -24,7 +24,7 @@
                             ?>
                                 <li>
                                     <a href="#<?php echo $term->slug ?>"
-                                        class="<?php if ($i == 1) echo 'active' ?> flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
+                                        class="<?php if ($i == 1) echo 'active' ?> flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
                                         <?php echo esc_html($term->name); ?>
                                     </a>
                                 </li>
