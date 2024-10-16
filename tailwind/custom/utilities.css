@@ -54,28 +54,22 @@
 .the_content ul {
     list-style: disc;
     padding-left: 18px;
-    padding-bottom: 5px;
 }
 
 .the_content ul li {
     line-height: 1.5;
     margin-bottom: 10px;
-    font-size: 16px;
 }
-
-
 
 .the_content ol {
     list-style: decimal;
     padding-left: 18px;
-    padding-bottom: 5px;
 }
 
 .the_content ol li {
     line-height: 1.5;
     margin-bottom: 10px;
 }
-
 
 .the_content blockquote {
     padding: 10px 20px;

@@ -6,9 +6,9 @@
             </h3>
         <?php } ?>
         <?php if (have_rows('reward')) { ?>
-            <div class="max-w-[940px] mx-auto mt-[45px]">
+            <div class="max-w-[764px] mx-auto">
                 <div
-                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2 max-w-[764px] mx-auto">
+                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2">
                     <?php
                     while (have_rows('reward')): the_row();
                     ?>
