@@ -46,7 +46,7 @@
                 class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300 cursor-pointer main_title">
                 <?php the_title() ?>
             </p>
-            <div class="line-clamp-2 text-paragraph mb-4 main_content">
+            <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
                 <?php the_content() ?>
             </div>
         </div>
