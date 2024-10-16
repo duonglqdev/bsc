@@ -35,6 +35,12 @@
 }
 @font-face {
     font-family: "Helvetica Neue";
+    src: url(./helveticaneueitalic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Helvetica Neue";
     src: url(./helveticaneuemedium.ttf);
     font-weight: 500;
 }

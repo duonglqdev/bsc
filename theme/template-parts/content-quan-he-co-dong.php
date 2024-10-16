@@ -47,7 +47,7 @@
                 <?php the_title() ?>
             </p>
             <div class="line-clamp-2 text-paragraph mb-4 main_content">
-                <?php the_excerpt() ?>
+                <?php the_content() ?>
             </div>
         </div>
     </div>

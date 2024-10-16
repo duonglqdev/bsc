@@ -369,7 +369,7 @@ if ($true_form_modal == 1) {
 
 				</div>
 
-				<div class=" space-y-4 document-modal-content italic mb-12">
+				<div class="font-Helvetica space-y-4 document-modal-content italic mb-12 scroll-bar-custom max-h-80 overflow-y-auto">
 
 				</div>
 				<div class="text-right">
