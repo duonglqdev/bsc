@@ -167,28 +167,8 @@ header.active {
     transform: translateY(0);
   }
 }
-.home__banner {
-  overflow: hidden;
-  position: relative;
-}
-.home__banner .slick-slide {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.home__banner .slick-track,
-.home__banner .slick-list {
-  max-height: 100%;
-}
-.home__banner .slick-slide {
-  max-height: 100%;
-}
-.home__banner .slick-slide img,
-.home__banner .slick-slide video {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.home__banner .slick-dots {
+  @apply relative -mt-10;
 }
 
 .form_newsletter {
@@ -477,6 +457,9 @@ header.active {
 
 .rank-math-breadcrumb .separator {
   @apply px-3;
+}
+.rank-math-breadcrumb a {
+  @apply font-bold;
 }
 
 .partner_list {

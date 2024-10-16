@@ -2,7 +2,7 @@
 $id_class = get_sub_field('id_class');
 if (have_rows('slider')) {
 ?>
-	<section class="home__banner data-slick slick-dots-center dots-white block_slider-show-1" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": false, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}' <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
+	<section class="home__banner data-slick slick-dots-center dots-white block_slider-show-1" data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}' <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while (have_rows('slider')): the_row();
 			$type_slider = get_sub_field('type_slider');
 			if ($type_slider == 'image') {

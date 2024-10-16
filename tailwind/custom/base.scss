@@ -110,26 +110,8 @@ header {
 }
 
 .home__banner {
-	overflow: hidden;
-	position: relative;
-	.slick-slide {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.slick-track,
-	.slick-list {
-		max-height: 100%;
-	}
-	.slick-slide {
-		max-height: 100%;
-		img,
-		video {
-			width: 100%;
-			height: auto;
-			object-fit: cover;
-		}
+	.slick-dots{
+		@apply relative -mt-10;
 	}
 }
 
@@ -459,6 +441,9 @@ header {
 .rank-math-breadcrumb {
 	.separator {
 		@apply px-3;
+	}
+	a{
+		@apply font-bold;
 	}
 }
 
