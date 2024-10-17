@@ -15,7 +15,7 @@
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++; ?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-500 absolute w-full h-full top-0 left-0">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 absolute w-full h-full top-0 left-0">
 							<?php if (have_rows('qr_code')) {
 								while (have_rows('qr_code')): the_row(); ?>
 									<div class="flex lg:gap-11 gap-5 items-center">
