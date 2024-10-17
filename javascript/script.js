@@ -1,5 +1,7 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
+import WOW from 'wowjs';
+new WOW.WOW().init();  
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -21,7 +23,7 @@ import ApexCharts from 'apexcharts';
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
-			livechat();
+			// livechat();
 		});
 	};
 	function menuMobile() {
