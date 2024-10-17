@@ -7,7 +7,7 @@ Template Name: Tin dịch vụ
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
 			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
@@ -55,9 +55,8 @@ get_header();
 							</h2>
 							<div class="space-y-8">
 								<?php
-								for ( $i = 0; $i < 4; $i++ )
-								{
-									?>
+								for ($i = 0; $i < 4; $i++) {
+								?>
 									<div
 										class="news_service-item md:flex items-center justify-between md:gap-20">
 										<div class="flex items-center">
@@ -96,10 +95,10 @@ get_header();
 										<a href=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 											Xem chi tiết
-											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+											<?php echo svg('arrow-btn', '12', '12') ?>
 										</a>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 
@@ -111,9 +110,8 @@ get_header();
 							</h2>
 							<div class="space-y-8">
 								<?php
-								for ( $i = 0; $i < 6; $i++ )
-								{
-									?>
+								for ($i = 0; $i < 6; $i++) {
+								?>
 									<div
 										class="news_service-item md:flex items-center justify-between md:gap-20">
 										<div class="flex items-center">
@@ -152,20 +150,18 @@ get_header();
 										<a href=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 											Xem chi tiết
-											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+											<?php echo svg('arrow-btn', '12', '12') ?>
 										</a>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 
 							</div>
 						</div>
-
 					</div>
-
 					<div class="mt-12">
-						<?php get_template_part( 'components/pagination' ) ?>
+						<?php get_template_part('components/pagination') ?>
 					</div>
 
 
