@@ -70,7 +70,7 @@
 											if (get_sub_field('title')) { ?>
 												<li>
 													<a href="<?php echo check_link(get_sub_field('link')) ?>"
-														class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 <?php if (have_rows('icon_app')) echo 'ml-9' ?>">
+														class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php if (have_rows('icon_app')) echo 'ml-9' ?>">
 														<?php echo svg('arrow-btn', '20', '20') ?>
 														<?php the_sub_field('title') ?>
 													</a>
@@ -132,7 +132,7 @@
 							?>
 								<li>
 									<button type="button" data-tab-download="<?php echo $i ?>"
-										class="font-bold text-black [&:not(.active)]:text-opacity-70 <?php if ($i == 1) echo 'active' ?>">
+										class="font-bold text-black [&:not(.active)]:text-opacity-70 transition-all duration-500 hover:scale-105 <?php if ($i == 1) echo 'active' ?>">
 										<?php the_sub_field('title') ?>
 									</button>
 								</li>
