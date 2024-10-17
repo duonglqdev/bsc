@@ -6,19 +6,19 @@
 					<h2 class="heading-title mb-4 wow fadeIn"data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
 				<?php } ?>
 				<?php if (get_sub_field('mota')) { ?>
-					<p class="uppercase text-primary-300 text-2xl font-bold mb-10 wow fadeIn"data-wow-duration="2s">
+					<p class="uppercase text-primary-300 text-2xl font-bold wow fadeIn"data-wow-duration="2s">
 						<?php the_sub_field('mota') ?>
 					</p>
 				<?php  } ?>
-				<div class="relative ">
+				<div class="relative">
 				<?php if (have_rows('trai_nghiem')) {
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++; ?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 absolute w-full h-full top-0 left-0">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 absolute w-full h-full top-0 left-0 ">
 							<?php if (have_rows('qr_code')) {
 								while (have_rows('qr_code')): the_row(); ?>
-									<div class="flex lg:gap-11 gap-5 items-center">
+									<div class="flex lg:gap-11 gap-5 items-center lg:my-20 my-10">
 										<div class="qr w-52 max-w-[40%]">
 											<?php echo wp_get_attachment_image(get_sub_field('img'), 'medium') ?>
 										</div>
@@ -53,7 +53,7 @@
 								endwhile;
 							}
 							?>
-							<div class="lg:mt-[88px] mt-10">
+							<div class="mt-10">
 								<ul class="flex items-center gap-3">
 									<?php if (have_rows('icon_app')) {
 										while (have_rows('icon_app')): the_row() ?>

@@ -173,6 +173,9 @@ header {
 .shadow-base {
 	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
 }
+.shadow-base-blue{
+	box-shadow: 2px 2px 10px 0px #0065C11A;
+}
 .list-icon {
 	.list-icon-item {
 		@apply bg-no-repeat bg-left pl-10 bg-contain;
@@ -355,7 +358,7 @@ header {
 		@apply flex-1 max-w-[65%];
 	}
 	button {
-		@apply whitespace-nowrap px-4;
+		@apply whitespace-nowrap px-4 min-w-[97px] h-[38px]  py-1;
 	}
 	svg {
 		@apply shrink-0;

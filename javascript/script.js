@@ -394,7 +394,7 @@ new WOW.WOW().init();
 				markers: {
 					size: 5,
 				},
-				colors: ['#008FFB', '#FEB019', '#00E396'],
+				colors: ['#009E87', '#235BA8', '#FFB81C'],
 				legend: {
 					show: true,
 					position: 'bottom',

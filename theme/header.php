@@ -50,12 +50,11 @@
 								</label>
 							</div>
 						</div>
-						<div class="relative pl-3 ml-3 pr-6">
+						<div class="relative pl-3 pr-6">
 							<input type="text" name="s" placeholder="Tra cứu..."
-								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none"
+								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 								autocomplete="off">
-							<span
-								class="absolute w-full h-full inset-0 border border-green rounded-lg transition-all duration-500 opacity-0 pointer-events-none peer-focus:opacity-100"></span>
+							
 						</div>
 					</form>
 					<ul
