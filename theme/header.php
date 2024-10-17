@@ -100,7 +100,7 @@
 							<ul
 								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
 								<li class="menu-home">
-									<a href="<?php echo get_home_url() ?>">
+									<a href="<?php echo get_home_url() ?>" class="block transition-all duration-500 hover:scale-110">
 										<?php echo svg( 'home', 20 ) ?>
 									</a>
 								</li>
