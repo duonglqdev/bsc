@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-3 relative">
-                    <h4 class="leader_name text-2xl font-bold mb-1">
+                    <h4 class="leader_name text-2xl font-bold mb-1 text-primary-400">
                     </h4>
                     <p class="leader_role font-medium text-black text-opacity-50">
                     </p>
