@@ -21,6 +21,7 @@ import ApexCharts from 'apexcharts';
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
+			livechat();
 		});
 	};
 	function menuMobile() {
@@ -666,5 +667,41 @@ import ApexCharts from 'apexcharts';
 			topHeader.classList.toggle('active', shouldToggle);
 			lastScroll = currentScroll;
 		});
+	}
+
+	function livechat() {
+		jQuery(document).ready(function () {
+			jQuery("a[href='#livechat']").click(function () {
+				liveChat('show');
+				jQuery('#ib-button-messaging').show();
+			});
+		});
+		jQuery(document).on('click', '#ib-button-messaging', function () {
+			jQuery('#ib-button-messaging').css('display', 'none');
+		});
+		(function (I, n, f, o, b, i, p) {
+			I[b] =
+				I[b] ||
+				function () {
+					(I[b].q = I[b].q || []).push(arguments);
+				};
+
+			I[b].t = 1 * new Date();
+			i = n.createElement(f);
+			i.async = 1;
+			i.src = o;
+
+			p = n.getElementsByTagName(f)[0];
+			p.parentNode.insertBefore(i, p);
+		})(
+			window,
+			document,
+			'script',
+			'https://livechat.infobip.com/widget.js',
+			'liveChat'
+		);
+
+		liveChat('init', 'f6a95a7a-4346-4059-8343-d646578b8269');
+		liveChat('hide');
 	}
 })(jQuery);
