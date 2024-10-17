@@ -344,10 +344,10 @@ header.active {
 }
 
 .community_content-bg {
-  @apply max-h-full;
+  @apply max-h-full h-full;
 }
 .community_content-bg .slick-list {
-  @apply max-h-full;
+  @apply max-h-full h-full;
 }
 .community_content-bg .item {
   @apply max-h-full;
@@ -357,6 +357,9 @@ header.active {
   filter: blur(0.5px);
   content: "";
   background: linear-gradient(0deg, rgba(157, 185, 230, 0.15), rgba(164, 177, 198, 0.25)), linear-gradient(266.22deg, rgba(248, 253, 254, 0) -13.47%, rgba(255, 255, 255, 0.62) 52.77%, #ffffff 63.79%);
+}
+.community_content-bg .slick-track {
+  @apply h-full;
 }
 
 .community_content-list .slick-dots {

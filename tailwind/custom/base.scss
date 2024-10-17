@@ -311,9 +311,9 @@ header {
 }
 
 .community_content-bg {
-	@apply max-h-full;
+	@apply max-h-full h-full;
 	.slick-list {
-		@apply max-h-full;
+		@apply max-h-full h-full;
 	}
 	.item {
 		@apply max-h-full;
@@ -329,6 +329,9 @@ header {
 					#ffffff 63.79%
 				);
 		}
+	}
+	.slick-track{
+		@apply h-full;
 	}
 }
 .community_content-list {
