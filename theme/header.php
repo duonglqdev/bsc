@@ -79,7 +79,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-white lg:py-[14px] py-3">
+		<div class="bg-white lg:py-[14px] py-3 shadow-base">
 			<div class="container">
 				<div class="lg:flex lg:justify-between lg:items-center lg:gap-3">
 					<?php
