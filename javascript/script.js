@@ -256,7 +256,7 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-list',
-			initialSlide: 1,
+			
 		});
 
 		$('.community_content-list').slick({
@@ -266,13 +266,13 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-bg',
-			initialSlide: 1,
+			
 			customPaging: function (slider, i) {
 				return '<span class="dot"></span>';
 			},
 		});
 
-		$('.community_nav-item[data-index="1"]').addClass('active');
+		$('.community_nav-item[data-index="0"]').addClass('active');
 
 		$('.community_nav-item').on('click', function () {
 			var index = $(this).data('index');

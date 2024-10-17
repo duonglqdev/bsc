@@ -88,13 +88,13 @@
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>
-				<div class="md:col-span-1 col-span-full ">
+				<div class="md:col-span-1 col-span-full relative">
 					<?php
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++;
 					?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i > 1) echo 'hidden' ?>">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-700 [&:not(.active)]:absolute [&:not(.active)]:w-full [&:not(.active)]:h-full [&:not(.active)]:inset-0 static">
 							<?php
 							$images = get_sub_field('gallery');
 							$total_images = count($images);
@@ -115,7 +115,7 @@
 								?>
 									<?php foreach ($images as $image): ?>
 										<img src="<?php echo esc_url($image['sizes']['large']); ?>"
-											alt="" class="w-full h-auto max-h-[426px]">
+											alt="" class="w-full h-auto min-h-[426px]">
 									<?php endforeach; ?>
 								<?php
 								} ?>

@@ -173,8 +173,8 @@ header {
 .shadow-base {
 	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
 }
-.shadow-base-blue{
-	box-shadow: 2px 2px 10px 0px #0065C11A;
+.shadow-base-blue {
+	box-shadow: 2px 2px 10px 0px #0065c11a;
 }
 .list-icon {
 	.list-icon-item {
@@ -321,8 +321,13 @@ header {
 			@apply absolute w-full h-full pointer-events-none inset-0;
 			filter: blur(0.5px);
 			content: "";
-			background: linear-gradient(0deg, rgb(157 185 230 / 25%), rgb(164 177 198 / 25%)),
-				linear-gradient(266.22deg, rgb(248 253 254 / 0%) -13.47%, rgb(255 255 255 / 62%) 42.77%, #ffffff 63.79%);
+			background: linear-gradient(0deg, rgba(157, 185, 230, 0.15), rgba(164, 177, 198, 0.25)),
+				linear-gradient(
+					266.22deg,
+					rgba(248, 253, 254, 0) -13.47%,
+					rgba(255, 255, 255, 0.62) 52.77%,
+					#ffffff 63.79%
+				);
 		}
 	}
 }

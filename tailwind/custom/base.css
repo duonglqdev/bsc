@@ -356,7 +356,7 @@ header.active {
   @apply absolute w-full h-full pointer-events-none inset-0;
   filter: blur(0.5px);
   content: "";
-  background: linear-gradient(0deg, rgba(157, 185, 230, 0.25), rgba(164, 177, 198, 0.25)), linear-gradient(266.22deg, rgba(248, 253, 254, 0) -13.47%, rgba(255, 255, 255, 0.62) 42.77%, #ffffff 63.79%);
+  background: linear-gradient(0deg, rgba(157, 185, 230, 0.15), rgba(164, 177, 198, 0.25)), linear-gradient(266.22deg, rgba(248, 253, 254, 0) -13.47%, rgba(255, 255, 255, 0.62) 52.77%, #ffffff 63.79%);
 }
 
 .community_content-list .slick-dots {
