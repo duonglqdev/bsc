@@ -475,7 +475,7 @@ header.active {
 }
 
 .partner_list {
-  @apply after:absolute after:left-0 after:top-0 after:w-20 after:h-full before:absolute before:right-0 before:w-20 before:h-full before:top-0;
+  @apply after:absolute after:left-0 after:top-0 after:w-20 after:h-full before:absolute before:right-0 lg:before:w-80 before:w-20 before:h-full before:top-0;
 }
 .partner_list::after {
   background: linear-gradient(270deg, rgba(229, 240, 255, 0) 0%, #e5f0ff 100%);
@@ -484,6 +484,10 @@ header.active {
 .partner_list:before {
   background: linear-gradient(81deg, rgba(229, 240, 255, 0) 0%, #e5f0ff 100%);
   z-index: 2;
+}
+
+button#ib-button-messaging {
+  display: none;
 }
 
 /*# sourceMappingURL=base.css.map */

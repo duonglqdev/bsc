@@ -1,7 +1,7 @@
 <section class="block_partner lg:py-[77px] py-14 relative"
 	style="background-color: <?php the_sub_field( 'background' ) ?>" <?php if ( get_sub_field( 'id_class' ) )
 	  { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
-	<div class="container">
+	<div class="container 2xl:max-w-[1500px]">
 		<?php if ( get_sub_field( 'title' ) )
 		{ ?>
 			<h2 class="heading-title text-center mb-12"><?php the_sub_field( 'title' ) ?></h2>
@@ -9,7 +9,7 @@
 		<?php
 		if ( have_rows( 'gallery' ) ) : ?>
 			<div class="data-slick block_slider-show-2 no-dots -mx-4 relative partner_list" dir="rtl" data-slick='{
-			"slidesToShow": 6, 
+			"slidesToShow": 7, 
 			"slidesToScroll": 1, 
 			"autoplay": true, 
 			"autoplaySpeed": 0, 
