@@ -26,7 +26,7 @@
 
 	<?php wp_body_open(); ?>
 
-	<header class="transition duration-500">
+	<header class="transition duration-500 relative z-10">
 		<div
 			class="bg-gradient-blue py-2 text-white relative  overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg]">
 			<div class="container">
