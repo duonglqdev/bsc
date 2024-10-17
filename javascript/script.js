@@ -1,5 +1,7 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
+import WOW from 'wowjs';
+new WOW.WOW().init();  
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -21,6 +23,7 @@ import ApexCharts from 'apexcharts';
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
+			 livechat();
 		});
 	};
 	function menuMobile() {
@@ -253,7 +256,7 @@ import ApexCharts from 'apexcharts';
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-list',
-			initialSlide: 1,
+			
 		});
 
 		$('.community_content-list').slick({
@@ -263,13 +266,13 @@ import ApexCharts from 'apexcharts';
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-bg',
-			initialSlide: 1,
+			
 			customPaging: function (slider, i) {
 				return '<span class="dot"></span>';
 			},
 		});
 
-		$('.community_nav-item[data-index="1"]').addClass('active');
+		$('.community_nav-item[data-index="0"]').addClass('active');
 
 		$('.community_nav-item').on('click', function () {
 			var index = $(this).data('index');
@@ -391,7 +394,7 @@ import ApexCharts from 'apexcharts';
 				markers: {
 					size: 5,
 				},
-				colors: ['#008FFB', '#FEB019', '#00E396'],
+				colors: ['#009E87', '#235BA8', '#FFB81C'],
 				legend: {
 					show: true,
 					position: 'bottom',
@@ -421,7 +424,7 @@ import ApexCharts from 'apexcharts';
 		$('.about_history-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay:true,
+			autoplay: true,
 			asNavFor: '.about_history-content',
 			dots: false,
 			prevArrow:
@@ -595,11 +598,19 @@ import ApexCharts from 'apexcharts';
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
 		$('.open-utilities').click(function () {
-			$(this).find('.open-utilities-box').show(350);
+			$(this).siblings('.open-utilities-box').toggle(350);
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
+		});
+		$(document).click(function (e) {
+			if (
+				!$(e.target).closest('.open-utilities, .open-utilities-box')
+					.length
+			) {
+				$('.open-utilities-box').hide(350);
+			}
 		});
 	}
 	function handlePhoneCf7() {
@@ -658,5 +669,41 @@ import ApexCharts from 'apexcharts';
 			topHeader.classList.toggle('active', shouldToggle);
 			lastScroll = currentScroll;
 		});
+	}
+
+	function livechat() {
+		jQuery(document).ready(function () {
+			jQuery("a[href='#livechat']").click(function () {
+				liveChat('show');
+				jQuery('#ib-button-messaging').show();
+			});
+		});
+		jQuery(document).on('click', '#ib-button-messaging', function () {
+			jQuery('#ib-button-messaging').css('display', 'none');
+		});
+		(function (I, n, f, o, b, i, p) {
+			I[b] =
+				I[b] ||
+				function () {
+					(I[b].q = I[b].q || []).push(arguments);
+				};
+
+			I[b].t = 1 * new Date();
+			i = n.createElement(f);
+			i.async = 1;
+			i.src = o;
+
+			p = n.getElementsByTagName(f)[0];
+			p.parentNode.insertBefore(i, p);
+		})(
+			window,
+			document,
+			'script',
+			'https://livechat.infobip.com/widget.js',
+			'liveChat'
+		);
+
+		liveChat('init', 'f6a95a7a-4346-4059-8343-d646578b8269');
+		liveChat('hide');
 	}
 })(jQuery);

@@ -5,7 +5,7 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
-			<div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
+			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
 				<div class="md:col-span-1 col-span-full">
 					<div class="sticky top-5 z-10">
 						<?php
@@ -16,13 +16,13 @@ get_header();
 						));
 						if (!empty($terms) && !is_wp_error($terms)) :
 						?>
-							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white">
+							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 								<?php foreach ($terms as $term) :
 									$active_class = (is_tax('category', $term->term_id) || has_term($term->term_id, 'category')) ? 'active' : '';
 								?>
 									<li class="<?php echo esc_attr($active_class); ?>">
 										<a href="<?php echo get_term_link($term); ?>"
-											class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
+											class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
 											<?php echo esc_html($term->name); ?>
 										</a>
 										<?php

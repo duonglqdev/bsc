@@ -136,7 +136,7 @@ get_header();
 			<h2 class="heading-title mb-10">
 				HOẠT ĐỘNG NỔI BẬT
 			</h2>
-			<div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
+			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
 				<div class="md:col-span-1 col-span-full">
 					<div class="sticky top-5 z-10">
 						<ul class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[156px] overflow-y-auto">

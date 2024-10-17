@@ -3,22 +3,22 @@
 		<div class="grid grid-cols-2 gap-5">
 			<div class="md:col-span-1 col-span-full">
 				<?php if (get_sub_field('title')) { ?>
-					<h2 class="heading-title mb-4"><?php the_sub_field('title') ?></h2>
+					<h2 class="heading-title mb-4 wow fadeIn"data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
 				<?php } ?>
 				<?php if (get_sub_field('mota')) { ?>
-					<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
+					<p class="uppercase text-primary-300 text-2xl font-bold wow fadeIn"data-wow-duration="2s">
 						<?php the_sub_field('mota') ?>
 					</p>
 				<?php  } ?>
-				<div class="relative ">
+				<div class="relative">
 				<?php if (have_rows('trai_nghiem')) {
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++; ?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-500 absolute w-full h-full top-0 left-0">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 absolute w-full h-full top-0 left-0 ">
 							<?php if (have_rows('qr_code')) {
 								while (have_rows('qr_code')): the_row(); ?>
-									<div class="flex lg:gap-11 gap-5 items-center">
+									<div class="flex lg:gap-11 gap-5 items-center lg:my-20 my-10">
 										<div class="qr w-52 max-w-[40%]">
 											<?php echo wp_get_attachment_image(get_sub_field('img'), 'medium') ?>
 										</div>
@@ -53,7 +53,7 @@
 								endwhile;
 							}
 							?>
-							<div class="lg:mt-[88px] mt-10">
+							<div class="mt-10">
 								<ul class="flex items-center gap-3">
 									<?php if (have_rows('icon_app')) {
 										while (have_rows('icon_app')): the_row() ?>
@@ -70,7 +70,7 @@
 											if (get_sub_field('title')) { ?>
 												<li>
 													<a href="<?php echo check_link(get_sub_field('link')) ?>"
-														class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 <?php if (have_rows('icon_app')) echo 'ml-9' ?>">
+														class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php if (have_rows('icon_app')) echo 'ml-9' ?>">
 														<?php echo svg('arrow-btn', '20', '20') ?>
 														<?php the_sub_field('title') ?>
 													</a>
@@ -88,13 +88,13 @@
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>
-				<div class="md:col-span-1 col-span-full ">
+				<div class="md:col-span-1 col-span-full relative">
 					<?php
 					$i = 0;
 					while (have_rows('trai_nghiem')): the_row();
 						$i++;
 					?>
-						<div data-download="<?php echo $i ?>" class="<?php if ($i > 1) echo 'hidden' ?>">
+						<div data-download="<?php echo $i ?>" class="<?php if ($i == 1) echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-700 [&:not(.active)]:absolute [&:not(.active)]:w-full [&:not(.active)]:h-full [&:not(.active)]:inset-0 static">
 							<?php
 							$images = get_sub_field('gallery');
 							$total_images = count($images);
@@ -115,7 +115,7 @@
 								?>
 									<?php foreach ($images as $image): ?>
 										<img src="<?php echo esc_url($image['sizes']['large']); ?>"
-											alt="" class="w-full h-auto max-h-[426px]">
+											alt="" class="w-full h-auto min-h-[426px]">
 									<?php endforeach; ?>
 								<?php
 								} ?>
@@ -132,7 +132,7 @@
 							?>
 								<li>
 									<button type="button" data-tab-download="<?php echo $i ?>"
-										class="font-bold text-black [&:not(.active)]:text-opacity-70 <?php if ($i == 1) echo 'active' ?>">
+										class="font-bold text-black [&:not(.active)]:text-opacity-70 transition-all duration-500 hover:scale-105 <?php if ($i == 1) echo 'active' ?>">
 										<?php the_sub_field('title') ?>
 									</button>
 								</li>

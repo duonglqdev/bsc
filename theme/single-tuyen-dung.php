@@ -17,7 +17,7 @@ get_header();
                     </h1>
                 </div>
             </div>
-            <div class="grid md:grid-cols-4 lg:gap-[70px] gap-10">
+            <div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
                 <div class="md:col-span-1 col-span-full">
                     <div class="bg-[#F5FCFF] py-5 px-6 rounded-[10px]">
                         <h3 class="text-primary-300 uppercase text-xl font-bold">

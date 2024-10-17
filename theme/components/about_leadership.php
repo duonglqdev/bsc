@@ -53,7 +53,7 @@
                                                 data-modal-toggle="leader-modal">
                                                 <?php if (get_sub_field('avatar')) { ?>
                                                     <div
-                                                        class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent after:transition-all after:opacity-0 group-hover:after:opacity-100">
+                                                        class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-white-to-top-50 after:transition-all after:opacity-0 group-hover:after:opacity-100">
                                                         <?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'w-full h-full absolute inset-0 object-cover leader_img')) ?>
                                                     </div>
                                                 <?php } ?>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-3 relative">
-                    <h4 class="leader_name text-2xl font-bold mb-1">
+                    <h4 class="leader_name text-2xl font-bold mb-1 text-primary-400">
                     </h4>
                     <p class="leader_role font-medium text-black text-opacity-50">
                     </p>

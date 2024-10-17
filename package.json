@@ -56,6 +56,7 @@
 	"prettier": "@wordpress/prettier-config",
 	"dependencies": {
 		"apexcharts": "^3.54.0",
-		"flowbite": "^2.5.2"
+		"flowbite": "^2.5.2",
+		"wowjs": "^1.1.3"
 	}
 }

@@ -26,7 +26,7 @@
 
 	<?php wp_body_open(); ?>
 
-	<header class="transition duration-500">
+	<header class="transition duration-500 relative z-10">
 		<div
 			class="bg-gradient-blue py-2 text-white relative  overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg]">
 			<div class="container">
@@ -50,12 +50,11 @@
 								</label>
 							</div>
 						</div>
-						<div class="relative pl-3 ml-3 pr-6">
+						<div class="relative pl-3 pr-6">
 							<input type="text" name="s" placeholder="Tra cứu..."
-								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none"
+								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 								autocomplete="off">
-							<span
-								class="absolute w-full h-full inset-0 border border-green rounded-lg transition-all duration-500 opacity-0 pointer-events-none peer-focus:opacity-100"></span>
+							
 						</div>
 					</form>
 					<ul
@@ -79,7 +78,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-white lg:py-[14px] py-3">
+		<div class="bg-white lg:py-[14px] py-3 shadow-base">
 			<div class="container">
 				<div class="lg:flex lg:justify-between lg:items-center lg:gap-3">
 					<?php
@@ -98,9 +97,9 @@
 					<div class="relative lg:flex items-center">
 						<div class="main_menu">
 							<ul
-								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
+								class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-3 font-bold text-black">
 								<li class="menu-home">
-									<a href="<?php echo get_home_url() ?>">
+									<a href="<?php echo get_home_url() ?>" class="block transition-all duration-500 hover:scale-110">
 										<?php echo svg( 'home', 20 ) ?>
 									</a>
 								</li>
@@ -141,7 +140,7 @@
 									{
 										?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500">
+											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block xl:px-6 px-4 xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 											<span class="block relative z-10">
 												<?php the_sub_field( 'title' ) ?>
 											</span>

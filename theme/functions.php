@@ -141,6 +141,7 @@ function bsc_scripts()
 	}
 
 	wp_enqueue_style('bsc-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css');
+	wp_enqueue_style('bsc-animate', get_template_directory_uri() . '/assets/libs/animate.min.css');
 	wp_enqueue_style('bsc-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css');
 	wp_enqueue_style('bsc-css-slick', get_template_directory_uri() . '/assets/libs/slick.min.css');
 	wp_enqueue_style('bsc-css-swipper', get_template_directory_uri() . '/assets/libs/swiper.min.css');
