@@ -97,7 +97,7 @@
 					<div class="relative lg:flex items-center">
 						<div class="main_menu">
 							<ul
-								class="lg:flex hidden lg:items-center xl:gap-8 lg:gap-5 font-bold text-black">
+								class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-3 font-bold text-black">
 								<li class="menu-home">
 									<a href="<?php echo get_home_url() ?>" class="block transition-all duration-500 hover:scale-110">
 										<?php echo svg( 'home', 20 ) ?>
@@ -140,7 +140,7 @@
 									{
 										?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block px-6 py-3 rounded-md font-semibold relative transition-all duration-500">
+											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block xl:px-6 px-4 xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 											<span class="block relative z-10">
 												<?php the_sub_field( 'title' ) ?>
 											</span>

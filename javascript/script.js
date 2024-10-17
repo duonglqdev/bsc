@@ -23,7 +23,7 @@ new WOW.WOW().init();
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
-			// livechat();
+			 livechat();
 		});
 	};
 	function menuMobile() {
