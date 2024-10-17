@@ -3,10 +3,10 @@
 		<div class="grid grid-cols-2 gap-5">
 			<div class="md:col-span-1 col-span-full">
 				<?php if (get_sub_field('title')) { ?>
-					<h2 class="heading-title mb-4"><?php the_sub_field('title') ?></h2>
+					<h2 class="heading-title mb-4 wow fadeIn"data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
 				<?php } ?>
 				<?php if (get_sub_field('mota')) { ?>
-					<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
+					<p class="uppercase text-primary-300 text-2xl font-bold mb-10 wow fadeIn"data-wow-duration="2s">
 						<?php the_sub_field('mota') ?>
 					</p>
 				<?php  } ?>

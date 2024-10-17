@@ -4,7 +4,7 @@
 	<div class="container 2xl:max-w-[1500px]">
 		<?php if ( get_sub_field( 'title' ) )
 		{ ?>
-			<h2 class="heading-title text-center mb-12"><?php the_sub_field( 'title' ) ?></h2>
+			<h2 class="heading-title text-center mb-12 wow fadeIn" data-wow-duration="2s"><?php the_sub_field( 'title' ) ?></h2>
 		<?php } ?>
 		<?php
 		if ( have_rows( 'gallery' ) ) : ?>

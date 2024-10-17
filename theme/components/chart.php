@@ -3,14 +3,14 @@
 	<div class="container">
 		<?php if ( get_sub_field( 'title_main' ) )
 		{ ?>
-			<h2 class="heading-title mb-12"><?php the_sub_field( 'title_main' ) ?></h2>
+			<h2 class="heading-title mb-12 wow fadeIn" data-wow-duration="2s"><?php the_sub_field( 'title_main' ) ?></h2>
 		<?php } ?>
 		<div class="md:flex">
 			<div class="flex-1 md:mr-5">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>
 					<h2
-						class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold mb-7 text-primary-300 leading-none">
+						class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold mb-7 text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'title' ) ?>
 					</h2>
 				<?php } ?>
@@ -43,7 +43,7 @@
 					<?php if ( get_sub_field( 'title_2' ) )
 					{ ?>
 						<h2
-							class="lg:pl-6 pl-4 border-l-2 border-primary-300 xl:text-[28px] text-xl font-bold text-primary-300 leading-none">
+							class="lg:pl-6 pl-4 border-l-2 border-primary-300 xl:text-[28px] text-xl font-bold text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
 							<?php the_sub_field( 'title_2' ) ?>
 						</h2>
 					<?php } ?>

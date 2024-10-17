@@ -5,11 +5,11 @@
 			<div class="col-span-1">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>
-					<h2 class="heading-title mb-4"><?php the_sub_field( 'title' ) ?></h2>
+					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s"><?php the_sub_field( 'title' ) ?></h2>
 				<?php } ?>
 				<?php if ( get_sub_field( 'mota' ) )
 				{ ?>
-					<p class="uppercase text-primary-300 text-2xl font-bold mb-10">
+					<p class="uppercase text-primary-300 text-2xl font-bold mb-10 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'mota' ) ?>
 					</p>
 				<?php } ?>
@@ -37,7 +37,7 @@
 							?>
 							<p class="mt-4">
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
+									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn" data-wow-duration="2s">
 									<?php echo svg( 'keyvisual', '24', '24' ) ?>
 									<?php the_sub_field( 'title' ) ?>
 									<?php echo svg( 'arrow-btn', '14', '14' ) ?>
@@ -62,7 +62,7 @@
 			<div class="col-span-1">
 				<?php if ( get_sub_field( 'title_2' ) )
 				{ ?>
-					<h2 class="heading-title mb-8">
+					<h2 class="heading-title mb-8 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'title_2' ) ?>
 					</h2>
 				<?php } ?>
@@ -186,7 +186,8 @@
 							?>
 							<p class="mt-4">
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105">
+									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn
+									" data-wow-duration="2s">
 									<?php echo svg( 'keyvisual', '24', '24' ) ?>
 									<?php the_sub_field( 'title' ) ?>
 									<?php echo svg( 'arrow-btn', '14', '14' ) ?>
