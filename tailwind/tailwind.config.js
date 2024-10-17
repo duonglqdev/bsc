@@ -63,6 +63,8 @@ module.exports = {
 					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
 				'gradient-blue-to-right-50':
 					'linear-gradient(265deg, rgba(27, 70, 141, 0) 4.02%, rgba(37, 45, 105, 0.8) 95.98%)',
+				'gradient-white-to-top-50':
+					'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 41.68%, rgba(229, 240, 255, 0.60) 100%)',
 			},
 
 			boxShadow: {
