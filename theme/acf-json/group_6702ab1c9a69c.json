@@ -565,6 +565,43 @@
                     "append": ""
                 }
             ]
+        },
+        {
+            "key": "field_6711157ea8a15",
+            "label": "Livechat",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6711158ca8a16",
+            "label": "Iframe Live Chat",
+            "name": "cdc5_iframe_live_chat",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Chèn đường dẫn \"#livechat\" để bật livechat.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -585,5 +622,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728984641
+    "modified": 1729172936
 }
