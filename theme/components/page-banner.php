@@ -29,13 +29,15 @@ if (get_sub_field('title')) {
 } elseif (is_singular('post')) {
     $category = get_the_category();
     $title = $category[0]->name;
+} elseif (is_singular('tuyen-dung')) {
+    $title = get_post_type_object('tuyen-dung')->labels->singular_name;
 } else {
     $title = get_the_title();
 }
 ?>
 
 <section <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>
-    class="page__banner relative after:absolute after:inset-0 after:w-full after:h-full after:pointer-events-none <?php echo $style== 'default'?'after:bg-gradient-banner':'page__banner-haft'  ?>  py-24 text-white bg-no-repeat bg-cover " style="background-image:url('<?php echo $banner ?>')">
+    class="page__banner relative after:absolute after:inset-0 after:w-full after:h-full after:pointer-events-none <?php echo $style == 'default' ? 'after:bg-gradient-banner' : 'page__banner-haft'  ?>  py-24 text-white bg-no-repeat bg-cover " style="background-image:url('<?php echo $banner ?>')">
     <div class="container relative z-[1]">
         <div class="mb-5">
             <?php get_template_part('components/breadcrumb') ?>

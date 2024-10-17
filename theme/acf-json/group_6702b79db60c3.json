@@ -880,6 +880,26 @@
                             "layout": "block",
                             "sub_fields": [
                                 {
+                                    "key": "field_671112a7b5b25",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
                                     "key": "field_67024cf913b07",
                                     "label": "Đường dẫn Youtube",
                                     "name": "url_youtube",
@@ -4773,5 +4793,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728979928
+    "modified": 1729172151
 }
