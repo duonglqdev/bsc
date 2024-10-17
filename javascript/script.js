@@ -421,7 +421,7 @@ import ApexCharts from 'apexcharts';
 		$('.about_history-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay:true,
+			autoplay: true,
 			asNavFor: '.about_history-content',
 			dots: false,
 			prevArrow:
@@ -595,11 +595,19 @@ import ApexCharts from 'apexcharts';
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
 		$('.open-utilities').click(function () {
-			$(this).find('.open-utilities-box').show(350);
+			$(this).siblings('.open-utilities-box').toggle(350);
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
+		});
+		$(document).click(function (e) {
+			if (
+				!$(e.target).closest('.open-utilities, .open-utilities-box')
+					.length
+			) {
+				$('.open-utilities-box').hide(350);
+			}
 		});
 	}
 	function handlePhoneCf7() {

@@ -279,15 +279,15 @@
 			<?php } ?>
 		</a>
 	<?php } ?>
-	<div class="relative group block text-white open-utilities cursor-pointer">
+	<div class="relative block text-white  cursor-pointer">
 		<div
-			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center">
+			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center shadow-base peer open-utilities">
 			<?php echo svg( 'settings', '20' ) ?>
 		</div>
 		<?php if ( get_field( 'cdc4_title', 'option' ) )
 		{ ?>
 			<div
-				class="rounded-full absolute bg-primary-300 shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12 ">
+				class="rounded-full absolute bg-primary-300 shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 peer-hover:opacity-100 peer-hover:w-auto w-10 peer-hover:pr-12 ">
 				<?php the_field( 'cdc4_title', 'option' ) ?>
 			</div>
 		<?php } ?>
@@ -310,7 +310,7 @@
 			</div>
 			<?php if ( have_rows( 'cdc4_menu', 'option' ) )
 			{ ?>
-				<div class="grid grid-cols-3">
+				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto">
 					<?php while ( have_rows( 'cdc4_menu', 'option' ) ) :
 						the_row(); ?>
 						<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
@@ -362,7 +362,7 @@
 	</div>
 
 	<div
-		class="back-to-top w-10 h-10 rounded-full m-auto bg-white  cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
+		class="back-to-top w-10 h-10 rounded-full m-auto bg-white shadow-base cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
 		<?php echo svgClass( 'back-top', '', '', 'm-auto h-full' ) ?>
 	</div>
 </div>

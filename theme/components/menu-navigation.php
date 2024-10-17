@@ -2,7 +2,7 @@
 $id_class = get_sub_field('id_class');
 if (have_rows('menu_navigation')) {
 ?>
-    <section class="bg-primary-50 shadow-base  scroll_nav sticky top-0 z-10" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
+    <section class="bg-primary-50 shadow-base  scroll_nav sticky top-0 z-20" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
         <div class="container">
             <ul class="flex items-center justify-between gap-5">
                 <?php while (have_rows('menu_navigation')): the_row(); ?>
