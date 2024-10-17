@@ -1,4 +1,4 @@
-<section class="about_mission lg:mb-[100px] mb-20" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="about_mission lg:my-[100px] my-20" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (have_rows('su_menh_tam_nhin')) { ?>
             <div class="grid gap-5 md:grid-cols-2 grid-cols-1">
