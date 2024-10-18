@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<section class="bsc-404 bg-black w-full">
+<section class="bsc-404 bg-white w-full">
 	<div class="container mx-auto">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
 			
