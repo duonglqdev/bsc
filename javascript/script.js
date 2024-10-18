@@ -1,7 +1,7 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
 import WOW from 'wowjs';
-new WOW.WOW().init();  
+new WOW.WOW().init();
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -23,7 +23,7 @@ new WOW.WOW().init();
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
-			 livechat();
+			livechat();
 		});
 	};
 	function menuMobile() {
@@ -256,7 +256,6 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-list',
-			
 		});
 
 		$('.community_content-list').slick({
@@ -266,7 +265,7 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-bg',
-			
+
 			customPaging: function (slider, i) {
 				return '<span class="dot"></span>';
 			},
@@ -623,10 +622,20 @@ new WOW.WOW().init();
 				preferredCountries: ['vn', 'us', 'jp'],
 			});
 
+			const defaultText = $('.upload_file').text();
+
 			$('#upload_file-input').on('change', function (e) {
 				var fileName = e.target.files[0].name;
 				$('.upload_file').text(fileName);
 			});
+
+			document.addEventListener(
+				'wpcf7mailsent',
+				function (event) {
+					$('.upload_file').text(defaultText); 
+				},
+				false
+			);
 		} else {
 			return;
 		}
