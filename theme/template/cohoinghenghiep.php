@@ -155,7 +155,7 @@ get_header();
 								Tuyển gấp
 							</div>
 						</div>
-						<div class="col-span-1 m-auto">
+						<div class="col-span-1 ml-auto my-auto">
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
@@ -206,7 +206,7 @@ get_header();
 								Đang tuyển
 							</div>
 						</div>
-						<div class="col-span-1 m-auto">
+						<div class="col-span-1 ml-auto my-auto">
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
