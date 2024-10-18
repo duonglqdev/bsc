@@ -417,6 +417,7 @@ new WOW.WOW().init();
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
+			utoplay: true,
 			fade: true,
 			asNavFor: '.about_history-nav',
 		});
@@ -599,11 +600,14 @@ new WOW.WOW().init();
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
 		$('.open-utilities').click(function () {
-			$(this).siblings('.open-utilities-box').toggle(350);
+			$(this).addClass('active').siblings('.open-utilities-box').toggle(350);
+			$('.open-ytb').addClass('active');
+			
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
+			$('.open-utilities').removeClass('active');
 		});
 		$(document).click(function (e) {
 			if (
@@ -611,6 +615,7 @@ new WOW.WOW().init();
 					.length
 			) {
 				$('.open-utilities-box').hide(350);
+				$('.open-utilities,.open-ytb').removeClass('active');
 			}
 		});
 	}

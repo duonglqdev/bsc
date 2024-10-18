@@ -243,7 +243,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">
 			<div
-				class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center">
+				class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center open-ytb [&:not(.active)]:pointer-events-auto pointer-events-none">
 				<?php echo svg('ytb', '20') ?>
 			</div>
 			<?php if (get_field('cdc3_title', 'option')) { ?>
@@ -256,7 +256,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	<?php } ?>
 	<div class="relative block text-white  cursor-pointer">
 		<div
-			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center shadow-base peer open-utilities">
+			class="w-10 h-10 rounded-full bg-primary-300 shadow-blue relative z-10 flex items-center justify-center shadow-base peer open-utilities [&:not(.active)]:pointer-events-auto pointer-events-none">
 			<?php echo svg('settings', '20') ?>
 		</div>
 		<?php if (get_field('cdc4_title', 'option')) { ?>
