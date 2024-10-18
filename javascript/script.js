@@ -1,7 +1,7 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
 import WOW from 'wowjs';
-new WOW.WOW().init();  
+new WOW.WOW().init();
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -23,7 +23,7 @@ new WOW.WOW().init();
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
-			 livechat();
+			livechat();
 		});
 	};
 	function menuMobile() {
@@ -256,7 +256,6 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-list',
-			
 		});
 
 		$('.community_content-list').slick({
@@ -266,7 +265,7 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.community_content-bg',
-			
+
 			customPaging: function (slider, i) {
 				return '<span class="dot"></span>';
 			},
@@ -418,6 +417,7 @@ new WOW.WOW().init();
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
+			utoplay: true,
 			fade: true,
 			asNavFor: '.about_history-nav',
 		});
@@ -457,6 +457,7 @@ new WOW.WOW().init();
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
+			autoplay: true,
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
@@ -464,6 +465,7 @@ new WOW.WOW().init();
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
+			autoplay: true,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
@@ -598,11 +600,14 @@ new WOW.WOW().init();
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
 		$('.open-utilities').click(function () {
-			$(this).siblings('.open-utilities-box').toggle(350);
+			$(this).addClass('active').siblings('.open-utilities-box').toggle(350);
+			$('.open-ytb').addClass('active');
+			
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
+			$('.open-utilities').removeClass('active');
 		});
 		$(document).click(function (e) {
 			if (
@@ -610,6 +615,7 @@ new WOW.WOW().init();
 					.length
 			) {
 				$('.open-utilities-box').hide(350);
+				$('.open-utilities,.open-ytb').removeClass('active');
 			}
 		});
 	}
@@ -623,10 +629,20 @@ new WOW.WOW().init();
 				preferredCountries: ['vn', 'us', 'jp'],
 			});
 
+			const defaultText = $('.upload_file').text();
+
 			$('#upload_file-input').on('change', function (e) {
 				var fileName = e.target.files[0].name;
 				$('.upload_file').text(fileName);
 			});
+
+			document.addEventListener(
+				'wpcf7mailsent',
+				function (event) {
+					$('.upload_file').text(defaultText);
+				},
+				false
+			);
 		} else {
 			return;
 		}
@@ -639,20 +655,22 @@ new WOW.WOW().init();
 			var title = $(this)
 				.closest('.document_item-popup')
 				.find('.main_title')
-				.text();
+				.html(); 
+
 			var content = $(this)
 				.closest('.document_item-popup')
 				.find('.main_content')
-				.text();
+				.html(); 
 
 			$('#document-modal .document-modal-link').attr(
 				'href',
 				documentLink
 			);
-			$('#document-modal .document-modal-title').text(title);
-			$('#document-modal .document-modal-content').text(content);
+			$('#document-modal .document-modal-title').html(title); 
+			$('#document-modal .document-modal-content').html(content); 
 		});
 	}
+
 	function stickyHeader() {
 		var lastScroll = 0;
 		var isScrolled = false;

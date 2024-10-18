@@ -115,8 +115,8 @@ get_header();
 
 					<div
 						class="job_item grid lg:grid-cols-9 gap-5 font-Helvetica mb-[30px] pb-[30px] border-b border-[#C3C3C3]">
-						<div class="col-span-3 job_title">
-							<p class="mb-4 text-gray-100 font-medium">Vị trí ứng tuyển</p>
+						<div class="col-span-3 job_title lg:mr-5">
+							<p class="mb-4 text-gray-100 font-medium text-xs">Vị trí ứng tuyển</p>
 							<h4
 								class="font-bold text-lg transition-all duration-500 hover:text-primary-300">
 								<a href="" class="line-clamp-3">
@@ -126,25 +126,25 @@ get_header();
 							</h4>
 						</div>
 						<div class="col-span-1">
-							<p class="mb-4 text-gray-100 font-medium">Kinh nghiệm</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Kinh nghiệm</p>
 							<p class="font-bold text-lg job_exp">
 								3 năm
 							</p>
 						</div>
 						<div class="col-span-1 ">
-							<p class="mb-4 text-gray-100 font-medium">Nơi làm việc</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Nơi làm việc</p>
 							<p class="font-bold text-lg job_location">
 								Hà Nội
 							</p>
 						</div>
 						<div class="col-span-1">
-							<p class="mb-4 text-gray-100 font-medium">Số lượng tuyển</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Số lượng tuyển</p>
 							<p class="font-bold text-lg job_number">
 								2 người
 							</p>
 						</div>
 						<div class="col-span-1 ">
-							<p class="mb-4 text-gray-100 font-medium">Hạn nộp hồ sơ</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Hạn nộp hồ sơ</p>
 							<p class="font-bold text-lg job_date">
 								05/10/2026
 							</p>
@@ -155,7 +155,7 @@ get_header();
 								Tuyển gấp
 							</div>
 						</div>
-						<div class="col-span-1 m-auto">
+						<div class="col-span-1 ml-auto my-auto">
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
@@ -167,7 +167,7 @@ get_header();
 					<div
 						class="job_item grid lg:grid-cols-9 gap-5 font-Helvetica mb-[30px] pb-[30px] border-b border-[#C3C3C3]">
 						<div class="col-span-3 job_title">
-							<p class="mb-4 text-gray-100 font-medium">Vị trí ứng tuyển</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Vị trí ứng tuyển</p>
 							<h4
 								class="font-bold text-lg transition-all duration-500 hover:text-primary-300">
 								<a href="" class="line-clamp-3">
@@ -177,25 +177,25 @@ get_header();
 							</h4>
 						</div>
 						<div class="col-span-1">
-							<p class="mb-4 text-gray-100 font-medium">Kinh nghiệm</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Kinh nghiệm</p>
 							<p class="font-bold text-lg job_exp">
 								3 năm
 							</p>
 						</div>
 						<div class="col-span-1 ">
-							<p class="mb-4 text-gray-100 font-medium">Nơi làm việc</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Nơi làm việc</p>
 							<p class="font-bold text-lg job_location">
 								Hà Nội
 							</p>
 						</div>
 						<div class="col-span-1">
-							<p class="mb-4 text-gray-100 font-medium">Số lượng tuyển</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Số lượng tuyển</p>
 							<p class="font-bold text-lg job_number">
 								2 người
 							</p>
 						</div>
 						<div class="col-span-1 ">
-							<p class="mb-4 text-gray-100 font-medium">Hạn nộp hồ sơ</p>
+							<p class="mb-4 text-gray-100 font-medium text-xs">Hạn nộp hồ sơ</p>
 							<p class="font-bold text-lg job_date">
 								05/10/2026
 							</p>
@@ -206,7 +206,7 @@ get_header();
 								Đang tuyển
 							</div>
 						</div>
-						<div class="col-span-1 m-auto">
+						<div class="col-span-1 ml-auto my-auto">
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
@@ -278,6 +278,10 @@ get_header();
 						<?php
 					}
 					?>
+				</div>
+
+				<div class="absolute -top-5 left-32">
+					<?php echo svg( 'quote2' ) ?>
 				</div>
 
 			</div>

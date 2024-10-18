@@ -11,7 +11,7 @@
                 while (have_rows('history')): the_row();
                 ?>
                     <div class="w-full">
-                        <div class="lg:flex">
+                        <div class="lg:flex items-center">
                             <?php if (get_sub_field('img')) { ?>
                                 <div class="max-w-[547px] w-full">
                                     <div class="rounded-[20px] overflow-hidden relative pt-[70.21%] group">
@@ -19,7 +19,7 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="lg:ml-20 lg:mt-0 mt-5">
+                            <div class="lg:ml-20 lg:mt-0 mt-5 flex-1">
                                 <?php if (get_sub_field('nam')) { ?>
                                     <h3
                                         class="text-primary-500 xl:text-[75px] md:text-5xl text-4xl font-bold mb-5">
@@ -50,7 +50,7 @@
                     while (have_rows('history')): the_row();
                     ?>
                         <div
-                            class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_history-item cursor-pointer">
+                            class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black [&:not(.slick-current)]:text-opacity-60 text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_history-item cursor-pointer ">
                             <div class="text-center">
                                 <?php the_sub_field('nam') ?>
                             </div>

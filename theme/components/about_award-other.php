@@ -13,7 +13,7 @@
                     while (have_rows('reward')): the_row();
                     ?>
                         <div
-                            class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_award-item cursor-pointer">
+                            class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black [&:not(.slick-current)]:text-opacity-60 text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_award-item cursor-pointer">
                             <div class="text-center">
                                 <?php the_sub_field('nam') ?>
                             </div>
