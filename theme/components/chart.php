@@ -128,11 +128,11 @@
 								{ ?>
 									<div
 										class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-										<button class="prev-btn"><?php echo svg( 'prev-slick' ) ?></button>
+										<button class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg( 'prev-slick' ) ?></button>
 										<p class="font-bold text-lg text-center line-clamp-1">
 											<?php the_sub_field( 'title' ) ?>
 										</p>
-										<button class="next-btn"><?php echo svg( 'next-slick' ) ?></button>
+										<button class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg( 'next-slick' ) ?></button>
 									</div>
 								<?php } ?>
 								<ul class="space-y-4">
