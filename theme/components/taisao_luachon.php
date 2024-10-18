@@ -5,10 +5,10 @@
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
-        <div class="lg:flex lg:gap-[90px]">
+        <div class="lg:flex 2xl:gap-[90px] gap-12">
             <?php if (have_rows('content')) { ?>
                 <div class="flex-1">
-                    <div class="grid grid-cols-2 lg:gap-x-[70px] gap-x-5 lg:gap-y-[50px] gap-y-5">
+                    <div class="grid grid-cols-2 2xl:gap-x-[70px] lg:gap-x-10 gap-x-5 2xl:gap-y-[50px] gap-y-5">
                         <?php while (have_rows('content')): the_row(); ?>
                             <div class="col-auto">
                                 <?php if (get_sub_field('title')) { ?>

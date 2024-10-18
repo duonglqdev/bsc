@@ -13,9 +13,9 @@ get_header();
 			<h2 class="heading-title mb-10">
 				TẠI SAO LỰA CHỌN BSC
 			</h2>
-			<div class="lg:flex lg:gap-[90px]">
+			<div class="lg:flex 2xl:gap-[90px] gap-12">
 				<div class="flex-1">
-					<div class="grid grid-cols-2 lg:gap-x-[70px] gap-x-5 lg:gap-y-[50px] gap-y-5">
+					<div class="grid grid-cols-2 2xl:gap-x-[70px] lg:gap-x-10 gap-x-5 2xl:gap-y-[50px] gap-y-5">
 						<div class="col-auto">
 							<h3 class="uppercase font-bold text-xl mb-4 text-primary-400">
 								MÔI TRƯỜNG LÝ TƯỞNG
