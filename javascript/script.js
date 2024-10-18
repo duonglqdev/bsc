@@ -632,7 +632,7 @@ new WOW.WOW().init();
 			document.addEventListener(
 				'wpcf7mailsent',
 				function (event) {
-					$('.upload_file').text(defaultText); 
+					$('.upload_file').text(defaultText);
 				},
 				false
 			);
@@ -648,20 +648,22 @@ new WOW.WOW().init();
 			var title = $(this)
 				.closest('.document_item-popup')
 				.find('.main_title')
-				.text();
+				.html(); 
+
 			var content = $(this)
 				.closest('.document_item-popup')
 				.find('.main_content')
-				.text();
+				.html(); 
 
 			$('#document-modal .document-modal-link').attr(
 				'href',
 				documentLink
 			);
-			$('#document-modal .document-modal-title').text(title);
-			$('#document-modal .document-modal-content').text(content);
+			$('#document-modal .document-modal-title').html(title); 
+			$('#document-modal .document-modal-content').html(content); 
 		});
 	}
+
 	function stickyHeader() {
 		var lastScroll = 0;
 		var isScrolled = false;

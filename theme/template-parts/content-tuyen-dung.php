@@ -1,6 +1,6 @@
 <div
     class="job_item grid lg:grid-cols-9 gap-5 font-Helvetica mb-[30px] pb-[30px] border-b border-[#C3C3C3]">
-    <div class="col-span-auto job_title lg:mr-5">
+    <div class="col-span-3 job_title lg:mr-5">
         <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Vị trí ứng tuyển', 'bsc') ?></p>
         <h4
             class="font-bold text-lg transition-all duration-500 hover:text-primary-300">
