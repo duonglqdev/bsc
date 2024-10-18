@@ -456,6 +456,7 @@ new WOW.WOW().init();
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
+			autoplay: true,
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
@@ -463,6 +464,7 @@ new WOW.WOW().init();
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
+			autoplay: true,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
