@@ -280,6 +280,10 @@ get_header();
 					?>
 				</div>
 
+				<div class="absolute -top-5 left-32">
+					<?php echo svg( 'quote2' ) ?>
+				</div>
+
 			</div>
 		</div>
 	</section>
