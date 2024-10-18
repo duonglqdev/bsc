@@ -121,7 +121,7 @@ get_header();
                     </div>
                 </div>
                 <div class="md:col-span-3 col-span-full space-y-[30px]">
-                    <div class="content_item the_content prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8]">
+                    <div class="font-Helvetica content_item the_content prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8]">
                         <?php the_content() ?>
                     </div>
                 </div>
