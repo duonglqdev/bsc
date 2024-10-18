@@ -11,7 +11,7 @@
                 while (have_rows('history')): the_row();
                 ?>
                     <div class="w-full">
-                        <div class="lg:flex">
+                        <div class="lg:flex items-center">
                             <?php if (get_sub_field('img')) { ?>
                                 <div class="max-w-[547px] w-full">
                                     <div class="rounded-[20px] overflow-hidden relative pt-[70.21%] group">
@@ -19,7 +19,7 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="lg:ml-20 lg:mt-0 mt-5">
+                            <div class="lg:ml-20 lg:mt-0 mt-5 flex-1">
                                 <?php if (get_sub_field('nam')) { ?>
                                     <h3
                                         class="text-primary-500 xl:text-[75px] md:text-5xl text-4xl font-bold mb-5">
