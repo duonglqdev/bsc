@@ -210,7 +210,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 
 <?php if (get_field('cdc2_tien_ich_on', 'option')) { ?>
 	<div
-		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed right-0 top-2/4 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-20">
+		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed right-0 lg:top-[390px] top-2/4 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-20">
 		<?php the_field('cdc2_title', 'option') ?>
 		<div class="-rotate-90">
 			<?php echo svg('down-2') ?>
@@ -218,7 +218,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	</div>
 	<?php if (have_rows('cdc2_tien_ich', 'option')) { ?>
 		<div
-			class="utilities_button-list transition-all duration-500  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto font-semibold text-white bg-gradient-blue fixed right-0 top-1/4 cursor-pointer rounded-bl-[10px] rounded-tl-[10px] border-2 border-[#FFB81C] border-r-0 text-[12px]">
+			class="utilities_button-list transition-all duration-500  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto font-semibold text-white bg-gradient-blue fixed right-0 lg:top-14 top-1/4 cursor-pointer rounded-bl-[10px] rounded-tl-[10px] border-2 border-[#FFB81C] border-r-0 text-[12px] z-[99]">
 			<?php while (have_rows('cdc2_tien_ich', 'option')) :
 				the_row(); ?>
 				<a href="<?php echo check_link(get_sub_field('link')) ?>"
@@ -238,7 +238,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	<?php } ?>
 <?php } ?>
 
-<div class="inline-flex flex-col fixed bottom-14 right-3 gap-4 z-30">
+<div class="inline-flex flex-col fixed lg:top-[515px] lg:bottom-[unset] bottom-14 right-3 gap-4 z-30">
 	<?php if (get_field('cdc3_link', 'option')) { ?>
 		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">
