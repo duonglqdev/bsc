@@ -13,7 +13,7 @@
     </h3>
     <p
         class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
-        <?php _e('Tải xuống', 'bsc') ?>
+        <?php _e('Xem nội dung', 'bsc') ?>
         <?php echo svg('download') ?>
     </p>
 </div>

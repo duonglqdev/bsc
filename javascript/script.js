@@ -203,6 +203,7 @@ new WOW.WOW().init();
 				});
 			}
 		});
+		
 		$('.data-slick').each(function () {
 			var $slider = $(this); // Lưu tham chiếu đến slider hiện tại
 
@@ -246,6 +247,7 @@ new WOW.WOW().init();
 					}
 				});
 			}
+			
 		});
 
 		$('.community_content-bg').slick({

@@ -8,7 +8,7 @@
 		<?php } ?>
 		<?php
 		if ( have_rows( 'gallery' ) ) : ?>
-			<div class="data-slick block_slider-show-2 no-dots -mx-4 relative partner_list" dir="rtl" data-slick='{
+			<div class="data-slick block_slider-show-2 no-dots -mx-4 relative partner_list data-slick-pause" dir="rtl" data-slick='{
 			"slidesToShow": 7, 
 			"slidesToScroll": 1, 
 			"autoplay": true, 
