@@ -459,11 +459,14 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
+			adaptiveHeight: true,
+			infinite: true,
 		});
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: true,
+			infinite: true,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
@@ -471,7 +474,6 @@ new WOW.WOW().init();
 			nextArrow:
 				'<button class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>',
 			focusOnSelect: true,
-			infinite: false,
 			responsive: [
 				{
 					breakpoint: 1024,
