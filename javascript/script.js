@@ -109,12 +109,13 @@ new WOW.WOW().init();
 			});
 
 			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
+				$('.main_menu > ul > li:not(.menu-home)').removeClass(
+					'active'
+				);
 				if (isMouseInNavbar) {
 					timeout = setTimeout(() => {
 						$('.main_menu-navbar').removeClass('active');
-						$('.main_menu > ul > li:not(.menu-home)').removeClass(
-							'active'
-						);
+						
 						$('.submenu-wrapper > li').removeClass('active');
 						$('.submenu-content').html('');
 						$('.submenu-content').css('max-height', '0');
