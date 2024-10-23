@@ -16,7 +16,7 @@
             <div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
                 <div class="md:col-span-1 col-span-full">
                     <div class="sticky top-5 z-10">
-                        <ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
+                        <ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2 scroll_nav">
                             <?php foreach ($terms as $term) :
                                 $active_class = (is_tax('danh-muc-bao-cao', $term->term_id)) ? 'active' : '';
                             ?>
