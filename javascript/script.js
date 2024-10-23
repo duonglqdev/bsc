@@ -269,9 +269,8 @@ new WOW.WOW().init();
 			},
 		});
 
-		$('.community_nav-item[data-index="0"]').addClass('active');
-
-		$('.community_nav-item').on('click', function () {
+		$('.community_nav-item[data-index="1"]').addClass('active');
+		$('.community_nav-item').on('click mouseenter', function () {
 			var index = $(this).data('index');
 
 			$('.community_content-bg').slick('slickGoTo', index);
@@ -516,13 +515,12 @@ new WOW.WOW().init();
 			.forEach((slide) => {
 				slide.addEventListener('click', function () {
 					if (!this.classList.contains('swiper-slide-active')) {
-						
 						if (this.classList.contains('swiper-slide-next')) {
-							mySwiper.slideNext(); 
+							mySwiper.slideNext();
 						} else if (
 							this.classList.contains('swiper-slide-prev')
 						) {
-							mySwiper.slidePrev(); 
+							mySwiper.slidePrev();
 						}
 					}
 				});
