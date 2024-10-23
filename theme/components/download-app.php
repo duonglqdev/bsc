@@ -72,7 +72,7 @@
 								}
 								?>
 								<div class="mt-10">
-									<ul class="flex items-center gap-3">
+									<ul class="flex items-center gap-3 lg:min-h-[54px]">
 										<?php if ( have_rows( 'icon_app' ) )
 										{
 											while ( have_rows( 'icon_app' ) ) :
@@ -149,7 +149,7 @@
 									?>
 									<?php foreach ( $images as $image ) : ?>
 										<img src="<?php echo esc_url( $image['sizes']['large'] ); ?>" alt=""
-											class="w-full h-auto min-h-[426px]">
+											class="w-full h-auto min-h-[426px] max-h-[426px] object-contain">
 									<?php endforeach; ?>
 									<?php
 								} ?>
