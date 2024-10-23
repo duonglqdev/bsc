@@ -55,7 +55,7 @@
 							{
 								?>
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
+									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 duration-500 hover:text-primary-300">
 									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
 									<?php the_sub_field( 'title' ) ?>
 								</a>
@@ -104,7 +104,7 @@
 								while ( have_rows( 'button_xem_them' ) ) :
 									the_row(); ?>
 									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="text-green font-semibold inline-flex gap-x-2 items-center transition-all hover:scale-105 mt-6 text-xs">
+										class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:text-primary-300 mt-6 text-xs">
 										<?php the_sub_field( 'title' ) ?>
 										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 									</a>
@@ -161,7 +161,7 @@
 									while ( have_rows( 'button_xem_them' ) ) :
 										the_row(); ?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="text-green font-semibold inline-flex gap-x-2 items-center transition-all hover:scale-105 mt-6 text-xs">
+											class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:text-primary-300 mt-6 text-xs">
 											<?php the_sub_field( 'title' ) ?>
 											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 										</a>
