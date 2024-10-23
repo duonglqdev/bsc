@@ -509,6 +509,22 @@ new WOW.WOW().init();
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev',
 		});
+		document
+			.querySelectorAll('.about_culture-list .swiper-slide')
+			.forEach((slide) => {
+				slide.addEventListener('click', function () {
+					if (!this.classList.contains('swiper-slide-active')) {
+						
+						if (this.classList.contains('swiper-slide-next')) {
+							mySwiper.slideNext(); 
+						} else if (
+							this.classList.contains('swiper-slide-prev')
+						) {
+							mySwiper.slidePrev(); 
+						}
+					}
+				});
+			});
 	}
 
 	function aboutDynamicPopup() {
