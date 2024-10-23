@@ -628,12 +628,27 @@ new WOW.WOW().init();
 			$(this).next('ul.sub-menu').slideToggle(200);
 		});
 
-		$('.utilities_button').click(function () {
+		$('.utilities_button').click(function (e) {
+			e.stopPropagation();
 			$('.utilities_button,.utilities_button-list').addClass('active');
 		});
+
 		$('.collapse-button').click(function () {
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
+
+		$(document).click(function (e) {
+			if (
+				!$(e.target).closest(
+					'.utilities_button, .utilities_button-list'
+				).length
+			) {
+				$('.utilities_button,.utilities_button-list').removeClass(
+					'active'
+				);
+			}
+		});
+
 		$('.open-utilities').click(function () {
 			$(this)
 				.addClass('active')
