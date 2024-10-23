@@ -97,7 +97,7 @@
 					<div class="relative lg:flex items-center">
 						<div class="main_menu">
 							<ul
-								class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-3 font-bold text-black">
+								class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-bold text-black">
 								<li class="menu-home">
 									<a href="<?php echo get_home_url() ?>" class="block transition-all duration-500 hover:scale-110">
 										<?php echo svg( 'home', 20 ) ?>
