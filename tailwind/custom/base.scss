@@ -383,7 +383,7 @@ header {
 		@apply mb-4;
 	}
 	ul {
-		@apply max-h-[240px] overflow-y-auto space-y-[12px];
+		@apply max-h-[250px] overflow-y-auto space-y-[12px] pr-4;
 		&::-webkit-scrollbar {
 			width: 4px;
 		}

@@ -409,7 +409,7 @@ header.active {
   @apply mb-4;
 }
 #leader-modal .main__content ul {
-  @apply max-h-[240px] overflow-y-auto space-y-[12px];
+  @apply max-h-[250px] overflow-y-auto space-y-[12px] pr-4;
 }
 #leader-modal .main__content ul::-webkit-scrollbar {
   width: 4px;
