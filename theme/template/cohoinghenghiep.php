@@ -100,7 +100,7 @@ get_header();
 				</div>
 				<div class="lg:col-span-1 col-span-full">
 					<button
-						class="bg-yellow-100 text-black after:bg-green hover:text-white inline-block px-6 py-3 rounded-xl font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:transition-all after:duration-500 after:opacity-0 after:rounded-xl hover:after:w-full hover:after:opacity-100 w-full h-full">
+						class="btn-base-yellow w-full h-full rounded-xl">
 						<span class="block relative z-10">
 							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</span>

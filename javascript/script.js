@@ -18,7 +18,6 @@ new WOW.WOW().init();
 			handleChart();
 			aboutUsSlider();
 			aboutDynamicPopup();
-			handleScrollNav();
 			toggleContent();
 			handlePhoneCf7();
 			dynamicPopupDocument();
@@ -109,12 +108,11 @@ new WOW.WOW().init();
 			});
 
 			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
+				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
 				if (isMouseInNavbar) {
 					timeout = setTimeout(() => {
 						$('.main_menu-navbar').removeClass('active');
-						$('.main_menu > ul > li:not(.menu-home)').removeClass(
-							'active'
-						);
+
 						$('.submenu-wrapper > li').removeClass('active');
 						$('.submenu-content').html('');
 						$('.submenu-content').css('max-height', '0');
@@ -271,9 +269,8 @@ new WOW.WOW().init();
 			},
 		});
 
-		$('.community_nav-item[data-index="0"]').addClass('active');
-
-		$('.community_nav-item').on('click', function () {
+		$('.community_nav-item[data-index="1"]').addClass('active');
+		$('.community_nav-item').on('click mouseenter', function () {
 			var index = $(this).data('index');
 
 			$('.community_content-bg').slick('slickGoTo', index);
@@ -461,11 +458,14 @@ new WOW.WOW().init();
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
+			adaptiveHeight: true,
+			infinite: true,
 		});
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: true,
+			infinite: true,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
@@ -473,7 +473,6 @@ new WOW.WOW().init();
 			nextArrow:
 				'<button class="slick-next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>',
 			focusOnSelect: true,
-			infinite: false,
 			responsive: [
 				{
 					breakpoint: 1024,
@@ -511,6 +510,21 @@ new WOW.WOW().init();
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev',
 		});
+		document
+			.querySelectorAll('.about_culture-list .swiper-slide')
+			.forEach((slide) => {
+				slide.addEventListener('click', function () {
+					if (!this.classList.contains('swiper-slide-active')) {
+						if (this.classList.contains('swiper-slide-next')) {
+							mySwiper.slideNext();
+						} else if (
+							this.classList.contains('swiper-slide-prev')
+						) {
+							mySwiper.slidePrev();
+						}
+					}
+				});
+			});
 	}
 
 	function aboutDynamicPopup() {
@@ -529,58 +543,95 @@ new WOW.WOW().init();
 		});
 	}
 	function handleScrollNav() {
-		$('.scroll_nav a').click(function (e) {
-			e.preventDefault();
+		if ($('.scroll_nav').length) {
+			$('.scroll_nav a').click(function (e) {
+				// Nếu thẻ cha không có class 'has-child', mới ngăn chặn hành vi mặc định
+				if (!$(this).parents().hasClass('has-child')) {
+					e.preventDefault();
+				}
 
-			$('.scroll_nav a').removeClass('active');
+				$('.scroll_nav a').removeClass('active');
+				$(this).addClass('active');
 
-			$(this).addClass('active');
-
-			var target = $(this).attr('href');
-			$('html, body').animate(
-				{
-					scrollTop: $(target).offset().top - 100,
-				},
-				50
-			);
-		});
-
-		function onScroll() {
-			var scrollPosition = $(window).scrollTop();
-			var windowHeight = $(window).height();
-
-			$('.scroll_nav a').each(function () {
 				var target = $(this).attr('href');
-				var sectionOffset = $(target).offset().top - 110;
 
-				var sectionHeight = $(target).outerHeight();
-
-				if (
-					scrollPosition >= sectionOffset &&
-					scrollPosition < sectionOffset + sectionHeight
-				) {
-					$('.scroll_nav a').removeClass('active');
-					$(this).addClass('active');
+				// Kiểm tra xem href có hợp lệ và phần tử target có tồn tại
+				if (target && target !== '#' && $(target).length) {
+					$('html, body').animate(
+						{
+							scrollTop: $(target).offset().top - 100,
+						},
+						50
+					);
 				}
 			});
-		}
 
-		var debounceTimeout;
-		$(window).scroll(function () {
-			if (debounceTimeout) {
-				clearTimeout(debounceTimeout);
+			function onScroll() {
+				var scrollPosition = $(window).scrollTop();
+				var windowHeight = $(window).height();
+				var documentHeight = $(document).height();
+				var scrollBottom = scrollPosition + windowHeight;
+
+				var lastAnchor = $('.scroll_nav a').last(); // Lấy phần tử cuối cùng
+
+				$('.scroll_nav a').each(function () {
+					var target = $(this).attr('href');
+
+					// Kiểm tra kỹ hơn trước khi thực hiện các phép tính
+					if (target && target !== '#' && $(target).length) {
+						var sectionOffset = $(target).offset().top - 110;
+						var sectionHeight = $(target).outerHeight();
+
+						if (
+							scrollPosition >= sectionOffset &&
+							scrollPosition < sectionOffset + sectionHeight
+						) {
+							// Loại bỏ class active cho tất cả các thẻ <a> và thẻ cha có class has-child
+							$('.scroll_nav a').removeClass('active');
+							$('.scroll_nav .has-child').removeClass('active');
+
+							// Thêm class active cho thẻ <a> hiện tại
+							$(this).addClass('active');
+
+							// Nếu thẻ cha có class has-child, thêm class active cho cả thẻ cha
+							if ($(this).parent().hasClass('has-child')) {
+								$(this).parent().addClass('active');
+							}
+						}
+					}
+				});
+
+				// Xử lý riêng cho phần tử cuối cùng nếu đã cuộn tới gần cuối trang
+				var lastTarget = $(lastAnchor.attr('href'));
+				if (scrollBottom >= documentHeight - 10) {
+					$('.scroll_nav a').removeClass('active');
+					lastAnchor.addClass('active');
+
+					if (lastAnchor.parent().hasClass('has-child')) {
+						lastAnchor.parent().addClass('active');
+					}
+				}
 			}
-			debounceTimeout = setTimeout(onScroll, 10);
-		});
 
-		onScroll();
+			var debounceTimeout;
+			$(window).scroll(function () {
+				if (debounceTimeout) {
+					clearTimeout(debounceTimeout);
+				}
+				debounceTimeout = setTimeout(onScroll, 10);
+			});
+
+			onScroll();
+		}
 	}
+
+	handleScrollNav();
 
 	function toggleContent() {
 		$('.sidebar-report li').each(function () {
 			if ($(this).find('ul.sub-menu').length) {
 				$(this)
-					.addClass('has-child')
+					.addClass('has-child group')
 					.find('ul.sub-menu')
 					.before(
 						'<span class="li-plus cursor-pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.43057 8.51192C4.70014 8.19743 5.17361 8.161 5.48811 8.43057L12 14.0122L18.5119 8.43057C18.8264 8.16101 19.2999 8.19743 19.5695 8.51192C19.839 8.82642 19.8026 9.29989 19.4881 9.56946L12.4881 15.5695C12.2072 15.8102 11.7928 15.8102 11.5119 15.5695L4.51192 9.56946C4.19743 9.29989 4.161 8.82641 4.43057 8.51192Z" fill="currentColor"/></svg></span>'
@@ -593,16 +644,33 @@ new WOW.WOW().init();
 			$(this).next('ul.sub-menu').slideToggle(200);
 		});
 
-		$('.utilities_button').click(function () {
+		$('.utilities_button').click(function (e) {
+			e.stopPropagation();
 			$('.utilities_button,.utilities_button-list').addClass('active');
 		});
+
 		$('.collapse-button').click(function () {
 			$('.utilities_button,.utilities_button-list').removeClass('active');
 		});
+
+		$(document).click(function (e) {
+			if (
+				!$(e.target).closest(
+					'.utilities_button, .utilities_button-list'
+				).length
+			) {
+				$('.utilities_button,.utilities_button-list').removeClass(
+					'active'
+				);
+			}
+		});
+
 		$('.open-utilities').click(function () {
-			$(this).addClass('active').siblings('.open-utilities-box').toggle(350);
+			$(this)
+				.addClass('active')
+				.siblings('.open-utilities-box')
+				.toggle(350);
 			$('.open-ytb').addClass('active');
-			
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
@@ -655,19 +723,19 @@ new WOW.WOW().init();
 			var title = $(this)
 				.closest('.document_item-popup')
 				.find('.main_title')
-				.html(); 
+				.html();
 
 			var content = $(this)
 				.closest('.document_item-popup')
 				.find('.main_content')
-				.html(); 
+				.html();
 
 			$('#document-modal .document-modal-link').attr(
 				'href',
 				documentLink
 			);
-			$('#document-modal .document-modal-title').html(title); 
-			$('#document-modal .document-modal-content').html(content); 
+			$('#document-modal .document-modal-title').html(title);
+			$('#document-modal .document-modal-content').html(content);
 		});
 	}
 

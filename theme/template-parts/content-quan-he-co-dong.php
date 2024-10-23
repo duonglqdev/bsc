@@ -1,5 +1,5 @@
 <div
-    class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo check_link(get_field('file')) ?>">
+    class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo check_link(get_field('file')) ?>">
     <div class="flex items-center">
         <?php
         $date_string = get_field('date_post');
@@ -53,7 +53,7 @@
     </div>
     <p
         class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap cursor-pointer">
-        <?php _e('Tải xuống', 'bsc') ?>
+        <?php _e('Xem nội dung', 'bsc') ?>
         <?php echo svg('download') ?>
     </p>
 </div>

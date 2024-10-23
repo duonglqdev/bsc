@@ -19,7 +19,7 @@ if (have_rows('slider')) {
 					<div
 						class="block_slider-item">
 						<div class="w-full relative max-h-full after:absolute after:w-3/4 after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none">
-							<video id="video-banner" class="object-cover w-full max-w-full" autoplay="" muted="" playsinline=""
+							<video id="video-banner" class="object-cover w-full max-w-full h-full max-h-full" autoplay="" muted="" playsinline=""
 								loop=""
 								src="<?php the_sub_field('video') ?>"></video>
 							<div class="absolute w-full h-full inset-0">

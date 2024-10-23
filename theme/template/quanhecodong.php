@@ -300,7 +300,7 @@ get_header();
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="text-2xl font-bold">Công bố thông tin</h2>
 							<a href=""
-								class="inline-flex flex-col justify-center items-center px-5 py-2 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white text-xs">
+								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
 									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 									<?php _e( 'Xem tất cả', 'bsc' ) ?>
@@ -355,7 +355,7 @@ get_header();
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="text-2xl font-bold">Đại hội đồng cổ đông</h2>
 							<a href=""
-								class="inline-flex flex-col justify-center items-center px-5 py-2 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white text-xs">
+								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
 									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 									<?php _e( 'Xem tất cả', 'bsc' ) ?>
@@ -420,7 +420,7 @@ get_header();
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="text-2xl font-bold">Báo cáo tài chính</h2>
 							<a href=""
-								class="inline-flex flex-col justify-center items-center px-5 py-2 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white text-xs">
+								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
 									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 									<?php _e( 'Xem tất cả', 'bsc' ) ?>
@@ -475,7 +475,7 @@ get_header();
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="text-2xl font-bold ">Báo cáo thường niên</h2>
 							<a href=""
-								class="inline-flex flex-col justify-center items-center px-5 py-2 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white text-xs">
+								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
 									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 									<?php _e( 'Xem tất cả', 'bsc' ) ?>
@@ -518,7 +518,7 @@ get_header();
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="text-2xl font-bold">Quản trị doanh nghiệp</h2>
 							<a href=""
-								class="inline-flex flex-col justify-center items-center px-5 py-2 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white text-xs">
+								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
 									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 									<?php _e( 'Xem tất cả', 'bsc' ) ?>
