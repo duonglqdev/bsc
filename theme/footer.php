@@ -210,7 +210,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 
 <?php if (get_field('cdc2_tien_ich_on', 'option')) { ?>
 	<div
-		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed right-0 2xl:top-1/2 top-2/3 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-50">
+		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed 2xl:top-1/2 top-2/3 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-50 [&:not(.show)]:-right-20 right-0">
 		<?php the_field('cdc2_title', 'option') ?>
 		<div class="-rotate-90">
 			<?php echo svg('down-2') ?>
@@ -238,7 +238,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	<?php } ?>
 <?php } ?>
 
-<div class="inline-flex flex-col fixed bottom-[6px] right-3 gap-4 z-[99]">
+<div class="inline-flex flex-col fixed 2xl:bottom-14 bottom-[6px] right-3 gap-4 z-[99]">
 	<?php if (get_field('cdc3_link', 'option')) { ?>
 		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">
@@ -336,7 +336,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 
 	<div
 		class="back-to-top w-10 h-10 rounded-full m-auto bg-white shadow-base cursor-pointer transition-all duration-500 hover:bg-primary text-primary hover:text-white">
-		<?php echo svgClass('back-top', '', '', 'm-auto h-full') ?>
+		<?php echo svgClass('back-top', '', '', 'm-auto h-full cursor-pointer') ?>
 	</div>
 </div>
 
@@ -389,7 +389,7 @@ if ($true_form_modal == 1) {
 
 				</div>
 				<div class="text-right">
-					<a href=""
+					<a href="" target="_blank"
 						class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold"
 						download>
 						<?php _e('Xem nội dung', 'bsc') ?>

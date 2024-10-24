@@ -504,41 +504,7 @@ new WOW.WOW().init();
 		var totalItems = $('.about_history-nav').slick('getSlick').slideCount;
 		$('.about_history-nav').slick('slickGoTo', totalItems - 1);
 
-		function isElementInViewport(el) {
-			var rect = el.getBoundingClientRect();
-			return (
-				rect.top >= 0 &&
-				rect.left >= 0 &&
-				rect.bottom <=
-					(window.innerHeight ||
-						document.documentElement.clientHeight) &&
-				rect.right <=
-					(window.innerWidth || document.documentElement.clientWidth)
-			);
-		}
-
-		// Sự kiện cuộn
-		$(window).on('scroll', function () {
-			if (isElementInViewport($('.about_history-content')[0])) {
-				// Bắt đầu autoplay nếu phần tử nằm trong viewport
-				$('.about_history-nav').slick(
-					'slickSetOption',
-					'autoplay',
-					true,
-					false
-				);
-				$('.about_history-nav').slick('slickPlay'); // Bắt đầu autoplay
-			} else {
-				// Dừng autoplay nếu phần tử không còn trong viewport
-				$('.about_history-nav').slick(
-					'slickSetOption',
-					'autoplay',
-					false,
-					false
-				);
-				$('.about_history-nav').slick('slickPause'); // Dừng autoplay
-			}
-		});
+		
 
 		$('.about_award-content').slick({
 			slidesToShow: 1,
@@ -550,16 +516,12 @@ new WOW.WOW().init();
 			adaptiveHeight: true,
 			infinite: true,
 		});
-		$('.about_award-content').slick(
-			'slickGoTo',
-			$('.about_award-content').children().length - 1,
-			true
-		);
+	
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: false,
-			infinite: true,
+			infinite: false,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
@@ -588,11 +550,8 @@ new WOW.WOW().init();
 				},
 			],
 		});
-		$('.about_award-nav').slick(
-			'slickGoTo',
-			$('.about_award-nav').children().length - 1,
-			true
-		);
+		var totalItemsAward = $('.about_award-nav').slick('getSlick').slideCount;
+		$('.about_award-nav').slick('slickGoTo', totalItemsAward - 1);
 
 		var mySwiper = new Swiper('.about_culture-list', {
 			loop: true,
@@ -742,7 +701,7 @@ new WOW.WOW().init();
 			$(this).toggleClass('active');
 			$(this).next('ul.sub-menu').slideToggle(200);
 		});
-
+		$('.utilities_button').addClass('show');
 		$('.utilities_button').click(function (e) {
 			e.stopPropagation();
 			$('.utilities_button,.utilities_button-list').addClass('active');
