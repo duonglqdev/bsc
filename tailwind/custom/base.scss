@@ -415,6 +415,14 @@ header {
 		}
 		&.active {
 			@apply bg-primary-300;
+			> a{
+				@apply bg-primary-300 ;
+			}
+		&:hover{
+			> a{
+				background-color: #235ba8 !important;
+			}
+		}
 		}
 		@apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl;
 		&.active {
@@ -423,6 +431,7 @@ header {
 		.li-plus.active {
 			@apply rotate-180;
 		}
+	
 	}
 }
 

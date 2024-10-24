@@ -437,6 +437,12 @@ header.active {
 .sidebar-report .has-child.active {
   @apply bg-primary-300;
 }
+.sidebar-report .has-child.active > a {
+  @apply bg-primary-300;
+}
+.sidebar-report .has-child.active:hover > a {
+  background-color: #235ba8 !important;
+}
 .sidebar-report .has-child.active {
   @apply text-white;
 }

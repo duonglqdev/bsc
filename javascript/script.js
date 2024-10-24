@@ -546,13 +546,13 @@ new WOW.WOW().init();
 	}
 	function handleScrollNav() {
 		if ($('.scroll_nav').length) {
-			$('.scroll_nav a').click(function (e) {
+			$('.scroll_nav > li > a').click(function (e) {
 				// Nếu thẻ cha không có class 'has-child', mới ngăn chặn hành vi mặc định
 				if (!$(this).parents().hasClass('has-child')) {
 					e.preventDefault();
 				}
 
-				$('.scroll_nav a').removeClass('active');
+				$('.scroll_nav > li > a').removeClass('active');
 				$(this).addClass('active');
 
 				var target = $(this).attr('href');
@@ -574,14 +574,14 @@ new WOW.WOW().init();
 				var documentHeight = $(document).height();
 				var scrollBottom = scrollPosition + windowHeight;
 
-				var lastAnchor = $('.scroll_nav a').last(); // Lấy phần tử cuối cùng
+				var lastAnchor = $('.scroll_nav > li > a').last(); // Lấy phần tử cuối cùng
 
-				$('.scroll_nav a').each(function () {
+				$('.scroll_nav > li > a').each(function () {
 					var target = $(this).attr('href');
 
 					// Kiểm tra kỹ hơn trước khi thực hiện các phép tính
 					if (target && target !== '#' && $(target).length) {
-						var sectionOffset = $(target).offset().top - 110;
+						var sectionOffset = $(target).offset().top - 120;
 						var sectionHeight = $(target).outerHeight();
 
 						if (
@@ -589,7 +589,7 @@ new WOW.WOW().init();
 							scrollPosition < sectionOffset + sectionHeight
 						) {
 							// Loại bỏ class active cho tất cả các thẻ <a> và thẻ cha có class has-child
-							$('.scroll_nav a').removeClass('active');
+							$('.scroll_nav > li > a').removeClass('active');
 							$('.scroll_nav .has-child').removeClass('active');
 
 							// Thêm class active cho thẻ <a> hiện tại
@@ -606,7 +606,7 @@ new WOW.WOW().init();
 				// Xử lý riêng cho phần tử cuối cùng nếu đã cuộn tới gần cuối trang
 				var lastTarget = $(lastAnchor.attr('href'));
 				if (scrollBottom >= documentHeight - 10) {
-					$('.scroll_nav a').removeClass('active');
+					$('.scroll_nav > li > a').removeClass('active');
 					lastAnchor.addClass('active');
 
 					if (lastAnchor.parent().hasClass('has-child')) {
