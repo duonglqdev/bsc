@@ -134,7 +134,7 @@ new WOW.WOW().init();
 						'active'
 					);
 					$('.submenu-wrapper > li').removeClass('active');
-					$('.submenu-content').html('');
+					// $('.submenu-content').html('');
 					$('.submenu-content').css('max-height', '0');
 				}, 200);
 			});
@@ -164,25 +164,25 @@ new WOW.WOW().init();
 				clearTimeout(timeout);
 			});
 
-			$('.submenu-wrapper > li').mouseleave(function () {
-				timeout = setTimeout(() => {
-					$(this).removeClass('active');
-					$('.submenu-content').html('');
-					$('.submenu-content').css('max-height', '0');
-				}, 100);
-			});
+			// $('.submenu-wrapper > li').mouseleave(function () {
+			// 	timeout = setTimeout(() => {
+			// 		$(this).removeClass('active');
+			// 		// $('.submenu-content').html('');
+			// 		$('.submenu-content').css('max-height', '0');
+			// 	}, 100);
+			// });
 
-			$('.submenu-content').mouseenter(function () {
-				clearTimeout(timeout);
-			});
+			// $('.submenu-content').mouseenter(function () {
+			// 	clearTimeout(timeout);
+			// });
 
-			$('.submenu-content').mouseleave(function () {
-				timeout = setTimeout(function () {
-					$('.submenu-wrapper > li').removeClass('active');
-					$('.submenu-content').html('');
-					$('.submenu-content').css('max-height', '0');
-				}, 100);
-			});
+			// $('.submenu-content').mouseleave(function () {
+			// 	timeout = setTimeout(function () {
+			// 		$('.submenu-wrapper > li').removeClass('active');
+			// 		// $('.submenu-content').html('');
+			// 		$('.submenu-content').css('max-height', '0');
+			// 	}, 100);
+			// });
 		}
 	}
 	function hoverSvg() {
