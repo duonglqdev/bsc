@@ -22,6 +22,7 @@ new WOW.WOW().init();
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
+			hoverSvg();
 			livechat();
 		});
 	};
@@ -183,6 +184,50 @@ new WOW.WOW().init();
 				}, 100);
 			});
 		}
+	}
+	function hoverSvg() {
+		$('svg path').css({
+			transition: 'fill 0.3s ease, stroke 0.3s ease',
+		});
+		$('.value-item').hover(
+			function () {
+				// Khi hover vào item
+				$(this)
+					.find('svg path')
+					.each(function () {
+						var fillColor = $(this).attr('fill');
+						var strokeColor = $(this).attr('stroke');
+
+						// Kiểm tra fill có giá trị là "#235BA8"
+						if (fillColor === '#235BA8') {
+							$(this).attr('fill', 'white');
+						}
+
+						// Kiểm tra stroke có giá trị là "#235BA8"
+						if (strokeColor === '#235BA8') {
+							$(this).attr('stroke', 'white');
+						}
+					});
+			},
+			function () {
+				// Khi hover ra khỏi item (nếu muốn revert lại màu, nếu không có thể bỏ phần này)
+				$(this)
+					.find('svg path')
+					.each(function () {
+						var fillColor = $(this).attr('fill');
+						var strokeColor = $(this).attr('stroke');
+
+						// Nếu muốn revert lại màu gốc khi hover ra ngoài
+						if (fillColor === 'white') {
+							$(this).attr('fill', '#235BA8');
+						}
+
+						if (strokeColor === 'white') {
+							$(this).attr('stroke', '#235BA8');
+						}
+					});
+			}
+		);
 	}
 
 	function handleSlider() {

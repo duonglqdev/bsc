@@ -115,7 +115,7 @@
       @apply w-[25%];
     }
     .main_menu-navbar > .submenu-wrapper > li {
-      @apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:pb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+      @apply transition-all duration-500 pl-5 text-lg 2xl:[&:not(:last-child)]:pb-5 [&:not(:last-child)]:pb-3 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
     }
     .main_menu-navbar > .submenu-wrapper > li a {
       @apply block;
@@ -127,7 +127,7 @@
       @apply flex-1 overflow-hidden max-h-0 transition-all duration-500;
     }
     .main_menu-navbar > .submenu-content > li {
-      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  [&:not(:last-child)]:mb-6 pb-1 leading-normal;
+      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  2xl:[&:not(:last-child)]:mb-6 [&:not(:last-child)]:mb-4 pb-1 leading-normal;
     }
     .main_menu-navbar > .submenu-content > li > a {
       @apply inline-flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold hover:-ml-8 relative bg-no-repeat  hover:pr-8;
