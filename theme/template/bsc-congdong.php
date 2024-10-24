@@ -203,7 +203,7 @@ get_header();
 									công ty quản lý quỹ đi vào hoạt động.
 								</div>
 								<a href=""
-									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
+									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 									Xem chi tiết
 									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>

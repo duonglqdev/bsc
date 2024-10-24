@@ -238,7 +238,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	<?php } ?>
 <?php } ?>
 
-<div class="inline-flex flex-col fixed lg:bottom-40 bottom-14 right-3 gap-4 z-30">
+<div class="inline-flex flex-col fixed bottom-10 right-3 gap-4 z-30">
 	<?php if (get_field('cdc3_link', 'option')) { ?>
 		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">

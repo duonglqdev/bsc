@@ -62,7 +62,7 @@
     </div>
     <div class="col-span-1 ml-auto my-auto">
         <a href="<?php the_permalink() ?>"
-            class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
+            class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
             <?php _e('Xem chi tiết', 'bsc') ?>
             <?php echo svg('arrow-btn', '12', '12') ?>
         </a>

@@ -174,9 +174,9 @@ get_header();
 	wp_reset_postdata(); ?>
 </main>
 <div id="popup-modal" tabindex="-1"
-	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#000] bg-opacity-80">
+	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#000] bg-opacity-80">
 	<div class="relative max-w-full w-[600px] max-h-full">
-		<div class="relative bg-white rounded-[15px] shadow lg:px-[50px] px-5 lg:py-10 py-5">
+		<div class="relative bg-white rounded-[15px] shadow 2xl:px-[50px] xl:px-10 px-5 2xl:py-10 xl:py-7 py-5">
 			<button type="button"
 				class="absolute top-3 end-2.5 w-9 h-9 rounded-full bg-white shadow-header text-primary-300 flex items-center justify-center"
 				data-modal-hide="popup-modal">
@@ -189,7 +189,7 @@ get_header();
 
 				<span class="sr-only"><?php _e( 'Close modal', 'bsc' ) ?></span>
 			</button>
-			<h2 class="uppercase text-primary-300 mb-5 lg:text-[32px] text-2xl font-bold">
+			<h2 class="uppercase text-primary-300 mb-5 2xl:text-[32px] text-2xl font-bold">
 				<?php _e( 'GỬI ĐƠN ỨNG TUYỂN', 'bsc' ) ?>
 			</h2>
 			<?php if ( get_field( 'cdtd_mau_cv', 'option' ) )
@@ -209,7 +209,7 @@ get_header();
 				<?php _e( 'Vui lòng sử dụng mẫu CV từ BSC ở trên để điền thông tin của bạn, sau đó upload lại
                 file CV để ứng tuyển.', 'bsc' ) ?>
 			</p>
-			<div class="mt-[30px] form_cv font-Helvetica">
+			<div class="2xl:mt-[30px] mt-5 form_cv font-Helvetica">
 				<?php echo do_shortcode( '[contact-form-7 id="b071499" title="Cơ hội việc làm"]' ) ?>
 			</div>
 		</div>

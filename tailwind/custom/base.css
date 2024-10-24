@@ -454,14 +454,14 @@ header.active {
   @apply mb-3;
 }
 .form_cv .form-group input {
-  @apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs h-14 px-5 text-[#000] font-medium placeholder:font-medium;
+  @apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 }
 .form_cv .form-group .upload-label {
   margin-bottom: 15px;
 }
 .form_cv .upload_file-wrapper {
   background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
-  @apply relative rounded-[10px] lg:min-h-[170px] min-h-32 flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
+  @apply relative rounded-[10px] min-h-[170px] flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
 }
 .form_cv .upload_file-wrapper input[type=file] {
   @apply hidden;

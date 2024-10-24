@@ -21,7 +21,7 @@
 			"dots": false, 
 			"arrows": false, 
 			"cssEase": "linear", 
-			"speed": 6000, 
+			"speed": 10000, 
 			"centerMode": true, 
 			"centerPadding": "0", 
 			"infinite": true,
@@ -60,7 +60,7 @@
 			"dots": false, 
 			"arrows": false, 
 			"cssEase": "linear", 
-			"speed": 6000, 
+			"speed": 10000, 
 			"centerMode": true, 
 			"centerPadding": "0", 
 			"infinite": true,
@@ -77,7 +77,7 @@
 		}'>
                 <?php foreach ($images as $image): ?>
                     <div class="slider-item mx-3">
-                        <a href="<?php echo esc_url($image['url']); ?>g"
+                        <a href="<?php echo esc_url($image['url']); ?>"
                             class="block w-full relative pt-[60%]" data-fancybox>
                             <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>"

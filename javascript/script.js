@@ -649,6 +649,7 @@ new WOW.WOW().init();
 		$('.utilities_button').click(function (e) {
 			e.stopPropagation();
 			$('.utilities_button,.utilities_button-list').addClass('active');
+			$('.open-utilities-box').hide(350);
 		});
 
 		$('.collapse-button').click(function () {
