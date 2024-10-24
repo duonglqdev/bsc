@@ -41,6 +41,13 @@
   @apply hidden;
 }
 
+.block_slider-show-5:not(.flickity-enabled, .slick-initialized) {
+  @apply flex overflow-hidden;
+}
+.block_slider-show-5:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+6) {
+  @apply hidden;
+}
+
 .btn-base-yellow {
   @apply bg-yellow-100;
   @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
@@ -158,6 +165,14 @@
     }
   }
 }
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .container {
+    max-width: 95% !important;
+  }
+  header .container {
+    max-width: 1240px !important;
+  }
+}
 header.active {
   transition: 0.5s ease;
   position: -webkit-sticky;
@@ -186,7 +201,7 @@ header.active {
   @apply bg-transparent border-none focus:outline-0 flex-1 text-white placeholder:text-white focus:border-none max-w-full focus:ring-transparent;
 }
 .form_newsletter .wpcf7-form-control-wrap {
-  @apply block max-w-[60%];
+  @apply block 2xl:max-w-[60%] max-w-[50%];
 }
 .form_newsletter svg {
   @apply shrink-0;
@@ -396,7 +411,7 @@ header.active {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black font-normal flex-1;
 }
 .subscribe .wpcf7-form-control-wrap {
-  @apply flex-1 max-w-[64%];
+  @apply flex-1 2xl:max-w-[64%] max-w-[60%];
 }
 .subscribe button {
   @apply whitespace-nowrap px-4 min-w-[97px] h-[38px]  py-1;
@@ -429,13 +444,10 @@ header.active {
 }
 
 .sidebar-report .has-child {
-  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl;
-}
-.sidebar-report .has-child:hover {
-  @apply bg-[#ebf4fa];
+  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl relative bg-[#ebf4fa];
 }
 .sidebar-report .has-child.active {
-  @apply bg-primary-300;
+  @apply bg-primary-300 text-white;
 }
 .sidebar-report .has-child.active > a {
   @apply bg-primary-300;
@@ -443,8 +455,11 @@ header.active {
 .sidebar-report .has-child.active:hover > a {
   background-color: #235ba8 !important;
 }
-.sidebar-report .has-child.active {
-  @apply text-white;
+.sidebar-report .has-child a {
+  @apply w-full 2xl:pr-10 pr-6;
+}
+.sidebar-report .has-child .li-plus {
+  @apply absolute top-[14px] right-1;
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;

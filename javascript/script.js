@@ -203,7 +203,7 @@ new WOW.WOW().init();
 				});
 			}
 		});
-		
+
 		$('.data-slick').each(function () {
 			var $slider = $(this); // Lưu tham chiếu đến slider hiện tại
 
@@ -247,7 +247,6 @@ new WOW.WOW().init();
 					}
 				});
 			}
-			
 		});
 
 		$('.community_content-bg').slick({
@@ -416,14 +415,17 @@ new WOW.WOW().init();
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
-			utoplay: true,
+			autoplay: false,
 			fade: true,
 			asNavFor: '.about_history-nav',
+			infinite: false,
+			initialSlide: 0,
 		});
+
 		$('.about_history-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			asNavFor: '.about_history-content',
 			dots: false,
 			prevArrow:
@@ -453,20 +455,65 @@ new WOW.WOW().init();
 				},
 			],
 		});
+
+		var totalItems = $('.about_history-nav').slick('getSlick').slideCount;
+		$('.about_history-nav').slick('slickGoTo', totalItems - 1);
+
+		function isElementInViewport(el) {
+			var rect = el.getBoundingClientRect();
+			return (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <=
+					(window.innerHeight ||
+						document.documentElement.clientHeight) &&
+				rect.right <=
+					(window.innerWidth || document.documentElement.clientWidth)
+			);
+		}
+
+		// Sự kiện cuộn
+		$(window).on('scroll', function () {
+			if (isElementInViewport($('.about_history-content')[0])) {
+				// Bắt đầu autoplay nếu phần tử nằm trong viewport
+				$('.about_history-nav').slick(
+					'slickSetOption',
+					'autoplay',
+					true,
+					false
+				);
+				$('.about_history-nav').slick('slickPlay'); // Bắt đầu autoplay
+			} else {
+				// Dừng autoplay nếu phần tử không còn trong viewport
+				$('.about_history-nav').slick(
+					'slickSetOption',
+					'autoplay',
+					false,
+					false
+				);
+				$('.about_history-nav').slick('slickPause'); // Dừng autoplay
+			}
+		});
+
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
 			adaptiveHeight: true,
 			infinite: true,
 		});
+		$('.about_award-content').slick(
+			'slickGoTo',
+			$('.about_award-content').children().length - 1,
+			true
+		);
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			infinite: true,
 			asNavFor: '.about_award-content',
 			dots: false,
@@ -496,6 +543,11 @@ new WOW.WOW().init();
 				},
 			],
 		});
+		$('.about_award-nav').slick(
+			'slickGoTo',
+			$('.about_award-nav').children().length - 1,
+			true
+		);
 
 		var mySwiper = new Swiper('.about_culture-list', {
 			loop: true,

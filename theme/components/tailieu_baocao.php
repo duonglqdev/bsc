@@ -55,6 +55,7 @@
 						</ul>
 					</div>
 				</div>
+				
 				<div class="md:col-span-3 col-span-full">
 					<?php
 					foreach ( $terms as $term ) :

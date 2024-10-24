@@ -39,6 +39,9 @@
 .block_slider-show-2 {
     @include block-slider-show(2);
 }
+.block_slider-show-5 {
+    @include block-slider-show(5);
+}
 
 @mixin btn-base($shadow-color) {
     @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
