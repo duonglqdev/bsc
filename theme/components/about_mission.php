@@ -28,7 +28,7 @@
                 <div class="grid md:grid-cols-3 grid-cols-1 gap-5">
                     <?php while (have_rows('gia_tri_cot_loi')): the_row(); ?>
                         <div
-                            class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 lg:pb-14 pb-5 transition-all duration-500 group relative after:w-full after:h-full after:inset-0 after:absolute after:bg-gradient-blue after:transition-all after:duration-500 after:opacity-0 after:invisible hover:after:opacity-100 hover:after:visible after:rounded-[10px]">
+                            class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 lg:pb-14 pb-5 transition-all duration-500 group relative after:w-full after:h-full after:inset-0 after:absolute after:bg-gradient-blue after:transition-all after:duration-500 after:opacity-0 after:invisible hover:after:opacity-100 hover:after:visible after:rounded-[10px] value-item">
                             <div class="relative z-10">
                                 <div class="flex items-center justify-between mb-5">
                                     <?php if (get_sub_field('title')) { ?>

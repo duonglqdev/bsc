@@ -116,7 +116,7 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar lg:bg-[#F3FBFE] w-full max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-[22px] lg:p-10 lg:backdrop-blur-2xl">
+							class="main_menu-navbar lg:bg-[#F3FBFE] w-full max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-[22px] 2xl:p-10 p-5 lg:backdrop-blur-2xl">
 
 							<?php
 							wp_nav_menu( array(

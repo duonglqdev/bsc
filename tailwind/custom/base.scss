@@ -36,11 +36,11 @@
 		.main_menu-navbar {
 			@apply flex transition-all duration-500  [&:not(.active)]:pointer-events-none [&:not(.active)]:invisible [&:not(.active)]:opacity-0 [&:not(.active)]:-z-10 -z-[1] opacity-100 visible pointer-events-auto;
 			> .submenu-wrapper {
-				@apply w-[29.333%];
+				@apply w-[25%];
 				> li {
-					@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+					@apply transition-all duration-500 pl-5 text-lg 2xl:[&:not(:last-child)]:pb-5 [&:not(:last-child)]:pb-3 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
 					a {
-						@apply block;
+						@apply inline-block;
 					}
 				}
 
@@ -51,7 +51,7 @@
 			> .submenu-content {
 				@apply flex-1 overflow-hidden max-h-0 transition-all duration-500;
 				> li {
-					@apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  [&:not(:last-child)]:mb-6 pb-1 leading-normal;
+					@apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  2xl:[&:not(:last-child)]:mb-6 [&:not(:last-child)]:mb-4 pb-1 leading-normal;
 					> a {
 						@apply inline-flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold hover:-ml-8 relative bg-no-repeat  hover:pr-8;
 						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' focusable='false' viewBox='0 0 24 24' color='var(--token-cd35b17b-eeac-44bd-9757-ecd519fe3587, rgb(255, 184, 28))' style='user-select: none; width: 100%25; height: 100%25; display: inline-block; fill: var(--token-cd35b17b-eeac-44bd-9757-ecd519fe3587, rgb(255, 184, 28)); flex-shrink: 0; transform: rotate(90deg);'%3E%3Cpath d='M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z'%3E%3C/path%3E%3C/svg%3E%0A");
@@ -96,7 +96,16 @@
 		}
 	}
 }
-
+@media (max-width: 1280px) and (min-width: 1024px) {
+	.container {
+		max-width: 95% !important;
+	}
+	header {
+		.container {
+			max-width: 1240px !important;
+		}
+	}
+}
 header {
 	&.active {
 		transition: 0.5s ease;
@@ -129,7 +138,7 @@ header {
 		@apply bg-transparent border-none focus:outline-0 flex-1 text-white placeholder:text-white focus:border-none max-w-full focus:ring-transparent;
 	}
 	.wpcf7-form-control-wrap {
-		@apply block max-w-[60%];
+		@apply block 2xl:max-w-[60%] max-w-[50%];
 	}
 	svg {
 		@apply shrink-0;
@@ -162,7 +171,7 @@ header {
 	@apply uppercase font-bold lg:text-[32px] text-2xl [&:not(.text-center)]:bg-no-repeat [&:not(.text-center)]:bg-contain [&:not(.text-center)]:bg-left [&:not(.text-center)]:pl-14 [&:not(.text-center)]:block flex justify-center items-center gap-4 leading-snug;
 	&:not(.text-center) {
 		background-image: url("data:image/svg+xml,%3Csvg width='37' height='40' viewBox='0 0 45 47' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32.9415 9.90088V21.1323L24.568 29.5821V20.1351C24.568 19.9008 24.5221 19.6687 24.433 19.4522C24.3438 19.2357 24.2132 19.039 24.0485 18.8733C23.8838 18.7076 23.6882 18.5762 23.473 18.4865C23.2578 18.3968 23.0271 18.3507 22.7942 18.3507H13.4033L21.7768 9.92712L32.9415 9.90088Z' fill='%232A5CAA'/%3E%3Cpath d='M32.9401 1.66184V9.90171H21.7755L13.402 18.3253H1.92428C1.72005 18.3224 1.52112 18.2593 1.35222 18.1437C1.18332 18.0282 1.05185 17.8654 0.974087 17.6754C0.89632 17.4854 0.875711 17.2766 0.914779 17.0749C0.953847 16.8733 1.05089 16.6875 1.19388 16.5408L17.054 0.717143C17.4022 0.371784 17.8693 0.174465 18.3582 0.166071H31.4011C31.6043 0.164339 31.8058 0.203108 31.9941 0.28014C32.1823 0.357171 32.3535 0.470935 32.4978 0.614877C32.6421 0.758818 32.7567 0.930086 32.8348 1.11879C32.913 1.30749 32.9532 1.5099 32.9532 1.71433' fill='%23FDB525'/%3E%3Cpath d='M44.1046 11.4623V27.6009C44.1017 28.0939 43.9048 28.5657 43.5568 28.9129L26.3272 46.0881C26.1838 46.233 26.0011 46.332 25.802 46.3728C25.6028 46.4135 25.3962 46.3941 25.208 46.3169C25.0198 46.2398 24.8585 46.1084 24.7443 45.9393C24.6302 45.7702 24.5683 45.5708 24.5664 45.3664V29.5821L32.9399 21.1585V9.90088H42.5655C42.9737 9.90088 43.3652 10.064 43.6538 10.3543C43.9425 10.6447 44.1046 11.0385 44.1046 11.4491' fill='%23009C88'/%3E%3C/svg%3E%0A");
-		background-size:37px 40px ;
+		background-size: 37px 40px;
 	}
 	&.text-center {
 		&::before {
@@ -199,8 +208,8 @@ header {
 		@apply absolute left-0 top-1/2 -translate-y-1/2 fill-[#1B468D] z-10;
 	}
 	.slick-current {
-		@apply  before:absolute before:w-[18px] before:h-[18px] before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-center;
-		&::before{
+		@apply before:absolute before:w-[18px] before:h-[18px] before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:rounded-full before:bg-center;
+		&::before {
 			background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.7' filter='url(%23filter0_bf_8_36)'%3E%3Cellipse cx='10.3339' cy='10.8766' rx='8.955' ry='8.95496' fill='%23235BA8'/%3E%3C/g%3E%3Cellipse cx='10.3344' cy='10.8766' rx='5.185' ry='5.18665' fill='url(%23paint0_linear_8_36)'/%3E%3Cdefs%3E%3Cfilter id='filter0_bf_8_36' x='-8.52109' y='-7.97837' width='37.7099' height='37.7099' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeGaussianBlur in='BackgroundImageFix' stdDeviation='4.95'/%3E%3CfeComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur_8_36'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur_8_36' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.5' result='effect2_foregroundBlur_8_36'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_8_36' x1='11.2374' y1='7.7646' x2='7.52324' y2='8.4884' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%231B468D'/%3E%3Cstop offset='1' stop-color='%23252D69'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
 		}
 	}
@@ -368,7 +377,7 @@ header {
 		@apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black font-normal flex-1;
 	}
 	.wpcf7-form-control-wrap {
-		@apply flex-1 max-w-[64%];
+		@apply flex-1 2xl:max-w-[64%] max-w-[60%];
 	}
 	button {
 		@apply whitespace-nowrap px-4 min-w-[97px] h-[38px]  py-1;
@@ -383,7 +392,7 @@ header {
 		@apply mb-4;
 	}
 	ul {
-		@apply max-h-[250px] overflow-y-auto space-y-[12px] pr-4;
+		@apply max-h-[270px] overflow-y-auto space-y-[12px] pr-4;
 		&::-webkit-scrollbar {
 			width: 4px;
 		}
@@ -410,15 +419,26 @@ header {
 
 .sidebar-report {
 	.has-child {
-		&:hover {
-			@apply bg-[#ebf4fa];
-		}
+		@apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl relative bg-[#ebf4fa];
+
 		&.active {
-			@apply bg-primary-300;
+			@apply bg-primary-300 text-white;
+			> a {
+				@apply bg-primary-300;
+			}
+			&:hover {
+				> a {
+					background-color: #235ba8 !important;
+				}
+			}
 		}
-		@apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl;
-		&.active {
-			@apply text-white;
+
+		a {
+			@apply w-full 2xl:pr-10 pr-6;
+		}
+
+		.li-plus {
+			@apply absolute top-[14px] right-1;
 		}
 		.li-plus.active {
 			@apply rotate-180;
@@ -436,15 +456,15 @@ header {
 	.form-group {
 		@apply mb-3;
 		input {
-			@apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs h-14 px-5 text-[#000] font-medium placeholder:font-medium;
+			@apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 		}
-		.upload-label{
+		.upload-label {
 			margin-bottom: 15px;
 		}
 	}
 	.upload_file-wrapper {
 		background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
-		@apply relative rounded-[10px] lg:min-h-[170px] min-h-32 flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
+		@apply relative rounded-[10px] min-h-[170px] flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
 		input[type="file"] {
 			@apply hidden;
 		}
@@ -455,10 +475,10 @@ header {
 			}
 		}
 	}
-	button[type='submit']{
+	button[type="submit"] {
 		@apply h-14 font-bold font-body;
 	}
-	.iti__country-container{
+	.iti__country-container {
 		@apply text-xs;
 	}
 }
@@ -501,4 +521,3 @@ header {
 button#ib-button-messaging {
 	display: none;
 }
-

@@ -22,6 +22,7 @@ new WOW.WOW().init();
 			handlePhoneCf7();
 			dynamicPopupDocument();
 			stickyHeader();
+			hoverSvg();
 			livechat();
 		});
 	};
@@ -184,6 +185,50 @@ new WOW.WOW().init();
 			});
 		}
 	}
+	function hoverSvg() {
+		$('svg path').css({
+			transition: 'fill 0.3s ease, stroke 0.3s ease',
+		});
+		$('.value-item').hover(
+			function () {
+				// Khi hover vào item
+				$(this)
+					.find('svg path')
+					.each(function () {
+						var fillColor = $(this).attr('fill');
+						var strokeColor = $(this).attr('stroke');
+
+						// Kiểm tra fill có giá trị là "#235BA8"
+						if (fillColor === '#235BA8') {
+							$(this).attr('fill', 'white');
+						}
+
+						// Kiểm tra stroke có giá trị là "#235BA8"
+						if (strokeColor === '#235BA8') {
+							$(this).attr('stroke', 'white');
+						}
+					});
+			},
+			function () {
+				// Khi hover ra khỏi item (nếu muốn revert lại màu, nếu không có thể bỏ phần này)
+				$(this)
+					.find('svg path')
+					.each(function () {
+						var fillColor = $(this).attr('fill');
+						var strokeColor = $(this).attr('stroke');
+
+						// Nếu muốn revert lại màu gốc khi hover ra ngoài
+						if (fillColor === 'white') {
+							$(this).attr('fill', '#235BA8');
+						}
+
+						if (strokeColor === 'white') {
+							$(this).attr('stroke', '#235BA8');
+						}
+					});
+			}
+		);
+	}
 
 	function handleSlider() {
 		$('.block_slider').each(function () {
@@ -203,6 +248,7 @@ new WOW.WOW().init();
 				});
 			}
 		});
+
 		$('.data-slick').each(function () {
 			var $slider = $(this); // Lưu tham chiếu đến slider hiện tại
 
@@ -414,14 +460,17 @@ new WOW.WOW().init();
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
-			utoplay: true,
+			autoplay: false,
 			fade: true,
 			asNavFor: '.about_history-nav',
+			infinite: false,
+			initialSlide: 0,
 		});
+
 		$('.about_history-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			asNavFor: '.about_history-content',
 			dots: false,
 			prevArrow:
@@ -451,21 +500,28 @@ new WOW.WOW().init();
 				},
 			],
 		});
+
+		var totalItems = $('.about_history-nav').slick('getSlick').slideCount;
+		$('.about_history-nav').slick('slickGoTo', totalItems - 1);
+
+		
+
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			arrows: false,
 			fade: true,
 			asNavFor: '.about_award-nav',
 			adaptiveHeight: true,
 			infinite: true,
 		});
+	
 		$('.about_award-nav').slick({
 			slidesToShow: 5,
 			slidesToScroll: 1,
-			autoplay: true,
-			infinite: true,
+			autoplay: false,
+			infinite: false,
 			asNavFor: '.about_award-content',
 			dots: false,
 			prevArrow:
@@ -494,6 +550,8 @@ new WOW.WOW().init();
 				},
 			],
 		});
+		var totalItemsAward = $('.about_award-nav').slick('getSlick').slideCount;
+		$('.about_award-nav').slick('slickGoTo', totalItemsAward - 1);
 
 		var mySwiper = new Swiper('.about_culture-list', {
 			loop: true,
@@ -544,13 +602,13 @@ new WOW.WOW().init();
 	}
 	function handleScrollNav() {
 		if ($('.scroll_nav').length) {
-			$('.scroll_nav a').click(function (e) {
+			$('.scroll_nav > li > a').click(function (e) {
 				// Nếu thẻ cha không có class 'has-child', mới ngăn chặn hành vi mặc định
 				if (!$(this).parents().hasClass('has-child')) {
 					e.preventDefault();
 				}
 
-				$('.scroll_nav a').removeClass('active');
+				$('.scroll_nav > li > a').removeClass('active');
 				$(this).addClass('active');
 
 				var target = $(this).attr('href');
@@ -572,14 +630,14 @@ new WOW.WOW().init();
 				var documentHeight = $(document).height();
 				var scrollBottom = scrollPosition + windowHeight;
 
-				var lastAnchor = $('.scroll_nav a').last(); // Lấy phần tử cuối cùng
+				var lastAnchor = $('.scroll_nav > li > a').last(); // Lấy phần tử cuối cùng
 
-				$('.scroll_nav a').each(function () {
+				$('.scroll_nav > li > a').each(function () {
 					var target = $(this).attr('href');
 
 					// Kiểm tra kỹ hơn trước khi thực hiện các phép tính
 					if (target && target !== '#' && $(target).length) {
-						var sectionOffset = $(target).offset().top - 110;
+						var sectionOffset = $(target).offset().top - 120;
 						var sectionHeight = $(target).outerHeight();
 
 						if (
@@ -587,7 +645,7 @@ new WOW.WOW().init();
 							scrollPosition < sectionOffset + sectionHeight
 						) {
 							// Loại bỏ class active cho tất cả các thẻ <a> và thẻ cha có class has-child
-							$('.scroll_nav a').removeClass('active');
+							$('.scroll_nav > li > a').removeClass('active');
 							$('.scroll_nav .has-child').removeClass('active');
 
 							// Thêm class active cho thẻ <a> hiện tại
@@ -604,7 +662,7 @@ new WOW.WOW().init();
 				// Xử lý riêng cho phần tử cuối cùng nếu đã cuộn tới gần cuối trang
 				var lastTarget = $(lastAnchor.attr('href'));
 				if (scrollBottom >= documentHeight - 10) {
-					$('.scroll_nav a').removeClass('active');
+					$('.scroll_nav > li > a').removeClass('active');
 					lastAnchor.addClass('active');
 
 					if (lastAnchor.parent().hasClass('has-child')) {
@@ -643,10 +701,11 @@ new WOW.WOW().init();
 			$(this).toggleClass('active');
 			$(this).next('ul.sub-menu').slideToggle(200);
 		});
-
+		$('.utilities_button').addClass('show');
 		$('.utilities_button').click(function (e) {
 			e.stopPropagation();
 			$('.utilities_button,.utilities_button-list').addClass('active');
+			$('.open-utilities-box').hide(350);
 		});
 
 		$('.collapse-button').click(function () {

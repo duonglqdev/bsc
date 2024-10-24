@@ -41,6 +41,13 @@
   @apply hidden;
 }
 
+.block_slider-show-5:not(.flickity-enabled, .slick-initialized) {
+  @apply flex overflow-hidden;
+}
+.block_slider-show-5:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+6) {
+  @apply hidden;
+}
+
 .btn-base-yellow {
   @apply bg-yellow-100;
   @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
@@ -105,13 +112,13 @@
       @apply flex transition-all duration-500  [&:not(.active)]:pointer-events-none [&:not(.active)]:invisible [&:not(.active)]:opacity-0 [&:not(.active)]:-z-10 -z-[1] opacity-100 visible pointer-events-auto;
     }
     .main_menu-navbar > .submenu-wrapper {
-      @apply w-[29.333%];
+      @apply w-[25%];
     }
     .main_menu-navbar > .submenu-wrapper > li {
-      @apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+      @apply transition-all duration-500 pl-5 text-lg 2xl:[&:not(:last-child)]:pb-5 [&:not(:last-child)]:pb-3 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
     }
     .main_menu-navbar > .submenu-wrapper > li a {
-      @apply block;
+      @apply inline-block;
     }
     .main_menu-navbar > .submenu-wrapper .sub-menu {
       @apply hidden;
@@ -120,7 +127,7 @@
       @apply flex-1 overflow-hidden max-h-0 transition-all duration-500;
     }
     .main_menu-navbar > .submenu-content > li {
-      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  [&:not(:last-child)]:mb-6 pb-1 leading-normal;
+      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  2xl:[&:not(:last-child)]:mb-6 [&:not(:last-child)]:mb-4 pb-1 leading-normal;
     }
     .main_menu-navbar > .submenu-content > li > a {
       @apply inline-flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold hover:-ml-8 relative bg-no-repeat  hover:pr-8;
@@ -158,6 +165,14 @@
     }
   }
 }
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .container {
+    max-width: 95% !important;
+  }
+  header .container {
+    max-width: 1240px !important;
+  }
+}
 header.active {
   transition: 0.5s ease;
   position: -webkit-sticky;
@@ -186,7 +201,7 @@ header.active {
   @apply bg-transparent border-none focus:outline-0 flex-1 text-white placeholder:text-white focus:border-none max-w-full focus:ring-transparent;
 }
 .form_newsletter .wpcf7-form-control-wrap {
-  @apply block max-w-[60%];
+  @apply block 2xl:max-w-[60%] max-w-[50%];
 }
 .form_newsletter svg {
   @apply shrink-0;
@@ -396,7 +411,7 @@ header.active {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black font-normal flex-1;
 }
 .subscribe .wpcf7-form-control-wrap {
-  @apply flex-1 max-w-[64%];
+  @apply flex-1 2xl:max-w-[64%] max-w-[60%];
 }
 .subscribe button {
   @apply whitespace-nowrap px-4 min-w-[97px] h-[38px]  py-1;
@@ -409,7 +424,7 @@ header.active {
   @apply mb-4;
 }
 #leader-modal .main__content ul {
-  @apply max-h-[250px] overflow-y-auto space-y-[12px] pr-4;
+  @apply max-h-[270px] overflow-y-auto space-y-[12px] pr-4;
 }
 #leader-modal .main__content ul::-webkit-scrollbar {
   width: 4px;
@@ -429,16 +444,22 @@ header.active {
 }
 
 .sidebar-report .has-child {
-  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl;
-}
-.sidebar-report .has-child:hover {
-  @apply bg-[#ebf4fa];
+  @apply flex items-center flex-wrap rounded-tr-xl rounded-br-xl relative bg-[#ebf4fa];
 }
 .sidebar-report .has-child.active {
+  @apply bg-primary-300 text-white;
+}
+.sidebar-report .has-child.active > a {
   @apply bg-primary-300;
 }
-.sidebar-report .has-child.active {
-  @apply text-white;
+.sidebar-report .has-child.active:hover > a {
+  background-color: #235ba8 !important;
+}
+.sidebar-report .has-child a {
+  @apply w-full 2xl:pr-10 pr-6;
+}
+.sidebar-report .has-child .li-plus {
+  @apply absolute top-[14px] right-1;
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;
@@ -454,14 +475,14 @@ header.active {
   @apply mb-3;
 }
 .form_cv .form-group input {
-  @apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs h-14 px-5 text-[#000] font-medium placeholder:font-medium;
+  @apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 }
 .form_cv .form-group .upload-label {
   margin-bottom: 15px;
 }
 .form_cv .upload_file-wrapper {
   background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
-  @apply relative rounded-[10px] lg:min-h-[170px] min-h-32 flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
+  @apply relative rounded-[10px] min-h-[170px] flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
 }
 .form_cv .upload_file-wrapper input[type=file] {
   @apply hidden;

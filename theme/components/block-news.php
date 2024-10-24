@@ -5,7 +5,7 @@
 		<?php } ?>
 		<div class="grid grid-cols-5 gap-5">
 			<div class="md:col-span-3 col-span-full">
-				<div class="flex flex-col group">
+				<div class="group">
 					<a href="" class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 							alt=""
@@ -23,7 +23,7 @@
 						Mệnh Thủy
 					</div>
 					<a href=""
-						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300">
+						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
 						<?php echo svg('arrow-btn', '20', '20') ?>
 						Xem chi tiết
 					</a>
