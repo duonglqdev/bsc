@@ -1,4 +1,23 @@
 <?php
+$categories = get_categories(array(
+	'taxonomy' => 'category',
+	'orderby' => 'name',
+	'order' => 'ASC'
+));
+$groupid = '';
+if ($categories) {
+	$i = 0;
+	foreach ($categories as $category) {
+		$i++;
+		if (get_field('api_id_danh_muc', $category)) {
+			if ($i == 1) {
+				$groupid = get_field('api_id_danh_muc', $category);
+			} else {
+				$groupid = ',' . get_field('api_id_danh_muc', $category);
+			}
+		}
+	}
+}
 
 ?>
 <section class="home_news bg-white lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
