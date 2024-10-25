@@ -1,3 +1,6 @@
+<?php
+
+?>
 <section class="home_news bg-white lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title')) { ?>
