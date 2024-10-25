@@ -41,10 +41,10 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 				</div>
 			</div>
 			<?php
-			$get_performance_data = array(
-				'portcode' => 'BSC10,BSC30,BSC50,VNDIAMOND,VNINDEX'
-			);
-			$get_performance = callApi('http://10.21.170.17:86/GetPortfolioPerformance?' . http_build_query($get_performance_data));
+			// $get_performance_data = array(
+			// 	'portcode' => 'BSC10,BSC30,BSC50,VNDIAMOND,VNINDEX'
+			// );
+			// $get_performance = callApi('http://10.21.170.17:86/GetPortfolioPerformance?' . http_build_query($get_performance_data));
 			?>
 			<script>
 				jQuery(document).ready(function() {

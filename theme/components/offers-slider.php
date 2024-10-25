@@ -60,7 +60,7 @@
 				<?php
 				$array_data = array(
 					"maxitem" => "10",
-					"lang" => "VI",
+					"lang" => pll_current_language(),
 					"groupid" => "28",
 					'index' => 1
 				);

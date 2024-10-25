@@ -18,7 +18,9 @@ if (get_sub_field('background')) {
 } else {
     $banner = get_stylesheet_directory_uri() . '/assets/images/about.png';
 };
-if (get_sub_field('title')) {
+if ($args['title']) {
+    $title = $args['title'];
+} elseif (get_sub_field('title')) {
     $title = get_sub_field('title');
 } elseif (is_tax() || is_category()) {
     if (get_field('title', get_queried_object())) {

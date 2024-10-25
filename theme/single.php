@@ -1,8 +1,42 @@
 <?php
+if ($args['data']) {
+	$news = $args['data'];
+	$title = $news->title;
+	$body = $news->body;
+	$postdate = $news->postdate;
+	$groupid = $news->groupid;
+	$categories = get_terms(array(
+		'taxonomy' => 'category',
+		'hide_empty' => false,
+		'meta_query' => array(
+			array(
+				'key' => 'api_id_danh_muc', // tên meta field
+				'value' => $groupid, // giá trị cần tìm
+				'compare' => '='
+			)
+		)
+	));
+
+	// Kiểm tra nếu tìm thấy category
+	if (!is_wp_error($categories) && !empty($categories)) {
+		$tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+	} else {
+		$post_id = get_the_ID();
+		$taxonomy = get_the_terms($post->ID, 'category');
+		$tax = $taxonomy[0];
+	}
+	$tax_name = $tax->name;
+	$tax_id = $tax->term_id;
+} else {
+	wp_redirect(home_url('/404'), 301);
+	exit;
+}
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
+	<?php get_template_part('components/page-banner', null, array(
+		'title' => $tax_name
+	)) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
 			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
@@ -18,7 +52,7 @@ get_header();
 						?>
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 								<?php foreach ($terms as $term) :
-									$active_class = (is_tax('category', $term->term_id) || has_term($term->term_id, 'category')) ? 'active' : '';
+									$active_class = ($tax_id == $term->term_id) ? 'active' : '';
 								?>
 									<li class="<?php echo esc_attr($active_class); ?>">
 										<a href="<?php echo get_term_link($term); ?>"
@@ -35,7 +69,7 @@ get_header();
 										if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
 											<ul class="pl-5 hidden sub-menu w-full bg-white">
 												<?php foreach ($child_terms as $child_term) :
-													$child_active_class = (is_tax('category', $child_term->term_id) || has_term($child_term->term_id, 'category')) ? 'active' : '';
+													$child_active_class = ($tax_id == $child_term->term_id) ? 'active' : '';
 												?>
 													<li class="pl-5">
 														<a href="<?php echo get_term_link($child_term); ?>"
@@ -51,10 +85,8 @@ get_header();
 							</ul>
 						<?php endif; ?>
 						<?php
-						$post_id = get_the_ID();
-						$taxonomy = get_the_terms($post->ID, 'category');
-						if ($taxonomy) {
-							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', $taxonomy[0]);
+						if ($tax) {
+							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', $tax);
 							if ($hinh_anh_sidebar) { ?>
 								<div class="mt-12">
 									<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
@@ -67,11 +99,11 @@ get_header();
 				</div>
 				<div class="md:col-span-3 col-span-full">
 					<h1 class="font-bold lg:text-4xl text-2xl mb-6 !leading-snug">
-						<?php the_title() ?>
+						<?php echo $title ?>
 					</h1>
 					<div class="flex items-center text-xs mb-8 gap-[12px] font-Helvetica">
 						<?php echo svg('date') ?>
-						<span><?php echo get_the_date() ?></span>-
+						<span><?php echo $postdate ?></span>-
 						<span class="text-primary-300"><?php echo get_the_author() ?></span>
 						<div class="share flex items-center gap-[12px] ml-12">
 							<strong>
@@ -97,48 +129,41 @@ get_header();
 						</div>
 					</div>
 					<div class="the_content font-Helvetica">
-						<?php the_content() ?>
+						<?php echo $body ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<?php
-	$custom_taxterms = wp_get_object_terms($post->ID, 'category', array('fields' => 'ids'));
-	$args = array(
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'posts_per_page' => 3,
-		'orderby' => 'rand',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'category',
-				'field' => 'id',
-				'terms' => $custom_taxterms
-			)
-		),
-		'post__not_in' => array($post->ID),
-	);
-	$related_items = new WP_Query($args);
-	if ($related_items->have_posts()) : ?>
-		<section class="lg:pt-16 lg:pb-[106px] pt-10 pb-10">
-			<div class="container">
-				<h2 class="heading-title mb-6 normal-case">
-					<?php _e('Bài viết liên quan', 'bsc') ?>
-				</h2>
-				<div
-					class="grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8">
-					<?php
-					while ($related_items->have_posts()) :
-						$related_items->the_post();
-						get_template_part('template-parts/content', get_post_type());
-					endwhile;
-					?>
+	if ($args['data']) {
+		$array_data = array(
+			"maxitem" => "3",
+			"lang" => pll_current_language(),
+			"groupid" => $groupid,
+			'index' => 1
+		);
+		$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($array_data));
+		if ($response->s == "ok" && !empty($response->d)) {
+	?>
+			<section class="lg:pt-16 lg:pb-[106px] pt-10 pb-10">
+				<div class="container">
+					<h2 class="heading-title mb-6 normal-case">
+						<?php _e('Bài viết liên quan', 'bsc') ?>
+					</h2>
+					<div
+						class="grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8">
+						<?php
+						while ($related_items->have_posts()) :
+							$related_items->the_post();
+							get_template_part('template-parts/content', get_post_type());
+						endwhile;
+						?>
+					</div>
 				</div>
-			</div>
-		</section>
-	<?php endif;
-	wp_reset_postdata(); ?>
+		<?php
+		}
+	} ?>
 </main>
 <?php
 get_footer();

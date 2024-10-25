@@ -7,10 +7,14 @@
  *
  * @package bsc
  */
-
+if (get_field('api_id_danh_muc', get_queried_object())) {
+	$groupid = get_field('api_id_danh_muc', get_queried_object());
+} else {
+	wp_redirect(home_url('/404'), 301);
+	exit;
+}
 get_header();
 ?>
-
 <main>
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
@@ -75,65 +79,55 @@ get_header();
 						<?php } ?>
 					</div>
 				</div>
-				<?php
-				$get_performance_data = array(
-					'lang' => pll_current_language(),
-					'groupid' => '3',
-				);
-				$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
-				if ($response->s == "ok" && !empty($response->d)) {
-				?>
-					<div class="md:col-span-3 col-span-full">
-						<div class="list__news">
-							<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
-								<?php
-								foreach ($response->d as $news) {
-								?>
-									<div class="post_item font-Helvetica">
-										<a href=""
-											class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-											<img src="<?php echo $news->imagethumbnail ?>"
-												alt=""
-												class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
-										</a>
-										<?php
-										$date = $news->postdate;
-										$date_parts = explode('T', $date);
-										?>
-										<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-											<?php echo svg('date') ?>
-											<span>
-												<?php echo $date_parts[0] ?>
-											</span>
-											<span>
-												<?php echo $date_parts[1] ?>
-											</span>
-										</div>
-										<a href=""
-											class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
-											<?php echo htmlspecialchars($news->title) ?>
-										</a>
-										<div class="line-clamp-3 text-paragraph mb-4">
-											<?php echo htmlspecialchars($news->description) ?>
-										</div>
-										<a href=""
-											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
-											<?php _e('Xem chi tiết', 'bsc') ?>
-											<?php echo svg('arrow-btn', '12', '12') ?>
-										</a>
-									</div>
-								<?php
-								}
-								?>
+				<div class="md:col-span-3 col-span-full">
+					<?php
+					$get_performance_data = array(
+						'lang' => pll_current_language(),
+						'groupid' => $groupid,
+						'maxitem' => '10'
+					);
+					$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
+					if ($response->s == "ok" && !empty($response->d)) {
+					?>
+						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
+
+							<div class="list__news">
+								<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
+									<?php
+									foreach ($response->d as $news) {
+										get_template_part('template-parts/content', null, array(
+											'data' => $news,
+										));
+									}
+									?>
+								</div>
 							</div>
-						</div>
+						<?php } else {
+						?>
+							<div class="list_news-service">
+								<h2 class="text-xl font-bold mb-6">
+									Tháng 08 năm 2024
+								</h2>
+								<div class="space-y-8">
+									<?php
+									foreach ($response->d as $news) {
+										get_template_part('template-parts/content_nothumb', get_post_type(), array(
+											'data' => $news,
+										));
+									}
+									?>
+								</div>
+							</div>
+						<?php
+						} ?>
 						<div class="mt-12">
 							<?php get_template_part('components/pagination') ?>
 						</div>
-					</div>
-				<?php } else {
-					get_template_part('template-parts/content/content', 'none');
-				} ?>
+					<?php } else {
+						get_template_part('template-parts/content', 'none');
+					} ?>
+
+				</div>
 			</div>
 		</div>
 	</section>
