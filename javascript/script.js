@@ -134,7 +134,7 @@ new WOW.WOW().init();
 						'active'
 					);
 					$('.submenu-wrapper > li').removeClass('active');
-					// $('.submenu-content').html('');
+					$('.submenu-content').html('');
 					$('.submenu-content').css('max-height', '0');
 				}, 200);
 			});
@@ -164,25 +164,25 @@ new WOW.WOW().init();
 				clearTimeout(timeout);
 			});
 
-			// $('.submenu-wrapper > li').mouseleave(function () {
-			// 	timeout = setTimeout(() => {
-			// 		$(this).removeClass('active');
-			// 		// $('.submenu-content').html('');
-			// 		$('.submenu-content').css('max-height', '0');
-			// 	}, 100);
-			// });
+			$('.submenu-wrapper > li').mouseleave(function () {
+				timeout = setTimeout(() => {
+					$(this).removeClass('active');
+					$('.submenu-content').html('');
+					$('.submenu-content').css('max-height', '0');
+				}, 100);
+			});
 
-			// $('.submenu-content').mouseenter(function () {
-			// 	clearTimeout(timeout);
-			// });
+			$('.submenu-content').mouseenter(function () {
+				clearTimeout(timeout);
+			});
 
-			// $('.submenu-content').mouseleave(function () {
-			// 	timeout = setTimeout(function () {
-			// 		$('.submenu-wrapper > li').removeClass('active');
-			// 		// $('.submenu-content').html('');
-			// 		$('.submenu-content').css('max-height', '0');
-			// 	}, 100);
-			// });
+			$('.submenu-content').mouseleave(function () {
+				timeout = setTimeout(function () {
+					$('.submenu-wrapper > li').removeClass('active');
+					$('.submenu-content').html('');
+					$('.submenu-content').css('max-height', '0');
+				}, 100);
+			});
 		}
 	}
 	function hoverSvg() {
@@ -292,22 +292,6 @@ new WOW.WOW().init();
 					}
 				});
 			}
-		});
-
-		// On hover, pause the slider immediately
-		$('.block_partner .data-slick .block_slider-item').on('mouseenter', function () {
-
-			// Dừng slider ngay lập tức khi hover
-			$('.block_partner .data-slick').slick('slickSetOption', 'autoplay', false, true);
-			$('.block_partner .data-slick').slick('slickPause'); // Đảm bảo slider dừng lại ngay lập tức
-		});
-
-		// When hover ends, resume the slider
-		$('.block_partner .data-slick .block_slider-item').on('mouseleave', function () {
-
-			// Tiếp tục slider ngay khi rời chuột
-			$('.block_partner .data-slick').slick('slickSetOption', 'autoplay', true, true);
-			$('.block_partner .data-slick').slick('slickPlay');
 		});
 
 		$('.community_content-bg').slick({
@@ -518,6 +502,9 @@ new WOW.WOW().init();
 		});
 
 		var totalItems = $('.about_history-nav').slick('getSlick').slideCount;
+		if (totalItems <= 5) {
+			$('.about_history-nav .slick-track').addClass('no-transform');
+		}
 		$('.about_history-nav').slick('slickGoTo', totalItems - 1);
 
 		$('.about_award-content').slick({
@@ -566,6 +553,9 @@ new WOW.WOW().init();
 		});
 		var totalItemsAward =
 			$('.about_award-nav').slick('getSlick').slideCount;
+		if (totalItemsAward <= 5) {
+			$('.about_award-nav .slick-track').addClass('no-transform');
+		}
 		$('.about_award-nav').slick('slickGoTo', totalItemsAward - 1);
 
 		var mySwiper = new Swiper('.about_culture-list', {

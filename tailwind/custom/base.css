@@ -537,4 +537,8 @@ button#ib-button-messaging {
   display: none;
 }
 
+.no-transform {
+  transform: none !important;
+}
+
 /*# sourceMappingURL=base.css.map */
