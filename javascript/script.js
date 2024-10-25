@@ -293,6 +293,21 @@ new WOW.WOW().init();
 				});
 			}
 		});
+			// On hover, pause the slider immediately
+			$('.block_partner .data-slick .block_slider-item').on('mouseenter', function () {
+
+				// Dừng slider ngay lập tức khi hover
+				$('.block_partner .data-slick').slick('slickSetOption', 'autoplay', false, true);
+				$('.block_partner .data-slick').slick('slickPause'); // Đảm bảo slider dừng lại ngay lập tức
+			});
+	
+			// When hover ends, resume the slider
+			$('.block_partner .data-slick .block_slider-item').on('mouseleave', function () {
+	
+				// Tiếp tục slider ngay khi rời chuột
+				$('.block_partner .data-slick').slick('slickSetOption', 'autoplay', true, true);
+				$('.block_partner .data-slick').slick('slickPlay');
+			});
 
 		$('.community_content-bg').slick({
 			slidesToShow: 1,

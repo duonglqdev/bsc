@@ -5,7 +5,7 @@
 		{ ?>
 			<h2 class="heading-title mb-12 wow fadeIn" data-wow-duration="2s"><?php the_sub_field( 'title_main' ) ?></h2>
 		<?php } ?>
-		<div class="md:flex">
+		<div class="md:flex relative z-[2]">
 			<div class="flex-1 md:mr-5">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>

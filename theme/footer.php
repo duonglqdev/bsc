@@ -390,8 +390,7 @@ if ($true_form_modal == 1) {
 				</div>
 				<div class="text-right">
 					<a href="" target="_blank"
-						class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold"
-						download>
+						class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold">
 						<?php _e('Xem nội dung', 'bsc') ?>
 						<?php echo svgpath('download', '20', '20', 'fill-black') ?>
 					</a>
