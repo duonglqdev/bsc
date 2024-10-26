@@ -71,7 +71,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 </a>
                             </div>
                             <?php
-                            $groupid = get_field('api_id_danh_muc', get_queried_object());
+                            $groupid = get_field('api_id_danh_muc', $term);
                             if ($groupid) {
                                 $get_performance_data = array(
                                     'lang' => pll_current_language(),

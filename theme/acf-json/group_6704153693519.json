@@ -212,6 +212,45 @@
                     "preview_size": "thumbnail"
                 }
             ]
+        },
+        {
+            "key": "field_671ca8c30c645",
+            "label": "API",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_671cab3b0c646",
+            "label": "ID danh mục",
+            "name": "api_id_danh_muc",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -232,5 +271,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729174623
+    "modified": 1729932105
 }

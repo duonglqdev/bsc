@@ -1,6 +1,18 @@
 <?php
 if ($args['data']) {
     $news = $args['data'];
+    $date = $news->postdate;
+    $date_parts = explode('T', $date);
+    $day = $date_parts[0];
+    $day_of_month = date('d', strtotime($day));
+    setlocale(LC_TIME, 'vi_VN.UTF-8');
+    if (get_locale() == 'vi') {
+        $weekday_number = date('N', strtotime($day));
+        $weekday_names = [__('Thứ', 'bsc') . ' 2', __('Thứ', 'bsc') . ' 3', __('Thứ', 'bsc') . ' 4', __('Thứ', 'bsc') . ' 5', __('Thứ', 'bsc') . ' 6', __('Thứ', 'bsc') . ' 7', __('Chủ Nhật', 'bsc')];
+        $weekday_name = $weekday_names[$weekday_number - 1];
+    } else {
+        $weekday_name = date('l', strtotime($day));
+    }
 ?>
     <div
         class="news_service-item md:flex items-center justify-between md:gap-20">
@@ -9,11 +21,11 @@ if ($args['data']) {
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
                 <p
                     class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
-                    Thứ 2
+                    <?php echo $weekday_name ?>
                 </p>
                 <p
                     class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
-                    16
+                    <?php echo $day_of_month ?>
                 </p>
             </div>
             <div class="md:ml-[30px] ml-5">

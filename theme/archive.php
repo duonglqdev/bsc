@@ -33,7 +33,6 @@ get_header();
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 								<?php
 								$current_term_id = get_queried_object_id();
-
 								foreach ($terms as $term) :
 									$active_class = ($current_term_id === $term->term_id) ? 'active' : '';
 								?>
@@ -84,7 +83,7 @@ get_header();
 					$get_performance_data = array(
 						'lang' => pll_current_language(),
 						'groupid' => $groupid,
-						'maxitem' => '10'
+						'maxitem' => 10
 					);
 					$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
 					if ($response->s == "ok" && !empty($response->d)) {

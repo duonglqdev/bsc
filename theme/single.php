@@ -35,7 +35,9 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner', null, array(
-		'title' => $tax_name
+		'title' => $tax_name,
+		'breadcrumb' => 'post',
+		'tax_name' => $tax_name
 	)) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
@@ -136,7 +138,7 @@ get_header();
 		</div>
 	</section>
 	<?php
-	if ($args['data']) {
+	if ($args['data']  && $groupid) {
 		$array_data = array(
 			"maxitem" => "3",
 			"lang" => pll_current_language(),
@@ -154,10 +156,11 @@ get_header();
 					<div
 						class="grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8">
 						<?php
-						while ($related_items->have_posts()) :
-							$related_items->the_post();
-							get_template_part('template-parts/content', get_post_type());
-						endwhile;
+						foreach ($response->d as $news) {
+							get_template_part('template-parts/content', null, array(
+								'data' => $news,
+							));
+						}
 						?>
 					</div>
 				</div>

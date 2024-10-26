@@ -23,7 +23,7 @@ if (is_page() && have_rows('breacrumb')) {
         </p>
     </nav>
     <?php
-} elseif ((is_category() || is_singular('post')) && get_field('cdtt1_breadcrumb', 'option')) {
+} elseif ((is_category() || is_singular('post') || $args['custom'] == 'post') && get_field('cdtt1_breadcrumb', 'option')) {
     if (have_rows('cdtt1_breadcrumb', 'option')) {
     ?>
         <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
@@ -54,9 +54,8 @@ if (is_page() && have_rows('breacrumb')) {
                         } else {
                             $title = get_the_archive_title();
                         }
-                    } elseif (is_singular('post')) {
-                        $category = get_the_category();
-                        $title = $category[0]->name;
+                    } else {
+                        $title = $args['tax_name'];
                     }
                     echo $title;
                     ?>
