@@ -361,7 +361,7 @@ if (is_tax('danh-muc-bao-cao')) {
 if ($true_form_modal == 1) {
 ?>
 	<div id="document-modal" tabindex="-1" aria-hidden="true"
-		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#000] bg-opacity-80">
+		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">
 		<div class="relative w-full max-w-[764px] max-h-full">
 			<div class="relative bg-white p-6 rounded-[10px]">
 				<div class="border-b mb-4 pb-4 text-right">
@@ -390,8 +390,7 @@ if ($true_form_modal == 1) {
 				</div>
 				<div class="text-right">
 					<a href="" target="_blank"
-						class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold"
-						download>
+						class="document-modal-link inline-flex py-3 px-6 gap-2 rounded-lg bg-yellow-100 text-xs font-bold">
 						<?php _e('Xem nội dung', 'bsc') ?>
 						<?php echo svgpath('download', '20', '20', 'fill-black') ?>
 					</a>

@@ -8,7 +8,7 @@
                     <div class="lg:py-14 py-10 lg:px-20 px-6 h-full"
                         style="background-color:#ccece7;">
                         <h2
-                            class="lg:text-[28px] text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
+                            class="lg:2xl:text-[28px] text-xl text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
                             Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
                         </h2>
                         <div class="line-clamp-3 font-Helvetica mb-10">
@@ -38,7 +38,7 @@
                     <div class="lg:py-14 py-10 lg:px-20 px-6 h-full"
                         style="background-color:#fff1d2;">
                         <h2
-                            class="lg:text-[28px] text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
+                            class="lg:2xl:text-[28px] text-xl text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
                             Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
                         </h2>
                         <div class="line-clamp-3 font-Helvetica mb-10">
@@ -68,7 +68,7 @@
                     <div class="lg:py-14 py-10 lg:px-20 px-6 h-full"
                         style="background-color:#EBF4FA ;">
                         <h2
-                            class="lg:text-[28px] text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
+                            class="lg:2xl:text-[28px] text-xl text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
                             Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
                         </h2>
                         <div class="line-clamp-3 font-Helvetica mb-10">

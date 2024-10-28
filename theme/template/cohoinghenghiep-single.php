@@ -279,7 +279,7 @@ get_header();
 </main>
 
 <div id="popup-modal" tabindex="-1"
-	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-[#000] bg-opacity-80">
+	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">
 	<div class="relative max-w-full w-[600px] max-h-full">
 		<div class="relative bg-white rounded-[15px] shadow lg:px-[50px] px-5 lg:py-10 py-5">
 			<button type="button"

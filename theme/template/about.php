@@ -507,7 +507,7 @@ get_header();
 
 	</section>
 	<div id="leader-modal" tabindex="-1" aria-hidden="true"
-		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-20">
+		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-full max-h-full bg-black bg-opacity-20">
 		<div class="relative p-4 w-full max-w-2xl lg:max-w-[1094px] max-h-full">
 			<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -682,7 +682,7 @@ get_header();
 			<h2 class="heading-title text-center mb-10">
 				GIẢI THƯỞNG NỔI BẬT
 			</h2>
-			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica xl:mx-16">
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica 2xl:mx-16">
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award1.png"

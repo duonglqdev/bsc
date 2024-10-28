@@ -11,7 +11,7 @@
 				<?php } ?>
 				<?php if ( get_sub_field( 'mota' ) )
 				{ ?>
-					<p class="uppercase text-primary-300 text-2xl font-bold wow fadeIn"
+					<p class="uppercase text-primary-300 2xl:text-2xl text-xl font-bold wow fadeIn font-bold wow fadeIn"
 						data-wow-duration="2s">
 						<?php the_sub_field( 'mota' ) ?>
 					</p>

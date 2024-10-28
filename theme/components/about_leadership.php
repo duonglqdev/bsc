@@ -8,7 +8,7 @@
         <?php
         $title_tab = generateRandomString(10);
         if (have_rows('doi_ngu')) { ?>
-            <div class="grid md:grid-cols-4 lg:gap-[50px] gap-9">
+            <div class="grid md:grid-cols-4 2xl:gap-[50px] gap-9">
                 <div class="md:col-span-1">
                     <ul class="flex flex-col about_leadership-nav py-[15px] pr-[15px] rounded-[15px] space-y-3"
                         data-tabs-toggle="#about_leadership-tab" role="tablist"
@@ -82,7 +82,7 @@
     </div>
 </section>
 <div id="leader-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[99] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-20">
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[99] justify-center items-center w-full md:inset-0 h-full max-h-full bg-black bg-opacity-20">
     <div class="relative p-4 w-full max-w-2xl lg:max-w-[1094px] max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div

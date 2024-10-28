@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('reward')) { ?>
-            <div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica xl:mx-16">
+            <div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica 2xl:mx-16">
                 <?php while (have_rows('reward')): the_row(); ?>
                     <div class="rounded-2xl overflow-hidden bg-gradient-blue-50 lg:p-10 p-5 h-full bg-full group relative bg-no-repeat"  style="background-image:url(<?php echo get_stylesheet_directory_uri()?>/assets/svg/bg-award.png)">
                         <div class="mb-10">
