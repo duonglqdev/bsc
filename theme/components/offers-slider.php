@@ -57,91 +57,36 @@
 						<?php the_sub_field('title_2') ?>
 					</h2>
 				<?php } ?>
-				<div class="block_slider block_slider-show-2 no-dots -mx-4">
-					<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-						<div class="bg-white lg:p-8 p-5 rounded-lg ">
-							<div class="max-h-44 overflow-hidden">
-								<p
-									class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-									<a href="" class="line-clamp-3">
-										Danh mục “Chuẩn” – Ưu đãi “Chất”
-									</a>
-								</p>
-								<div class="">
-									x2 hiệu quả đầu tư với TOP 10 cổ phiếu được khuyến nghị bởi
-									Trung
-									tâm Phân tích Nghiên cứu BSC và tận hưởng loạt ưu đãi giảm phí
-									giao
-									dịch, margin hấp dẫn, hoàn phí tới 1 triệu đồng/tháng không giới
-									hạn. 
+				<?php
+				$array_data = array(
+					"maxitem" => "10",
+					"lang" => pll_current_language(),
+					"groupid" => "28",
+					'index' => 1
+				);
+				$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($array_data));
+				if ($response->s == "ok" && !empty($response->d)) {
+				?>
+					<div class="block_slider block_slider-show-2 no-dots -mx-4">
+						<?php foreach ($response->d as $news) { ?>
+							<div class="block_slider-item md:w-3/5 w-4/5 px-4">
+								<div class="bg-white lg:p-8 p-5 rounded-lg ">
+									<div class="max-h-44 overflow-hidden">
+										<p
+											class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+											<a href="javascript:void(0)" class="line-clamp-3">
+												<?php echo htmlspecialchars($news->title) ?>
+											</a>
+										</p>
+										<div class="">
+											<?php echo htmlspecialchars($news->description) ?>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+						<?php } ?>
 					</div>
-					<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-						<div class="bg-white lg:p-8 p-5 rounded-lg">
-							<div class="max-h-44 overflow-hidden">
-								<p
-									class="relative font-bold lg:text-lg after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-									<a href="" class="line-clamp-3">
-										Cơ Hội Tới – Nhanh Mở Mới, cùng BSC săn chuyến du lịch Hàn
-										Quốc
-										và
-										hàng nghìn quà tặng hấp dẫn
-									</a>
-								</p>
-								<div class="">
-									Với mong muốn luôn là người đồng hành đáng tin cậy của Nhà đầu
-									tư
-									trước những cơ hội của thị trường, BSC tiếp tục khởi động chương
-									trình “Cơ Hội Tới - Nhanh Mở Mới".
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-						<div class="bg-white lg:p-8 p-5 rounded-lg ">
-							<div class="max-h-44 overflow-hidden">
-
-								<p
-									class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-									<a href="" class="line-clamp-3">
-										Danh mục “Chuẩn” – Ưu đãi “Chất”
-									</a>
-								</p>
-								<div class="">
-									x2 hiệu quả đầu tư với TOP 10 cổ phiếu được khuyến nghị bởi
-									Trung
-									tâm Phân tích Nghiên cứu BSC và tận hưởng loạt ưu đãi giảm phí
-									giao
-									dịch, margin hấp dẫn, hoàn phí tới 1 triệu đồng/tháng không giới
-									hạn. 
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-						<div class="bg-white lg:p-8 p-5 rounded-lg">
-							<div class="max-h-44 overflow-hidden">
-								<p
-									class="relative font-bold lg:text-lg after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-									<a href="" class="line-clamp-3">
-										Cơ Hội Tới – Nhanh Mở Mới, cùng BSC săn chuyến du lịch Hàn
-										Quốc
-										và
-										hàng nghìn quà tặng hấp dẫn
-									</a>
-								</p>
-								<div class="">
-									Với mong muốn luôn là người đồng hành đáng tin cậy của Nhà đầu
-									tư
-									trước những cơ hội của thị trường, BSC tiếp tục khởi động chương
-									trình “Cơ Hội Tới - Nhanh Mở Mới".
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php } ?>
 				<?php if (have_rows('video_youtube')) {
 					while (have_rows('video_youtube')) :
 						the_row();

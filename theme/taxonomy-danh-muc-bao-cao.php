@@ -7,7 +7,12 @@
  *
  * @package bsc
  */
-
+if (get_field('api_id_danh_muc', get_queried_object())) {
+    $groupid = get_field('api_id_danh_muc', get_queried_object());
+} else {
+    wp_redirect(home_url('/404'), 301);
+    exit;
+}
 get_header();
 ?>
 <main>
@@ -72,23 +77,29 @@ get_header();
                 </div>
                 <div class="md:col-span-3 col-span-full">
                     <?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
-                        <?php if (have_posts()) : ?>
+                        <?php
+                        $get_performance_data = array(
+                            'lang' => pll_current_language(),
+                            'groupid' => $groupid,
+                            'maxitem' => 8
+                        );
+                        $response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
+                        if ($response->s == "ok" && !empty($response->d)) : ?>
                             <div class="space-y-8">
                                 <div class="grid grid-cols-4 gap-5">
                                     <?php
-                                    while (have_posts()) :
-                                        the_post();
-                                        get_template_part('template-parts/content_thumbnail', get_post_type());
-                                    endwhile;
+                                    foreach ($response->d as $news) {
+                                        get_template_part('template-parts/content_thumbnail-quan-he-co-dong', null, array(
+                                            'data' => $news,
+                                        ));
+                                    }
                                     ?>
                                 </div>
                             </div>
-                            <?php get_template_part('components/pagination') ?>
                         <?php
                         else :
-
                             // If no content, include the "No posts found" template.
-                            get_template_part('template-parts/content/content', 'none');
+                            get_template_part('template-parts/content', 'none');
 
                         endif;
                         ?>
@@ -133,19 +144,28 @@ get_header();
                                 </div>
                             </div>
                         </form>
-                        <?php if (have_posts()) : ?>
+                        <?php
+                        $get_performance_data = array(
+                            'lang' => pll_current_language(),
+                            'groupid' => $groupid,
+                            'maxitem' => 8
+                        );
+                        $response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
+                        if ($response->s == "ok" && !empty($response->d)) : ?>
                             <div class="space-y-8">
                                 <?php
-                                while (have_posts()) :
-                                    the_post();
-                                    get_template_part('template-parts/content', get_post_type());
-                                endwhile;
+                                foreach ($response->d as $news) {
+                                    get_template_part('template-parts/content-quan-he-co-dong', null, array(
+                                        'data' => $news,
+                                    ));
+                                }
                                 ?>
                             </div>
-                            <?php get_template_part('components/pagination') ?>
                         <?php
                         else :
-                            get_template_part('template-parts/content/content', 'none');
+                            // If no content, include the "No posts found" template.
+                            get_template_part('template-parts/content', 'none');
+
                         endif;
                         ?>
                     <?php

@@ -864,6 +864,23 @@
                             "append": ""
                         },
                         {
+                            "key": "field_671c012fd1256",
+                            "label": "Video",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_67024cef13b06",
                             "label": "Video Youtube",
                             "name": "video_youtube",
@@ -4936,5 +4953,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729175032
+    "modified": 1729889527
 }

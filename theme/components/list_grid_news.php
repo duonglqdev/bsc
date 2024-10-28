@@ -71,45 +71,41 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 </a>
                             </div>
                             <?php
-                            $custom_taxterms = $term->term_id;
-                            $args = array(
-                                'post_type' => 'post',
-                                'post_status' => 'publish',
-                                'posts_per_page' => 4,
-                                'tax_query' => array(
-                                    array(
-                                        'taxonomy' => 'category',
-                                        'field' => 'id',
-                                        'terms' => $custom_taxterms
-                                    )
-                                ),
-                            );
-                            $related_items = new WP_Query($args);
-                            if ($related_items->have_posts()) : ?>
-                                <?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
-                                    <div
-                                        class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
-                                        <?php
-                                        while ($related_items->have_posts()) :
-                                            $related_items->the_post();
-                                            get_template_part('template-parts/content', get_post_type());
-                                        endwhile;
-                                        ?>
-                                    </div>
-                                <?php } else {
-                                ?>
-                                    <div class="mb-10 pb-10 border-b border-[#E1E1E1] space-y-6">
-                                        <?php
-                                        while ($related_items->have_posts()) :
-                                            $related_items->the_post();
-                                            get_template_part('template-parts/content_nothumb', get_post_type());
-                                        endwhile;
-                                        ?>
-                                    </div>
-                                <?php
-                                } ?>
-                            <?php endif;
-                            wp_reset_postdata(); ?>
+                            $groupid = get_field('api_id_danh_muc', $term);
+                            if ($groupid) {
+                                $get_performance_data = array(
+                                    'lang' => pll_current_language(),
+                                    'groupid' => $groupid,
+                                    'maxitem' => '4'
+                                );
+                                $response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
+                                if ($response->s == "ok" && !empty($response->d)) { ?>
+                                    <?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
+                                        <div
+                                            class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
+                                            <?php
+                                            foreach ($response->d as $news) {
+                                                get_template_part('template-parts/content', null, array(
+                                                    'data' => $news,
+                                                ));
+                                            }
+                                            ?>
+                                        </div>
+                                    <?php } else {
+                                    ?>
+                                        <div class="mb-10 pb-10 border-b border-[#E1E1E1] space-y-6">
+                                            <?php
+                                            foreach ($response->d as $news) {
+                                                get_template_part('template-parts/content_nothumb', get_post_type(), array(
+                                                    'data' => $news,
+                                                ));
+                                            }
+                                            ?>
+                                        </div>
+                                    <?php
+                                    } ?>
+                            <?php }
+                            } ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
