@@ -682,7 +682,7 @@ get_header();
 			<h2 class="heading-title text-center mb-10">
 				GIẢI THƯỞNG NỔI BẬT
 			</h2>
-			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica xl:mx-16">
+			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica 2xl:mx-16">
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award1.png"

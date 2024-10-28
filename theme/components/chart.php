@@ -8,28 +8,28 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 <section class="chart bg-primary-200 lg:py-[77px] relative py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title_main')) { ?>
-			<h2 class="heading-title mb-12 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title_main') ?></h2>
+			<h2 class="heading-title 2xl:mb-12 mb-8 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title_main') ?></h2>
 		<?php } ?>
 		<div class="md:flex relative z-[2]">
 			<div class="flex-1 md:mr-5">
 				<?php if (get_sub_field('title')) { ?>
 					<h2
-						class="pl-6 border-l-2 border-primary-300 text-[28px] font-bold mb-7 text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
+						class="pl-6 border-l-2 border-primary-300 2xl:text-[28px] text-xl font-bold mb-7 text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field('title') ?>
 					</h2>
 				<?php } ?>
-				<div class="bg-white rounded-2xl p-7">
+				<div class="bg-white rounded-2xl 2xl:p-7 p-5">
 					<div class="flex justify-between items-center mb-6">
 						<div class="space-x-2 px-[6px] py-[2px] rounded-xl bg-[#F8F8FF]">
 							<button
-								class="px-4 py-2 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white active bg-primary-700  rounded-[10px]">BSC10</button>
+								class="2xl:px-4 px-2 2xl:py-2 py-1 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white active bg-primary-700  rounded-[10px] 2xl:text-base text-sm">BSC10</button>
 							<button
 								class="px-4 py-2 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px]">BSC30</button>
 							<button
 								class="px-4 py-2 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px]">BSC50</button>
 						</div>
 
-						<div class="flex items-center space-x-4">
+						<div class="flex items-center 2xl:space-x-4 space-x-2">
 							<strong><?php _e('Thời gian', 'bsc') ?>:</strong>
 							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $fromdate_value; ?>">
 							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate_value; ?>">
@@ -85,7 +85,7 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 				<div class="flex items-center justify-between mb-7">
 					<?php if (get_sub_field('title_2')) { ?>
 						<h2
-							class="lg:pl-6 pl-4 border-l-2 border-primary-300 xl:text-[28px] text-xl font-bold text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
+							class="lg:pl-6 pl-4 border-l-2 border-primary-300 xl:2xl:text-[28px] text-xl text-xl font-bold text-primary-300 leading-none wow fadeIn" data-wow-duration="2s">
 							<?php the_sub_field('title_2') ?>
 						</h2>
 					<?php } ?>

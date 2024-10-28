@@ -8,7 +8,7 @@
         <?php
         $title_tab = generateRandomString(10);
         if (have_rows('doi_ngu')) { ?>
-            <div class="grid md:grid-cols-4 lg:gap-[50px] gap-9">
+            <div class="grid md:grid-cols-4 2xl:gap-[50px] gap-9">
                 <div class="md:col-span-1">
                     <ul class="flex flex-col about_leadership-nav py-[15px] pr-[15px] rounded-[15px] space-y-3"
                         data-tabs-toggle="#about_leadership-tab" role="tablist"

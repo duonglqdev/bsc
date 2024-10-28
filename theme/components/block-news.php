@@ -26,7 +26,7 @@ if (!empty($groupid)) {
 		<section class="home_news bg-white lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 			<div class="container">
 				<?php if (get_sub_field('title')) { ?>
-					<h2 class="heading-title mb-12 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
+					<h2 class="heading-title 2xl:mb-12 mb-8 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
 				<?php } ?>
 				<div class="grid grid-cols-5 gap-5">
 					<?php
