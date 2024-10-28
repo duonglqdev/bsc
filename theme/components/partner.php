@@ -8,34 +8,10 @@
 		<?php } ?>
 		<?php
 		if ( have_rows( 'gallery' ) ) : ?>
-			<div class="data-slick block_slider-show-2 no-dots -mx-4 relative partner_list data-slick-pause" dir="rtl" data-slick='{
-			"slidesToShow": 7, 
-			"slidesToScroll": 1, 
-			"autoplay": true, 
-			"autoplaySpeed": 100, 
-			"pauseOnHover": false, 
-			"pauseOnFocus": false,
-			"dots": false, 
-			"arrows": false, 
-			"cssEase": "linear", 
-			"speed": 4000, 
-			"centerMode": true, 
-			"centerPadding": "0", 
-			"infinite": true,
-			"rtl": true,
-			"responsive": [
-				{
-					"breakpoint": 768,
-					"settings": {
-						"slidesToShow": 2,
-						"slidesToScroll": 1
-					}
-				}
-			]
-		}'>
+			<div class="block__slider-marquee marquee-rtl block_slider-show-6 partner_list">
 				<?php while ( have_rows( 'gallery' ) ) :
 					the_row(); ?>
-					<div class="block_slider-item px-4 py-6">
+					<div class="block_slider-item px-4 py-6 lg:w-[14.2%] md:w-1/4 w-1/2">
 						<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 							class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-no-repeat bg-full bg-center transition-all duration-500 hover:scale-110"  style="background-image:url(<?php echo get_stylesheet_directory_uri()?>/assets/svg/test-svg.png)">
 							<?php echo wp_get_attachment_image( get_sub_field( 'logo' ), 'medium', '', array( 'class' => 'absolute w-full max-w-[80%] h-full object-contain inset-0 m-auto' ) ) ?>
