@@ -242,7 +242,7 @@ header {
 	}
 }
 
-.about_culture-list  {
+.about_culture-swiper {
 	.is-selected {
 		.about_culture-item {
 			@apply after:bg-opacity-0;
@@ -272,7 +272,7 @@ header {
 	.swiper-button-prev {
 		@apply xl:-left-12;
 	}
-	.flickity-slider{
+	.flickity-slider {
 		@apply flex items-center;
 	}
 }
