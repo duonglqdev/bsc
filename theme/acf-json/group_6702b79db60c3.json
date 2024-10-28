@@ -864,6 +864,28 @@
                             "append": ""
                         },
                         {
+                            "key": "field_671f89f8cc35b",
+                            "label": "Time Cache",
+                            "name": "t2_time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
+                        },
+                        {
                             "key": "field_671c012fd1256",
                             "label": "Video",
                             "name": "",
@@ -1526,6 +1548,28 @@
                             "append": ""
                         },
                         {
+                            "key": "field_671f8b28cc35c",
+                            "label": "Time Cache",
+                            "name": "time_cache_1",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
+                        },
+                        {
                             "key": "field_670264a256543",
                             "label": "Báo cáo phân tích",
                             "name": "",
@@ -1713,6 +1757,28 @@
                                             "append": ""
                                         }
                                     ]
+                                },
+                                {
+                                    "key": "field_671f8b53cc35d",
+                                    "label": "Time Cache",
+                                    "name": "time_cache",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 300,
+                                    "min": "",
+                                    "max": "",
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "giây"
                                 }
                             ]
                         },
@@ -1816,6 +1882,29 @@
                                         }
                                     ],
                                     "parent_repeater": "field_670265fc5654d"
+                                },
+                                {
+                                    "key": "field_671f8c4ecc35e",
+                                    "label": "Time Cache",
+                                    "name": "time_cache",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 300,
+                                    "min": "",
+                                    "max": "",
+                                    "placeholder": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "giây",
+                                    "parent_repeater": "field_670265fc5654d"
                                 }
                             ]
                         }
@@ -1893,6 +1982,28 @@
                             "max_size": "",
                             "mime_types": "",
                             "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_671f92a7fe7b2",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -3641,6 +3752,28 @@
                             "append": ""
                         },
                         {
+                            "key": "field_671fa05e3aee6",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
+                        },
+                        {
                             "key": "field_67040b9306bc1",
                             "label": "Lịch sử vốn điều lệ",
                             "name": "",
@@ -4059,6 +4192,50 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_671fa4050e6aa",
+                            "label": "Số lượng bài viết",
+                            "name": "number",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_671fa3e60e6a9",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -4811,11 +4988,11 @@
                             "append": ""
                         },
                         {
-                            "key": "field_671118de98527",
-                            "label": "Tiêu đề",
-                            "name": "title",
+                            "key": "field_671f9adffda7c",
+                            "label": "Số lượng bài viết",
+                            "name": "number",
                             "aria-label": "",
-                            "type": "text",
+                            "type": "number",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -4824,11 +5001,35 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "maxlength": "",
+                            "default_value": 3,
+                            "min": "",
+                            "max": "",
                             "placeholder": "",
+                            "step": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_671f9b4ffda7d",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -4922,6 +5123,50 @@
                                     "preview_size": "thumbnail"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_671f9b6dfda7f",
+                            "label": "Số lượng bài viết",
+                            "name": "number",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_671f9b5efda7e",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -4953,5 +5198,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729889527
+    "modified": 1730126866
 }

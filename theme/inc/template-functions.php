@@ -156,6 +156,28 @@ function svgClass_dir($path, $width = false, $height = false, $class = '')
 	return '';
 }
 
+if (! function_exists('bsc_set_thumbnail')) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function bsc_set_thumbnail($data, $size = 'thumbnail')
+	{
+		if (isset($data->imagethumbnail) && !empty($data->imagethumbnail)) {
+			$thumbnail =  $data->imagethumbnail;
+		} elseif (get_sub_field('default_thumbnail')) {
+			$thumbnail = wp_get_attachment_image_url(get_sub_field('default_thumbnail'), $size);
+		} elseif (get_field('cdc1_thumbnail', 'option')) {
+			$thumbnail = wp_get_attachment_image_url(get_field('cdc1_thumbnail', 'option'), $size);
+		} else {
+			$thumbnail = get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
+		}
+		return $thumbnail;
+	}
+endif;
+
 if (! function_exists('bsc_post_thumbnail')) :
 	/**
 	 * Displays an optional post thumbnail.
@@ -167,7 +189,7 @@ if (! function_exists('bsc_post_thumbnail')) :
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
 			if (get_field('cdc1_thumbnail', 'option')) {
-				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'), 'thumbnail');
 			} else {
 				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
 			}
@@ -188,7 +210,7 @@ if (! function_exists('bsc_post_thumbnail_medium')) :
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
 			if (get_field('cdc1_thumbnail', 'option')) {
-				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+				echo wp_get_attachment_image_url(get_field('cdc1_thumbnail', 'option'));
 			} else {
 				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
 			}
@@ -209,7 +231,7 @@ if (! function_exists('bsc_post_thumbnail_large')) :
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
 			if (get_field('cdc1_thumbnail', 'option')) {
-				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+				echo wp_get_attachment_image_url(get_field('cdc1_thumbnail', 'option'), 'large');
 			} else {
 				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
 			}
@@ -230,7 +252,7 @@ if (! function_exists('bsc_post_thumbnail_full')) :
 	{
 		if (post_password_required() || is_attachment() || ! has_post_thumbnail()) {
 			if (get_field('cdc1_thumbnail', 'option')) {
-				echo wp_get_attachment_thumb_url(get_field('cdc1_thumbnail', 'option'));
+				echo wp_get_attachment_image_url(get_field('cdc1_thumbnail', 'option'), 'full');
 			} else {
 				echo get_stylesheet_directory_uri() . '/assets/svg/placeholder.svg';
 			}

@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_671fa4e1361e4",
+    "title": "Trách nhiệm với cộng đồng",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Trách nhiệm với cộng đồng",
+    "menu_slug": "trach-nhiem-voi-cong-dong",
+    "parent_slug": "themes.php",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1730127088
+}

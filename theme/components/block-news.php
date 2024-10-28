@@ -13,6 +13,7 @@ if ($categories) {
 	}
 }
 $groupid = implode(",", $groupid);
+$time_cache = get_sub_field('time_cache') ?: 300;
 if (!empty($groupid)) {
 	$array_data = array(
 		"maxitem" => "5",
@@ -20,8 +21,8 @@ if (!empty($groupid)) {
 		"groupid" => $groupid,
 		'index' => 1
 	);
-	$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($array_data));
-	if ($response->s == "ok" && !empty($response->d)) {
+	$response = get_data_with_cache('GetTopNews', $array_data, $time_cache);
+	if ($response) {
 ?>
 		<section class="home_news bg-white lg:py-[77px] py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 			<div class="container">
@@ -37,14 +38,7 @@ if (!empty($groupid)) {
 							<div class="md:col-span-3 col-span-full">
 								<div class="group">
 									<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
-										<?php
-										if (isset($news->imagethumbnail) && !empty($news->imagethumbnail)) {
-											$thumbnail =  $news->imagethumbnail;
-										} else {
-											$thumbnail = wp_get_attachment_image_url(get_sub_field('default_thumbnail'), 'large');
-										}
-										?>
-										<img src="<?php echo $news->imagethumbnail ?>"
+										<img src="<?php echo bsc_set_thumbnail($news, 'large') ?>"
 											alt="<?php echo htmlspecialchars($news->title) ?>"
 											class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 									</a>

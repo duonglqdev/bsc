@@ -1,10 +1,10 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="flex flex-col document_item-popup cursor-pointer" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo check_link(get_field('file')) ?>">
+    <div class="flex flex-col document_item-popup cursor-pointer" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>">
         <p
             class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
-            <img src="<?php echo $news->imagethumbnail ?>"
+            <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                 alt=" <?php echo htmlspecialchars($news->title) ?>"
                 class="absolute w-full h-full inset-0 object-cover group-hover:scale-105  transition-all duration-500">
         </p>

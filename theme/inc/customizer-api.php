@@ -1,26 +1,42 @@
 <?php
 function callApi($url, $data = false, $method = "GET")
 {
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => $method,
-        CURLOPT_POSTFIELDS => $data,
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json'
-        ),
-    ));
-    $response = curl_exec($curl);
-    curl_close($curl);
-    return json_decode($response);
+    // $curl = curl_init();
+    // curl_setopt_array($curl, array(
+    //     CURLOPT_URL => $url,
+    //     CURLOPT_RETURNTRANSFER => true,
+    //     CURLOPT_ENCODING => '',
+    //     CURLOPT_MAXREDIRS => 10,
+    //     CURLOPT_TIMEOUT => 0,
+    //     CURLOPT_FOLLOWLOCATION => true,
+    //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //     CURLOPT_CUSTOMREQUEST => $method,
+    //     CURLOPT_POSTFIELDS => $data,
+    //     CURLOPT_HTTPHEADER => array(
+    //         'Content-Type: application/json'
+    //     ),
+    // ));
+    // $response = curl_exec($curl);
+    // curl_close($curl);
+    // return json_decode($response);
 }
 
+function get_data_with_cache($endpoint, $array_data, $ttl = 300)
+{
+    $cache_key = $endpoint . '_' . md5(json_encode($array_data));
+    $cached_data = wp_cache_get($cache_key);
+    if (false !== $cached_data) {
+        return $cached_data;
+    }
+
+    $url = 'http://10.21.170.17:86/' . $endpoint . '?' . http_build_query($array_data);
+    $response = callApi($url);
+    if (is_object($response) && $response->s == "ok" && !empty($response->d)) {
+        wp_cache_set($cache_key, $response, '', $ttl);
+        return $response;
+    }
+    return null;
+}
 
 function slug_news($postid, $title)
 {
