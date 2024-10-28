@@ -7,38 +7,15 @@
         </div>
     <?php } ?>
 
-    <div class="max-w-full w-full lg:px-0 px-4 overflow-hidden space-y-[30px]">
+    <div class="max-w-full w-full lg:px-0 px-4 overflow-hidden space-y-4">
         <?php
         $images = get_sub_field('gallery_tren');
         if ($images): ?>
-            <div class="data-slick block_slider-show-1 -mx-3" data-slick='{
-			"slidesToShow": 4, 
-			"slidesToScroll": 1, 
-			"autoplay": true, 
-			"autoplaySpeed": 0, 
-			"pauseOnHover": true, 
-			"pauseOnFocus": true,
-			"dots": false, 
-			"arrows": false, 
-			"cssEase": "linear", 
-			"speed": 10000, 
-			"centerMode": true, 
-			"centerPadding": "0", 
-			"infinite": true,
-			"responsive": [
-				{
-					"breakpoint": 768,
-					"settings": {
-						"slidesToShow": 2,
-						"slidesToScroll": 1
-					}
-				}
-			]
-		}'>
+            <div class="block_slider-show-4 -mx-3 block__slider-marquee">
                 <?php foreach ($images as $image): ?>
-                    <div class="slider-item mx-3">
+                    <div class="block_slider-item px-3 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
-                            class="block w-full relative pt-[60%]" data-fancybox>
+                            class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
                             <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>"
                                 class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
@@ -50,35 +27,11 @@
         <?php
         $images = get_sub_field('gallery_duoi');
         if ($images): ?>
-            <div class="data-slick block_slider-show-1 -mx-3" dir="rtl" data-slick='{
-			"slidesToShow": 4, 
-			"slidesToScroll": 1, 
-			"autoplay": true, 
-			"autoplaySpeed": 0, 
-			"pauseOnHover": true, 
-			"pauseOnFocus": true,
-			"dots": false, 
-			"arrows": false, 
-			"cssEase": "linear", 
-			"speed": 10000, 
-			"centerMode": true, 
-			"centerPadding": "0", 
-			"infinite": true,
-			"rtl": true,
-			"responsive": [
-				{
-					"breakpoint": 768,
-					"settings": {
-						"slidesToShow": 2,
-						"slidesToScroll": 1
-					}
-				}
-			]
-		}'>
+            <div class="block_slider-show-4 -mx-3 block__slider-marquee marquee-rtl" >
                 <?php foreach ($images as $image): ?>
-                    <div class="slider-item mx-3">
+                    <div class="block_slider-item px-3 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
-                            class="block w-full relative pt-[60%]" data-fancybox>
+                            class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
                             <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>"
                                 class="absolute w-full h-full inset-0 object-cover rounded-[10px]">

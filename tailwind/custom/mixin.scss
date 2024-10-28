@@ -39,10 +39,16 @@
 .block_slider-show-2 {
     @include block-slider-show(2);
 }
+.block_slider-show-3 {
+    @include block-slider-show(3);
+}
+.block_slider-show-4 {
+    @include block-slider-show(4);
+}
 .block_slider-show-5 {
     @include block-slider-show(5);
 }
-.block_slider-show-5 {
+.block_slider-show-6 {
     @include block-slider-show(6);
 }
 

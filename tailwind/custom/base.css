@@ -41,6 +41,20 @@
   @apply hidden;
 }
 
+.block_slider-show-3:not(.flickity-enabled, .slick-initialized) {
+  @apply flex overflow-hidden;
+}
+.block_slider-show-3:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+4) {
+  @apply hidden;
+}
+
+.block_slider-show-4:not(.flickity-enabled, .slick-initialized) {
+  @apply flex overflow-hidden;
+}
+.block_slider-show-4:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+5) {
+  @apply hidden;
+}
+
 .block_slider-show-5:not(.flickity-enabled, .slick-initialized) {
   @apply flex overflow-hidden;
 }
@@ -48,10 +62,10 @@
   @apply hidden;
 }
 
-.block_slider-show-5:not(.flickity-enabled, .slick-initialized) {
+.block_slider-show-6:not(.flickity-enabled, .slick-initialized) {
   @apply flex overflow-hidden;
 }
-.block_slider-show-5:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+7) {
+.block_slider-show-6:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+7) {
   @apply hidden;
 }
 
