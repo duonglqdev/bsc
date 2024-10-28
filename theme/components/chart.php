@@ -21,13 +21,13 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 				<?php } ?>
 				<div class="bg-white rounded-2xl 2xl:p-7 p-5">
 					<div class="flex justify-between items-center mb-6">
-						<div class="space-x-2 px-[6px] py-[2px] rounded-xl bg-[#F8F8FF]">
-							<button
+						<div class="space-x-2 px-[6px] py-[2px] rounded-xl bg-[#F8F8FF] btn-chart">
+							<button data-chart="BSC10"
 								class="2xl:px-4 px-2 2xl:py-2 py-1 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white active bg-primary-700  rounded-[10px] 2xl:text-base text-sm">BSC10</button>
-							<button
-								class="px-4 py-2 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px]">BSC30</button>
-							<button
-								class="px-4 py-2 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px]">BSC50</button>
+							<button data-chart="BSC30"
+								class="2xl:px-4 px-2 2xl:py-2 py-1 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px] 2xl:text-base text-sm">BSC30</button>
+							<button data-chart="BSC50"
+								class="2xl:px-4 px-2 2xl:py-2 py-1 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px] 2xl:text-base text-sm">BSC50</button>
 						</div>
 
 						<div class="flex items-center 2xl:space-x-4 space-x-2">
@@ -41,28 +41,30 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 				</div>
 			</div>
-			<?php
-			// $get_performance_data = array(
-			// 	'portcode' => 'BSC10,BSC30,BSC50,VNDIAMOND,VNINDEX'
-			// );
-			// $get_performance = callApi('http://10.21.170.17:86/GetPortfolioPerformance?' . http_build_query($get_performance_data));
-			?>
 			<script>
 				jQuery(document).ready(function() {
-					const newSeriesData = [{
+					const dataSets = {
+						BSC10: [{
 							name: 'BSC10',
-							data: [25, 35, 45, 55, 60, 65, 75, 85],
-						},
-						{
+							data: [25, 35, 45, 55, 60, 65, 75, 85]
+						}],
+						BSC30: [{
+							name: 'BSC30',
+							data: [45, 34, 44, 53, 60, 65, 75, 85]
+						}],
+						BSC50: [{
+							name: 'BSC50',
+							data: [45, 34, 42, 52, 62, 25, 25, 85]
+						}],
+						VNINDEX: [{
 							name: 'VNINDEX',
-							data: [15, 25, 35, 40, 45, 50, 55, 65],
-						},
-						{
+							data: []
+						}],
+						VNDIAMOND: [{
 							name: 'VNDIAMOND',
-							data: [5, 15, 20, 30, 35, 40, 50, 60],
-						},
-					];
-
+							data: [5, 15, 20, 30, 35, 40, 50, 60]
+						}]
+					};
 					const newXAxisCategories = [
 						'26 Sep',
 						'27 Sep',
@@ -71,6 +73,7 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 						'30 Sep',
 						'1 Oct',
 						'2 Oct',
+						'3 Oct',
 					];
 
 					const newYAxisOptions = {
@@ -78,8 +81,21 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 						max: 100,
 					};
 
-					// Gọi hàm handleChart với dữ liệu mới
-					window.handleChart(newSeriesData, newXAxisCategories, newYAxisOptions);
+					function updateChart(dataType) {
+						const selectedData = [...dataSets[dataType], ...dataSets.VNINDEX, ...dataSets.VNDIAMOND];
+						jQuery("#chart").empty();
+						window.handleChart(selectedData, newXAxisCategories, newYAxisOptions);
+
+					}
+					updateChart("BSC10");
+					jQuery(".btn-chart button").click(function() {
+						var chart_name = jQuery(this).attr('data-chart');
+						if (chart_name) {
+							jQuery(".btn-chart button").removeClass('active');
+							jQuery(this).addClass('active');
+							updateChart(chart_name);
+						}
+					});
 				});
 			</script>
 			<div class="md:w-[33.181%]">
