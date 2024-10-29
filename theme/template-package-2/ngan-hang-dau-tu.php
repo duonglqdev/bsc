@@ -100,9 +100,9 @@ get_header();
 					<?php 
 					 for ($i = 0; $i < 12; $i++) {
 					 ?>
-					 <div class="block_slider-item px-[12px] py-6 lg:w-1/6 md:w-1/4 w-1/2">
+					 <div class="block_slider-item p-[12px] lg:w-1/6 md:w-1/4 w-1/2">
 						 <a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-white transition-all duration-500 hover:scale-110">
+							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110">
 							 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 								 alt=""
 								 class="absolute w-full max-w-[80%] h-full object-contain inset-0 m-auto">
@@ -112,13 +112,13 @@ get_header();
 					 } 
 					?>
 				</div>
-				<div class="block_slider-show-6 block__slider-marquee mt-6 marquee-rtl">
+				<div class="block_slider-show-6 block__slider-marquee marquee-rtl">
 					<?php 
 					 for ($i = 0; $i < 12; $i++) {
 					 ?>
-					 <div class="block_slider-item px-[12px] py-6 lg:w-1/6 md:w-1/4 w-1/2">
+					 <div class="block_slider-item p-[12px] lg:w-1/6 md:w-1/4 w-1/2">
 						 <a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-white transition-all duration-500 hover:scale-110">
+							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110">
 							 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 								 alt=""
 								 class="absolute w-full max-w-[80%] max-h-[80%] object-contain inset-0 m-auto">
