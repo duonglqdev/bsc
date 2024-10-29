@@ -77,17 +77,13 @@ function custom_template_redirect()
 
     // Kiểm tra nếu có 'news_id' trong URL
     if ($news_id) {
-        // Gọi API với news_id
-        $get_news_detail_data = array(
+        $time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
+        $array_data = array(
             "id" => $news_id,
             "newstype" => ""
         );
-
-        // Gọi API, giả sử bạn có hàm callApi
-        $api_url = 'http://10.21.170.17:86/GetNewsDetail?' . http_build_query($get_news_detail_data);
-        $get_news_detail = callApi($api_url);
-
-        if ($get_news_detail && $get_news_detail->s == 'ok' && isset($get_news_detail->d[0])) {
+        $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
+        if ($get_news_detail) {
             // Lấy chi tiết tin tức từ API response
             $news = $get_news_detail->d[0];
             // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math

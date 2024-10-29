@@ -33,15 +33,19 @@
             <?php the_field('so_luong') ?>
         </p>
     </div>
+    <?php $deadline = get_field('deadline');
+    $deadline_date = DateTime::createFromFormat('Ymd', $deadline); ?>
     <div class="col-span-1 ">
         <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Hạn nộp hồ sơ', 'bsc') ?></p>
         <p class="font-bold text-lg job_date">
-            <?php the_field('deadline') ?>
+            <?php
+            if ($deadline_date) {
+                echo $deadline_date->format('d/m/Y');
+            }
+            ?>
         </p>
     </div>
     <?php
-    $deadline = get_field('deadline');
-    $deadline_date = DateTime::createFromFormat('d/m/Y', $deadline);
     $current_date = new DateTime(current_time('Y-m-d'));
     if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
         $class = "text-[#F1F1F1] bg-[#CCCCCC]";

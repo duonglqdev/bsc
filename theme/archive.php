@@ -80,13 +80,13 @@ get_header();
 				</div>
 				<div class="md:col-span-3 col-span-full">
 					<?php
-					$get_performance_data = array(
+					$array_data = array(
 						'lang' => pll_current_language(),
 						'groupid' => $groupid,
 						'maxitem' => 10
 					);
-					$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
-					if ($response->s == "ok" && !empty($response->d)) {
+					$response = get_data_with_cache('GetNews', $array_data, $time_cache);
+					if ($response) {
 					?>
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
 

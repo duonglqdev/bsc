@@ -38,29 +38,34 @@
                 </div>
             </div>
             <?php
-            $array_data = array(
-                'lang' => pll_current_language(),
-                'groupid' => 30,
-                'maxitem' => 10
-            );
-            $response = get_data_with_cache('GetNews', $array_data, $time_cache);
-            if ($response) {
+            $post_per_page = get_option('posts_per_page');
+            $cdtnvcd2_id_danh_mục = get_field('cdtnvcd2_id_danh_mục', 'option');
+            if ($cdtnvcd2_id_danh_mục) {
+                $time_cache = get_field('cdtnvcd2_time_cache', 'option');
+                $array_data = array(
+                    'lang' => pll_current_language(),
+                    'groupid' => $cdtnvcd2_id_danh_mục,
+                    'maxitem' => $post_per_page
+                );
+                $response = get_data_with_cache('GetNews', $array_data, $time_cache);
+                if ($response) {
             ?>
-                <div class="md:col-span-3 col-span-full">
-                    <div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
-                        <?php
-                        foreach ($response->d as $news) {
-                            get_template_part('template-parts/content', null, array(
-                                'data' => $news,
-                            ));
-                        }
-                        ?>
+                    <div class="md:col-span-3 col-span-full">
+                        <div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
+                            <?php
+                            foreach ($response->d as $news) {
+                                get_template_part('template-parts/content', null, array(
+                                    'data' => $news,
+                                ));
+                            }
+                            ?>
+                        </div>
+                        <div class="mt-12">
+                            <?php get_template_part('components/pagination') ?>
+                        </div>
                     </div>
-                    <div class="mt-12">
-                        <?php get_template_part('components/pagination') ?>
-                    </div>
-                </div>
-            <?php } ?>
+            <?php }
+            } ?>
         </div>
     </div>
 </section>
