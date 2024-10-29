@@ -44,7 +44,7 @@ if (have_rows('slider')) {
 											<?php endwhile;
 											} ?>
 											<?php if (get_sub_field('mota')) { ?>
-												<p class="text-2xl font-bold text-white mb-8">
+												<p class="2xl:text-2xl text-xl font-bold text-white mb-8">
 													<?php the_sub_field('mota') ?>
 												</p>
 											<?php } ?>

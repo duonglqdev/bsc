@@ -41,7 +41,7 @@ get_header();
 				Về chúng tôi
 			</h2>
 			<div
-				class="relative max-w-[734px] mx-auto lg:mb-[50px] mb-10 lg:text-2xl text-xl font-bold text-primary-400 text-center">
+				class="relative max-w-[734px] mx-auto lg:mb-[50px] mb-10 2xl:text-2xl text-xl font-bold text-primary-400 text-center">
 				<div class="absolute lg:-left-10 lg:-top-5 -z-10 top-0 left-0">
 					<?php echo svg( 'quote' ) ?>
 				</div>
@@ -83,20 +83,20 @@ get_header();
 	<section class="about_mission lg:mb-[100px] mb-20" id="about_mission">
 		<div class="container">
 			<div class="grid gap-5 md:grid-cols-2 grid-cols-1">
-				<div class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-9 px-4 lg:py-20 py-10">
+				<div class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-9 px-4 2xl:py-20 py-10">
 					<h2 class="heading-title mb-4">
 						SỨ MỆNH
 					</h2>
-					<div class="text-primary-300 lg:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Đóng góp tích cực cho sự phát triển của Thị trường Chứng khoán Việt Nam, đem
 						lại lợi ích tối ưu cho cổ đông, đối tác và khách hàng.
 					</div>
 				</div>
-				<div class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-9 px-4 lg:py-20 py-10">
+				<div class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-9 px-4 2xl:py-20 py-10">
 					<h2 class="heading-title mb-4">
 						TẦM NHÌN
 					</h2>
-					<div class="text-primary-300 lg:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Trở thành Công ty Chứng khoán uy tín hàng đầu, dựa trên nền tảng công nghệ
 						số tiên tiến và hệ thống các sản phẩm dịch vụ toàn diện đem lại giá trị tối
 						ưu cho khách hàng.
@@ -109,9 +109,9 @@ get_header();
 				</h2>
 				<div class="grid md:grid-cols-3 grid-cols-1 gap-5">
 					<div
-						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 lg:pb-14 pb-5">
+						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 2xl:pb-14 pb-5">
 						<div class="flex items-center justify-between mb-5">
-							<h3 class="uppercase text-2xl font-bold">
+							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								NIỀM TIN
 							</h3>
 							<?php echo svg( 'faith' ) ?>
@@ -123,9 +123,9 @@ get_header();
 						</div>
 					</div>
 					<div
-						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 lg:pb-14 pb-5">
+						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 2xl:pb-14 pb-5">
 						<div class="flex items-center justify-between mb-5">
-							<h3 class="uppercase text-2xl font-bold">
+							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								HỢP LỰC
 							</h3>
 							<?php echo svg( 'unite' ) ?>
@@ -137,9 +137,9 @@ get_header();
 						</div>
 					</div>
 					<div
-						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 lg:pb-14 pb-5">
+						class="h-full bg-gradient-blue-50 rounded-[10px] lg:px-7 px-4 pt-4 2xl:pb-14 pb-5">
 						<div class="flex items-center justify-between mb-5">
-							<h3 class="uppercase text-2xl font-bold">
+							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								SÁNG TẠO
 							</h3>
 							<?php echo svg( 'creative' ) ?>
@@ -176,7 +176,7 @@ get_header();
 							</div>
 							<div class="lg:ml-20 lg:mt-0 mt-5">
 								<h3
-									class="text-primary-500 xl:text-[75px] md:text-5xl text-4xl font-bold mb-5">
+									class="text-primary-500 2xl:text-[75px]  md:text-5xl text-4xl font-bold mb-5">
 									2019 - 2023
 								</h3>
 								<div class="text-primary-500 text-xl font-bold mb-4">
@@ -239,9 +239,9 @@ get_header();
 
 		</div>
 	</section>
-	<section class="about_leadership lg:mt-[100px] mt-10" id="about_leadership">
+	<section class="about_leadership 2xl:mt-[100px] mt-14" id="about_leadership">
 		<div class="container">
-			<h2 class="heading-title mb-12">
+			<h2 class="heading-title 2xl:mb-12 mb-10">
 				Đội ngũ lãnh đạo
 			</h2>
 			<div class="grid lg:grid-cols-4 lg:gap-[50px] gap-9">
@@ -522,7 +522,7 @@ get_header();
 						</div>
 					</div>
 					<div class="md:col-span-3 relative">
-						<h4 class="leader_name text-2xl font-bold mb-1">
+						<h4 class="leader_name 2xl:text-2xl text-xl font-bold mb-1">
 
 						</h4>
 						<p class="leader_role font-medium text-black text-opacity-50">
@@ -552,7 +552,7 @@ get_header();
 
 	<section class="lg:py-[100px] py-16 bg-gradient-blue-to-top" id="about_chart">
 		<div class="container">
-			<h2 class="heading-title mb-10 text-center">
+			<h2 class="heading-title 2xl:mb-10 mb-8 text-center">
 				Sơ đồ tổ chức
 			</h2>
 			<picture>
@@ -592,13 +592,13 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:my-[100px] my-16 about_culture" id="about_culture">
+	<section class="2xl:my-[100px] my-16 about_culture" id="about_culture">
 		<div class="container">
 			<h2 class="heading-title text-center mb-6">
 				VĂN HÓA BSC
 			</h2>
 			<div
-				class="relative max-w-[946px] mx-auto lg:mb-[50px] mb-10 lg:text-2xl text-xl font-bold text-primary-400 text-center">
+				class="relative max-w-[946px] mx-auto lg:mb-[50px] mb-10 2xl:text-2xl text-xl font-bold text-primary-400 text-center">
 				<div class="absolute lg:-left-10 lg:-top-5 -z-10 top-0 left-0">
 					<?php echo svg( 'quote' ) ?>
 				</div>
@@ -619,7 +619,7 @@ get_header();
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
-								class="text-center p-4 text-primary-400 font-bold bg-white hidden title lg:text-2xl text-lg line-clamp-1">
+								class="text-center p-4 text-primary-400 font-bold bg-white hidden title 2xl:text-2xl text-lg line-clamp-1">
 								Lễ ra mắt câu lạc bộ chạy bộ BSC HCM RUNNER CLUB
 							</h4>
 						</div>
@@ -632,7 +632,7 @@ get_header();
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
-								class="text-center p-4 text-primary-400 font-bold bg-white hidden title lg:text-2xl text-lg line-clamp-1">
+								class="text-center p-4 text-primary-400 font-bold bg-white hidden title 2xl:text-2xl text-lg line-clamp-1">
 								Lễ ra mắt câu lạc bộ chạy bộ BSC HCM RUNNER CLUB
 							</h4>
 						</div>
@@ -645,7 +645,7 @@ get_header();
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
-								class="text-center p-4 text-primary-400 font-bold bg-white hidden title lg:text-2xl text-lg line-clamp-1">
+								class="text-center p-4 text-primary-400 font-bold bg-white hidden title 2xl:text-2xl text-lg line-clamp-1">
 								Lễ ra mắt câu lạc bộ chạy bộ BSC HCM RUNNER CLUB
 							</h4>
 						</div>
@@ -658,7 +658,7 @@ get_header();
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
-								class="text-center p-4 text-primary-400 font-bold bg-white hidden title lg:text-2xl text-lg line-clamp-1">
+								class="text-center p-4 text-primary-400 font-bold bg-white hidden title 2xl:text-2xl text-lg line-clamp-1">
 								Lễ ra mắt câu lạc bộ chạy bộ BSC HCM RUNNER CLUB
 							</h4>
 						</div>
@@ -725,7 +725,7 @@ get_header();
 
 	<section class="about_award-other my-16" id="about_award-other">
 		<div class="container">
-			<h3 class="text-2xl font-bold mb-[30px] text-center">
+			<h3 class="2xl:text-2xl text-xl font-bold mb-[30px] text-center">
 				Giải thưởng khác
 			</h3>
 			<div class="max-w-[940px] mx-auto mt-[45px]">

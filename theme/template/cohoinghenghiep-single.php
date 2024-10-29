@@ -8,11 +8,11 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
 			<div class="grid lg:grid-cols-3">
 				<div class="lg:col-span-2">
-					<h1 class="lg:text-[32px] text-2xl font-bold mb-10">
+					<h1 class="lg:text-[32px] 2xl:text-2xl text-xl font-bold mb-10">
 						[Ban Tài Chính BSC] Chuyên viên cao cấp/Chuyên gia Phân Tích Kinh Doanh
 					</h1>
 				</div>
@@ -102,7 +102,7 @@ get_header();
 				<div class="md:col-span-3 col-span-full space-y-[30px]">
 					<div class="content_item">
 						<h2
-							class="font-bold lg:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
+							class="font-bold 2xl:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
 							Yêu cầu
 						</h2>
 						<div class="the_content">
@@ -121,7 +121,7 @@ get_header();
 					</div>
 					<div class="content_item">
 						<h2
-							class="font-bold lg:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
+							class="font-bold 2xl:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
 							Mô tả công việc
 						</h2>
 						<div class="the_content">
@@ -138,7 +138,7 @@ get_header();
 					</div>
 					<div class="content_item">
 						<h2
-							class="font-bold lg:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
+							class="font-bold 2xl:text-2xl text-lg mb-5 text-primary-300 font-Helvetica">
 							Quyền lợi được hưởng
 						</h2>
 						<div class="the_content">
@@ -157,7 +157,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
 			<h3 class="font-bold text-primary-300 lg:text-[32px] text-2xl">
 				CÁC VỊ TRÍ TUYỂN DỤNG KHÁC
@@ -294,7 +294,7 @@ get_header();
 
 				<span class="sr-only">Close modal</span>
 			</button>
-			<h2 class="uppercase text-primary-300 mb-5 lg:text-[32px] text-2xl font-bold">
+			<h2 class="uppercase text-primary-300 mb-5 lg:text-[32px] 2xl:text-2xl text-xl font-bold">
 				GỬI ĐƠN ỨNG TUYỂN
 			</h2>
 			<div class="rounded-lg bg-primary-50 px-5 py-4 mb-3">

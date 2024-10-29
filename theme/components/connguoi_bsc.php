@@ -1,4 +1,4 @@
-<section class="lg:lg:my-[100px] my-10 connguoi_bsc" <?php if ( get_sub_field( 'id_class' ) )
+<section class="lg:2xl:my-[100px] my-10 connguoi_bsc" <?php if ( get_sub_field( 'id_class' ) )
 { ?>
 		id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
@@ -21,7 +21,7 @@
 						<div class="flex flex-col font-Helvetica block_slider-item">
 							<?php if ( get_sub_field( 'name' ) )
 							{ ?>
-								<h3 class="lg:text-2xl text-lg font-bold mb-1">
+								<h3 class="2xl:text-2xl text-lg font-bold mb-1">
 									<?php the_sub_field( 'name' ) ?>
 								</h3>
 							<?php } ?>

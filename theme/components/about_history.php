@@ -19,10 +19,10 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="lg:ml-20 lg:mt-0 mt-5 flex-1">
+                            <div class="2xl:ml-20 lg:ml-10 lg:mt-0 mt-5 flex-1">
                                 <?php if (get_sub_field('nam')) { ?>
                                     <h3
-                                        class="text-primary-500 xl:text-[75px] md:text-5xl text-4xl font-bold mb-5">
+                                        class="text-primary-500 2xl:text-[75px]  md:text-5xl text-4xl font-bold mb-5">
                                         <?php the_sub_field('nam') ?>
                                     </h3>
                                 <?php } ?>

@@ -1,7 +1,7 @@
 <section class="about_award-other my-16" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h3 class="text-2xl font-bold mb-[30px] text-center">
+            <h3 class="2xl:text-2xl text-xl font-bold mb-[30px] text-center">
                 <?php the_sub_field('title') ?>
             </h3>
         <?php } ?>

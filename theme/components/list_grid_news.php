@@ -8,7 +8,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
     $number = get_sub_field('number') ?: 4;
     $time_cache = get_sub_field('time_cache') ?: 300;
 ?>
-    <section class="lg:mt-[100px] mt-16 mb-16 list_grid_news" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="2xl:mt-[100px] mt-16 mb-16 list_grid_news" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
                 <div class="md:col-span-1 col-span-full">

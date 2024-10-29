@@ -12,7 +12,7 @@ get_header();
 		<div class="container">
 			<div class="grid lg:grid-cols-2 lg:gap-20 gap-10">
 				<div class="lg:col-span-1">
-					<h2 class="heading-title mb-12">
+					<h2 class="heading-title 2xl:mb-12 mb-10">
 						TRÁCH NHIỆM VỚI CỘNG ĐỒNG
 					</h2>
 					<div class="mb-10 font-Helvetica text-justify">
@@ -133,7 +133,7 @@ get_header();
 	</section>
 	<section class="lg:my-24 mb-10">
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				HOẠT ĐỘNG NỔI BẬT
 			</h2>
 			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">

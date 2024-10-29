@@ -1,7 +1,7 @@
-<section class="about_leadership lg:mt-[100px] mt-10" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="about_leadership 2xl:mt-[100px] mt-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title mb-12">
+            <h2 class="heading-title 2xl:mb-12 mb-10">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="md:col-span-3 relative">
-                    <h4 class="leader_name text-2xl font-bold mb-1 text-primary-400">
+                    <h4 class="leader_name 2xl:text-2xl text-xl font-bold mb-1 text-primary-400">
                     </h4>
                     <p class="leader_role font-medium text-black text-opacity-50">
                     </p>
