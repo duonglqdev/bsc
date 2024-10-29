@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="lg:my-[100px] my-12">
+	<section class="2xl:my-[100px] my-12">
 		<div class="container">
 			<h2 class="heading-title lg:mb-[42px] mb-9">
 				Công ty Cổ phần chứng khoán BIDV
@@ -84,7 +84,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="lg:my-[100px] my-12">
+	<section class="2xl:my-[100px] my-12">
 		<div class="container">
 			<h2 class="heading-title text-center mb-10">
 				CƠ CẤU CỔ ĐÔNG
@@ -256,9 +256,9 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="lg:my-[100px] my-12">
+	<section class="2xl:my-[100px] my-12">
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				TÀI LIỆU & BÁO CÁO
 			</h2>
 			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
@@ -267,28 +267,28 @@ get_header();
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav">
 							<li>
 								<a href="#public_infomation"
-									class="flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Công
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Công
 									bố thông tin</a>
 							</li>
 							<li>
 								<a href="#shareholders"
-									class="active flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
+									class="active flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
 									Đại hội đồng cổ đông
 								</a>
 							</li>
 							<li>
 								<a href="#report_finance"
-									class="flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
 									cáo tài chính</a>
 							</li>
 							<li>
 								<a href="#annual_report"
-									class="flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
 									cáo thường niên</a>
 							</li>
 							<li>
 								<a href="#corporate_governance"
-									class="flex items-center gap-4 md:text-lg font-bold [&:not(.active)]:text-black text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Quản
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Quản
 									trị doanh nghiệp</a>
 							</li>
 						</ul>
@@ -298,7 +298,7 @@ get_header();
 				<div class="md:col-span-3 col-span-full">
 					<div id="public_infomation">
 						<div class="flex justify-between items-center mb-[26px]">
-							<h2 class="text-2xl font-bold">Công bố thông tin</h2>
+							<h2 class="2xl:text-2xl text-xl font-bold">Công bố thông tin</h2>
 							<a href=""
 								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
@@ -322,7 +322,7 @@ get_header();
 												Thứ 2
 											</p>
 											<p
-												class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
+												class="flex-1 flex flex-col justify-center items-center 2xl:text-2xl text-xl font-bold bg-primary-50 w-full">
 												16
 												<span class="text-primary-300 text-[12px] font-medium">
 													2022
@@ -353,7 +353,7 @@ get_header();
 					</div>
 					<div id="shareholders">
 						<div class="flex justify-between items-center mb-[26px]">
-							<h2 class="text-2xl font-bold">Đại hội đồng cổ đông</h2>
+							<h2 class="2xl:text-2xl text-xl font-bold">Đại hội đồng cổ đông</h2>
 							<a href=""
 								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
@@ -377,7 +377,7 @@ get_header();
 												Thứ 2
 											</p>
 											<p
-												class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
+												class="flex-1 flex flex-col justify-center items-center 2xl:text-2xl text-xl font-bold bg-primary-50 w-full">
 												16
 												<span class="text-primary-300 text-[12px] font-medium">
 													2022
@@ -418,7 +418,7 @@ get_header();
 					</div>
 					<div id="report_finance">
 						<div class="flex justify-between items-center mb-[26px]">
-							<h2 class="text-2xl font-bold">Báo cáo tài chính</h2>
+							<h2 class="2xl:text-2xl text-xl font-bold">Báo cáo tài chính</h2>
 							<a href=""
 								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
@@ -442,7 +442,7 @@ get_header();
 												Thứ 2
 											</p>
 											<p
-												class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
+												class="flex-1 flex flex-col justify-center items-center 2xl:text-2xl text-xl font-bold bg-primary-50 w-full">
 												16
 												<span class="text-primary-300 text-[12px] font-medium">
 													2022
@@ -473,7 +473,7 @@ get_header();
 					</div>
 					<div id="annual_report">
 						<div class="flex justify-between items-center mb-[26px]">
-							<h2 class="text-2xl font-bold ">Báo cáo thường niên</h2>
+							<h2 class="2xl:text-2xl text-xl font-bold ">Báo cáo thường niên</h2>
 							<a href=""
 								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
@@ -516,7 +516,7 @@ get_header();
 					</div>
 					<div id="corporate_governance">
 						<div class="flex justify-between items-center mb-[26px]">
-							<h2 class="text-2xl font-bold">Quản trị doanh nghiệp</h2>
+							<h2 class="2xl:text-2xl text-xl font-bold">Quản trị doanh nghiệp</h2>
 							<a href=""
 								class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
@@ -540,7 +540,7 @@ get_header();
 												Thứ 2
 											</p>
 											<p
-												class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
+												class="flex-1 flex flex-col justify-center items-center 2xl:text-2xl text-xl font-bold bg-primary-50 w-full">
 												16
 												<span class="text-primary-300 text-[12px] font-medium">
 													2022

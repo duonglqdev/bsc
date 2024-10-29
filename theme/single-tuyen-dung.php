@@ -8,11 +8,11 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
 			<div class="grid lg:grid-cols-3">
 				<div class="lg:col-span-2">
-					<h1 class="lg:text-[32px] text-2xl font-bold mb-10 leading-[1.43]">
+					<h1 class="lg:text-[32px] 2xl:text-2xl text-xl font-bold mb-10 leading-[1.43]">
 						<?php the_title() ?>
 					</h1>
 				</div>
@@ -154,7 +154,7 @@ get_header();
 	);
 	$related_items = new WP_Query( $args );
 	if ( $related_items->have_posts() ) : ?>
-		<section class="lg:lg:my-[100px] my-10">
+		<section class="lg:2xl:my-[100px] my-10">
 			<div class="container">
 				<h3 class="font-bold text-primary-300 lg:text-[32px] text-2xl">
 					<?php _e( 'CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc' ) ?>
@@ -189,7 +189,7 @@ get_header();
 
 				<span class="sr-only"><?php _e( 'Close modal', 'bsc' ) ?></span>
 			</button>
-			<h2 class="uppercase text-primary-300 2xl:mb-5 mb-4 2xl:text-[32px] text-2xl font-bold">
+			<h2 class="uppercase text-primary-300 2xl:mb-5 mb-4 2xl:text-[32px] 2xl:text-2xl text-xl font-bold">
 				<?php _e( 'GỬI ĐƠN ỨNG TUYỂN', 'bsc' ) ?>
 			</h2>
 			<?php if ( get_field( 'cdtd_mau_cv', 'option' ) )

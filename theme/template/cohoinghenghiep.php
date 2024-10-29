@@ -10,7 +10,7 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="lg:pt-14 pt-10 bg-gradient-blue-100">
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				TẠI SAO LỰA CHỌN BSC
 			</h2>
 			<div class="lg:flex 2xl:gap-[90px] gap-12">
@@ -76,9 +76,9 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				VỊ TRÍ TUYỂN DỤNG
 			</h2>
 			<form id="search_job" class="grid lg:grid-cols-5 grid-cols-4 gap-5">
@@ -229,7 +229,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
 			<h2 class="heading-title text-center mb-10">
 				Con người TẠI bsc
@@ -243,7 +243,7 @@ get_header();
 					{
 						?>
 						<div class="flex flex-col font-Helvetica block_slider-item">
-							<h3 class="lg:text-2xl text-lg font-bold mb-1">
+							<h3 class="2xl:text-2xl text-lg font-bold mb-1">
 								Thông điệp từ chị Vân Anh
 							</h3>
 							<p class="text-black text-opacity-50 font-semibold text-xs">
@@ -288,9 +288,9 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:lg:my-[100px] my-10">
+	<section class="lg:2xl:my-[100px] my-10">
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				khoảnh khắc bsc
 			</h2>
 

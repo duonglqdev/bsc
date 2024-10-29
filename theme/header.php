@@ -115,7 +115,7 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar lg:bg-[#F3FBFE] w-full max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full lg:mt-[22px] 2xl:p-10 p-5 lg:backdrop-blur-2xl">
+							class="main_menu-navbar lg:bg-[#F3FBFE] w-full max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full 2xl:mt-[22px] mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl">
 
 							<?php
 							wp_nav_menu(array(
@@ -128,7 +128,7 @@
 							?>
 						</ul>
 						<?php if (have_rows('h1_button', 'option')) { ?>
-							<div class="flex items-center gap-x-4 xl:ml-[60px] lg:ml-5">
+							<div class="flex items-center gap-x-4 2xl:ml-[60px] lg:ml-8">
 								<?php
 								$i = 1;
 								while (have_rows('h1_button', 'option')) :
@@ -137,7 +137,7 @@
 									if (get_sub_field('title')) {
 								?>
 										<a href="<?php echo check_link(get_sub_field('link')) ?>"
-											class="<?php echo ($i % 2 == 0) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block xl:px-6 px-4 xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
+											class="<?php echo ($i % 2 == 0) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]'; ?> inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 											<span class="block relative z-10">
 												<?php the_sub_field('title') ?>
 											</span>

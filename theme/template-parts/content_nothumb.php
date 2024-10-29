@@ -24,7 +24,7 @@ if ($args['data']) {
                     <?php echo $weekday_name ?>
                 </p>
                 <p
-                    class="flex-1 flex flex-col justify-center items-center text-2xl font-bold bg-primary-50 w-full">
+                    class="flex-1 flex flex-col justify-center items-center 2xl:text-2xl text-xl font-bold bg-primary-50 w-full">
                     <?php echo $day_of_month ?>
                 </p>
             </div>

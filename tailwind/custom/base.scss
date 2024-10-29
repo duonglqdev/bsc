@@ -548,13 +548,16 @@ button#ib-button-messaging {
 .utilities_button-list{
 	@apply top-[180px];
 	@media only screen and (min-width: 1280px) {
-		@apply top-[168px];
+		@apply top-1/4;
 	}
-	
 	@media only screen and (min-width: 1366px) {
-		@apply top-[170px];
+		@apply top-[25%];
 	}
+	@media only screen and (min-width: 1380px) {
+		@apply top-[35%];
+	}
+
 	@media only screen and (min-width: 1600px) {
-		@apply top-48;
+		@apply top-[20%];
 	}
 }

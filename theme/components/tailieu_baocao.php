@@ -1,8 +1,8 @@
-<section class="lg:my-[100px] my-12 tailieu_baocao" <?php if (get_sub_field('id_class')) { ?>
+<section class="2xl:my-[100px] my-12 tailieu_baocao" <?php if (get_sub_field('id_class')) { ?>
 	id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title')) { ?>
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				<?php the_sub_field('title') ?>
 			</h2>
 		<?php } ?>
@@ -28,7 +28,7 @@
 							?>
 								<li class="">
 									<a href="#<?php echo $term->slug ?>"
-										class="flex items-center gap-4 md:text-lg font-bold <?php if ($i == 1) echo 'active' ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										class="flex items-center gap-4 2xl:text-lg text-base font-bold <?php if ($i == 1) echo 'active' ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
 										<?php echo esc_html($term->name); ?>
 									</a>
 									<?php
@@ -63,7 +63,7 @@
 					?>
 						<div id="<?php echo $term->slug ?>">
 							<div class="flex justify-between items-center mb-[26px]">
-								<h2 class="text-2xl font-bold"><?php echo esc_html($term->name); ?></h2>
+								<h2 class="2xl:text-2xl text-xl font-bold"><?php echo esc_html($term->name); ?></h2>
 								<a href="<?php echo get_term_link($term) ?>"
 									class="px-5 py-3 btn-base-yellow">
 									<span class="inline-flex items-center gap-3 relative z-10">

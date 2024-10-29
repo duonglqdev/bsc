@@ -71,7 +71,7 @@
 
 .btn-base-yellow {
   @apply bg-yellow-100;
-  @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+  @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
 }
 .btn-base-yellow:after {
   content: "";
@@ -94,7 +94,7 @@
 
 .btn-base-green {
   @apply bg-green;
-  @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+  @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
 }
 .btn-base-green:after {
   content: "";
@@ -580,17 +580,22 @@ button#ib-button-messaging {
 }
 @media only screen and (min-width: 1280px) {
   .utilities_button-list {
-    @apply top-[168px];
+    @apply top-1/4;
   }
 }
 @media only screen and (min-width: 1366px) {
   .utilities_button-list {
-    @apply top-[170px];
+    @apply top-[25%];
+  }
+}
+@media only screen and (min-width: 1380px) {
+  .utilities_button-list {
+    @apply top-[35%];
   }
 }
 @media only screen and (min-width: 1600px) {
   .utilities_button-list {
-    @apply top-48;
+    @apply top-[20%];
   }
 }
 

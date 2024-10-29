@@ -53,7 +53,7 @@
 }
 
 @mixin btn-base($shadow-color) {
-    @apply inline-block lg:px-7 px-5 lg:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
+    @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
 
     &:after {
         content: "";

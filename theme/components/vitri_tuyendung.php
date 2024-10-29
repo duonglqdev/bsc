@@ -1,9 +1,9 @@
-<section class="lg:lg:my-[100px] my-10 vitri_tuyendung" <?php if ( get_sub_field( 'id_class' ) )
+<section class="lg:2xl:my-[100px] my-10 vitri_tuyendung" <?php if ( get_sub_field( 'id_class' ) )
 { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<?php if ( get_sub_field( 'title' ) )
 		{ ?>
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title 2xl:mb-10 mb-8">
 				<?php the_sub_field( 'title' ) ?>
 			</h2>
 		<?php } ?>
