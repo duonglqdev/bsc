@@ -3334,6 +3334,28 @@
                             "step": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_6720a1ac46992",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -5154,5 +5176,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730191606
+    "modified": 1730191810
 }

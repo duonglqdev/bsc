@@ -77,7 +77,7 @@ function custom_template_redirect()
 
     // Kiểm tra nếu có 'news_id' trong URL
     if ($news_id) {
-        $time_cache = 300;
+        $time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
         $array_data = array(
             "id" => $news_id,
             "newstype" => ""

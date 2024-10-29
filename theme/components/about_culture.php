@@ -16,6 +16,7 @@
 		<?php } ?>
 		<?php ?>
 		<?php
+		$time_cache = get_sub_field('time_cache') ?: 300;
 		$number = get_sub_field('number') ?: 3;
 		$term = get_field('danh_muc');
 		if ($term) {

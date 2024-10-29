@@ -138,6 +138,7 @@ get_header();
 		</div>
 	</section>
 	<?php
+	$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
 	if ($args['data']  && $groupid) {
 		$array_data = array(
 			"maxitem" => "3",
@@ -145,8 +146,8 @@ get_header();
 			"groupid" => $groupid,
 			'index' => 1
 		);
-		$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($array_data));
-		if ($response->s == "ok" && !empty($response->d)) {
+		$response = get_data_with_cache('GetNews', $array_data, $time_cache);
+		if ($response) {
 	?>
 			<section class="lg:pt-16 lg:pb-[106px] pt-10 pb-10">
 				<div class="container">
