@@ -218,11 +218,11 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	</div>
 	<?php if (have_rows('cdc2_tien_ich', 'option')) { ?>
 		<div
-			class="utilities_button-list transition-all duration-500  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto font-semibold text-white bg-gradient-blue fixed right-0 2xl:top-48 xl:top-[180px] top-[140px] cursor-pointer rounded-bl-[10px] rounded-tl-[10px] border-2 border-[#FFB81C] border-r-0 text-[12px] z-[99]">
+			class="utilities_button-list transition-all duration-500  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto font-semibold text-white bg-gradient-blue fixed right-0 cursor-pointer rounded-bl-[10px] rounded-tl-[10px] border-2 border-[#FFB81C] border-r-0 text-[12px] z-[99]">
 			<?php while (have_rows('cdc2_tien_ich', 'option')) :
 				the_row(); ?>
 				<a href="<?php echo check_link(get_sub_field('link')) ?>"
-					class="utilities_button-item utilities_button-hover transition-all duration-500 w-full text-center flex flex-col justify-center items-center 2xl:py-4 py-2 2xl:px-3 px-2 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
+					class="utilities_button-item 2xl:leading-normal leading-tight utilities_button-hover transition-all duration-500 w-full text-center flex flex-col justify-center items-center 2xl:py-4 py-2 2xl:px-3 px-1 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
 					<?php if (get_sub_field('icon')) { ?>
 						<?php echo svgClass_dir(get_sub_field('icon'), '', '', 'w-8 h-8') ?>
 					<?php } ?>
@@ -238,7 +238,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	<?php } ?>
 <?php } ?>
 
-<div class="inline-flex flex-col fixed 2xl:bottom-14 bottom-[6px] right-3 gap-4 z-[99]">
+<div class="inline-flex flex-col fixed 2xl:bottom-8 bottom-[6px] right-3 2xl:gap-4 gap-2 z-[99]">
 	<?php if (get_field('cdc3_link', 'option')) { ?>
 		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">
