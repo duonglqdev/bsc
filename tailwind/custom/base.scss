@@ -97,7 +97,7 @@
 	}
 }
 @media (max-width: 1700px) {
-	main{
+	main {
 		.container {
 			max-width: 85% !important;
 		}
@@ -242,7 +242,16 @@ header {
 	}
 }
 
-.about_culture-list {
+.about_culture-swiper {
+	.is-selected {
+		.about_culture-item {
+			@apply after:bg-opacity-0;
+			box-shadow: 0px 7px 20px 0px #0000001a;
+			h4 {
+				@apply block;
+			}
+		}
+	}
 	.swiper-slide-active {
 		.about_culture-item {
 			@apply after:bg-opacity-0 mb-5;
@@ -256,6 +265,15 @@ header {
 	.swiper-button-prev {
 		@apply w-10 h-10 rounded-full bg-white flex items-center justify-center -translate-y-1/2;
 		box-shadow: 0px 4px 10px 0px #00000033;
+	}
+	.swiper-button-next {
+		@apply xl:-right-12;
+	}
+	.swiper-button-prev {
+		@apply xl:-left-12;
+	}
+	.flickity-slider {
+		@apply flex items-center;
 	}
 }
 
@@ -450,19 +468,18 @@ header {
 			@apply w-full max-w-full;
 		}
 	}
-	.group-submit{
+	.group-submit {
 		@apply 2xl:mt-[30px] mt-5;
 	}
 	.form-group {
 		@apply [&:not(:last-child)]:mb-3;
-		
+
 		input {
 			@apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 		}
 		.upload-label {
 			margin-bottom: 15px;
 		}
-		
 	}
 	.upload_file-wrapper {
 		background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
@@ -524,6 +541,6 @@ button#ib-button-messaging {
 	display: none;
 }
 
-.no-transform{
+.no-transform {
 	transform: none !important;
 }
