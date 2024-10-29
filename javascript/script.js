@@ -483,7 +483,9 @@ new WOW.WOW().init();
 
 		var totalItems = $('.about_history-nav').slick('getSlick').slideCount;
 		$('.about_history-nav').slick('slickGoTo', totalItems - 1);
-
+		if (totalItems <= 5) {
+			$('.about_history-nav .slick-track').addClass('no-transform');
+		}
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -531,6 +533,12 @@ new WOW.WOW().init();
 		var totalItemsAward =
 			$('.about_award-nav').slick('getSlick').slideCount;
 		$('.about_award-nav').slick('slickGoTo', totalItemsAward - 1);
+
+		if (totalItemsAward <= 5) {
+			$('.about_award-nav .slick-track').addClass('no-transform');
+		}
+
+
 		var mySwiper = new Swiper('.about_culture-list', {
 			loop: true,
 			slidesPerView: 2,
