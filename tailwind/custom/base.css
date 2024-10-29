@@ -186,9 +186,14 @@
     }
   }
 }
-@media (max-width: 1700px) {
-  main .container {
+@media (max-width: 1700px) and (min-width: 1367px) {
+  .container {
     max-width: 85% !important;
+  }
+}
+@media (max-width: 1366px) and (min-width: 1024px) {
+  .container {
+    max-width: 90% !important;
   }
 }
 header.active {

@@ -96,11 +96,14 @@
 		}
 	}
 }
-@media (max-width: 1700px) {
-	main {
-		.container {
-			max-width: 85% !important;
-		}
+@media (max-width: 1700px) and (min-width: 1367px) {
+	.container {
+		max-width: 85% !important;
+	}
+}
+@media (max-width: 1366px) and (min-width: 1024px) {
+	.container {
+		max-width: 90% !important;
 	}
 }
 header {
@@ -546,7 +549,7 @@ button#ib-button-messaging {
 	transform: none !important;
 }
 
-.utilities_button-list{
+.utilities_button-list {
 	@apply top-[180px];
 	@media only screen and (min-width: 1280px) {
 		@apply top-1/4;
