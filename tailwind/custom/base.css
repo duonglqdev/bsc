@@ -435,7 +435,7 @@ header.active {
   @apply lg:max-w-[50%];
 }
 .apexcharts-legend .apexcharts-legend-series {
-  @apply rounded-lg bg-[#F8F8FF] uppercase px-4 py-[12px];
+  @apply rounded-lg bg-[#F8F8FF] uppercase 2xl:px-4 px-2 2xl:py-[12px] py-2;
 }
 
 .subscribe {

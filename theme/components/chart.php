@@ -58,7 +58,7 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 						}],
 						VNINDEX: [{
 							name: 'VNINDEX',
-							data: []
+							data: [ 42, 52, 62, 25, 25, 85,34, 42]
 						}],
 						VNDIAMOND: [{
 							name: 'VNDIAMOND',
