@@ -91,6 +91,45 @@ get_header();
 
 			</div>
 		</div>
+		<div class="2xl:py-[121px] py-20 bg-[#F3F9FC]">
+			<div class="container">
+				<h2 class="heading-title text-center mb-8">
+					KHÁCH HÀNG TIÊU BIỂU
+				</h2>
+				<div class="block_slider-show-6 block__slider-marquee">
+					<?php 
+					 for ($i = 0; $i < 12; $i++) {
+					 ?>
+					 <div class="block_slider-item px-[12px] py-6 lg:w-1/6 md:w-1/4 w-1/2">
+						 <a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-white transition-all duration-500 hover:scale-110">
+							 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
+								 alt=""
+								 class="absolute w-full max-w-[80%] h-full object-contain inset-0 m-auto">
+						 </a>
+					 </div>
+					  <?php 
+					 } 
+					?>
+				</div>
+				<div class="block_slider-show-6 block__slider-marquee mt-6 marquee-rtl">
+					<?php 
+					 for ($i = 0; $i < 12; $i++) {
+					 ?>
+					 <div class="block_slider-item px-[12px] py-6 lg:w-1/6 md:w-1/4 w-1/2">
+						 <a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+							 class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-white transition-all duration-500 hover:scale-110">
+							 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
+								 alt=""
+								 class="absolute w-full max-w-[80%] max-h-[80%] object-contain inset-0 m-auto">
+						 </a>
+					 </div>
+					  <?php 
+					 } 
+					?>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section class="hidden tab-content" id="dcm-tab">

@@ -11,9 +11,9 @@
         <?php
         $images = get_sub_field('gallery_tren');
         if ($images): ?>
-            <div class="block_slider-show-4 -mx-3 block__slider-marquee">
+            <div class="block_slider-show-4 block__slider-marquee">
                 <?php foreach ($images as $image): ?>
-                    <div class="block_slider-item px-3 py-3 lg:w-1/4 w-1/2">
+                    <div class="block_slider-item px-4 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
                             class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
                             <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
@@ -27,9 +27,9 @@
         <?php
         $images = get_sub_field('gallery_duoi');
         if ($images): ?>
-            <div class="block_slider-show-4 -mx-3 block__slider-marquee marquee-rtl" >
+            <div class="block_slider-show-4 block__slider-marquee marquee-rtl" >
                 <?php foreach ($images as $image): ?>
-                    <div class="block_slider-item px-3 py-3 lg:w-1/4 w-1/2">
+                    <div class="block_slider-item px-4 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
                             class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
                             <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
