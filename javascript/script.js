@@ -1,7 +1,6 @@
 import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
 import WOW from 'wowjs';
-new WOW.WOW().init();
 (function ($) {
 	window.onload = function () {
 		$(document).ready(function () {
@@ -15,6 +14,7 @@ new WOW.WOW().init();
 			if ($activeButton.length) {
 				moveLine($activeButton);
 			}
+			new WOW.WOW().init();
 			aboutUsSlider();
 			aboutDynamicPopup();
 			toggleContent();
@@ -370,6 +370,16 @@ new WOW.WOW().init();
 
 			moveLine($(this));
 		});
+		$('.customtab-nav li button').on('click', function () {
+			var target = $(this).attr('data-tabs');
+			$('.customtab-nav li button').removeClass('active');
+			$(this).addClass('active');
+			$(target)
+				.fadeIn('slow')
+				.siblings('.tab-content')
+				.hide();
+			return false;
+		});
 	}
 
 	function moveLine($button) {
@@ -537,7 +547,6 @@ new WOW.WOW().init();
 		if (totalItemsAward <= 5) {
 			$('.about_award-nav .slick-track').addClass('no-transform');
 		}
-
 
 		var mySwiper = new Swiper('.about_culture-list', {
 			loop: true,
