@@ -7,6 +7,9 @@ if (get_sub_field('background')) {
         $banner = wp_get_attachment_image_url(get_field('background_banner', get_queried_object()), 'full');
     }
     $style = get_field('background_banner_display', get_queried_object()) ?: 'default';
+} elseif (isset($args['breadcrumb']) && ($args['breadcrumb'] == 'post') || ($args['breadcrumb'] == 'congdong')) {
+    $banner = $args['banner'] ?:  get_stylesheet_directory_uri() . '/assets/images/about.png';
+    $style = $args['style'];
 } elseif (is_singular('tuyen-dung')) {
     if (get_field('cdtd_background_banner', 'option')) {
         $banner = wp_get_attachment_image_url(get_field('cdtd_background_banner ', 'option'), 'full');
@@ -49,7 +52,7 @@ if ($args['breadcrumb']) {
         <div class="mb-5">
             <?php get_template_part('components/breadcrumb', null, array(
                 'custom' => $breadcrumb,
-                'tax_name' => $args['tax_name']
+                'title' => $args['title']
             )) ?>
         </div>
         <h2 class="lg:text-[40px] text-4xl font-bold">

@@ -7,7 +7,7 @@ Template Name: Chi tiết tuyển dụng
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="lg:lg:my-[100px] my-10">
 		<div class="container">
 			<div class="grid lg:grid-cols-3">
@@ -21,98 +21,96 @@ get_header();
 				<div class="md:w-[320px]">
 					<div class="bg-[#F5FCFF] py-5 px-6 rounded-[10px]">
 						<h3 class="text-primary-300 uppercase text-xl font-bold">
-							<?php _e( 'THÔNG TIN CHUNG', 'bsc' ) ?>
+							<?php _e('THÔNG TIN CHUNG', 'bsc') ?>
 						</h3>
 						<div class="mt-[12px]">
 							<?php
 							$post_id = get_the_ID();
-							$nghiep_vu = get_the_terms( $post->ID, 'nghiep-vu' );
-							if ( $nghiep_vu )
-							{
-								?>
+							$nghiep_vu = get_the_terms($post->ID, 'nghiep-vu');
+							if ($nghiep_vu) {
+							?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Nghiệp vụ', 'bsc' ) ?>
+										<?php _e('Nghiệp vụ', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
 										<?php echo $nghiep_vu[0]->name ?>
 									</p>
 								</div>
 							<?php } ?>
-							<?php if ( get_field( 'nganh_nghe' ) )
-							{ ?>
+							<?php if (get_field('nganh_nghe')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Nghành nghề', 'bsc' ) ?>
+										<?php _e('Nghành nghề', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
-										<?php the_field( 'nganh_nghe' ) ?>
+										<?php the_field('nganh_nghe') ?>
 									</p>
 								</div>
 							<?php } ?>
-							<?php if ( get_field( 'ma_vi_tri' ) )
-							{ ?>
+							<?php if (get_field('ma_vi_tri')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Mã vị trí', 'bsc' ) ?>
+										<?php _e('Mã vị trí', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
-										<?php the_field( 'ma_vi_tri' ) ?>
+										<?php the_field('ma_vi_tri') ?>
 									</p>
 								</div>
 							<?php } ?>
 							<?php
 							$post_id = get_the_ID();
-							$noi_lam_viec = get_the_terms( $post->ID, 'noi-lam-viec' );
-							if ( $noi_lam_viec )
-							{
-								?>
+							$noi_lam_viec = get_the_terms($post->ID, 'noi-lam-viec');
+							if ($noi_lam_viec) {
+							?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Địa điểm làm việc', 'bsc' ) ?>
+										<?php _e('Địa điểm làm việc', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
 										<?php echo $noi_lam_viec[0]->name ?>
 									</p>
 								</div>
 							<?php } ?>
-							<?php if ( get_field( 'cap_bac' ) )
-							{ ?>
+							<?php if (get_field('cap_bac')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Cấp bậc', 'bsc' ) ?>
+										<?php _e('Cấp bậc', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
-										<?php the_field( 'cap_bac' ) ?>
+										<?php the_field('cap_bac') ?>
 									</p>
 								</div>
 							<?php } ?>
-							<?php if ( get_field( 'muc_luong' ) )
-							{ ?>
+							<?php if (get_field('muc_luong')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Mức lương', 'bsc' ) ?>
+										<?php _e('Mức lương', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
-										<?php the_field( 'muc_luong' ) ?>
+										<?php the_field('muc_luong') ?>
 									</p>
 								</div>
 							<?php } ?>
-							<?php if ( get_field( 'deadline' ) )
-							{ ?>
+							<?php if (get_field('deadline')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
 									<p class="text-black mb-2 text-xs">
-										<?php _e( 'Hạn nộp hồ sơ', 'bsc' ) ?>
+										<?php _e('Hạn nộp hồ sơ', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
-										<?php the_field( 'deadline' ) ?>
+										<?php $deadline = get_field('deadline');
+										$deadline_date = DateTime::createFromFormat('Ymd', $deadline);
+
+										if ($deadline_date) {
+											echo $deadline_date->format('d/m/Y');
+										}  ?>
 									</p>
 								</div>
 							<?php } ?>
@@ -121,7 +119,7 @@ get_header();
 							<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
 								class="btn-base-yellow w-full h-full rounded-xl">
 								<span class="block relative z-10">
-									<?php _e( 'Ứng tuyển ngay', 'bsc' ) ?>
+									<?php _e('Ứng tuyển ngay', 'bsc') ?>
 								</span>
 							</button>
 						</div>
@@ -138,7 +136,7 @@ get_header();
 		</div>
 	</section>
 	<?php
-	$custom_taxterms = wp_get_object_terms( $post->ID, 'nghiep-vu', array( 'fields' => 'ids' ) );
+	$custom_taxterms = wp_get_object_terms($post->ID, 'nghiep-vu', array('fields' => 'ids'));
 	$args = array(
 		'post_type' => 'tuyen-dung',
 		'post_status' => 'publish',
@@ -150,20 +148,20 @@ get_header();
 				'terms' => $custom_taxterms
 			)
 		),
-		'post__not_in' => array( $post->ID ),
+		'post__not_in' => array($post->ID),
 	);
-	$related_items = new WP_Query( $args );
-	if ( $related_items->have_posts() ) : ?>
+	$related_items = new WP_Query($args);
+	if ($related_items->have_posts()) : ?>
 		<section class="lg:lg:my-[100px] my-10">
 			<div class="container">
 				<h3 class="font-bold text-primary-300 lg:text-[32px] text-2xl">
-					<?php _e( 'CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc' ) ?>
+					<?php _e('CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc') ?>
 				</h3>
 				<div class="mt-10">
 					<?php
-					while ( $related_items->have_posts() ) :
+					while ($related_items->have_posts()) :
 						$related_items->the_post();
-						get_template_part( 'template-parts/content', get_post_type() );
+						get_template_part('template-parts/content', get_post_type());
 					endwhile;
 					?>
 
@@ -187,30 +185,29 @@ get_header();
 						fill="#295CA9" />
 				</svg>
 
-				<span class="sr-only"><?php _e( 'Close modal', 'bsc' ) ?></span>
+				<span class="sr-only"><?php _e('Close modal', 'bsc') ?></span>
 			</button>
 			<h2 class="uppercase text-primary-300 2xl:mb-5 mb-4 2xl:text-[32px] text-2xl font-bold">
-				<?php _e( 'GỬI ĐƠN ỨNG TUYỂN', 'bsc' ) ?>
+				<?php _e('GỬI ĐƠN ỨNG TUYỂN', 'bsc') ?>
 			</h2>
-			<?php if ( get_field( 'cdtd_mau_cv', 'option' ) )
-			{ ?>
+			<?php if (get_field('cdtd_mau_cv', 'option')) { ?>
 				<div class="rounded-lg bg-primary-50 2xl:px-5 px-4 2xl:py-4 py-3 mb-3">
-					<a target="_blank" href="<?php the_field( 'cdtd_mau_cv', 'option' ) ?>"
+					<a target="_blank" href="<?php the_field('cdtd_mau_cv', 'option') ?>"
 						class="flex items-center justify-between" download>
 						<div class="flex items-center gap-3 font-Helvetica font-medium">
-							<?php echo svg( 'docs' ) ?>
-							<p><?php _e( 'Mẫu CV BSC. docx', 'bsc' ) ?></p>
+							<?php echo svg('docs') ?>
+							<p><?php _e('Mẫu CV BSC. docx', 'bsc') ?></p>
 						</div>
-						<?php echo svg( 'download2', '20' ) ?>
+						<?php echo svg('download2', '20') ?>
 					</a>
 				</div>
 			<?php } ?>
 			<p class="font-medium">
-				<?php _e( 'Vui lòng sử dụng mẫu CV từ BSC ở trên để điền thông tin của bạn, sau đó upload lại
-                file CV để ứng tuyển.', 'bsc' ) ?>
+				<?php _e('Vui lòng sử dụng mẫu CV từ BSC ở trên để điền thông tin của bạn, sau đó upload lại
+                file CV để ứng tuyển.', 'bsc') ?>
 			</p>
 			<div class="2xl:mt-[30px] mt-4 form_cv font-Helvetica">
-				<?php echo do_shortcode( '[contact-form-7 id="b071499" title="Cơ hội việc làm"]' ) ?>
+				<?php echo do_shortcode('[contact-form-7 id="b071499" title="Cơ hội việc làm"]') ?>
 			</div>
 		</div>
 	</div>
