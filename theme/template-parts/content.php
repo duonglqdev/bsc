@@ -4,7 +4,7 @@
     <div class="post_item font-Helvetica">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
             class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-            <img src="<?php echo $news->imagethumbnail ?>"
+            <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                 alt="<?php echo htmlspecialchars($news->title) ?>"
                 class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
         </a>

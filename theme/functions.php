@@ -149,7 +149,7 @@ function bsc_scripts()
 	wp_enqueue_style('bsc-style', get_stylesheet_uri(), array(), bsc_VERSION);
 
 	//JS
-	wp_enqueue_script('bsc-jquery', get_template_directory_uri() . '/assets/libs/jquery.js', array(), bsc_VERSION, true);
+	wp_enqueue_script('bsc-jquery', get_template_directory_uri() . '/assets/libs/jquery.js', array(), bsc_VERSION, false);
 	if (class_exists('WPCF7')) {
 		wp_enqueue_style('bsc-intitelinputcs', get_template_directory_uri() . '/assets/libs/intitelinput.css');
 		wp_enqueue_style('bsc-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css');

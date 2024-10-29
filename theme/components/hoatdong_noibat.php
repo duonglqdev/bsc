@@ -37,54 +37,30 @@
                     </div>
                 </div>
             </div>
-            <div class="md:col-span-3 col-span-full">
-                <div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
-                    <?php
-                    for ($i = 0; $i < 10; $i++) {
-                    ?>
-                        <div class="post_item font-Helvetica">
-                            <a href=""
-                                class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-                                <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
-                                    alt=""
-                                    class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
-                            </a>
-                            <div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-                                <?php echo svg('date') ?>
-                                <span>
-                                    Ngày 26/06/2024
-                                </span>
-                                <span>
-                                    5:13:58 CH
-                                </span>
-                            </div>
-                            <a href=""
-                                class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
-                                BSC và Edmond de Rothschild hợp tác triển khai thành lập công ty
-                                quản lý quỹ tại Việt Nam 
-                            </a>
-                            <div class="line-clamp-3 text-paragraph mb-4">
-                                Ngày 25/3/2024, tại Geneva (Thụy Sĩ), Công ty Cổ phần Chứng
-                                khoán BIDV (BSC) và Edmond de Rothschild tổ chức lễ ký kết thỏa
-                                thuận liên doanh góp vốn nhằm triển khai thành lập công ty quản
-                                lý quỹ tại Việt Nam. Sau thỏa thuận, hai bên sẽ tiếp tục triển
-                                khai các thủ tục xin phép cơ quan chức năng tại Việt Nam để đưa
-                                công ty quản lý quỹ đi vào hoạt động.
-                            </div>
-                            <a href=""
-                                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
-                                Xem chi tiết
-                                <?php echo svg('arrow-btn', '12', '12') ?>
-                            </a>
-                        </div>
-                    <?php
-                    }
-                    ?>
+            <?php
+            $array_data = array(
+                'lang' => pll_current_language(),
+                'groupid' => 30,
+                'maxitem' => 10
+            );
+            $response = get_data_with_cache('GetNews', $array_data, $time_cache);
+            if ($response) {
+            ?>
+                <div class="md:col-span-3 col-span-full">
+                    <div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
+                        <?php
+                        foreach ($response->d as $news) {
+                            get_template_part('template-parts/content', null, array(
+                                'data' => $news,
+                            ));
+                        }
+                        ?>
+                    </div>
+                    <div class="mt-12">
+                        <?php get_template_part('components/pagination') ?>
+                    </div>
                 </div>
-                <div class="mt-12">
-                    <?php get_template_part('components/pagination') ?>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
