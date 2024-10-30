@@ -55,11 +55,37 @@ if (is_page() && have_rows('breacrumb')) {
                             $title = get_the_archive_title();
                         }
                     } else {
-                        $title = $args['tax_name'];
+                        $title = $args['title'];
                     }
                     echo $title;
                     ?>
                 </span>
+            </p>
+        </nav>
+    <?php
+    }
+} elseif (($args['custom'] == 'congdong') && get_field('cdtnvcd1_breadcrumb', 'option')) {
+    if (have_rows('cdtnvcd1_breadcrumb', 'option')) {
+    ?>
+        <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+            <p>
+                <?php
+                $i = 0;
+                while (have_rows('cdtnvcd1_breadcrumb', 'option')): the_row();
+                    $i++; ?>
+                    <?php
+                    if ($i != 1) {
+                    ?>
+                        <span class="separator"> / </span>
+                    <?php
+                    }
+                    ?>
+                    <?php if (get_sub_field('link')) { ?>
+                        <a href="<?php the_sub_field('link') ?>"><?php the_sub_field('title') ?></a>
+                    <?php } else { ?>
+                        <span><?php the_sub_field('title') ?></span>
+                    <?php } ?>
+                <?php endwhile; ?>
             </p>
         </nav>
     <?php

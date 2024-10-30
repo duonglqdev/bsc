@@ -3289,11 +3289,11 @@
                             "new_lines": ""
                         },
                         {
-                            "key": "field_6702c40cc7848",
-                            "label": "Văn hoá",
-                            "name": "van_hoa",
+                            "key": "field_67209efa80919",
+                            "label": "Danh mục bài viết",
+                            "name": "danh_muc",
                             "aria-label": "",
-                            "type": "repeater",
+                            "type": "taxonomy",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -3302,82 +3302,60 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "table",
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Thêm văn hoá",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_6702c41ec7849",
-                                    "label": "Đường dẫn",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_6702c40cc7848"
-                                },
-                                {
-                                    "key": "field_6702c42bc784a",
-                                    "label": "Tiêu đề",
-                                    "name": "title",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "rows": "",
-                                    "placeholder": "",
-                                    "new_lines": "",
-                                    "parent_repeater": "field_6702c40cc7848"
-                                },
-                                {
-                                    "key": "field_6702c434c784b",
-                                    "label": "Văn hoá",
-                                    "name": "img",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "id",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
-                                    "preview_size": "thumbnail",
-                                    "parent_repeater": "field_6702c40cc7848"
-                                }
-                            ]
+                            "taxonomy": "category",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 1,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_6720a0ecf2f83",
+                            "label": "Số lượng bài viết",
+                            "name": "number",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 3,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6720a1ac46992",
+                            "label": "Time Cache",
+                            "name": "time_cache",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Đây là thời gian lưu trữ để gọi lại API lấy data mới nhất",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 300,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": "giây"
                         }
                     ],
                     "min": "",
@@ -5198,5 +5176,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730126866
+    "modified": 1730191810
 }

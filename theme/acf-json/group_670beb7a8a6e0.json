@@ -84,6 +84,45 @@
                     "parent_repeater": "field_670beb7ae0617"
                 }
             ]
+        },
+        {
+            "key": "field_6720a6699eee0",
+            "label": "API",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6720a6709eee1",
+            "label": "Time Cache",
+            "name": "cdqhcd2_time_cache",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 300,
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "giây"
         }
     ],
     "location": [
@@ -104,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728834446
+    "modified": 1730193097
 }

@@ -5,28 +5,41 @@ if ($args['data']) {
 	$body = $news->body;
 	$postdate = $news->postdate;
 	$groupid = $news->groupid;
-	$categories = get_terms(array(
-		'taxonomy' => 'category',
-		'hide_empty' => false,
-		'meta_query' => array(
-			array(
-				'key' => 'api_id_danh_muc', // tên meta field
-				'value' => $groupid, // giá trị cần tìm
-				'compare' => '='
-			)
-		)
-	));
-
-	// Kiểm tra nếu tìm thấy category
-	if (!is_wp_error($categories) && !empty($categories)) {
-		$tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+	$trach_nhiem_cong_dong_id = get_field('cdtnvcd2_id_danh_mục', 'option');
+	if ($groupid == $trach_nhiem_cong_dong_id) {
+		$tax_name = get_field('cdtnvcd1_title', 'option');
+		$breadcrumb = 'congdong';
+		$time_cache = get_field('cdtnvcd2_time_cache', 'option') ?: 300;
+		$banner = wp_get_attachment_image_url(get_field('cdtnvcd1_background_banner', 'option'), 'full');
+		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
 	} else {
-		$post_id = get_the_ID();
-		$taxonomy = get_the_terms($post->ID, 'category');
-		$tax = $taxonomy[0];
+		$categories = get_terms(array(
+			'taxonomy' => 'category',
+			'hide_empty' => false,
+			'meta_query' => array(
+				array(
+					'key' => 'api_id_danh_muc', // tên meta field
+					'value' => $groupid, // giá trị cần tìm
+					'compare' => '='
+				)
+			)
+		));
+
+		// Kiểm tra nếu tìm thấy category
+		if (!is_wp_error($categories) && !empty($categories)) {
+			$tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+		} else {
+			$post_id = get_the_ID();
+			$taxonomy = get_the_terms($post->ID, 'category');
+			$tax = $taxonomy[0];
+		}
+		$tax_name = $tax->name;
+		$tax_id = $tax->term_id;
+		$breadcrumb = 'post';
+		$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
+		$banner = wp_get_attachment_image_url(get_field('background_banner',  $taxonomy[0]), 'full');
+		$style = get_field('background_banner_display',  $taxonomy[0]) ?: 'default';
 	}
-	$tax_name = $tax->name;
-	$tax_id = $tax->term_id;
 } else {
 	wp_redirect(home_url('/404'), 301);
 	exit;
@@ -35,57 +48,61 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner', null, array(
+		'banner' => $banner,
+		'style' => $style,
 		'title' => $tax_name,
-		'breadcrumb' => 'post',
-		'tax_name' => $tax_name
+		'breadcrumb' => $breadcrumb,
 	)) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
 			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
 				<div class="md:col-span-1 col-span-full">
 					<div class="sticky top-5 z-10">
-						<?php
-						$terms = get_terms(array(
-							'taxonomy' => 'category',
-							'hide_empty' => false,
-							'parent' => 0,
-						));
-						if (!empty($terms) && !is_wp_error($terms)) :
-						?>
-							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
-								<?php foreach ($terms as $term) :
-									$active_class = ($tax_id == $term->term_id) ? 'active' : '';
-								?>
-									<li class="<?php echo esc_attr($active_class); ?>">
-										<a href="<?php echo get_term_link($term); ?>"
-											class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
-											<?php echo esc_html($term->name); ?>
-										</a>
-										<?php
-										$child_terms = get_terms(array(
-											'taxonomy' => 'category',
-											'parent' => $term->term_id,
-											'hide_empty' => false,
-										));
+						<?php if ($groupid == $trach_nhiem_cong_dong_id) {
+						} else { ?>
+							<?php
+							$terms = get_terms(array(
+								'taxonomy' => 'category',
+								'hide_empty' => false,
+								'parent' => 0,
+							));
+							if (!empty($terms) && !is_wp_error($terms)) :
+							?>
+								<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
+									<?php foreach ($terms as $term) :
+										$active_class = ($tax_id == $term->term_id) ? 'active' : '';
+									?>
+										<li class="<?php echo esc_attr($active_class); ?>">
+											<a href="<?php echo get_term_link($term); ?>"
+												class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
+												<?php echo esc_html($term->name); ?>
+											</a>
+											<?php
+											$child_terms = get_terms(array(
+												'taxonomy' => 'category',
+												'parent' => $term->term_id,
+												'hide_empty' => false,
+											));
 
-										if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
-											<ul class="pl-5 hidden sub-menu w-full bg-white">
-												<?php foreach ($child_terms as $child_term) :
-													$child_active_class = ($tax_id == $child_term->term_id) ? 'active' : '';
-												?>
-													<li class="pl-5">
-														<a href="<?php echo get_term_link($child_term); ?>"
-															class="<?php echo esc_attr($child_active_class); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
-															<?php echo esc_html($child_term->name); ?>
-														</a>
-													</li>
-												<?php endforeach; ?>
-											</ul>
-										<?php endif; ?>
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						<?php endif; ?>
+											if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
+												<ul class="pl-5 hidden sub-menu w-full bg-white">
+													<?php foreach ($child_terms as $child_term) :
+														$child_active_class = ($tax_id == $child_term->term_id) ? 'active' : '';
+													?>
+														<li class="pl-5">
+															<a href="<?php echo get_term_link($child_term); ?>"
+																class="<?php echo esc_attr($child_active_class); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+																<?php echo esc_html($child_term->name); ?>
+															</a>
+														</li>
+													<?php endforeach; ?>
+												</ul>
+											<?php endif; ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						<?php  } ?>
 						<?php
 						if ($tax) {
 							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', $tax);
@@ -145,8 +162,8 @@ get_header();
 			"groupid" => $groupid,
 			'index' => 1
 		);
-		$response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($array_data));
-		if ($response->s == "ok" && !empty($response->d)) {
+		$response = get_data_with_cache('GetNews', $array_data, $time_cache);
+		if ($response) {
 	?>
 			<section class="lg:pt-16 lg:pb-[106px] pt-10 pb-10">
 				<div class="container">

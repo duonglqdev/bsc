@@ -78,13 +78,15 @@ get_header();
                 <div class="md:col-span-3 col-span-full">
                     <?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
                         <?php
-                        $get_performance_data = array(
+                        $time_cache = get_field('cdqhcd2_time_cache', 'option') ?: 300;
+                        $array_data = array(
                             'lang' => pll_current_language(),
                             'groupid' => $groupid,
                             'maxitem' => 8
                         );
-                        $response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
-                        if ($response->s == "ok" && !empty($response->d)) : ?>
+                        $response = get_data_with_cache('GetNews', $array_data, $time_cache);
+                        if ($response) :
+                        ?>
                             <div class="space-y-8">
                                 <div class="grid grid-cols-4 gap-5">
                                     <?php
@@ -145,13 +147,15 @@ get_header();
                             </div>
                         </form>
                         <?php
-                        $get_performance_data = array(
+                        $time_cache = get_field('cdqhcd2_time_cache', 'option') ?: 300;
+                        $array_data = array(
                             'lang' => pll_current_language(),
                             'groupid' => $groupid,
                             'maxitem' => 8
                         );
-                        $response = callApi('http://10.21.170.17:86/GetNews?' . http_build_query($get_performance_data));
-                        if ($response->s == "ok" && !empty($response->d)) : ?>
+                        $response = get_data_with_cache('GetNews', $array_data, $time_cache);
+                        if ($response) :
+                        ?>
                             <div class="space-y-8">
                                 <?php
                                 foreach ($response->d as $news) {

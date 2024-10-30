@@ -11,8 +11,12 @@ function filter_jobs_ajax()
 
     $args = array(
         'post_type' => 'tuyen-dung',
+        'post_status' => 'publish',
         'posts_per_page' => 6,
         'paged' => $paged,
+        'orderby' => 'meta_value_num',
+        'meta_key' => 'deadline',
+        'order' => 'DESC',
         'tax_query' => array(
             'relation' => 'AND',
         ),
