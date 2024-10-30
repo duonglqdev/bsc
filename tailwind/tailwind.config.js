@@ -50,6 +50,12 @@ module.exports = {
 					'linear-gradient(270deg, #EBF4FA 0%, #F3FBFE 100%)',
 				'gradient-blue-100':
 					'linear-gradient(90deg, rgba(62, 127, 231, 0.1) 0%, rgba(5, 48, 118, 0.1) 100%)',
+				'gradient-blue-150':
+					'linear-gradient(194deg, #F4FBFE 17%, #E1F0FA 94.99%)',
+				'gradient-blue-200':
+					'linear-gradient(194deg, #E5F3FF 23.63%, #CCE3FF 96.18%)',
+				'gradient-blue-250':
+					'linear-gradient(270deg, #EAF8FE 0%, #F3FAFF 100%)',
 				'gradient-banner':
 					'linear-gradient(251deg, rgba(27, 70, 141, 0.00) 8.87%, rgba(34, 52, 114, 0.74) 43.96%, #252D69 98.08%)',
 				'gradient-banner-bold':
@@ -70,7 +76,6 @@ module.exports = {
 			boxShadow: {
 				header: '0px 4px 10px 0px #0000000D',
 			},
-			
 		},
 		container: {
 			center: true,
@@ -82,7 +87,6 @@ module.exports = {
 				xl: '1240px',
 				'2xl': '1372px',
 			},
-			
 		},
 	},
 	corePlugins: {

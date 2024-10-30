@@ -9,7 +9,8 @@
 style.css
 style-editor.css
 style-editor-extra.css
-*.css.map
+style-editor.css.map
+style.css.map
 
 # Ignore the generated zip file:
 bsc.zip

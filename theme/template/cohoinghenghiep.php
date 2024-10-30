@@ -76,7 +76,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:2xl:my-[100px] my-10">
+	<section class="2xl:my-[100px] my-10">
 		<div class="container">
 			<h2 class="heading-title 2xl:mb-10 mb-8">
 				VỊ TRÍ TUYỂN DỤNG
@@ -229,7 +229,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:2xl:my-[100px] my-10">
+	<section class="2xl:my-[100px] my-10">
 		<div class="container">
 			<h2 class="heading-title text-center mb-10">
 				Con người TẠI bsc
@@ -288,7 +288,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="lg:2xl:my-[100px] my-10">
+	<section class="2xl:my-[100px] my-10">
 		<div class="container">
 			<h2 class="heading-title 2xl:mb-10 mb-8">
 				khoảnh khắc bsc

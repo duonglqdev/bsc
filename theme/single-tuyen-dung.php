@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner') ?>
-	<section class="lg:2xl:my-[100px] my-10">
+	<section class="2xl:my-[100px] my-10">
 		<div class="container">
 			<div class="grid lg:grid-cols-3">
 				<div class="lg:col-span-2">
@@ -155,7 +155,7 @@ get_header();
 	);
 	$related_items = new WP_Query($args);
 	if ($related_items->have_posts()) : ?>
-		<section class="lg:2xl:my-[100px] my-10">
+		<section class="2xl:my-[100px] my-10">
 			<div class="container">
 				<h3 class="font-bold text-primary-300 lg:text-[32px] text-2xl">
 					<?php _e('CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc') ?>

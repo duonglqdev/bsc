@@ -238,9 +238,10 @@ import WOW from 'wowjs';
 
 			if (blockSliderCount > 1) {
 				var hasNoDotsClass = $(this).hasClass('no-dots');
+				var hasNavClass = $(this).hasClass('has-nav');
 				$(this).flickity({
 					pageDots: !hasNoDotsClass,
-					prevNextButtons: false,
+					prevNextButtons: hasNavClass,
 					contain: true,
 					cellAlign: 'left',
 					imagesLoaded: true,
@@ -374,11 +375,14 @@ import WOW from 'wowjs';
 			var target = $(this).attr('data-tabs');
 			$('.customtab-nav li button').removeClass('active');
 			$(this).addClass('active');
-			$(target)
-				.fadeIn('slow')
-				.siblings('.tab-content')
-				.hide();
+			$(target).fadeIn('slow').siblings('.tab-content').hide();
 			return false;
+		});
+		$('.bank-nav-tab button').on('click', function() {
+			var targetTab = $(this).data('tabs'); 
+			$('html, body').animate({
+				scrollTop: $(targetTab).offset().top - 150
+			}, 50);
 		});
 	}
 
@@ -739,6 +743,26 @@ import WOW from 'wowjs';
 			) {
 				$('.open-utilities-box').hide(350);
 				$('.open-utilities,.open-ytb').removeClass('active');
+			}
+		});
+		$('.award__item').click(function () {
+			$('.award__item, .main-img').removeClass('active');
+			$('.hide-open').removeClass('hidden');
+			$('.award__item-content').hide();
+
+			$(this).addClass('active').find('.hide-open').addClass('hidden');
+			$(this).find('.main-img').addClass('active');
+			$(this).find('.award__item-content').show();
+
+			if ($('.award__item').index(this) === 0) {
+				$('.arr').removeClass('rotate');
+			} else if ($('.award__item').index(this) === 1) {
+				$('.arr').removeClass('rotate');
+				$('.award__item').eq(0).find('.arr').addClass('rotate');
+			} else if ($('.award__item').index(this) === 2) {
+				$('.arr').removeClass('rotate');
+				$('.award__item').eq(0).find('.arr').addClass('rotate');
+				$('.award__item').eq(1).find('.arr').addClass('rotate');
 			}
 		});
 	}
