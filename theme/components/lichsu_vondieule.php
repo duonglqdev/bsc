@@ -6,17 +6,19 @@
             </h2>
         <?php } ?>
         <div class="flex md:flex-row flex-col md:gap-[38px] gap-8">
-            <?php
-            $time_cache = get_sub_field('time_cache') ?: 300;
-            $array_data = array(
-                'securitycode' => 'BSI'
-            );
-            $response = get_data_with_cache('GetSecurityDaily', $array_data, $time_cache);
-            if ($response) {
-            ?>
-                <div class="md:max-w-80 w-full">
-                    <div
-                        class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
+            <div class="md:max-w-80 w-full">
+                <div
+                    class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
+                    <?php
+                    $time_cache = get_sub_field('time_cache') ?: 1;
+                    ?>
+                    <?php
+                    $array_data_value = array(
+                        'symbols' => 'BSI'
+                    );
+                    $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
+                    if ($response_value) {
+                    ?>
                         <div class="flex gap-6">
                             <div
                                 class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
@@ -25,37 +27,46 @@
                             <div class="flex flex-col">
                                 <h4
                                     class="font-bold lg:text-[40px] text-4xl uppercase leading-normal">
-                                    <?php echo $response->d[0]->securitycode ?>
+                                    <?php echo $response_value->d[0]->symbol; ?>
                                 </h4>
                                 <p class="uppercase text-2xl text-paragraph">
-                                    HOSE
+                                    <?php echo $response_value->d[0]->exchange; ?>
                                 </p>
-
                             </div>
                         </div>
                         <div class="flex-col gap-2">
                             <div class="flex gap-[14px] data_number">
-                                <div class="lg:text-[40px] text-4xl font-bold">
-                                    43.30
-                                </div>
-                                <div class="flex flex-col text-[#EB0]">
-                                    <p>
-                                        -0.20%
-                                    </p>
-                                    <p>
-                                        -0.46%
-                                    </p>
-                                </div>
+                                <?php if ($response_value->d[0]->bidPrice1) { ?>
+                                    <div class="lg:text-[40px] text-4xl font-bold">
+                                        <?php echo number_format($response_value->d[0]->bidPrice1); ?>
+                                    </div>
+                                    <div class="flex flex-col text-[#EB0]">
+                                        <p>
+                                            <?php
+                                            echo $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference;
+                                            ?>
+                                        </p>
+                                        <p>
+                                            <?php echo (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100 ?> %
+                                        </p>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <p class="time-update mt-1">
-                                <?php
-                                $date = $response->d[0]->tradedate;
-                                $date_parts = explode('T', $date);
-                                ?>
-                                <?php _e('Cập nhật lúc', 'bsc') ?> <?php echo $date_parts[1] ?> UTC_7
+                                <?php _e('Cập nhật lúc', 'bsc') ?>
+                                <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                echo date("H:i:s"); ?>
+                                UTC_7
                             </p>
-
                         </div>
+                    <?php } ?>
+                    <?php
+                    $array_data = array(
+                        'securitycode' => 'BSI'
+                    );
+                    $response = get_data_with_cache('GetSecurityDaily', $array_data, $time_cache);
+                    if ($response) {
+                    ?>
                         <div class="space-y-4">
                             <?php if (isset($response->d[0]->outsshares)) { ?>
                                 <div class="font-bold space-y-2">
@@ -78,9 +89,10 @@
                                 </div>
                             <?php } ?>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
+            </div>
+
             <div class="flex-1 w-full">
                 <picture>
                     <?php if (get_sub_field('image_mb')) { ?>
