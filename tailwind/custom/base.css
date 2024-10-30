@@ -647,4 +647,19 @@ button#ib-button-messaging {
   @apply block ml-auto -mt-2;
 }
 
+.flickity-button {
+  @apply w-[52px] h-[52px] bg-opacity-70 bg-no-repeat bg-center hover:bg-opacity-100 hover:bg-no-repeat hover:bg-center;
+}
+.flickity-button .flickity-button-icon {
+  @apply hidden;
+}
+.flickity-button.previous {
+  @apply lg:-left-4;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.0411 7.29289C14.4316 7.68342 14.4316 8.31658 14.0411 8.70711L7.7482 15H26.6673C27.2196 15 27.6673 15.4477 27.6673 16C27.6673 16.5523 27.2196 17 26.6673 17H7.7482L14.0411 23.2929C14.4316 23.6834 14.4316 24.3166 14.0411 24.7071C13.6506 25.0976 13.0174 25.0976 12.6269 24.7071L4.62688 16.7071C4.23635 16.3166 4.23635 15.6834 4.62688 15.2929L12.6269 7.29289C13.0174 6.90237 13.6506 6.90237 14.0411 7.29289Z' fill='%23235BA8'/%3E%3C/svg%3E%0A");
+}
+.flickity-button.next {
+  @apply lg:-right-4;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.9589 24.7071C17.5684 24.3166 17.5684 23.6834 17.9589 23.2929L24.2518 17L5.33268 17C4.7804 17 4.33268 16.5523 4.33268 16C4.33268 15.4477 4.7804 15 5.33268 15L24.2518 15L17.9589 8.7071C17.5684 8.31658 17.5684 7.68342 17.9589 7.29289C18.3494 6.90237 18.9826 6.90237 19.3731 7.29289L27.3731 15.2929C27.7636 15.6834 27.7636 16.3166 27.3731 16.7071L19.3731 24.7071C18.9826 25.0976 18.3494 25.0976 17.9589 24.7071Z' fill='%23235BA8'/%3E%3C/svg%3E%0A");
+}
+
 /*# sourceMappingURL=base.css.map */

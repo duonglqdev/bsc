@@ -238,9 +238,10 @@ import WOW from 'wowjs';
 
 			if (blockSliderCount > 1) {
 				var hasNoDotsClass = $(this).hasClass('no-dots');
+				var hasNavClass = $(this).hasClass('has-nav');
 				$(this).flickity({
 					pageDots: !hasNoDotsClass,
-					prevNextButtons: false,
+					prevNextButtons: hasNavClass,
 					contain: true,
 					cellAlign: 'left',
 					imagesLoaded: true,
