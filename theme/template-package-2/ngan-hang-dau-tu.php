@@ -1,7 +1,7 @@
 <?php
 
 /**
-Template Name: Ngân hàng đầu tư
+Template Name:[Package-2] Ngân hàng đầu tư
  */
 
 get_header();

@@ -1,4 +1,4 @@
-<section class="lg:2xl:my-[100px] my-10 khoanhkhac_bsc" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="2xl:my-[100px] my-10 khoanhkhac_bsc" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <?php if (get_sub_field('title')) { ?>
         <div class="container">
             <h2 class="heading-title 2xl:mb-10 mb-8">

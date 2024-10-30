@@ -1,4 +1,4 @@
-<section class="lg:2xl:my-[100px] my-10 connguoi_bsc" <?php if ( get_sub_field( 'id_class' ) )
+<section class="2xl:my-[100px] my-10 connguoi_bsc" <?php if ( get_sub_field( 'id_class' ) )
 { ?>
 		id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
