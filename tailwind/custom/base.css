@@ -193,7 +193,7 @@
 }
 @media (max-width: 1366px) and (min-width: 1024px) {
   .container {
-    max-width: 90% !important;
+    max-width: 93% !important;
   }
 }
 header.active {
@@ -603,6 +603,48 @@ button#ib-button-messaging {
   .utilities_button-list {
     @apply top-[20%];
   }
+}
+
+.award__item {
+  @apply rounded-2xl;
+}
+.award__item.active {
+  @apply rounded-tr-none rounded-br-none grow-[2.5] last:rounded-tl-none last:rounded-bl-none;
+}
+.award__item.active .award__item-content {
+  @apply w-2/3 visible opacity-100 h-auto;
+}
+.award__item:not(:first-child) {
+  @apply -ml-4;
+  box-shadow: -2px 0px 30px 0px rgba(0, 0, 0, 0.08);
+}
+.award__item .rotate svg {
+  @apply rotate-180;
+}
+
+.form_support .form-group {
+  @apply mb-8;
+}
+.form_support .form-group input, .form_support .form-group textarea {
+  @apply w-full rounded-[10px] px-5 py-2 border border-[#AAA];
+}
+.form_support .form-group input {
+  @apply lg:h-[52px] h-11 placeholder:text-black text-black;
+}
+.form_support .form-group textarea {
+  @apply h-[133px] pt-4;
+}
+.form_support .form-group-flex {
+  @apply flex gap-[14px];
+}
+.form_support .form-group label {
+  @apply inline-block bg-white px-3 text-[#4A5568] text-xs absolute z-[2] -top-3 left-2;
+}
+.form_support .wpcf7-spinner {
+  @apply bottom-0 right-0 top-[unset];
+}
+.form_support button {
+  @apply block ml-auto -mt-2;
 }
 
 /*# sourceMappingURL=base.css.map */
