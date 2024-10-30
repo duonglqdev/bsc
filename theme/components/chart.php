@@ -1,17 +1,48 @@
-<?php
-date_default_timezone_set('Asia/Bangkok');
-$todate = date('d/m/Y');
-$fromdate = date('d/m/Y', strtotime('-7 days'));
-$fromdate_value = DateTime::createFromFormat('d/m/Y', $fromdate)->format('Y-m-d');
-$todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
-?>
 <section class="chart bg-primary-200 lg:py-[77px] relative py-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title_main')) { ?>
 			<h2 class="heading-title 2xl:mb-12 mb-8 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title_main') ?></h2>
 		<?php } ?>
 		<div class="md:flex relative z-[2]">
-			<?php $time_cache = get_sub_field('time_cache_1') ?: 300; ?>
+			<?php
+			$time_cache = get_sub_field('time_cache_1') ?: 300;
+			date_default_timezone_set('Asia/Bangkok');
+			$todate = date('Y-m-d');
+			$fromdate = date('Y-m-d', strtotime('-7 days'));
+			$array_data = array(
+				'portcode' => 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND'
+			);
+			$data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
+			$maxValue = 0;
+
+			if ($data) {
+				$stocksData = [
+					'BSC10' => [],
+					'BSC30' => [],
+					'BSC50' => [],
+					'HOSE' => [],
+					'VNDIAMOND' => []
+				];
+				foreach ($data->d as $dataset) {
+					foreach ($dataset as $stockCode => $entries) {
+						foreach ($entries as $entry) {
+							$date = date("Y-m-d", strtotime($entry->tradedate));
+							$portclose = $entry->portclose;
+
+							$stocksData[$stockCode][$date] = $portclose;
+
+							// Cập nhật giá trị lớn nhất nếu cần
+							if ($portclose > $maxValue) {
+								$maxValue = $portclose;
+							}
+						}
+					}
+				}
+
+				$stocksDataJson = json_encode($stocksData);
+				$maxValue = ceil($maxValue / 100) * 100;
+			}
+			?>
 			<div class="flex-1 md:mr-5">
 				<?php if (get_sub_field('title')) { ?>
 					<h2
@@ -32,72 +63,94 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 
 						<div class="flex items-center 2xl:space-x-4 space-x-2">
 							<strong><?php _e('Thời gian', 'bsc') ?>:</strong>
-							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $fromdate_value; ?>">
-							<input type="date" class="border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate_value; ?>">
+							<input type="date" class="fromdate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $fromdate; ?>">
+							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate; ?>">
 						</div>
 					</div>
-
 					<div id="chart"></div>
 					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 				</div>
 			</div>
 			<script>
 				jQuery(document).ready(function() {
-					const dataSets = {
-						BSC10: [{
-							name: 'BSC10',
-							data: [25, 35, 45, 55, 60, 65, 75, 85]
-						}],
-						BSC30: [{
-							name: 'BSC30',
-							data: [45, 34, 44, 53, 60, 65, 75, 85]
-						}],
-						BSC50: [{
-							name: 'BSC50',
-							data: [45, 34, 42, 52, 62, 25, 25, 85]
-						}],
-						VNINDEX: [{
-							name: 'VNINDEX',
-							data: [ 42, 52, 62, 25, 25, 85,34, 42]
-						}],
-						VNDIAMOND: [{
-							name: 'VNDIAMOND',
-							data: [5, 15, 20, 30, 35, 40, 50, 60]
-						}]
-					};
-					const newXAxisCategories = [
-						'26 Sep',
-						'27 Sep',
-						'28 Sep',
-						'29 Sep',
-						'30 Sep',
-						'1 Oct',
-						'2 Oct',
-						'3 Oct',
-					];
+					const stocksData = <?php echo $stocksDataJson; ?>;
 
-					const newYAxisOptions = {
-						min: 0,
-						max: 100,
-					};
-
-					function updateChart(dataType) {
-						const selectedData = [...dataSets[dataType], ...dataSets.VNINDEX, ...dataSets.VNDIAMOND];
-						jQuery("#chart").empty();
-						window.handleChart(selectedData, newXAxisCategories, newYAxisOptions);
-
+					function getMaxValue(dataSets) {
+						// Tìm giá trị lớn nhất trong tất cả các mã chứng khoán đã chọn
+						return Math.ceil(
+							Math.max(...dataSets.flat().filter(value => value !== null)) / 100
+						) * 100;
 					}
-					updateChart("BSC10");
+
+					function updateChart(dataType, dateRange) {
+						const hoseData = dateRange.map(date => stocksData['HOSE'][date] || null);
+						const vndiamondData = dateRange.map(date => stocksData['VNDIAMOND'][date] || null);
+						const selectedData = dateRange.map(date => stocksData[dataType][date] || null);
+
+						// Tính `maxValue` mới cho trục y dựa trên khoảng thời gian đã chọn
+						const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
+
+						const newYAxisOptions = {
+							min: 0,
+							max: maxValue,
+						};
+
+						const chartData = [{
+								name: dataType,
+								data: selectedData
+							},
+							{
+								name: 'INDEX',
+								data: hoseData
+							},
+							{
+								name: 'VNDIAMOND',
+								data: vndiamondData
+							},
+						];
+
+						jQuery("#chart").empty();
+						window.handleChart(chartData, dateRange, newYAxisOptions);
+					}
+
+					function formatDate(date) {
+						const year = date.getFullYear();
+						const month = String(date.getMonth() + 1).padStart(2, '0');
+						const day = String(date.getDate()).padStart(2, '0');
+						return `${year}-${month}-${day}`;
+					}
+
+					function get_current_date_chart() {
+						const fromDate = new Date(jQuery(".fromdate").val());
+						const toDate = new Date(jQuery(".todate").val());
+						const dateRange = [];
+						let currentDate = new Date(fromDate);
+						while (currentDate <= toDate) {
+							dateRange.push(formatDate(currentDate));
+							currentDate.setDate(currentDate.getDate() + 1);
+						}
+						return dateRange;
+					}
+
+					const initialDateRange = get_current_date_chart();
+					updateChart("BSC10", initialDateRange);
+
 					jQuery(".btn-chart button").click(function() {
-						var chart_name = jQuery(this).attr('data-chart');
+						const chart_name = jQuery(this).attr('data-chart');
 						if (chart_name) {
 							jQuery(".btn-chart button").removeClass('active');
 							jQuery(this).addClass('active');
-							updateChart(chart_name);
+							updateChart(chart_name, get_current_date_chart());
 						}
+					});
+
+					jQuery(".fromdate, .todate").change(function() {
+						const activeChart = jQuery(".btn-chart button.active").data("chart") || "BSC10";
+						updateChart(activeChart, get_current_date_chart());
 					});
 				});
 			</script>
+
 			<div class="md:w-[33.181%]">
 				<div class="flex items-center justify-between mb-7">
 					<?php if (get_sub_field('title_2')) { ?>
@@ -122,131 +175,116 @@ $todate_value = DateTime::createFromFormat('d/m/Y', $todate)->format('Y-m-d');
 					}
 					?>
 				</div>
-				<?php if (have_rows('khuyen_nghi')) {
-					while (have_rows('khuyen_nghi')) :
-						the_row(); ?>
-						<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
-						<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
-							<?php if (get_sub_field('title')) { ?>
-								<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
-									<?php the_sub_field('title') ?>
-								</p>
-							<?php } ?>
-							<?php
-							$array_data = array(
-								'lang' => pll_current_language(),
-								'portcode' => '',
-							);
-							$response = get_data_with_cache('GetRecommendedCategory', $array_data, $time_cache);
-							if ($response) {
-							?>
-								<ul class="space-y-4">
-									<?php foreach ($response->d as $news) { ?>
-										<li class="flex font-bold gap-[14px] items-center justify-between">
-											<p class="line-clamp-1 flex-1">
-												<?php echo htmlspecialchars($news->title) ?>
-											</p>
+				<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
+				<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
+					<?php if (get_sub_field('title')) { ?>
+						<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
+							<?php the_sub_field('title') ?>
+						</p>
+					<?php } ?>
+					<?php
+					$array_data = array(
+						'lang' => pll_current_language(),
+						'maxitem' => 5,
+						'categoryid' => 1
+					);
+					$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+					if ($response) {
+					?>
+						<ul class="space-y-4">
+							<?php foreach ($response->d as $news) { ?>
+								<li class="flex font-bold gap-[14px] items-center justify-between">
+									<p class="line-clamp-1 flex-1">
+										<?php echo htmlspecialchars($news->title) ?>
+									</p>
 
-											<p
-												class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-												Hot</p>
-											<a href="">
-												<?php echo svg('download') ?>
-											</a>
-										</li>
-									<?php
-									}
-									?>
-								</ul>
-							<?php } ?>
-							<?php if (have_rows('button_xem_them')) {
-								while (have_rows('button_xem_them')) :
-									the_row(); ?>
-									<a href="<?php echo check_link(get_sub_field('link')) ?>"
-										class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
-										<?php the_sub_field('title') ?>
-										<?php echo svg('arrow-btn', '12', '12') ?>
+									<p
+										class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
+										Hot</p>
+									<a href="">
+										<?php echo svg('download') ?>
 									</a>
+								</li>
 							<?php
-								endwhile;
 							}
 							?>
-						</div>
-				<?php
-					endwhile;
-				}
-				?>
-
-				<?php if (have_rows('nganh_doanh_nghiep')) : ?>
-					<div class="data-slick block_slider-show-1 slick-dots-center"
-						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
-						<?php
-						$i = 0;
-						while (have_rows('nganh_doanh_nghiep')) :
-							the_row();
-							$i++; ?>
-							<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
-							<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
-								<?php if (get_sub_field('title')) { ?>
-									<div
-										class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-										<button class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('prev-slick') ?></button>
-										<p class="font-bold text-lg text-center line-clamp-1">
-											<?php the_sub_field('title') ?>
-										</p>
-										<button class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('next-slick') ?></button>
-									</div>
-								<?php } ?>
-								<?php
-								if ($i == 1) {
-									$categoryid = 6;
-								} elseif ($i == 2) {
-									$categoryid = 1;
-								} else {
-									$categoryid = 8;
-								}
-								$array_data = array(
-									'lang' => pll_current_language(),
-									'maxitem' => 5,
-									'categoryid' => $categoryid
-								);
-								$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-								if ($response) {
-								?>
-									<ul class="space-y-4">
-										<?php foreach ($response->d as $news) { ?>
-											<li class="flex gap-[14px] items-center justify-between">
-												<p class="line-clamp-1 flex-1">
-													<?php echo htmlspecialchars($news->title) ?>
-												</p>
-												<p
-													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
-													Hot</p>
-												<a href="">
-													<?php echo svg('download') ?>
-												</a>
-											</li>
-										<?php
-										}
-										?>
-									</ul>
-								<?php } ?>
-								<?php if (have_rows('button_xem_them')) {
-									while (have_rows('button_xem_them')) :
-										the_row(); ?>
-										<a href="<?php echo check_link(get_sub_field('link')) ?>"
-											class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
-											<?php the_sub_field('title') ?>
-											<?php echo svg('arrow-btn', '12', '12') ?>
-										</a>
-								<?php
-									endwhile;
-								}
-								?>
+						</ul>
+					<?php } ?>
+					<?php if (have_rows('button_xem_them')) {
+						while (have_rows('button_xem_them')) :
+							the_row(); ?>
+							<a href="<?php echo check_link(get_sub_field('link')) ?>"
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
+								<?php the_sub_field('title') ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
+							</a>
+					<?php
+						endwhile;
+					}
+					?>
+				</div>
+				<div class="data-slick block_slider-show-1 slick-dots-center"
+					data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
+					<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
+					<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
+						<?php if (get_sub_field('title')) { ?>
+							<div
+								class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
+								<button class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('prev-slick') ?></button>
+								<p class="font-bold text-lg text-center line-clamp-1">
+									<?php the_sub_field('title') ?>
+								</p>
+								<button class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('next-slick') ?></button>
 							</div>
-						<?php endwhile; ?>
+						<?php } ?>
+						<?php
+						if ($i == 1) {
+							$categoryid = 6;
+						} elseif ($i == 2) {
+							$categoryid = 1;
+						} else {
+							$categoryid = 8;
+						}
+						$array_data = array(
+							'lang' => pll_current_language(),
+							'maxitem' => 5,
+							'categoryid' => $categoryid
+						);
+						$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+						if ($response) {
+						?>
+							<ul class="space-y-4">
+								<?php foreach ($response->d as $news) { ?>
+									<li class="flex gap-[14px] items-center justify-between">
+										<p class="line-clamp-1 flex-1">
+											<?php echo htmlspecialchars($news->title) ?>
+										</p>
+										<p
+											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+											Hot</p>
+										<a href="">
+											<?php echo svg('download') ?>
+										</a>
+									</li>
+								<?php
+								}
+								?>
+							</ul>
+						<?php } ?>
+						<?php if (have_rows('button_xem_them')) {
+							while (have_rows('button_xem_them')) :
+								the_row(); ?>
+								<a href="<?php echo check_link(get_sub_field('link')) ?>"
+									class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
+									<?php the_sub_field('title') ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
+								</a>
+						<?php
+							endwhile;
+						}
+						?>
 					</div>
-				<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</div>
