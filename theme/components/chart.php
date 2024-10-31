@@ -210,7 +210,7 @@
 									<?php foreach ($response->d as $news) { ?>
 										<li class="flex font-bold gap-[14px] items-center justify-between">
 											<p class="line-clamp-1 flex-1">
-												<?php echo htmlspecialchars($news->symbol) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
+												<?php echo htmlspecialchars($news->symbols) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
 											</p>
 											<p
 												class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
@@ -226,7 +226,7 @@
 										?>
 											<li class="flex font-bold gap-[14px] items-center justify-between">
 												<p class="line-clamp-1 flex-1">
-													<?php echo htmlspecialchars($news->symbol) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
+													<?php echo htmlspecialchars($news->symbols) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
 												</p>
 												<p
 													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
