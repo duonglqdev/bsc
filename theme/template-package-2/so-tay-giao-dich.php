@@ -108,7 +108,7 @@ get_header();
 							Quầy giao dịch BSC/Điểm hỗ trợ liên kết BSC
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								Để mở tài khoản chứng khoán BSC tại các điểm giao dịch, Quý khách
 								vui lòng đến các <a href="">điểm giao dịch BSC</a> và <a
@@ -200,7 +200,7 @@ get_header();
 							Mở tài khoản trực tuyến eKYC
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								<strong>Mở qua Website BSC</strong>
 							</p>
@@ -312,7 +312,7 @@ get_header();
 							Mở tài khoản qua hệ thống BIDV Smartbanking
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								<span style="color:#235BA8">
 									<strong>Bước 1:</strong>

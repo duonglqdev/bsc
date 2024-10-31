@@ -650,7 +650,7 @@ button#ib-button-messaging {
   @apply bottom-0 right-0 top-[unset];
 }
 .form_support button {
-  @apply block  ml-auto -mt-2 font-body min-w-[157px];
+  @apply block ml-auto -mt-2 font-body min-w-[157px];
 }
 
 .flickity-button {
