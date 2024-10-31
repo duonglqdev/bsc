@@ -522,6 +522,7 @@ header {
 	}
 }
 .rank-math-breadcrumb {
+	@apply text-lg;
 	.separator {
 		@apply px-3;
 	}
@@ -649,5 +650,21 @@ button#ib-button-messaging {
 	
 	a strong{
 		@apply font-bold;
+	}
+}
+
+.sidebar-base{
+	li{
+		.li-plus{
+			@apply rotate-0;
+		}
+	}
+	li.active{
+		.li-plus{
+			@apply rotate-180;
+			&.active{
+				@apply rotate-0;
+			}
+		}
 	}
 }

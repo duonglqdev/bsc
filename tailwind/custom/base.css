@@ -554,6 +554,9 @@ header.active {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 24px 0px inset;
 }
 
+.rank-math-breadcrumb {
+  @apply text-lg;
+}
 .rank-math-breadcrumb .separator {
   @apply px-3;
 }
@@ -679,6 +682,16 @@ button#ib-button-messaging {
 }
 .content_prose a strong {
   @apply font-bold;
+}
+
+.sidebar-base li .li-plus {
+  @apply rotate-0;
+}
+.sidebar-base li.active .li-plus {
+  @apply rotate-180;
+}
+.sidebar-base li.active .li-plus.active {
+  @apply rotate-0;
 }
 
 /*# sourceMappingURL=base.css.map */
