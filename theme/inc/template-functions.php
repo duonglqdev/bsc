@@ -335,6 +335,70 @@ function bsc_pagination($custom_query = null, $custom_paged = null)
 <?php
 }
 
+/**
+ * Displays pagination api style by number page
+ */
+function bsc_pagination_api($max_num_pages = 1, $paged = 1)
+{
+
+	if ($max_num_pages <= 1) {
+		return; // Dừng nếu chỉ có 1 trang
+	}
+	$max = intval($max_num_pages);
+
+	/** Add current page to the array */
+	if ($paged >= 1)
+		$links[] = $paged;
+
+	/** Add the pages around the current page to the array */
+	if ($paged >= 3) {
+		$links[] = $paged - 1;
+		$links[] = $paged - 2;
+	}
+
+	if (($paged + 2) <= $max) {
+		$links[] = $paged + 2;
+		$links[] = $paged + 1;
+	}
+
+	echo '<ul class="flex items-center gap-[11px] h-9 text-base">' . "\n";
+
+	/** Previous Post Link */
+	// if (get_previous_posts_link())
+	// 	printf('<li>%s</li>' . "\n", get_previous_posts_link(svg('angle-left')));
+
+	/** Link to first page, plus ellipses if necessary */
+	if (! in_array(1, $links)) {
+		$class = 1 == $paged ? ' class="active"' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+
+		if (! in_array(2, $links))
+			echo '<li>…</li>';
+	}
+
+	/** Link to current page, plus 2 pages in either direction if necessary */
+	sort($links);
+	foreach ((array) $links as $link) {
+		$class = $paged == $link ? ' active' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+	}
+
+	/** Link to last page, plus ellipses if necessary */
+	if (! in_array($max, $links)) {
+		if (! in_array($max - 1, $links))
+			echo '<li>…</li>' . "\n";
+
+		$class = $paged == $max ? 'active' : '';
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+	}
+
+	/** Next Post Link */
+	// if (get_next_posts_link())
+	// 	printf('<li>%s</li>' . "\n", get_next_posts_link(svg('angle-right')));
+?>
+	</ul>
+<?php
+}
 
 /**
  * Displays exceprt by number string

@@ -80,10 +80,12 @@ get_header();
 				</div>
 				<div class="md:col-span-3 col-span-full">
 					<?php
+
+					$post_per_page = get_option('posts_per_page');
 					$array_data = array(
 						'lang' => pll_current_language(),
 						'groupid' => $groupid,
-						'maxitem' => 10
+						'maxitem' => $post_per_page
 					);
 					$response = get_data_with_cache('GetNews', $array_data, $time_cache);
 					if ($response) {
@@ -120,7 +122,9 @@ get_header();
 						<?php
 						} ?>
 						<div class="mt-12">
-							<?php get_template_part('components/pagination') ?>
+							<?php get_template_part('components/pagination', '', array(
+								'get' => 'api'
+							)) ?>
 						</div>
 					<?php } else {
 						get_template_part('template-parts/content', 'none');

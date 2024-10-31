@@ -21,7 +21,7 @@ function callApi($url, $data = false, $method = "GET")
     // return json_decode($response);
 }
 
-function get_data_with_cache($endpoint, $array_data, $ttl = 300)
+function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = 'http://10.21.170.17:86/')
 {
     $cache_key = $endpoint . '_' . md5(json_encode($array_data));
     $cached_data = wp_cache_get($cache_key);
@@ -29,7 +29,7 @@ function get_data_with_cache($endpoint, $array_data, $ttl = 300)
         return $cached_data;
     }
 
-    $url = 'http://10.21.170.17:86/' . $endpoint . '?' . http_build_query($array_data);
+    $url = $url_end . $endpoint . '?' . http_build_query($array_data);
     $response = callApi($url);
     if (is_object($response) && $response->s == "ok" && !empty($response->d)) {
         wp_cache_set($cache_key, $response, '', $ttl);
