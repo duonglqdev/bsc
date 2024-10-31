@@ -457,7 +457,7 @@ header {
 		}
 
 		.li-plus {
-			@apply absolute top-[14px] right-1;
+			@apply absolute top-[14px] right-3;
 		}
 		.li-plus.active {
 			@apply rotate-180;
@@ -627,5 +627,24 @@ button#ib-button-messaging {
 	&.next{
 		@apply lg:-right-4;
 		background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M17.9589 24.7071C17.5684 24.3166 17.5684 23.6834 17.9589 23.2929L24.2518 17L5.33268 17C4.7804 17 4.33268 16.5523 4.33268 16C4.33268 15.4477 4.7804 15 5.33268 15L24.2518 15L17.9589 8.7071C17.5684 8.31658 17.5684 7.68342 17.9589 7.29289C18.3494 6.90237 18.9826 6.90237 19.3731 7.29289L27.3731 15.2929C27.7636 15.6834 27.7636 16.3166 27.3731 16.7071L19.3731 24.7071C18.9826 25.0976 18.3494 25.0976 17.9589 24.7071Z' fill='%23235BA8'/%3E%3C/svg%3E%0A");
+	}
+}
+
+.content_prose{
+	ul >li{
+		
+		ol{
+			@apply font-normal;
+		}
+	}
+	li strong{
+		@apply font-medium;
+	}
+	span > strong, li strong, a strong{
+		@apply inline-block before:hidden font-bold;
+	}
+	
+	a strong{
+		@apply font-bold;
 	}
 }
