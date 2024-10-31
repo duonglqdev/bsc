@@ -53,29 +53,31 @@ get_header();
 							<h2 class="heading-title mb-4">
 								DỊCH VỤ THỊ TRƯỜNG VỐN (ECM)
 							</h2>
-							<p class="mb-4 font-bold">BSC cung cấp đa dạng các dịch vụ thị trường
-								vốn
-								bao gồm:</p>
-							<ul class="flex-1 space-y-4 list-icon">
-								<li class="font-semibold list-icon-item">
-									Tư vấn cổ phần hóa
-								</li>
-								<li class="font-semibold list-icon-item">
-									Tư vấn chào bán cổ phần lần đầu ra công chúng (IPO)
-								</li>
-								<li class="font-semibold list-icon-item">
-									Tư vấn phát hành riêng lẻ cổ phiếu
-								</li>
-								<li class="font-semibold list-icon-item">
-									Tư vấn đăng ký niêm yết cổ phiểu
-								</li>
-							</ul>
-							<div class="font-bold mt-4 text-justify">
-								Với nhiều năm kinh nghiệm trên thị trường, đội ngũ chuyên gia của
-								BSC sẽ hỗ trợ doanh nghiệp một cách toàn diện thông qua hoạt động
-								cung cấp dịch vụ trọn gói, từ tư vấn xây dựng phương án, cấu trúc
-								giao dịch, chuẩn bị hồ sơ, cho đến tư vấn đàm phán điều kiện điều
-								khoản, và các công tác hỗ trợ sau giao dịch.
+							<div class="font-Helvetica">
+								<p class="mb-4 font-bold">BSC cung cấp đa dạng các dịch vụ thị trường
+									vốn
+									bao gồm:</p>
+								<ul class="flex-1 space-y-4 list-icon">
+									<li class="font-semibold list-icon-item">
+										Tư vấn cổ phần hóa
+									</li>
+									<li class="font-semibold list-icon-item">
+										Tư vấn chào bán cổ phần lần đầu ra công chúng (IPO)
+									</li>
+									<li class="font-semibold list-icon-item">
+										Tư vấn phát hành riêng lẻ cổ phiếu
+									</li>
+									<li class="font-semibold list-icon-item">
+										Tư vấn đăng ký niêm yết cổ phiểu
+									</li>
+								</ul>
+								<div class="font-bold mt-4 text-justify">
+									Với nhiều năm kinh nghiệm trên thị trường, đội ngũ chuyên gia của
+									BSC sẽ hỗ trợ doanh nghiệp một cách toàn diện thông qua hoạt động
+									cung cấp dịch vụ trọn gói, từ tư vấn xây dựng phương án, cấu trúc
+									giao dịch, chuẩn bị hồ sơ, cho đến tư vấn đàm phán điều kiện điều
+									khoản, và các công tác hỗ trợ sau giao dịch.
+								</div>
 							</div>
 							<div class="mt-8">
 								<a href=""
@@ -155,7 +157,7 @@ get_header();
 								</div>
 
 								<div
-									class="active main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px]">
+									class="active main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw1.png"
 											alt=""
@@ -168,8 +170,8 @@ get_header();
 							</div>
 							<div
 								class="award__item-content cursor-default transition-all w-0 overflow-hidden opacity-0 invisible">
-								<div class="max-w-[410px]">
-									<h3 class="2xl:text-2xl text-xl font-bold mb-4">
+								<div class="max-w-[470px]">
+									<h3 class="2xl:text-2xl text-xl font-bold mb-4 font-body">
 										Nhà môi giới chứng khoán tốt nhất
 										Việt Nam 2023
 									</h3>
@@ -200,7 +202,7 @@ get_header();
 								</div>
 
 								<div
-									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px]">
+									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw2.png"
 											alt=""
@@ -213,8 +215,8 @@ get_header();
 							</div>
 							<div
 								class="award__item-content cursor-default hidden transition-all w-0 overflow-hidden opacity-0 invisible">
-								<div class="max-w-[410px]">
-									<h3 class="2xl:text-2xl text-xl font-bold mb-4">
+								<div class="max-w-[470px]">
+									<h3 class="2xl:text-2xl text-xl font-bold mb-4 font-body">
 										Nhà môi giới chứng khoán tốt nhất
 										Việt Nam 2023
 									</h3>
@@ -245,7 +247,7 @@ get_header();
 								</div>
 
 								<div
-									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px]">
+									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw3.png"
 											alt=""
@@ -258,8 +260,8 @@ get_header();
 							</div>
 							<div
 								class="award__item-content cursor-default hidden transition-all w-0 overflow-hidden opacity-0 invisible">
-								<div class="max-w-[410px]">
-									<h3 class="2xl:text-2xl text-xl font-bold mb-4">
+								<div class="max-w-[470px]">
+									<h3 class="2xl:text-2xl text-xl font-bold mb-4 font-body">
 										Nhà môi giới chứng khoán tốt nhất
 										Việt Nam 2023
 									</h3>
@@ -309,7 +311,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-	<?php
+		<?php
 	}
 	?>
 </main>
