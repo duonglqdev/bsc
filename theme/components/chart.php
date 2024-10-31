@@ -100,7 +100,7 @@
 								data: selectedData
 							},
 							{
-								name: 'INDEX',
+								name: 'VNINDEX',
 								data: hoseData
 							},
 							{
@@ -175,116 +175,159 @@
 					}
 					?>
 				</div>
-				<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
-				<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
-					<?php if (get_sub_field('title')) { ?>
-						<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
-							<?php the_sub_field('title') ?>
-						</p>
-					<?php } ?>
-					<?php
-					$array_data = array(
-						'lang' => pll_current_language(),
-						'maxitem' => 5,
-						'categoryid' => 1
-					);
-					$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-					if ($response) {
-					?>
-						<ul class="space-y-4">
-							<?php foreach ($response->d as $news) { ?>
-								<li class="flex font-bold gap-[14px] items-center justify-between">
-									<p class="line-clamp-1 flex-1">
-										<?php echo htmlspecialchars($news->title) ?>
-									</p>
-
-									<p
-										class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-										Hot</p>
-									<a href="">
-										<?php echo svg('download') ?>
-									</a>
-								</li>
-							<?php
-							}
-							?>
-						</ul>
-					<?php } ?>
-					<?php if (have_rows('button_xem_them')) {
-						while (have_rows('button_xem_them')) :
-							the_row(); ?>
-							<a href="<?php echo check_link(get_sub_field('link')) ?>"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
-								<?php the_sub_field('title') ?>
-								<?php echo svg('arrow-btn', '12', '12') ?>
-							</a>
-					<?php
-						endwhile;
-					}
-					?>
-				</div>
-				<div class="data-slick block_slider-show-1 slick-dots-center"
-					data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
-					<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
-					<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
-						<?php if (get_sub_field('title')) { ?>
-							<div
-								class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-								<button class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('prev-slick') ?></button>
-								<p class="font-bold text-lg text-center line-clamp-1">
+				<?php if (have_rows('khuyen_nghi')) {
+					while (have_rows('khuyen_nghi')) :
+						the_row();
+						$time_cache = get_sub_field('time_cache') ?: 300; ?>
+						<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
+							<?php if (get_sub_field('title')) { ?>
+								<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
 									<?php the_sub_field('title') ?>
 								</p>
-								<button class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('next-slick') ?></button>
-							</div>
-						<?php } ?>
+							<?php } ?>
+							<?php
+							$array_data = array(
+								'lang' => pll_current_language(),
+								'maxitem' => 5,
+								'categoryid' => 1,
+								"recommendation" => "Mua mạnh"
+							);
+							$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+							if ($response) {
+								$count = count($response->d);
+								if ($count < 5) {
+									$total = 5 - $count;
+									$array_data_more = array(
+										'lang' => pll_current_language(),
+										'maxitem' => $total,
+										'categoryid' => 1,
+										"recommendation" => "Mua"
+									);
+									$response_more = get_data_with_cache('GetReportsBySymbol', $array_data_more, $time_cache);
+								}
+							?>
+								<ul class="space-y-4">
+									<?php foreach ($response->d as $news) { ?>
+										<li class="flex font-bold gap-[14px] items-center justify-between">
+											<p class="line-clamp-1 flex-1">
+												<?php echo htmlspecialchars($news->symbol) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
+											</p>
+											<p
+												class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
+												Hot</p>
+											<a href="">
+												<?php echo svg('download') ?>
+											</a>
+										</li>
+										<?php
+									}
+									if ($response_more) {
+										foreach ($response_more->d as $news) {
+										?>
+											<li class="flex font-bold gap-[14px] items-center justify-between">
+												<p class="line-clamp-1 flex-1">
+													<?php echo htmlspecialchars($news->symbol) ?> <span class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>) <?php echo htmlspecialchars($news->recommendation) ?></span> - <?php echo htmlspecialchars($news->title) ?>
+												</p>
+												<p
+													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
+													Hot</p>
+												<a href="">
+													<?php echo svg('download') ?>
+												</a>
+											</li>
+									<?php
+										}
+									}
+									?>
+								</ul>
+							<?php } ?>
+							<?php if (have_rows('button_xem_them')) {
+								while (have_rows('button_xem_them')) :
+									the_row(); ?>
+									<a href="<?php echo check_link(get_sub_field('link')) ?>"
+										class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
+										<?php the_sub_field('title') ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
+									</a>
+							<?php
+								endwhile;
+							}
+							?>
+						</div>
+				<?php
+					endwhile;
+				}
+				?>
+				<?php if (have_rows('nganh_doanh_nghiep')) : ?>
+					<div class="data-slick block_slider-show-1 slick-dots-center"
+						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
 						<?php
-						if ($i == 1) {
-							$categoryid = 6;
-						} elseif ($i == 2) {
-							$categoryid = 1;
-						} else {
-							$categoryid = 8;
-						}
-						$array_data = array(
-							'lang' => pll_current_language(),
-							'maxitem' => 5,
-							'categoryid' => $categoryid
-						);
-						$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-						if ($response) {
-						?>
-							<ul class="space-y-4">
-								<?php foreach ($response->d as $news) { ?>
-									<li class="flex gap-[14px] items-center justify-between">
-										<p class="line-clamp-1 flex-1">
-											<?php echo htmlspecialchars($news->title) ?>
+						$i = 0;
+						while (have_rows('nganh_doanh_nghiep')) :
+							the_row();
+							$i++; ?>
+							<?php $time_cache = get_sub_field('time_cache') ?: 300; ?>
+							<div class="bg-white rounded-[10px] px-6 py-4 block_slider-item">
+								<?php if (get_sub_field('title')) { ?>
+									<div
+										class="flex items-center justify-between gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
+										<button class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('prev-slick') ?></button>
+										<p class="font-bold text-lg text-center line-clamp-1">
+											<?php the_sub_field('title') ?>
 										</p>
-										<p
-											class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
-											Hot</p>
-										<a href="">
-											<?php echo svg('download') ?>
-										</a>
-									</li>
+										<button class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('next-slick') ?></button>
+									</div>
+								<?php } ?>
 								<?php
+								if ($i == 1) {
+									$categoryid = 6;
+								} elseif ($i == 2) {
+									$categoryid = 1;
+								} else {
+									$categoryid = 8;
+								}
+								$array_data = array(
+									'lang' => pll_current_language(),
+									'maxitem' => 5,
+									'categoryid' => $categoryid
+								);
+								$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+								if ($response) {
+								?>
+									<ul class="space-y-4">
+										<?php foreach ($response->d as $news) { ?>
+											<li class="flex gap-[14px] items-center justify-between">
+												<p class="line-clamp-1 flex-1">
+													<?php echo htmlspecialchars($news->title) ?>
+												</p>
+												<p
+													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+													Hot</p>
+												<a href="">
+													<?php echo svg('download') ?>
+												</a>
+											</li>
+										<?php
+										}
+										?>
+									</ul>
+								<?php } ?>
+								<?php if (have_rows('button_xem_them')) {
+									while (have_rows('button_xem_them')) :
+										the_row(); ?>
+										<a href="<?php echo check_link(get_sub_field('link')) ?>"
+											class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
+											<?php the_sub_field('title') ?>
+											<?php echo svg('arrow-btn', '12', '12') ?>
+										</a>
+								<?php
+									endwhile;
 								}
 								?>
-							</ul>
-						<?php } ?>
-						<?php if (have_rows('button_xem_them')) {
-							while (have_rows('button_xem_them')) :
-								the_row(); ?>
-								<a href="<?php echo check_link(get_sub_field('link')) ?>"
-									class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mt-6 text-xs">
-									<?php the_sub_field('title') ?>
-									<?php echo svg('arrow-btn', '12', '12') ?>
-								</a>
-						<?php
-							endwhile;
-						}
-						?>
+							</div>
+						<?php endwhile; ?>
 					</div>
-				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

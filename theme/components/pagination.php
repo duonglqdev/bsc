@@ -1,7 +1,7 @@
 <div class="bsc-pagination mt-12">
 	<nav class="flex items-center gap-8">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
-			?>
+		?>
 			<?php bsc_pagination_api() ?>
 			<?php
 			$default_posts_per_page = (int) get_option('posts_per_page');
@@ -29,8 +29,7 @@
 					}
 				}
 			</script>
-		<?php } ?>
-			<?php 
+		<?php
 		} else { ?>
 			<?php bsc_pagination() ?>
 			<?php
