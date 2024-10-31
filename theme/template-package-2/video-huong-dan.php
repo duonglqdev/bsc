@@ -35,8 +35,8 @@ get_header();
 	</section>
 	<section class="mt-12 xl:mb-[100px] mb-20">
 		<div class="container">
-			<div class="grid md:grid-cols-4 gap-12">
-				<div class="md:col-span-1 col-span-full">
+			<div class="lg:flex gap-[70px]">
+				<div class="lg:w-80 max-w-[35%]">
 					<div class="sticky lg:top-28 top-5 z-[9]">
 						<ul
 							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report">
@@ -101,7 +101,7 @@ get_header();
 
 					</div>
 				</div>
-				<div class="md:col-span-3 col-span-full">
+				<div class="flex-1">
 					<div class="grid md:grid-cols-2 grid-cols-1 gap-5 gap-x-6 gap-y-8">
 						<?php
 						for ( $i = 0; $i < 10; $i++ )
@@ -109,7 +109,7 @@ get_header();
 							?>
 							<div class="flex flex-col">
 								<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
-									class="rounded-md overflow-hidden pt-[55.7%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
+									class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 										alt="" class="absolute w-full h-full inset-0 object-cover">
 									<div

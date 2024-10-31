@@ -39,13 +39,12 @@ get_header();
 				<div class="md:col-span-1 col-span-full">
 					<div class="sticky lg:top-28 top-5 z-[9]">
 						<ul
-							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report">
+							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
 							<li class="active">
 								<a href="#"
 									class="active flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Mở
 									tài khoản giao dịch</a>
-								<ul class="pl-5 hidden sub-menu w-full bg-white py-2">
-
+								<ul class="pl-5 sub-menu w-full bg-white py-2">
 									<li class="pl-5">
 										<a href="#"
 											class="active [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
@@ -108,7 +107,7 @@ get_header();
 							Quầy giao dịch BSC/Điểm hỗ trợ liên kết BSC
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								Để mở tài khoản chứng khoán BSC tại các điểm giao dịch, Quý khách
 								vui lòng đến các <a href="">điểm giao dịch BSC</a> và <a
@@ -200,7 +199,7 @@ get_header();
 							Mở tài khoản trực tuyến eKYC
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								<strong>Mở qua Website BSC</strong>
 							</p>
@@ -312,7 +311,7 @@ get_header();
 							Mở tài khoản qua hệ thống BIDV Smartbanking
 						</h2>
 						<div
-							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
+							class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 prose-table:border-none prose-table:mt-10">
 							<p>
 								<span style="color:#235BA8">
 									<strong>Bước 1:</strong>

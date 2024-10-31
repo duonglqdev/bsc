@@ -150,14 +150,14 @@ get_header();
 						<div
 							class="active grow cursor-pointer bg-gradient-blue-150 min-h-[398px] flex gap-10 justify-center items-center award__item font-Helvetica py-10 transition-all">
 							<div
-								class="flex flex-col items-center justify-center w-1/3 award__item-nav">
+								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open hidden">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
-									class="active main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
+									class="active main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw1.png"
 											alt=""
@@ -195,14 +195,14 @@ get_header();
 						<div
 							class="grow cursor-pointer bg-gradient-blue-200 min-h-[398px] flex gap-10 justify-center items-center award__item font-Helvetica py-10 transition-all">
 							<div
-								class="flex flex-col items-center justify-center w-1/3 award__item-nav">
+								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
-									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
+									class="main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw2.png"
 											alt=""
@@ -240,14 +240,14 @@ get_header();
 						<div
 							class="grow cursor-pointer bg-gradient-blue-150 min-h-[398px] flex gap-10 justify-center items-center award__item font-Helvetica py-10 transition-all">
 							<div
-								class="flex flex-col items-center justify-center w-1/3 award__item-nav">
+								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
-									class="main-img mx-auto w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 pl-10">
+									class="main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw3.png"
 											alt=""
