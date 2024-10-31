@@ -101,11 +101,15 @@ get_header();
 			<div class="grid grid-cols-5 gap-5">
 				<div class="md:col-span-3 col-span-full">
 					<div class="group">
-						<a href=""
-							class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
+						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
+							class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px] after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40" data-fancybox="">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
+								<div
+								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
+								<?php echo svg( 'play', '62', '62' ) ?>
+							</div>
 						</a>
 						<h3
 							class="lg:text-[22px] text-lg font-bold mb-[12px] transition-all duration-500 group-hover:text-green">
@@ -131,22 +135,27 @@ get_header();
 				<div class="md:col-span-2 col-span-full">
 					<ul class="space-y-[12px]">
 						<?php
-						for ( $i = 0; $i < 4; $i++ )
+						for ( $i = 0; $i < 3; $i++ )
 						{
 							?>
 							<li class="lg:p-6 p-4 bg-[#F5FCFF] rounded-lg group">
 								<h3
-									class="text-lg font-bold mb-3 transition-all duration-500 group-hover:text-green">
+									class="text-lg font-bold mb-3 transition-all duration-500 group-hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10
 										có gì đặc biệt?
 									</a>
 								</h3>
-								<p class="line-clamp-1">
+								<p class="line-clamp-1 font-Helvetica">
 									Báo cáo danh mục khuyến nghị đầu tư theo phong thủy ngũ hành năm
 									2024-
 									Mệnh Thủy
 								</p>
+								<div class="mt-3">
+									<a href="" class="text-green font-xs font-medium">
+									Blog kiến thức
+									</a>
+								</div>
 							</li>
 							<?php
 						}
@@ -179,8 +188,8 @@ get_header();
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 								alt="" class="absolute w-full h-full inset-0 object-cover">
 							<div
-								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-								<?php echo svgClass( 'play', '62', '62' ) ?>
+								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
+								<?php echo svg( 'play', '62', '62' ) ?>
 							</div>
 						</a>
 						<h4

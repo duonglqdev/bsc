@@ -378,11 +378,14 @@ import WOW from 'wowjs';
 			$(target).fadeIn('slow').siblings('.tab-content').hide();
 			return false;
 		});
-		$('.bank-nav-tab button').on('click', function() {
-			var targetTab = $(this).data('tabs'); 
-			$('html, body').animate({
-				scrollTop: $(targetTab).offset().top - 150
-			}, 50);
+		$('.bank-nav-tab button').on('click', function () {
+			var targetTab = $(this).data('tabs');
+			$('html, body').animate(
+				{
+					scrollTop: $(targetTab).offset().top - 150,
+				},
+				50
+			);
 		});
 	}
 
@@ -765,6 +768,15 @@ import WOW from 'wowjs';
 				$('.award__item').eq(1).find('.arr').addClass('rotate');
 			}
 		});
+		$('.form_support input, .form_support textarea')
+			.focus(function () {
+				$(this)
+					.data('placeholder', $(this).attr('placeholder'))
+					.attr('placeholder', '');
+			})
+			.blur(function () {
+				$(this).attr('placeholder', $(this).data('placeholder'));
+			});
 	}
 
 	function handlePhoneCf7() {

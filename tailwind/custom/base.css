@@ -622,6 +622,9 @@ button#ib-button-messaging {
   @apply rotate-180;
 }
 
+.form_support {
+  box-shadow: 0px 4px 30px 0px rgba(43, 94, 170, 0.1);
+}
 .form_support .form-group {
   @apply mb-8;
 }
@@ -644,7 +647,7 @@ button#ib-button-messaging {
   @apply bottom-0 right-0 top-[unset];
 }
 .form_support button {
-  @apply block ml-auto -mt-2;
+  @apply block ml-auto -mt-2 font-body;
 }
 
 .flickity-button {

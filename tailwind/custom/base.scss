@@ -587,6 +587,7 @@ button#ib-button-messaging {
 }
 
 .form_support{
+	box-shadow: 0px 4px 30px 0px rgba(43, 94, 170, 0.10);
 	.form-group{
 		@apply mb-8;
 		input, textarea{
@@ -610,7 +611,7 @@ button#ib-button-messaging {
 		@apply bottom-0 right-0 top-[unset];
 	}
 	button{
-		@apply block ml-auto -mt-2;
+		@apply block ml-auto -mt-2 font-body;
 	}
 }
 
