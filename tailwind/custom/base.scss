@@ -602,7 +602,7 @@ button#ib-button-messaging {
 			@apply lg:h-[52px] h-11 placeholder:text-black text-black;
 		}
 		textarea {
-			@apply h-[133px] pt-4;
+			@apply h-[133px] pt-4 placeholder:opacity-30;
 		}
 		&-flex {
 			@apply flex gap-[14px];
@@ -615,7 +615,7 @@ button#ib-button-messaging {
 		@apply bottom-0 right-0 top-[unset];
 	}
 	button {
-		@apply block ml-auto -mt-2 font-body min-w-[157px];
+		@apply block ml-auto -mt-2 font-body min-w-[157px] text-xs;
 	}
 }
 
@@ -687,6 +687,25 @@ button#ib-button-messaging {
 		}
 		ul{
 			@apply text-base mb-0;
+		}
+	}
+}
+
+.content-contact{
+	p:has(+ ul){
+		@apply mb-0;
+	}
+}
+.map-item{
+	iframe{
+		@apply w-full h-full absolute inset-0 object-cover max-w-full max-h-full block rounded-2xl;
+	}
+}
+.map-address {
+	&.active{
+		@apply pb-9;
+		div{
+			@apply mb-4;
 		}
 	}
 }
