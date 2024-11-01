@@ -24,6 +24,7 @@ import WOW from 'wowjs';
 			hoverSvg();
 			livechat();
 			marqueeSlider();
+			handleMapContact();
 		});
 	};
 
@@ -921,6 +922,23 @@ import WOW from 'wowjs';
 			$marqueeSlider.on('mouseleave', play);
 
 			play(); // Start the animation initially
+		});
+	}
+
+	function handleMapContact() {
+		$('.map-address').click(function () {
+			$(this)
+				.addClass('active')
+				.find('button')
+				.css({ opacity: 0, display: 'block' })
+				.animate({ opacity: 1 }, 300);
+			$(this)
+				.siblings()
+				.removeClass('active')
+				.find('button')
+				.animate({ opacity: 0 }, 300, function () {
+					$(this).css('display', 'none');
+				});
 		});
 	}
 })(jQuery);

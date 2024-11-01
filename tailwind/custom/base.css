@@ -634,14 +634,15 @@ button#ib-button-messaging {
 .form_support .form-group {
   @apply mb-8;
 }
-.form_support .form-group input, .form_support .form-group textarea {
+.form_support .form-group input,
+.form_support .form-group textarea {
   @apply w-full rounded-[10px] px-5 py-2 border border-[#AAA];
 }
 .form_support .form-group input {
   @apply lg:h-[52px] h-11 placeholder:text-black text-black;
 }
 .form_support .form-group textarea {
-  @apply h-[133px] pt-4;
+  @apply h-[133px] pt-4 placeholder:opacity-30;
 }
 .form_support .form-group-flex {
   @apply flex gap-[14px];
@@ -653,7 +654,7 @@ button#ib-button-messaging {
   @apply bottom-0 right-0 top-[unset];
 }
 .form_support button {
-  @apply block ml-auto -mt-2 font-body min-w-[157px];
+  @apply block ml-auto -mt-2 font-body min-w-[157px] text-xs;
 }
 
 .flickity-button {
@@ -677,7 +678,9 @@ button#ib-button-messaging {
 .content_prose li strong {
   @apply font-medium;
 }
-.content_prose span > strong, .content_prose li strong, .content_prose a strong {
+.content_prose span > strong,
+.content_prose li strong,
+.content_prose a strong {
   @apply inline-block before:hidden font-bold;
 }
 .content_prose a strong {
@@ -692,6 +695,34 @@ button#ib-button-messaging {
 }
 .sidebar-base li.active .li-plus.active {
   @apply rotate-0;
+}
+
+.custom-table tr:nth-child(even) td {
+  @apply bg-[#EBF4FA];
+}
+.custom-table tr:nth-child(odd) td {
+  @apply bg-[#DFF2FF];
+}
+.custom-table table tbody tr:first-child {
+  @apply text-primary-400;
+}
+.custom-table table ul {
+  @apply text-base mb-0;
+}
+
+.content-contact p:has(+ ul) {
+  @apply mb-0;
+}
+
+.map-item iframe {
+  @apply w-full h-full absolute inset-0 object-cover max-w-full max-h-full block rounded-2xl;
+}
+
+.map-address.active {
+  @apply pb-9;
+}
+.map-address.active div {
+  @apply mb-4;
 }
 
 /*# sourceMappingURL=base.css.map */
