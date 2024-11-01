@@ -76,7 +76,6 @@
 					const stocksData = <?php echo $stocksDataJson; ?>;
 
 					function getMaxValue(dataSets) {
-						// Tìm giá trị lớn nhất trong tất cả các mã chứng khoán đã chọn
 						return Math.ceil(
 							Math.max(...dataSets.flat().filter(value => value !== null)) / 100
 						) * 100;
@@ -87,7 +86,6 @@
 						const vndiamondData = dateRange.map(date => stocksData['VNDIAMOND'][date] || null);
 						const selectedData = dateRange.map(date => stocksData[dataType][date] || null);
 
-						// Tính `maxValue` mới cho trục y dựa trên khoảng thời gian đã chọn
 						const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
 
 						const newYAxisOptions = {
@@ -125,8 +123,13 @@
 						const toDate = new Date(jQuery(".todate").val());
 						const dateRange = [];
 						let currentDate = new Date(fromDate);
+
+						// Duyệt qua các ngày, bỏ qua thứ 7 và chủ nhật
 						while (currentDate <= toDate) {
-							dateRange.push(formatDate(currentDate));
+							const dayOfWeek = currentDate.getDay();
+							if (dayOfWeek !== 6 && dayOfWeek !== 0) { // 6 = Thứ 7, 0 = Chủ nhật
+								dateRange.push(formatDate(currentDate));
+							}
 							currentDate.setDate(currentDate.getDate() + 1);
 						}
 						return dateRange;
@@ -150,6 +153,7 @@
 					});
 				});
 			</script>
+
 
 			<div class="md:w-[33.181%]">
 				<div class="flex items-center justify-between mb-7">
@@ -288,7 +292,7 @@
 								}
 								$array_data = array(
 									'lang' => pll_current_language(),
-									'maxitem' => 5,
+									'maxitem' => 4,
 									'categoryid' => $categoryid
 								);
 								$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
