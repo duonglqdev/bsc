@@ -399,34 +399,9 @@ import WOW from 'wowjs';
         });
     }
 
-    window.handleChart = function(seriesData, xAxisCategories, yAxisOptions) {
+    window.handleChart = function(seriesData, yAxisOptions) {
         var chartElement = document.querySelector('#chart');
         if (chartElement) {
-            // Chuyển đổi xAxisCategories thành timestamps (dấu thời gian)
-            const timestamps = xAxisCategories.map(date => new Date(date).getTime());
-
-            // Xác định khoảng thời gian
-            let tickInterval;
-            let dateFormatter;
-
-            if (xAxisCategories.length <= 7) {
-                // < 7 ngày: Hiển thị mỗi ngày một mốc
-                tickInterval = 1;
-                dateFormatter = "dd MMM yyyy";
-            } else if (xAxisCategories.length > 7 && xAxisCategories.length <= 30) {
-                // > 7 ngày và < 30 ngày: Hiển thị mỗi 5 ngày một mốc
-                tickInterval = 5;
-                dateFormatter = "dd MMM yyyy";
-            } else if (xAxisCategories.length > 30 && xAxisCategories.length <= 365) {
-                // > 30 ngày và < 1 năm: Hiển thị mỗi tháng một mốc
-                tickInterval = 30;
-                dateFormatter = "MMM yyyy";
-            } else {
-                // > 1 năm: Hiển thị mỗi 3 tháng một mốc
-                tickInterval = 90;
-                dateFormatter = "MMM yyyy";
-            }
-
             var options = {
                 chart: {
                     type: 'line',
@@ -448,21 +423,8 @@ import WOW from 'wowjs';
                 },
                 series: seriesData,
                 xaxis: {
-                    type: 'datetime', // Đảm bảo sử dụng datetime để xử lý định dạng ngày
-                    categories: timestamps, // Sử dụng timestamps thay vì chuỗi ngày tháng
+                    type: 'datetime',
                     labels: {
-                        formatter: function(val, index) {
-                            // Chỉ hiển thị nhãn tại các mốc cách nhau `tickInterval` ngày
-                            if (index % tickInterval === 0) {
-                                return new Date(val).toLocaleDateString("en-US", {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: dateFormatter.includes('dd') ? 'numeric' : undefined
-                                });
-                            } else {
-                                return ""; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
-                            }
-                        },
                         rotate: -45,
                         hideOverlappingLabels: true
                     },
@@ -473,7 +435,7 @@ import WOW from 'wowjs';
                     width: 2,
                 },
                 markers: {
-                    size: 0, // Ẩn các dấu tròn
+                    size: 0,
                 },
                 colors: ['#009E87', '#235BA8', '#FFB81C'],
                 legend: {
@@ -484,7 +446,6 @@ import WOW from 'wowjs';
                 },
                 tooltip: {
                     x: {
-                        // Sử dụng formatter thay cho format để đảm bảo tooltip hiển thị đúng định dạng ngày
                         formatter: function(val) {
                             return new Date(val).toLocaleDateString("en-US", {
                                 year: 'numeric',
@@ -493,10 +454,20 @@ import WOW from 'wowjs';
                             });
                         }
                     },
+                    y: {
+                        formatter: function(value, {
+                            seriesIndex,
+                            dataPointIndex,
+                            w
+                        }) {
+                            const percentDiff = w.config.series[seriesIndex].data[dataPointIndex].percentagedifference;
+                            return `${value.toFixed(2)} (${percentDiff > 0 ? '+' : ''}${percentDiff.toFixed(2)}%)`;
+                        },
+                    }
                 },
             };
 
-            var chart = new ApexCharts($('#chart')[0], options);
+            var chart = new ApexCharts(chartElement, options);
             chart.render();
         }
     };

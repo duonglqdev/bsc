@@ -15,7 +15,7 @@
 			$data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
 
 			$maxValue = 0;
-			$minValue = PHP_INT_MAX; // Giá trị tối thiểu để bắt đầu y-axis
+			$minValue = PHP_INT_MAX;
 
 			if ($data) {
 				$stocksData = [
@@ -26,7 +26,6 @@
 					'VNDIAMOND' => []
 				];
 
-				// Xác định fromdate là ngày sớm nhất có dữ liệu
 				$earliestDate = null;
 
 				foreach ($data->d as $dataset) {
@@ -34,9 +33,13 @@
 						foreach ($entries as $entry) {
 							$date = date("Y-m-d", strtotime($entry->tradedate));
 							$portclose = $entry->portclose;
-							$stocksData[$stockCode][$date] = $portclose;
+							$percentagedifference = $entry->percentagedifference;
 
-							// Cập nhật giá trị lớn nhất và nhỏ nhất nếu cần
+							$stocksData[$stockCode][$date] = [
+								'portclose' => $portclose,
+								'percentagedifference' => $percentagedifference
+							];
+
 							if ($portclose > $maxValue) {
 								$maxValue = $portclose;
 							}
@@ -44,7 +47,6 @@
 								$minValue = $portclose;
 							}
 
-							// Thiết lập ngày đầu tiên có dữ liệu
 							if (!$earliestDate || $date < $earliestDate) {
 								$earliestDate = $date;
 							}
@@ -52,12 +54,13 @@
 					}
 				}
 
-				$fromdate = $earliestDate; // Ngày đầu tiên có dữ liệu
+				$fromdate = $earliestDate;
 				$stocksDataJson = json_encode($stocksData);
 				$maxValue = ceil($maxValue / 100) * 100;
-				$minValue = floor($minValue / 10) * 10; // Làm tròn mốc thấp nhất xuống bội số của 10
+				$minValue = floor($minValue / 10) * 10;
 			}
 			?>
+
 			<div class="flex-1 md:mr-5">
 				<?php if (get_sub_field('title')) { ?>
 					<h2
@@ -98,33 +101,45 @@
 					}
 
 					function updateChart(dataType, dateRange) {
-						const hoseData = dateRange.map(date => stocksData['HOSE'][date] || null);
-						const vndiamondData = dateRange.map(date => stocksData['VNDIAMOND'][date] || null);
-						const selectedData = dateRange.map(date => stocksData[dataType][date] || null);
+						const hoseData = dateRange.map(date => stocksData['HOSE'][date]?.portclose || null);
+						const vndiamondData = dateRange.map(date => stocksData['VNDIAMOND'][date]?.portclose || null);
+						const selectedData = dateRange.map(date => stocksData[dataType][date]?.portclose || null);
 
 						const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
 
 						const newYAxisOptions = {
-							min: minYAxisValue, // Bắt đầu từ giá trị nhỏ nhất thay vì 0
+							min: minYAxisValue,
 							max: maxValue,
 						};
 
 						const chartData = [{
 								name: dataType,
-								data: selectedData
+								data: dateRange.map(date => ({
+									x: new Date(date).getTime(),
+									y: stocksData[dataType][date]?.portclose || null,
+									percentagedifference: stocksData[dataType][date]?.percentagedifference || null
+								}))
 							},
 							{
 								name: 'VNINDEX',
-								data: hoseData
+								data: dateRange.map(date => ({
+									x: new Date(date).getTime(),
+									y: stocksData['HOSE'][date]?.portclose || null,
+									percentagedifference: stocksData['HOSE'][date]?.percentagedifference || null
+								}))
 							},
 							{
 								name: 'VNDIAMOND',
-								data: vndiamondData
-							},
+								data: dateRange.map(date => ({
+									x: new Date(date).getTime(),
+									y: stocksData['VNDIAMOND'][date]?.portclose || null,
+									percentagedifference: stocksData['VNDIAMOND'][date]?.percentagedifference || null
+								}))
+							}
 						];
 
 						jQuery("#chart").empty();
-						window.handleChart(chartData, dateRange, newYAxisOptions);
+						window.handleChart(chartData, newYAxisOptions);
 					}
 
 					function formatDate(date) {
@@ -142,7 +157,7 @@
 
 						while (currentDate <= toDate) {
 							const dayOfWeek = currentDate.getDay();
-							if (dayOfWeek !== 6 && dayOfWeek !== 0) { // 6 = Thứ 7, 0 = Chủ nhật
+							if (dayOfWeek !== 6 && dayOfWeek !== 0) {
 								dateRange.push(formatDate(currentDate));
 							}
 							currentDate.setDate(currentDate.getDate() + 1);
