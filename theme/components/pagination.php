@@ -2,7 +2,7 @@
 	<nav class="flex items-center gap-8">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
 		?>
-			<?php bsc_pagination_api() ?>
+			<?php bsc_pagination_api($args['total_page'], $args['url']) ?>
 			<?php
 			$default_posts_per_page = (int) get_option('posts_per_page');
 			$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
@@ -12,7 +12,7 @@
 				foreach ($posts_to_show as $number) :
 					$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
 				?>
-					<option value="<?php echo esc_url(add_query_arg('posts_to_show', $number)); ?>" <?php echo $selected; ?>>
+					<option value="<?php echo $args['url'] . '?posts_to_show=' . $number ?>" <?php echo $selected; ?>>
 						<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
 					</option>
 				<?php endforeach; ?>

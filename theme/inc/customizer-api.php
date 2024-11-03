@@ -80,7 +80,7 @@ function custom_template_redirect()
         $time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
         $array_data = array(
             "id" => $news_id,
-            "newstype" => ""
+            "newstype" => "0"
         );
         $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
         if ($get_news_detail) {

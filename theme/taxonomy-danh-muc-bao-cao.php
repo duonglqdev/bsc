@@ -79,10 +79,32 @@ get_header();
                     <?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
                         <?php
                         $time_cache = get_field('cdqhcd2_time_cache', 'option') ?: 300;
+                        if (isset($_GET['posts_to_show'])) {
+                            $post_per_page = $_GET['posts_to_show'];
+                        } else {
+                            $post_per_page = get_option('posts_per_page');
+                        }
+                        $array_data_count = array(
+                            'lang' => pll_current_language(),
+                            'groupid' => $groupid,
+                        );
+                        $response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
+                        if ($response_count) {
+                            $total_post = $response_count->d[0]->totalrecord;
+                        } else {
+                            $total_post = $post_per_page;
+                        }
+                        $total_page = ceil($total_post / $post_per_page);
+                        if (isset($_GET['page'])) {
+                            $index = ($_GET['page'] - 1) * $post_per_page + 1;
+                        } else {
+                            $index = 1;
+                        }
                         $array_data = array(
                             'lang' => pll_current_language(),
                             'groupid' => $groupid,
-                            'maxitem' => 8
+                            'maxitem' => $post_per_page,
+                            'index' => $index
                         );
                         $response = get_data_with_cache('GetNews', $array_data, $time_cache);
                         if ($response) :
@@ -98,9 +120,15 @@ get_header();
                                     ?>
                                 </div>
                             </div>
+                            <div class="mt-12">
+                                <?php get_template_part('components/pagination', '', array(
+                                    'get' => 'api',
+                                    'total_page' => $total_page,
+                                    'url' => get_term_link(get_queried_object_id()),
+                                )) ?>
+                            </div>
                         <?php
                         else :
-                            // If no content, include the "No posts found" template.
                             get_template_part('template-parts/content', 'none');
 
                         endif;
@@ -115,29 +143,15 @@ get_header();
                                         class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent">
                                 </div>
                                 <div class="flex gap-4 flex-1">
-                                    <?php global $wpdb;
-                                    $years = $wpdb->get_col("
-                                SELECT DISTINCT YEAR(STR_TO_DATE(pm.meta_value, '%Y%m%d')) as year
-                                FROM $wpdb->postmeta pm
-                                INNER JOIN $wpdb->posts p ON pm.post_id = p.ID
-                                WHERE pm.meta_key = 'date_post'
-                                AND p.post_type = 'quan-he-co-dong'
-                                AND p.post_status = 'publish'
-                                ORDER BY year DESC
-                            ");
-
-                                    if ($years) {
-                                    ?>
-                                        <div class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
-                                            <label for="" class="font-bold"><?php _e('Năm:', 'bsc') ?></label>
-                                            <select id="select_year" name="years" class="select_custom py-0 border-0 focus:ring-0">
-                                                <option value=""><?php _e('Chọn năm', 'bsc') ?></option>
-                                                <?php foreach ($years as $year): ?>
-                                                    <option value="<?php echo esc_attr($year); ?>" <?php selected(isset($_GET['years']) && $_GET['years'] == $year); ?>><?php echo esc_html($year); ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    <?php } ?>
+                                    <div class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
+                                        <label for="" class="font-bold"><?php _e('Năm:', 'bsc') ?></label>
+                                        <select id="select_year" name="years" class="select_custom py-0 border-0 focus:ring-0">
+                                            <option value=""><?php _e('Chọn năm', 'bsc') ?></option>
+                                            <?php foreach ($years as $year): ?>
+                                                <option value="<?php echo esc_attr($year); ?>" <?php selected(isset($_GET['years']) && $_GET['years'] == $year); ?>><?php echo esc_html($year); ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                     <div class="md:w-[55%] w-1/2">
                                         <button type="submit" class="inline-block w-full h-full px-6 py-3 rounded-xl bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-xl hover:after:w-full hover:after:opacity-100 hover:text-white">
                                             <span class="block relative z-10"><?php _e('Tìm kiếm', 'bsc') ?></span>
@@ -148,10 +162,32 @@ get_header();
                         </form>
                         <?php
                         $time_cache = get_field('cdqhcd2_time_cache', 'option') ?: 300;
+                        if (isset($_GET['posts_to_show'])) {
+                            $post_per_page = $_GET['posts_to_show'];
+                        } else {
+                            $post_per_page = get_option('posts_per_page');
+                        }
+                        $array_data_count = array(
+                            'lang' => pll_current_language(),
+                            'groupid' => $groupid,
+                        );
+                        $response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
+                        if ($response_count) {
+                            $total_post = $response_count->d[0]->totalrecord;
+                        } else {
+                            $total_post = $post_per_page;
+                        }
+                        $total_page = ceil($total_post / $post_per_page);
+                        if (isset($_GET['page'])) {
+                            $index = ($_GET['page'] - 1) * $post_per_page + 1;
+                        } else {
+                            $index = 1;
+                        }
                         $array_data = array(
                             'lang' => pll_current_language(),
                             'groupid' => $groupid,
-                            'maxitem' => 8
+                            'maxitem' => $post_per_page,
+                            'index' => $index
                         );
                         $response = get_data_with_cache('GetNews', $array_data, $time_cache);
                         if ($response) :
@@ -165,9 +201,15 @@ get_header();
                                 }
                                 ?>
                             </div>
+                            <div class="mt-12">
+                                <?php get_template_part('components/pagination', '', array(
+                                    'get' => 'api',
+                                    'total_page' => $total_page,
+                                    'url' => get_term_link(get_queried_object_id()),
+                                )) ?>
+                            </div>
                         <?php
                         else :
-                            // If no content, include the "No posts found" template.
                             get_template_part('template-parts/content', 'none');
 
                         endif;

@@ -289,31 +289,6 @@ function filter_posts($query)
 }
 add_action('pre_get_posts', 'filter_posts');
 
-
-/**
- * Lọc quan hệ cổ đông
- */
-function custom_search_filter($query)
-{
-    // Kiểm tra nếu đang trong trang archive của taxonomy 'danh-muc-bao-cao' thuộc post type 'quan-he-co-dong'
-    if (!is_admin() && $query->is_main_query() && is_tax('danh-muc-bao-cao')) {
-
-        // Xử lý tìm kiếm theo từ khóa
-        if (!empty($_GET['key'])) {
-            $query->set('s', sanitize_text_field($_GET['key']));
-        }
-
-        // Xử lý lọc theo năm
-        if (!empty($_GET['years'])) {
-            $query->set('year', sanitize_text_field($_GET['years']));
-        }
-
-        // Đảm bảo kết quả trả về của post type 'quan-he-co-dong'
-        $query->set('post_type', 'quan-he-co-dong');
-    }
-}
-add_action('pre_get_posts', 'custom_search_filter');
-
 /*
 * Loại bỏ /danh-muc-bao-cao/ ở đường dẫn
 * Thay /danh-muc-bao-cao/ slug hiện tại của bạn. Mặc định là /danh-muc-bao-cao/

@@ -80,12 +80,32 @@ get_header();
 				</div>
 				<div class="md:col-span-3 col-span-full">
 					<?php
-
-					$post_per_page = get_option('posts_per_page');
+					if (isset($_GET['posts_to_show'])) {
+						$post_per_page = $_GET['posts_to_show'];
+					} else {
+						$post_per_page = get_option('posts_per_page');
+					}
+					$array_data_count = array(
+						'lang' => pll_current_language(),
+						'groupid' => $groupid,
+					);
+					$response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
+					if ($response_count) {
+						$total_post = $response_count->d[0]->totalrecord;
+					} else {
+						$total_post = $post_per_page;
+					}
+					$total_page = ceil($total_post / $post_per_page);
+					if (isset($_GET['page'])) {
+						$index = ($_GET['page'] - 1) * $post_per_page + 1;
+					} else {
+						$index = 1;
+					}
 					$array_data = array(
 						'lang' => pll_current_language(),
 						'groupid' => $groupid,
-						'maxitem' => $post_per_page
+						'maxitem' => $post_per_page,
+						'index' => $index
 					);
 					$response = get_data_with_cache('GetNews', $array_data, $time_cache);
 					if ($response) {
@@ -104,26 +124,42 @@ get_header();
 								</div>
 							</div>
 						<?php } else {
-						?>
-							<div class="list_news-service">
-								<h2 class="text-xl font-bold mb-6">
-									Tháng 08 năm 2024
-								</h2>
-								<div class="space-y-8">
-									<?php
-									foreach ($response->d as $news) {
-										get_template_part('template-parts/content_nothumb', get_post_type(), array(
-											'data' => $news,
-										));
+							$current_month = '';
+							$current_year = '';
+							echo '<div class="space-y-12">';
+							foreach ($response->d as $news) {
+								$post_date = strtotime($news->postdate);
+								$month = date('m', $post_date);
+								$year = date('Y', $post_date);
+
+								if ($month != $current_month || $year != $current_year) {
+									if ($current_month !== '' && $current_year !== '') {
+										echo '</div>';
+										echo '</div>';
 									}
-									?>
-								</div>
-							</div>
-						<?php
+
+									$current_month = $month;
+									$current_year = $year;
+
+									echo '<div class="list_news-service">';
+									echo '<h2 class="text-xl font-bold mb-6">' . sprintf(__('Tháng %1$s năm %2$s', 'bsc'), $month, $year) . '</h2>';
+									echo '<div class="space-y-8">';
+								}
+
+								get_template_part('template-parts/content_nothumb', get_post_type(), array(
+									'data' => $news,
+								));
+							}
+
+							echo '</div>';
+							echo '</div>';
+							echo '</div>';
 						} ?>
 						<div class="mt-12">
 							<?php get_template_part('components/pagination', '', array(
-								'get' => 'api'
+								'get' => 'api',
+								'total_page' => $total_page,
+								'url' => get_term_link(get_queried_object_id()),
 							)) ?>
 						</div>
 					<?php } else {
