@@ -7,13 +7,15 @@
 			<?php
 			$time_cache = get_sub_field('time_cache_1') ?: 300;
 			date_default_timezone_set('Asia/Bangkok');
-			$todate = date('Y-m-d');
-			$fromdate = date('Y-m-d', strtotime('-7 days'));
+			$todate = date('Y-m-d'); // Ngày hiện tại
+
 			$array_data = array(
 				'portcode' => 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND'
 			);
 			$data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
+
 			$maxValue = 0;
+			$minValue = PHP_INT_MAX; // Giá trị tối thiểu để bắt đầu y-axis
 
 			if ($data) {
 				$stocksData = [
@@ -23,24 +25,37 @@
 					'HOSE' => [],
 					'VNDIAMOND' => []
 				];
+
+				// Xác định fromdate là ngày sớm nhất có dữ liệu
+				$earliestDate = null;
+
 				foreach ($data->d as $dataset) {
 					foreach ($dataset as $stockCode => $entries) {
 						foreach ($entries as $entry) {
 							$date = date("Y-m-d", strtotime($entry->tradedate));
 							$portclose = $entry->portclose;
-
 							$stocksData[$stockCode][$date] = $portclose;
 
-							// Cập nhật giá trị lớn nhất nếu cần
+							// Cập nhật giá trị lớn nhất và nhỏ nhất nếu cần
 							if ($portclose > $maxValue) {
 								$maxValue = $portclose;
+							}
+							if ($portclose < $minValue) {
+								$minValue = $portclose;
+							}
+
+							// Thiết lập ngày đầu tiên có dữ liệu
+							if (!$earliestDate || $date < $earliestDate) {
+								$earliestDate = $date;
 							}
 						}
 					}
 				}
 
+				$fromdate = $earliestDate; // Ngày đầu tiên có dữ liệu
 				$stocksDataJson = json_encode($stocksData);
 				$maxValue = ceil($maxValue / 100) * 100;
+				$minValue = floor($minValue / 10) * 10; // Làm tròn mốc thấp nhất xuống bội số của 10
 			}
 			?>
 			<div class="flex-1 md:mr-5">
@@ -63,8 +78,8 @@
 
 						<div class="flex items-center 2xl:space-x-4 space-x-2">
 							<strong><?php _e('Thời gian', 'bsc') ?>:</strong>
-							<input type="date" class="fromdate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $fromdate; ?>">
-							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate; ?>">
+							<input type="date" class="fromdate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $fromdate ?>">
+							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate ?>">
 						</div>
 					</div>
 					<div id="chart"></div>
@@ -74,6 +89,7 @@
 			<script>
 				jQuery(document).ready(function() {
 					const stocksData = <?php echo $stocksDataJson; ?>;
+					const minYAxisValue = <?php echo $minValue; ?>;
 
 					function getMaxValue(dataSets) {
 						return Math.ceil(
@@ -89,7 +105,7 @@
 						const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
 
 						const newYAxisOptions = {
-							min: 0,
+							min: minYAxisValue, // Bắt đầu từ giá trị nhỏ nhất thay vì 0
 							max: maxValue,
 						};
 
@@ -124,7 +140,6 @@
 						const dateRange = [];
 						let currentDate = new Date(fromDate);
 
-						// Duyệt qua các ngày, bỏ qua thứ 7 và chủ nhật
 						while (currentDate <= toDate) {
 							const dayOfWeek = currentDate.getDay();
 							if (dayOfWeek !== 6 && dayOfWeek !== 0) { // 6 = Thứ 7, 0 = Chủ nhật
@@ -147,12 +162,19 @@
 						}
 					});
 
-					jQuery(".fromdate, .todate").change(function() {
-						const activeChart = jQuery(".btn-chart button.active").data("chart") || "BSC10";
-						updateChart(activeChart, get_current_date_chart());
+					let debounceTimer;
+					const debounceDelay = 500;
+
+					jQuery(".fromdate, .todate").on("input", function() {
+						clearTimeout(debounceTimer);
+						debounceTimer = setTimeout(function() {
+							const activeChart = jQuery(".btn-chart button.active").data("chart") || "BSC10";
+							updateChart(activeChart, get_current_date_chart());
+						}, debounceDelay);
 					});
 				});
 			</script>
+
 
 
 			<div class="md:w-[33.181%]">

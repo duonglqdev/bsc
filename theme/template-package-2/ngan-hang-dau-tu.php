@@ -7,9 +7,9 @@ Template Name:[Package-2] Ngân hàng đầu tư
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<!-- Tab nav -->
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 menu_navigation">
 		<div class="container">
 			<ul class="customtab-nav flex justify-between bank-nav-tab">
 				<li>
@@ -41,12 +41,11 @@ get_header();
 	</section>
 	<!-- Tab content -->
 	<?php
-	for ( $j = 1; $j < 5; $j++ )
-	{
-		?>
+	for ($j = 1; $j < 5; $j++) {
+	?>
 		<section class="<?php echo $j == 1 ? 'block' : 'hidden' ?> tab-content"
 			id="bank-tab-<?php echo $j ?>">
-			<div class="xl:my-[100px] md:my-20 my-10">
+			<div class="xl:my-[100px] md:my-20 my-10 content_image">
 				<div class="container">
 					<div class="lg:grid lg:grid-cols-2 xl:gap-0 gap-10">
 						<div class="col-span-1 xl:pr-[42px]">
@@ -82,7 +81,7 @@ get_header();
 							<div class="mt-8">
 								<a href=""
 									class="btn-base-yellow px-6 py-4 inline-flex items-center gap-x-3">
-									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php echo svg('arrow-btn', '16', '16') ?>
 									Liên hệ tư vấn
 								</a>
 							</div>
@@ -98,7 +97,7 @@ get_header();
 
 				</div>
 			</div>
-			<div class="xl:py-[121px] py-20 bg-[#F3F9FC]">
+			<div class="xl:py-[121px] py-20 bg-[#F3F9FC] slider_customer">
 				<div class="container">
 					<h2 class="heading-title text-center mb-8">
 						KHÁCH HÀNG TIÊU BIỂU
@@ -106,42 +105,40 @@ get_header();
 					<div class="max-w-[1190px] mx-auto">
 						<div class="block_slider-show-6 block__slider-marquee">
 							<?php
-							for ( $i = 0; $i < 12; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 12; $i++) {
+							?>
 								<div class="block_slider-item py-[12px] mx-[12px] lg:w-1/6 md:w-1/4 w-1/2">
-									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+									<a href="<?php echo check_link(get_sub_field('link')) ?>"
 										class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 											alt=""
 											class="absolute w-full max-w-[80%] h-full object-contain inset-0 m-auto">
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
 						<div class="block_slider-show-6 block__slider-marquee marquee-rtl">
 							<?php
-							for ( $i = 0; $i < 12; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 12; $i++) {
+							?>
 								<div class="block_slider-item py-[12px] mx-[12px] lg:w-1/6 md:w-1/4 w-1/2">
-									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+									<a href="<?php echo check_link(get_sub_field('link')) ?>"
 										class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110 shadow-base">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 											alt=""
 											class="absolute w-full max-w-[80%] max-h-[80%] object-contain inset-0 m-auto">
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="xl:my-[100px] my-20">
+			<div class="xl:my-[100px] my-20 reward_feature">
 				<div class="container">
 					<h2 class="heading-title mb-10 text-center">
 						GIẢI THƯỞNG NỔI BẬT
@@ -165,7 +162,7 @@ get_header();
 									</div>
 								</div>
 								<div class="mt-6 hide-open arr hidden">
-									<?php echo svg( 'arr-left' ) ?>
+									<?php echo svg('arr-left') ?>
 								</div>
 							</div>
 							<div
@@ -210,7 +207,7 @@ get_header();
 									</div>
 								</div>
 								<div class="mt-6 hide-open arr">
-									<?php echo svg( 'arr-left' ) ?>
+									<?php echo svg('arr-left') ?>
 								</div>
 							</div>
 							<div
@@ -255,7 +252,7 @@ get_header();
 									</div>
 								</div>
 								<div class="mt-6 hide-open arr">
-									<?php echo svg( 'arr-left' ) ?>
+									<?php echo svg('arr-left') ?>
 								</div>
 							</div>
 							<div
@@ -285,7 +282,7 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="py-20 bg-gradient-blue-250">
+			<div class="py-20 bg-gradient-blue-250 nhdt_contact">
 				<div class="container">
 					<div class="lg:flex">
 						<div class="2xl:pr-[50px] pr-10  lg:w-[575px] lg:max-w-[43%] shrink-0">
@@ -300,18 +297,18 @@ get_header();
 						</div>
 						<div class="flex-1 2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]">
 							<h3 class="mb-6 text-primary-300 font-bold xl:text-2xl text-xl">
-								<?php _e( 'Đăng ký thông tin hỗ trợ', 'gnws' ) ?>
+								<?php _e('Đăng ký thông tin hỗ trợ', 'gnws') ?>
 							</h3>
 							<div
 								class="form_support relative font-Helvetica bg-white lg:px-8 px-5 lg:py-6 py-4 rounded-2xl">
-								<?php echo do_shortcode( '[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]' ) ?>
+								<?php echo do_shortcode('[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]') ?>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<?php
+	<?php
 	}
 	?>
 </main>
