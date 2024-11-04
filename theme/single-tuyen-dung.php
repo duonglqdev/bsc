@@ -17,8 +17,8 @@ get_header();
 					</h1>
 				</div>
 			</div>
-			<div class="grid md:flex 2xl:gap-[70px] gap-12">
-				<div class="md:w-[320px]">
+			<div class="lg:flex 2xl:gap-[70px] gap-12">
+				<div class="lg:w-[320px]">
 					<div class="bg-[#F5FCFF] py-5 px-6 rounded-[10px]">
 						<h3 class="text-primary-300 uppercase text-xl font-bold">
 							<?php _e('THÔNG TIN CHUNG', 'bsc') ?>
@@ -125,7 +125,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="md:flex-1 space-y-[30px]">
+				<div class="lg:flex-1 space-y-[30px]">
 					<div
 						class="font-Helvetica content_item prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8] prose-li:my-[2px] prose-li:marker:text-black prose-ul:mb-0 prose-h2:mt-[30px] first:prose-h2:mt-0 prose-h2:mb-2 text-black">
 						<?php the_content() ?>

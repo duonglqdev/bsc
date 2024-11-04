@@ -179,7 +179,7 @@ get_header();
 										</span>
 									</div>
 									<a href=""
-										class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+										class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
@@ -291,7 +291,7 @@ get_header();
 										</span>
 									</div>
 									<a href=""
-										class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+										class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
@@ -346,7 +346,7 @@ get_header();
 										</span>
 									</div>
 									<a href=""
-										class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+										class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>
@@ -400,7 +400,7 @@ get_header();
 										</span>
 									</div>
 									<a href=""
-										class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+										class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
 										Hiệu suất đầu tư gấp 3 lần VN-index, danh mục BSC10 có gì đặc
 										biệt?
 									</a>

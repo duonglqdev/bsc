@@ -87,7 +87,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="home_news bg-white lg:my-[100px] my-10">
+	<section class="home_news bg-white lg:my-[100px] my-20">
 		<div class="container">
 			<div class="flex items-center justify-between mb-12">
 				<h2 class="heading-title ">KIẾN THỨC ĐẦU TƯ</h2>
