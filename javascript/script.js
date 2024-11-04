@@ -377,6 +377,7 @@ import WOW from 'wowjs';
             $('.customtab-nav li button').removeClass('active');
             $(this).addClass('active');
             $(target).fadeIn('slow').siblings('.tab-content').hide();
+            moveLine($(this));
             return false;
         });
         $('.bank-nav-tab button').on('click', function() {
