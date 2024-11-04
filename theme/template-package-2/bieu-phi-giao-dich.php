@@ -91,8 +91,210 @@ get_header();
 						BIỂU PHÍ GIAO DỊCH CHỨNG KHOÁN CƠ SỞ
 					</h2>
 					<div
-						class="prose-table:border-collapse prose-table:mb-10 prose-td:border-[4px] prose-td:py-5 prose-td:px-7 prose-td:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica">
-						<?php the_content() ?>
+						class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-th:py-5 prose-th:px-[29px] prose-td:py-5 prose-td:px-[29px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed">
+						<div class="table__item mb-10">
+							<ul class="pl-5 list-disc mb-6 font-bold lg:text-xl">
+								<li>
+									Giao dịch cổ phiếu (CP), Chứng chỉ quỹ (CCQ), ETF, chứng quyền
+									có
+									bảo đảm (CW)
+								</li>
+							</ul>
+							<table>
+								<thead>
+									<tr>
+										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										</th>
+										<th rowspan="2" class="w-[36.573%]">Tổng giá trị giao dịch/
+											ngày/ tài khoản</th>
+										<th colspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+									</tr>
+									<tr>
+										<th class="w-1/2 !py-2">Chuyên gia tư vấn</th>
+										<th class="w-1/2 !py-2">TVĐT Online</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">1</td>
+										<td style="background-color:#EBF4FA;">≤ 2 tỷ VNĐ</td>
+										<td style="background-color:#EBF4FA;">0.18%</td>
+										<td style="background-color:#EBF4FA;">0.15%</td>
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#DFF2FF;">2</td>
+										<td style="background-color:#DFF2FF;"> 2 tỷ VNĐ và ≤ 5 tỷ VNĐ</td>
+										<td style="background-color:#DFF2FF;">0.15%</td>
+										<td style="background-color:#DFF2FF;">0.12%</td>
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">3</td>
+										<td style="background-color:#EBF4FA;">> 5 tỷ VNĐ</td>
+										<td style="background-color:#EBF4FA;">0.12%</td>
+										<td style="background-color:#EBF4FA;">0.10%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="table__item mb-10">
+							<ul class="pl-5 list-disc mb-6 font-bold lg:text-xl">
+								<li>
+									Giao dịch Trái phiếu chính phủ, TPDN niêm yết
+								</li>
+							</ul>
+							<table>
+								<thead>
+									<tr>
+										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										</th>
+										<th rowspan="2" class="w-[36.573%]">Loại dịch vụ</th>
+										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">1</td>
+										<td style="background-color:#EBF4FA;">Dưới 2 tỷ VNĐ</td>
+										<td style="background-color:#EBF4FA;">0.10%</td>
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#DFF2FF;">2</td>
+										<td style="background-color:#DFF2FF;">Từ 2 tỷ VNĐ đến 10 tỷ VNĐ</td>
+										<td style="background-color:#DFF2FF;">0.05%</td>
+
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">3</td>
+										<td style="background-color:#EBF4FA;">Trên 5 tỷ VNĐ</td>
+										<td style="background-color:#EBF4FA;">0.02%</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc prose-ul:!text-base">
+								Ghi chú: Khách hàng có trách nhiệm nộp thuế theo quy định của pháp
+								luật
+							</div>
+						</div>
+
+						<div class="table__item mb-10">
+							<ul class="pl-5 list-disc mb-6 font-bold lg:text-xl">
+								<li>
+									Giao dịch Trái phiếu doanh nghiệp riêng lẻ
+								</li>
+							</ul>
+							<table>
+								<thead>
+									<tr>
+										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										</th>
+										<th rowspan="2" class="w-[36.573%]">Thông tin</th>
+										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+									</tr>
+
+								</thead>
+								<tbody>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">1</td>
+										<td style="background-color:#EBF4FA;">Đối tượng thu phí</td>
+										<td style="background-color:#EBF4FA;">0.10%</td>
+
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#DFF2FF;">2</td>
+										<td style="background-color:#DFF2FF;">Phí giao dịch áp dụng</td>
+										<td class="text-left" style="background-color:#DFF2FF;">
+											<ul>
+												<li>
+													Dưới 50 tỷ đồng: 0.10%/ GTGD
+												</li>
+												<li>Từ 50 tỷ đồng đến dưới 200 tỷ đồng: 0.08%/ GTGD
+												</li>
+												<li>Từ 200 tỷ đồng đến dưới 300 tỷ đồng: 0.05%/ GTGD
+												</li>
+												<li>Từ 300 tỷ đồng trở lên: 0.03%/ GTGD</li>
+											</ul>
+											<p class="text-xs font-normal pl-5">
+												(Đã bao gồm phí trả Sở giao dịch)
+											</p>
+										</td>
+
+									</tr>
+									<tr>
+										<td class="centered" style="background-color:#EBF4FA;">3</td>
+										<td style="background-color:#EBF4FA;">Phí dịch vụ xác định <br>
+											nhà đầu tư chuyên nghiệp</td>
+										<td class="text-left" style="background-color:#EBF4FA;">Miễn phí</td>
+									</tr>
+								</tbody>
+							</table>
+							<div
+								class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc prose-ul:!text-base">
+								Ghi chú:
+								<ul>
+									<li>Khách hàng có trách nhiệm nộp thuế theo quy định của pháp
+										luật</li>
+									<li>
+										Giá trị chuyển quyền sở hữu đối với dịch vụ chuyển quyền sở
+										hữu chứng khoán ngoài hệ thống giao dịch của Sở giao dịch
+										chứng khoán theo quy định của VSD/ VSDC
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="table__item mb-10">
+							
+							<table>
+							<thead>
+									<tr>
+										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										</th>
+										<th rowspan="2" class="w-[36.573%]">Loại dịch vụ</th>
+										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+									</tr>
+
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="3" style="background-color:#EBF4FA;">1</td>
+										<td style="background-color:#EBF4FA;">Lưu ký chứng khoán</td>
+										<td rowspan="3"style="background-color:#EBF4FA;">Thu theo giá dịch vụ của VSD/VSDC</td>
+									</tr>
+									<tr>
+										<td style="background-color:#EBF4FA;">Cổ phiếu, chứng chỉ quỹ, chứng quyền có bảo đảm</td>
+									</tr>
+									<tr>
+										<td style="background-color:#EBF4FA;">Trái phiếu niêm yết</td>
+									</tr>
+									<tr>
+										<td rowspan="2"style="background-color:#DFF2FF ;">2</td>
+										<td style="background-color:#DFF2FF ;">Giá dịch vụ xác nhận phong tỏa chứng khoán một lần theo yêu cầu của khách hàng</td>
+										<td style="background-color:#DFF2FF ;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có) Chỉ tiết mức phí BSC thu:
+										0,2% giá trị theo mệnh giá, Tối thiểu 300.000 VND/yêu cầu, tối đa 1.000.000 VND/yêu cầu</td>
+									</tr>
+									<tr>
+										<td style="background-color:#DFF2FF ;">Giá dịch vụ xác nhận phong tỏa và theo dõi chứng khoán (Ký thỏa thuận/Hợp đồng quản lý tài sản cầm cố 3 bên)</td>
+										<td style="background-color:#DFF2FF;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có) Chỉ tiết mức phí BSC thu: -0,2% giá trị theo mệnh giá, tối thiểu 500.000 VND/hợp đồng, tối đa 10.000.000 VND/hợp đồng</td>
+									</tr>
+									<tr>
+										<td rowspan="3"style="background-color:#EBF4FA;">3</td>
+										<td style="background-color:#EBF4FA;">Giá dịch vụ chuyển khoản chứng khoán</td>
+										<td style="background-color:#DFF2FF;"></td>
+									</tr>
+									<tr>
+										<td style="background-color:#EBF4FA;">Giá dịch vụ chuyển khoản tất
+										toán tài khoản</td>
+										<td style="background-color:#DFF2FF ;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có)
+											Chi tiết mức phí BSC thu:
+											- 100.000 VND/giao dịch
+										</td>
+									</tr>
+									<tr>
+										<td style="background-color:#EBF4FA;">Giá dịch vụ chuyển khoản chứng khoán</td>
+										<td style="background-color:#DFF2FF ;">Mức giá dịch vụ của VSD/ VSDC (nếu có)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<div class="mt-10 text-right">
 						<a href="" class="inline-block px-6 py-3 btn-base-yellow" target="_blank">

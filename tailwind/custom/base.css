@@ -697,14 +697,14 @@ button#ib-button-messaging {
   @apply rotate-0;
 }
 
-.custom-table tr:nth-child(even) td {
-  @apply bg-[#EBF4FA];
+.custom-table thead > tr:first-child th:first-child {
+  @apply px-[18px] py-5;
 }
-.custom-table tr:nth-child(odd) td {
-  @apply bg-[#DFF2FF];
+.custom-table thead th {
+  @apply bg-[#DFF2FF] text-primary-400;
 }
-.custom-table table tbody tr:first-child {
-  @apply text-primary-400;
+.custom-table table tbody tr td:first-child {
+  @apply px-[18px] py-5;
 }
 .custom-table table ul {
   @apply text-base mb-0;
