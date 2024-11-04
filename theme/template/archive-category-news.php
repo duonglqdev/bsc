@@ -72,7 +72,7 @@ get_header();
 										</span>
 									</div>
 									<a href=""
-										class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+										class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
 										BSC và Edmond de Rothschild hợp tác triển khai thành lập công ty
 										quản lý quỹ tại Việt Nam 
 									</a>

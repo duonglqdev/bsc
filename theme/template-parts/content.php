@@ -22,7 +22,7 @@
             </span>
         </div>
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-            class="block font-bold line-clamp-2 mb-3 hover:text-primary-300 transition-all duration-500">
+            class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
             <?php echo htmlspecialchars($news->title) ?>
         </a>
         <div class="line-clamp-3 text-paragraph mb-4">

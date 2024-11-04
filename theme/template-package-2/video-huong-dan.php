@@ -119,7 +119,9 @@ get_header();
 								</a>
 								<h4
 									class="font-Helvetica line-clamp-2 font-bold mt-5 transition-all duration-500 hover:text-green">
-									Hướng dẫn nộp tiền vào tài khoản chứng khoán
+									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox>
+										Hướng dẫn nộp tiền vào tài khoản chứng khoán
+									</a>
 								</h4>
 							</div>
 						<?php

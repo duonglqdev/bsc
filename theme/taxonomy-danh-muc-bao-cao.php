@@ -153,7 +153,7 @@ get_header();
                                         </select>
                                     </div>
                                     <div class="md:w-[55%] w-1/2">
-                                        <button type="submit" class="inline-block w-full h-full px-6 py-3 rounded-xl bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-xl hover:after:w-full hover:after:opacity-100 hover:text-white">
+                                        <button type="submit" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] 2xl:px-6  2xl:py-3  font-semibold relative transition-all duration-500 inline-block w-full h-full px-6 py-3 rounded-xl">
                                             <span class="block relative z-10"><?php _e('Tìm kiếm', 'bsc') ?></span>
                                         </button>
                                     </div>
