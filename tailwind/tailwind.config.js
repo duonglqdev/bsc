@@ -56,8 +56,12 @@ module.exports = {
 					'linear-gradient(194deg, #E5F3FF 23.63%, #CCE3FF 96.18%)',
 				'gradient-blue-250':
 					'linear-gradient(270deg, #EAF8FE 0%, #F3FAFF 100%)',
-					'gradient-blue-300':
+				'gradient-blue-300':
 					'linear-gradient(180deg, #E5F0FF 14.17%, #FFF 67.74%)',
+				'gradient-blue-350':
+					'linear-gradient(180deg, #E5F0FF 40.35%, #FFF 89.76%)',
+				'gradient-blue-400':
+					'linear-gradient(255deg, #F4FBFE 24.06%, #E1F0FA 76.4%)',
 				'gradient-banner':
 					'linear-gradient(251deg, rgba(27, 70, 141, 0.00) 8.87%, rgba(34, 52, 114, 0.74) 43.96%, #252D69 98.08%)',
 				'gradient-banner-bold':
