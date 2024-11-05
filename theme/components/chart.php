@@ -101,9 +101,17 @@
 					}
 
 					function updateChart(dataType, dateRange) {
-						const hoseData = dateRange.map(date => stocksData['HOSE'][date]?.portclose || null);
-						const vndiamondData = dateRange.map(date => stocksData['VNDIAMOND'][date]?.portclose || null);
-						const selectedData = dateRange.map(date => stocksData[dataType][date]?.portclose || null);
+						// Lọc các ngày không có dữ liệu `portclose` cho tất cả các mã
+						const filteredDateRange = dateRange.filter(date => {
+							const hasBSC10Data = stocksData[dataType][date]?.portclose != null;
+							const hasVNINDEXData = stocksData['HOSE'][date]?.portclose != null;
+							const hasVNDIAMONDData = stocksData['VNDIAMOND'][date]?.portclose != null;
+							return hasBSC10Data || hasVNINDEXData || hasVNDIAMONDData;
+						});
+
+						const hoseData = filteredDateRange.map(date => stocksData['HOSE'][date]?.portclose || null);
+						const vndiamondData = filteredDateRange.map(date => stocksData['VNDIAMOND'][date]?.portclose || null);
+						const selectedData = filteredDateRange.map(date => stocksData[dataType][date]?.portclose || null);
 
 						const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
 
@@ -114,7 +122,7 @@
 
 						const chartData = [{
 								name: dataType,
-								data: dateRange.map(date => ({
+								data: filteredDateRange.map(date => ({
 									x: new Date(date).getTime(),
 									y: stocksData[dataType][date]?.portclose || null,
 									percentagedifference: stocksData[dataType][date]?.percentagedifference || null
@@ -122,7 +130,7 @@
 							},
 							{
 								name: 'VNINDEX',
-								data: dateRange.map(date => ({
+								data: filteredDateRange.map(date => ({
 									x: new Date(date).getTime(),
 									y: stocksData['HOSE'][date]?.portclose || null,
 									percentagedifference: stocksData['HOSE'][date]?.percentagedifference || null
@@ -130,7 +138,7 @@
 							},
 							{
 								name: 'VNDIAMOND',
-								data: dateRange.map(date => ({
+								data: filteredDateRange.map(date => ({
 									x: new Date(date).getTime(),
 									y: stocksData['VNDIAMOND'][date]?.portclose || null,
 									percentagedifference: stocksData['VNDIAMOND'][date]?.percentagedifference || null

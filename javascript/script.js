@@ -403,6 +403,31 @@ import WOW from 'wowjs';
     window.handleChart = function(seriesData, yAxisOptions) {
         var chartElement = document.querySelector('#chart');
         if (chartElement) {
+            // Chuyển đổi xAxisCategories thành timestamps
+            const timestamps = seriesData[0].data.map(point => point.x);
+
+            // Xác định khoảng thời gian
+            let tickInterval;
+            let dateFormatter;
+
+            if (timestamps.length <= 7) {
+                // < 7 ngày: Hiển thị mỗi ngày một mốc
+                tickInterval = 1;
+                dateFormatter = "dd MMM yyyy";
+            } else if (timestamps.length > 7 && timestamps.length <= 30) {
+                // > 7 ngày và < 30 ngày: Hiển thị mỗi 5 ngày một mốc
+                tickInterval = 5;
+                dateFormatter = "dd MMM yyyy";
+            } else if (timestamps.length > 30 && timestamps.length <= 365) {
+                // > 30 ngày và < 1 năm: Hiển thị mỗi tháng một mốc
+                tickInterval = 30;
+                dateFormatter = "MMM yyyy";
+            } else {
+                // > 1 năm: Hiển thị mỗi 3 tháng một mốc
+                tickInterval = 90;
+                dateFormatter = "MMM yyyy";
+            }
+
             var options = {
                 chart: {
                     type: 'line',
@@ -410,24 +435,36 @@ import WOW from 'wowjs';
                     toolbar: {
                         show: true,
                         tools: {
-                            zoom: true,
-                            zoomin: true,
-                            zoomout: true,
-                            pan: true,
-                            reset: true,
+                            zoom: false, // Tắt công cụ zoom
+                            zoomin: false, // Tắt nút zoom in
+                            zoomout: false, // Tắt nút zoom out
+                            pan: false, // Tắt công cụ pan
+                            reset: false // Tắt nút reset zoom
                         },
-                        autoSelected: 'zoom',
+                        autoSelected: 'zoom'
                     },
                     zoom: {
-                        enabled: true,
-                    },
+                        enabled: false // Tắt tính năng zoom hoàn toàn
+                    }
                 },
                 series: seriesData,
                 xaxis: {
                     type: 'datetime',
+                    categories: timestamps,
                     labels: {
+                        formatter: function(val, index) {
+                            // Hiển thị nhãn tại các mốc theo quy tắc tickInterval
+                            if (index % tickInterval === 0) {
+                                return new Date(val).toLocaleDateString("en-GB", {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: dateFormatter.includes('dd') ? 'numeric' : undefined
+                                });
+                            } else {
+                                return ""; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
+                            }
+                        },
                         rotate: -45,
-                        hideOverlappingLabels: true
                     },
                 },
                 yaxis: yAxisOptions,
@@ -436,7 +473,7 @@ import WOW from 'wowjs';
                     width: 2,
                 },
                 markers: {
-                    size: 0,
+                    size: 0, // Ẩn các dấu tròn
                 },
                 colors: ['#009E87', '#235BA8', '#FFB81C'],
                 legend: {
@@ -448,7 +485,7 @@ import WOW from 'wowjs';
                 tooltip: {
                     x: {
                         formatter: function(val) {
-                            return new Date(val).toLocaleDateString("en-US", {
+                            return new Date(val).toLocaleDateString("en-GB", {
                                 year: 'numeric',
                                 month: 'short',
                                 day: 'numeric'
@@ -456,11 +493,7 @@ import WOW from 'wowjs';
                         }
                     },
                     y: {
-                        formatter: function(value, {
-                            seriesIndex,
-                            dataPointIndex,
-                            w
-                        }) {
+                        formatter: function(value, { seriesIndex, dataPointIndex, w }) {
                             const percentDiff = w.config.series[seriesIndex].data[dataPointIndex].percentagedifference;
                             return `${value.toFixed(2)} (${percentDiff > 0 ? '+' : ''}${percentDiff.toFixed(2)}%)`;
                         },
