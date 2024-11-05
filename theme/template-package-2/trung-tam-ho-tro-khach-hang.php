@@ -64,7 +64,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="2xl:my-[100px] my-10">
+	<section class="xl:my-[100px] my-10">
 		<div class="container">
 			<div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover py-7 2xl:px-[75px] px-10 grid lg:grid-cols-2 grid-cols-1 gap-10 items-center min-h-80"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-payment.png)">
