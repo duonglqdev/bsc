@@ -1,6 +1,6 @@
 <?php
 add_action('wp_ajax_filter_jobs', 'filter_jobs_ajax');
-add_action('wp_ajax_nopriv_filter_jobs', 'filter_jobs_ajax'); // Cho người dùng chưa đăng nhập
+add_action('wp_ajax_nopriv_filter_jobs', 'filter_jobs_ajax');
 
 function filter_jobs_ajax()
 {
@@ -100,4 +100,73 @@ function filter_jobs_ajax()
     wp_reset_postdata();
 
     die();
+}
+
+
+add_action('wp_ajax_fetch_portfolio_data', 'fetch_portfolio_data');
+add_action('wp_ajax_nopriv_fetch_portfolio_data', 'fetch_portfolio_data');
+
+function fetch_portfolio_data()
+{
+    check_ajax_referer('fetch_portfolio_data', 'security');
+    $fromdate = sanitize_text_field($_POST['fromdate']);
+    $fromdate = DateTime::createFromFormat('Y-m-d', $fromdate)->format('d/m/Y');
+    $todate = sanitize_text_field($_POST['todate']);
+    $todate = DateTime::createFromFormat('Y-m-d', $todate)->format('d/m/Y');
+    $portcode = sanitize_text_field($_POST['portcode']);
+    $time_cache = $_POST['time_cache'] ?: 300;
+    $array_data = array(
+        "fromdate" => $fromdate,
+        "todate" => $todate,
+        "portcode" => $portcode
+    );
+
+    $data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
+    $maxValue = 0;
+    $minValue = PHP_INT_MAX;
+
+    if ($data) {
+        $stocksData = [
+            'BSC10' => [],
+            'BSC30' => [],
+            'BSC50' => [],
+            'HOSE' => [],
+            'VNDIAMOND' => []
+        ];
+
+        foreach ($data->d as $dataset) {
+            foreach ($dataset as $stockCode => $entries) {
+                foreach ($entries as $entry) {
+                    $date = date("Y-m-d", strtotime($entry->tradedate));
+                    $portclose = $entry->portclose;
+                    $percentagedifference = $entry->percentagedifference;
+
+                    $stocksData[$stockCode][$date] = [
+                        'portclose' => $portclose,
+                        'percentagedifference' => $percentagedifference
+                    ];
+
+                    if ($portclose > $maxValue) {
+                        $maxValue = $portclose;
+                    }
+                    if ($portclose < $minValue) {
+                        $minValue = $portclose;
+                    }
+                }
+            }
+        }
+        $stocksDataJson = json_encode($stocksData);
+        $maxValue = ceil($maxValue / 10) * 10;
+        $minValue = floor($minValue / 10) * 10;
+    } else {
+        $stocksDataJson = json_encode([]);
+        $maxValue = 0;
+        $minValue = 0;
+    }
+    echo json_encode(array(
+        'data' => $stocksDataJson,
+        'maxvalue' => $maxValue,
+        'minvalue' => $minValue
+    ));
+    wp_die();
 }

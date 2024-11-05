@@ -494,9 +494,17 @@ import WOW from 'wowjs';
                     },
                     y: {
                         formatter: function(value, { seriesIndex, dataPointIndex, w }) {
-                            const percentDiff = w.config.series[seriesIndex].data[dataPointIndex].percentagedifference;
-                            return `${value.toFixed(2)} (${percentDiff > 0 ? '+' : ''}${percentDiff.toFixed(2)}%)`;
-                        },
+                            const pointData = w.config.series[seriesIndex].data[dataPointIndex];
+                            const percentDiff = pointData && pointData.percentagedifference;
+
+                            // Kiểm tra cả `value` và `percentDiff` để tránh lỗi `toFixed`
+                            const formattedValue = value != null ? value.toFixed(2) : "N/A";
+                            const percentText = (percentDiff != null) ?
+                                ` (${percentDiff > 0 ? "+" : ""}${percentDiff.toFixed(2)}%)` :
+                                ""; // Nếu không có giá trị, hiển thị chuỗi trống
+
+                            return `${formattedValue}${percentText}`;
+                        }
                     }
                 },
             };

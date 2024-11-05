@@ -7,8 +7,7 @@
 			<?php
 			$time_cache = get_sub_field('time_cache_1') ?: 300;
 			date_default_timezone_set('Asia/Bangkok');
-			$todate = date('Y-m-d'); // Ngày hiện tại
-
+			$todate = date('Y-m-d');
 			$array_data = array(
 				'portcode' => 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND'
 			);
@@ -56,7 +55,7 @@
 
 				$fromdate = $earliestDate;
 				$stocksDataJson = json_encode($stocksData);
-				$maxValue = ceil($maxValue / 100) * 100;
+				$maxValue = ceil($maxValue / 10) * 10;
 				$minValue = floor($minValue / 10) * 10;
 			}
 			?>
@@ -85,23 +84,19 @@
 							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate ?>">
 						</div>
 					</div>
-					<div id="chart"></div>
+					<div id="chart" data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>" data-stock='<?php echo $stocksDataJson ?>'></div>
 					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 				</div>
 			</div>
 			<script>
 				jQuery(document).ready(function() {
-					const stocksData = <?php echo $stocksDataJson; ?>;
-					const minYAxisValue = <?php echo $minValue; ?>;
-
 					function getMaxValue(dataSets) {
 						return Math.ceil(
 							Math.max(...dataSets.flat().filter(value => value !== null)) / 100
 						) * 100;
 					}
 
-					function updateChart(dataType, dateRange) {
-						// Lọc các ngày không có dữ liệu `portclose` cho tất cả các mã
+					function updateChart(dataType, dateRange, stocksData, maxYAxisValue, minYAxisValue) {
 						const filteredDateRange = dateRange.filter(date => {
 							const hasBSC10Data = stocksData[dataType][date]?.portclose != null;
 							const hasVNINDEXData = stocksData['HOSE'][date]?.portclose != null;
@@ -117,7 +112,13 @@
 
 						const newYAxisOptions = {
 							min: minYAxisValue,
-							max: maxValue,
+							max: maxYAxisValue,
+							tickAmount: 10,
+							labels: {
+								formatter: function(value) {
+									return value.toFixed(0);
+								}
+							}
 						};
 
 						const chartData = [{
@@ -174,25 +175,79 @@
 					}
 
 					const initialDateRange = get_current_date_chart();
-					updateChart("BSC10", initialDateRange);
+					var stocksData = $('#chart').attr('data-stock');
+					if (typeof stocksData === "string") {
+						stocksData = JSON.parse(stocksData);
+					} else {
+						stocksData = stocksData;
+					}
+					var maxYAxisValue = parseInt($('#chart').attr('data-maxvalue'), 10);
+					var minYAxisValue = parseInt($('#chart').attr('data-minvalue'), 10);
+					updateChart("BSC10", initialDateRange, stocksData, maxYAxisValue, minYAxisValue);
 
 					jQuery(".btn-chart button").click(function() {
 						const chart_name = jQuery(this).attr('data-chart');
 						if (chart_name) {
 							jQuery(".btn-chart button").removeClass('active');
 							jQuery(this).addClass('active');
-							updateChart(chart_name, get_current_date_chart());
+							var stocksData = $('#chart').attr('data-stock');
+							if (typeof stocksData === "string") {
+								stocksData = JSON.parse(stocksData);
+							} else {
+								stocksData = stocksData;
+							}
+							var maxYAxisValue = parseInt($('#chart').attr('data-maxvalue'), 10);
+							var minYAxisValue = parseInt($('#chart').attr('data-minvalue'), 10);
+							updateChart(chart_name, get_current_date_chart(), stocksData, maxYAxisValue, minYAxisValue);
 						}
 					});
 
 					let debounceTimer;
-					const debounceDelay = 500;
+					const debounceDelay = 1000;
 
 					jQuery(".fromdate, .todate").on("input", function() {
 						clearTimeout(debounceTimer);
 						debounceTimer = setTimeout(function() {
 							const activeChart = jQuery(".btn-chart button.active").data("chart") || "BSC10";
-							updateChart(activeChart, get_current_date_chart());
+							const fromDate = jQuery(".fromdate").val();
+							const toDate = jQuery(".todate").val();
+							jQuery.ajax({
+								url: '<?php echo admin_url('admin-ajax.php'); ?>',
+								type: 'POST',
+								data: {
+									action: 'fetch_portfolio_data',
+									fromdate: fromDate,
+									todate: toDate,
+									portcode: 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND',
+									time_cache: <?php echo $time_cache ?>,
+									security: '<?php echo wp_create_nonce('fetch_portfolio_data') ?>',
+								},
+								success: function(response) {
+									const data_new = JSON.parse(response);
+									let parsedData;
+									if (typeof data_new.data === "string") {
+										parsedData = JSON.parse(data_new.data);
+									} else {
+										parsedData = data_new.data;
+									}
+									const dateRange = get_current_date_chart();
+									let newinitialDateRange;
+									if (typeof dateRange === "string") {
+										newinitialDateRange = JSON.parse(dateRange);
+									} else {
+										newinitialDateRange = dateRange;
+									}
+									console.log(data_new.maxvalue);
+									var maxYAxisValue = parseInt(data_new.maxvalue, 10);
+									var minYAxisValue = parseInt(data_new.minvalue, 10);
+									$('#chart').attr('data-maxvalue', maxYAxisValue);
+									$('#chart').attr('data-minvalue', minYAxisValue);
+									updateChart(activeChart, newinitialDateRange, parsedData, maxYAxisValue, minYAxisValue);
+								},
+								error: function(error) {
+									console.error("Error fetching data:", error);
+								}
+							});
 						}, debounceDelay);
 					});
 				});
