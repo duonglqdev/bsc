@@ -38,16 +38,16 @@
                             <div class="flex gap-[14px] data_number">
                                 <?php if ($response_value->d[0]->bidPrice1) { ?>
                                     <div class="lg:text-[40px] text-4xl font-bold">
-                                        <?php echo number_format($response_value->d[0]->bidPrice1); ?>
+                                        <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
                                     </div>
                                     <div class="flex flex-col text-[#EB0]">
                                         <p>
                                             <?php
-                                            echo $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference;
+                                            echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
                                             ?>
                                         </p>
                                         <p>
-                                            <?php echo (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100 ?> %
+                                            <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
                                         </p>
                                     </div>
                                 <?php } ?>
