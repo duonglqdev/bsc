@@ -4,7 +4,7 @@ add_action('wp_ajax_nopriv_filter_jobs', 'filter_jobs_ajax');
 
 function filter_jobs_ajax()
 {
-    check_ajax_referer('load_jobs', 'security');
+    check_ajax_referer('common_nonce', 'security');
     $nghiep_vu = isset($_POST['nghiep_vu']) ? intval($_POST['nghiep_vu']) : '';
     $noi_lam_viec = isset($_POST['noi_lam_viec']) ? intval($_POST['noi_lam_viec']) : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
@@ -48,50 +48,6 @@ function filter_jobs_ajax()
         <div class="bsc-pagination mt-12 flex justify-center">
             <?php bsc_pagination($filter_job, $paged) ?>
         </div>
-
-        <script>
-            jQuery(document).ready(function($) {
-                function load_jobs(page = 1) {
-                    ajaxurl = '<?php echo admin_url("admin-ajax.php") ?>';
-                    var nghiep_vu = $('#nghiep_vu').val();
-                    var noi_lam_viec = $('#noi_lam_viec').val();
-                    $.ajax({
-                        url: ajaxurl,
-                        type: 'POST',
-                        data: {
-                            action: 'filter_jobs',
-                            nghiep_vu: nghiep_vu,
-                            noi_lam_viec: noi_lam_viec,
-                            paged: page,
-                            security: '<?php echo wp_create_nonce('load_jobs') ?>',
-                        },
-                        beforeSend: function() {
-                            $('#vi-tri-tuyen-dung').html('');
-                            $('#tuyen-dung-loading').removeClass('hidden');
-                        },
-                        success: function(response) {
-                            $('#tuyen-dung-loading').addClass('hidden');
-                            $('#vi-tri-tuyen-dung').html(response);
-                        }
-                    });
-                }
-                $('#vi-tri-tuyen-dung .bsc-pagination a').add('#tuyen-dung-tim-kiem').on('click', function(e) {
-                    e.preventDefault();
-                    var page = parseInt($('#vi-tri-tuyen-dung').attr('data-paged'));
-                    if ($(this).hasClass('item-paged')) {
-                        page = parseInt($(this).text());
-                    } else if ($(this).hasClass('prev')) {
-                        page = page - 1;
-                    } else if ($(this).hasClass('next')) {
-                        page = page + 1;
-                    } else if ($(this).is('button')) {
-                        page = 1;
-                    }
-                    $('#vi-tri-tuyen-dung').attr('data-paged', page);
-                    load_jobs(page);
-                });
-            });
-        </script>
 <?php
     else :
         echo '<p>' . __('Không có công việc nào phù hợp', 'bsc') . '</p>';
@@ -108,7 +64,7 @@ add_action('wp_ajax_nopriv_fetch_portfolio_data', 'fetch_portfolio_data');
 
 function fetch_portfolio_data()
 {
-    check_ajax_referer('fetch_portfolio_data', 'security');
+    check_ajax_referer('common_nonce', 'security');
     $fromdate = sanitize_text_field($_POST['fromdate']);
     $fromdate = DateTime::createFromFormat('Y-m-d', $fromdate)->format('d/m/Y');
     $todate = sanitize_text_field($_POST['todate']);

@@ -997,4 +997,234 @@ import WOW from 'wowjs';
                 });
         });
     }
+    jQuery(document).ready(function($) {
+        function load_jobs(page = 1) {
+            var nghiep_vu = $('#nghiep_vu').val();
+            var noi_lam_viec = $('#noi_lam_viec').val();
+            $.ajax({
+                url: ajaxurl.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'filter_jobs',
+                    nghiep_vu: nghiep_vu,
+                    noi_lam_viec: noi_lam_viec,
+                    paged: page,
+                    security: ajaxurl.security
+                },
+                beforeSend: function() {
+                    $('#vi-tri-tuyen-dung').html('');
+                    $('#tuyen-dung-loading').removeClass('hidden');
+                },
+                success: function(response) {
+                    $('#tuyen-dung-loading').addClass('hidden');
+                    $('#vi-tri-tuyen-dung').html(response);
+                }
+            });
+        }
+        $(document).on('click', '#vi-tri-tuyen-dung .bsc-pagination a, #tuyen-dung-tim-kiem', function(e) {
+            e.preventDefault();
+            var page = parseInt($('#vi-tri-tuyen-dung').attr('data-paged'));
+            if ($(this).hasClass('item-paged')) {
+                page = parseInt($(this).text());
+            } else if ($(this).hasClass('prev')) {
+                page = page - 1;
+            } else if ($(this).hasClass('next')) {
+                page = page + 1;
+            } else if ($(this).is('button')) {
+                page = 1;
+            }
+            $('#vi-tri-tuyen-dung').attr('data-paged', page);
+            load_jobs(page);
+        });
+
+        function getMaxValue(dataSets) {
+            return Math.ceil(
+                Math.max(...dataSets.flat().filter(value => value !== null)) / 100
+            ) * 100;
+        }
+
+        function updateChart(dataType, dateRange, stocksData, maxYAxisValue, minYAxisValue) {
+            const filteredDateRange = dateRange.filter(date => {
+                const hasBSC10Data = stocksData[dataType] && stocksData[dataType][date] && stocksData[dataType][date].portclose != null;
+                const hasVNINDEXData = stocksData['HOSE'] && stocksData['HOSE'][date] && stocksData['HOSE'][date].portclose != null;
+                const hasVNDIAMONDData = stocksData['VNDIAMOND'] && stocksData['VNDIAMOND'][date] && stocksData['VNDIAMOND'][date].portclose != null;
+
+                return hasBSC10Data || hasVNINDEXData || hasVNDIAMONDData;
+            });
+
+            const hoseData = filteredDateRange.map(date =>
+                stocksData['HOSE'] && stocksData['HOSE'][date] && stocksData['HOSE'][date].portclose != null ?
+                stocksData['HOSE'][date].portclose :
+                null
+            );
+
+            const vndiamondData = filteredDateRange.map(date =>
+                stocksData['VNDIAMOND'] && stocksData['VNDIAMOND'][date] && stocksData['VNDIAMOND'][date].portclose != null ?
+                stocksData['VNDIAMOND'][date].portclose :
+                null
+            );
+
+            const selectedData = filteredDateRange.map(date =>
+                stocksData[dataType] && stocksData[dataType][date] && stocksData[dataType][date].portclose != null ?
+                stocksData[dataType][date].portclose :
+                null
+            );
+
+            const maxValue = getMaxValue([hoseData, vndiamondData, selectedData]);
+
+            const newYAxisOptions = {
+                min: minYAxisValue,
+                max: maxYAxisValue,
+                tickAmount: 10,
+                labels: {
+                    formatter: function(value) {
+                        return value.toFixed(0);
+                    }
+                }
+            };
+
+            const chartData = [{
+                    name: dataType,
+                    data: filteredDateRange.map(date => ({
+                        x: new Date(date).getTime(),
+                        y: stocksData[dataType] && stocksData[dataType][date] && stocksData[dataType][date].portclose != null ?
+                            stocksData[dataType][date].portclose : null,
+                        percentagedifference: stocksData[dataType] && stocksData[dataType][date] && stocksData[dataType][date].percentagedifference != null ?
+                            stocksData[dataType][date].percentagedifference : null
+                    }))
+                },
+                {
+                    name: 'VNINDEX',
+                    data: filteredDateRange.map(date => ({
+                        x: new Date(date).getTime(),
+                        y: stocksData['HOSE'] && stocksData['HOSE'][date] && stocksData['HOSE'][date].portclose != null ?
+                            stocksData['HOSE'][date].portclose : null,
+                        percentagedifference: stocksData['HOSE'] && stocksData['HOSE'][date] && stocksData['HOSE'][date].percentagedifference != null ?
+                            stocksData['HOSE'][date].percentagedifference : null
+                    }))
+                },
+                {
+                    name: 'VNDIAMOND',
+                    data: filteredDateRange.map(date => ({
+                        x: new Date(date).getTime(),
+                        y: stocksData['VNDIAMOND'] && stocksData['VNDIAMOND'][date] && stocksData['VNDIAMOND'][date].portclose != null ?
+                            stocksData['VNDIAMOND'][date].portclose : null,
+                        percentagedifference: stocksData['VNDIAMOND'] && stocksData['VNDIAMOND'][date] && stocksData['VNDIAMOND'][date].percentagedifference != null ?
+                            stocksData['VNDIAMOND'][date].percentagedifference : null
+                    }))
+                }
+            ];
+
+
+            jQuery("#chart").empty();
+            window.handleChart(chartData, newYAxisOptions);
+        }
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function get_current_date_chart() {
+            const fromDate = new Date(jQuery("section.chart .fromdate").val());
+            const toDate = new Date(jQuery("section.chart .todate").val());
+            const dateRange = [];
+            let currentDate = new Date(fromDate);
+
+            while (currentDate <= toDate) {
+                const dayOfWeek = currentDate.getDay();
+                if (dayOfWeek !== 6 && dayOfWeek !== 0) {
+                    dateRange.push(formatDate(currentDate));
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            return dateRange;
+        }
+
+        function running_chart() {
+            if ($('#chart').length) {
+                const initialDateRange = get_current_date_chart();
+                var stocksData = $('#chart').attr('data-stock');
+                if (typeof stocksData === "string") {
+                    stocksData = JSON.parse(stocksData);
+                } else {
+                    stocksData = stocksData;
+                }
+                var maxYAxisValue = parseInt($('#chart').attr('data-maxvalue'), 10);
+                var minYAxisValue = parseInt($('#chart').attr('data-minvalue'), 10);
+                updateChart("BSC10", initialDateRange, stocksData, maxYAxisValue, minYAxisValue);
+                console.log('abc');
+            }
+        }
+        running_chart();
+
+        jQuery("section.chart .btn-chart button").click(function() {
+            const chart_name = jQuery(this).attr('data-chart');
+            if (chart_name) {
+                jQuery("section.chart .btn-chart button").removeClass('active');
+                jQuery(this).addClass('active');
+                var stocksData = $('#chart').attr('data-stock');
+                if (typeof stocksData === "string") {
+                    stocksData = JSON.parse(stocksData);
+                } else {
+                    stocksData = stocksData;
+                }
+                var maxYAxisValue = parseInt($('#chart').attr('data-maxvalue'), 10);
+                var minYAxisValue = parseInt($('#chart').attr('data-minvalue'), 10);
+                updateChart(chart_name, get_current_date_chart(), stocksData, maxYAxisValue, minYAxisValue);
+            }
+        });
+
+        let debounceTimer;
+        const debounceDelay = 1000;
+
+        jQuery("section.chart .fromdate,section.chart  .todate").on("input", function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(function() {
+                const activeChart = jQuery("section.chart .btn-chart button.active").data("chart") || "BSC10";
+                const fromDate = jQuery("section.chart .fromdate").val();
+                const toDate = jQuery("section.chart .todate").val();
+                const time_cache = jQuery('#chart').attr('data-time_cache');
+                jQuery.ajax({
+                    url: ajaxurl.ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'fetch_portfolio_data',
+                        fromdate: fromDate,
+                        todate: toDate,
+                        portcode: 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND',
+                        time_cache: time_cache,
+                        security: ajaxurl.security
+                    },
+                    success: function(response) {
+                        const data_new = JSON.parse(response);
+                        let parsedData;
+                        if (typeof data_new.data === "string") {
+                            parsedData = JSON.parse(data_new.data);
+                        } else {
+                            parsedData = data_new.data;
+                        }
+                        const dateRange = get_current_date_chart();
+                        let newinitialDateRange;
+                        if (typeof dateRange === "string") {
+                            newinitialDateRange = JSON.parse(dateRange);
+                        } else {
+                            newinitialDateRange = dateRange;
+                        }
+                        console.log(data_new.maxvalue);
+                        var maxYAxisValue = parseInt(data_new.maxvalue, 10);
+                        var minYAxisValue = parseInt(data_new.minvalue, 10);
+                        $('#chart').attr('data-maxvalue', maxYAxisValue);
+                        $('#chart').attr('data-minvalue', minYAxisValue);
+                        updateChart(activeChart, newinitialDateRange, parsedData, maxYAxisValue, minYAxisValue);
+                    },
+                    error: function(error) {
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }, debounceDelay);
+        });
+    });
 })(jQuery);
