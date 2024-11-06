@@ -767,4 +767,29 @@ button#ib-button-messaging {
   @apply rounded-[20px] overflow-hidden;
 }
 
+.expert-item:first-child .expert-item-desc {
+  @apply bg-[#E5F5FF];
+}
+.expert-item:first-child .expert-item-desc:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #e5f5ff 83.01%);
+}
+.expert-item:nth-child(2) .expert-item-desc {
+  @apply bg-[#009E871A];
+}
+.expert-item:nth-child(2) .expert-item-desc:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #d9f1f3 83.01%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #e5f5ff 83.01%);
+}
+.expert-item:nth-child(3) .expert-item-desc {
+  @apply bg-[#FFB81C1A];
+}
+.expert-item:nth-child(3) .expert-item-desc:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f1f3e9 83.01%);
+}
+.expert-item:nth-child(4) .expert-item-desc {
+  @apply bg-[#EBF4FA];
+}
+.expert-item:nth-child(4) .expert-item-desc:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ebf4fa 83.01%);
+}
+
 /*# sourceMappingURL=base.css.map */
