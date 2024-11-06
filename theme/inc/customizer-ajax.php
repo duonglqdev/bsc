@@ -126,3 +126,25 @@ function fetch_portfolio_data()
     ));
     wp_die();
 }
+
+add_action('wp_ajax_get_content_qhcd', 'get_content_qhcd_ajax');
+add_action('wp_ajax_nopriv_get_content_qhcd', 'get_content_qhcd_ajax');
+
+function get_content_qhcd_ajax()
+{
+    check_ajax_referer('common_nonce', 'security');
+    $id_post = isset($_POST['id_post']) ? intval($_POST['id_post']) : '';
+    if ($id_post) {
+        $time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
+        $array_data = array(
+            "id" => $id_post,
+            "newstype" => "0"
+        );
+        $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
+        if ($get_news_detail) {
+            $news = $get_news_detail->d[0];
+            echo $news->body;
+        }
+    }
+    die();
+}
