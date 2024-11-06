@@ -340,9 +340,15 @@ function bsc_pagination($custom_query = null, $custom_paged = null)
  */
 function bsc_pagination_api($max_num_pages = 1, $url_tax)
 {
-	$post_to_show = '';
+	$endpoint = '';
+	if (isset($_GET['key'])) {
+		$endpoint .= '&key=' . $_GET['key'];
+	}
+	if (isset($_GET['years'])) {
+		$endpoint .= '&years=' . $_GET['years'];
+	}
 	if (isset($_GET['posts_to_show'])) {
-		$post_to_show = '&posts_to_show=' . $_GET['posts_to_show'];
+		$endpoint .= '&posts_to_show=' . $_GET['posts_to_show'];
 	}
 	if (isset($_GET['page'])) {
 		$paged = $_GET['page'];
@@ -375,16 +381,16 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	if ($paged > 1) {
 		$page_prev = $paged - 1;
 		if ($paged == 2) {
-			$url_prev  = $url_tax . $post_to_show;
+			$url_prev  = $url_tax . $endpoint;
 		} else {
-			$url_prev = $url_tax . '?page=' . $page_prev . $post_to_show;
+			$url_prev = $url_tax . '?page=' . $page_prev . $endpoint;
 		}
 		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="' . $url_prev . '">' . svg('angle-left') . '</a></li>' . "\n",);
 	}
 	/** Link to first page, plus ellipses if necessary */
 	if (! in_array(1, $links)) {
 		$class = 1 == $paged ? ' class="active"' : '';
-		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . $post_to_show, '1');
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . $endpoint, '1');
 
 		if (! in_array(2, $links))
 			echo '<li>…</li>';
@@ -394,7 +400,7 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	sort($links);
 	foreach ((array) $links as $link) {
 		$class = $paged == $link ? ' active' : '';
-		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . '?page=' . $link . $post_to_show, $link);
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . '?page=' . $link . $endpoint, $link);
 	}
 
 	/** Link to last page, plus ellipses if necessary */
@@ -403,13 +409,13 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 			echo '<li>…</li>' . "\n";
 
 		$class = $paged == $max ? 'active' : '';
-		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . '?page=' . $max . $post_to_show, $max);
+		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . '?page=' . $max . $endpoint, $max);
 	}
 
 	/** Next Post Link */
 	if ($paged < $max) {
 		$page_next = $paged + 1;
-		$url_next = $url_tax . '?page=' . $page_next . $post_to_show;
+		$url_next = $url_tax . '?page=' . $page_next . $endpoint;
 		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="' . $url_next . '">' . svg('angle-right') . '</a></li>' . "\n",);
 	}
 ?>

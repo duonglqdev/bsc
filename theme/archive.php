@@ -85,17 +85,6 @@ get_header();
 					} else {
 						$post_per_page = get_option('posts_per_page');
 					}
-					$array_data_count = array(
-						'lang' => pll_current_language(),
-						'groupid' => $groupid,
-					);
-					$response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
-					if ($response_count) {
-						$total_post = $response_count->d[0]->totalrecord;
-					} else {
-						$total_post = $post_per_page;
-					}
-					$total_page = ceil($total_post / $post_per_page);
 					if (isset($_GET['page'])) {
 						$index = ($_GET['page'] - 1) * $post_per_page + 1;
 					} else {
@@ -109,6 +98,12 @@ get_header();
 					);
 					$response = get_data_with_cache('GetNews', $array_data, $time_cache);
 					if ($response) {
+						if ($response->totalrecord) {
+							$total_post = $response->totalrecord;
+						} else {
+							$total_post = $post_per_page;
+						}
+						$total_page = ceil($total_post / $post_per_page);
 					?>
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
 

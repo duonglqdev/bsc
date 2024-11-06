@@ -9,10 +9,17 @@
 			?>
 			<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
 				<?php
+				$endpoint = '';
+				if (isset($_GET['key'])) {
+					$endpoint .= '&key=' . $_GET['key'];
+				}
+				if (isset($_GET['years'])) {
+					$endpoint .= '&years=' . $_GET['years'];
+				}
 				foreach ($posts_to_show as $number) :
 					$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
 				?>
-					<option value="<?php echo $args['url'] . '?posts_to_show=' . $number ?>" <?php echo $selected; ?>>
+					<option value="<?php echo $args['url'] . '?posts_to_show=' . $number . $endpoint ?>" <?php echo $selected; ?>>
 						<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
 					</option>
 				<?php endforeach; ?>

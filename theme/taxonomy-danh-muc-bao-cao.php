@@ -84,17 +84,6 @@ get_header();
                         } else {
                             $post_per_page = get_option('posts_per_page');
                         }
-                        $array_data_count = array(
-                            'lang' => pll_current_language(),
-                            'groupid' => $groupid,
-                        );
-                        $response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
-                        if ($response_count) {
-                            $total_post = $response_count->d[0]->totalrecord;
-                        } else {
-                            $total_post = $post_per_page;
-                        }
-                        $total_page = ceil($total_post / $post_per_page);
                         if (isset($_GET['page'])) {
                             $index = ($_GET['page'] - 1) * $post_per_page + 1;
                         } else {
@@ -108,6 +97,12 @@ get_header();
                         );
                         $response = get_data_with_cache('GetNews', $array_data, $time_cache);
                         if ($response) :
+                            if ($response->totalrecord) {
+                                $total_post = $response->totalrecord;
+                            } else {
+                                $total_post = $post_per_page;
+                            }
+                            $total_page = ceil($total_post / $post_per_page);
                         ?>
                             <div class="space-y-8">
                                 <div class="grid grid-cols-4 gap-5">
@@ -146,10 +141,15 @@ get_header();
                                     <div class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
                                         <label for="" class="font-bold"><?php _e('Năm:', 'bsc') ?></label>
                                         <select id="select_year" name="years" class="select_custom py-0 border-0 focus:ring-0">
-                                            <option value=""><?php _e('Chọn năm', 'bsc') ?></option>
-                                            <?php foreach ($years as $year): ?>
-                                                <option value="<?php echo esc_attr($year); ?>" <?php selected(isset($_GET['years']) && $_GET['years'] == $year); ?>><?php echo esc_html($year); ?></option>
-                                            <?php endforeach; ?>
+                                            <option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
+                                            <?php
+                                            $currentYear = date('Y');
+                                            for ($year = $currentYear; $year >= 2015; $year--):
+                                            ?>
+                                                <option value="<?php echo esc_attr($year); ?>" <?php selected(isset($_GET['years']) && $_GET['years'] == $year); ?>>
+                                                    <?php echo esc_html($year); ?>
+                                                </option>
+                                            <?php endfor; ?>
                                         </select>
                                     </div>
                                     <div class="md:w-[55%] w-1/2">
@@ -167,17 +167,7 @@ get_header();
                         } else {
                             $post_per_page = get_option('posts_per_page');
                         }
-                        $array_data_count = array(
-                            'lang' => pll_current_language(),
-                            'groupid' => $groupid,
-                        );
-                        $response_count = get_data_with_cache('GetNewsCount', $array_data_count, $time_cache);
-                        if ($response_count) {
-                            $total_post = $response_count->d[0]->totalrecord;
-                        } else {
-                            $total_post = $post_per_page;
-                        }
-                        $total_page = ceil($total_post / $post_per_page);
+
                         if (isset($_GET['page'])) {
                             $index = ($_GET['page'] - 1) * $post_per_page + 1;
                         } else {
@@ -187,10 +177,24 @@ get_header();
                             'lang' => pll_current_language(),
                             'groupid' => $groupid,
                             'maxitem' => $post_per_page,
-                            'index' => $index
+                            'index' => $index,
                         );
+                        if (isset($_GET['key']) && !empty($_GET['key'])) {
+                            $array_data['title'] = $_GET['key'];
+                        }
+                        if (isset($_GET['years']) && !empty($_GET['years'])) {
+                            $years = $_GET['years'];
+                            $array_data['fromdate'] = '01/01/' . $years;
+                            $array_data['todate'] = '31/12/' . $years;
+                        }
                         $response = get_data_with_cache('GetNews', $array_data, $time_cache);
                         if ($response) :
+                            if ($response->totalrecord) {
+                                $total_post = $response->totalrecord;
+                            } else {
+                                $total_post = $post_per_page;
+                            }
+                            $total_page = ceil($total_post / $post_per_page);
                         ?>
                             <div class="space-y-8">
                                 <?php
