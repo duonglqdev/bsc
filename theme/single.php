@@ -177,6 +177,17 @@ get_header();
 					</div>
 					<div class="the_content font-Helvetica">
 						<?php echo $body ?>
+						<?php
+						if ($news->attachedfileurl) {
+						?>
+							<a target="_blank" download href="<?php echo $news->attachedfileurl ?>" class="bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
+								<span class="block relative z-10">
+									<?php _e('Tải file đính kèm', 'bsc') ?>
+								</span>
+							</a>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
