@@ -27,7 +27,7 @@
 					'groupid' => $groupid,
 					'maxitem' => $number
 				);
-				$response = get_data_with_cache('GetTopNews', $array_data, $time_cache);
+				$response = get_data_with_cache('GetNews', $array_data, $time_cache);
 				if ($response) {
 		?>
 					<div class="relative about_culture-swiper">
