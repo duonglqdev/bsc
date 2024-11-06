@@ -172,6 +172,18 @@ get_header();
 								Công cụ hỗ trợ đa dạng
 							</li>
 						</ul>
+						<div class="flex items-center">
+							<a href=""
+								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+								Mở tài khoản
+								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+							</a>
+							<a href=""
+								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+								Giao dịch ngay
+								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+							</a>
+						</div>
 					</div>
 				</div>
 				<div class="col-span-1 xl:-ml-[185px] lg:-ml-24">
