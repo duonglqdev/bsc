@@ -354,7 +354,7 @@ get_header();
 								</div>
 								<div class="mt-[14px] font-Helvetica">
 									<div
-										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
 										<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 											style="width:60%"></p>
 									</div>
