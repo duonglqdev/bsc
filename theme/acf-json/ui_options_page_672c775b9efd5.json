@@ -5,7 +5,7 @@
     "menu_order": 0,
     "page_title": "Cài đặt sổ tay giao dịch",
     "menu_slug": "cai-dat-so-tay-giao-dich",
-    "parent_slug": "edit.php?post_type=so-tay-giao-dicch",
+    "parent_slug": "edit.php?post_type=so-tay-giao-dich",
     "advanced_configuration": 0,
     "icon_url": "",
     "menu_title": "",
@@ -18,5 +18,5 @@
     "data_storage": "options",
     "post_id": "",
     "autoload": 0,
-    "modified": 1730967407
+    "modified": 1730975131
 }

@@ -49,7 +49,7 @@
     "publicly_queryable": false,
     "show_ui": true,
     "show_in_menu": true,
-    "admin_menu_parent": "edit.php?post_type=so-tay-giao-dicch",
+    "admin_menu_parent": "edit.php?post_type=so-tay-giao-dich",
     "show_in_admin_bar": true,
     "show_in_nav_menus": true,
     "show_in_rest": true,
@@ -80,5 +80,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1730965335
+    "modified": 1730975108
 }
