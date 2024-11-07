@@ -217,7 +217,7 @@ get_header();
 			<div class="grid grid-cols-2 items-center">
 				<div class="col-span-1">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 lg:px-[75px] px-10 relative z-10">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
 							ĐĂNG KÝ SỬ DỤNG DỊCH VỤ
 						</h2>
