@@ -203,7 +203,7 @@ get_header();
 				NỀN TẢNG GIAO DỊCH HIỆN ĐẠI
 			</h2>
 			<div class="tab-content block" id="tab-a1">
-				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-center">
+				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-end">
 					<div class="col-span-1">
 						<div class="relative w-full pt-[76%]">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap.png"
