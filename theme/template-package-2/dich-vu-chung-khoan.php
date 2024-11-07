@@ -83,21 +83,21 @@ get_header();
 					class="customtab-nav flex items-center xl:gap-[100px] gap-12 relative  border-b border-[#B8B8B8]">
 					<li>
 						<button data-tabs="#tab-1"
-							class="active inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="active inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-1', '30', '30' ) ?>
 							MÔI GIỚI CHỨNG KHOÁN
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-2"
-							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-2', '30', '30' ) ?>
 							TƯ VẤN ĐẦU TƯ
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-3"
-							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-3', '30', '30' ) ?>
 							DỊCH VỤ TÀI CHÍNH
 						</button>
