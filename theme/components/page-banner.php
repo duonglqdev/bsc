@@ -15,6 +15,16 @@ if (get_sub_field('background')) {
         $banner = wp_get_attachment_image_url(get_field('cdtd_background_banner ', 'option'), 'full');
     }
     $style = get_field('cdtd_background_display', 'option') ?: 'default';
+} elseif (is_singular('so-tay-giao-dich') || is_singular('video-huong-dan')) {
+    if (get_field('cdstgg1_background_banner', 'option')) {
+        $banner = wp_get_attachment_image_url(get_field('cdstgg1_background_banner ', 'option'), 'full');
+    }
+    $style = get_field('cdstgg1_background_banner_display', 'option') ?: 'default';
+} elseif (is_singular('bieu-phi-giao-dich')) {
+    if (get_field('cdbdgg1_background_banner', 'option')) {
+        $banner = wp_get_attachment_image_url(get_field('cdbdgg1_background_banner ', 'option'), 'full');
+    }
+    $style = get_field('cdbdgg1_background_banner_display', 'option') ?: 'default';
 } elseif (get_field('cdc1_background_banner', 'option')) {
     $banner = wp_get_attachment_image_url(get_field('cdc1_background_banner', 'option'), 'full');
     $style = get_field('cdc1_background_display', 'option') ?: 'default';
@@ -35,7 +45,19 @@ if ($args['title']) {
     $category = get_the_category();
     $title = $category[0]->name;
 } elseif (is_singular('tuyen-dung')) {
-    $title = get_post_type_object('tuyen-dung')->labels->singular_name;
+    $title = __('Tuyển dụng', 'bsc');
+} elseif (is_singular('so-tay-giao-dich')) {
+    if (get_field('cdstgg1_title', 'option')) {
+        $title = get_field('cdstgg1_title', 'option');
+    } else {
+        $title = __('Sổ tay giao dịch', 'bsc');
+    }
+} elseif (is_singular('bieu-phi-giao-dich')) {
+    if (get_field('cdbdgg1_title', 'option')) {
+        $title = get_field('cdbdgg1_title', 'option');
+    } else {
+        $title = __('Sổ tay giao dịch', 'bsc');
+    }
 } else {
     $title = get_the_title();
 }

@@ -1,11 +1,11 @@
 {
-    "key": "ui_options_page_672c775b9efd5",
-    "title": "Cài đặt sổ tay giao dịch",
+    "key": "ui_options_page_672ccaf276a99",
+    "title": "Cài đặt biểu phí giao dịch",
     "active": true,
     "menu_order": 0,
-    "page_title": "Cài đặt sổ tay giao dịch",
-    "menu_slug": "cai-dat-so-tay-giao-dich",
-    "parent_slug": "edit.php?post_type=so-tay-giao-dich",
+    "page_title": "Cài đặt biểu phí giao dịch",
+    "menu_slug": "cai-dat-bieu-phi-giao-dich",
+    "parent_slug": "edit.php?post_type=bieu-phi-giao-dich",
     "advanced_configuration": 0,
     "icon_url": "",
     "menu_title": "",
@@ -18,5 +18,5 @@
     "data_storage": "options",
     "post_id": "",
     "autoload": 0,
-    "modified": 1730975131
+    "modified": 1730988801
 }

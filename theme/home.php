@@ -23,7 +23,6 @@ get_header();
 	<h1 class="hidden">
 		<?php echo wp_title() ?>
 	</h1>
-
 </main>
 
 <?php

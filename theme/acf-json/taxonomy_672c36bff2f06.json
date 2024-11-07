@@ -5,7 +5,7 @@
     "active": true,
     "taxonomy": "danh-muc-so-tay",
     "object_type": [
-        "so-tay-giao-dicch"
+        "so-tay-giao-dich"
     ],
     "advanced_configuration": 1,
     "import_source": "",
@@ -71,5 +71,5 @@
     "meta_box": "default",
     "meta_box_cb": "",
     "meta_box_sanitize_cb": "",
-    "modified": 1730952735
+    "modified": 1730975119
 }

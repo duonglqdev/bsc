@@ -1,7 +1,9 @@
 <section class="mt-12 xl:mb-[100px] mb-20 stgd_video_introduce" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div class="lg:flex gap-[70px]">
-            <?php echo get_sidebar('stgd') ?>
+            <div class="lg:w-80 max-w-[35%]">
+                <?php echo get_sidebar('stgd') ?>
+            </div>
             <div class="flex-1">
                 <?php
                 if (isset($_GET['posts_to_show']) && $_GET['posts_to_show'] != '') {
@@ -12,6 +14,7 @@
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $query = new WP_Query(array(
                     'post_type' => 'video-huong-dan',
+                    'post_status' => 'publish',
                     'posts_per_page' => $post_per_page,
                     'paged' => $paged
                 ));
