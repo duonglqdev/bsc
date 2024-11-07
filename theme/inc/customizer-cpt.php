@@ -129,3 +129,43 @@ function so_tay_giao_dich_woo_new_tuyen_dung_post_save($post_id)
     }
 }
 add_action('wp_insert_post', 'so_tay_giao_dich_woo_new_tuyen_dung_post_save');
+
+// Bỏ slug /bieu-phi-giao-dich/ hoặc các slug khác trong đường dẫn tuyển dụng
+function bieu_phi_giao_dich_remove_slug($post_link, $post)
+{
+    if (get_post_type($post) === 'bieu-phi-giao-dich' && $post->post_status === 'publish') {
+        $post_link = str_replace('/bieu-phi-giao-dich/', '/', $post_link); // Thay 'bieu-phi-giao-dich' bằng slug hiện tại của bạn
+    }
+    return $post_link;
+}
+add_filter('post_type_link', 'bieu_phi_giao_dich_remove_slug', 10, 2);
+
+// Thêm rewrite rule để tránh lỗi 404 sau khi xóa slug bieu-phi-giao-dich
+function bieu_phi_giao_dich_tuyen_dung_rewrite_rules($flush = false)
+{
+    $tuyendungs = get_posts(array(
+        'post_type'   => 'bieu-phi-giao-dich',
+        'post_status' => 'publish',
+        'numberposts' => -1,
+        'fields'      => 'ids'
+    ));
+
+    foreach ($tuyendungs as $tuyen_dung_id) {
+        $base_tuyen_dung = str_replace(home_url('/'), '', get_permalink($tuyen_dung_id));
+        add_rewrite_rule("{$base_tuyen_dung}?$", "index.php?bieu-phi-giao-dich=" . get_post_field('post_name', $tuyen_dung_id), 'top');
+    }
+
+    if ($flush) {
+        flush_rewrite_rules(false);
+    }
+}
+add_action('init', 'bieu_phi_giao_dich_tuyen_dung_rewrite_rules');
+
+// Cập nhật rewrite rule khi tuyển dụng mới được tạo
+function bieu_phi_giao_dich_woo_new_tuyen_dung_post_save($post_id)
+{
+    if (get_post_type($post_id) === 'bieu-phi-giao-dich') {
+        bieu_phi_giao_dich_tuyen_dung_rewrite_rules(true);
+    }
+}
+add_action('wp_insert_post', 'bieu_phi_giao_dich_woo_new_tuyen_dung_post_save');
