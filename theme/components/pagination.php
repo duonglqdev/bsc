@@ -38,7 +38,13 @@
 			</script>
 		<?php
 		} else { ?>
-			<?php bsc_pagination() ?>
+			<?php
+			if (isset($args['query'])) {
+				bsc_pagination($args['query']);
+			} else {
+				bsc_pagination();
+			}
+			?>
 			<?php
 			$default_posts_per_page = (int) get_option('posts_per_page');
 			$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);

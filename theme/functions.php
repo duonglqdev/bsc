@@ -198,3 +198,8 @@ require get_template_directory() . '/inc/customizer-ajax.php';
  * Customizer API.
  */
 require get_template_directory() . '/inc/customizer-api.php';
+
+/**
+ * Customizer CPT.
+ */
+require get_template_directory() . '/inc/customizer-cpt.php';

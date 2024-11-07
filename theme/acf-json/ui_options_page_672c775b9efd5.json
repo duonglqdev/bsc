@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_672c775b9efd5",
+    "title": "Cài đặt sổ tay giao dịch",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Cài đặt sổ tay giao dịch",
+    "menu_slug": "cai-dat-so-tay-giao-dich",
+    "parent_slug": "edit.php?post_type=so-tay-giao-dicch",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1730967407
+}
