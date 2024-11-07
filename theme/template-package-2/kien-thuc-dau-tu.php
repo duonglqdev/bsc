@@ -249,7 +249,7 @@ get_header();
 							?>
 						</div>
 					</div>
-					<div class="pb-10 mb-10 border-b border-[#E1E1E1]" id="stocktalk">
+					<div id="stocktalk">
 						<div class="flex items-center justify-between mb-6">
 							<h2 class="heading-title">Stocktalk</h2>
 							<a href="" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">

@@ -60,15 +60,15 @@ get_header();
 							{
 								?>
 								<div
-									class="map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:!bg-[#EAF8FE] [&:not(.active)]:bg-transparent bg-[#EAF8FE] relative">
-									<h3 class="font-bold text-primary-300 mb-2">
+									class="map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] relative group hover:pb-9">
+									<h3 class="font-bold text-primary-300 mb-2 ">
 										CN Kon Tum
 									</h3>
-									<div class="text-xs text-[#4A5568]">Số 1A, Đường Trần Phú, Phường
+									<div class="text-xs text-[#4A5568] group-hover:mb-4">Số 1A, Đường Trần Phú, Phường
 										Quyết Thắng, Thành phố Kon Tum, Kon Tum - Phường Quyết Thắng-Kon
 										Tum - Kon Tum</div>
 									<button
-										class="hidden absolute">
+										class="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible">
 										<span class="inline-flex gap-x-3 items-center text-green font-semibold  transition-all duration-500  hover:scale-105  text-xs">
 											<?php _e( 'Chỉ đường', 'bsc' ) ?>
 											<?php echo svg( 'arrow-btn', '16', '16' ) ?>

@@ -83,21 +83,21 @@ get_header();
 					class="customtab-nav flex items-center xl:gap-[100px] gap-12 relative  border-b border-[#B8B8B8]">
 					<li>
 						<button data-tabs="#tab-1"
-							class="active inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="active inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-1', '30', '30' ) ?>
 							MÔI GIỚI CHỨNG KHOÁN
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-2"
-							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-2', '30', '30' ) ?>
 							TƯ VẤN ĐẦU TƯ
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-3"
-							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[2px] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
+							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
 							<?php echo svg( 'ic-3', '30', '30' ) ?>
 							DỊCH VỤ TÀI CHÍNH
 						</button>
@@ -203,7 +203,7 @@ get_header();
 				NỀN TẢNG GIAO DỊCH HIỆN ĐẠI
 			</h2>
 			<div class="tab-content block" id="tab-a1">
-				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-center">
+				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-end">
 					<div class="col-span-1">
 						<div class="relative w-full pt-[76%]">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap.png"
@@ -354,7 +354,7 @@ get_header();
 								</div>
 								<div class="mt-[14px] font-Helvetica">
 									<div
-										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
 										<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 											style="width:60%"></p>
 									</div>

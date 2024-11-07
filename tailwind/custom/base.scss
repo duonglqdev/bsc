@@ -715,14 +715,14 @@ button#ib-button-messaging {
 		@apply w-full h-full absolute inset-0 object-cover max-w-full max-h-full block rounded-2xl;
 	}
 }
-.map-address {
-	&.active {
-		@apply pb-9;
-		div {
-			@apply mb-4;
-		}
-	}
-}
+// .map-address {
+// 	&.active {
+// 		@apply pb-9;
+// 		div {
+// 			@apply mb-4;
+// 		}
+// 	}
+// }
 .step-item {
 	background-image: url("data:image/svg+xml,%3Csvg width='337' height='189' viewBox='0 0 337 189' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.507812 179.958V1.0422C0.507812 1.01889 0.526707 1 0.550011 1H261.375C263.834 1 266.157 2.13092 267.673 4.06678L334.615 89.5265C336.898 92.4405 336.883 96.5398 334.58 99.4375L266.623 184.936C265.106 186.845 262.8 187.958 260.361 187.958H8.50781C4.08953 187.958 0.507812 184.376 0.507812 179.958Z' fill='white' stroke='%23E7E7E7'/%3E%3C/svg%3E%0A");
 }

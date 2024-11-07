@@ -24,7 +24,7 @@ import WOW from 'wowjs';
             hoverSvg();
             livechat();
             marqueeSlider();
-            handleMapContact();
+            // handleMapContact();
         });
     };
 
