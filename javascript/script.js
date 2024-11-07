@@ -19,7 +19,7 @@ import WOW from 'wowjs';
             aboutDynamicPopup();
             toggleContent();
             handlePhoneCf7();
-            dynamicPopupDocument();
+            dynamicPopup();
             stickyHeader();
             hoverSvg();
             livechat();
@@ -865,7 +865,7 @@ import WOW from 'wowjs';
         }
     }
 
-    function dynamicPopupDocument() {
+    function dynamicPopup() {
         $('.document_item-popup').on('click', function() {
             var documentLink = $(this).data('doccument');
 
@@ -886,6 +886,26 @@ import WOW from 'wowjs';
             $('#document-modal .document-modal-title').html(title);
             $('#document-modal .document-modal-content').html(content);
         });
+        $(".expert_item .expert-open").on("click", function() {
+            const parent = $(this).closest(".expert_item");
+        
+            $("#expert-modal .expert-img").html(parent.find(".expert-img img").clone());
+        
+            $("#expert-modal .expert-name").text(parent.find(".expert-name").text());
+        
+            $("#expert-modal .expert-destiny").html(parent.find(".expert-destiny").html());
+        
+            $("#expert-modal .expert-qr").html(parent.find(".expert-qr img").clone());
+        
+            $("#expert-modal .expert-info").html(parent.find(".expert-contact a").clone());
+        
+            $("#expert-modal .expert-info").append(parent.find(".expert-info li").clone());
+        
+            $("#expert-modal .expert-btn").html(parent.find(".expert-btn a").clone());
+        
+            $("#expert-modal .expert-desc").html(parent.find(".expert-desc").html());
+        });
+        
     }
 
     function stickyHeader() {
