@@ -1,6 +1,6 @@
 {
     "key": "group_672c9c6411c6d",
-    "title": "Thông tin sổ tay giao dịch",
+    "title": "Thông tin sổ tay",
     "fields": [
         {
             "key": "field_672c9c6425dfa",
@@ -247,7 +247,7 @@
             },
             "min": "",
             "max": "",
-            "button_label": "Thêm giao diện sổ tay"
+            "button_label": "Thêm giao diện"
         }
     ],
     "location": [
@@ -268,5 +268,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730987208
+    "modified": 1730988670
 }

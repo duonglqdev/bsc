@@ -26,7 +26,11 @@ if ($style == 'nhdt') {
         if (have_rows('menu_navigation')) {
             $menu_navigation = get_sub_field('menu_navigation');
         } elseif (isset($args['data']) && $args['data'] != '') {
-            $menu_navigation = get_field('cdstgg2_menu_navigation', 'option');
+            if ($args['data'] == 'stgd') {
+                $menu_navigation = get_field('cdstgg2_menu_navigation', 'option');
+            } else {
+                $menu_navigation = get_field('cdbdgg1_menu_navigation', 'option');
+            }
         }
         if ($menu_navigation) { ?>
             <div class="container">

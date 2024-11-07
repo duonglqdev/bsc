@@ -14,6 +14,7 @@
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $query = new WP_Query(array(
                     'post_type' => 'video-huong-dan',
+                    'post_status' => 'publish',
                     'posts_per_page' => $post_per_page,
                     'paged' => $paged
                 ));
