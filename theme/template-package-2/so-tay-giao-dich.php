@@ -35,8 +35,8 @@ get_header();
 	</section>
 	<section class="mt-12 xl:mb-[100px] mb-20">
 		<div class="container">
-			<div class="grid md:grid-cols-4 gap-12">
-				<div class="md:col-span-1 col-span-full">
+			<div class="lg:flex gap-[70px]">
+				<div class="lg:w-80 max-w-[35%]">
 					<div class="sticky lg:top-28 top-5 z-[9]">
 						<ul
 							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
@@ -100,7 +100,7 @@ get_header();
 
 					</div>
 				</div>
-				<div class="md:col-span-3 col-span-full space-y-[80px]">
+				<div class="flex-1 space-y-[80px]">
 					<div class="item">
 						<h2
 							class="px-6 py-2 bg-[#E5F5FF] xl:text-2xl text-xl text-primary-300 mb-4 font-bold">
