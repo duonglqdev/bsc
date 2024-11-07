@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="lg:mb-[100px] mb-20 mt-20">
+	<section class="lg:mb-[100px] mb-20 mt-12">
 		<div class="container">
 			<div class="lg:flex 2xl:gap-[70px] gap-12">
 				<div class="lg:w-[320px]">
