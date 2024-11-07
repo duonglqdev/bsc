@@ -135,12 +135,10 @@ get_header();
 									phù hợp với nhà đầu tư chuyên nghiệp.  
 								</div>
 								<div class="mt-auto">
-									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-										<span
-											class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
-										</span>
+									<a href="#"
+										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -176,12 +174,10 @@ get_header();
 								</div>
 
 								<div class="mt-auto">
-									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-										<span
-											class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
-										</span>
+									<a href="#"
+										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -208,12 +204,10 @@ get_header();
 								</div>
 
 								<div class="mt-auto">
-									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-										<span
-											class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
-										</span>
+									<a href="#"
+										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -240,12 +234,10 @@ get_header();
 								</div>
 
 								<div class="mt-auto">
-									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-										<span
-											class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
-										</span>
+									<a href="#"
+										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -263,12 +255,10 @@ get_header();
 									Tip đặt lệnh “thần tốc” trên ứng dụng BSC Smart Invest 
 								</h3>
 								<div class="mt-auto">
-									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-										<span
-											class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
-										</span>
+									<a href="#"
+										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>

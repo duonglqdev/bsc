@@ -177,11 +177,13 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Giao dịch trực tuyến
 							</h3>
-							<ul class="pl-5 list-disc font-Helvetica">
-								<li>Thuận tiện</li>
-								<li>Nhanh chóng</li>
-								<li>Vượt trội</li>
-							</ul>
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+								<ul>
+									<li>Thuận tiện</li>
+									<li>Nhanh chóng</li>
+									<li>Vượt trội</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
@@ -197,10 +199,12 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Chính sách ưu đãi 
 							</h3>
-							<ul class="pl-5 list-disc font-Helvetica">
-								<li>Phí giao dịch chỉ từ 0.08%</li>
-								<li>Margin hấp dẫn từ 8.5%</li>
-							</ul>
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+								<ul>
+									<li>Phí giao dịch chỉ từ 0.08%</li>
+									<li>Margin hấp dẫn từ 8.5%</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
@@ -216,10 +220,13 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Đội ngũ Tư vấn đầu tư
 							</h3>
-							<ul class="pl-5 list-disc font-Helvetica">
-								<li>>10 năm kinh nghiệm</li>
-								<li>Tận tâm, chuyên nghiệp</li>
-							</ul>
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+								<ul>
+									<li>>10 năm kinh nghiệm</li>
+									<li>Tận tâm, chuyên nghiệp</li>
+								</ul>
+
+							</div>
 						</div>
 					</div>
 					<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
@@ -235,20 +242,23 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Báo cáo phân tích uy tín
 							</h3>
-							<ul class="pl-5 list-disc font-Helvetica">
-								<li>Top 2 Công ty Chứng khoán có dịch vụ Phân tích nghiên cứu tốt
-									nhất</li>
-								<li>Nhà phân tích xuất sắc 2022</li>
-							</ul>
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+								<ul>
+									<li>Top 2 Công ty Chứng khoán có dịch vụ Phân tích nghiên cứu
+										tốt
+										nhất</li>
+									<li>Nhà phân tích xuất sắc 2022</li>
+								</ul>
+
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="text-center mt-10">
-					<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-						<span class="inline-flex items-center gap-x-3 relative z-10 text-lg">
-							<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-							Mở tài khoản ngay
-						</span>
+					<a href="#"
+						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-lg">
+						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						Mở tài khoản ngay
 					</a>
 				</div>
 			</div>
