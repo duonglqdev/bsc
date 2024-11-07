@@ -288,11 +288,10 @@ get_header();
 					<h2 class="heading-title mb-6">
 						BIỂU PHÍ DỊCH VỤ
 					</h2>
-					<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
-						<span class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-							<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-							Xem chi tiết
-						</span>
+					<a href="#"
+						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						Xem chi tiết
 					</a>
 				</div>
 				<div class="col">

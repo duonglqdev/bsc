@@ -792,4 +792,15 @@ button#ib-button-messaging {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ebf4fa 83.01%);
 }
 
+#expert-modal .expert-btn a {
+  @apply text-white;
+}
+
+.pagination-center .bsc-pagination {
+  @apply mt-10;
+}
+.pagination-center nav {
+  @apply justify-center;
+}
+
 /*# sourceMappingURL=base.css.map */
