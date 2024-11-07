@@ -4,7 +4,7 @@ get_header();
 <main>
     <?php get_template_part('components/page-banner') ?>
     <?php get_template_part('components/menu_navigation', '', array(
-        'data' => get_field('cdstgg2_menu_navigation', 'option'),
+        'data' => 'stgd',
     )) ?>
     <h1 class="hidden"><?php the_title() ?></h1>
     <section class="mt-12 xl:mb-[100px] mb-20">
