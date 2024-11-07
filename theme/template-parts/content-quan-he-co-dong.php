@@ -7,7 +7,7 @@
     $day_of_year = date('Y', strtotime($day));
     setlocale(LC_TIME, 'vi_VN.UTF-8');
     if (get_locale() == 'vi') {
-        $month_number = date('n', strtotime($day)); // Lấy tháng dưới dạng số (1-12)
+        $month_number = date('n', strtotime($day));
         $month_names = [
             __('Tháng', 'bsc') . ' 1',
             __('Tháng', 'bsc') . ' 2',
@@ -28,7 +28,7 @@
     }
 ?>
     <div
-        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>">
+        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
         <div class="flex items-center">
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -53,7 +53,7 @@
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
-                    <?php echo $news->body ?>
+                    <?php echo $news->description ?>
                 </div>
             </div>
         </div>

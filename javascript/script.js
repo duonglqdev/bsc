@@ -868,23 +868,33 @@ import WOW from 'wowjs';
     function dynamicPopup() {
         $('.document_item-popup').on('click', function() {
             var documentLink = $(this).data('doccument');
-
+            var id_post = $(this).data('id');
             var title = $(this)
                 .closest('.document_item-popup')
                 .find('.main_title')
                 .html();
-
-            var content = $(this)
-                .closest('.document_item-popup')
-                .find('.main_content')
-                .html();
-
-            $('#document-modal .document-modal-link').attr(
-                'href',
-                documentLink
-            );
-            $('#document-modal .document-modal-title').html(title);
-            $('#document-modal .document-modal-content').html(content);
+            $.ajax({
+                url: ajaxurl.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'get_content_qhcd',
+                    id_post: id_post,
+                    security: ajaxurl.security
+                },
+                beforeSend: function() {
+                    $('#document-modal .document-modal-link').attr(
+                        'href',
+                        documentLink
+                    );
+                    $('#document-modal .document-modal-title').html(title);
+                    $('#document-modal .document-modal-content').html();
+                    $('.document-popup-loading').removeClass('hidden');
+                },
+                success: function(response) {
+                    $('.document-popup-loading').addClass('hidden');
+                    $('#document-modal .document-modal-content').html(response);
+                }
+            });
         });
         $(".expert_item .expert-open").on("click", function() {
             const parent = $(this).closest(".expert_item");
@@ -1175,10 +1185,10 @@ import WOW from 'wowjs';
                 var maxYAxisValue = parseInt($('#chart').attr('data-maxvalue'), 10);
                 var minYAxisValue = parseInt($('#chart').attr('data-minvalue'), 10);
                 updateChart("BSC10", initialDateRange, stocksData, maxYAxisValue, minYAxisValue);
-                console.log('abc');
             }
         }
         running_chart();
+
 
         jQuery("section.chart .btn-chart button").click(function() {
             const chart_name = jQuery(this).attr('data-chart');
@@ -1233,7 +1243,6 @@ import WOW from 'wowjs';
                         } else {
                             newinitialDateRange = dateRange;
                         }
-                        console.log(data_new.maxvalue);
                         var maxYAxisValue = parseInt(data_new.maxvalue, 10);
                         var minYAxisValue = parseInt(data_new.minvalue, 10);
                         $('#chart').attr('data-maxvalue', maxYAxisValue);

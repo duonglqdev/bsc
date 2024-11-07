@@ -5240,6 +5240,32 @@
                             "append": ""
                         },
                         {
+                            "key": "field_672c70cb53041",
+                            "label": "Giao diện",
+                            "name": "style",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "nhdt": "Ngân hàng đầu tư",
+                                "stgd": "Sổ tay giao dịch"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_6727ae6fd8646",
                             "label": "Menu điều hướng",
                             "name": "menu_navigation",
@@ -5253,7 +5279,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "",
+                            "layout": "table",
                             "min": 0,
                             "max": 0,
                             "collapsed": "",
@@ -6030,6 +6056,36 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_672c72112b48a": {
+                    "key": "layout_672c72112b48a",
+                    "name": "stgd_video_introduce",
+                    "label": "[STGD] Video hướng dẫn",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_672c72112b48b",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Đây là ID để tạo điểm NEO khi thêm #title bạn điền ở đây",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -6057,5 +6113,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730880476
+    "modified": 1730966720
 }

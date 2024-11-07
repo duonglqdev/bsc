@@ -1,7 +1,7 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="flex flex-col document_item-popup cursor-pointer" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>">
+    <div class="flex flex-col document_item-popup cursor-pointer" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
         <p
             class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
             <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
