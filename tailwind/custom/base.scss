@@ -622,7 +622,7 @@ button#ib-button-messaging {
 }
 
 .flickity-button {
-	@apply w-[52px] h-[52px] bg-opacity-70 bg-no-repeat bg-center hover:bg-opacity-100 hover:bg-no-repeat hover:bg-center;
+	@apply w-[52px] h-[52px] bg-opacity-70 bg-no-repeat bg-center hover:bg-opacity-100 hover:bg-no-repeat hover:bg-center focus:shadow-none;
 	.flickity-button-icon {
 		@apply hidden;
 	}
