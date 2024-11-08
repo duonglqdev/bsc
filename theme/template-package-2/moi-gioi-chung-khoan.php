@@ -123,12 +123,12 @@ get_header();
 				GIAO DỊCH CHỨNG KHOÁN NGAY HÔM NAY
 			</h2>
 			<div class="space-y-16 max-w-[1114px] mx-auto">
-				<div class="md:flex lg:gap-[54px] gap-10 items-center">
-					<div class="md:w-3/5">
+				<div class="lg:flex lg:gap-[54px] gap-10 items-center">
+					<div class="lg:w-[660px] lg:max-w-[70%]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 24.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
-					<div class="md:w-2/5 font-Helvetica">
+					<div class="flex-1 font-Helvetica">
 						<p class="text-xl font-bold mb-[6px]">
 							Bước 1:
 						</p>
@@ -137,13 +137,13 @@ get_header();
 							MỞ TÀI KHOẢN TRỰC TUYẾN
 						</h3>
 						<div
-							class="text-lg font-bold mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
+							class="text-lg mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
 							Sở hữu ngay tài khoản chứng khoán chỉ sau 3 phút thao tác <a href="">tại
 								đây </a>
 						</div>
 						<p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Hướng dẫn mở tài khoản trực tuyến
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
@@ -151,12 +151,12 @@ get_header();
 						</p>
 					</div>
 				</div>
-				<div class="md:flex flex-row-reverse lg:gap-[54px] gap-10 items-center">
-					<div class="md:w-3/5">
+				<div class="lg:flex flex-row-reverse lg:gap-[54px] gap-10 items-center">
+					<div class="lg:w-[660px] lg:max-w-[70%]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 25.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
-					<div class="md:w-2/5 font-Helvetica">
+					<div class="flex-1 font-Helvetica">
 						<p class="text-xl font-bold mb-[6px]">
 							Bước 2:
 						</p>
@@ -165,25 +165,25 @@ get_header();
 							NỘP TIỀN VÀO TÀI KHOẢN 
 						</h3>
 						<div
-							class="text-lg font-bold mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
+							class="text-lg mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
 							Thực hiện thao tác chuyển tiền trực tuyến hoặc tại các điểm hỗ trợ của
 							BSC trên toàn quốc 
 						</div>
 						<p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105">
 								Hướng dẫn nộp tiền
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
 						</p>
 					</div>
 				</div>
-				<div class="md:flex lg:gap-[54px] gap-10 items-center">
-					<div class="md:w-3/5">
+				<div class="lg:flex lg:gap-[54px] gap-10 items-center">
+					<div class="lg:w-[660px] lg:max-w-[70%]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 26.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
-					<div class="md:w-2/5 font-Helvetica">
+					<div class="flex-1 font-Helvetica">
 						<p class="text-xl font-bold mb-[6px]">
 							Bước 3:
 						</p>
@@ -192,26 +192,26 @@ get_header();
 							TRẢI NGHIỆM ĐẦU TƯ  
 						</h3>
 						<div
-							class="text-lg font-bold mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
+							class="text-lg mb-3 prose-a:text-primary-300 prose-a:font-bold prose-a:text-base">
 							Đặt lệnh mua/bán, thực hiện giao dịch 
 						</div>
 						<p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Trải nghiệm BSC Web Trading
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
 						</p>
 						<p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								BSC Smart Invest
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
 						</p>
 						<p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Hướng dẫn đặt lệnh
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
