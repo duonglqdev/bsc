@@ -87,9 +87,9 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex items-center xl:px-[114px] px-12 mt-10"
+			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex xl:px-[114px] px-12 mt-10 min-h-[350px]"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-blue.png)">
-				<div class="lg:w-1/2">
+				<div class="lg:w-1/2 lg:flex flex-col justify-center">
 					<div class="lg:max-w-[480px]">
 						<h2 class="heading-title mb-8">
 							TRUY CẬP WEBTRADING
@@ -106,8 +106,8 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="lg:w-1/2">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame 1.png"
+				<div class="lg:w-1/2 lg:flex pt-[54px]">
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group 1000009486.png"
 						alt="">
 				</div>
 			</div>
