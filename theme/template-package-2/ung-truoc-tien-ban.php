@@ -130,7 +130,7 @@ get_header();
 	<section class="xl:my-[100px] my-20 relative">
 		<div class="container">
 			<div class="grid grid-cols-2 items-center">
-				<div class="col-span-1">
+				<div class="col-span-1 xl:-mr-[17px]">
 					<div
 						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
@@ -138,7 +138,7 @@ get_header();
 						</h2>
 						<div class="space-y-6 font-Helvetica">
 							<div class="item">
-								<div class="space-y-[10px]">
+								<div class="space-y-[6px]">
 									<p>
 										<a href=""
 											class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
