@@ -177,7 +177,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Giao dịch trực tuyến
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Thuận tiện</li>
 									<li>Nhanh chóng</li>
@@ -199,7 +199,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Chính sách ưu đãi 
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Phí giao dịch chỉ từ 0.08%</li>
 									<li>Margin hấp dẫn từ 8.5%</li>
@@ -220,7 +220,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Đội ngũ Tư vấn đầu tư
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>>10 năm kinh nghiệm</li>
 									<li>Tận tâm, chuyên nghiệp</li>
@@ -242,7 +242,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Báo cáo phân tích uy tín
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Top 2 Công ty Chứng khoán có dịch vụ Phân tích nghiên cứu
 										tốt
