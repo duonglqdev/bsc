@@ -40,7 +40,7 @@ $icon_global = get_sub_field('icon');
                             </div>
                         </div>
                         <div
-                            class="award__item-content cursor-default transition-all w-0 overflow-hidden opacity-0 invisible">
+                            class="award__item-content cursor-default transition-all w-0 overflow-hidden opacity-0 invisible <?php if ($i !== 1) echo 'hidden' ?>">
                             <div class="max-w-[470px]">
                                 <?php if (get_sub_field('title')) { ?>
                                     <h3 class="2xl:text-2xl text-xl font-bold mb-4 font-body">
