@@ -9,7 +9,7 @@ get_header();
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="bg-gradient-blue-350">
-		<div class="xl:pt-[86px] pt-20 pb-[50px] relative">
+		<div class="xl:pt-16 pb-[50px] relative">
 			<div class="container">
 				<div class="lg:grid lg:grid-cols-2 gap-10 items-center">
 					<div class="col-span-1">
