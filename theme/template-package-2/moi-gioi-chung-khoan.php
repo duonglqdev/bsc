@@ -246,7 +246,7 @@ get_header();
 						</div>
 						<div class="w-1/2">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534.png"
-								alt="">
+								alt="" class="lg:ml-auto">
 						</div>
 					</div>
 				</div>
@@ -269,7 +269,7 @@ get_header();
 						</div>
 						<div class="w-1/2">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (1).png"
-								alt="">
+								alt="" class="lg:ml-auto">
 						</div>
 					</div>
 				</div>
@@ -292,7 +292,7 @@ get_header();
 						</div>
 						<div class="w-1/2">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (2).png"
-								alt="">
+								alt="" class="lg:ml-auto">
 						</div>
 					</div>
 				</div>
