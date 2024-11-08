@@ -45,7 +45,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none">
+		<div class="absolute top-1 right-0 pointer-events-none">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
@@ -151,7 +151,7 @@ get_header();
 	<section class="xl:my-[100px] my-20 relative">
 		<div class="container">
 			<div class="grid grid-cols-2 items-center">
-				<div class="col-span-1">
+				<div class="col-span-1 xl:-mr-[17px]">
 					<div
 						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">

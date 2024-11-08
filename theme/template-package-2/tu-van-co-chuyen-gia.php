@@ -46,7 +46,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none">
+		<div class="absolute top-1 right-0 pointer-events-none">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>

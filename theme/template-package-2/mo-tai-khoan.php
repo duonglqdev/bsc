@@ -9,7 +9,7 @@ get_header();
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="bg-gradient-blue-350">
-		<div class="xl:pt-[86px] pt-20 pb-[50px] relative">
+		<div class="xl:pt-16 pb-[50px] relative">
 			<div class="container">
 				<div class="lg:grid lg:grid-cols-2 gap-10 items-center">
 					<div class="col-span-1">
@@ -82,7 +82,7 @@ get_header();
 							</div>
 							<strong
 								class="text-primary-300 text-2xl"><?php _e( 'hoặc', 'bsc' ) ?></strong>
-							<div class="qr p-3 bg-white max-w-[184px]">
+							<div class="qr p-3 bg-white max-w-[184px] rounded-lg shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
 								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 									alt="" class="transition-all duration-500 hover:scale-105">
 							</div>
@@ -116,7 +116,7 @@ get_header();
 									<strong>Điểm hỗ trợ giao dịch BSC tại hệ thống Chi nhánh BIDV
 										trên cả nước </strong>
 								</p>
-								<div class="p-3 bg-white max-w-[104px] ml-6">
+								<div class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</div>
@@ -177,7 +177,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Giao dịch trực tuyến
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Thuận tiện</li>
 									<li>Nhanh chóng</li>
@@ -199,7 +199,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Chính sách ưu đãi 
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Phí giao dịch chỉ từ 0.08%</li>
 									<li>Margin hấp dẫn từ 8.5%</li>
@@ -220,7 +220,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Đội ngũ Tư vấn đầu tư
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>>10 năm kinh nghiệm</li>
 									<li>Tận tâm, chuyên nghiệp</li>
@@ -242,7 +242,7 @@ get_header();
 							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
 								Báo cáo phân tích uy tín
 							</h3>
-							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
 								<ul>
 									<li>Top 2 Công ty Chứng khoán có dịch vụ Phân tích nghiên cứu
 										tốt
