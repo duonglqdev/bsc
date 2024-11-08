@@ -30,8 +30,8 @@ get_header();
 		<div class="container">
 			<div class="grid grid-cols-2 gap-9 items-center">
 				<div class="col-span-1">
-					<h2 class="heading-title mb-4">
-						Tư vấn đầu tư cùng chuyên gia
+					<h2 class="heading-title mb-8">
+					GIAO DỊCH KÝ QUỸ
 					</h2>
 					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
 						Giao dịch ký quỹ tại công ty chứng khoán (còn gọi là Margin) là giao dịch
@@ -183,7 +183,7 @@ get_header();
 	<section class="xl:my-[100px] my-20 relative">
 		<div class="container">
 			<div class="grid grid-cols-2 items-center">
-				<div class="col-span-1">
+				<div class="col-span-1 xl:-mr-[17px]">
 					<div
 						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
