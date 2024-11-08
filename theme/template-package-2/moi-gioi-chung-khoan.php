@@ -111,7 +111,7 @@ get_header();
 					</p>
 					<h3
 						class="font-bold uppercase 2xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
-						NHÀ MÔI GIỚI CHỨNG KHOÁN TỐT NHẤT VIỆT NAM 
+						NHÀ MÔI GIỚI CHỨNG KHOÁN TỐT NHẤT VIỆT NAM 
 					</h3>
 				</div>
 			</div>
