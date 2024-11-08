@@ -82,7 +82,7 @@ get_header();
 							</div>
 							<strong
 								class="text-primary-300 text-2xl"><?php _e( 'hoặc', 'bsc' ) ?></strong>
-							<div class="qr p-3 bg-white max-w-[184px]">
+							<div class="qr p-3 bg-white max-w-[184px] rounded-lg shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
 								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 									alt="" class="transition-all duration-500 hover:scale-105">
 							</div>
@@ -116,7 +116,7 @@ get_header();
 									<strong>Điểm hỗ trợ giao dịch BSC tại hệ thống Chi nhánh BIDV
 										trên cả nước </strong>
 								</p>
-								<div class="p-3 bg-white max-w-[104px] ml-6">
+								<div class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
 									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</div>
