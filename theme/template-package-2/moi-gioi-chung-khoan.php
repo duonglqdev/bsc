@@ -330,11 +330,11 @@ get_header();
 					<div class="w-1/2 h-full">
 						<div
 							class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
-							<p class="font-bold mb-1 text-2xl">
+							<p class="font-bold mb-2 text-2xl">
 								Báo cáo phân tích
 							</p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
@@ -351,11 +351,11 @@ get_header();
 					<div class="w-1/2 h-full">
 						<div
 							class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
-							<p class="font-bold mb-1 text-2xl">
-								Báo cáo phân tích
+							<p class="font-bold mb-2 text-2xl">
+							Ưu đãi từ BSC
 							</p>
 							<a href="#"
-								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
+								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
