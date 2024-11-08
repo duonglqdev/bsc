@@ -140,10 +140,9 @@ get_header();
 										</li>
 									</ul>
 									<a href="#"
-										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold">
-										<span class="inline-flex items-center gap-x-3 relative z-10">
-											<?php echo svg( 'arrow-btn', '20' ) ?>
-											Khám phá ngay</span>
+										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+										<?php echo svg( 'arrow-btn', '20' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -182,10 +181,10 @@ get_header();
 										</li>
 									</ul>
 									<a href="#"
-										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold">
-										<span class="inline-flex items-center gap-x-3 relative z-10">
-											<?php echo svg( 'arrow-btn', '20' ) ?>
-											Khám phá ngay</span>
+										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+
+										<?php echo svg( 'arrow-btn', '20' ) ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
@@ -236,10 +235,10 @@ get_header();
 								Cá nhân hóa trải nghiệm đầu tư
 							</li>
 						</ul>
-						<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold">
-							<span class="inline-flex items-center gap-x-3 relative z-10">
-								<?php echo svg( 'arrow-btn', '20' ) ?>
-								Khám phá ngay</span>
+						<a href="#"
+							class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+							<?php echo svg( 'arrow-btn', '20' ) ?>
+							Khám phá ngay</span>
 						</a>
 					</div>
 				</div>
@@ -278,10 +277,10 @@ get_header();
 								Cập nhật tức thì cơ hội đầu tư
 							</li>
 						</ul>
-						<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold">
-							<span class="inline-flex items-center gap-x-3 relative z-10">
-								<?php echo svg( 'arrow-btn', '20' ) ?>
-								Khám phá ngay</span>
+						<a href="#"
+							class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+							<?php echo svg( 'arrow-btn', '20' ) ?>
+							Khám phá ngay
 						</a>
 					</div>
 				</div>
@@ -312,11 +311,10 @@ get_header();
 		<div class="container">
 			<div class="flex items-center justify-between mb-10">
 				<h2 class="heading-title">CHƯƠNG TRÌNH KHUYẾN MÃI</h2>
-				<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold">
-					<span class="inline-flex items-center gap-x-3 relative z-10">
-						<?php echo svg( 'arrow-btn', '20' ) ?>
-						<?php _e( 'Xem tất cả', 'bsc' ) ?>
-					</span>
+				<a href="#"
+					class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+					<?php echo svg( 'arrow-btn', '20' ) ?>
+					<?php _e( 'Xem tất cả', 'bsc' ) ?>
 				</a>
 			</div>
 			<div class="lg:flex gap-10">
@@ -330,43 +328,45 @@ get_header();
 				</div>
 				<div class="flex-1">
 					<div class="space-y-[23px]">
-						<?php 
-						 for ($i = 0; $i < 3; $i++) {
-						 ?>
-						<div class="item flex gap-6 items-center">
-							<div class="w-[270px] max-w-[45%]">
-								<a href=""
-									class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news12.png"
-										alt=""
-										class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
-								</a>
-							</div>
-							<div class="flex-1">
-								<h4 class="font-bold mb-2 transition-all duration-500 hover:text-green">
-									<a href="" class="line-clamp-2">
-										Danh mục “Chuẩn” – Ưu đãi “Chất”
+						<?php
+						for ( $i = 0; $i < 3; $i++ )
+						{
+							?>
+							<div class="item flex gap-6 items-center">
+								<div class="w-[270px] max-w-[45%]">
+									<a href=""
+										class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
+										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news12.png"
+											alt=""
+											class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 									</a>
-								</h4>
-								<div class="mt-6 flex items-center gap-2 font-Helvetica">
-									<?php echo svg( 'time' ) ?>
-									<div class="font-medium">22/08/2024 - 22/10/2024</div>
 								</div>
-								<div class="mt-[14px] font-Helvetica">
-									<div
-										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
-										<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
-											style="width:60%"></p>
+								<div class="flex-1">
+									<h4
+										class="font-bold mb-2 transition-all duration-500 hover:text-green">
+										<a href="" class="line-clamp-2">
+											Danh mục “Chuẩn” – Ưu đãi “Chất”
+										</a>
+									</h4>
+									<div class="mt-6 flex items-center gap-2 font-Helvetica">
+										<?php echo svg( 'time' ) ?>
+										<div class="font-medium">22/08/2024 - 22/10/2024</div>
 									</div>
-									<div class="mt-2 text-xs">
-										Thời gian khuyến mãi còn <strong class="text-primary-300">20
-											ngày</strong>
+									<div class="mt-[14px] font-Helvetica">
+										<div
+											class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
+											<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
+												style="width:60%"></p>
+										</div>
+										<div class="mt-2 text-xs">
+											Thời gian khuyến mãi còn <strong class="text-primary-300">20
+												ngày</strong>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						  <?php 
-						 } 
+							<?php
+						}
 						?>
 					</div>
 				</div>
