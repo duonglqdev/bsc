@@ -14,7 +14,7 @@ get_header();
 				MÔI GIỚI CHỨNG KHOÁN TẠI BSC
 			</h2>
 			<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+				<div class="rounded-2xl xl:p-[34px] xl:pt-[43px] p-6 lg:min-h-[414px] shadow-base"
 					style="background: linear-gradient(147deg, #FAFAFA 0%, #E5F4FF 78.66%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
@@ -34,7 +34,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+				<div class="rounded-2xl xl:p-[34px] xl:pt-[43px] p-6 lg:min-h-[414px] shadow-base"
 					style="background: linear-gradient(327deg, #FAFAFA -10%, #E5F4FF 78.76%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
@@ -54,7 +54,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+				<div class="rounded-2xl xl:p-[34px] xl:pt-[43px] p-6 lg:min-h-[414px] shadow-base"
 					style="background: linear-gradient(46deg, #E5F4FF 24.72%, #FAFAFA 105.17%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
@@ -74,7 +74,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+				<div class="rounded-2xl xl:p-[34px] xl:pt-[43px] p-6 lg:min-h-[414px] shadow-base"
 					style="background: linear-gradient(226deg, #E5F4FF 26.88%, #FAFAFA 107.34%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
