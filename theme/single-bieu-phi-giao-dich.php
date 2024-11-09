@@ -44,7 +44,7 @@ $id_post = get_the_ID();
                         <?php echo $title; ?>
                     </h1>
                     <div
-                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-th:py-5 prose-th:px-[29px] prose-td:py-5 prose-td:px-[29px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed">
+                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed">
                         <?php
                         $page_id = get_the_ID();
                         if (have_rows('home_components_stgd', $page_id)) {

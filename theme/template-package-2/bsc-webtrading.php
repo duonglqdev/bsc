@@ -126,7 +126,7 @@ get_header();
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
-							<div class="lg:w-[356px] lg:max-w-[60%] h-full flex flex-col">
+							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
 									Hướng dẫn đặt lệnh “Pro” 
 								</h3>
@@ -152,7 +152,7 @@ get_header();
 						<div
 							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
-								class="lg:w-[356px] lg:max-w-[60%] h-full flex flex-col text-white">
+								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
 									Sử dụng lệnh điều kiện tối ưu lợi nhuận & quản trị rủi ro 
 								</h3>
@@ -191,7 +191,7 @@ get_header();
 						<div
 							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
-								class="lg:w-[356px] lg:max-w-[60%] h-full flex flex-col text-white">
+								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
 									Thiết lập cảnh báo cho các biến động bất thường của cổ phiếu 
 								</h3>
@@ -221,7 +221,7 @@ get_header();
 						<div
 							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
-								class="lg:w-[356px] lg:max-w-[60%] h-full flex flex-col text-white">
+								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
 									Xác thực 2 yếu tố tăng cường bảo mật, giao dịch an toàn 
 								</h3>
@@ -250,9 +250,9 @@ get_header();
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
-							<div class="lg:w-[356px] lg:max-w-[60%] h-full flex flex-col">
+							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
-									Tip đặt lệnh “thần tốc” trên ứng dụng BSC Smart Invest 
+									Tip đặt lệnh “thần <br> tốc” trên ứng dụng <br> BSC Smart Invest 
 								</h3>
 								<div class="mt-auto">
 									<a href="#"

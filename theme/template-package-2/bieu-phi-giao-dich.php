@@ -91,7 +91,7 @@ get_header();
 						BIỂU PHÍ GIAO DỊCH CHỨNG KHOÁN CƠ SỞ
 					</h2>
 					<div
-						class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-th:py-5 prose-th:px-[29px] prose-td:py-5 prose-td:px-[29px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed">
+						class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-ul:text-xl prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed">
 						<div class="table__item mb-10">
 							<ul class="pl-5 list-disc mb-6 font-bold lg:text-xl">
 								<li>
@@ -103,11 +103,11 @@ get_header();
 							<table>
 								<thead>
 									<tr>
-										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										<th rowspan="2" class="w-[7.313%] px-0">STT
 										</th>
-										<th rowspan="2" class="w-[36.573%]">Tổng giá trị giao dịch/
+										<th rowspan="2" class="w-[36.72%]">Tổng giá trị giao dịch/
 											ngày/ tài khoản</th>
-										<th colspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+										<th colspan="2" class="w-[55.93%] !py-2">Mức phí (VNĐ)</th>
 									</tr>
 									<tr>
 										<th class="w-1/2 !py-2">Chuyên gia tư vấn</th>
@@ -145,10 +145,10 @@ get_header();
 							<table>
 								<thead>
 									<tr>
-										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										<th rowspan="2" class="w-[7.313%] px-0">STT
 										</th>
-										<th rowspan="2" class="w-[36.573%]">Loại dịch vụ</th>
-										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+										<th rowspan="2" class="w-[36.72%]">Loại dịch vụ</th>
+										<th rowspan="2" class="w-[55.93%] !py-2">Mức phí (VNĐ)</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -185,10 +185,10 @@ get_header();
 							<table>
 								<thead>
 									<tr>
-										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										<th rowspan="2" class="w-[7.313%] px-0">STT
 										</th>
-										<th rowspan="2" class="w-[36.573%]">Thông tin</th>
-										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+										<th rowspan="2" class="w-[36.72%]">Thông tin</th>
+										<th rowspan="2" class="w-[55.93%] !py-2">Mức phí (VNĐ)</th>
 									</tr>
 
 								</thead>
@@ -246,10 +246,10 @@ get_header();
 							<table>
 							<thead>
 									<tr>
-										<th rowspan="2" class="centered w-[7%] max-w-[67px]">STT
+										<th rowspan="2" class="w-[7.313%] px-0">STT
 										</th>
-										<th rowspan="2" class="w-[36.573%]">Loại dịch vụ</th>
-										<th rowspan="2" class="w-[56.463%] !py-2">Mức phí (VNĐ)</th>
+										<th rowspan="2" class="w-[36.72%]">Loại dịch vụ</th>
+										<th rowspan="2" class="w-[55.93%] !py-2">Mức phí (VNĐ)</th>
 									</tr>
 
 								</thead>

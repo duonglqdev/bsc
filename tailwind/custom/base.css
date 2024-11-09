@@ -798,4 +798,20 @@ button#ib-button-messaging {
   @apply justify-center;
 }
 
+.slider-tutorial .desc {
+  @apply lg:w-[305px];
+}
+.slider-tutorial img {
+  @apply lg:w-[70%] lg:object-[65%];
+}
+.slider-tutorial .is-selected .desc {
+  @apply lg:w-[356px];
+}
+.slider-tutorial .is-selected img {
+  @apply lg:w-full object-center;
+}
+.slider-tutorial .is-selected br {
+  @apply hidden;
+}
+
 /*# sourceMappingURL=base.css.map */

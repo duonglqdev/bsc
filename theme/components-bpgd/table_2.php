@@ -11,11 +11,11 @@
             while (have_rows('table_title')): the_row(); ?>
                 <thead>
                     <tr>
-                        <th rowspan="2" class="centered w-[7%] max-w-[67px]">
+                        <th rowspan="2" class="w-[7.313%] px-0">
                             <?php _e('STT', 'bsc') ?>
                         </th>
-                        <th rowspan="2" class="w-[36.573%]"><?php the_sub_field('cot_1') ?></th>
-                        <th rowspan="2" class="w-[56.463%] !py-2"><?php the_sub_field('cot_2') ?></th>
+                        <th rowspan="2" class="w-[36.72%]"><?php the_sub_field('cot_1') ?></th>
+                        <th rowspan="2" class="w-[55.93%] !py-2"><?php the_sub_field('cot_2') ?></th>
                     </tr>
                 </thead>
         <?php
