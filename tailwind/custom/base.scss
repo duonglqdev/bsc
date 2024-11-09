@@ -816,3 +816,23 @@ button#ib-button-messaging {
 		@apply justify-center;
 	}
 }
+
+.slider-tutorial{
+	.desc{
+		@apply lg:w-[305px];
+	}
+	img{
+		@apply lg:w-[70%] lg:object-[65%];
+	}
+	.is-selected{
+		.desc{
+			@apply lg:w-[356px];
+		}
+		img{
+			@apply lg:w-full object-center;
+		}
+		br{
+			@apply hidden;
+		}
+	}
+}
