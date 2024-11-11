@@ -193,7 +193,7 @@ get_header();
 	<section class="xl:mt-[125px] xl:mb-[100px] my-20">
 		<div class="container">
 			<div class="flex justify-between items-center mb-10">
-				<h2 class="heading-title normal-case">Báo cáo phân tích mới nhất</h2>
+				<h2 class="heading-title">Báo cáo phân tích mới nhất</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
 					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
@@ -207,7 +207,7 @@ get_header();
 						for ( $i = 0; $i < 2; $i++ )
 						{
 							?>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4">
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
 										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -226,7 +226,7 @@ get_header();
 										quỹ_20240808
 									</a>
 								</h3>
-								<div class="flex items-center justify-between">
+								<div class="flex items-center justify-between mt-auto">
 									<p class="italic text-paragraph text-xs font-Helvetica">
 										68 Lượt tải xuống
 									</p>
@@ -237,7 +237,7 @@ get_header();
 									</a>
 								</div>
 							</div>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4">
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
 										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -256,7 +256,7 @@ get_header();
 										quỹ_20240808
 									</a>
 								</h3>
-								<div class="flex items-center justify-between">
+								<div class="flex items-center justify-between mt-auto">
 									<p class="italic text-paragraph text-xs font-Helvetica">
 										68 Lượt tải xuống
 									</p>
@@ -267,7 +267,7 @@ get_header();
 									</a>
 								</div>
 							</div>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4">
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
 										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -286,7 +286,7 @@ get_header();
 										quỹ_20240808
 									</a>
 								</h3>
-								<div class="flex items-center justify-between">
+								<div class="flex items-center justify-between mt-auto">
 									<p class="italic text-paragraph text-xs font-Helvetica">
 										68 Lượt tải xuống
 									</p>
@@ -304,7 +304,7 @@ get_header();
 						for ( $i = 0; $i < 2; $i++ )
 						{
 							?>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4">
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
 										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -323,7 +323,7 @@ get_header();
 										quỹ_20240808
 									</a>
 								</h3>
-								<div class="flex items-center justify-between">
+								<div class="flex items-center justify-between mt-auto">
 									<p class="italic text-paragraph text-xs font-Helvetica">
 										68 Lượt tải xuống
 									</p>
@@ -483,11 +483,11 @@ get_header();
 					</li>
 				</ul>
 				<div class="mt-6">
-				<a href=""
-					class="inline-flex items-center gap-3 pl-6 pr-8 py-4 btn-base-yellow text-xs font-bold min-h-[52px] rounded-md">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Khám phá', 'bsc' ) ?>
-				</a>
+					<a href=""
+						class="inline-flex items-center gap-3 pl-6 pr-8 py-4 btn-base-yellow text-xs font-bold min-h-[52px] rounded-md">
+						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						<?php _e( 'Khám phá', 'bsc' ) ?>
+					</a>
 				</div>
 			</div>
 		</div>
