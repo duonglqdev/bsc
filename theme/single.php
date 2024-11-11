@@ -6,6 +6,18 @@ if ($args['data']) {
 	$postdate = $news->postdate;
 	$groupid = $news->groupid;
 	$trach_nhiem_cong_dong_id = get_field('cdtnvcd2_id_danh_mục', 'option');
+	$array_id_kien_thuc = array();
+	$terms = get_terms(array(
+		'taxonomy' => 'danh-muc-kien-truc',
+		'hide_empty' => false,
+	));
+	if (! empty($terms) && ! is_wp_error($terms)) {
+		foreach ($terms as $term) :
+			if (get_field('api_id_danh_muc', $term)) {
+				$array_id_kien_thuc[] = get_field('api_id_danh_muc', $term);
+			}
+		endforeach;
+	}
 	if ($groupid == $trach_nhiem_cong_dong_id) {
 		$tax_name = get_field('cdtnvcd1_title', 'option');
 		$breadcrumb = 'congdong';
@@ -13,8 +25,17 @@ if ($args['data']) {
 		$banner = wp_get_attachment_image_url(get_field('cdtnvcd1_background_banner', 'option'), 'full');
 		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
 	} else {
+		if (in_array($groupid, $array_id_kien_thuc)) {
+			$check_cat = 'danh-muc-kien-thuc';
+			$breadcrumb = 'kienthuc';
+			$time_cache = get_field('cdktdt1_time_cache', 'option') ?: 300;
+		} else {
+			$check_cat = 'category';
+			$breadcrumb = 'post';
+			$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
+		}
 		$categories = get_terms(array(
-			'taxonomy' => 'category',
+			'taxonomy' => $check_cat,
 			'hide_empty' => false,
 			'meta_query' => array(
 				array(
@@ -30,15 +51,13 @@ if ($args['data']) {
 			$tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
 		} else {
 			$post_id = get_the_ID();
-			$taxonomy = get_the_terms($post->ID, 'category');
+			$taxonomy = get_the_terms($post->ID, $check_cat);
 			$tax = $taxonomy[0];
 		}
 		$tax_name = $tax->name;
 		$tax_id = $tax->term_id;
-		$breadcrumb = 'post';
-		$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
-		$banner = wp_get_attachment_image_url(get_field('background_banner',  $taxonomy[0]), 'full');
-		$style = get_field('background_banner_display',  $taxonomy[0]) ?: 'default';
+		$banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+		$style = get_field('background_banner_display', $tax) ?: 'default';
 	}
 } else {
 	wp_redirect(home_url('/404'), 301);
@@ -90,7 +109,7 @@ get_header();
 						} else { ?>
 							<?php
 							$terms = get_terms(array(
-								'taxonomy' => 'category',
+								'taxonomy' => $check_cat,
 								'hide_empty' => false,
 								'parent' => 0,
 							));
@@ -107,7 +126,7 @@ get_header();
 											</a>
 											<?php
 											$child_terms = get_terms(array(
-												'taxonomy' => 'category',
+												'taxonomy' => $check_cat,
 												'parent' => $term->term_id,
 												'hide_empty' => false,
 											));

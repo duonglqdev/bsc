@@ -7,8 +7,8 @@ Template Name: [Package-2] Liên hệ
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="my-16">
+	<?php get_template_part('components/page-banner') ?>
+	<section class="my-16 contact_content">
 		<div class="container">
 			<div class="grid md:grid-cols-2 grid-cols-1 gap-10">
 				<div class="col-span-1 max-w-[640px]">
@@ -49,16 +49,15 @@ get_header();
 					<div class="w-full rounded-[10px] shadow-base py-2">
 						<div
 							class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
-							<?php echo svg( 'search', '24', '24' ) ?>
+							<?php echo svg('search', '24', '24') ?>
 							<input type="text" id="search-contact"
 								class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
-								placeholder="<?php _e( 'Nhập từ khóa tìm kiếm', 'bsc' ) ?>">
+								placeholder="<?php _e('Nhập từ khóa tìm kiếm', 'bsc') ?>">
 						</div>
 						<div class="scroll-bar-custom overflow-y-auto max-h-[566px]">
 							<?php
-							for ( $i = 0; $i < 6; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 6; $i++) {
+							?>
 								<div
 									class="map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] relative group hover:pb-9">
 									<h3 class="font-bold text-primary-300 mb-2 ">
@@ -70,8 +69,8 @@ get_header();
 									<button
 										class="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible">
 										<span class="inline-flex gap-x-3 items-center text-green font-semibold  transition-all duration-500  hover:scale-105  text-xs">
-											<?php _e( 'Chỉ đường', 'bsc' ) ?>
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+											<?php _e('Chỉ đường', 'bsc') ?>
+											<?php echo svg('arrow-btn', '16', '16') ?>
 										</span>
 									</button>
 								</div>
@@ -109,11 +108,11 @@ get_header();
 				</div>
 				<div class="flex-1 2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]">
 					<h3 class="mb-6 text-primary-300 font-bold xl:text-2xl text-xl">
-						<?php _e( 'Đăng ký thông tin hỗ trợ', 'gnws' ) ?>
+						<?php _e('Đăng ký thông tin hỗ trợ', 'gnws') ?>
 					</h3>
 					<div
 						class="form_support relative font-Helvetica bg-white lg:px-8 px-5 lg:py-6 py-4 rounded-2xl">
-						<?php echo do_shortcode( '[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]' ) ?>
+						<?php echo do_shortcode('[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]') ?>
 					</div>
 				</div>
 			</div>
