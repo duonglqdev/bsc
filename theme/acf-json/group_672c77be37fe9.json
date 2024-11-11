@@ -276,6 +276,46 @@
                     "parent_repeater": "field_672c7be221827"
                 }
             ]
+        },
+        {
+            "key": "field_6731d69a078fc",
+            "label": "Video hướng dẫn",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6731d6a2078fd",
+            "label": "Trang Video Hướng Dẫn",
+            "name": "cdstgg2_page_video",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 0,
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -296,5 +336,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730968624
+    "modified": 1731319739
 }
