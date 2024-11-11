@@ -81,8 +81,10 @@ module.exports = {
 					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
 				'gradient-blue-to-right-50':
 					'linear-gradient(265deg, rgba(27, 70, 141, 0) 4.02%, rgba(37, 45, 105, 0.8) 95.98%)',
-					'gradient-blue-to-right-100':
+				'gradient-blue-to-right-100':
 					'linear-gradient(90deg, #D4EDFF 0%, #EFF9FF 91.93%)',
+				'gradient-blue-to-right-150':
+					'linear-gradient(270deg, rgba(31, 61, 98, 0.00) 18.41%, #123781 100%)',
 				'gradient-white-to-top-50':
 					'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 41.68%, rgba(229, 240, 255, 0.60) 100%)',
 			},
