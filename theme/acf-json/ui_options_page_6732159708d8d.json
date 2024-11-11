@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_6732159708d8d",
+    "title": "Cài đặt kiến thức",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Cài đặt kiến thức",
+    "menu_slug": "cai-dat-kien-thuc",
+    "parent_slug": "edit.php?post_type=kien-thuc-dau-tu",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1731335731
+}

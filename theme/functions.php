@@ -203,3 +203,8 @@ require get_template_directory() . '/inc/customizer-api.php';
  * Customizer CPT.
  */
 require get_template_directory() . '/inc/customizer-cpt.php';
+
+/**
+ * Customizer CF7.
+ */
+require get_template_directory() . '/inc/customizer-cf7.php';

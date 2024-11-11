@@ -43,6 +43,25 @@
             "append": ""
         },
         {
+            "key": "field_67320c3102a6c",
+            "label": "Email Nhận Form",
+            "name": "email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_672cd5eca2d55",
             "label": "Giao diện biểu phí",
             "name": "home_components_stgd",
@@ -596,5 +615,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731003172
+    "modified": 1731333189
 }
