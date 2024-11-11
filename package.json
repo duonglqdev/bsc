@@ -32,7 +32,7 @@
 		"development:esbuild": "npx esbuild ./javascript/script.js ./javascript/block-editor.js ./javascript/tailwind-typography-classes.js --target=esnext --bundle --outdir=./theme/js --out-extension:.js=.min.js",
 		"development": "run-p \"development:**\"",
 		"dev": "npm run development",
-		"watch:tailwind:frontend": "npm run development:tailwind:frontend -- --watch",
+		"watch:tailwind:frontend": "node --max-old-space-size=4096 node_modules/tailwindcss/lib/cli.js -i ./tailwind/tailwind.css -c ./tailwind/tailwind.config.js -o ./theme/style.css --watch",
 		"watch:tailwind:editor": "npm run development:tailwind:editor -- --watch",
 		"watch:tailwind:editor:extra": "npm run development:tailwind:editor:extra -- --watch",
 		"watch:tailwind:themejson": "chokidar \"./theme/theme.json\" -c \"nodetouch ./tailwind/tailwind.config.js\"",
