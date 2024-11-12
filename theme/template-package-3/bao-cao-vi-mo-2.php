@@ -106,17 +106,17 @@ get_header();
 						<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 							datepicker-autohide datepicker-orientation="bottom right"
 							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-1/2 w-full">
-							<p class="font-medium mr-5 lg:min-w-[94px]">
+							<p class="font-medium mr-5 2xl:min-w-[94px]">
 								<?php _e( 'Thời gian:', 'gnws' ) ?>
 							</p>
-							<div class="flex items-center gap-5">
+							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
 									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
 								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
-							<span class="mx-4 text-gray-500">-</span>
-							<div class="flex items-center gap-5">
+							<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
+							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-end" name="end" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
 									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">

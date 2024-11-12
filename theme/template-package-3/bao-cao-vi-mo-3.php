@@ -57,29 +57,37 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<div class="flex gap-5 mb-10">
-						<form action=""
-							class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2 lg:w-[315px] max-w-[33.33%]">
-							<?php echo svg( 'search', '24', '24' ) ?>
-							<input type="text" name="s"
-								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
-								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
-						</form>
+					<form action=""
+						class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2">
+						<?php echo svg( 'search', '24', '24' ) ?>
+						<input type="text" name="s"
+							class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
+							placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
+					</form>
+					<div class="flex gap-5 mb-10 mt-4">
+						<div
+							class="w-1/5 flex items-center justify-between h-[50px] px-5 border border-[#EAEEF4] rounded-[10px]">
+							<p class="2xl:min-w-20 text-xs font-medium">Năm: </p>
+							<select class="select_custom border-none focus:outline-0 focus:ring-0">
+								<option value="">2024</option>
+								<option value="">2023</option>
+							</select>
 
+						</div>
 						<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 							datepicker-autohide datepicker-orientation="bottom right"
-							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-1/2 w-full">
-							<p class="font-medium mr-5 lg:min-w-[94px]">
+							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
+							<p class="font-medium mr-5 2xl:min-w-[94px]">
 								<?php _e( 'Thời gian:', 'gnws' ) ?>
 							</p>
-							<div class="flex items-center gap-5">
+							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
 									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
 								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
-							<span class="mx-4 text-gray-500">-</span>
-							<div class="flex items-center gap-5">
+							<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
+							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-end" name="end" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
 									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
@@ -92,8 +100,207 @@ get_header();
 						</button>
 					</div>
 					<div class="mb-[60px]">
-						<h3 class="font-bold mb-6 text-2xl">Dự báo vĩ mô</h3>
-						
+						<h3 class="font-bold text-2xl">Dự báo vĩ mô</h3>
+						<div class="mt-4">
+							<h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
+								vĩ mô Việt Nam 2024-2025</h4>
+							<div
+								class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
+								<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
+									<div
+										class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										<div
+											class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
+											<p>TB 8 năm <br>
+												(15-22)</p>
+											<p>
+												2023
+											</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px]">
+										<div class="w-[56%] px-2 py-1">
+											GDP (YoY%)
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>6.1</p>
+											<p>5.25</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px]">
+										<div class="w-[56%] px-2 py-1">
+											CPI trung bình (YoY%)*
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>2.7</p>
+											<p>3.26</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px]">
+										<div class="w-[56%] px-2 py-1">
+											Xuất khẩu (YoY%)*
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>2.7</p>
+											<p>3.26</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px]">
+										<div class="w-[56%] px-2 py-1">
+											Nhập khẩu (YoY%)*
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>2.7</p>
+											<p>3.26</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px]">
+										<div class="w-[56%] px-2 py-1">
+											LSĐH (YoY%)*
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>2.7</p>
+											<p>3.26</p>
+										</div>
+									</div>
+									<div class="flex gap-1 items-center min-h-[30px] font-bold">
+										<div class="w-[56%] px-2 py-1">
+											USD/VND LNH trung bình
+										</div>
+										<div
+											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+											<p>22,842</p>
+											<p>23,839</p>
+										</div>
+									</div>
+								</div>
+								<div
+									class="w-[27%] grid grid-cols-2 text-center bg-[#F5FCFF] border-r border-[#C9CCD2]">
+									<div class="text-[#FF0017]">
+										<div
+											class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+											<p class="font-semibold mb-1">
+												BSC kịch bản 1
+											</p>
+											<div class="grid grid-cols-2 font-semibold">
+												<p>2024</p>
+												<p>2025</p>
+											</div>
+										</div>
+										<?php
+										for ( $i = 0; $i < 5; $i++ )
+										{
+											?>
+											<div
+												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+												<p>6.1</p>
+												<p>5.25</p>
+											</div>
+											<?php
+										}
+										?>
+										<div
+											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+											<p>22,842</p>
+											<p>23,839</p>
+										</div>
+									</div>
+									<div class="text-[#30D158]">
+										<div
+											class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+											<p class="font-semibold mb-1">
+												BSC kịch bản 2
+											</p>
+											<div class="grid grid-cols-2 font-semibold">
+												<p>2024</p>
+												<p>2025</p>
+											</div>
+										</div>
+										<?php
+										for ( $i = 0; $i < 5; $i++ )
+										{
+											?>
+											<div
+												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+												<p>6.1</p>
+												<p>5.25</p>
+											</div>
+											<?php
+										}
+										?>
+										<div
+											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+											<p>22,842</p>
+											<p>23,839</p>
+										</div>
+									</div>
+								</div>
+								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
+									<div
+										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										<p class="font-semibold mb-1">
+											Consensus 2024
+										</p>
+										<div class="grid grid-cols-3 font-semibold">
+											<p>Min</p>
+											<p>TB</p>
+											<p>Max</p>
+										</div>
+									</div>
+									<?php
+									for ( $i = 0; $i < 3; $i++ )
+									{
+										?>
+										<div
+											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+											<p>6.1</p>
+											<p>5.25</p>
+											<p>5.25</p>
+										</div>
+										<?php
+									}
+									?>
+									<div class="m-auto">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
+									<div
+										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										<p class="font-semibold mb-1">
+											Consensus 2025
+										</p>
+										<div class="grid grid-cols-3 font-semibold">
+											<p>Min</p>
+											<p>TB</p>
+											<p>Max</p>
+										</div>
+									</div>
+									<?php
+									for ( $i = 0; $i < 3; $i++ )
+									{
+										?>
+										<div
+											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+											<p>6.1</p>
+											<p>5.25</p>
+											<p>5.25</p>
+										</div>
+										<?php
+									}
+									?>
+									<div class="m-auto">
+										<p>6.1</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
 
 					<div class="grid lg:grid-cols-2 gap-6">
