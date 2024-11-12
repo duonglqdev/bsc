@@ -823,10 +823,14 @@ button#ib-button-messaging {
 }
 
 .form_report input {
-  @apply w-full h-[52px] px-5 rounded-[10px] font-Helvetica placeholder:text-[#d9d9d9] border border-[#aaa];
+  @apply w-full h-[52px] px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
 }
 .form_report button {
   @apply mt-6 relative left-1/2 -translate-x-1/2;
+}
+
+.datepicker-cell.selected {
+  @apply bg-green;
 }
 
 /*# sourceMappingURL=base.css.map */
