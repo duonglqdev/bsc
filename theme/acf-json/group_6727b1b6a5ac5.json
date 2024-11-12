@@ -7879,6 +7879,32 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
+                                    "key": "field_67338ebaf55c7",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Chỉ chập nhận file SVG",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "10",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "SVG",
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_67337e9aad277"
+                                },
+                                {
                                     "key": "field_67337ec1ad278",
                                     "label": "Tiêu đề",
                                     "name": "title",
@@ -8149,6 +8175,32 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
+                                    "key": "field_67338efaf55c8",
+                                    "label": "Icon",
+                                    "name": "iocn",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Chỉ chấp nhận file SVG",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "10",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "svg",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_673380cfad295"
+                                },
+                                {
                                     "key": "field_673380d0ad296",
                                     "label": "Hình ảnh",
                                     "name": "img",
@@ -8402,5 +8454,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731429291
+    "modified": 1731432293
 }
