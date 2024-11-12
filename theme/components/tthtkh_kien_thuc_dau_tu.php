@@ -86,8 +86,8 @@
                                                 <?php echo htmlspecialchars($news->description) ?>
                                             </p>
                                             <div class="mt-3">
-                                                <a href="<?php echo get_term_link($term) ?>" class="text-green font-xs font-medium">
-                                                    <?php echo $term->name ?>
+                                                <a href="<?php echo get_term_link($tax) ?>" class="text-green font-xs font-medium">
+                                                    <?php echo $tax->name ?>
                                                 </a>
                                             </div>
                                         </li>

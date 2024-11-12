@@ -288,3 +288,16 @@ function filter_posts($query)
     endif;
 }
 add_action('pre_get_posts', 'filter_posts');
+
+/**
+ * Remove ATT image when call
+ */
+function custom_wp_get_attachment_image($html, $attachment_id)
+{
+    $mime = get_post_mime_type($attachment_id);
+    if ('image/svg+xml' === $mime) {
+        $html = preg_replace('/(width|height)="\d*"\s/', "", $html);
+    }
+    return $html;
+}
+add_filter('wp_get_attachment_image', 'custom_wp_get_attachment_image', 10, 2);

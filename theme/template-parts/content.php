@@ -9,16 +9,15 @@
                 class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
         </a>
         <?php
-        $date = $news->postdate;
-        $date_parts = explode('T', $date);
+        $date = new DateTime($news->postdate);
         ?>
         <div class="date flex items-center gap-x-[12px] mb-2 text-xs">
             <?php echo svg('date') ?>
             <span>
-                <?php echo $date_parts[0] ?>
+                <?php echo $date->format('d/m/Y'); ?>
             </span>
             <span>
-                <?php echo $date_parts[1] ?>
+                <?php echo $date->format('H:i:s'); ?>
             </span>
         </div>
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
