@@ -8177,7 +8177,7 @@
                                 {
                                     "key": "field_67338efaf55c8",
                                     "label": "Icon",
-                                    "name": "iocn",
+                                    "name": "icon",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "Chỉ chấp nhận file SVG",
@@ -8454,5 +8454,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731432293
+    "modified": 1731432442
 }
