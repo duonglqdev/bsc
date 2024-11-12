@@ -130,56 +130,69 @@ get_header();
 					</div>
 					<div class="mb-[59px]">
 						<h3 class="font-bold mb-6 text-2xl">Dự báo thị trường</h3>
-						<div class="lg:flex lg:gap-8">
-							<div class="lg:w-[255px] lg:max-w-[27%]">
-								<div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
-									<h4
-										class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
-										Năm 2024</h4>
-									<div class="space-y-6">
-										<div class="flex items-end justify-between pb-2">
-											<div class="flex flex-col font-Helvetica">
-												<p class="text-paragraph text-xs">VN-index</p>
-												<h4 class="font-bold text-2xl">
-													1500
-												</h4>
+						<div class="relative">
+							<div class="lg:flex lg:gap-8 blur-sm">
+								<div class="lg:w-[255px] lg:max-w-[27%]">
+									<div
+										class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+										<h4
+											class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+											Năm 2024</h4>
+										<div class="space-y-6">
+											<div class="flex items-end justify-between pb-2">
+												<div class="flex flex-col font-Helvetica">
+													<p class="text-paragraph text-xs">VN-index</p>
+													<h4 class="font-bold text-2xl">
+														1500
+													</h4>
+												</div>
+												<div
+													class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+													Tích cực
+												</div>
 											</div>
-											<div
-												class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
-												Tích cực
-											</div>
-										</div>
 
-										<div class="flex items-end justify-between pb-2">
-											<div class="flex flex-col font-Helvetica">
-												<p class="text-paragraph text-xs">Ngành</p>
-												<h4 class="font-bold text-2xl">
-													1298
-												</h4>
+											<div class="flex items-end justify-between pb-2">
+												<div class="flex flex-col font-Helvetica">
+													<p class="text-paragraph text-xs">Ngành</p>
+													<h4 class="font-bold text-2xl">
+														1298
+													</h4>
+												</div>
+												<div
+													class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+													Cơ sở
+												</div>
 											</div>
-											<div
-												class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
-												Cơ sở
+											<div class="flex items-end justify-between pb-2">
+												<div class="flex flex-col font-Helvetica">
+													<p class="text-paragraph text-xs">Ngành</p>
+													<h4 class="font-bold text-2xl">
+														1200
+													</h4>
+												</div>
+												<div
+													class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+													Tiêu cực
+												</div>
 											</div>
-										</div>
-										<div class="flex items-end justify-between pb-2">
-											<div class="flex flex-col font-Helvetica">
-												<p class="text-paragraph text-xs">Ngành</p>
-												<h4 class="font-bold text-2xl">
-													1200
-												</h4>
-											</div>
-											<div
-												class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
-												Tiêu cực
-											</div>
-										</div>
 
+										</div>
 									</div>
 								</div>
+								<div class="flex-1 bg-[#F5FCFF] rounded-lg">
+									<div id="chart-forecast"></div>
+								</div>
 							</div>
-							<div class="flex-1 bg-[#F5FCFF] rounded-lg">
-								<div id="chart-forecast"></div>
+							<div
+								class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
+								<a href="#"
+									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+									Đăng nhập
+								</a>
+								<p class="italic mt-4 font-normal">
+									Để xem chi tiết danh mục
+								</p>
 							</div>
 						</div>
 					</div>
