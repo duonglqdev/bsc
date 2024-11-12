@@ -36,7 +36,7 @@ get_header();
 	<section class="mt-12 xl:mb-[100px] mb-20">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%]">
 					<div class="sticky lg:top-28 top-5 z-[9]">
 						<ul
 							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">

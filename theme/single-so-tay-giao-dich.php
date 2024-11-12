@@ -10,7 +10,7 @@ get_header();
     <section class="mt-12 xl:mb-[100px] mb-20">
         <div class="container">
             <div class="lg:flex gap-[70px]">
-                <div class="lg:w-80 max-w-[35%]">
+                <div class="lg:w-80 lg:max-w-[35%]">
                     <?php echo get_sidebar('stgd') ?>
                 </div>
                 <div class="flex-1 ">
