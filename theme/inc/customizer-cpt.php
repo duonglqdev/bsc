@@ -169,3 +169,53 @@ function bieu_phi_giao_dich_woo_new_tuyen_dung_post_save($post_id)
     }
 }
 add_action('wp_insert_post', 'bieu_phi_giao_dich_woo_new_tuyen_dung_post_save');
+
+
+/*
+* Loại bỏ /danh-muc-kien-thuc/ ở đường dẫn
+* Thay /danh-muc-kien-thuc/ slug hiện tại của bạn. Mặc định là /danh-muc-kien-thuc/
+*/
+add_filter('term_link', 'bsc_danh_muc_kien_thuc_permalink', 10, 3);
+function bsc_danh_muc_kien_thuc_permalink($url, $term, $taxonomy)
+{
+    if ($taxonomy === 'danh-muc-kien-thuc') {
+        $taxonomy_slug = 'danh-muc-kien-thuc'; // Thay bằng slug hiện tại của bạn
+        $url = str_replace('/' . $taxonomy_slug, '', $url);
+    }
+    return $url;
+}
+
+// Thêm quy tắc rewrite cho kien-thuc-dau-tu category
+function bsc_danh_muc_kien_thucegory_rewrite_rules($flush = false)
+{
+    $terms = get_terms(array(
+        'taxonomy' => 'danh-muc-kien-thuc',
+        'post_type' => 'kien-thuc-dau-tu',
+        'hide_empty' => false,
+    ));
+
+    if (!is_wp_error($terms)) {
+        $siteurl = esc_url(home_url('/'));
+        foreach ($terms as $term) {
+            $term_slug = $term->slug;
+            $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-kien-thuc'));
+            add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-kien-thuc=' . $term_slug, 'top');
+            add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&paged=$matches[1]', 'top');
+            add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&feed=$matches[1]', 'top');
+        }
+    }
+
+    if ($flush) {
+        flush_rewrite_rules(false);
+    }
+}
+add_action('init', 'bsc_danh_muc_kien_thucegory_rewrite_rules');
+
+// Tự động cập nhật rewrite rules khi tạo mới taxonomy
+add_action('create_term', 'bsc_danh_muc_kien_thuc_cat_edit_success', 10, 2);
+function bsc_danh_muc_kien_thuc_cat_edit_success($term_id, $taxonomy)
+{
+    if ($taxonomy === 'danh-muc-kien-thuc') {
+        bsc_danh_muc_kien_thucegory_rewrite_rules(true);
+    }
+}
