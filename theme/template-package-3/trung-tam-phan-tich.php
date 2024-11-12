@@ -271,7 +271,7 @@ get_header();
 				</a>
 			</div>
 			<div class="grid gap-5 lg:grid-cols-3 grid-cols-2">
-            <?php
+				<?php
 				for ( $i = 0; $i < 2; $i++ )
 				{
 					?>
@@ -411,7 +411,63 @@ get_header();
 					<?php _e( 'Xem tất cả', 'bsc' ) ?>
 				</a>
 			</div>
-
+			<div class="block_slider block_slider-show-3 has-nav no-dots -mx-3 slider-tutorial">
+				<div class="block_slider-item px-3 lg:w-1/3 w-1/2">
+					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
+						style="background-color:#235BA81a;">
+						<div class="pl-6 py-5 pr-1 w-1/2">
+							<h3 class="font-bold text-2xl mb-2">
+								Danh mục BSC 10
+							</h3>
+							<a href=""
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
+								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								Xem chi tiết
+							</a>
+						</div>
+						<div class="w-1/2">
+							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23490.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="block_slider-item px-3 lg:w-1/3 w-1/2">
+					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
+						style="background-color:#F8F4D0;">
+						<div class="pl-6 py-5 pr-1 w-1/2">
+							<h3 class="font-bold text-2xl mb-2">
+								Danh mục BSC 40
+							</h3>
+							<a href=""
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
+								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								Xem chi tiết
+							</a>
+						</div>
+						<div class="w-1/2">
+							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23489.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="block_slider-item px-3 lg:w-1/3 w-1/2">
+					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
+						style="background-color:#009E872a;">
+						<div class="pl-6 py-5 pr-1 w-1/2">
+							<h3 class="font-bold text-2xl mb-2">
+								Danh mục BSC 50
+							</h3>
+							<a href=""
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
+								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								Xem chi tiết
+							</a>
+						</div>
+						<div class="w-1/2">
+							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23489 (1).png" alt="">
+						</div>
+					</div>
+				</div>
+				
+			</div>
 		</div>
 	</section>
 </main>

@@ -166,25 +166,7 @@ import WOW from 'wowjs';
                 clearTimeout(timeout);
             });
 
-            // $('.submenu-wrapper > li').mouseleave(function () {
-            // 	timeout = setTimeout(() => {
-            // 		$(this).removeClass('active');
-            // 		// $('.submenu-content').html('');
-            // 		$('.submenu-content').css('max-height', '0');
-            // 	}, 100);
-            // });
 
-            // $('.submenu-content').mouseenter(function () {
-            // 	clearTimeout(timeout);
-            // });
-
-            // $('.submenu-content').mouseleave(function () {
-            // 	timeout = setTimeout(function () {
-            // 		$('.submenu-wrapper > li').removeClass('active');
-            // 		// $('.submenu-content').html('');
-            // 		$('.submenu-content').css('max-height', '0');
-            // 	}, 100);
-            // });
         }
     }
 
@@ -236,8 +218,15 @@ import WOW from 'wowjs';
     function handleSlider() {
         $('.block_slider').each(function() {
             var blockSliderCount = $(this).find('.block_slider-item').length;
-
-            if (blockSliderCount > 1) {
+            var minItemsToShow = 1;
+            if ($(this).hasClass('block_slider-show-2')) {
+                minItemsToShow = 2;
+            } else if ($(this).hasClass('block_slider-show-3')) {
+                minItemsToShow = 3;
+            } else if ($(this).hasClass('block_slider-show-4')) {
+                minItemsToShow = 4;
+            }
+            if (blockSliderCount > minItemsToShow) {
                 var hasNoDotsClass = $(this).hasClass('no-dots');
                 var hasNavClass = $(this).hasClass('has-nav');
                 $(this).flickity({
@@ -252,7 +241,7 @@ import WOW from 'wowjs';
                 });
             }
         });
-
+        
         $('.data-slick').each(function() {
             var $slider = $(this); // Lưu tham chiếu đến slider hiện tại
 
