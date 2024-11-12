@@ -313,6 +313,66 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_673378630f079",
+            "label": "Page",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6733787e0f07a",
+            "label": "Trang chương trình khuyến mãi",
+            "name": "cdctkm1_page",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 0,
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_673378a70f07b",
+            "label": "ID Class",
+            "name": "cdctkm1_pageid_class",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -333,5 +393,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731417489
+    "modified": 1731427226
 }

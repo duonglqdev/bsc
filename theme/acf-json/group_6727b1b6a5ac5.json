@@ -7669,6 +7669,712 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_673379fdad263": {
+                    "key": "layout_673379fdad263",
+                    "name": "dvck_process",
+                    "label": "[DVCK] Hành trình",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_673379fead264",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Đây là ID để tạo điểm NEO khi thêm #title bạn điền ở đây",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_673379fead267",
+                            "label": "Tiêu  đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67337a7aad26c",
+                            "label": "Hành trình",
+                            "name": "hanh_trinh",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Thêm hành trình",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_67337b20ad26d",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "",
+                                    "library": "",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_67337a7aad26c"
+                                },
+                                {
+                                    "key": "field_67337b7cad26f",
+                                    "label": "Đường dẫn",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_67337a7aad26c"
+                                },
+                                {
+                                    "key": "field_67337b44ad26e",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_67337a7aad26c"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67337bbdad270": {
+                    "key": "layout_67337bbdad270",
+                    "name": "dvck_product_service",
+                    "label": "[DVCK]  Sản phẩm dịch vụ",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67337bbdad271",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Đây là ID để tạo điểm NEO khi thêm #title bạn điền ở đây",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67337bbdad272",
+                            "label": "Tiêu  đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67337e9aad277",
+                            "label": "Sản phẩm",
+                            "name": "product",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Thêm sản phẩm",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_67337ec1ad278",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "10",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_67337e9aad277"
+                                },
+                                {
+                                    "key": "field_67337ed4ad279",
+                                    "label": "Dịch vụ",
+                                    "name": "service",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Thêm dịch vụ",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_67337f40ad27a",
+                                            "label": "Hình ảnh",
+                                            "name": "img",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "15",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "preview_size": "thumbnail",
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        },
+                                        {
+                                            "key": "field_67337f5ead27b",
+                                            "label": "Tiêu đề",
+                                            "name": "title",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        },
+                                        {
+                                            "key": "field_67337f6bad27c",
+                                            "label": "Danh sách",
+                                            "name": "danh_sach",
+                                            "aria-label": "",
+                                            "type": "repeater",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "50",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "",
+                                            "pagination": 0,
+                                            "min": 0,
+                                            "max": 0,
+                                            "collapsed": "",
+                                            "button_label": "Thêm danh sách",
+                                            "rows_per_page": 20,
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_67337f84ad27d",
+                                                    "label": "Nội dung",
+                                                    "name": "content",
+                                                    "aria-label": "",
+                                                    "type": "textarea",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "rows": "",
+                                                    "placeholder": "",
+                                                    "new_lines": "",
+                                                    "parent_repeater": "field_67337f6bad27c"
+                                                }
+                                            ],
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        },
+                                        {
+                                            "key": "field_67337fa2ad27f",
+                                            "label": "Button",
+                                            "name": "button",
+                                            "aria-label": "",
+                                            "type": "group",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_67337fa2ad280",
+                                                    "label": "Đường dẫn",
+                                                    "name": "link",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_67337fa2ad281",
+                                                    "label": "Tiêu đề",
+                                                    "name": "title",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                }
+                                            ],
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        }
+                                    ],
+                                    "parent_repeater": "field_67337e9aad277"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67338001ad282": {
+                    "key": "layout_67338001ad282",
+                    "name": "dvck_nentang_giaodich",
+                    "label": "[DVCK] Nền tảng giao dịch",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67338002ad283",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Đây là ID để tạo điểm NEO khi thêm #title bạn điền ở đây",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67338002ad284",
+                            "label": "Tiêu  đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_673380cfad295",
+                            "label": "Nền tảng",
+                            "name": "nen_tang",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Thêm dịch vụ",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_673380d0ad296",
+                                    "label": "Hình ảnh",
+                                    "name": "img",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "",
+                                    "library": "",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_673380cfad295"
+                                },
+                                {
+                                    "key": "field_673380d0ad297",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_673380cfad295"
+                                },
+                                {
+                                    "key": "field_673380ecad29d",
+                                    "label": "Mô tả",
+                                    "name": "mota",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_673380cfad295"
+                                },
+                                {
+                                    "key": "field_673380d0ad298",
+                                    "label": "Danh sách",
+                                    "name": "danh_sach",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Thêm danh sách",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_673380d0ad299",
+                                            "label": "Nội dung",
+                                            "name": "content",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_673380d0ad298"
+                                        }
+                                    ],
+                                    "parent_repeater": "field_673380cfad295"
+                                },
+                                {
+                                    "key": "field_673380d0ad29a",
+                                    "label": "Button",
+                                    "name": "button",
+                                    "aria-label": "",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_673380d0ad29b",
+                                            "label": "Đường dẫn",
+                                            "name": "link",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_673380d0ad29c",
+                                            "label": "Tiêu đề",
+                                            "name": "title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ],
+                                    "parent_repeater": "field_673380cfad295"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67338128ad29e": {
+                    "key": "layout_67338128ad29e",
+                    "name": "dvck_gift",
+                    "label": "[DVCK] Chương trình khuyến mãi",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67338128ad29f",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Đây là ID để tạo điểm NEO khi thêm #title bạn điền ở đây",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67338128ad2a0",
+                            "label": "Tiêu  đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -7696,5 +8402,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731425457
+    "modified": 1731429291
 }
