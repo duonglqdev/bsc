@@ -19,6 +19,7 @@ if ($args['data']) {
 		endforeach;
 	}
 	if ($groupid == $trach_nhiem_cong_dong_id) {
+		$title_lienquan = __('Bài viết', 'bsc');
 		$tax_name = get_field('cdtnvcd1_title', 'option');
 		$breadcrumb = 'congdong';
 		$time_cache = get_field('cdtnvcd2_time_cache', 'option') ?: 300;
@@ -26,10 +27,12 @@ if ($args['data']) {
 		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
 	} else {
 		if (in_array($groupid, $array_id_kien_thuc)) {
+			$title_lienquan = __('Kiến thức', 'bsc');
 			$check_cat = 'danh-muc-kien-thuc';
 			$breadcrumb = 'kienthuc';
 			$time_cache = get_field('cdktdt1_time_cache', 'option') ?: 300;
 		} else {
+			$title_lienquan = __('Bài viết', 'bsc');
 			$check_cat = 'category';
 			$breadcrumb = 'post';
 			$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
@@ -226,7 +229,7 @@ get_header();
 			<section class="lg:pt-16 lg:pb-[106px] pt-10 pb-10">
 				<div class="container">
 					<h2 class="heading-title mb-6 normal-case">
-						<?php _e('Bài viết liên quan', 'bsc') ?>
+						<?php echo $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
 					</h2>
 					<div
 						class="grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8">

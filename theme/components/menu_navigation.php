@@ -21,9 +21,8 @@ if ($style == 'nhdt') {
 <?php } else {
 ?>
     <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
-
         <?php
-        if (have_rows('menu_navigation')) {
+        if (get_sub_field('menu_navigation')) {
             $menu_navigation = get_sub_field('menu_navigation');
         } elseif (isset($args['data']) && $args['data'] != '') {
             if ($args['data'] == 'stgd') {

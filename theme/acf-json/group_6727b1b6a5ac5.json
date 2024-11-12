@@ -406,6 +406,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6702453279141",
                                     "sub_fields": [
                                         {
                                             "key": "field_670246ed0d121",
@@ -447,8 +448,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6702453279141"
+                                    ]
                                 },
                                 {
                                     "key": "field_670247040d124",
@@ -502,6 +502,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6702453279141",
                                     "sub_fields": [
                                         {
                                             "key": "field_670247840d128",
@@ -543,8 +544,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6702453279141"
+                                    ]
                                 }
                             ]
                         }
@@ -1196,6 +1196,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_67024f64caabb",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702625056bd5",
@@ -1325,8 +1326,7 @@
                                                 }
                                             ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_67024f64caabb"
+                                    ]
                                 },
                                 {
                                     "key": "field_6702634a56bdc",
@@ -1348,6 +1348,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm Icon",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67024f64caabb",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702635b56bdd",
@@ -1396,8 +1397,7 @@
                                             "preview_size": "thumbnail",
                                             "parent_repeater": "field_6702634a56bdc"
                                         }
-                                    ],
-                                    "parent_repeater": "field_67024f64caabb"
+                                    ]
                                 },
                                 {
                                     "key": "field_6702638456bdf",
@@ -1414,6 +1414,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_67024f64caabb",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702638456be0",
@@ -1455,8 +1456,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_67024f64caabb"
+                                    ]
                                 }
                             ]
                         }
@@ -1839,6 +1839,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_670265fc5654d",
                                     "sub_fields": [
                                         {
                                             "key": "field_670bcc7de950b",
@@ -1880,8 +1881,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_670265fc5654d"
+                                    ]
                                 },
                                 {
                                     "key": "field_671f8c4ecc35e",
@@ -2928,6 +2928,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm thành viên",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6702b074b9597",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702b340b95a3",
@@ -3018,8 +3019,7 @@
                                             "delay": 0,
                                             "parent_repeater": "field_6702b2f3b95a2"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6702b074b9597"
+                                    ]
                                 }
                             ]
                         }
@@ -3589,6 +3589,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nội dung",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6702c476c784f",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702c85985933",
@@ -3637,8 +3638,7 @@
                                             "delay": 0,
                                             "parent_repeater": "field_6702c476c7851"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6702c476c784f"
+                                    ]
                                 }
                             ]
                         }
@@ -4011,6 +4011,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm hàng",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67040da506bca",
                                     "sub_fields": [
                                         {
                                             "key": "field_67040ecd06bcf",
@@ -4096,8 +4097,7 @@
                                             "append": "",
                                             "parent_repeater": "field_67040e5506bcc"
                                         }
-                                    ],
-                                    "parent_repeater": "field_67040da506bca"
+                                    ]
                                 }
                             ]
                         },
@@ -6232,6 +6232,26 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_67331c6bb7e3e",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_6731db0c34aa6",
                             "label": "Nội dung",
                             "name": "content",
@@ -6482,7 +6502,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "danh-muc-kien-thuc",
                             "add_term": 1,
                             "save_terms": 0,
                             "load_terms": 0,
@@ -6716,7 +6736,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "",
+                            "layout": "table",
                             "min": 0,
                             "max": 0,
                             "collapsed": "",
@@ -6765,6 +6785,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm bài viết",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_673231e075102",
                                     "sub_fields": [
                                         {
                                             "key": "field_6732324175105",
@@ -6808,8 +6829,7 @@
                                             "append": "",
                                             "parent_repeater": "field_6732322175104"
                                         }
-                                    ],
-                                    "parent_repeater": "field_673231e075102"
+                                    ]
                                 },
                                 {
                                     "key": "field_673233a375108",
@@ -6826,6 +6846,7 @@
                                         "id": ""
                                     },
                                     "layout": "",
+                                    "parent_repeater": "field_673231e075102",
                                     "sub_fields": [
                                         {
                                             "key": "field_673233a375109",
@@ -6867,8 +6888,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673231e075102"
+                                    ]
                                 }
                             ]
                         }
@@ -6986,7 +7006,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "",
+                            "layout": "table",
                             "sub_fields": [
                                 {
                                     "key": "field_673233d575114",
@@ -7094,7 +7114,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "",
+                            "layout": "table",
                             "sub_fields": [
                                 {
                                     "key": "field_673234757511e",
@@ -7194,11 +7214,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "danh-muc-kien-thuc",
                             "add_term": 1,
                             "save_terms": 0,
                             "load_terms": 0,
-                            "return_format": "",
+                            "return_format": "object",
                             "field_type": "select",
                             "allow_null": 0,
                             "bidirectional": 0,
@@ -7269,7 +7289,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
+                            "layout": "table",
                             "sub_fields": [
                                 {
                                     "key": "field_673234ff75127",
@@ -7327,7 +7347,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "danh-muc-kien-thuc",
                             "add_term": 1,
                             "save_terms": 0,
                             "load_terms": 0,
@@ -7390,5 +7410,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731346842
+    "modified": 1731402872
 }
