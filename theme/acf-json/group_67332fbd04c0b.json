@@ -1,6 +1,6 @@
 {
     "key": "group_67332fbd04c0b",
-    "title": "[Option] Trách nhiệm với cộng đồng (copy)",
+    "title": "[Option] Chương trình khuyến mãi",
     "fields": [
         {
             "key": "field_67332fbfe3103",
@@ -22,7 +22,7 @@
         {
             "key": "field_67332fbfe6baf",
             "label": "Hiển thị background",
-            "name": "cdtnvcd1_background_banner_display",
+            "name": "cdctkm1_background_banner_display",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -48,7 +48,7 @@
         {
             "key": "field_67332fbfea61d",
             "label": "Background Banner",
-            "name": "cdtnvcd1_background_banner",
+            "name": "cdctkm1_background_banner",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -90,7 +90,7 @@
         {
             "key": "field_67332fbff1fdb",
             "label": "Tiêu đề",
-            "name": "cdtnvcd1_title",
+            "name": "cdctkm1_title",
             "aria-label": "",
             "type": "text",
             "instructions": "Sẽ hiển thị ở trang chi tiết làm tiêu đề",
@@ -110,7 +110,7 @@
         {
             "key": "field_67332fc001819",
             "label": "Breadcrumb",
-            "name": "cdtnvcd1_breadcrumb",
+            "name": "cdctkm1_breadcrumb",
             "aria-label": "",
             "type": "repeater",
             "instructions": "Breadcrumb sẽ hiển thị ở trang chi tiết cộng đồng",
@@ -193,7 +193,7 @@
         {
             "key": "field_67332fc008d97",
             "label": "Hình ảnh Sidebar",
-            "name": "cdtnvcd1_hinh_anh_sidebar",
+            "name": "cdctkm1_hinh_anh_sidebar",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -273,7 +273,7 @@
         {
             "key": "field_67332fc010164",
             "label": "ID Danh mục",
-            "name": "cdtnvcd2_id_danh_mục",
+            "name": "cdctkm1_id_danh_mục",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -284,7 +284,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 30,
+            "default_value": "",
             "min": "",
             "max": "",
             "placeholder": "",
@@ -295,7 +295,7 @@
         {
             "key": "field_67332fc013c1b",
             "label": "Time Cache",
-            "name": "cdtnvcd2_time_cache",
+            "name": "cdctkm1_time_cache",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -313,66 +313,6 @@
             "step": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_67332fc017651",
-            "label": "Page",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_67332fc01b0e7",
-            "label": "Trang trách nhiệm với cộng đồng",
-            "name": "cdtnvcd2_page",
-            "aria-label": "",
-            "type": "page_link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "allow_archives": 0,
-            "multiple": 0,
-            "allow_null": 0
-        },
-        {
-            "key": "field_67332fc01eb7b",
-            "label": "ID Class",
-            "name": "cdtnvcd2_pageid_class",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Có tác dụng ở trang chi tiết sẽ scroll thẳng xuống lọc filter",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -380,7 +320,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "trach-nhiem-voi-cong-dong"
+                "value": "chuong-trinh-khuyen-mai"
             }
         ]
     ],
@@ -393,5 +333,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731407810
+    "modified": 1731417489
 }

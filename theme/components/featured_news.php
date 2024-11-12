@@ -48,7 +48,7 @@ if ($response) {
                             </div>
                             <div class="relative w-full pt-[55%]">
                                 <img src="<?php echo bsc_set_thumbnail($news, 'large') ?>"
-                                    alt="" class="object-cover absolute w-full h-full inset-0">
+                                    alt="<?php echo htmlspecialchars($news->title) ?>" class="object-cover absolute w-full h-full inset-0">
                             </div>
                         </a>
                     </div>
