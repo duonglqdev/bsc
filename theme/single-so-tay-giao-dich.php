@@ -46,7 +46,8 @@ get_header();
             <div class="container">
                 <div class="flex items-center justify-between mb-10">
                     <h2 class="heading-title"><?php _e('Ưu đãi từ BSC', 'bsc') ?></h2>
-                    <a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?>#<?php echo get_field('cdctkm1_pageid_class', 'option') ?>" class="inline-block px-5 py-2 btn-base-yellow">
+                    <a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?><?php if ($class = get_field('cdctkm1_pageid_class', 'option')):  echo $class;
+                                                                                            endif; ?>" class="inline-block px-5 py-2 btn-base-yellow">
                         <span class="inline-flex items-center gap-2 relative z-10">
                             <?php _e('Xem tất cả', 'bsc') ?>
                             <?php echo svg('arrow-btn-2') ?>

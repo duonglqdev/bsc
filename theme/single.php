@@ -189,42 +189,44 @@ get_header();
 						<?php echo $title ?>
 					</h1>
 					<?php if ($groupid == $chuong_trinh_khuyen_mai_id) {
-						$startDate = new DateTime($news->promotionstarted);
-						$endDate = new DateTime($news->promotionended);
-						$formattedStartDate = $startDate->format('d/m/Y');
-						$formattedEndDate = $endDate->format('d/m/Y');
-						$interval = $startDate->diff($endDate);
-						$daysDifference = $interval->days;
-						$today = new DateTime();
-						$remainingInterval = $today->diff($endDate);
-						$remainingDays = $remainingInterval->days;
-						if ($today > $endDate) {
-							$remainingDays = 0;
-						}
-						$elapsedDays = $daysDifference - $remainingDays;
-						$completionPercentage = ($elapsedDays / $daysDifference) * 100;
 					?>
 						<div class="lg:flex items-center justify-between mb-8">
-							<div class="">
-								<div class="mt-4 flex items-center gap-2 font-Helvetica">
-									<div class="inline-flex items-center gap-2">
-										<?php echo svg('time') ?>
-										<?php _e('Thời gian chương trình', 'bsc') ?>:
+							<?php if ($news->promotionstarted && $news->promotionended) {
+								$startDate = new DateTime($news->promotionstarted);
+								$endDate = new DateTime($news->promotionended);
+								$formattedStartDate = $startDate->format('d/m/Y');
+								$formattedEndDate = $endDate->format('d/m/Y');
+								$interval = $startDate->diff($endDate);
+								$daysDifference = $interval->days;
+								$today = new DateTime();
+								$remainingInterval = $today->diff($endDate);
+								$remainingDays = $remainingInterval->days;
+								if ($today > $endDate) {
+									$remainingDays = 0;
+								}
+								$elapsedDays = $daysDifference - $remainingDays;
+								$completionPercentage = ($elapsedDays / $daysDifference) * 100; ?>
+								<div class="">
+									<div class="mt-4 flex items-center gap-2 font-Helvetica">
+										<div class="inline-flex items-center gap-2">
+											<?php echo svg('time') ?>
+											<?php _e('Thời gian chương trình', 'bsc') ?>:
+										</div>
+										<div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
 									</div>
-									<div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
+									<div class="mt-[14px] font-Helvetica xl:max-w-[433px]">
+										<div
+											class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+											<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
+												style="width:<?php echo round($completionPercentage, 2)  ?>%"></p>
+										</div>
+										<div class="mt-2 text-xs">
+											<?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $remainingDays ?>
+												<?php _e('ngày', 'bsc') ?></strong>
+										</div>
+									</div>
 								</div>
-								<div class="mt-[14px] font-Helvetica xl:max-w-[433px]">
-									<div
-										class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
-										<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
-											style="width:<?php echo round($completionPercentage, 2)  ?>%"></p>
-									</div>
-									<div class="mt-2 text-xs">
-										<?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $remainingDays ?>
-											<?php _e('ngày', 'bsc') ?></strong>
-									</div>
-								</div>
-							</div>
+							<?php } ?>
 							<div class="share flex items-center gap-[12px] ml-12">
 								<strong>
 									<?php _e('Chia sẻ:', 'bsc') ?>
