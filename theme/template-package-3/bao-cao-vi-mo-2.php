@@ -45,6 +45,43 @@ get_header();
 			</ul>
 		</div>
 	</section>
+	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+		<div class="container">
+			<ul class="customtab-nav flex justify-between gap-10">
+				<li class="flex-1">
+					<a href="#"
+						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						Báo cáo vĩ mô
+					</a>
+				</li>
+				<li class="flex-1">
+					<a href="#"
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						Báo cáo Ngành - Doanh nghiệp
+					</a>
+				</li>
+				<li class="flex-1">
+					<a href="#"
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						Báo cáo chuyên đề
+					</a>
+				</li>
+				<li class="flex-1">
+					<a href="#"
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						Danh mục khuyến nghị
+					</a>
+				</li>
+				<li class="flex-1">
+					<a href="#"
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						Quan điểm BSC
+					</a>
+				</li>
+
+			</ul>
+		</div>
+	</section>
 	<section class="pt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="heading-title mb-[26px]">

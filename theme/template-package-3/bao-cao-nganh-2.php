@@ -1,7 +1,7 @@
 <?php
 
 /**
-Template Name: [Package 3] Báo cáo vĩ mô #3
+Template Name: [Package 3] Báo cáo ngành #2
  */
 
 get_header();
@@ -13,13 +13,13 @@ get_header();
 			<ul class="customtab-nav flex justify-between gap-10">
 				<li class="flex-1">
 					<a href="#"
-						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo vĩ mô
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo Ngành - Doanh nghiệp
 					</a>
 				</li>
@@ -61,25 +61,21 @@ get_header();
 							</li>
 							<li>
 								<a href=""
-									class="active flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
-									Bản tin sáng
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+									Báo cáo ngành
 								</a>
 							</li>
 							<li>
 								<a href=""
-									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Bản
-									tin ngày</a>
+									class="active flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo
+									cáo doanh nghiệp</a>
 							</li>
 							<li>
 								<a href=""
 									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo
-									cáo vĩ mô</a>
+									cáo nhanh</a>
 							</li>
-							<li>
-								<a href=""
-									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo
-									cáo chiến lược</a>
-							</li>
+
 						</ul>
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
@@ -136,221 +132,88 @@ get_header();
 							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</button>
 					</div>
-					<div class="mb-[60px]">
-						<h3 class="font-bold text-2xl">Dự báo vĩ mô</h3>
-						<div class="mt-4">
-							<h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
-								vĩ mô Việt Nam 2024-2025</h4>
+
+					<div class="mt-10 mb-[82px]">
+						<h2 class="font-bold text-2xl">Dự báo KQKD</h2>
+						<div
+							class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4]">
 							<div
-								class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
-								<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
-									<div
-										class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
-										<div
-											class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
-											<p>TB 8 năm <br>
-												(15-22)</p>
-											<p>
-												2023
-											</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px]">
-										<div class="w-[56%] px-2 py-1">
-											GDP (YoY%)
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>6.1</p>
-											<p>5.25</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px]">
-										<div class="w-[56%] px-2 py-1">
-											CPI trung bình (YoY%)*
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>2.7</p>
-											<p>3.26</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px]">
-										<div class="w-[56%] px-2 py-1">
-											Xuất khẩu (YoY%)*
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>2.7</p>
-											<p>3.26</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px]">
-										<div class="w-[56%] px-2 py-1">
-											Nhập khẩu (YoY%)*
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>2.7</p>
-											<p>3.26</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px]">
-										<div class="w-[56%] px-2 py-1">
-											LSĐH (YoY%)*
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>2.7</p>
-											<p>3.26</p>
-										</div>
-									</div>
-									<div class="flex gap-1 items-center min-h-[30px] font-bold">
-										<div class="w-[56%] px-2 py-1">
-											USD/VND LNH trung bình
-										</div>
-										<div
-											class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
-											<p>22,842</p>
-											<p>23,839</p>
-										</div>
-									</div>
+								class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
+								<div class="w-[15%]">
+									Mã CK
 								</div>
-								<div
-									class="w-[27%] grid grid-cols-2 text-center bg-[#F5FCFF] border-r border-[#C9CCD2]">
-									<div class="text-[#FF0017]">
-										<div
-											class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
-											<p class="font-semibold mb-1">
-												BSC kịch bản 1
-											</p>
-											<div class="grid grid-cols-2 font-semibold">
-												<p>2024</p>
-												<p>2025</p>
-											</div>
-										</div>
-										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
-											?>
-											<div
-												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
-												<p>6.1</p>
-												<p>5.25</p>
-											</div>
-											<?php
-										}
-										?>
-										<div
-											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
-											<p>22,842</p>
-											<p>23,839</p>
-										</div>
-									</div>
-									<div class="text-[#30D158]">
-										<div
-											class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
-											<p class="font-semibold mb-1">
-												BSC kịch bản 2
-											</p>
-											<div class="grid grid-cols-2 font-semibold">
-												<p>2024</p>
-												<p>2025</p>
-											</div>
-										</div>
-										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
-											?>
-											<div
-												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
-												<p>6.1</p>
-												<p>5.25</p>
-											</div>
-											<?php
-										}
-										?>
-										<div
-											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
-											<p>22,842</p>
-											<p>23,839</p>
-										</div>
-									</div>
+								<div class="w-[15%]">
+									Ngành
 								</div>
-								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
-									<div
-										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
-										<p class="font-semibold mb-1">
-											Consensus 2024
-										</p>
-										<div class="grid grid-cols-3 font-semibold">
-											<p>Min</p>
-											<p>TB</p>
-											<p>Max</p>
-										</div>
-									</div>
-									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
-										?>
-										<div
-											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
-											<p>6.1</p>
-											<p>5.25</p>
-											<p>5.25</p>
-										</div>
-										<?php
-									}
-									?>
-									<div class="m-auto">
-										<p>6.1</p>
-									</div>
+								<div class="w-[15%]">
+									DTT 2024
+									<p>(tỷ VND)</p>
 								</div>
-								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
-									<div
-										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
-										<p class="font-semibold mb-1">
-											Consensus 2025
-										</p>
-										<div class="grid grid-cols-3 font-semibold">
-											<p>Min</p>
-											<p>TB</p>
-											<p>Max</p>
-										</div>
-									</div>
-									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
-										?>
-										<div
-											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
-											<p>6.1</p>
-											<p>5.25</p>
-											<p>5.25</p>
-										</div>
-										<?php
-									}
-									?>
-									<div class="m-auto">
-										<p>6.1</p>
-									</div>
+								<div class="w-[17%]">
+									LNST CĐTS
+								</div>
+								<div class="w-[17%]">
+									EPS <br>
+									2024
+								</div>
+								<div class="w-[21%]">
+									Giá mục tiêu <br>
+									2024/2025
 								</div>
 							</div>
+							<div
+								class="scroll-bar-custom overflow-y-auto max-h-80 prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                <?php 
+                                 for ($i = 0; $i < 12; $i++) {
+                                 ?>
+                                 <div class="flex items-center min-h-[30px]">
+                                     <div class="w-[15%] px-3 py-1">
+                                         <a href="">BID</a>
+                                     </div>
+                                     <div class="w-[15%] px-3 py-1">
+                                         Ngân hàng
+                                     </div>
+                                     <div class="w-[15%] px-3 py-1">
+                                         81,424
+                                     </div>
+                                     <div class="w-[17%] px-3 py-1">
+                                         45%
+                                     </div>
+                                     <div class="w-[17%] px-3 py-1">
+                                         24,796
+                                     </div>
+                                     <div class="w-[21%] px-3 py-1">
+                                         18,900
+                                     </div>
+                                 </div>
+                                  <?php 
+                                 } 
+                                ?>
+							</div>
+                            
 						</div>
-
 					</div>
-
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
-						for ( $i = 0; $i < 3; $i++ )
+						for ( $i = 0; $i < 2; $i++ )
 						{
 							?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo vĩ mô tuần
-									</a>
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
 									<div class="flex flex-col gap-1.5">
 										<span
 											class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
@@ -377,10 +240,20 @@ get_header();
 							</div>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo ngành
-									</a>
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
 									<div class="flex flex-col gap-1.5">
 										<span
 											class="inline-block rounded-[45px] text-[#FF0017] bg-[#FFD9DC] px-4 py-0.5 text-[12px] font-semibold">Tiêu
@@ -407,10 +280,20 @@ get_header();
 							</div>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo ngành
-									</a>
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
 									<div class="flex flex-col gap-1.5">
 										<span
 											class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung

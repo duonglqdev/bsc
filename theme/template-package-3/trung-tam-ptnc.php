@@ -110,7 +110,7 @@ get_header();
 					<div class="flex flex-col">
 						<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
 							<div
-								class="w-[48.8%] border-r border-[#C9CCD2 text-primary-300 font-medium">
+								class="w-[48.8%] border-r border-[#C9CCD2] text-primary-300 font-medium">
 								<div
 									class="flex justify-end items-center pt-[30px] pb-[13px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5 font-semibold">
 									<div class="w-[60px]">
