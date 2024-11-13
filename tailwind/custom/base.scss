@@ -856,3 +856,17 @@ button#ib-button-messaging {
 		@apply bg-green;
 	}
 }
+
+.datepicker-controls {
+	button{
+		@apply p-2.5;
+	}
+	svg{
+		@apply w-4 h-4 text-gray-800;
+	}
+}
+.performance-chart{
+	.subscribe{
+		@apply lg:w-[447px] pl-[17px];
+	}
+}

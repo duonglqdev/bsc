@@ -134,7 +134,7 @@ get_header();
 					</div>
 
 					<div class="mt-10 mb-[82px]">
-						<h2 class="font-bold text-2xl">Dự báo KQKD</h2>
+						<h2 class="font-bold text-2xl">Dự báo triển vọng ngành</h2>
 						<div class="relative">
 							<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 							<div
