@@ -108,8 +108,128 @@ get_header();
 						</a>
 					</div>
 					<div class="flex flex-col">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame 1000010108.png"
-							alt="">
+						<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
+							<div
+								class="w-[48.8%] border-r border-[#C9CCD2] text-primary-300 font-medium">
+								<div
+									class="flex justify-end items-center pt-[30px] pb-[13px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5 font-semibold">
+									<div class="w-[60px]">
+										<p>
+											2023
+										</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-semibold">
+										GDP (YoY%)
+									</div>
+									<div class="flex-1 text-center">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-semibold">
+										CPI trung bình (YoY%)*
+									</div>
+									<div class="flex-1 text-center">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-semibold">
+										Xuất khẩu (YoY%)*
+									</div>
+									<div class="flex-1 text-center">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-semibold">
+										Nhập khẩu (YoY%)*
+									</div>
+									<div class="flex-1 text-center">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-semibold">
+										LSĐH (YoY%)*
+									</div>
+									<div class="flex-1 text-center">
+										<p>6.1</p>
+									</div>
+								</div>
+								<div class="flex gap-1 items-center min-h-[30px]">
+									<div class="w-[66%] px-2 py-1 font-bold">
+										USD/VND LNH trung bình
+									</div>
+									<div class="flex-1 text-center font-semibold">
+										<p>23,839</p>
+									</div>
+								</div>
+							</div>
+							<div class="flex-1 bg-[#F5FCFF] grid grid-cols-2 text-center">
+								<div class="text-[#FF0017]">
+									<div
+										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										<p class="font-semibold mb-1">
+											BSC kịch bản 1
+										</p>
+										<div class="grid grid-cols-2 font-semibold">
+											<p>2024</p>
+											<p>2025</p>
+										</div>
+									</div>
+									<?php
+									for ( $i = 0; $i < 5; $i++ )
+									{
+										?>
+										<div
+											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+											<p>6.1</p>
+											<p>5.25</p>
+										</div>
+										<?php
+									}
+									?>
+									<div
+										class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+										<p>22,842</p>
+										<p>23,839</p>
+									</div>
+								</div>
+								<div class="text-[#30D158]">
+									<div
+										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										<p class="font-semibold mb-1">
+											BSC kịch bản 2
+										</p>
+										<div class="grid grid-cols-2 font-semibold">
+											<p>2024</p>
+											<p>2025</p>
+										</div>
+									</div>
+									<?php
+									for ( $i = 0; $i < 5; $i++ )
+									{
+										?>
+										<div
+											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+											<p>6.1</p>
+											<p>5.25</p>
+										</div>
+										<?php
+									}
+									?>
+									<div
+										class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+										<p>22,842</p>
+										<p>23,839</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<div class="text-right mt-4">
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">

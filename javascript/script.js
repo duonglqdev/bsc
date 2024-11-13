@@ -1357,155 +1357,227 @@ import WOW from 'wowjs';
 				}, debounceDelay);
 			}
 		);
-// Biểu đồ dự báo thị trường
-		var options = {
-			chart: {
-				type: 'line',
-				height: 364,
-                toolbar: {
-                    show: false
-                }
-			},
-			title: {
-				text: 'Dự báo VN-Index 2024',
-				align: 'center',
-				margin: 0,
-				offsetY: 10,
-				style: {
-					fontSize: '18px',
-					fontWeight: 'bold',
-					color: '#235BA8',
-				},
-			},
-			series: [
-				{
-					name: 'VN-Index',
-					data: [50, 200, 150, 300, 400, 500, 700, 800, 900],
-				},
-				{
-					name: 'Dự báo KB2 (Tăng)',
-					data: [
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						900,
-						1000,
-						1100,
-						1200,
-					],
-					dashArray: 5,
-					color: '#00E396',
-				},
-				{
-					name: 'Dự báo KB1 (Giảm)',
-					data: [
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						null,
-						900,
-						800,
-						600,
-						400,
-					],
-					dashArray: 5,
-					color: '#FF4560',
-				},
-			],
-			xaxis: {
-				categories: [
-					'T01',
-					'T02',
-					'T03',
-					'T04',
-					'T05',
-					'T06',
-					'T07',
-					'T08',
-					'T09',
-					'T10',
-					'T11',
-					'2025',
-				],
-			},
-			yaxis: {
-				labels: {
-					formatter: function (value) {
-						return Math.round(value);
+
+		function forecastChart() {
+			// Biểu đồ dự báo thị trường
+			var options = {
+				chart: {
+					type: 'line',
+					height: 364,
+					toolbar: {
+						show: false,
 					},
 				},
-				min: -100,
-				max: 2000,
-			},
-			annotations: {
-				yaxis: [
+				title: {
+					text: 'Dự báo VN-Index 2024',
+					align: 'center',
+					margin: 0,
+					offsetY: 10,
+					style: {
+						fontSize: '18px',
+						fontWeight: 'bold',
+						color: '#235BA8',
+					},
+				},
+				series: [
 					{
-						y: 1000,
-						borderColor: '#00E396',
-						label: {
+						name: 'VN-Index',
+						data: [50, 200, 150, 300, 400, 500, 700, 800, 900],
+					},
+					{
+						name: 'Dự báo KB2 (Tăng)',
+						data: [
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							900,
+							1000,
+							1100,
+							1200,
+						],
+						dashArray: 5,
+						color: '#00E396',
+					},
+					{
+						name: 'Dự báo KB1 (Giảm)',
+						data: [
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							null,
+							900,
+							800,
+							600,
+							400,
+						],
+						dashArray: 5,
+						color: '#FF4560',
+					},
+				],
+				xaxis: {
+					categories: [
+						'T01',
+						'T02',
+						'T03',
+						'T04',
+						'T05',
+						'T06',
+						'T07',
+						'T08',
+						'T09',
+						'T10',
+						'T11',
+						'2025',
+					],
+				},
+				yaxis: {
+					labels: {
+						formatter: function (value) {
+							return Math.round(value);
+						},
+					},
+					min: -100,
+					max: 2000,
+				},
+				annotations: {
+					yaxis: [
+						{
+							y: 1000,
 							borderColor: '#00E396',
-							style: {
-								color: '#fff',
-								background: '#00E396',
+							label: {
+								borderColor: '#00E396',
+								style: {
+									color: '#fff',
+									background: '#00E396',
+								},
+								text: 'KB2: 1000.00',
 							},
-							text: 'KB2: 1000.00',
 						},
-					},
-					{
-						y: 523,
-						borderColor: '#775DD0',
-						label: {
+						{
+							y: 523,
 							borderColor: '#775DD0',
-							style: {
-								color: '#fff',
-								background: '#775DD0',
+							label: {
+								borderColor: '#775DD0',
+								style: {
+									color: '#fff',
+									background: '#775DD0',
+								},
+								text: 'KB cơ sở: 523.00',
 							},
-							text: 'KB cơ sở: 523.00',
 						},
+						{
+							y: 2.18,
+							borderColor: '#FF4560',
+							label: {
+								borderColor: '#FF4560',
+								style: {
+									color: '#fff',
+									background: '#FF4560',
+								},
+								text: 'KB1: 2.18',
+							},
+						},
+					],
+				},
+				colors: ['#008FFB', '#00E396', '#FF4560'],
+				stroke: {
+					width: [3, 3, 3],
+					curve: 'smooth',
+				},
+				markers: {
+					size: [4, 0, 0],
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+				},
+				legend: {
+					show: false,
+				},
+			};
+			var chart = new ApexCharts(
+				document.querySelector('#chart-forecast'),
+				options
+			);
+			chart.render();
+		}
+		forecastChart();
+		function performanceChart() {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 514,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'BSC10',
+						data: [90, 70, 150, 130, 160, 140, 170, 150, 155],
 					},
 					{
-						y: 2.18,
-						borderColor: '#FF4560',
-						label: {
-							borderColor: '#FF4560',
-							style: {
-								color: '#fff',
-								background: '#FF4560',
-							},
-							text: 'KB1: 2.18',
-						},
+						name: 'VNINDEX',
+						data: [40, 50, 70, 65, 74, 68, 72, 74, 72],
+					},
+					{
+						name: 'VNDIAMOND',
+						data: [20, 45, 50, 42, 48, 44, 46, 50, 49],
 					},
 				],
-			},
-			colors: ['#008FFB', '#00E396', '#FF4560'],
-			stroke: {
-				width: [3, 3, 3],
-				curve: 'smooth',
-			},
-			markers: {
-				size: [4, 0, 0],
-			},
-			tooltip: {
-				shared: true,
-				intersect: false,
-			},
-			legend: {
-				show: false,
-			},
-		};
-		var chart = new ApexCharts(
-			document.querySelector('#chart-forecast'),
-			options
-		);
-		chart.render();
+				xaxis: {
+					categories: [
+						'19 Sep',
+						'20 Sep',
+						'21 Sep',
+						'22 Sep',
+						'23 Sep',
+						'24 Sep',
+						'25 Sep',
+						'26 Sep',
+						'27 Sep',
+					],
+					
+				},
+				yaxis: {
+				
+					min: 0,
+					max: 200,
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+				},
+				markers: {
+					size: 4,
+				},
+				colors: ['#20C997', '#FFC107', '#007BFF'],
+				stroke: {
+					curve: 'smooth',
+					width: 2
+				},
+				legend: {
+					position: 'bottom',
+					horizontalAlign: 'left',
+					offsetY: 10,
+				},
+			};
+
+			var chart = new ApexCharts(
+				document.querySelector('#performance-chart'),
+				options
+			);
+			chart.render();
+		}
+		performanceChart();
 	});
 })(jQuery);
