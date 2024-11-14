@@ -297,7 +297,6 @@ function bsc_pagination($custom_query = null, $custom_paged = null)
 	}
 
 	echo '<ul class="flex items-center gap-[11px] h-9 text-base">' . "\n";
-
 	/** Previous Post Link */
 	if (get_previous_posts_link())
 		printf('<li>%s</li>' . "\n", get_previous_posts_link(svg('angle-left')));
@@ -330,6 +329,81 @@ function bsc_pagination($custom_query = null, $custom_paged = null)
 	/** Next Post Link */
 	if (get_next_posts_link())
 		printf('<li>%s</li>' . "\n", get_next_posts_link(svg('angle-right')));
+?>
+	</ul>
+<?php
+}
+
+/**
+ * Displays pagination style by number page
+ */
+function bsc_pagination_ajax($custom_query = null, $custom_paged = null)
+{
+
+	if (!$custom_query) {
+		global $wp_query;
+		$custom_query = $wp_query;
+	}
+	if ($custom_query->max_num_pages <= 1) {
+		return; // Dừng nếu chỉ có 1 trang
+	}
+	if (!$custom_paged) {
+		$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+		$custom_paged = $paged;
+	}
+	$max = intval($custom_query->max_num_pages);
+
+	/** Add current page to the array */
+	if ($custom_paged >= 1)
+		$links[] = $custom_paged;
+
+	/** Add the pages around the current page to the array */
+	if ($custom_paged >= 3) {
+		$links[] = $custom_paged - 1;
+		$links[] = $custom_paged - 2;
+	}
+
+	if (($custom_paged + 2) <= $max) {
+		$links[] = $custom_paged + 2;
+		$links[] = $custom_paged + 1;
+	}
+
+	echo '<ul class="flex items-center gap-[11px] h-9 text-base">' . "\n";
+	/** Previous Post Link */
+	if ($custom_paged > 1) {
+		$custom_paged_prev = $custom_paged - 1;
+		printf('<li><button type="button" data-paged="' . $custom_paged_prev . '" class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">' . svg('angle-left') . '</button></li>' . "\n",);
+	}
+	/** Link to first page, plus ellipses if necessary */
+	if (! in_array(1, $links)) {
+		$class = 1 == $custom_paged ? ' class="active"' : '';
+		printf('<li><button type="button"  data-paged="1" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">%s</button></li>' . "\n", $class, '1');
+
+		if (! in_array(2, $links))
+			echo '<li>…</li>';
+	}
+
+	/** Link to current page, plus 2 pages in either direction if necessary */
+	sort($links);
+	foreach ((array) $links as $link) {
+		$class = $custom_paged == $link ? ' active' : '';
+		printf('<li><button type="button"  data-paged="' . $link . '" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">%s</button></li>' . "\n", $class, $link);
+	}
+
+	/** Link to last page, plus ellipses if necessary */
+	if (! in_array($max, $links)) {
+		if (! in_array($max - 1, $links))
+			echo '<li>…</li>' . "\n";
+
+		$class = $custom_paged == $max ? 'active' : '';
+		printf('<li><button type="button" data-paged="' . $max . '"  class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">%s</button></li>' . "\n", $class,  $max);
+	}
+
+	/** Next Post Link */
+	if ($custom_paged < $max) {
+		$custom_paged_next = $custom_paged + 1;
+		printf('<li><button type="button" data-paged=' . $custom_paged_next . ' class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" >' . svg('angle-right') . '</button></li>' . "\n",);
+	}
 ?>
 	</ul>
 <?php
@@ -416,7 +490,7 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	if ($paged < $max) {
 		$page_next = $paged + 1;
 		$url_next = $url_tax . '?page=' . $page_next . $endpoint;
-		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="' . $url_next . '">' . svg('angle-right') . '</a></li>' . "\n",);
+		printf('<li><a class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="' . $url_next . '">' . svg('angle-right') . '</a></li>' . "\n",);
 	}
 ?>
 	</ul>

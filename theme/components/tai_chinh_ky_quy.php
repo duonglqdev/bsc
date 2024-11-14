@@ -51,7 +51,7 @@
                                     class="list-icon space-y-4 font-Helvetica mb-[15px] lg:w-[520px] max-w-full">
                                     <?php while (have_rows('mota')): the_row(); ?>
                                         <li class="list-icon-item">
-                                            <?php the_sub_field('mota') ?>
+                                            <?php the_sub_field('info') ?>
                                         </li>
                                     <?php endwhile; ?>
                                 </ul>

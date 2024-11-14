@@ -46,9 +46,9 @@ function filter_jobs_ajax()
         endwhile;
 ?>
         <div class="bsc-pagination mt-12 flex justify-center">
-            <?php bsc_pagination($filter_job, $paged) ?>
+            <?php bsc_pagination_ajax($filter_job, $paged) ?>
         </div>
-<?php
+    <?php
     else :
         echo '<p>' . __('Không có công việc nào phù hợp', 'bsc') . '</p>';
     endif;
@@ -58,6 +58,92 @@ function filter_jobs_ajax()
     die();
 }
 
+
+add_action('wp_ajax_filter_chuyengia', 'filter_chuyengia_ajax');
+add_action('wp_ajax_nopriv_filter_chuyengia', 'filter_chuyengia_ajax');
+
+function filter_chuyengia_ajax()
+{
+    check_ajax_referer('common_nonce', 'security');
+    $thanh_pho = isset($_POST['thanh_pho']) ? intval($_POST['thanh_pho']) : '';
+    $kinh_nghiem = isset($_POST['kinh_nghiem']) ? intval($_POST['kinh_nghiem']) : '';
+    $menh = isset($_POST['menh']) ? intval($_POST['menh']) : '';
+    $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van']) ? intval($_POST['trinh_do_hoc_van']) : '';
+    $name_chuyen_gia = isset($_POST['name_chuyen_gia']) ? $_POST['name_chuyen_gia'] : '';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 12;
+    $args = array(
+        'post_type' => 'chuyen-gia',
+        'post_status' => 'publish',
+        'posts_per_page' => $posts_per_page,
+        'paged' => $paged,
+        'tax_query' => array(
+            'relation' => 'AND',
+        ),
+    );
+    if (!empty($thanh_pho)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'thanh-pho',
+            'field' => 'term_id',
+            'terms' => $thanh_pho,
+        );
+    }
+
+    if (!empty($kinh_nghiem)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'kinh-nghiem',
+            'field' => 'term_id',
+            'terms' => $kinh_nghiem,
+        );
+    }
+
+    if (!empty($menh)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'menh',
+            'field' => 'term_id',
+            'terms' => $menh,
+        );
+    }
+    if (!empty($trinh_do_hoc_van)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'trinh-do-hoc-van',
+            'field' => 'term_id',
+            'terms' => $trinh_do_hoc_van,
+        );
+    }
+    if (!empty($name_chuyen_gia)) {
+        $args['s'] = $name_chuyen_gia;
+    }
+    $filter_job = new WP_Query($args);
+
+    if ($filter_job->have_posts()) :
+    ?>
+        <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5 gap-y-6">
+            <?php
+            while ($filter_job->have_posts()) :
+                $filter_job->the_post();
+                get_template_part('template-parts/content', get_post_type());
+            endwhile;
+            ?>
+        </div>
+        <div class="pagination-center">
+            <?php get_template_part('components/pagination', '', array(
+                'get' => 'ajax',
+                'query' =>  $filter_job,
+                'paged' => 1,
+                'posts_to_show' => $posts_per_page
+            )) ?>
+        </div>
+
+<?php
+    else :
+        echo '<p>' . __('Không có chuyên gia nào phù hợp', 'bsc') . '</p>';
+    endif;
+
+    wp_reset_postdata();
+
+    die();
+}
 
 add_action('wp_ajax_fetch_portfolio_data', 'fetch_portfolio_data');
 add_action('wp_ajax_nopriv_fetch_portfolio_data', 'fetch_portfolio_data');
