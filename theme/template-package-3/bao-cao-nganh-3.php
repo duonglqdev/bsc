@@ -45,7 +45,7 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="pt-[54px] mb-[100px]">
+	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
@@ -165,11 +165,11 @@ get_header();
 												CNTT - Viễn thông
 											</div>
 											<div
-												class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+												class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 												Tích cực
 											</div>
 											<div
-												class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 text-[#30D158]">
+												class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
 												Tích cực
 											</div>
 										</div>
@@ -184,11 +184,11 @@ get_header();
 											Vận tải & Cảng biển
 										</div>
 										<div
-											class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+											class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 											Tích cực
 										</div>
 										<div
-											class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 text-black">
+											class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
 											Trung lập
 										</div>
 									</div>
