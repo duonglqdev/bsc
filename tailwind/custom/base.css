@@ -333,6 +333,9 @@ header.active {
   border-radius: 10px;
   background: #235ba8;
 }
+.scroll-bar-custom.scroll-bar-x::-webkit-scrollbar {
+  height: 3px;
+}
 
 .about_culture-swiper .is-selected .about_culture-item {
   @apply after:bg-opacity-0;

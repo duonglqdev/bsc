@@ -1546,10 +1546,8 @@ import WOW from 'wowjs';
 						'26 Sep',
 						'27 Sep',
 					],
-					
 				},
 				yaxis: {
-				
 					min: 0,
 					max: 200,
 				},
@@ -1563,7 +1561,7 @@ import WOW from 'wowjs';
 				colors: ['#20C997', '#FFC107', '#007BFF'],
 				stroke: {
 					curve: 'smooth',
-					width: 2
+					width: 2,
 				},
 				legend: {
 					position: 'bottom',
@@ -1579,5 +1577,43 @@ import WOW from 'wowjs';
 			chart.render();
 		}
 		performanceChart();
+		function handleScrollTable() {
+			function enableHorizontalScroll(element) {
+				let isDown = false;
+				let startX;
+				let scrollLeft;
+
+				element.addEventListener('mousedown', (e) => {
+					isDown = true;
+					element.classList.add('active');
+					startX = e.pageX - element.offsetLeft;
+					scrollLeft = element.scrollLeft;
+				});
+
+				element.addEventListener('mouseleave', () => {
+					isDown = false;
+					element.classList.remove('active');
+				});
+
+				element.addEventListener('mouseup', () => {
+					isDown = false;
+					element.classList.remove('active');
+				});
+
+				element.addEventListener('mousemove', (e) => {
+					if (!isDown) return;
+					e.preventDefault();
+					const x = e.pageX - element.offsetLeft;
+					const walk = (x - startX) * 3; // Điều chỉnh tốc độ kéo nếu cần
+					element.scrollLeft = scrollLeft - walk;
+				});
+			}
+
+			// Áp dụng cho tất cả các phần tử có lớp .scroll-container
+			document.querySelectorAll('.scroll-container').forEach((el) => {
+				enableHorizontalScroll(el);
+			});
+		}
+		handleScrollTable();
 	});
 })(jQuery);

@@ -249,6 +249,12 @@ header {
 		border-radius: 10px;
 		background: #235ba8;
 	}
+	&.scroll-bar-x{
+		&::-webkit-scrollbar {
+			height: 3px;
+
+		}
+	}
 }
 
 .about_culture-swiper {

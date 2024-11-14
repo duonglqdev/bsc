@@ -45,7 +45,7 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="pt-[54px] mb-[100px]">
+	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="font-bold text-2xl">
 				Danh mục
