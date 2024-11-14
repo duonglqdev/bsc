@@ -20,7 +20,6 @@
                 "lang" => pll_current_language(),
                 'index' => 1,
                 "groupid" => $chuong_trinh_khuyen_mai_id,
-                'hot' => 1
             );
             $response = get_data_with_cache('GetNews', $array_data, $time_cache);
             if ($response) {
