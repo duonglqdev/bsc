@@ -11308,7 +11308,7 @@
                             },
                             "choices": {
                                 "kyquy": "Ký quỹ",
-                                "ungtien: Ứng tiền": "ungtien: Ứng tiền"
+                                "ungtien": "Ứng tiền"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -12169,7 +12169,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "block",
+                                    "layout": "table",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735ccba4961f",
@@ -12230,7 +12230,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "",
+                            "layout": "table",
                             "sub_fields": [
                                 {
                                     "key": "field_6735cc9b4961b",
@@ -12304,5 +12304,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731581192
+    "modified": 1731581980
 }
