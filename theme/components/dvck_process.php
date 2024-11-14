@@ -85,6 +85,11 @@ $generateRandomString = generateRandomString();
                                                     <?php the_sub_field('title') ?>
                                                 </h3>
                                             <?php } ?>
+                                            <?php if (get_sub_field('mota')) { ?>
+                                                <p class="font-bold mb-4">
+                                                    <?php the_sub_field('mota') ?>
+                                                </p>
+                                            <?php } ?>
                                             <?php if (have_rows('danh_sach')) { ?>
                                                 <ul class="list-icon space-y-4 font-Helvetica mb-6">
                                                     <?php while (have_rows('danh_sach')): the_row(); ?>

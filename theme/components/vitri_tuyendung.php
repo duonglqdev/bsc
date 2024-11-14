@@ -78,7 +78,7 @@
 				endwhile;
 				?>
 				<div class="bsc-pagination mt-12 flex justify-center">
-					<?php bsc_pagination($filter_job, 1) ?>
+					<?php bsc_pagination_ajax($filter_job, 1) ?>
 				</div>
 			</div>
 			<div id="tuyen-dung-loading" class="hidden">

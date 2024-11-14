@@ -36,7 +36,7 @@
                 <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
                     <?php while (have_rows('uudai')): the_row(); ?>
                         <div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
-                            style="background-color:#E5F5FF;">
+                            style="background-color:<?php echo get_sub_field('color') ?>;">
                             <div class="max-w-[155px] w-full mx-auto">
                                 <div class="relative w-full pt-[100%]">
                                     <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105')) ?>

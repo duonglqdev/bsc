@@ -902,41 +902,6 @@ import WOW from 'wowjs';
 				},
 			});
 		});
-		$('.expert_item .expert-open').on('click', function () {
-			const parent = $(this).closest('.expert_item');
-
-			$('#expert-modal .expert-img').html(
-				parent.find('.expert-img img').clone()
-			);
-
-			$('#expert-modal .expert-name').text(
-				parent.find('.expert-name').text()
-			);
-
-			$('#expert-modal .expert-destiny').html(
-				parent.find('.expert-destiny').html()
-			);
-
-			$('#expert-modal .expert-qr').html(
-				parent.find('.expert-qr img').clone()
-			);
-
-			$('#expert-modal .expert-info').html(
-				parent.find('.expert-contact a').clone()
-			);
-
-			$('#expert-modal .expert-info').append(
-				parent.find('.expert-info li').clone()
-			);
-
-			$('#expert-modal .expert-btn').html(
-				parent.find('.expert-btn a').clone()
-			);
-
-			$('#expert-modal .expert-desc').html(
-				parent.find('.expert-desc').html()
-			);
-		});
 	}
 
 	function stickyHeader() {
@@ -1033,6 +998,121 @@ import WOW from 'wowjs';
 	}
 
 	jQuery(document).ready(function ($) {
+		function load__chuyen_gia(page = 1) {
+			var thanh_pho = $(
+				'.list_chuyen_gia input[name="thanh_pho"]:checked'
+			).val();
+			var kinh_nghiem = $('#form-search-expert #kinh_nghiem').val();
+			var menh = $('#form-search-expert #menh').val();
+			var trinh_do_hoc_van = $(
+				'#form-search-expert #trinh_do_hoc_van'
+			).val();
+			var name_chuyen_gia = $(
+				'#form-search-expert #name_chuyen_gia'
+			).val();
+			var paged = $('#form-search-expert').attr('data-paged');
+			var posts_per_page = $('#posts_per_page').val();
+			$.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'filter_chuyengia',
+					thanh_pho: thanh_pho,
+					kinh_nghiem: kinh_nghiem,
+					menh: menh,
+					trinh_do_hoc_van: trinh_do_hoc_van,
+					name_chuyen_gia: name_chuyen_gia,
+					paged: paged,
+					posts_per_page: posts_per_page,
+					security: ajaxurl.security,
+				},
+				beforeSend: function () {
+					$('#list-chuyen-gia').html('');
+					$('#chuyen-gia-loading').removeClass('hidden');
+				},
+				success: function (response) {
+					$('#chuyen-gia-loading').addClass('hidden');
+					$('#list-chuyen-gia').html(response);
+				},
+			});
+		}
+		$(document).on(
+			'click',
+			'#list-chuyen-gia .bsc-pagination button',
+			function (e) {
+				e.preventDefault();
+				var page = parseInt(
+					$('#form-search-expert').attr('data-paged')
+				);
+				if ($(this).hasClass('item-paged')) {
+					page = parseInt($(this).attr('data-paged'));
+				} else if ($(this).hasClass('prev')) {
+					page = page - 1;
+				} else if ($(this).hasClass('next')) {
+					page = page + 1;
+				} else {
+					page = 1;
+				}
+				$('#form-search-expert').attr('data-paged', page);
+				load__chuyen_gia(page);
+			}
+		);
+		$(document).on(
+			'change',
+			'#form-search-expert select, .list_chuyen_gia input[type="radio"],#posts_per_page',
+			function () {
+				load__chuyen_gia(1);
+			}
+		);
+		let typingTimer;
+
+		$(document).on(
+			'input',
+			'#form-search-expert #name_chuyen_gia',
+			function () {
+				clearTimeout(typingTimer);
+				typingTimer = setTimeout(function () {
+					load__chuyen_gia(1);
+				}, 1000);
+			}
+		);
+		$(document).on('click', '.expert_item .expert-open', function () {
+			const parent = $(this).closest('.expert_item');
+			if ($('#expert-modal').hasClass('hidden')) {
+				$('.trigger-button').trigger('click');
+			}
+			$('#expert-modal .expert-img').html(
+				parent.find('.expert-img img').clone()
+			);
+
+			$('#expert-modal .expert-name').text(
+				parent.find('.expert-name').text()
+			);
+
+			$('#expert-modal .expert-destiny').html(
+				parent.find('.expert-destiny').html()
+			);
+
+			$('#expert-modal .expert-qr').html(
+				parent.find('.expert-qr img').clone()
+			);
+
+			$('#expert-modal .expert-info').html(
+				parent.find('.expert-contact a').clone()
+			);
+
+			$('#expert-modal .expert-info').append(
+				parent.find('.expert-info li').clone()
+			);
+
+			$('#expert-modal .expert-btn').html(
+				parent.find('.expert-btn a').clone()
+			);
+
+			$('#expert-modal .expert-desc').html(
+				parent.find('.expert-desc').html()
+			);
+		});
 		function load_jobs(page = 1) {
 			var nghiep_vu = $('#nghiep_vu').val();
 			var noi_lam_viec = $('#noi_lam_viec').val();
@@ -1058,17 +1138,18 @@ import WOW from 'wowjs';
 		}
 		$(document).on(
 			'click',
-			'#vi-tri-tuyen-dung .bsc-pagination a, #tuyen-dung-tim-kiem',
+			'#vi-tri-tuyen-dung .bsc-pagination button, #tuyen-dung-tim-kiem',
 			function (e) {
 				e.preventDefault();
 				var page = parseInt($('#vi-tri-tuyen-dung').attr('data-paged'));
 				if ($(this).hasClass('item-paged')) {
-					page = parseInt($(this).text());
+					page = parseInt($(this).attr('data-paged'));
+					console.log(page);
 				} else if ($(this).hasClass('prev')) {
 					page = page - 1;
 				} else if ($(this).hasClass('next')) {
 					page = page + 1;
-				} else if ($(this).is('button')) {
+				} else {
 					page = 1;
 				}
 				$('#vi-tri-tuyen-dung').attr('data-paged', page);

@@ -54,7 +54,7 @@ if ($style == 'nhdt') {
                     <?php while (have_rows('menu_navigation')) : the_row() ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
