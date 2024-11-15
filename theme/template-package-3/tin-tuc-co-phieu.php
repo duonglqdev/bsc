@@ -22,7 +22,7 @@ get_header();
 					for ( $i = 0; $i < 10; $i++ )
 					{
 						?>
-						<div class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [:not(:last-child)]:border-b [:not(:last-child)]:border-[#E1E1E1] [:not(:last-child)]:pb-8"
+						<div class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8"
 							data-modal-target="document-modal" data-modal-toggle="document-modal"
 							data-doccument="" data-id="">
 							<div class="flex items-center">
