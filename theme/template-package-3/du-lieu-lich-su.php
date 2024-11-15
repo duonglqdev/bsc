@@ -70,43 +70,108 @@ get_header();
 					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 				</button>
 			</div>
-			<div class="rounded-lg overflow-hidden">
-				<table class="w-full max-w-full text-center prose-thead:bg-primary-300 prose-thead:text-white text-xs font-medium prose-thead:font-bold prose-th:py-1.5 prose-thead:px-3 prose-th:border-collapse prose-th:border prose-th:border-white">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Ngày</th>
-                            <th rowspan="2">Đóng cửa </th>
-                            <th rowspan="2">Thay đổi</th>
-                            <th colspan="2">GD khớp lệnh</th>
-                            <th colspan="2">GD thỏa thuận</th>
-                            <th colspan="3">Giá (nghìn VNĐ)</th>
-                        </tr>
-                        <tr>
-                            <th>Khối lượng</th>
-                            <th>Giá trị (tỷ VNĐ)</th>
-                            <th>Khối lượng</th>
-                            <th>Giá trị (tỷ VNĐ)</th>
-                            <th>Mở cửa</th>
-                            <th>Cao nhất</th>
-                            <th>Thấp nhất</th>
-                        </tr>
-                    </thead>
-					<tbody>
+			<div class="rounded-lg overflow-hidden overflow-y-auto scroll-bar-custom max-h-[646px]">
+				<table
+					class="w-full max-w-full text-center prose-thead:bg-primary-300 prose-thead:text-white text-xs font-medium prose-thead:font-bold prose-th:py-1.5 prose-thead:px-3 prose-th:border-collapse prose-th:border prose-th:border-white prose-td:p-3 bg-white prose-thead:sticky prose-thead:top-0">
+					<thead>
 						<tr>
-							<td>01/01/2024</td>
-							<td>2.06</td>
-							<td>0.6 (1.18%)</td>
-							<td>10,000,000</td>
-							<td>22.10</td>
-							<td>0</td>
-							<td>0</td>
-							<td>45.87</td>
-							<td>87.34</td>
-							<td>9.62</td>
+							<th rowspan="2">Ngày</th>
+							<th rowspan="2">Đóng cửa </th>
+							<th rowspan="2">Thay đổi</th>
+							<th colspan="2">GD khớp lệnh</th>
+							<th colspan="2">GD thỏa thuận</th>
+							<th colspan="3">Giá (nghìn VNĐ)</th>
 						</tr>
-						
+						<tr>
+							<th>Khối lượng</th>
+							<th>Giá trị (tỷ VNĐ)</th>
+							<th>Khối lượng</th>
+							<th>Giá trị (tỷ VNĐ)</th>
+							<th>Mở cửa</th>
+							<th>Cao nhất</th>
+							<th>Thấp nhất</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						for ( $i = 0; $i < 7; $i++ )
+						{
+							?>
+							<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+								<td>01/01/2024</td>
+								<td>2.06</td>
+								<td class="text-[#30D158]">0.6 (1.18%)</td>
+								<td>10,000,000</td>
+								<td>22.10</td>
+								<td>0</td>
+								<td>0</td>
+								<td>45.87</td>
+								<td>87.34</td>
+								<td>9.62</td>
+							</tr>
+							<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+								<td>01/01/2024</td>
+								<td>2.06</td>
+								<td class="text-[#FF0017]">0.6 (1.18%)</td>
+								<td>10,000,000</td>
+								<td>22.10</td>
+								<td>0</td>
+								<td>0</td>
+								<td>45.87</td>
+								<td>87.34</td>
+								<td>9.62</td>
+							</tr>
+
+						<?php
+						}
+						?>
 					</tbody>
 				</table>
+			</div>
+			<div class="mt-8">
+				<nav aria-label="Page navigation example" class="flex items-center gap-8 justify-center">
+					<ul class="flex items-center gap-[11px] h-9 text-base">
+						<li>
+							<a href="#"
+								class="flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+								<span class="sr-only">Previous</span>
+								<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round"
+										stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="#"
+								class="active flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">1</a>
+						</li>
+						<li>
+							<a href="#"
+								class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">2</a>
+						</li>
+						<li>
+							<a href="#"
+								class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500">3</a>
+						</li>
+	
+	
+	
+						<li>
+							<a href="#"
+								class="flex items-center justify-center px-2 min-w-9 h-9 rounded leading-tight text-gray-500 bg-white hover:bg-gray-100 hover:text-gray-700">
+								<span class="sr-only">Next</span>
+								<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round"
+										stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+	
+				</nav>
+
 			</div>
 		</div>
 	</section>

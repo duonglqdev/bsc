@@ -611,44 +611,45 @@ get_header();
 				TIN TỨC VỀ MÃ CỔ PHIẾU
 			</h2>
 			<div class="grid grid-cols-2 gap-x-9 gap-y-[46px]">
-				<?php 
-				 for ($i = 0; $i < 6; $i++) {
-				 ?>
-				 <div class="news_service-item">
-					 <div class="flex items-center">
-						 <div
-							 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
-							 <p
-								 class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
-								 2024
-							 </p>
-							 <div
-								 class="flex-1 flex flex-col justify-center items-center text-xl font-bold bg-primary-50 w-full">
-								 <p>20</p>
-								 <p class="text-primary-300 text-xs font-medium">
-								 Tháng 4
-								 </p>
-							 </div>
-						 </div>
-						 <div class="md:ml-[30px] ml-5">
-							 <a href=""
-								 class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
-								 Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
-								 trả lãi, gốc trái phiếu mã BSI32301
-							 </a>
-							 <div class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
-								 BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
-								 trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
-								 thế Top 10 công ty chứng khoán có thị phần môi giới cổ
-								 phiếu, chứng chỉ quỹ và chứng quyền có đảm bảo lớn nhất
-								 tại HoSE
-							 </div>
-						 </div>
-					 </div>
- 
-				 </div>
-				  <?php 
-				 } 
+				<?php
+				for ( $i = 0; $i < 6; $i++ )
+				{
+					?>
+					<div class="news_service-item">
+						<div class="flex items-center">
+							<div
+								class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
+								<p
+									class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
+									2024
+								</p>
+								<div
+									class="flex-1 flex flex-col justify-center items-center text-xl font-bold bg-primary-50 w-full">
+									<p>20</p>
+									<p class="text-primary-300 text-xs font-medium">
+										Tháng 4
+									</p>
+								</div>
+							</div>
+							<div class="md:ml-[30px] ml-5">
+								<a href=""
+									class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
+									Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
+									trả lãi, gốc trái phiếu mã BSI32301
+								</a>
+								<div class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+									BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
+									trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
+									thế Top 10 công ty chứng khoán có thị phần môi giới cổ
+									phiếu, chứng chỉ quỹ và chứng quyền có đảm bảo lớn nhất
+									tại HoSE
+								</div>
+							</div>
+						</div>
+
+					</div>
+				<?php
+				}
 				?>
 			</div>
 		</div>
