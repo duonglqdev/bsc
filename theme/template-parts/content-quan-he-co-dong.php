@@ -49,7 +49,7 @@
 
             <div class="md:ml-[30px] ml-5">
                 <p
-                    class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300 cursor-pointer main_title">
+                    class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
