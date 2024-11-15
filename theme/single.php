@@ -88,8 +88,8 @@ get_header();
 	)) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
-			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
-				<div class="md:col-span-1 col-span-full">
+			<div class="lg:flex gap-[70px]">
+				<div class="lg:w-80 lg:max-w-[35%]">
 					<div class="sticky top-5 z-10">
 						<?php if ($groupid != $chuong_trinh_khuyen_mai_id) { ?>
 							<?php if ($groupid == $trach_nhiem_cong_dong_id) {
@@ -184,7 +184,7 @@ get_header();
 						?>
 					</div>
 				</div>
-				<div class="md:col-span-3 col-span-full">
+				<div class="flex-1">
 					<h1 class="font-bold lg:text-4xl text-2xl mb-6 !leading-snug">
 						<?php echo $title ?>
 					</h1>
