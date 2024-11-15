@@ -1,7 +1,7 @@
 <?php
 
 /**
-Template Name:  [Package 3] Thông tin cổ phiếu tổng quát
+Template Name:  [Package 3] Thông tin cổ phiếu (tổng quan)
  */
 
 get_header();
