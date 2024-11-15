@@ -261,8 +261,8 @@ get_header();
 			<h2 class="heading-title 2xl:mb-10 mb-8">
 				TÀI LIỆU & BÁO CÁO
 			</h2>
-			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
-				<div class="md:col-span-1 col-span-full">
+			<div class="lg:flex gap-[70px]">
+				<div class="lg:w-80 lg:max-w-[35%]">
 					<div class="sticky top-5 z-10">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav">
 							<li>
@@ -295,7 +295,7 @@ get_header();
 
 					</div>
 				</div>
-				<div class="md:col-span-3 col-span-full">
+				<div class="flex-1">
 					<div id="public_infomation">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold">Công bố thông tin</h2>

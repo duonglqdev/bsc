@@ -1658,6 +1658,82 @@ import WOW from 'wowjs';
 			chart.render();
 		}
 		performanceChart();
+
+		function candleChart() {
+			var options = {
+				chart: {
+					type: 'candlestick',
+					height: 286,
+					toolbar: {
+						show: false,
+					},
+					padding: {
+						top: 0,
+						right: 0,
+						bottom: 0,
+						left: 0
+					}
+				},
+				series: [{
+					data: [
+						{ x: new Date(2024, 10, 13, 13, 0), y: [175, 185, 170, 180] },
+						{ x: new Date(2024, 10, 13, 13, 30), y: [180, 190, 175, 185] },
+						{ x: new Date(2024, 10, 13, 14, 0), y: [185, 190, 160, 165] },
+						{ x: new Date(2024, 10, 13, 14, 30), y: [165, 175, 155, 160] },
+						{ x: new Date(2024, 10, 13, 15, 0), y: [160, 170, 150, 155] },
+						{ x: new Date(2024, 10, 13, 15, 30), y: [155, 165, 150, 160] },
+						{ x: new Date(2024, 10, 13, 16, 0), y: [160, 170, 158, 165] },
+						{ x: new Date(2024, 10, 13, 16, 30), y: [165, 170, 160, 168] }
+					]
+				}],
+				xaxis: {
+					type: 'datetime',
+					labels: {
+						format: 'HH:mm dd-MM',
+						style: {
+							colors: '#31333f80', // Màu chữ cho trục x
+							fontSize: '14px'
+						}
+					}
+				},
+				yaxis: {
+					tooltip: {
+						enabled: true
+					},
+					min: 140,
+					max: 190,
+					labels: {
+						style: {
+							colors: '#31333f80', // Màu chữ cho trục y
+							fontSize: '14px'
+						}
+					}
+				},
+				grid: {
+					show: true,
+					borderColor: '#e7e7e7',
+				},
+				tooltip: {
+					shared: true,
+					custom: function({ series, seriesIndex, dataPointIndex, w }) {
+						const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
+						const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
+						const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
+						const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
+						return `<div class='p-2'><strong>Open:</strong> ${o}<br><strong>High:</strong> ${h}<br><strong>Low:</strong> ${l}<br><strong>Close:</strong> ${c}</div>`;
+					}
+				},
+			};
+	
+			
+			var chart = new ApexCharts(
+				document.querySelector('#chart-candle'),
+				options
+			);
+			chart.render();
+		}
+		candleChart();
+
 		function handleScrollTable() {
 			function enableHorizontalScroll(element) {
 				let isDown = false;

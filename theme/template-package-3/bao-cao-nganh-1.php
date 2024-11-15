@@ -45,7 +45,7 @@ get_header();
 			</ul>
 		</div>
 	</section>
-    <section class="mt-[54px] mb-[100px]">
+	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
@@ -67,13 +67,15 @@ get_header();
 							</li>
 							<li>
 								<a href=""
-									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo cáo doanh nghiệp</a>
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo
+									cáo doanh nghiệp</a>
 							</li>
 							<li>
 								<a href=""
-									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo cáo nhanh</a>
+									class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Báo
+									cáo nhanh</a>
 							</li>
-							
+
 						</ul>
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
@@ -130,136 +132,137 @@ get_header();
 							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</button>
 					</div>
-					
+
 
 					<div class="grid lg:grid-cols-2 gap-6">
-                    <?php
-				for ( $i = 0; $i < 2; $i++ )
-				{
-					?>
-					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-						<div class="flex items-center justify-between mb-4">
-							<div class="flex items-center gap-4">
-								<a href=""
-									class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-									BMP
-								</a>
-								<div class="flex flex-col font-Helvetica text-xs">
-									<p>
-										Giá mục tiêu
+						<?php
+						for ( $i = 0; $i < 2; $i++ )
+						{
+							?>
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+								<div class="flex items-center justify-between mb-4">
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
+									<div class="space-y-1.5 text-right">
+										<span
+											class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
+											cực</span>
+										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
+									</div>
+								</div>
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+									<a href="" class="line-clamp-2">
+										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
+										quỹ_20240808
+									</a>
+								</h3>
+								<div class="flex items-center justify-between">
+									<p class="italic text-paragraph text-xs font-Helvetica">
+										68 Lượt tải xuống
 									</p>
-									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
-									</p>
+									<a href=""
+										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
+									</a>
 								</div>
 							</div>
-							<div class="flex flex-col gap-1.5">
-								<span
-									class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
-									cực</span>
-								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-							</div>
-						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-							<a href="" class="line-clamp-2">
-								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-								quỹ_20240808
-							</a>
-						</h3>
-						<div class="flex items-center justify-between">
-							<p class="italic text-paragraph text-xs font-Helvetica">
-								68 Lượt tải xuống
-							</p>
-							<a href=""
-								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
-							</a>
-						</div>
-					</div>
-					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-						<div class="flex items-center justify-between mb-4">
-							<div class="flex items-center gap-4">
-								<a href=""
-									class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-									BMP
-								</a>
-								<div class="flex flex-col font-Helvetica text-xs">
-									<p>
-										Giá mục tiêu
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+								<div class="flex items-center justify-between mb-4">
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
+									<div class="space-y-1.5 text-right">
+										<span
+											class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold ">Tích
+											cực</span>
+										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
+									</div>
+								</div>
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+									<a href="" class="line-clamp-2">
+										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
+										quỹ_20240808
+									</a>
+								</h3>
+								<div class="flex items-center justify-between">
+									<p class="italic text-paragraph text-xs font-Helvetica">
+										68 Lượt tải xuống
 									</p>
-									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
-									</p>
+									<a href=""
+										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
+									</a>
 								</div>
 							</div>
-							<div class="flex flex-col gap-1.5">
-								<span
-									class="inline-block rounded-[45px] text-[#FF0017] bg-[#FFD9DC] px-4 py-0.5 text-[12px] font-semibold">Tiêu
-									cực</span>
-								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-							</div>
-						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-							<a href="" class="line-clamp-2">
-								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-								quỹ_20240808
-							</a>
-						</h3>
-						<div class="flex items-center justify-between">
-							<p class="italic text-paragraph text-xs font-Helvetica">
-								68 Lượt tải xuống
-							</p>
-							<a href=""
-								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
-							</a>
-						</div>
-					</div>
-					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-						<div class="flex items-center justify-between mb-4">
-							<div class="flex items-center gap-4">
-								<a href=""
-									class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-									BMP
-								</a>
-								<div class="flex flex-col font-Helvetica text-xs">
-									<p>
-										Giá mục tiêu
+							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+								<div class="flex items-center justify-between mb-4">
+									<div class="flex items-center gap-4">
+										<a href=""
+											class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+											BMP
+										</a>
+										<div class="flex flex-col font-Helvetica text-xs">
+											<p>
+												Giá mục tiêu
+											</p>
+											<p class="font-medium">
+												89,400 <span class="text-[#30D158]">(+23%)</span>
+											</p>
+										</div>
+									</div>
+									
+									<div class="space-y-1.5 text-right">
+										<span
+											class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
+											lập</span>
+										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
+									</div>
+								</div>
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+									<a href="" class="line-clamp-2">
+										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
+										quỹ_20240808
+									</a>
+								</h3>
+								<div class="flex items-center justify-between mt-auto">
+									<p class="italic text-paragraph text-xs font-Helvetica">
+										68 Lượt tải xuống
 									</p>
-									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
-									</p>
+									<a href=""
+										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
+									</a>
 								</div>
 							</div>
-							<div class="flex flex-col gap-1.5">
-								<span
-									class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
-									lập</span>
-								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-							</div>
-						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-							<a href="" class="line-clamp-2">
-								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-								quỹ_20240808
-							</a>
-						</h3>
-						<div class="flex items-center justify-between mt-auto">
-							<p class="italic text-paragraph text-xs font-Helvetica">
-								68 Lượt tải xuống
-							</p>
-							<a href=""
-								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
-							</a>
-						</div>
-					</div>
-					<?php
-				}
-				?>
+							<?php
+						}
+						?>
 					</div>
 					<?php get_template_part( 'components/pagination' ) ?>
 				</div>

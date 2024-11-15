@@ -19,8 +19,8 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
-			<div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
-				<div class="md:col-span-1 col-span-full">
+			<div class="lg:flex gap-[70px]">
+				<div class="lg:w-80 lg:max-w-[35%]">
 					<div class="sticky top-5 z-10">
 						<?php
 						$terms = get_terms(array(
@@ -78,7 +78,7 @@ get_header();
 						<?php } ?>
 					</div>
 				</div>
-				<div class="md:col-span-3 col-span-full">
+				<div class="flex-1">
 					<?php
 					if (isset($_GET['posts_to_show'])) {
 						$post_per_page = $_GET['posts_to_show'];

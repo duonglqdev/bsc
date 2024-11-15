@@ -316,7 +316,7 @@ get_header();
 									</p>
 								</div>
 							</div>
-							<div class="flex flex-col gap-1.5">
+							<div class="space-y-1.5 text-right">
 								<span
 									class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
 									cực</span>

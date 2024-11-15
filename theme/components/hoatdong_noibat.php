@@ -5,8 +5,8 @@
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
-        <div class="grid md:grid-cols-4 2xl:gap-[70px] gap-12">
-            <div class="md:col-span-1 col-span-full">
+        <div class="lg:flex gap-[70px]">
+            <div class="lg:w-80 lg:max-w-[35%]">
                 <div class="sticky top-5 z-10">
                     <ul class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[156px] overflow-y-auto">
                         <?php
@@ -69,7 +69,7 @@
                     }
                     $total_page = ceil($total_post / $post_per_page);
             ?>
-                    <div class="md:col-span-3 col-span-full">
+                    <div class="flex-1">
                         <div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
                             <?php
                             foreach ($response->d as $news) {
