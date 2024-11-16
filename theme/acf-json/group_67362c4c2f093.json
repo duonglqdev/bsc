@@ -6416,6 +6416,26 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_67389a61f887a",
+                            "label": "File Excel Bản Đồ",
+                            "name": "file_excel",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "Quy định: Cột D là tên mạng lưới, cột K là địa chỉ đầy đủ, cột J là tỉnh thành, cột I là quận huyện.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ],
                     "min": "",
@@ -7621,6 +7641,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_673371410da0e",
                                     "sub_fields": [
                                         {
                                             "key": "field_673370b80da0c",
@@ -7662,8 +7683,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673371410da0e"
+                                    ]
                                 }
                             ]
                         }
@@ -7950,6 +7970,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm dịch vụ",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67337e9aad277",
                                     "sub_fields": [
                                         {
                                             "key": "field_67337f40ad27a",
@@ -8040,6 +8061,7 @@
                                             "collapsed": "",
                                             "button_label": "Thêm danh sách",
                                             "rows_per_page": 20,
+                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337f84ad27d",
@@ -8062,8 +8084,7 @@
                                                     "new_lines": "",
                                                     "parent_repeater": "field_67337f6bad27c"
                                                 }
-                                            ],
-                                            "parent_repeater": "field_67337ed4ad279"
+                                            ]
                                         },
                                         {
                                             "key": "field_67337fa2ad27f",
@@ -8080,6 +8101,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337fa2ad280",
@@ -8121,11 +8143,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_67337ed4ad279"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_67337e9aad277"
+                                    ]
                                 }
                             ]
                         }
@@ -8314,6 +8334,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm danh sách",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_673380cfad295",
                                     "sub_fields": [
                                         {
                                             "key": "field_673380d0ad299",
@@ -8336,8 +8357,7 @@
                                             "new_lines": "",
                                             "parent_repeater": "field_673380d0ad298"
                                         }
-                                    ],
-                                    "parent_repeater": "field_673380cfad295"
+                                    ]
                                 },
                                 {
                                     "key": "field_673380d0ad29a",
@@ -8354,6 +8374,7 @@
                                         "id": ""
                                     },
                                     "layout": "",
+                                    "parent_repeater": "field_673380cfad295",
                                     "sub_fields": [
                                         {
                                             "key": "field_673380d0ad29b",
@@ -8395,8 +8416,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673380cfad295"
+                                    ]
                                 }
                             ]
                         }
@@ -8647,6 +8667,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_6734deb3c1add",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734de9ac1adb",
@@ -8688,8 +8709,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734deb3c1add"
+                                    ]
                                 }
                             ]
                         },
@@ -10004,6 +10024,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6734f6e31e61c",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734f82171369",
@@ -10045,8 +10066,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734f6e31e61c"
+                                    ]
                                 }
                             ]
                         }
@@ -10487,6 +10507,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67357e56648f7",
                                     "sub_fields": [
                                         {
                                             "key": "field_67358015648fc",
@@ -10503,6 +10524,7 @@
                                                 "id": ""
                                             },
                                             "layout": "block",
+                                            "parent_repeater": "field_6735b109e9456",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67358015648fd",
@@ -10544,11 +10566,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735b109e9456"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_67357e56648f7"
+                                    ]
                                 }
                             ]
                         }
@@ -10711,6 +10731,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735817164903",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735824a64907",
@@ -10752,8 +10773,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735817164903"
+                                    ]
                                 }
                             ]
                         }
@@ -11074,6 +11094,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735b00ef497b",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735b00ff4980",
@@ -11115,8 +11136,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735b00ef497b"
+                                    ]
                                 }
                             ]
                         }
@@ -11576,6 +11596,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm mô tả",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735c6455d428",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735c6ec5d42d",
@@ -11598,8 +11619,7 @@
                                             "append": "",
                                             "parent_repeater": "field_6735c6465d42c"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735c6455d428"
+                                    ]
                                 }
                             ]
                         },
@@ -11686,6 +11706,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735c5b25d421",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735c6075d425",
@@ -11727,8 +11748,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735c5b25d421"
+                                    ]
                                 }
                             ]
                         }
@@ -11941,6 +11961,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nội dung",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735d425a87f9",
@@ -11963,8 +11984,7 @@
                                             "append": "",
                                             "parent_repeater": "field_6735d425a87f8"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 },
                                 {
                                     "key": "field_6735cbd349610",
@@ -11986,6 +12006,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735cbd449611",
@@ -12002,6 +12023,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_6735cbd349610",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_6735cbd449612",
@@ -12043,11 +12065,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735cbd349610"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 },
                                 {
                                     "key": "field_6735cc0949614",
@@ -12069,6 +12089,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735cc0a49615",
@@ -12085,6 +12106,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_6735cc0949614",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_6735cc0a49616",
@@ -12126,11 +12148,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735cc0949614"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 }
                             ]
                         },
@@ -12214,6 +12234,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_6735ccba4961d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735ccba4961f",
@@ -12255,8 +12276,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735ccba4961d"
+                                    ]
                                 }
                             ]
                         },
@@ -12987,5 +13007,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731609273
+    "modified": 1731763129
 }
