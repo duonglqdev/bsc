@@ -130,7 +130,7 @@ function filter_chuyengia_ajax()
             <?php get_template_part('components/pagination', '', array(
                 'get' => 'ajax',
                 'query' =>  $filter_job,
-                'paged' => 1,
+                'paged' => $paged,
                 'posts_to_show' => $posts_per_page
             )) ?>
         </div>

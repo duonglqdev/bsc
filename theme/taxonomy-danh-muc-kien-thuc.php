@@ -129,37 +129,16 @@ get_header();
                                     $total_post = $post_per_page;
                                 }
                                 $total_page = ceil($total_post / $post_per_page);
-                                $current_month = '';
-                                $current_year = '';
-                                echo '<div class="space-y-12">';
-                                foreach ($response->d as $news) {
-                                    $post_date = strtotime($news->postdate);
-                                    $month = date('m', $post_date);
-                                    $year = date('Y', $post_date);
-
-                                    if ($month != $current_month || $year != $current_year) {
-                                        if ($current_month !== '' && $current_year !== '') {
-                                            echo '</div>';
-                                            echo '</div>';
-                                        }
-
-                                        $current_month = $month;
-                                        $current_year = $year;
-
-                                        echo '<div class="list_news-service">';
-                                        echo '<h2 class="text-xl font-bold mb-6">' . sprintf(__('Tháng %1$s năm %2$s', 'bsc'), $month, $year) . '</h2>';
-                                        echo '<div class="space-y-8">';
-                                    }
-
-                                    get_template_part('template-parts/content', '', array(
-                                        'data' => $news,
-                                    ));
-                                }
-
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
                         ?>
+                                <div class="grid md:grid-cols-2 grid-cols-1 gap-5 gap-x-6 gap-y-8">
+                                    <?php
+                                    foreach ($response->d as $news) {
+                                        get_template_part('template-parts/content', '', array(
+                                            'data' => $news,
+                                        ));
+                                    }
+                                    ?>
+                                </div>
                                 <div class="mt-12">
                                     <?php get_template_part('components/pagination', '', array(
                                         'get' => 'api',

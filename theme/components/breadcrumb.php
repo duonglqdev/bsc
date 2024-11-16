@@ -90,14 +90,14 @@ if (is_page() && have_rows('breacrumb')) {
         </nav>
     <?php
     }
-} elseif (($args['custom'] == 'khuyenmai') && get_field('cdtnvcd1_breadcrumb', 'option')) {
-    if (have_rows('cdtnvcd1_breadcrumb', 'option')) {
+} elseif (($args['custom'] == 'khuyenmai') && get_field('cdctkm1_breadcrumb', 'option')) {
+    if (have_rows('cdctkm1_breadcrumb', 'option')) {
     ?>
         <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
             <p>
                 <?php
                 $i = 0;
-                while (have_rows('cdtnvcd1_breadcrumb', 'option')): the_row();
+                while (have_rows('cdctkm1_breadcrumb', 'option')): the_row();
                     $i++; ?>
                     <?php
                     if ($i != 1) {

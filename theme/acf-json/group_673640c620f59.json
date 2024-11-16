@@ -70,6 +70,26 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_673822f2e8796",
+            "label": "Trường phái đầu tư",
+            "name": "truong_phai_dau_tu",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_673646c7e68a2",
             "label": "Đường dẫn mở tài khoản",
             "name": "link",
@@ -148,5 +168,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731610323
+    "modified": 1731732224
 }

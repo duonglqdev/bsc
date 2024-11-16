@@ -80,17 +80,13 @@ $post_id = get_the_ID();
             </li>
         <?php } ?>
         <?php
-        $truong_phai_dau_tu = get_the_terms($post_id, 'truong-phai-dau-tu');
+        $truong_phai_dau_tu = get_field('truong_phai_dau_tu');
         if ($truong_phai_dau_tu) {
-            $list_truong_phai = array();
-            foreach ($truong_phai_dau_tu as $truong_phai) {
-                $list_truong_phai[] = $truong_phai->name;
-            }
         ?>
             <li class="flex items-center gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
-                    <?php _e('Trường phái đầu tư', 'bsc') ?>: <strong><?php echo implode(', ', $list_truong_phai); ?></strong>
+                    <?php _e('Trường phái đầu tư', 'bsc') ?>: <strong><?php the_field('truong_phai_dau_tu') ?></strong>
                 </p>
             </li>
         <?php } ?>
