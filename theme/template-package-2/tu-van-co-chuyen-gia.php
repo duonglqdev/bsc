@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-4">
 						Tư vấn đầu tư cùng chuyên gia
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
+					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
 						Nhà đầu tư có thể chủ động lựa chọn "Chuyên gia đồng hành" phù hợp với khẩu
 						vị đầu tư để nhận được tư vấn trực tiếp về phương pháp đầu tư, thông tin thị
 						trường, cơ hội đầu tư, xu hướng thị trường, phương án cơ cấu danh mục đầu
@@ -46,7 +46,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none">
+		<div class="absolute top-0 right-0 pointer-events-none -z-1">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
@@ -72,7 +72,7 @@ get_header();
 									Đồng hành bởi đội ngũ tư vấn chuyên nghiệp
 								</h3>
 								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6">
+									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
 									Được tư vấn & đồng hành bởi đội ngũ chuyên gia chuyên nghiệp,
 									chuyên môn cao, giàu kinh nghiệm với nhiều phương pháp và chiến
 									lược đầu tư hiệu quả.
@@ -97,7 +97,7 @@ get_header();
 									Tư vấn và giải đáp trực tiếp 1:1
 								</h3>
 								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6">
+									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
 									Được tư vấn trực tiếp dựa trên khẩu vị rủi ro và trạng thái danh
 									mục đầu tư, được sàng lọc & phân tích các thông tin thị trường,
 									hỗ trợ tốt nhất trong quá trình
@@ -123,7 +123,7 @@ get_header();
 									Cập nhật thông tin thị trường nhanh chóng
 								</h3>
 								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6">
+									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
 									Được quyền yêu cầu Chuyên gia cung cấp các thông tin tư vấn phù
 									hợp với nhu cầu tư vấn của cá nhân.
 								</div>
@@ -147,7 +147,7 @@ get_header();
 									Chủ động chọn Chuyên gia đồng hành theo ý
 								</h3>
 								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6">
+									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
 									Được lựa chọn Chuyên gia đồng hành theo ý muốn. 
 								</div>
 							</div>

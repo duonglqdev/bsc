@@ -55,6 +55,9 @@
                                     ?>
                                 </div>
                             </div>
+                            <?php if ($style == 'dark') { ?> 
+                                <?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
+                            <?php } ?>
                         </div>
                     </div>
                 <?php endwhile; ?>

@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-8">
 					GIAO DỊCH KÝ QUỸ
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
+					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
 						Giao dịch ký quỹ tại công ty chứng khoán (còn gọi là Margin) là giao dịch
 						mua chứng khoán có sử dụng tiền vay của công ty chứng khoán, trong đó chứng
 						khoán có được từ giao dịch này và các chứng khoán khác được giao dịch ký quỹ
@@ -57,7 +57,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none">
+		<div class="absolute top-0 right-0 pointer-events-none -z-1">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>

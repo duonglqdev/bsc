@@ -28,7 +28,7 @@ $current_post_id = get_the_ID();
                 }
             }
             ?>
-            <li>
+            <li class="<?php if ($has_active_post) echo 'active' ?>">
                 <?php if (count($posts_in_category) > 1): ?>
                     <a href="javascript:void(0)"
                         class="<?php if ($has_active_post) echo 'active' ?> flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">

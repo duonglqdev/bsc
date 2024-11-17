@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -184,6 +184,7 @@ get_header();
 								</div>
 							</div>
 						</div>
+							 <?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
@@ -214,6 +215,7 @@ get_header();
 								</div>
 							</div>
 						</div>
+						<?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
@@ -264,6 +266,7 @@ get_header();
 									</a>
 								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div>

@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -34,7 +34,7 @@ get_header();
 					<h2 class="heading-title mb-4">
 						ỨNG TRƯỚC TIỀN BÁN
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
+					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
 						Ứng trước tiền bán là dịch vụ BSC giúp khách hàng nhận tiền ngay sau khi
 						khớp lệnh bán chứng khoán mà không cần chờ tiền bán về tài khoản như quy
 						định hiện hành (T+2)
@@ -47,7 +47,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none">
+		<div class="absolute top-0 right-0 pointer-events-none -z-1">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>

@@ -18,16 +18,16 @@ get_header();
 						</h2>
 						<ul
 							class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
-							<li class="list-icon-item">
+							<li class="list-icon-item !gap-2">
 								Mở tài khoản nhanh chóng 
 							</li>
-							<li class="list-icon-item">
+							<li class="list-icon-item !gap-2">
 								Thủ tục nhanh gọn 
 							</li>
-							<li class="list-icon-item">
+							<li class="list-icon-item !gap-2">
 								Tận hưởng đặc quyền hấp dẫn 
 							</li>
-							<li class="list-icon-item">
+							<li class="list-icon-item !gap-2">
 								An toàn, bảo mật 
 							</li>
 						</ul>

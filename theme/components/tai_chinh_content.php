@@ -7,12 +7,12 @@
                         <?php the_sub_field('title') ?>
                     </h2>
                 <?php } ?>
-                <div class="text-primary-300 xl:text-2xl text-xl font-bold">
+                <div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
                     <?php the_sub_field('mota') ?>
                 </div>
                 <?php if (have_rows('content')) { ?>
                     <ul
-                        class="list-icon space-y-[14px] font-Helvetica mt-[30px] xl:text-2xl text-xl font-bold text-primary-300">
+                        class="list-icon space-y-[14px] mt-[30px] xl:text-2xl text-xl font-bold text-primary-300">
                         <?php while (have_rows('content')): the_row(); ?>
                             <li class="list-icon-item">
                                 <?php the_sub_field('info') ?>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="absolute top-0 right-0 pointer-events-none">
+    <div class="absolute top-0 right-0 pointer-events-none -z-1">
         <?php echo wp_get_attachment_image(get_sub_field('keyvisual'), 'large') ?>
     </div>
 </section>
