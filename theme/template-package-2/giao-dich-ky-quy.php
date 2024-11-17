@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-8">
 					GIAO DỊCH KÝ QUỸ
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
+					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
 						Giao dịch ký quỹ tại công ty chứng khoán (còn gọi là Margin) là giao dịch
 						mua chứng khoán có sử dụng tiền vay của công ty chứng khoán, trong đó chứng
 						khoán có được từ giao dịch này và các chứng khoán khác được giao dịch ký quỹ

@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-4">
 						Tư vấn đầu tư Online
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold">
+					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
 						Là dịch vụ dành cho Nhà đầu tư chủ động giao dịch, dựa trên các công cụ hỗ
 						trợ trực tuyến tại BSC: Nền tảng giao dịch trực tuyến, hệ thông báo cáo phân
 						tích, các kênh tư vấn online (Tổng đài dịch vụ, Zalo OA...)

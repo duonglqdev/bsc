@@ -25,7 +25,7 @@
                                     <?php } ?>
                                     <?php if (get_sub_field('mota')) { ?>
                                         <div
-                                            class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6">
+                                            class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
                                             <?php the_sub_field('mota') ?>
                                         </div>
                                     <?php } ?>
