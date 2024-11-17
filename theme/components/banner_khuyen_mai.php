@@ -1,8 +1,8 @@
 <section class="banner_khuyen_mai xl:my-[100px] my-20" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden xl:pl-[113px] pl-20 xl:pr-[110px] pr-20px lg:grid lg:grid-cols-2 lg:py-0 py-5 lg:gap-5"
+        <div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden xl:pl-[113px] pl-20 xl:pr-[110px] pr-20px lg:grid lg:grid-cols-2 lg:py-0 py-5 lg:gap-5 items-center"
             style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
-            <div class="lg:pt-[99px] pt-10">
+            <div class="py-10">
                 <?php if (get_sub_field('title')) { ?>
                     <h2 class="heading-title mb-6">
                         <?php the_sub_field('title') ?>
@@ -56,7 +56,7 @@
                 <?php } ?>
             </div>
             <div class="">
-                <?php echo wp_get_attachment_image(get_sub_field('image'), 'medium') ?>
+                <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'w-full')) ?>
             </div>
         </div>
     </div>

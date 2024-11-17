@@ -189,9 +189,9 @@ get_header();
 	</section>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
-			<div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden xl:pl-[113px] pl-20 xl:pr-[110px] pr-20px lg:grid lg:grid-cols-2 lg:py-0 py-5 lg:gap-5"
+			<div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden xl:pl-[113px] pl-20 xl:pr-[110px] pr-20px lg:grid lg:grid-cols-2 lg:py-0 py-5 lg:gap-5 items-center"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-blue-2.png)">
-				<div class="lg:pt-[99px] pt-10">
+				<div class="py-10">
 					<h2 class="heading-title mb-6">
 						BẠN ĐÃ SẴN SÀNG ĐẦU TƯ <br>
 						CHỨNG KHOÁN CÙNG BSC?
