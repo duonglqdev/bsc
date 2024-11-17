@@ -11,5 +11,5 @@ if ($images): ?>
     </div>
 <?php endif; ?>
 <?php if (get_sub_field('mota')) { ?>
-    <small class="text-center"><?php the_sub_field('mota') ?></small>
+    <p class="text-center text-xs mt-4 font-Helvetica italic"><?php the_sub_field('mota') ?></p>
 <?php } ?>
