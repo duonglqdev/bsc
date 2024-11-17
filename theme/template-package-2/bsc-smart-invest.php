@@ -184,6 +184,7 @@ get_header();
 								</div>
 							</div>
 						</div>
+							 <?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
@@ -214,6 +215,7 @@ get_header();
 								</div>
 							</div>
 						</div>
+						<?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
@@ -264,6 +266,7 @@ get_header();
 									</a>
 								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div>
