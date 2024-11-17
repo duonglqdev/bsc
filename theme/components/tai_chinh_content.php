@@ -7,7 +7,7 @@
                         <?php the_sub_field('title') ?>
                     </h2>
                 <?php } ?>
-                <div class="text-primary-300 xl:text-2xl text-xl font-bold">
+                <div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
                     <?php the_sub_field('mota') ?>
                 </div>
                 <?php if (have_rows('content')) { ?>
