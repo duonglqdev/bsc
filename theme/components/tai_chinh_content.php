@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="absolute top-0 right-0 pointer-events-none">
+    <div class="absolute top-0 right-0 pointer-events-none -z-1">
         <?php echo wp_get_attachment_image(get_sub_field('keyvisual'), 'large') ?>
     </div>
 </section>
