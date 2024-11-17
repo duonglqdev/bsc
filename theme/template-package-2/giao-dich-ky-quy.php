@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
