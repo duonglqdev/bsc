@@ -12,7 +12,7 @@
                         <ul
                             class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
                             <?php while (have_rows('danh_sach')): the_row(); ?>
-                                <li class="list-icon-item">
+                                <li class="list-icon-item !gap-2">
                                     <?php the_sub_field('content') ?>
                                 </li>
                             <?php endwhile; ?>
