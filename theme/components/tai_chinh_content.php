@@ -12,7 +12,7 @@
                 </div>
                 <?php if (have_rows('content')) { ?>
                     <ul
-                        class="list-icon space-y-[14px] font-Helvetica mt-[30px] xl:text-2xl text-xl font-bold text-primary-300">
+                        class="list-icon space-y-[14px] mt-[30px] xl:text-2xl text-xl font-bold text-primary-300">
                         <?php while (have_rows('content')): the_row(); ?>
                             <li class="list-icon-item">
                                 <?php the_sub_field('info') ?>
