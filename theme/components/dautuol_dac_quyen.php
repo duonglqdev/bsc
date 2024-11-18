@@ -34,7 +34,7 @@
                     $i = 0;
                     while (have_rows('dac_quyen')): the_row();
                         $i++;
-                        if ($i >= 1) {
+                        if ($i > 1) {
                     ?>
                             <div
                                 class="relative block pt-[42.8%] w-full overflow-hidden rounded-2xl group">
@@ -65,7 +65,7 @@
                         style="background-color:<?php the_sub_field('color') ?>;">
                         <div class="lg:max-w-[330px] mx-auto">
                             <div class="relative w-full pt-[47%]">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
+                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
                             </div>
                         </div>
                         <?php if (get_sub_field('title')) { ?>

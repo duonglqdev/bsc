@@ -91,6 +91,12 @@ module.exports = {
 					'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 41.68%, rgba(229, 240, 255, 0.60) 100%)',
 				'gradient-yellow-50':
 					'linear-gradient(265deg, #FFE79B 5.95%, #FFDB8D 98.96%)',
+				'gradient-sliver-50':
+					'linear-gradient(264deg, #F6F6F6 7.99%, #E6E6E6 94.22%)',
+				'gradient-sliver-100':
+					'linear-gradient(264deg, #DCDCDC 7.4%, #DCE2E4 95.54%)',
+				'gradient-bronze-50':
+					'linear-gradient(264deg, #D8A787 5.35%, #EDC4A3 93.71%)',
 			},
 
 			boxShadow: {

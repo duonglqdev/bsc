@@ -1,7 +1,7 @@
 <?php
 
 /**
-Template Name: [Package 3] Thông tin cổ phiếu (báo cáo)
+Template Name: [Package 3] Thông tin cổ phiếu (chỉ tiêu tài chính)
  */
 
 get_header();
@@ -236,21 +236,21 @@ get_header();
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<a href=""
-						class=" inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 						TỔNG QUAN
 					</a>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<a href=""
-						class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 						BÁO CÁO TÀI CHÍNH
 					</a>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<a href=""
-						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+						class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 						CHỈ TIÊU TÀI CHÍNH
 					</a>
 				</li>
@@ -264,7 +264,7 @@ get_header();
 				</li>
 			</ul>
 			<div class="list__content">
-				<div class="flex items-center justify-between mt-16 mb-[30px]">
+				<div class=" mt-16 mb-10">
 					<ul class="flex items-center gap-5">
 						<li>
 							<a href=""
@@ -279,86 +279,245 @@ get_header();
 							</a>
 						</li>
 					</ul>
-					<a href=""
-						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-						Xem chi tiết
-						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
-					</a>
 				</div>
-				<ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
-					<?php
-					for ( $i = 18; $i < 24; $i++ )
-					{
-						?>
-						<li class="lg:min-w-[140px] font-bold">
-							<p>
-								Năm 20<?= $i ?>
+				<div class="space-y-[100px]">
+					<article>
+						<div class="flex items-center gap-6 mb-[30px]">
+							<h2 class="heading-title">
+								LỢI NHUẬN
+							</h2>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
+								<?php echo svg( 'gold', '24', '24' ) ?>
+								Hạng A
 							</p>
-							<p class="text-[#1CCD83]">
-								(Đã kiểm toán)
+						</div>
+						<div class="rounded-lg overflow-hidden mb-10">
+							<table
+								class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+								<thead>
+									<tr>
+										<th class="!pl-9">Mã CK</th>
+										<th>Biên LNG</th>
+										<th>Biên LNTT</th>
+										<th>Biên LNST</th>
+										<th>ROE</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+										<td class="!pl-9"><a href="">BSI</a></td>
+										<td>46,44%</td>
+										<td>37,80%</td>
+										<td>30,67%</td>
+										<td>9,24%</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									BIÊN LỢI NHUẬN GỘP (%)
+								</h4>
+								<div id="profit-chart-1" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									BIÊN LỢI NHUẬN SAU THUẾ (%)
+								</h4>
+								<div id="profit-chart-2" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+									ROE (%)
+								</h4>
+								<div id="profit-chart-3" class="legend-gap">
+
+								</div>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="flex items-center gap-6 mb-[30px]">
+							<h2 class="heading-title">
+								SỨC KHỎE
+							</h2>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#4F4F4F] bg-gradient-sliver-50">
+								<?php echo svg( 'sliver', '24', '24' ) ?>
+								Hạng B
 							</p>
-						</li>
-						<?php
-					}
-					?>
-				</ul>
-				<div class="space-y-16">
-					<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-						<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
-							 prose-td:p-4 font-medium">
-							<thead>
-								<tr>
-									<th colspan="7">Kết quả kinh doanh</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php 
-								 for ($i = 0; $i < 4; $i++) {
-								 ?>
-								 <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-									 <td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV</td>
-									 <td>911,959,220</td>
-									 <td>608,349,810</td>
-									 <td>912,577,380</td>
-									 <td>1,333,024,980</td>
-									 <td>1,089,005,390</td>
-									 <td>1,258,998,059</td>
-								 </tr>
-								  <?php 
-								 } 
-								?>
-							</tbody>
-						</table>
-					</div>
-					<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-					<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
-							 prose-td:p-4 font-medium">
-							<thead>
-								<tr>
-									<th colspan="7">Cân đối kế toán</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php 
-								 for ($i = 0; $i < 4; $i++) {
-								 ?>
-								 <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-									 <td class="lg:min-w-[231px]">Tổng tài sản</td>
-									 <td>911,959,220</td>
-									 <td>608,349,810</td>
-									 <td>912,577,380</td>
-									 <td>1,333,024,980</td>
-									 <td>1,089,005,390</td>
-									 <td>1,258,998,059</td>
-								 </tr>
-								  <?php 
-								 } 
-								?>
-							</tbody>
-						</table>
-					</div>
+						</div>
+						<div class="rounded-lg overflow-hidden mb-10">
+							<table
+								class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+								<thead>
+									<tr>
+										<th class="!pl-9">Mã CK</th>
+										<th>CSTT nhanh</th>
+										<th>CSTT hiện tại</th>
+										<th>CSTT lãi vay</th>
+										<th>Nợ vay TTS</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+										<td class="!pl-9"><a href="">BSI</a></td>
+										<td>0.20</td>
+										<td>1.94</td>
+										<td>4.14</td>
+										<td>0.41</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
+								</h4>
+								<div id="health-chart-1" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+									NỢ VAY/ TỔNG TÀI SẢN
+								</h4>
+								<div id="health-chart-2" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									TỶ LỆ THANH TOÁN LÃI VAY
+								</h4>
+								<div id="health-chart-3" class="legend-gap">
+
+								</div>
+							</div>
+						</div>
+					</article>
+                    <article>
+						<div class="flex items-center gap-6 mb-[30px]">
+							<h2 class="heading-title">
+                            TĂNG TRƯỞNG
+							</h2>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#A87E5C] bg-gradient-bronze-50">
+								<?php echo svg( 'bronze', '24', '24' ) ?>
+								Hạng C
+							</p>
+						</div>
+						<div class="rounded-lg overflow-hidden mb-10">
+							<table
+								class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+								<thead>
+									<tr>
+										<th class="!pl-9">Mã CK</th>
+										<th>TT Doanh thu</th>
+										<th>TT LNST</th>
+										<th>TT EPS</th>
+										<th>Xếp hạng TT</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+										<td class="!pl-9"><a href="">BSI</a></td>
+										<td>0.20</td>
+										<td>1.94</td>
+										<td>4.14</td>
+										<td>0.41</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									TĂNG TRƯỞNG DOANH THU (%)
+								</h4>
+								<div id="growth-chart-1" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+                                    TĂNG TRƯỞNG EPS (%)
+								</h4>
+								<div id="growth-chart-2" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									TĂNG TRƯỞNG LỢI NHUẬN (%)
+								</h4>
+								<div id="growth-chart-3" class="legend-gap">
+
+								</div>
+							</div>
+						</div>
+					</article>
+                    <article>
+						<div class="flex items-center gap-6 mb-[30px]">
+							<h2 class="heading-title">
+                            HIỆU QUẢ HOẠT ĐỘNG
+							</h2>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#869299] bg-gradient-sliver-100">
+								<?php echo svg( 'sliver-2', '24', '24' ) ?>
+								Hạng D
+							</p>
+						</div>
+						
+						<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									VÒNG QUAY KHOẢN PHẢI THU (LẦN)
+								</h4>
+								<div id="effective-chart-1" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+                                    VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
+								</h4>
+								<div id="effective-chart-2" class="legend-gap">
+
+								</div>
+							</div>
+							<div class="space-y-6">
+								<h4
+									class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+									VÒNG QUAY HÀNG TỒN KHO (LẦN)
+								</h4>
+								<div id="effective-chart-3" class="legend-gap">
+
+								</div>
+							</div>
+						</div>
+					</article>
 				</div>
 			</div>
 		</div>

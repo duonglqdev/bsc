@@ -24,7 +24,7 @@
                 ?>
             </div>
             <div class="col">
-                <?php echo wp_get_attachment_image(get_sub_field('image'), 'large', '', array('class' => 'mx-auto')) ?>
+                <?php echo wp_get_attachment_image(get_sub_field('image'), 'large', '', array('class' => 'mx-auto max-w-[480px]')) ?>
             </div>
         </div>
     </div>
