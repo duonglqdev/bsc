@@ -59,7 +59,7 @@ get_header();
 				</ul>
 			</div>
 
-			<div class="rounded-lg overflow-hidden">
+			<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 				<div
 					class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4">
 					<p class="flex-1">Danh sách</p>
@@ -70,18 +70,111 @@ get_header();
 					<p class="w-[175px] max-w-[14%]">Tăng trưởng</p>
 				</div>
 				<div class="list_content-collapse font-medium">
-					<div class="collapse-item px-[30px] py-4 flex 2xl:gap-10 gap-5 items-center text-xs [&:nth-child(even)]:bg-[#EBF4FA]">
-						<h3 class="flex-1 font-bold text-base">CÁC CHI TIÊU NGOÀI BẢNG</h3>
-						<div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
-						<div class="w-[135px] max-w-[11%]">608,349,810</div>
-						<div class="w-[135px] max-w-[11%]">912,577,380</div>
-						<div class="w-[135px] max-w-[11%]">2023</div>
-						<div class="w-[175px] max-w-[14%] h-10">
-							<div class="collapse-item-chart">
-
-							</div>
-						</div>
-					</div>
+					<?php 
+					 for ($j = 0; $j < 6; $j++) {
+					 ?>
+					 <div
+						 class="collapse-item has-children">
+						 <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs bg-white">
+							 <h3
+								 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
+								 <?php echo svgClass( 'icon-up', '16', '16', 'transition-all' ) ?>
+								 CÁC CHI TIÊU NGOÀI BẢNG
+							 </h3>
+							 <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
+							 <div class="w-[135px] max-w-[11%]">608,349,810</div>
+							 <div class="w-[135px] max-w-[11%]">912,577,380</div>
+							 <div class="w-[135px] max-w-[11%]">2023</div>
+							 <div class="w-[175px] max-w-[14%] h-10">
+								 <div class="collapse-item-chart">
+	 
+								 </div>
+							 </div>
+ 
+						 </div>
+						 <div class="sub-collapse hidden">
+							 <?php
+							 for ( $i = 0; $i < 2; $i++ )
+							 {
+								 ?>
+								 <div
+									 class="collapse-item has-children [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
+									 <div class="px-[30px] py-4 flex 2xl:gap-10 gap-5 items-center text-xs">
+										 <h3
+											 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer">
+											 <?php echo svg( 'icon-up', '16', '16' ) ?>
+											 1. Chứng khoán kinh doanh
+										 </h3>
+										 <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
+										 <div class="w-[135px] max-w-[11%]">608,349,810</div>
+										 <div class="w-[135px] max-w-[11%]">912,577,380</div>
+										 <div class="w-[135px] max-w-[11%]">2023</div>
+										 <div class="w-[175px] max-w-[14%] h-10">
+											 <div class="collapse-item-chart">
+	 
+											 </div>
+										 </div>
+ 
+									 </div>
+								 </div>
+								 <?php
+							 }
+							 ?>
+						 </div>
+					 </div>
+					 <div
+						 class="collapse-item has-children">
+						 <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs bg-[#EBF4FA]">
+							 <h3
+								 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
+								 <?php echo svgClass( 'icon-up', '16', '16', 'transition-all' ) ?>
+								 CÁC CHI TIÊU NGOÀI BẢNG
+							 </h3>
+							 <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
+							 <div class="w-[135px] max-w-[11%]">608,349,810</div>
+							 <div class="w-[135px] max-w-[11%]">912,577,380</div>
+							 <div class="w-[135px] max-w-[11%]">2023</div>
+							 <div class="w-[175px] max-w-[14%] h-10">
+								 <div class="collapse-item-chart-red">
+	 
+								 </div>
+							 </div>
+ 
+						 </div>
+						 <div class="sub-collapse hidden">
+							 <?php
+							 for ( $i = 0; $i < 2; $i++ )
+							 {
+								 ?>
+								 <div
+									 class="collapse-item has-children [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
+									 <div class="px-[30px] py-4 flex 2xl:gap-10 gap-5 items-center text-xs">
+										 <h3
+											 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer">
+											 <?php echo svg( 'icon-up', '16', '16' ) ?>
+											 1. Chứng khoán kinh doanh
+										 </h3>
+										 <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
+										 <div class="w-[135px] max-w-[11%]">608,349,810</div>
+										 <div class="w-[135px] max-w-[11%]">912,577,380</div>
+										 <div class="w-[135px] max-w-[11%]">2023</div>
+										 <div class="w-[175px] max-w-[14%] h-10">
+											 <div class="collapse-item-chart-red">
+	 
+											 </div>
+										 </div>
+ 
+									 </div>
+								 </div>
+								 <?php
+							 }
+							 ?>
+						 </div>
+					 </div>
+					  <?php 
+					 } 
+					?>
+					
 				</div>
 			</div>
 		</div>
