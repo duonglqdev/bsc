@@ -33,6 +33,7 @@ import WOW from 'wowjs';
 		healthChart();
 		growthChart();
 		effectiveChart();
+		collapseChart();
 	});
 
 	function menuMobile() {
@@ -2672,6 +2673,87 @@ import WOW from 'wowjs';
 			};
 	
 			var chart = new ApexCharts(document.querySelector("#effective-chart-3"), options);
+			chart.render();
+		}
+	}
+	function collapseChart() {
+		if (document.querySelector('.collapse-item-chart')) {
+			var options = {
+				chart: {
+					type: 'area',
+					height: '100%', // Tự động theo khung chứa
+					width: '100%', // Tự động theo khung chứa
+					toolbar: {
+						show: false // Ẩn toolbar
+					},
+					parentHeightOffset: 0, // Loại bỏ khoảng trắng phía trên/ dưới biểu đồ
+					animations: {
+						enabled: false // Tắt hoạt ảnh để tối ưu trong khung nhỏ
+					}
+				},
+				series: [{
+					name: 'Data',
+					data: [50, 51, 50.5, 50.8, 51, 50.5] // Dữ liệu đã điều chỉnh để hiển thị nằm ngang
+				}],
+				xaxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+					labels: {
+						show: false // Ẩn nhãn trục X
+					},
+					axisBorder: {
+						show: false // Ẩn đường viền trục X
+					},
+					axisTicks: {
+						show: false // Ẩn dấu tick trục X
+					}
+				},
+				yaxis: {
+					show: false // Ẩn toàn bộ trục Y
+				},
+				grid: {
+					show: false, // Ẩn lưới
+					padding: {
+						top: -10, // Loại bỏ padding dư thừa ở trên
+						bottom: -10, // Loại bỏ padding dư thừa ở dưới
+						left: 0,
+						right: 0
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 1 // Đường mỏng hơn để vừa khung nhỏ
+				},
+				fill: {
+					type: 'gradient',
+					gradient: {
+						shadeIntensity: 1,
+						opacityFrom: 0.8,
+						opacityTo: 0,
+						stops: [0, 100],
+						colorStops: [
+							{
+								offset: 0,
+								color: "#007bff",
+								opacity: 0.7
+							},
+							{
+								offset: 100,
+								color: "#ffffff",
+								opacity: 0
+							}
+						]
+					}
+				},
+				tooltip: {
+					enabled: false // Ẩn tooltip
+				},
+				dataLabels: {
+					enabled: false // Ẩn nhãn dữ liệu
+				}
+			};
+	
+	
+			var chart = new ApexCharts(document.querySelector(".collapse-item-chart"), options);
 			chart.render();
 		}
 	}
