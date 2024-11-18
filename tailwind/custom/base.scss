@@ -395,11 +395,23 @@ header {
 		}
 	}
 }
-
-.apexcharts-legend {
-	@apply lg:max-w-[50%];
-	.apexcharts-legend-series {
-		@apply rounded-lg bg-[#F8F8FF] uppercase 2xl:px-4 px-2 2xl:py-[12px] py-2;
+.chart {
+	.apexcharts-legend {
+		@apply lg:max-w-[50%];
+		.apexcharts-legend-series {
+			@apply rounded-lg bg-[#F8F8FF] uppercase 2xl:px-4 px-2 2xl:py-[12px] py-2;
+		}
+	}
+}
+.legend-gap{
+	.apexcharts-legend-series{
+		@apply gap-2 text-paragraph text-xs;
+	}
+	.apexcharts-legend{
+		@apply gap-5;
+	}
+	.apexcharts-legend-text{
+		font-size: 14px !important;
 	}
 }
 .subscribe {

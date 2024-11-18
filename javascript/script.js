@@ -2,30 +2,38 @@ import { initFlowbite } from 'flowbite';
 import ApexCharts from 'apexcharts';
 import WOW from 'wowjs';
 (function ($) {
-	window.onload = function () {
-		$(document).ready(function () {
-			menuMobile();
-			backToTop();
-			handleMegamenu();
-			setHeightBanner();
-			handleSlider();
-			customTab();
-			var $activeButton = $('[data-tab-download].active');
-			if ($activeButton.length) {
-				moveLine($activeButton);
-			}
-			new WOW.WOW().init();
-			aboutUsSlider();
-			aboutDynamicPopup();
-			toggleContent();
-			handlePhoneCf7();
-			dynamicPopup();
-			stickyHeader();
-			hoverSvg();
-			livechat();
-			marqueeSlider();
-		});
-	};
+	$(document).ready(function () {
+		menuMobile();
+		backToTop();
+		handleMegamenu();
+		setHeightBanner();
+		handleSlider();
+		customTab();
+		var $activeButton = $('[data-tab-download].active');
+		if ($activeButton.length) {
+			moveLine($activeButton);
+		}
+		new WOW.WOW().init();
+		aboutUsSlider();
+		aboutDynamicPopup();
+		toggleContent();
+		handlePhoneCf7();
+		dynamicPopup();
+		stickyHeader();
+		hoverSvg();
+		livechat();
+		marqueeSlider();
+		handleScrollTable();
+		filterTable();
+		//Chart
+		candleChart();
+		forecastChart();
+		performanceChart();
+		profitChart();
+		healthChart();
+		growthChart();
+		effectiveChart();
+	});
 
 	function menuMobile() {
 		const elements = ['.bar__mb', '.header__menu'];
@@ -1438,9 +1446,91 @@ import WOW from 'wowjs';
 				}, debounceDelay);
 			}
 		);
+	});
 
-		function forecastChart() {
-			// Biểu đồ dự báo thị trường
+	function handleScrollTable() {
+		function enableHorizontalScroll(element) {
+			let isDown = false;
+			let startX;
+			let scrollLeft;
+
+			element.addEventListener('mousedown', (e) => {
+				isDown = true;
+				element.classList.add('active');
+				startX = e.pageX - element.offsetLeft;
+				scrollLeft = element.scrollLeft;
+			});
+
+			element.addEventListener('mouseleave', () => {
+				isDown = false;
+				element.classList.remove('active');
+			});
+
+			element.addEventListener('mouseup', () => {
+				isDown = false;
+				element.classList.remove('active');
+			});
+
+			element.addEventListener('mousemove', (e) => {
+				if (!isDown) return;
+				e.preventDefault();
+				const x = e.pageX - element.offsetLeft;
+				const walk = (x - startX) * 3; // Điều chỉnh tốc độ kéo nếu cần
+				element.scrollLeft = scrollLeft - walk;
+			});
+		}
+
+		// Áp dụng cho tất cả các phần tử có lớp .scroll-container
+		document.querySelectorAll('.scroll-container').forEach((el) => {
+			enableHorizontalScroll(el);
+		});
+	}
+
+	function filterTable() {
+		$(document).ready(function () {
+			$('.filter-table').on('click', function () {
+				var $header = $(this);
+				var $table = $header.closest('table');
+				var $tbody = $table.find('tbody');
+				var $rows = $tbody.find('tr');
+				var headerIndex = $header.index();
+				var isAscending = $header.hasClass('ascending');
+
+				// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
+				$table.find('th').removeClass('ascending descending');
+				$header.toggleClass('ascending', !isAscending);
+				$header.toggleClass('descending', isAscending);
+
+				$rows.sort(function (rowA, rowB) {
+					var cellA = $(rowA)
+						.children()
+						.eq(headerIndex)
+						.text()
+						.trim();
+					var cellB = $(rowB)
+						.children()
+						.eq(headerIndex)
+						.text()
+						.trim();
+
+					// Kiểm tra xem nội dung cột là số hay chữ
+					var a = $.isNumeric(cellA) ? parseFloat(cellA) : cellA;
+					var b = $.isNumeric(cellB) ? parseFloat(cellB) : cellB;
+
+					if (a < b) return isAscending ? 1 : -1;
+					if (a > b) return isAscending ? -1 : 1;
+					return 0;
+				});
+
+				// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
+				$tbody.empty().append($rows);
+			});
+		});
+	}
+
+	function forecastChart() {
+		// Biểu đồ dự báo thị trường
+		if (document.querySelector('#chart-forecast')) {
 			var options = {
 				chart: {
 					type: 'line',
@@ -1591,8 +1681,10 @@ import WOW from 'wowjs';
 			);
 			chart.render();
 		}
-		forecastChart();
-		function performanceChart() {
+	}
+
+	function performanceChart() {
+		if (document.querySelector('#performance-chart')) {
 			var options = {
 				chart: {
 					type: 'line',
@@ -1657,9 +1749,10 @@ import WOW from 'wowjs';
 			);
 			chart.render();
 		}
-		performanceChart();
+	}
 
-		function candleChart() {
+	function candleChart() {
+		if (document.querySelector('#chart-candle')) {
 			var options = {
 				chart: {
 					type: 'candlestick',
@@ -1671,43 +1764,69 @@ import WOW from 'wowjs';
 						top: 0,
 						right: 0,
 						bottom: 0,
-						left: 0
-					}
+						left: 0,
+					},
 				},
-				series: [{
-					data: [
-						{ x: new Date(2024, 10, 13, 13, 0), y: [175, 185, 170, 180] },
-						{ x: new Date(2024, 10, 13, 13, 30), y: [180, 190, 175, 185] },
-						{ x: new Date(2024, 10, 13, 14, 0), y: [185, 190, 160, 165] },
-						{ x: new Date(2024, 10, 13, 14, 30), y: [165, 175, 155, 160] },
-						{ x: new Date(2024, 10, 13, 15, 0), y: [160, 170, 150, 155] },
-						{ x: new Date(2024, 10, 13, 15, 30), y: [155, 165, 150, 160] },
-						{ x: new Date(2024, 10, 13, 16, 0), y: [160, 170, 158, 165] },
-						{ x: new Date(2024, 10, 13, 16, 30), y: [165, 170, 160, 168] }
-					]
-				}],
+				series: [
+					{
+						data: [
+							{
+								x: new Date(2024, 10, 13, 13, 0),
+								y: [175, 185, 170, 180],
+							},
+							{
+								x: new Date(2024, 10, 13, 13, 30),
+								y: [180, 190, 175, 185],
+							},
+							{
+								x: new Date(2024, 10, 13, 14, 0),
+								y: [185, 190, 160, 165],
+							},
+							{
+								x: new Date(2024, 10, 13, 14, 30),
+								y: [165, 175, 155, 160],
+							},
+							{
+								x: new Date(2024, 10, 13, 15, 0),
+								y: [160, 170, 150, 155],
+							},
+							{
+								x: new Date(2024, 10, 13, 15, 30),
+								y: [155, 165, 150, 160],
+							},
+							{
+								x: new Date(2024, 10, 13, 16, 0),
+								y: [160, 170, 158, 165],
+							},
+							{
+								x: new Date(2024, 10, 13, 16, 30),
+								y: [165, 170, 160, 168],
+							},
+						],
+					},
+				],
 				xaxis: {
 					type: 'datetime',
 					labels: {
 						format: 'HH:mm dd-MM',
 						style: {
 							colors: '#31333f80', // Màu chữ cho trục x
-							fontSize: '14px'
-						}
-					}
+							fontSize: '14px',
+						},
+					},
 				},
 				yaxis: {
 					tooltip: {
-						enabled: true
+						enabled: true,
 					},
 					min: 140,
 					max: 190,
 					labels: {
 						style: {
 							colors: '#31333f80', // Màu chữ cho trục y
-							fontSize: '14px'
-						}
-					}
+							fontSize: '14px',
+						},
+					},
 				},
 				grid: {
 					show: true,
@@ -1715,105 +1834,845 @@ import WOW from 'wowjs';
 				},
 				tooltip: {
 					shared: true,
-					custom: function({ series, seriesIndex, dataPointIndex, w }) {
-						const o = w.globals.seriesCandleO[seriesIndex][dataPointIndex];
-						const h = w.globals.seriesCandleH[seriesIndex][dataPointIndex];
-						const l = w.globals.seriesCandleL[seriesIndex][dataPointIndex];
-						const c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
+					custom: function ({
+						series,
+						seriesIndex,
+						dataPointIndex,
+						w,
+					}) {
+						const o =
+							w.globals.seriesCandleO[seriesIndex][
+								dataPointIndex
+							];
+						const h =
+							w.globals.seriesCandleH[seriesIndex][
+								dataPointIndex
+							];
+						const l =
+							w.globals.seriesCandleL[seriesIndex][
+								dataPointIndex
+							];
+						const c =
+							w.globals.seriesCandleC[seriesIndex][
+								dataPointIndex
+							];
 						return `<div class='p-2'><strong>Open:</strong> ${o}<br><strong>High:</strong> ${h}<br><strong>Low:</strong> ${l}<br><strong>Close:</strong> ${c}</div>`;
-					}
+					},
 				},
 			};
-	
-			
+
 			var chart = new ApexCharts(
 				document.querySelector('#chart-candle'),
 				options
 			);
 			chart.render();
 		}
-		candleChart();
+	}
 
-		function handleScrollTable() {
-			function enableHorizontalScroll(element) {
-				let isDown = false;
-				let startX;
-				let scrollLeft;
+	function profitChart() {
+		if (document.querySelector('#profit-chart-1')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'Biên LNG',
+						data: [30, 20, 52.24, 40, 45],
+					},
+					{
+						name: 'BLNG TB ngành',
+						data: [25, 24, 24.7, 24.5, 25],
+					},
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px', // Kích thước font chữ
+							colors: '#4A5568', // Màu chữ
+						},
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function (val) {
+							return val + '%';
+						},
+					},
+				},
+				colors: ['#235BA8', '#FFB81C'],
+				markers: {
+					size: 5,
+					hover: {
+						size: 7,
+					},
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2, // Độ dày của đường
+				},
+				legend: {
+					position: 'top', // Vị trí trên cùng
+					horizontalAlign: 'left', // Căn trái
+					offsetY: 0,
+					labels: {
+						colors: '#4A5568', // Màu chữ của legend
+					},
+				},
+			};
 
-				element.addEventListener('mousedown', (e) => {
-					isDown = true;
-					element.classList.add('active');
-					startX = e.pageX - element.offsetLeft;
-					scrollLeft = element.scrollLeft;
-				});
-
-				element.addEventListener('mouseleave', () => {
-					isDown = false;
-					element.classList.remove('active');
-				});
-
-				element.addEventListener('mouseup', () => {
-					isDown = false;
-					element.classList.remove('active');
-				});
-
-				element.addEventListener('mousemove', (e) => {
-					if (!isDown) return;
-					e.preventDefault();
-					const x = e.pageX - element.offsetLeft;
-					const walk = (x - startX) * 3; // Điều chỉnh tốc độ kéo nếu cần
-					element.scrollLeft = scrollLeft - walk;
-				});
-			}
-
-			// Áp dụng cho tất cả các phần tử có lớp .scroll-container
-			document.querySelectorAll('.scroll-container').forEach((el) => {
-				enableHorizontalScroll(el);
-			});
+			var chart = new ApexCharts(
+				document.querySelector('#profit-chart-1'),
+				options
+			);
+			chart.render();
 		}
-		handleScrollTable();
+		if (document.querySelector('#profit-chart-2')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'Biên LNG',
+						data: [30, 20, 52.24, 40, 45],
+					},
+					{
+						name: 'BLNG TB ngành',
+						data: [25, 24, 24.7, 24.5, 25],
+					},
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px', // Kích thước font chữ
+							colors: '#4A5568', // Màu chữ
+						},
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function (val) {
+							return val + '%';
+						},
+					},
+				},
+				colors: ['#235BA8', '#FFB81C'],
+				markers: {
+					size: 5,
+					hover: {
+						size: 7,
+					},
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2, // Độ dày của đường
+				},
+				legend: {
+					position: 'top', // Vị trí trên cùng
+					horizontalAlign: 'left', // Căn trái
+					offsetY: 0,
+					labels: {
+						colors: '#4A5568', // Màu chữ của legend
+					},
+				},
+			};
 
-		function filterTable() {
-			$(document).ready(function () {
-				$('.filter-table').on('click', function () {
-					var $header = $(this);
-					var $table = $header.closest('table');
-					var $tbody = $table.find('tbody');
-					var $rows = $tbody.find('tr');
-					var headerIndex = $header.index();
-					var isAscending = $header.hasClass('ascending');
-
-					// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
-					$table.find('th').removeClass('ascending descending');
-					$header.toggleClass('ascending', !isAscending);
-					$header.toggleClass('descending', isAscending);
-
-					$rows.sort(function (rowA, rowB) {
-						var cellA = $(rowA)
-							.children()
-							.eq(headerIndex)
-							.text()
-							.trim();
-						var cellB = $(rowB)
-							.children()
-							.eq(headerIndex)
-							.text()
-							.trim();
-
-						// Kiểm tra xem nội dung cột là số hay chữ
-						var a = $.isNumeric(cellA) ? parseFloat(cellA) : cellA;
-						var b = $.isNumeric(cellB) ? parseFloat(cellB) : cellB;
-
-						if (a < b) return isAscending ? 1 : -1;
-						if (a > b) return isAscending ? -1 : 1;
-						return 0;
-					});
-
-					// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
-					$tbody.empty().append($rows);
-				});
-			});
+			var chart = new ApexCharts(
+				document.querySelector('#profit-chart-2'),
+				options
+			);
+			chart.render();
 		}
-		filterTable();
-	});
+		if (document.querySelector('#profit-chart-3')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'ROE',
+						data: [30, 20, 52.24, 40, 45],
+					},
+					{
+						name: 'ROE TB ngành',
+						data: [25, 24, 24.7, 24.5, 25],
+					},
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					style: {
+						fontSize: '14px', // Kích thước font chữ
+						colors: '#4A5568', // Màu chữ
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function (val) {
+							return val + '%';
+						},
+					},
+				},
+				colors: ['#009E87', '#FFB81C'],
+				markers: {
+					size: 5,
+					hover: {
+						size: 7,
+					},
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2, // Độ dày của đường
+				},
+				legend: {
+					position: 'top', // Vị trí trên cùng
+					horizontalAlign: 'left', // Căn trái
+					offsetY: 0,
+					labels: {
+						colors: '#4A5568', // Màu chữ của legend
+					},
+				},
+			};
+
+			var chart = new ApexCharts(
+				document.querySelector('#profit-chart-3'),
+				options
+			);
+			chart.render();
+		}
+	}
+
+	function healthChart() {
+		if (document.querySelector('#health-chart-1')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'CSTT nhanh',
+						data: [30, 20, 52.24, 40, 45],
+					},
+					{
+						name: 'CSTT hiện  thời',
+						data: [25, 24, 24.7, 24.5, 25],
+					},
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px', // Kích thước font chữ
+							colors: '#4A5568', // Màu chữ
+						},
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function (val) {
+							return val + '%';
+						},
+					},
+				},
+				colors: ['#235BA8', '#FFB81C'],
+				markers: {
+					size: 5,
+					hover: {
+						size: 7,
+					},
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2, // Độ dày của đường
+				},
+				legend: {
+					position: 'top', // Vị trí trên cùng
+					horizontalAlign: 'left', // Căn trái
+					offsetY: 0,
+					labels: {
+						colors: '#4A5568', // Màu chữ của legend
+					},
+				},
+			};
+
+			var chart = new ApexCharts(
+				document.querySelector('#health-chart-1'),
+				options
+			);
+			chart.render();
+		}
+
+		if (document.querySelector('#health-chart-2')) {
+			var options = {
+				chart: {
+					type: 'bar',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				
+				series: [
+					{
+						data: [0.31, 0.41, 0.62, 0.17, 0.4],
+					},
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568',
+						},
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				dataLabels: {
+					enabled: true,
+					offsetY: -30,
+					style: {
+						fontSize: '14px',
+						colors: ['#4A5568'],
+					},
+					formatter: function (value) {
+						return value.toFixed(2); // Hiển thị giá trị trên cột với 2 chữ số thập phân
+					},
+				},
+				plotOptions: {
+					bar: {
+						borderRadius: 8, // Bo góc cho cột
+						columnWidth: '56px', // Đặt chiều rộng cột chính xác là 56px
+						borderRadiusApplication: 'around',
+						dataLabels: {
+							position: 'top', // top, center, bottom
+							
+						  },
+					},
+				},
+				colors: ['#009E87'], // Màu cột (màu xanh lá cây)
+			};
+		
+			var chart = new ApexCharts(
+				document.querySelector('#health-chart-2'),
+				options
+			);
+			chart.render();
+		}
+		if (document.querySelector('#health-chart-3')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false,
+					},
+				},
+				series: [
+					{
+						name: 'Tỷ lệ thanh toán',
+						data: [30, 20, 52.24, 40, 45],
+					},
+				
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px', // Kích thước font chữ
+							colors: '#4A5568', // Màu chữ
+						},
+					},
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+				},
+				tooltip: {
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function (val) {
+							return val;
+						},
+					},
+				},
+				colors: ['#235BA8'],
+				markers: {
+					size: 5,
+					hover: {
+						size: 7,
+					},
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2, // Độ dày của đường
+				},
+				legend: {
+					position: 'top', // Vị trí trên cùng
+					horizontalAlign: 'left', // Căn trái
+					offsetY: 0,
+					labels: {
+						colors: '#4A5568', // Màu chữ của legend
+					},
+				},
+			};
+
+			var chart = new ApexCharts(
+				document.querySelector('#health-chart-3'),
+				options
+			);
+			chart.render();
+		}
+		
+	}
+
+	function growthChart() {
+		if (document.querySelector('#growth-chart-1')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [{
+					name: 'TTDT',
+					data: [10, 46.07, 20, 5, 30] // Dữ liệu tương ứng với các năm
+				}],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				tooltip: {
+					enabled: true,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(2) + '%';
+						}
+					}
+				},
+				markers: {
+					size: 5,
+					colors: ['#235BA8'],
+					strokeColors: '#ffffff',
+					strokeWidth: 2,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#235BA8'], // Màu của đường biểu đồ
+				
+			};
+			var chart = new ApexCharts(document.querySelector("#growth-chart-1"), options);
+			chart.render();
+		}
+		if (document.querySelector('#growth-chart-2')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [{
+					name: 'TT EPS',
+					data: [10, 46.07, 20, 5, 30] // Dữ liệu tương ứng với các năm
+				}],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				tooltip: {
+					enabled: true,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(2) + '%';
+						}
+					}
+				},
+				markers: {
+					size: 5,
+					colors: ['#009E87'],
+					strokeColors: '#ffffff',
+					strokeWidth: 2,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#009E87'], // Màu của đường biểu đồ
+				
+			};
+			var chart = new ApexCharts(document.querySelector("#growth-chart-2"), options);
+			chart.render();
+		}
+		if (document.querySelector('#growth-chart-3')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [{
+					name: 'TT Lợi nhuận',
+					data: [10, 46.07, 20, 5, 30] // Dữ liệu tương ứng với các năm
+				}],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				tooltip: {
+					enabled: true,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(2) + '%';
+						}
+					}
+				},
+				markers: {
+					size: 5,
+					colors: ['#235BA8'],
+					strokeColors: '#ffffff',
+					strokeWidth: 2,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#235BA8'], // Màu của đường biểu đồ
+				
+			};
+			var chart = new ApexCharts(document.querySelector("#growth-chart-3"), options);
+			chart.render();
+		}
+	}
+
+	function effectiveChart() {
+		if (document.querySelector('#effective-chart-1')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [
+					{
+						name: 'VQKPT',
+						data: [15, 16, 17, 15, 14] // Dữ liệu cho đường màu xanh
+					},
+					{
+						name: 'VQKPT (TB ngành)',
+						data: [7, 8, 8, 7, 6] // Dữ liệu cho đường màu vàng
+					}
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						text: '',
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				tooltip: {
+					enabled: true,
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(0); // Hiển thị giá trị số nguyên
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				markers: {
+					size: 5,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
+				
+				legend: {
+					position: 'top',
+					horizontalAlign: 'left',
+				}
+			};
+	
+			var chart = new ApexCharts(document.querySelector("#effective-chart-1"), options);
+			chart.render();
+		}
+		if (document.querySelector('#effective-chart-2')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [
+					{
+						name: 'VQKPT',
+						data: [15, 16, 17, 15, 14] // Dữ liệu cho đường màu xanh
+					},
+					{
+						name: 'VQKPT (TB ngành)',
+						data: [7, 8, 8, 7, 6] // Dữ liệu cho đường màu vàng
+					}
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						text: '',
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				tooltip: {
+					enabled: true,
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(0); // Hiển thị giá trị số nguyên
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				markers: {
+					size: 5,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
+				
+				legend: {
+					position: 'top',
+					horizontalAlign: 'left',
+				}
+			};
+	
+			var chart = new ApexCharts(document.querySelector("#effective-chart-2"), options);
+			chart.render();
+		}
+		if (document.querySelector('#effective-chart-3')) {
+			var options = {
+				chart: {
+					type: 'line',
+					height: 400,
+					toolbar: {
+						show: false
+					}
+				},
+				series: [
+					{
+						name: 'VQHTK',
+						data: [15, 16, 17, 15, 14] // Dữ liệu cho đường màu xanh
+					},
+					{
+						name: 'VQHTK (TB ngành)',
+						data: [7, 8, 8, 7, 6] // Dữ liệu cho đường màu vàng
+					}
+				],
+				xaxis: {
+					categories: ['2019', '2020', '2021', '2022', '2023'],
+					labels: {
+						style: {
+							fontSize: '14px',
+							colors: '#4A5568'
+						}
+					}
+				},
+				yaxis: {
+					labels: {
+						show: false, // Ẩn nhãn trên trục Y
+					},
+					title: {
+						text: '',
+						style: {
+							fontSize: '14px',
+							color: '#4A5568'
+						}
+					}
+				},
+				tooltip: {
+					enabled: true,
+					shared: true,
+					intersect: false,
+					y: {
+						formatter: function(value) {
+							return value.toFixed(0); // Hiển thị giá trị số nguyên
+						}
+					}
+				},
+				stroke: {
+					curve: 'smooth', // Đường cong mềm mại
+					width: 2
+				},
+				markers: {
+					size: 5,
+					hover: {
+						size: 7
+					}
+				},
+				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
+				
+				legend: {
+					position: 'top',
+					horizontalAlign: 'left',
+				}
+			};
+	
+			var chart = new ApexCharts(document.querySelector("#effective-chart-3"), options);
+			chart.render();
+		}
+	}
 })(jQuery);
