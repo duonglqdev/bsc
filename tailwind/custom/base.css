@@ -858,4 +858,17 @@ button#ib-button-messaging {
   @apply lg:w-[447px] pl-[17px];
 }
 
+.nav-ttcp li .has-icon {
+  @apply hover:text-yellow-100 after:bg-yellow-100;
+}
+.nav-ttcp li .has-icon:hover {
+  color: #ffb81c !important;
+}
+.nav-ttcp li .has-icon:hover::after {
+  background-color: #ffb81c !important;
+}
+.nav-ttcp li .has-icon.active {
+  @apply text-yellow-100 after:bg-yellow-100;
+}
+
 /*# sourceMappingURL=base.css.map */
