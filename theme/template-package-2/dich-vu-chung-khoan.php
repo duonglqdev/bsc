@@ -74,7 +74,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		<div class="py-16 bg-[#F0F9FF]">
+		<div class="py-16 bg-[#F0F9FF]" id="service-products">
 			<div class="container">
 				<h2 class="heading-title mb-10">
 					SẢN PHẨM DỊCH VỤ

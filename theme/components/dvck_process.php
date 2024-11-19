@@ -30,7 +30,7 @@ $generateRandomString = generateRandomString();
             <?php } ?>
         </div>
     </div>
-    <div class="py-16 bg-[#F0F9FF]">
+    <div class="py-16 bg-[#F0F9FF]" id="service-products">
         <div class="container">
             <?php if (get_sub_field('title_2')) { ?>
                 <h2 class="heading-title mb-10">
