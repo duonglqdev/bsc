@@ -982,41 +982,55 @@ import WOW from 'wowjs';
 	function marqueeSlider() {
 		$('.block__slider-marquee').each(function () {
 			let $marqueeSlider = $(this);
-			let isRtl = $marqueeSlider.hasClass('marquee-rtl');
-
-			let mainTicker = new Flickity(this, {
-				accessibility: true,
-				resize: true,
-				wrapAround: true,
-				prevNextButtons: false,
-				pageDots: false,
-				percentPosition: true,
-				setGallerySize: true,
-				rightToLeft: isRtl,
-			});
-
-			mainTicker.x = 0;
-			let requestId;
-
-			function play() {
-				mainTicker.x -= 1; // Điều chỉnh giá trị này để thay đổi tốc độ
-				mainTicker.settle(mainTicker.x);
-				requestId = window.requestAnimationFrame(play);
-			}
-
-			function pause() {
-				if (requestId) {
-					window.cancelAnimationFrame(requestId);
-					requestId = undefined;
+			
+			// Kiểm tra xem class có phải là block_slider-show-X không
+			let showClass = $marqueeSlider.attr('class').match(/block_slider-show-(\d)/);
+			if (showClass) {
+				let showNumber = parseInt(showClass[1], 10); // Lấy số từ block_slider-show-X
+				
+				// Kiểm tra số lượng .block_slider-item
+				let itemCount = $marqueeSlider.find('.block_slider-item').length;
+				
+				// Nếu số lượng phần tử lớn hơn số yêu cầu, khởi tạo slider
+				if (itemCount > showNumber) {
+					let isRtl = $marqueeSlider.hasClass('marquee-rtl');
+	
+					let mainTicker = new Flickity(this, {
+						accessibility: true,
+						resize: true,
+						wrapAround: true,
+						prevNextButtons: false,
+						pageDots: false,
+						percentPosition: true,
+						setGallerySize: true,
+						rightToLeft: isRtl,
+					});
+	
+					mainTicker.x = 0;
+					let requestId;
+	
+					function play() {
+						mainTicker.x -= 1; // Điều chỉnh giá trị này để thay đổi tốc độ
+						mainTicker.settle(mainTicker.x);
+						requestId = window.requestAnimationFrame(play);
+					}
+	
+					function pause() {
+						if (requestId) {
+							window.cancelAnimationFrame(requestId);
+							requestId = undefined;
+						}
+					}
+	
+					$marqueeSlider.on('mouseenter', pause);
+					$marqueeSlider.on('mouseleave', play);
+	
+					play(); // Start the animation initially
 				}
 			}
-
-			$marqueeSlider.on('mouseenter', pause);
-			$marqueeSlider.on('mouseleave', play);
-
-			play(); // Start the animation initially
 		});
 	}
+	
 
 	jQuery(document).ready(function ($) {
 		function load__chuyen_gia(page = 1) {
