@@ -77,7 +77,7 @@ get_header();
 					</span>
 				</button>
 			</form>
-			<div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5 gap-y-6">
+			<div class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6">
 				<div
 					class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">
 					<div class="flex flex-col items-center">
@@ -106,21 +106,21 @@ get_header();
 					</div>
 					<div
 						class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-						<div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+						<div class="flex-1 pr-4  mr-4 border-r border-[#E9E9E9] max-w-[75%]">
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'fone', '19', '19' ) ?>
+							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
-								class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'e-mail', '19', '19' ) ?>
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
-						<div class="w-[65px] shrink-0 expert-qr">
+						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
@@ -225,21 +225,21 @@ get_header();
 					</div>
 					<div
 						class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-						<div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+						<div class="flex-1 pr-4  mr-4 border-r border-[#E9E9E9] max-w-[75%]">
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'fone', '19', '19' ) ?>
+							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
-								class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'e-mail', '19', '19' ) ?>
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
-						<div class="w-[65px] shrink-0 expert-qr">
+						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
@@ -344,21 +344,21 @@ get_header();
 					</div>
 					<div
 						class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-						<div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+						<div class="flex-1 pr-4  mr-4 border-r border-[#E9E9E9] max-w-[75%]">
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'fone', '19', '19' ) ?>
+							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
-								class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'e-mail', '19', '19' ) ?>
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
-						<div class="w-[65px] shrink-0 expert-qr">
+						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
@@ -463,21 +463,21 @@ get_header();
 					</div>
 					<div
 						class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-						<div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+						<div class="flex-1 pr-4  mr-4 border-r border-[#E9E9E9] max-w-[75%]">
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'fone', '19', '19' ) ?>
+							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
-								class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'e-mail', '19', '19' ) ?>
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
-						<div class="w-[65px] shrink-0 expert-qr">
+						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
@@ -582,21 +582,21 @@ get_header();
 					</div>
 					<div
 						class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-						<div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+						<div class="flex-1 pr-4  mr-4 border-r border-[#E9E9E9] max-w-[75%]">
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'fone', '19', '19' ) ?>
+							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
-								class="flex items-center gap-2 text-xs">
-								<?php echo svg( 'e-mail', '19', '19' ) ?>
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
-						<div class="w-[65px] shrink-0 expert-qr">
+						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">

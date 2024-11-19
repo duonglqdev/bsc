@@ -50,7 +50,7 @@
                                                 if (have_rows('button')) {
                                                     while (have_rows('button')): the_row();
                                                         if (get_sub_field('title')) { ?>
-                                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&amp;:not(:last-child)]:pr-[12px] [&amp;:not(:last-child)]:mr-[12px] [&amp;:not(:last-child)]:border-r [&amp;:not(:last-child)]:border-green">
+                                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                                 <?php the_sub_field('title') ?>
                                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                                             </a>
@@ -90,7 +90,7 @@
                                 if (have_rows('button')) {
                                     while (have_rows('button')): the_row();
                                         if (get_sub_field('title')) { ?>
-                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&amp;:not(:last-child)]:pr-[12px] [&amp;:not(:last-child)]:mr-[12px] [&amp;:not(:last-child)]:border-r [&amp;:not(:last-child)]:border-green">
+                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                 <?php the_sub_field('title') ?>
                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                             </a>
