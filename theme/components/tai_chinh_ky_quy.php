@@ -1,7 +1,7 @@
 <section class="xl:py-[97px] py-20 bg-gradient-blue-250 tai_chinh_ky_quy" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title mb-6">
+            <h2 class="heading-title 2xl:mb-6 mb-4">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
@@ -19,7 +19,7 @@
                             </div>
                             <div class="mt-4">
                                 <?php if (get_sub_field('title')) { ?>
-                                    <h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+                                    <h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
                                         <?php the_sub_field('title') ?>
                                     </h3>
                                 <?php } ?>
@@ -67,9 +67,9 @@
         <?php if (have_rows('menu_dieu_huong')) { ?>
             <div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
                 <?php while (have_rows('menu_dieu_huong')): the_row(); ?>
-                    <div class="lg:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+                    <div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
                         <div
-                            class="flex items-center gap-4 lg:text-2xl text-xl font-bold text-primary-300">
+                            class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
                             <?php echo svg_dir(get_sub_field('icon'), '30') ?>
                             <?php the_sub_field('title') ?>
                         </div>

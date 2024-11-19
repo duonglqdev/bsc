@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-8">
 					GIAO DỊCH KÝ QUỸ
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Giao dịch ký quỹ tại công ty chứng khoán (còn gọi là Margin) là giao dịch
 						mua chứng khoán có sử dụng tiền vay của công ty chứng khoán, trong đó chứng
 						khoán có được từ giao dịch này và các chứng khoán khác được giao dịch ký quỹ
@@ -41,7 +41,7 @@ get_header();
 						quy định của BSC tại từng thời kỳ
 					</div>
 					<ul
-						class="list-icon space-y-[14px] font-Helvetica mt-[30px] xl:text-2xl text-xl font-bold text-primary-300">
+						class="list-icon 2xl:space-y-[14px] space-y-3 font-Helvetica mt-[30px] 2xl:text-2xl text-xl font-bold text-primary-300">
 						<li class="list-icon-item">
 							Tối đa hóa cơ hội đầu tư, gia tăng lợi nhuận
 						</li>
@@ -77,7 +77,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Lãi suất hấp dẫn
 						</h3>
 						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
@@ -98,7 +98,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Hạn mức cao, thời gian vay linh hoạt 
 						</h3>
 						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
@@ -119,7 +119,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Danh mục đa dạng, tỷ lệ cho vay cao 
 						</h3>
 						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
@@ -139,7 +139,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Giải ngân tự động 
 						</h3>
 						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
@@ -153,9 +153,9 @@ get_header();
 			</div>
 
 			<div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
-				<div class="lg:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
-						class="flex items-center gap-4 lg:text-2xl text-xl font-bold text-primary-300">
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
 						<?php echo svg( 'app', '30' ) ?>
 						Danh mục Margin hiện hành
 					</div>
@@ -165,9 +165,9 @@ get_header();
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
 				</div>
-				<div class="lg:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
-						class="flex items-center gap-4 lg:text-2xl text-xl font-bold text-primary-300">
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
 						<?php echo svg( 'note', '30' ) ?>
 						Biểu lãi suất
 					</div>
@@ -185,11 +185,11 @@ get_header();
 			<div class="grid grid-cols-2 items-center">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
-						<h2 class="heading-title mb-6">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+						<h2 class="heading-title 2xl:mb-6 mb-4">
 							ĐĂNG KÝ DỊCH VỤ GIAO DỊCH KÝ QUỸ TẠI BSC
 						</h2>
-						<div class="space-y-6 font-Helvetica">
+						<div class="2xl:space-y-6 space-y-4 font-Helvetica">
 							<div class="item">
 								<p class="text-primary-300 text-xl font-bold mb-3">
 									Bạn chưa có tài khoản tại BSC?

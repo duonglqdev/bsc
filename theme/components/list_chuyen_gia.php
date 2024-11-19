@@ -128,7 +128,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         ?>
         <div id="list-chuyen-gia">
             <?php if ($filter_job->have_posts()) :  ?>
-                <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5 gap-y-6">
+                <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6">
                     <?php
                     while ($filter_job->have_posts()) :
                         $filter_job->the_post();

@@ -1187,7 +1187,7 @@ if ($file) {
             <h2 class="font-bold text-2xl mb-8 text-primary-300">
                 <?php the_sub_field('title'); ?>
             </h2>
-            <div class="flex gap-4 items-center">
+            <div class="flex gap-4 items-center mb-6">
                 <div>
                     <strong>Tỉnh thành:</strong>
                     <select id="city" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">

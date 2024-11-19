@@ -3,14 +3,14 @@
         <div class="grid grid-cols-2 items-center">
             <div class="col-span-1 xl:-mr-[17px]">
                 <div
-                    class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+                    class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
                     <?php if (get_sub_field('title')) { ?>
                         <h2 class="heading-title mb-6">
                             <?php the_sub_field('title') ?>
                         </h2>
                     <?php } ?>
                     <?php if (have_rows('ask_ans')) { ?>
-                        <div class="space-y-6 font-Helvetica">
+                        <div class="2xl:space-y-6 space-y-4 font-Helvetica">
                             <?php while (have_rows('ask_ans')): the_row(); ?>
                                 <div class="item">
                                     <?php if (get_sub_field('ask')) { ?>
@@ -50,7 +50,7 @@
                                                 if (have_rows('button')) {
                                                     while (have_rows('button')): the_row();
                                                         if (get_sub_field('title')) { ?>
-                                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&amp;:not(:last-child)]:pr-[12px] [&amp;:not(:last-child)]:mr-[12px] [&amp;:not(:last-child)]:border-r [&amp;:not(:last-child)]:border-green">
+                                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                                 <?php the_sub_field('title') ?>
                                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                                             </a>
@@ -90,7 +90,7 @@
                                 if (have_rows('button')) {
                                     while (have_rows('button')): the_row();
                                         if (get_sub_field('title')) { ?>
-                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&amp;:not(:last-child)]:pr-[12px] [&amp;:not(:last-child)]:mr-[12px] [&amp;:not(:last-child)]:border-r [&amp;:not(:last-child)]:border-green">
+                                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                 <?php the_sub_field('title') ?>
                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                             </a>

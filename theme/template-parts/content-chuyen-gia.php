@@ -32,26 +32,26 @@ $post_id = get_the_ID();
     </div>
     <div
         class="rounded-[10px] bg-white px-[14px] py-4 flex items-center expert-contact">
-        <div class="flex-1 pr-4 mr-4 border-r border-[#E9E9E9]">
+        <div class="flex-1 2xl:pr-4 pr-3  2xl:mr-4 mr-3 border-r border-[#E9E9E9] max-w-[75%]">
             <p class="font-bold mb-[12px]">
                 <?php _e('Thông tin liên hệ', 'bsc') ?>
             </p>
             <?php if (get_field('number')) { ?>
-                <a href="tel:<?php the_field('number') ?>" class="flex items-center gap-2 text-xs">
-                    <?php echo svg('fone', '19', '19') ?>
+                <a href="tel:<?php the_field('number') ?>" class="block relative pl-6 text-xs break-words">
+                <?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
                     <?php the_field('number') ?>
                 </a>
             <?php } ?>
             <?php if (get_field('email')) { ?>
                 <a href="mailto:<?php the_field('email') ?>"
-                    class="flex items-center gap-2 text-xs">
-                    <?php echo svg('e-mail', '19', '19') ?>
+                    class="block relative pl-6 text-xs break-words">
+                    <?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
                     <?php the_field('email') ?>
                 </a>
             <?php } ?>
         </div>
         <?php if (get_field('ma_qr')) { ?>
-            <div class="w-[65px] shrink-0 expert-qr">
+            <div class="max-w-[65px] flex-1 shrink-0 expert-qr">
                 <?php echo wp_get_attachment_image(get_field('ma_qr'), 'medium', '', array('class' => 'w-full h-auto transition-all duration-500 hover:scale-105')) ?>
             </div>
         <?php } ?>

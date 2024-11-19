@@ -20,7 +20,7 @@ $generateRandomString = generateRandomString();
                                     class="text-primary-300 group-hover:text-white transition-all duration-500">
                                     <?php echo svg_dir(get_sub_field('icon')) ?>
                                 </div>
-                                <div class="mt-[7px] text-center text-xl font-bold">
+                                <div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
                                     <?php the_sub_field('title') ?>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@ $generateRandomString = generateRandomString();
             <?php } ?>
         </div>
     </div>
-    <div class="py-16 bg-[#F0F9FF]">
+    <div class="py-16 bg-[#F0F9FF]" id="service-products">
         <div class="container">
             <?php if (get_sub_field('title_2')) { ?>
                 <h2 class="heading-title mb-10">

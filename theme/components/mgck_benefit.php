@@ -30,7 +30,7 @@
                         </div>
                         <div class="mt-4">
                             <?php if (get_sub_field('title')) { ?>
-                                <h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+                                <h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
                                     <?php the_sub_field('title') ?>
                                 </h3>
                             <?php } ?>

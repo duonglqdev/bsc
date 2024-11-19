@@ -22,8 +22,8 @@ $generateRandomString = generateRandomString();
                             </div>
                         </div>
                         <div class="col-span-1">
-                            <h3 class="flex items-center gap-4 mb-8 font-bold text-2xl">
-                                <?php echo svgClass_dir(get_sub_field('icon'), '', '', 'max-w-10') ?>
+                            <h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
+                                <?php echo svgClass_dir(get_sub_field('icon'), '', '', '2xl:max-w-10 max-w-8') ?>
                                 <?php the_sub_field('title') ?>
                             </h3>
                             <?php if (get_sub_field('mota')) { ?>
@@ -32,7 +32,7 @@ $generateRandomString = generateRandomString();
                                 </p>
                             <?php } ?>
                             <?php if (have_rows('danh_sach')) { ?>
-                                <ul class="list-icon space-y-4 font-Helvetica mb-8 text-lg font-bold">
+                                <ul class="list-icon space-y-4 font-Helvetica mb-8 2xl:text-lg font-bold">
                                     <?php while (have_rows('danh_sach')): the_row(); ?>
                                         <li class="list-icon-item">
                                             <?php the_sub_field('content') ?>
@@ -63,7 +63,7 @@ $generateRandomString = generateRandomString();
             ?>
             <div class="lg:w-1/2 mt-[30px] text-center">
                 <ul
-                    class="customtab-nav inline-flex justify-center gap-8 pb-2 border-b border-[#D9D9D9] relative">
+                    class="customtab-nav has-line inline-flex justify-center gap-8 pb-2 border-b border-[#D9D9D9] relative">
                     <?php
                     $i = 0;
                     while (have_rows('nen_tang')): the_row();
