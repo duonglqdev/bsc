@@ -23,7 +23,7 @@ get_header();
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
 								<?php echo svg( 'step-1' ) ?>
 							</div>
-							<div class="mt-[7px] text-center text-xl font-bold">
+							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Mở <br>
 								tài khoản
 							</div>
@@ -37,7 +37,7 @@ get_header();
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
 								<?php echo svg( 'step-2' ) ?>
 							</div>
-							<div class="mt-[7px] text-center text-xl font-bold">
+							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Hướng Dẫn <br>
 								Nộp - Rút Tiền
 							</div>
@@ -51,7 +51,7 @@ get_header();
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
 								<?php echo svg( 'step-3' ) ?>
 							</div>
-							<div class="mt-[7px] text-center text-xl font-bold">
+							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Biểu Phí <br>
 								Giao Dịch
 							</div>
@@ -65,7 +65,7 @@ get_header();
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
 								<?php echo svg( 'step-4' ) ?>
 							</div>
-							<div class="mt-[7px] text-center text-xl font-bold">
+							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Kiến Thức <br>
 								Đầu Tư
 							</div>
@@ -210,15 +210,15 @@ get_header();
 						</div>
 					</div>
 					<div class="col-span-1">
-						<h3 class="flex items-center gap-4 mb-8 font-bold text-2xl">
-							<?php echo svgClass( 'tt-1', '', '', 'max-w-10' ) ?>
+						<h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
+							<?php echo svgClass( 'tt-1', '', '', '2xl:max-w-10 max-w-8' ) ?>
 							BSC Web Trading
 						</h3>
 						<p class="font-bold mb-6 text-lg">
 							Đón đầu xu hướng cá nhân hóa trải nghiệm đầu tư cùng nền tảng giao
 							dịch BSC Webtrading:
 						</p>
-						<ul class="list-icon space-y-4 font-Helvetica mb-8 text-lg font-bold">
+						<ul class="list-icon space-y-4 font-Helvetica mb-8 2xl:text-lg font-bold">
 							<li class="list-icon-item">
 								Một nền tảng - Mọi giao dịch
 							</li>
@@ -252,15 +252,15 @@ get_header();
 						</div>
 					</div>
 					<div class="col-span-1">
-						<h3 class="flex items-center gap-4 mb-8 font-bold text-2xl">
-							<?php echo svgClass( 'tt-2', '', '', 'max-w-10' ) ?>
+						<h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
+							<?php echo svgClass( 'tt-2', '', '', '2xl:max-w-10 max-w-8' ) ?>
 							BSC Smart Invest
 						</h3>
 						<p class="font-bold mb-6 text-lg">
 							Ứng dụng đầu tư thế hệ mới, mang tới những trải nghiệm đầu tư Thông minh
 							- Nhanh chóng dễ dàng bởi những tính năng vượt trội:
 						</p>
-						<ul class="list-icon space-y-4 font-Helvetica mb-8 text-lg font-bold">
+						<ul class="list-icon space-y-4 font-Helvetica mb-8 2xl:text-lg font-bold">
 							<li class="list-icon-item">
 								Một ứng dụng - Mọi giao dịch
 							</li>
