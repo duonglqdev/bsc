@@ -659,7 +659,7 @@ button#ib-button-messaging {
   @apply w-full rounded-[10px] px-5 py-2 border border-[#AAA];
 }
 .form_support .form-group input {
-  @apply lg:h-[52px] h-11 placeholder:text-black text-black;
+  @apply lg:h-[52px] h-11 placeholder:text-black text-black placeholder:opacity-30;
 }
 .form_support .form-group textarea {
   @apply h-[133px] pt-4 placeholder:opacity-30;
