@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -153,7 +153,7 @@ get_header();
 			<div class="grid grid-cols-2 items-center">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
 							TRẢI NGHIỆM DỊCH VỤ TƯ VẤN <br> ĐẦU TƯ ONLINE
 						</h2>

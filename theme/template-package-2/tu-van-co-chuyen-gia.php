@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -217,11 +217,11 @@ get_header();
 			<div class="grid grid-cols-2 items-center">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
 							ĐĂNG KÝ SỬ DỤNG DỊCH VỤ
 						</h2>
-						<div class="space-y-6 font-Helvetica">
+						<div class="2xl:space-y-6 space-y-4 font-Helvetica">
 							<div class="item">
 								<p class="text-primary-300 text-xl font-bold mb-3">
 									Bạn chưa có tài khoản tại BSC?

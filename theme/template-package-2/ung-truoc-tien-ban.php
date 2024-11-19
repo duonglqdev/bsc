@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[10] sticky-nav">
+	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
 				<li>
@@ -99,9 +99,9 @@ get_header();
 			</div>
 
 			<div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
-				<div class="lg:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
-						class="flex items-center gap-4 lg:text-2xl text-xl font-bold text-primary-300">
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
 						<?php echo svg( 'note-1', '30' ) ?>
 						Cách thức thực hiện
 					</div>
@@ -111,9 +111,9 @@ get_header();
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
 				</div>
-				<div class="lg:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
-						class="flex items-center gap-4 lg:text-2xl text-xl font-bold text-primary-300">
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
 						<?php echo svg( 'note', '30' ) ?>
 						Biểu lãi suất
 					</div>
@@ -132,11 +132,11 @@ get_header();
 			<div class="grid grid-cols-2 items-center">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base py-10 xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
 						<h2 class="heading-title mb-6">
 							ĐĂNG KÝ DỊCH VỤ ỨNG TRƯỚC TIỀN BÁN TẠI BSC
 						</h2>
-						<div class="space-y-6 font-Helvetica">
+						<div class="2xl:space-y-6 space-y-4 font-Helvetica">
 							<div class="item">
 								<div class="space-y-[6px]">
 									<p>
