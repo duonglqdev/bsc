@@ -476,11 +476,11 @@ header {
 		}
 
 		a {
-			@apply w-full 2xl:pr-10 pr-6;
+			@apply w-full 2xl:pr-10 pr-8;
 		}
 
 		.li-plus {
-			@apply absolute top-[14px] right-3;
+			@apply absolute top-[14px] 2xl:right-3 right-1.5;
 		}
 		.li-plus.active {
 			@apply rotate-180;

@@ -516,10 +516,10 @@ header.active {
   background-color: #235ba8 !important;
 }
 .sidebar-report .has-child a {
-  @apply w-full 2xl:pr-10 pr-6;
+  @apply w-full 2xl:pr-10 pr-8;
 }
 .sidebar-report .has-child .li-plus {
-  @apply absolute top-[14px] right-3;
+  @apply absolute top-[14px] 2xl:right-3 right-1.5;
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;
