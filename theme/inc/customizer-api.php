@@ -131,3 +131,25 @@ add_filter('rank_math/opengraph/image', function ($image) {
     }
     return $image; // Trả về ảnh mặc định nếu không có ảnh thumbnail từ API
 });
+
+
+//Check login
+function bsc_is_user_logged_out()
+{
+    if (1 == 1) {
+        return null;
+    } else {
+        return [
+            'class' => 'blur-sm',
+            'html' => '
+            <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
+                <a href="#" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+                    ' . __('Đăng nhập', 'bsc') . '
+                </a>
+                <p class="italic mt-4 font-normal">
+                    ' . __('Để xem chi tiết danh mục', 'bsc') . '
+                </p>
+            </div>'
+        ];
+    }
+}
