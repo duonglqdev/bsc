@@ -63,7 +63,7 @@ $generateRandomString = generateRandomString();
             ?>
             <div class="lg:w-1/2 mt-[30px] text-center">
                 <ul
-                    class="customtab-nav inline-flex justify-center gap-8 pb-2 border-b border-[#D9D9D9] relative">
+                    class="customtab-nav has-line inline-flex justify-center gap-8 pb-2 border-b border-[#D9D9D9] relative">
                     <?php
                     $i = 0;
                     while (have_rows('nen_tang')): the_row();

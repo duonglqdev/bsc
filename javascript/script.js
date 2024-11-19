@@ -369,12 +369,19 @@ import WOW from 'wowjs';
 		});
 		$('.customtab-nav li button').on('click', function () {
 			var target = $(this).attr('data-tabs');
-			$('.customtab-nav li button').removeClass('active');
+			$(this)
+				.closest('.customtab-nav')
+				.find('button')
+				.removeClass('active');
 			$(this).addClass('active');
 			$(target).fadeIn('slow').siblings('.tab-content').hide();
-			moveLine($(this));
+
+			if ($(this).closest('.customtab-nav').hasClass('has-line')) {
+				moveLine($(this));
+			}
 			return false;
 		});
+
 		$('.bank-nav-tab button').on('click', function () {
 			var targetTab = $(this).data('tabs');
 			$('html, body').animate(
@@ -2830,7 +2837,7 @@ import WOW from 'wowjs';
 				stroke: {
 					curve: 'smooth', // Đường cong mềm mại
 					width: 1, // Đường mỏng hơn để vừa khung nhỏ
-					colors: ['#A82323'] // Màu của đường nét
+					colors: ['#A82323'], // Màu của đường nét
 				},
 				fill: {
 					type: 'gradient',
@@ -2842,16 +2849,16 @@ import WOW from 'wowjs';
 						colorStops: [
 							{
 								offset: 0,
-								color: "#A82323", // Màu gradient bắt đầu (đỏ)
-								opacity: 0.7
+								color: '#A82323', // Màu gradient bắt đầu (đỏ)
+								opacity: 0.7,
 							},
 							{
 								offset: 100,
-								color: "#ffffff", // Màu gradient kết thúc (trắng)
-								opacity: 0
-							}
-						]
-					}
+								color: '#ffffff', // Màu gradient kết thúc (trắng)
+								opacity: 0,
+							},
+						],
+					},
 				},
 				tooltip: {
 					enabled: false, // Ẩn tooltip
