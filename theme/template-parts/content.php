@@ -24,7 +24,7 @@
             class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
             <?php echo htmlspecialchars($news->title) ?>
         </a>
-        <div class="line-clamp-3 text-paragraph mb-4">
+        <div class="line-clamp-2 text-paragraph mb-4">
             <?php echo htmlspecialchars($news->description) ?>
         </div>
         <div class="mt-auto">
