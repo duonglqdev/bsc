@@ -10,7 +10,7 @@
                     <?php } ?>
                     <?php if (have_rows('danh_sach')) { ?>
                         <ul
-                            class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
+                            class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold pl-6">
                             <?php while (have_rows('danh_sach')): the_row(); ?>
                                 <li class="list-icon-item !gap-2">
                                     <?php the_sub_field('content') ?>

@@ -17,7 +17,7 @@ get_header();
 							MỞ TÀI KHOẢN TẠI BSC
 						</h2>
 						<ul
-							class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
+							class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold pl-6">
 							<li class="list-icon-item !gap-2">
 								Mở tài khoản nhanh chóng 
 							</li>
