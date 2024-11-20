@@ -69,7 +69,7 @@ get_header();
 					</p>
 				</div>
 				<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox=""
-					class="rounded-[10px] overflow-hidden pt-[54%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
+					class="rounded-[10px] overflow-hidden pt-[54%] block">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-info.png"
 						alt="" class="absolute w-full h-full inset-0 object-cover">
 					<div
