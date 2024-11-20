@@ -33,13 +33,13 @@ get_header();
 					<h2 class="heading-title mb-4">
 						Tư vấn đầu tư Online
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Là dịch vụ dành cho Nhà đầu tư chủ động giao dịch, dựa trên các công cụ hỗ
 						trợ trực tuyến tại BSC: Nền tảng giao dịch trực tuyến, hệ thông báo cáo phân
 						tích, các kênh tư vấn online (Tổng đài dịch vụ, Zalo OA...)
 					</div>
 				</div>
-				<div class="col-span-1">
+				<div class="col-span-1 relative z-[1]">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517.png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>
@@ -63,8 +63,8 @@ get_header();
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 
 						<h4
-							class="absolute w-full bottom-0 left-0 px-10 lg:py-[26px] py-5 lg:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-450 after:left-0 after:bottom-0">
-							<p class="lg:max-w-[67%] relative z-10 line-clamp-2">
+							class="absolute w-full bottom-0 left-0 px-10 lg:py-[26px] py-5 2xl:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-450 after:left-0 after:bottom-0">
+							<p class="2xl:max-w-[67%] relative z-10 line-clamp-2">
 								Hệ thống báo cáo phân tích đa dạng, cập nhật tức thì các cơ hội đầu
 								tư
 							</p>
@@ -78,8 +78,8 @@ get_header();
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute w-full bottom-0 left-0 px-10 lg:py-[13px] py-5 lg:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0">
-							<p class="lg:max-w-[67%] relative z-10 line-clamp-2">
+							class="absolute w-full bottom-0 left-0 px-10 lg:py-[13px] py-5 2xl:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0">
+							<p class="2xl:max-w-[67%] relative z-10 line-clamp-2">
 								Được hỗ trợ bởi chuyên gia <br>
 								tư vấn BSC
 							</p>
@@ -91,8 +91,8 @@ get_header();
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute w-full bottom-0 left-0 px-10 lg:py-[13px] py-5 lg:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0">
-							<p class="lg:max-w-[67%] relative z-10 line-clamp-2">
+							class="absolute w-full bottom-0 left-0 px-10 lg:py-[13px] py-5 2xl:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0">
+							<p class="2xl:max-w-[67%] relative z-10 line-clamp-2">
 								Phí giao dịch hấp dẫn chỉ <br>
 								từ 0.08%
 							</p>
@@ -115,7 +115,7 @@ get_header();
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
 					</div>
-					<div class="mt-4 font-semibold text-xl font-Helvetica">
+					<div class="mt-4 font-semibold 2xl:text-xl lg:text-lg font-Helvetica">
 						Chủ động theo dõi thị trường 
 					</div>
 				</div>
@@ -128,7 +128,7 @@ get_header();
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
 					</div>
-					<div class="mt-4 font-semibold text-xl font-Helvetica">
+					<div class="mt-4 font-semibold 2xl:text-xl lg:text-lg font-Helvetica">
 						Có kinh nghiệm đầu tư 
 					</div>
 				</div>
@@ -141,7 +141,7 @@ get_header();
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
 					</div>
-					<div class="mt-4 font-semibold text-xl font-Helvetica">
+					<div class="mt-4 font-semibold 2xl:text-xl lg:text-lg font-Helvetica">
 						Nhận biết được cơ hội, phán đoán được rủi ro trong quá trình đầu tư 
 					</div>
 				</div>
@@ -158,7 +158,7 @@ get_header();
 							TRẢI NGHIỆM DỊCH VỤ TƯ VẤN <br> ĐẦU TƯ ONLINE
 						</h2>
 						<ul
-							class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold">
+							class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold pl-8">
 							<li class="list-icon-item">
 								Mở tài khoản dễ dàng
 							</li>
@@ -172,7 +172,7 @@ get_header();
 								Công cụ hỗ trợ đa dạng
 							</li>
 						</ul>
-						<div class="flex items-center">
+						<div class="flex items-center pl-8">
 							<a href=""
 								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								Mở tài khoản

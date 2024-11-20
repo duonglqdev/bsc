@@ -21,7 +21,7 @@
                     </ul>
                 <?php } ?>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1 relative z-[1]">
                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
             </div>
         </div>

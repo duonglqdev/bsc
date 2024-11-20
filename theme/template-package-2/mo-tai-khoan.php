@@ -17,7 +17,7 @@ get_header();
 							MỞ TÀI KHOẢN TẠI BSC
 						</h2>
 						<ul
-							class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
+							class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold pl-6">
 							<li class="list-icon-item !gap-2">
 								Mở tài khoản nhanh chóng 
 							</li>
@@ -65,7 +65,7 @@ get_header();
 				<div class="lg:flex">
 					<div class="lg:w-1/2 xl:pr-[106px] pr-20 border-r border-[#C4C4C4]">
 						<h3
-							class="xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
+							class="2xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
 							Mở tài khoản <span class="text-primary-300">eKYC</span> ngay trên ứng
 							dụng <span class="text-primary-300">BSC Smart Invest</span>
 						</h3>
@@ -89,7 +89,7 @@ get_header();
 						</div>
 					</div>
 					<div class="lg:w-1/2 xl:pl-[106px] pl-20">
-						<h3 class="xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
+						<h3 class="2xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
 							Mở tài khoản trực tiếp
 						</h3>
 						<ul class="text-lg font-Helvetica space-y-4">
@@ -174,7 +174,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Giao dịch trực tuyến
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -196,7 +196,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Chính sách ưu đãi 
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -217,7 +217,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Đội ngũ Tư vấn đầu tư
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -239,7 +239,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Báo cáo phân tích uy tín
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">

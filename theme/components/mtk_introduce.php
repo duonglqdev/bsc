@@ -10,7 +10,7 @@
                     <?php } ?>
                     <?php if (have_rows('danh_sach')) { ?>
                         <ul
-                            class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold">
+                            class="list-icon space-y-[15px] font-Helvetica mb-8 text-primary-300 font-bold pl-6">
                             <?php while (have_rows('danh_sach')): the_row(); ?>
                                 <li class="list-icon-item !gap-2">
                                     <?php the_sub_field('content') ?>
@@ -70,7 +70,7 @@
                 <div class="lg:w-1/2 xl:pr-[106px] pr-20 border-r border-[#C4C4C4]">
                     <?php if (get_sub_field('mota')) { ?>
                         <div
-                            class="xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
+                            class="2xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
                             <?php the_sub_field('mota') ?>
                         </div>
                     <?php } ?>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="lg:w-1/2 xl:pl-[106px] pl-20">
                     <?php if (get_sub_field('title_3')) { ?>
-                        <h3 class="xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
+                        <h3 class="2xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
                             <?php the_sub_field('title_3') ?>
                         </h3>
                     <?php } ?>

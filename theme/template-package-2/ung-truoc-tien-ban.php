@@ -34,14 +34,14 @@ get_header();
 					<h2 class="heading-title mb-4">
 						ỨNG TRƯỚC TIỀN BÁN
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Ứng trước tiền bán là dịch vụ BSC giúp khách hàng nhận tiền ngay sau khi
 						khớp lệnh bán chứng khoán mà không cần chờ tiền bán về tài khoản như quy
 						định hiện hành (T+2)
 					</div>
 
 				</div>
-				<div class="col-span-1">
+				<div class="col-span-1 relative z-[1]">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517 (3).png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>

@@ -47,7 +47,7 @@ if ($style == 'nhdt') {
         <?php } ?>
     </section>
 <?php  } elseif ($style == 'ntgd') { ?>
-    <section class="bg-[#EBF4FA] py-4" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <?php if (have_rows('menu_navigation')) { ?>
                 <ul class="flex justify-center gap-10">

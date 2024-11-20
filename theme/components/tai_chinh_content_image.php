@@ -76,7 +76,7 @@
                         </div>
                     <?php } ?>
                     <?php if (have_rows('danh_sach')) { ?>
-                        <ul class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold">
+                        <ul class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold pl-8">
                             <?php while (have_rows('danh_sach')): the_row(); ?>
                                 <li class="list-icon-item">
                                     <?php the_sub_field('info') ?>
@@ -85,7 +85,7 @@
                         </ul>
                     <?php } ?>
                     <?php if (have_rows('danh_sach_nut_ngang')) { ?>
-                        <div class="flex items-center">
+                        <div class="flex items-center pl-8">
                             <?php while (have_rows('danh_sach_nut_ngang')): the_row();
                                 if (have_rows('button')) {
                                     while (have_rows('button')): the_row();
