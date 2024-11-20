@@ -8,7 +8,7 @@ $array_data = array(
 $response = get_data_with_cache('GetTopNews', $array_data, $time_cache);
 if ($response) {
 ?>
-	<section class="home_news bg-white lg:my-[77px] my-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+	<section class="home_news bg-white lg:my-[77px] my-14 font-Helvetica" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 		<div class="container">
 			<?php if (get_sub_field('title')) { ?>
 				<h2 class="heading-title 2xl:mb-12 mb-8 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
@@ -44,7 +44,7 @@ if ($response) {
 					break;
 				}  ?>
 				<div class="md:col-span-2 col-span-full">
-					<ul class="space-y-[12px]">
+					<ul class="space-y-4">
 						<?php
 						$i = 0;
 						foreach ($response->d as $news) {
