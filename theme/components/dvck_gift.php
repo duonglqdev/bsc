@@ -74,11 +74,12 @@
                                                 $today = new DateTime();
                                                 $remainingInterval = $today->diff($endDate);
                                                 $remainingDays = $remainingInterval->days;
+                                                $elapsedDays = $daysDifference - $remainingDays;
+                                                $completionPercentage = ($elapsedDays / $daysDifference) * 100;
                                                 if ($today > $endDate) {
                                                     $remainingDays = 0;
-                                                }
-                                                $elapsedDays = $daysDifference - $remainingDays;
-                                                $completionPercentage = ($elapsedDays / $daysDifference) * 100; ?>
+                                                    $completionPercentage = 0;
+                                                } ?>
                                                 <div class="mt-6 flex items-center gap-2 font-Helvetica">
                                                     <?php echo svg('time') ?>
                                                     <div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
@@ -90,8 +91,12 @@
                                                             style="width:<?php echo round($completionPercentage, 2)  ?>%"></p>
                                                     </div>
                                                     <div class="mt-2 text-xs">
-                                                        <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
-                                                            <?php _e('ngày', 'bsc') ?></strong>
+                                                        <?php if ($remainingDays == 0) {
+                                                            _e('Chương trình đã kết thúc', 'bsc');
+                                                        } else { ?>
+                                                            <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
+                                                                <?php _e('ngày', 'bsc') ?></strong>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             <?php } ?>
