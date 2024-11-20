@@ -480,6 +480,10 @@ header.active {
   @apply shrink-0;
 }
 
+.chart-info .subscribe {
+  @apply lg:-mt-10;
+}
+
 #leader-modal .main__content p {
   @apply mb-4;
 }
