@@ -33,7 +33,7 @@ get_header();
 					<h2 class="heading-title mb-4">
 						Tư vấn đầu tư cùng chuyên gia
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Nhà đầu tư có thể chủ động lựa chọn "Chuyên gia đồng hành" phù hợp với khẩu
 						vị đầu tư để nhận được tư vấn trực tiếp về phương pháp đầu tư, thông tin thị
 						trường, cơ hội đầu tư, xu hướng thị trường, phương án cơ cấu danh mục đầu

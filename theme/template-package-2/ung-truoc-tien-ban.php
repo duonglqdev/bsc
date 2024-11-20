@@ -34,7 +34,7 @@ get_header();
 					<h2 class="heading-title mb-4">
 						ỨNG TRƯỚC TIỀN BÁN
 					</h2>
-					<div class="text-primary-300 xl:text-2xl text-xl font-bold text-justify">
+					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Ứng trước tiền bán là dịch vụ BSC giúp khách hàng nhận tiền ngay sau khi
 						khớp lệnh bán chứng khoán mà không cần chờ tiền bán về tài khoản như quy
 						định hiện hành (T+2)
