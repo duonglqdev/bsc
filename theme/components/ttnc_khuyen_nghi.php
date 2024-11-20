@@ -1,5 +1,5 @@
 <?php $tab = generateRandomString();
-$check_login = bsc_is_user_logged_out();
+$check_logout = bsc_is_user_logged_out();
 ?>
 <section class="mt-14 xl:mb-pb-[110px] mb-20 ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -35,7 +35,7 @@ $check_login = bsc_is_user_logged_out();
                         <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                             id="<?php echo $tab ?>-<?php echo $i ?>">
                             <div class="relative pt-[76.2416%] w-full rounded-lg overflow-hidden">
-                                <?php $class = $check_login ? '' : 'blur-sm'; ?>
+                                <?php $class = $check_logout ? 'blur-sm' : ''; ?>
                                 <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
                                     <ul
                                         class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 px-[30px] justify-between">
@@ -66,7 +66,7 @@ $check_login = bsc_is_user_logged_out();
                                     </div>
 
                                 </div>
-                                <?php if ($check_login) {
+                                <?php if ($check_logout) {
                                     echo $result['html'];
                                 } ?>
                             </div>
