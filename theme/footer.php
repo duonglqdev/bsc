@@ -168,11 +168,11 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 			</div>
 		</div>
 
-		<div class="grid lg:grid-cols-9 md:grid-cols-12 gap-5">
+		<div class="lg:flex lg:justify-between gap-5">
 			<?php if (have_rows('f3_menu', 'option')) {
 				while (have_rows('f3_menu', 'option')) :
 					the_row(); ?>
-					<div class="lg:col-span-2 md:col-span-6 space-y-4 footer-item">
+					<div class="space-y-4 footer-item">
 						<?php if (get_sub_field('title')) { ?>
 							<p class="font-bold uppercase text-yellow-100"><?php the_sub_field('title') ?></p>
 						<?php };
@@ -189,7 +189,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 					</div>
 			<?php endwhile;
 			} ?>
-			<div class="lg:col-span-3 md:col-span-6 space-y-4">
+			<div class="2xl:max-w-[33%] lg:max-w-[38%] space-y-4">
 				<?php if (get_field('f4_title', 'option')) { ?>
 					<p class="font-bold uppercase text-yellow-100">
 						<?php the_field('f4_title', 'option') ?>

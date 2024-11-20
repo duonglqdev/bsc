@@ -327,7 +327,7 @@ get_header();
 					</a>
 				</div>
 				<div class="flex-1">
-					<div class="space-y-[23px]">
+					<div class="2xl:space-y-[23px] space-y-4">
 						<?php
 						for ( $i = 0; $i < 2; $i++ )
 						{

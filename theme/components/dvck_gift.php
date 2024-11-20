@@ -41,7 +41,7 @@
                     <?php }
                     } ?>
                     <div class="flex-1">
-                        <div class="space-y-[23px]">
+                        <div class="2xl:space-y-[23px] space-y-4">
                             <?php
                             $i = 0;
                             foreach ($response->d as $news) {
