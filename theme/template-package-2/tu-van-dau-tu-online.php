@@ -39,7 +39,7 @@ get_header();
 						tích, các kênh tư vấn online (Tổng đài dịch vụ, Zalo OA...)
 					</div>
 				</div>
-				<div class="col-span-1">
+				<div class="col-span-1 relative z-[1]">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517.png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>

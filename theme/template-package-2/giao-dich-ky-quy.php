@@ -51,13 +51,13 @@ get_header();
 
 					</ul>
 				</div>
-				<div class="col-span-1">
+				<div class="col-span-1 ">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517 (2).png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>
 			</div>
 		</div>
-		<div class="absolute top-0 right-0 pointer-events-none -z-1">
+		<div class="absolute top-0 right-0 pointer-events-none relative z-[1]">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>

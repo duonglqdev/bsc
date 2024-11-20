@@ -41,7 +41,7 @@ get_header();
 					</div>
 
 				</div>
-				<div class="col-span-1">
+				<div class="col-span-1 relative z-[1]">
 					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517 (3).png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>
