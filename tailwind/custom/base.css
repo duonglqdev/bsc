@@ -706,6 +706,9 @@ button#ib-button-messaging {
 .content_prose a strong {
   @apply font-bold;
 }
+.content_prose mark {
+  @apply bg-transparent font-medium;
+}
 
 .sidebar-base li .li-plus {
   @apply rotate-0;

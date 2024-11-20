@@ -675,6 +675,9 @@ button#ib-button-messaging {
 	a strong {
 		@apply font-bold;
 	}
+	mark{
+		@apply bg-transparent font-medium;
+	}
 }
 
 .sidebar-base {
