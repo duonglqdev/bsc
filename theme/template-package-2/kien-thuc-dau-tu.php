@@ -129,7 +129,7 @@ get_header();
 							for ( $i = 0; $i < 2; $i++ )
 							{
 								?>
-								<div class="post_item font-Helvetica">
+								<div class="post_item font-Helvetica flex flex-col">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
 										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
@@ -158,11 +158,14 @@ get_header();
 										khai các thủ tục xin phép cơ quan chức năng tại Việt Nam để đưa
 										công ty quản lý quỹ đi vào hoạt động.
 									</div>
-									<a href=""
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
-										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
-									</a>
+									<div class="mt-auto">
+										<a href=""
+											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
+											Xem chi tiết
+											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										</a>
+
+									</div>
 								</div>
 								<?php
 							}
