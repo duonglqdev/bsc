@@ -61,7 +61,7 @@
         <?php if (have_rows('benefit')) { ?>
             <div class="grid grid-cols-3 gap-5">
                 <?php while (have_rows('benefit')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden lg:min-h-[310px] lg:px-12 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
+                    <div class="rounded-2xl overflow-hidden lg:min-h-[310px] 2xl:px-12 lg:px-8 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
                         style="background-color:<?php the_sub_field('color') ?>;">
                         <div class="lg:max-w-[330px] mx-auto">
                             <div class="relative w-full pt-[47%]">

@@ -106,7 +106,7 @@ get_header();
 				PHÙ HỢP VỚI NHÀ ĐẦU TƯ
 			</h2>
 			<div class="grid grid-cols-3 gap-5">
-				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] lg:px-12 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
+				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] 2xl:px-12 lg:px-8 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
 					style="background-color:#009E871a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
@@ -119,7 +119,7 @@ get_header();
 						Chủ động theo dõi thị trường 
 					</div>
 				</div>
-				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] lg:px-12 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
+				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] 2xl:px-12 lg:px-8 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
 					style="background-color:#FFB81C1a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
@@ -132,7 +132,7 @@ get_header();
 						Có kinh nghiệm đầu tư 
 					</div>
 				</div>
-				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] lg:px-12 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
+				<div class="rounded-2xl overflow-hidden lg:min-h-[310px] 2xl:px-12 lg:px-8 px-5 lg:pt-9 pt-5 lg:pb-[46px] pb-5 text-center group"
 					style="background-color:#235BA81a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
