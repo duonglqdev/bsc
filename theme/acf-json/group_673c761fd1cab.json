@@ -1838,15 +1838,15 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "taxonomy": "category",
+                                    "taxonomy": "danh-muc-bao-cao-phan-tich",
                                     "add_term": 1,
                                     "save_terms": 0,
                                     "load_terms": 0,
                                     "return_format": "object",
-                                    "field_type": "checkbox",
+                                    "field_type": "select",
+                                    "allow_null": 0,
                                     "bidirectional": 0,
                                     "multiple": 0,
-                                    "allow_null": 0,
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_670265fc5654d"
                                 },
@@ -13913,15 +13913,15 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "danh-muc-bao-cao-phan-tich",
                             "add_term": 1,
                             "save_terms": 0,
                             "load_terms": 0,
                             "return_format": "object",
-                            "field_type": "checkbox",
+                            "field_type": "select",
+                            "allow_null": 0,
                             "bidirectional": 0,
                             "multiple": 0,
-                            "allow_null": 0,
                             "bidirectional_target": []
                         },
                         {
@@ -14256,5 +14256,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732130330
+    "modified": 1732134353
 }
