@@ -15,7 +15,7 @@
                 <?php } ?>
                 <?php if (get_sub_field('title_big')) { ?>
                     <h3
-                        class="font-bold uppercase 2xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
+                        class="font-bold uppercase 22xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
                         <?php the_sub_field('title_big') ?>
                     </h3>
                 <?php } ?>

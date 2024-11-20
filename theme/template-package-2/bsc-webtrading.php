@@ -38,7 +38,7 @@ get_header();
 					</div>
 					<div class="md:w-1/2">
 						<h3
-							class="text-primary-300 uppercase mb-2 font-bold xl:text-[40px] text-3xl !leading-[1.35]">
+							class="text-primary-300 uppercase mb-2 font-bold 2xl:text-[40px] text-3xl !leading-[1.35]">
 							CÁ NHÂN HÓA <br>
 							TRẢI NGHIỆM ĐẦU TƯ
 						</h3>
@@ -57,7 +57,7 @@ get_header();
 					</div>
 					<div class="md:w-1/2">
 						<h3
-							class="text-primary-300 uppercase mb-2 font-bold xl:text-[40px] text-3xl !leading-[1.35]">
+							class="text-primary-300 uppercase mb-2 font-bold 2xl:text-[40px] text-3xl !leading-[1.35]">
 							GIAO DỊCH DỄ DÀNG
 						</h3>
 						<p class="text-primary-300 text-2xl font-bold mb-6">
@@ -75,7 +75,7 @@ get_header();
 					</div>
 					<div class="md:w-1/2">
 						<h3
-							class="text-primary-300 uppercase mb-2 font-bold xl:text-[40px] text-3xl !leading-[1.35]">
+							class="text-primary-300 uppercase mb-2 font-bold 2xl:text-[40px] text-3xl !leading-[1.35]">
 							ĐẦU TƯ HIỆU QUẢ
 						</h3>
 						<p class="text-primary-300 text-2xl font-bold mb-6">
@@ -87,10 +87,10 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex xl:px-[114px] px-12 mt-10 min-h-[350px]"
+			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex 2xl:px-[114px] px-12 mt-10 min-h-[350px]"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-blue.png)">
 				<div class="lg:w-1/2 lg:flex flex-col justify-center">
-					<div class="lg:max-w-[480px]">
+					<div class="2xl:max-w-[480px]">
 						<h2 class="heading-title mb-8">
 							TRUY CẬP WEBTRADING
 							NGAY HÔM NAY
@@ -125,14 +125,14 @@ get_header();
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1-1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
 									Hướng dẫn đặt lệnh “Pro” 
 								</h3>
 								<div class="font-Helvetica">
-									Màn hình đặt lệnh ProTrading với hệ thống thông tin chuyên sâu,
-									phù hợp với nhà đầu tư chuyên nghiệp.  
+									Màn hình đặt lệnh ProTrading với <br> hệ thống thông tin chuyên sâu,<br>
+									phù hợp với nhà đầu tư <br> chuyên nghiệp.  
 								</div>
 								<div class="mt-auto">
 									<a href="#"
@@ -150,7 +150,7 @@ get_header();
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide2.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
 								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
@@ -189,7 +189,7 @@ get_header();
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide3.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
 								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
@@ -219,7 +219,7 @@ get_header();
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide4.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div
 								class=" desc lg:max-w-[60%] h-full flex flex-col text-white">
 								<h3 class="font-bold text-2xl text-white mb-4">
@@ -249,7 +249,7 @@ get_header();
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
-							class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
 									Tip đặt lệnh “thần <br> tốc” trên ứng dụng <br> BSC Smart Invest 

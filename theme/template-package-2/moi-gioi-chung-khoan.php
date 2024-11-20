@@ -110,7 +110,7 @@ get_header();
 						02 năm liên tiếp vinh dự nhận giải thưởng quốc tế 
 					</p>
 					<h3
-						class="font-bold uppercase 2xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
+						class="font-bold uppercase 22xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
 						NHÀ MÔI GIỚI CHỨNG KHOÁN TỐT NHẤT VIỆT NAM 
 					</h3>
 				</div>

@@ -23,7 +23,7 @@
                         <div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
                             <?php echo wp_get_attachment_image(get_sub_field('background'), 'full', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
                             <div
-                                class="lg:pt-[75px] pt-10 lg:pb-[65px] pb-10 lg:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
+                                class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
                                 <div class=" desc lg:max-w-[60%] h-full flex flex-col">
                                     <?php if (get_sub_field('title')) { ?>
                                         <h3 class="font-bold text-2xl <?php echo $color1 ?> mb-4">
