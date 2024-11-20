@@ -196,7 +196,7 @@ get_header();
 						BẠN ĐÃ SẴN SÀNG ĐẦU TƯ <br>
 						CHỨNG KHOÁN CÙNG BSC?
 					</h2>
-					<div class="space-y-2">
+					<div class="space-y-2 pl-14">
 						<a href=""
 							class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 							Mở tài khoản
