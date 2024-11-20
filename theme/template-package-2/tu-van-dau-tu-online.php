@@ -158,7 +158,7 @@ get_header();
 							TRẢI NGHIỆM DỊCH VỤ TƯ VẤN <br> ĐẦU TƯ ONLINE
 						</h2>
 						<ul
-							class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold">
+							class="list-icon space-y-[15px] font-Helvetica mb-6 text-primary-300 font-bold pl-8">
 							<li class="list-icon-item">
 								Mở tài khoản dễ dàng
 							</li>
@@ -172,7 +172,7 @@ get_header();
 								Công cụ hỗ trợ đa dạng
 							</li>
 						</ul>
-						<div class="flex items-center">
+						<div class="flex items-center pl-8">
 							<a href=""
 								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								Mở tài khoản
