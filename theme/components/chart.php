@@ -67,7 +67,7 @@
 						<?php the_sub_field('title') ?>
 					</h2>
 				<?php } ?>
-				<div class="bg-white rounded-2xl 2xl:p-7 p-5">
+				<div class="bg-white rounded-2xl 2xl:p-7 p-5 flex flex-col lg:min-h-[calc(100%-50px)] 2xl:min-h-[calc(100%-56px)]">
 					<div class="flex justify-between items-center mb-6">
 						<div class="space-x-2 px-[6px] py-[2px] rounded-xl bg-[#F8F8FF] btn-chart">
 							<button data-chart="BSC10"
@@ -84,8 +84,10 @@
 							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2" value="<?php echo $todate ?>">
 						</div>
 					</div>
-					<div id="chart" data-time_cache="<?php echo $time_cache ?>" data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>" data-stock='<?php echo $stocksDataJson ?>'></div>
-					<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
+					<div class="flex-1 chart-info">
+						<div id="chart" data-time_cache="<?php echo $time_cache ?>" data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>" data-stock='<?php echo $stocksDataJson ?>'></div>
+						<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
+					</div>
 				</div>
 			</div>
 			<div class="md:w-[33.181%]">
@@ -238,7 +240,7 @@
 													<?php echo htmlspecialchars($news->title) ?>
 												</p>
 												<p
-													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 													<?php _e('Hot', 'bsc') ?></p>
 												<a href="">
 													<?php echo svg('download') ?>

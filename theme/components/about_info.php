@@ -22,7 +22,7 @@
                 while (have_rows('video_youtube')): the_row();
                     if (get_sub_field('url_youtube')) { ?>
                         <a href="<?php echo check_link(get_sub_field('url_youtube')) ?>" data-fancybox=""
-                            class="rounded-[10px] overflow-hidden pt-[54%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
+                            class="rounded-[10px] overflow-hidden pt-[54%] relative block">
                             <?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
                             <div
                                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110">

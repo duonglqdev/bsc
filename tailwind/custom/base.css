@@ -133,10 +133,10 @@
       @apply flex transition-all duration-500  [&:not(.active)]:pointer-events-none [&:not(.active)]:invisible [&:not(.active)]:opacity-0 [&:not(.active)]:-z-10 -z-[1] opacity-100 visible pointer-events-auto;
     }
     .main_menu-navbar > .submenu-wrapper {
-      @apply w-[25%];
+      @apply w-[30%];
     }
     .main_menu-navbar > .submenu-wrapper > li {
-      @apply transition-all duration-500 pl-5 text-lg 2xl:[&:not(:last-child)]:pb-5 [&:not(:last-child)]:pb-3 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+      @apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:pb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
     }
     .main_menu-navbar > .submenu-wrapper > li a {
       @apply inline-block;
@@ -148,7 +148,7 @@
       @apply flex-1 overflow-hidden max-h-0 transition-all duration-500;
     }
     .main_menu-navbar > .submenu-content > li {
-      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  2xl:[&:not(:last-child)]:mb-6 [&:not(:last-child)]:mb-4 pb-1 leading-normal;
+      @apply text-paragraph  [&:not(.menu-item-has-children)]:border-b [&:not(.menu-item-has-children)]:border-[#E1E1E1]  2xl:[&:not(:last-child)]:mb-5 [&:not(:last-child)]:mb-4 pb-1 leading-normal;
     }
     .main_menu-navbar > .submenu-content > li > a {
       @apply inline-flex gap-[12px] uppercase transition-all duration-500 hover:text-yellow-100 font-bold hover:-ml-8 relative bg-no-repeat  hover:pr-8;
@@ -480,6 +480,10 @@ header.active {
   @apply shrink-0;
 }
 
+.chart-info .subscribe {
+  @apply lg:-mt-10;
+}
+
 #leader-modal .main__content p {
   @apply mb-4;
 }
@@ -706,6 +710,9 @@ button#ib-button-messaging {
 .content_prose a strong {
   @apply font-bold;
 }
+.content_prose mark {
+  @apply bg-transparent font-medium;
+}
 
 .sidebar-base li .li-plus {
   @apply rotate-0;
@@ -766,15 +773,21 @@ button#ib-button-messaging {
 
 .slider-tutorial .flickity-button {
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.2));
-  @apply w-10 h-10 bg-white;
+  @apply w-10 h-10 bg-white transition-all duration-500 hover:bg-primary-300;
 }
 .slider-tutorial .flickity-button.next {
-  @apply -right-14;
+  @apply xl:-right-14;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.3758 10.8237L12.1258 4.57373C11.9008 4.33623 11.5883 4.19873 11.2383 4.19873C10.5508 4.19873 9.98828 4.76123 9.98828 5.44873C9.98828 5.79873 10.1258 6.11123 10.3508 6.33623L14.4633 10.4487L2.48828 10.4487C1.80078 10.4487 1.23828 11.0112 1.23828 11.6987C1.23828 12.3862 1.80078 12.9487 2.48828 12.9487L14.4758 12.9487L10.3633 17.0612C10.1383 17.2862 10.0008 17.5987 10.0008 17.9487C10.0008 18.6362 10.5633 19.1987 11.2508 19.1987C11.6008 19.1987 11.9133 19.0612 12.1383 18.8362L18.3883 12.5862C18.6133 12.3612 18.7508 12.0487 18.7508 11.6987C18.7508 11.3487 18.6008 11.0487 18.3758 10.8237Z' fill='%23235BA8'/%3E%3C/svg%3E");
 }
+.slider-tutorial .flickity-button.next:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.3758 10.8237L12.1258 4.57373C11.9008 4.33623 11.5883 4.19873 11.2383 4.19873C10.5508 4.19873 9.98828 4.76123 9.98828 5.44873C9.98828 5.79873 10.1258 6.11123 10.3508 6.33623L14.4633 10.4487L2.48828 10.4487C1.80078 10.4487 1.23828 11.0112 1.23828 11.6987C1.23828 12.3862 1.80078 12.9487 2.48828 12.9487L14.4758 12.9487L10.3633 17.0612C10.1383 17.2862 10.0008 17.5987 10.0008 17.9487C10.0008 18.6362 10.5633 19.1987 11.2508 19.1987C11.6008 19.1987 11.9133 19.0612 12.1383 18.8362L18.3883 12.5862C18.6133 12.3612 18.7508 12.0487 18.7508 11.6987C18.7508 11.3487 18.6008 11.0487 18.3758 10.8237Z' fill='%23fff'/%3E%3C/svg%3E");
+}
 .slider-tutorial .flickity-button.previous {
-  @apply -left-14;
+  @apply xl:-left-14;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.62422 10.9331L7.87422 17.1831C8.09922 17.4206 8.41172 17.5581 8.76172 17.5581C9.44922 17.5581 10.0117 16.9956 10.0117 16.3081C10.0117 15.9581 9.87422 15.6456 9.64922 15.4206L5.53672 11.3081L17.5117 11.3081C18.1992 11.3081 18.7617 10.7456 18.7617 10.0581C18.7617 9.37061 18.1992 8.80811 17.5117 8.80811L5.52422 8.80811L9.63672 4.69561C9.86172 4.47061 9.99922 4.15811 9.99922 3.80811C9.99922 3.12061 9.43672 2.55811 8.74922 2.55811C8.39922 2.55811 8.08672 2.69561 7.86172 2.92061L1.61172 9.17061C1.38672 9.39561 1.24922 9.70811 1.24922 10.0581C1.24922 10.4081 1.39922 10.7081 1.62422 10.9331Z' fill='%23235BA8'/%3E%3C/svg%3E");
+}
+.slider-tutorial .flickity-button.previous:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.62422 10.9331L7.87422 17.1831C8.09922 17.4206 8.41172 17.5581 8.76172 17.5581C9.44922 17.5581 10.0117 16.9956 10.0117 16.3081C10.0117 15.9581 9.87422 15.6456 9.64922 15.4206L5.53672 11.3081L17.5117 11.3081C18.1992 11.3081 18.7617 10.7456 18.7617 10.0581C18.7617 9.37061 18.1992 8.80811 17.5117 8.80811L5.52422 8.80811L9.63672 4.69561C9.86172 4.47061 9.99922 4.15811 9.99922 3.80811C9.99922 3.12061 9.43672 2.55811 8.74922 2.55811C8.39922 2.55811 8.08672 2.69561 7.86172 2.92061L1.61172 9.17061C1.38672 9.39561 1.24922 9.70811 1.24922 10.0581C1.24922 10.4081 1.39922 10.7081 1.62422 10.9331Z' fill='%23fff'/%3E%3C/svg%3E");
 }
 .slider-tutorial .flickity-viewport {
   @apply rounded-[20px] overflow-hidden;

@@ -9,7 +9,7 @@
                     </h2>
                 <?php } ?>
                 <?php if (have_rows('danh_sach_nut')) { ?>
-                    <div class="space-y-2">
+                    <div class="space-y-2 pl-14">
                         <?php
                         $i = 0;
                         while (have_rows('danh_sach_nut')): the_row();

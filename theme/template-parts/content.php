@@ -1,7 +1,7 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="post_item font-Helvetica">
+    <div class="post_item font-Helvetica flex flex-col">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
             class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
             <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
@@ -24,13 +24,15 @@
             class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
             <?php echo htmlspecialchars($news->title) ?>
         </a>
-        <div class="line-clamp-3 text-paragraph mb-4">
+        <div class="line-clamp-2 text-paragraph mb-4">
             <?php echo htmlspecialchars($news->description) ?>
         </div>
-        <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-            class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
-            <?php _e('Xem chi tiết', 'bsc') ?>
-            <?php echo svg('arrow-btn', '12', '12') ?>
-        </a>
+        <div class="mt-auto">
+            <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
+                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
+                <?php _e('Xem chi tiết', 'bsc') ?>
+                <?php echo svg('arrow-btn', '12', '12') ?>
+            </a>
+        </div>
     </div>
 <?php } ?>

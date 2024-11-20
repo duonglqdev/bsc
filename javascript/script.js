@@ -434,7 +434,7 @@ import WOW from 'wowjs';
 			var options = {
 				chart: {
 					type: 'line',
-					height: 475,
+					height: '97%',
 					toolbar: {
 						show: true,
 						tools: {

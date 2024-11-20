@@ -320,16 +320,16 @@ get_header();
 			<div class="lg:flex gap-10">
 				<div class="lg:w-[656px] lg:max-w-[50%]">
 					<a href=""
-						class="w-full block relative overflow-hidden rounded-2xl pt-[84.75%]">
+						class="w-full block relative overflow-hidden rounded-2xl pt-[55%]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/km.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</a>
 				</div>
 				<div class="flex-1">
-					<div class="space-y-[23px]">
+					<div class="2xl:space-y-[23px] space-y-4">
 						<?php
-						for ( $i = 0; $i < 3; $i++ )
+						for ( $i = 0; $i < 2; $i++ )
 						{
 							?>
 							<div class="item flex gap-6 items-center">
