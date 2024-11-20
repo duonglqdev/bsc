@@ -167,7 +167,7 @@
 												</p>
 												<p
 													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-													Hot</p>
+													<?php _e('Hot', 'bsc') ?></p>
 												<a href="">
 													<?php echo svg('download') ?>
 												</a>
@@ -239,7 +239,7 @@
 												</p>
 												<p
 													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
-													Hot</p>
+													<?php _e('Hot', 'bsc') ?></p>
 												<a href="">
 													<?php echo svg('download') ?>
 												</a>
