@@ -14,7 +14,7 @@ get_header();
     <section class="xl:[my-100px] my-20">
         <div class="container">
             <div class="flex justify-between items-center mb-8">
-                <h2 class="heading-title"><?php _e('Kết quả tìm kiếm') . ': ' .  $search  ?></h2>
+                <h2 class="heading-title"><?php echo __('Kết quả tìm kiếm') . ': ' .  $search  ?></h2>
             </div>
             <?php
             if (isset($_GET['posts_to_show'])) {
@@ -56,7 +56,7 @@ get_header();
                     <?php get_template_part('components/pagination', '', array(
                         'get' => 'api',
                         'total_page' => $total_page,
-                        'url' => get_term_link(get_queried_object_id()),
+                        'url' => get_home_url() . '/tag-report/' . $$search,
                     )) ?>
                 </div>
             <?php } ?>

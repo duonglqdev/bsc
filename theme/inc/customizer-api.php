@@ -105,8 +105,8 @@ function custom_template_redirect()
             global $custom_meta_data;
             $custom_meta_data = array(
                 'title' => $news->title,
-                'description' => $news->description,
-                'thumbnail' => $news->imagethumbnail
+                'description' => $news->content,
+                'thumbnail' => $news->imageurl
             );
             get_template_part('single', null, array(
                 'data' => $news,

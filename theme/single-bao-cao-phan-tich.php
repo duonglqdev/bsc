@@ -79,7 +79,7 @@ get_header();
                         <?php
                         $tags = $news->hashtag;
                         if ($tags) {
-                            $tags = (explode(", ", $str));
+                            $tags = explode(", ", $tags);
                         ?>
                             <div class="mt-4 space-x-2 space-y-2">
                                 <?php foreach ($tags as $tag) { ?>

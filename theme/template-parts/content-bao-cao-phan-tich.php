@@ -49,7 +49,7 @@
             </div>
         </div>
         <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-            <a href="<?php echo slug_report(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
+            <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </h3>
