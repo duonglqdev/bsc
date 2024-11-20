@@ -216,39 +216,38 @@
 									</div>
 								<?php } ?>
 								<?php
-								if ($i == 1) {
-									$categoryid = 6;
-								} elseif ($i == 2) {
-									$categoryid = 1;
-								} else {
-									$categoryid = 8;
-								}
-								$array_data = array(
-									'lang' => pll_current_language(),
-									'maxitem' => 4,
-									'categoryid' => $categoryid
-								);
-								$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-								if ($response) {
+								$term = get_sub_field('danh_muc_bao_cao_phan_tich');
+								if ($term) {
+									$categoryid = get_sub_field('api_id_danh_muc', $term);
+									if ($categoryid) {
+										$array_data = array(
+											'lang' => pll_current_language(),
+											'maxitem' => 4,
+											'categoryid' => $categoryid
+										);
+										$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+										if ($response) {
 								?>
-									<ul class="space-y-4">
-										<?php foreach ($response->d as $news) { ?>
-											<li class="flex gap-[14px] items-center justify-between">
-												<p class="line-clamp-1 flex-1">
-													<?php echo htmlspecialchars($news->title) ?>
-												</p>
-												<p
-													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
-													<?php _e('Hot', 'bsc') ?></p>
-												<a href="">
-													<?php echo svg('download') ?>
-												</a>
-											</li>
-										<?php
-										}
-										?>
-									</ul>
-								<?php } ?>
+											<ul class="space-y-4">
+												<?php foreach ($response->d as $news) { ?>
+													<li class="flex gap-[14px] items-center justify-between">
+														<p class="line-clamp-1 flex-1">
+															<?php echo htmlspecialchars($news->title) ?>
+														</p>
+														<p
+															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px]">
+															<?php _e('Hot', 'bsc') ?></p>
+														<a href="">
+															<?php echo svg('download') ?>
+														</a>
+													</li>
+												<?php
+												}
+												?>
+											</ul>
+								<?php }
+									}
+								} ?>
 								<?php if (have_rows('button_xem_them')) {
 									while (have_rows('button_xem_them')) :
 										the_row(); ?>
