@@ -115,14 +115,18 @@ get_header();
 								</div>
 							<?php } ?>
 						</div>
-						<div class="mt-[12px]">
-							<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-								class="btn-base-yellow w-full h-full rounded-xl">
-								<span class="block relative z-10">
-									<?php _e('Ứng tuyển ngay', 'bsc') ?>
-								</span>
-							</button>
-						</div>
+						<?php $current_date = new DateTime(current_time('Y-m-d'));
+						if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
+						} else { ?>
+							<div class="mt-[12px]">
+								<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+									class="btn-base-yellow w-full h-full rounded-xl">
+									<span class="block relative z-10">
+										<?php _e('Ứng tuyển ngay', 'bsc') ?>
+									</span>
+								</button>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="lg:flex-1 space-y-[30px]">
