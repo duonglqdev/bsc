@@ -18,7 +18,7 @@ if ($style == 'nhdt') {
             </div>
         <?php } ?>
     </section>
-<?php } elseif ($style == 'stgd') {
+<?php } elseif (($style == 'stgd') || ($style == 'bpgd')) {
 ?>
     <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php
