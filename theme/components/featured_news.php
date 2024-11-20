@@ -39,7 +39,7 @@ if ($response) {
                                 </div>
                                 <div class="mt-auto">
                                     <p
-                                        class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
+                                        class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
                                         <span
                                             class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
                                     </p>
