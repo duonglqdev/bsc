@@ -65,7 +65,7 @@ get_header();
 				<div class="lg:flex">
 					<div class="lg:w-1/2 xl:pr-[106px] pr-20 border-r border-[#C4C4C4]">
 						<h3
-							class="xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
+							class="2xl:text-[32px] text-2xl font-bold xl:mb-[54px] mb-10 !leading-normal">
 							Mở tài khoản <span class="text-primary-300">eKYC</span> ngay trên ứng
 							dụng <span class="text-primary-300">BSC Smart Invest</span>
 						</h3>
@@ -89,7 +89,7 @@ get_header();
 						</div>
 					</div>
 					<div class="lg:w-1/2 xl:pl-[106px] pl-20">
-						<h3 class="xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
+						<h3 class="2xl:text-[32px] text-2xl font-bold mb-6 !leading-normal">
 							Mở tài khoản trực tiếp
 						</h3>
 						<ul class="text-lg font-Helvetica space-y-4">
