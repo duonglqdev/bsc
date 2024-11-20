@@ -174,7 +174,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Giao dịch trực tuyến
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -196,7 +196,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Chính sách ưu đãi 
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -217,7 +217,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Đội ngũ Tư vấn đầu tư
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
@@ -239,7 +239,7 @@ get_header();
 							</div>
 						</div>
 						<div class="mt-4">
-							<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2">
+							<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
 								Báo cáo phân tích uy tín
 							</h3>
 							<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">

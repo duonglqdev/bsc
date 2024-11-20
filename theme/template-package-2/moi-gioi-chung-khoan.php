@@ -24,7 +24,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Đa dạng sản phẩm <br>
 							và tiện ích
 						</h3>
@@ -44,7 +44,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Phí giao dịch <br>
 							hấp dẫn
 						</h3>
@@ -64,7 +64,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Nền tảng giao dịch <br>
 							hiện đại
 						</h3>
@@ -84,7 +84,7 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 xl:text-2xl text-xl mb-2 text-center">
+						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Hệ thống bảo mật <br>
 							toàn diện
 						</h3>
