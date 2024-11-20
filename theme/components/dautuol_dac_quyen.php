@@ -41,7 +41,7 @@
                                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
                                 <h4
                                     class="absolute w-full bottom-0 left-0 px-10 lg:py-[13px] py-5 2xl:text-2xl text-xl text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0">
-                                    <p class="lg:max-w-[67%] relative z-10 line-clamp-2">
+                                    <p class="2xl:max-w-[67%] relative z-10 line-clamp-2">
                                         <?php the_sub_field('title') ?>
                                     </p>
                                 </h4>
