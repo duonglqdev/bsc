@@ -717,6 +717,10 @@ button#ib-button-messaging {
   @apply mr-3;
 }
 
+.document-modal-content * {
+  font-family: "Helvetica Neue,sans-serif" !important;
+}
+
 .sidebar-base li .li-plus {
   @apply rotate-0;
 }
