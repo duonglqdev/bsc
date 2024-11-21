@@ -99,30 +99,37 @@ get_header();
 			</div>
 
 			<div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
-				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between relative group bg-[#D8F1F3] overflow-hidden">
 					<div
-						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
-						<?php echo svg( 'note-1', '30' ) ?>
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500">
+						<div class="text-green group-hover:text-white">
+							<?php echo svg( 'note-1', '30' ) ?>
+						</div>
 						Cách thức thực hiện
 					</div>
 					<a href=""
-						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
+						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica relative z-[2] group-hover:text-white">
 						Xem chi tiết
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
+					<div class="absolute w-full h-full inset-0 bg-gradient-blue transition-all duration-500 pointer-events-none opacity-0 group-hover:opacity-100"></div>
 				</div>
-				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between relative group bg-[#D8F1F3] overflow-hidden">
 					<div
-						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
-						<?php echo svg( 'note', '30' ) ?>
+						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500">
+						<div class="text-green group-hover:text-white">
+							<?php echo svg( 'note', '30' ) ?>
+						</div>
 						Biểu lãi suất
 					</div>
 					<a href=""
-						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
+						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica relative z-[2] group-hover:text-white">
 						Xem chi tiết
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
+					<div class="absolute w-full h-full inset-0 bg-gradient-blue transition-all duration-500 pointer-events-none opacity-0 group-hover:opacity-100"></div>
 				</div>
+				
 			</div>
 		</div>
 	</section>

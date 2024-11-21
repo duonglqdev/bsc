@@ -15,16 +15,10 @@
   @apply opacity-100;
   background-color: white;
 }
-.dots-white .slick-dots .dot {
-  @apply bg-white;
-}
 
 .dots-blue .flickity-page-dots .dot {
   @apply opacity-100;
   background-color: theme("colors.primary.300");
-}
-.dots-blue .slick-dots .dot {
-  @apply bg-white;
 }
 
 .block_slider-show-1:not(.flickity-enabled, .slick-initialized) {
@@ -39,80 +33,6 @@
 }
 .block_slider-show-2:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+3) {
   @apply hidden;
-}
-
-.block_slider-show-3:not(.flickity-enabled, .slick-initialized) {
-  @apply flex overflow-hidden;
-}
-.block_slider-show-3:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+4) {
-  @apply hidden;
-}
-
-.block_slider-show-4:not(.flickity-enabled, .slick-initialized) {
-  @apply flex overflow-hidden;
-}
-.block_slider-show-4:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+5) {
-  @apply hidden;
-}
-
-.block_slider-show-5:not(.flickity-enabled, .slick-initialized) {
-  @apply flex overflow-hidden;
-}
-.block_slider-show-5:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+6) {
-  @apply hidden;
-}
-
-.block_slider-show-6:not(.flickity-enabled, .slick-initialized) {
-  @apply flex overflow-hidden;
-}
-.block_slider-show-6:not(.flickity-enabled, .slick-initialized) .block_slider-item:nth-child(n+7) {
-  @apply hidden;
-}
-
-.btn-base-yellow {
-  @apply bg-yellow-100;
-  @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
-}
-.btn-base-yellow:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: none;
-}
-.btn-base-yellow:hover {
-  box-shadow: rgba(255, 184, 28, 0.5) 0px 4px 16px 0px;
-}
-.btn-base-yellow:hover::after {
-  width: 120%;
-  background-color: rgba(255, 255, 255, 0);
-  transition: all 0.4s ease-in-out;
-}
-
-.btn-base-green {
-  @apply bg-green;
-  @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
-}
-.btn-base-green:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: none;
-}
-.btn-base-green:hover {
-  box-shadow: rgba(0, 158, 135, 0.4) 0px 4px 16px 0px;
-}
-.btn-base-green:hover::after {
-  width: 120%;
-  background-color: rgba(255, 255, 255, 0);
-  transition: all 0.4s ease-in-out;
 }
 
 @layer components {
