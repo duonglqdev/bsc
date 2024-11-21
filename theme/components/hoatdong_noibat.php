@@ -8,14 +8,14 @@
         <div class="lg:flex gap-[70px]">
             <div class="lg:w-80 lg:max-w-[35%]">
                 <div class="sticky top-5 z-10">
-                    <ul class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[180px] overflow-y-auto">
+                    <ul class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[180px] overflow-y-auto space-y-2">
                         <?php
                         $currentYear = date('Y');
                         $selectedYear = !empty($_GET['years']) ? $_GET['years'] : $currentYear;
                         for ($year = $currentYear; $year >= 2015; $year--):
                         ?>
                             <li>
-                                <a href="<?php echo get_permalink(get_the_ID()) ?>?years=<?php echo $year ?><?php if (get_sub_field('id_class')) { ?><?php echo '#' . get_sub_field('id_class') ?><?php } ?>" class="block px-5 py-3 <?php echo ($year == $selectedYear) ? 'active' : ''; ?> block px-5 py-3 font-semibold text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+                                <a href="<?php echo get_permalink(get_the_ID()) ?>?years=<?php echo $year ?><?php if (get_sub_field('id_class')) { ?><?php echo '#' . get_sub_field('id_class') ?><?php } ?>" class="block px-5 py-3 <?php echo ($year == $selectedYear) ? 'active' : ''; ?> block px-5 py-3 font-semibold text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
                                     <?php _e('Năm', 'bsc') ?> <?php echo $year; ?>
                                 </a>
                             </li>
