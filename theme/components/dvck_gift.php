@@ -65,20 +65,26 @@
                                                 </a>
                                             </h4>
                                             <?php if ($news->promotionended) {
+                                                $remainingDays = 0;
+                                                $completionPercentage = 0;
                                                 $startDate = new DateTime($news->promotionstarted);
                                                 $endDate = new DateTime($news->promotionended);
-                                                $formattedStartDate = $startDate->format('d/m/Y');
                                                 $formattedEndDate = $endDate->format('d/m/Y');
-                                                $interval = $startDate->diff($endDate);
-                                                $daysDifference = $interval->days;
-                                                $today = new DateTime();
-                                                $remainingInterval = $today->diff($endDate);
-                                                $remainingDays = $remainingInterval->days;
-                                                $elapsedDays = $daysDifference - $remainingDays;
-                                                $completionPercentage = ($elapsedDays / $daysDifference) * 100;
-                                                if ($today > $endDate) {
-                                                    $remainingDays = 0;
-                                                    $completionPercentage = 0;
+                                                if ($news->promotionstarted) {
+                                                    $formattedStartDate = $startDate->format('d/m/Y');
+                                                    $interval = $startDate->diff($endDate);
+                                                    $daysDifference = $interval->days;
+                                                    $today = new DateTime();
+                                                    $remainingInterval = $today->diff($endDate);
+                                                    $remainingDays = $remainingInterval->days;
+                                                    $elapsedDays = $daysDifference - $remainingDays;
+                                                    $completionPercentage = ($elapsedDays / $daysDifference) * 100;
+                                                    if ($today > $endDate) {
+                                                        $remainingDays = 0;
+                                                        $completionPercentage = 0;
+                                                    }
+                                                } else {
+                                                    $formattedStartDate = 'N/A';
                                                 } ?>
                                                 <div class="mt-6 flex items-center gap-2 font-Helvetica">
                                                     <?php echo svg('time') ?>
