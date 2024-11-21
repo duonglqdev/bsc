@@ -20,10 +20,12 @@
                 <?php echo $date->format('H:i:s'); ?>
             </span>
         </div>
-        <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-            class="block font-bold line-clamp-2 mb-3 hover:text-green transition-all duration-500">
-            <?php echo htmlspecialchars($news->title) ?>
-        </a>
+        <p class="mb-3 hover:text-green transition-all duration-500 font-bold">
+            <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
+                class="line-clamp-2">
+                <?php echo htmlspecialchars($news->title) ?>
+            </a>
+        </p>
         <div class="line-clamp-2 text-paragraph mb-4">
             <?php echo htmlspecialchars($news->description) ?>
         </div>

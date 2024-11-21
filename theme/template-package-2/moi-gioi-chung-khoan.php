@@ -232,8 +232,8 @@ get_header();
 					<div class="flex h-full">
 						<div class="w-1/2 h-full">
 							<div
-								class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
-								<p class="font-bold mb-1 text-xl">
+								class="flex flex-col justify-end h-full 2xl:ml-10 ml-6 font-Helvetica pb-[43px]">
+								<p class="font-bold mb-1 2xl:text-xl text-lg">
 									Điểm hỗ trợ
 								</p>
 								<a href="#"
@@ -255,8 +255,8 @@ get_header();
 					<div class="flex h-full">
 						<div class="w-1/2 h-full">
 							<div
-								class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
-								<p class="font-bold mb-1 text-xl">
+								class="flex flex-col justify-end h-full 2xl:ml-10 ml-6 font-Helvetica pb-[43px]">
+								<p class="font-bold mb-1 2xl:text-xl text-lg">
 									Trung tâm tư vấn
 								</p>
 								<a href="#"
@@ -278,8 +278,8 @@ get_header();
 					<div class="flex h-full">
 						<div class="w-1/2 h-full">
 							<div
-								class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
-								<p class="font-bold mb-1 text-xl">
+								class="flex flex-col justify-end h-full 2xl:ml-10 ml-6 font-Helvetica pb-[43px]">
+								<p class="font-bold mb-1 2xl:text-xl text-lg">
 									Chuyên gia tư vấn
 								</p>
 								<a href="#"

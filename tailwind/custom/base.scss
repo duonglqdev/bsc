@@ -682,6 +682,13 @@ button#ib-button-messaging {
 	mark{
 		@apply bg-transparent font-medium;
 	}
+	ul > li > span:nth-child(1) > strong{
+		@apply mr-3;
+	}
+
+}
+.document-modal-content *{
+	font-family: 'Helvetica Neue,sans-serif' !important;
 }
 
 .sidebar-base {
