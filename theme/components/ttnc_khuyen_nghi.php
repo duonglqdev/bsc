@@ -1,5 +1,5 @@
 <?php $tab = generateRandomString();
-$check_login = bsc_is_user_logged_out();
+$check_logout = bsc_is_user_logged_out();
 ?>
 <section class="mt-14 xl:mb-pb-[110px] mb-20 ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -23,7 +23,7 @@ $check_login = bsc_is_user_logged_out();
                             <li>
                                 <button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
                                     class="<?php if ($i == 1) echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500">
-                                    <?php $news->name ?>
+                                    <?php echo $news->name ?>
                                 </button>
                             </li>
                         <?php } ?>
@@ -32,50 +32,49 @@ $check_login = bsc_is_user_logged_out();
                     $i = 0;
                     foreach ($response->d as $news) {
                         $i++; ?>
-                        <li>
-                            <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
-                                id="<?php echo $tab ?>-<?php echo $i ?>">
-                                <div class="relative pt-[76.2416%] w-full rounded-lg overflow-hidden">
-                                    <?php $class = $check_login ? '' : 'blur-sm'; ?>
-                                    <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
-                                        <ul
-                                            class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 px-[30px] justify-between">
-                                            <li class="w-[8%]"><?php _e('Mã', 'bsc') ?></li>
-                                            <li class="w-[16%]"><?php _e('Khuyến nghị', 'bsc') ?></li>
-                                            <li class="w-[16%]"><?php _e('Giá', 'bsc') ?></li>
-                                            <li class="w-[16%]"><?php _e('Mục tiêu', 'bsc') ?></li>
-                                            <li class="w-[16%]"><?php _e('Upside', 'bsc') ?></li>
-                                        </ul>
-                                        <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
-                                            <?php
-                                            for ($j = 0; $j < 12; $j++) {
-                                            ?>
-                                                <ul
-                                                    class="flex gap-5 text-center justify-between px-[30px] py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
-                                                    <li class="w-[8%] font-medium">CTG</li>
-                                                    <li class="w-[16%] font-medium"><span
-                                                            class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] min-w-[78px]">Mua</span>
-                                                    </li>
-                                                    <li class="w-[16%] font-bold text-[#1CCD83]">35.05</li>
-                                                    <li class="w-[16%] font-medium">43.65</li>
-                                                    <li class="w-[16%] font-bold text-[#1CCD83]">+24.45%</li>
-                                                </ul>
-                                            <?php
-                                            }
-                                            ?>
-
-                                        </div>
+                        <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
+                            id="<?php echo $tab ?>-<?php echo $i ?>">
+                            <div class="relative pt-[76.2416%] w-full rounded-lg overflow-hidden">
+                                <?php $class = $check_logout ? 'blur-sm' : ''; ?>
+                                <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
+                                    <ul
+                                        class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 px-[30px] justify-between">
+                                        <li class="w-[8%]"><?php _e('Mã', 'bsc') ?></li>
+                                        <li class="w-[16%]"><?php _e('Khuyến nghị', 'bsc') ?></li>
+                                        <li class="w-[16%]"><?php _e('Giá', 'bsc') ?></li>
+                                        <li class="w-[16%]"><?php _e('Mục tiêu', 'bsc') ?></li>
+                                        <li class="w-[16%]"><?php _e('Upside', 'bsc') ?></li>
+                                    </ul>
+                                    <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+                                        <?php
+                                        for ($j = 0; $j < 12; $j++) {
+                                        ?>
+                                            <ul
+                                                class="flex gap-5 text-center justify-between px-[30px] py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
+                                                <li class="w-[8%] font-medium">CTG</li>
+                                                <li class="w-[16%] font-medium"><span
+                                                        class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] min-w-[78px]">Mua</span>
+                                                </li>
+                                                <li class="w-[16%] font-bold text-[#1CCD83]">35.05</li>
+                                                <li class="w-[16%] font-medium">43.65</li>
+                                                <li class="w-[16%] font-bold text-[#1CCD83]">+24.45%</li>
+                                            </ul>
+                                        <?php
+                                        }
+                                        ?>
 
                                     </div>
-                                    <?php if ($check_login) {
-                                        echo $result['html'];
-                                    } ?>
+
                                 </div>
+                                <?php if ($check_logout) {
+                                    echo $result['html'];
+                                } ?>
                             </div>
-                        <?php
+                        </div>
+                    <?php
                     }
-                        ?>
-                    <?php  } ?>
+                    ?>
+                <?php  } ?>
             </div>
             <div class="flex-1">
                 <?php if (get_sub_field('title_phan_tich')) { ?>

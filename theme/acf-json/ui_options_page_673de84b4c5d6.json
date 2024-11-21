@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_673de84b4c5d6",
+    "title": "Cài đặt báo cáo phân tích",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Cài đặt báo cáo phân tích",
+    "menu_slug": "cai-dat-bao-cao-phan-tich",
+    "parent_slug": "edit.php?post_type=bao-cao-phan-tich",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1732110595
+}

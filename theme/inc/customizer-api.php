@@ -49,6 +49,21 @@ function slug_news($postid, $title)
     return  $url;
 }
 
+function slug_report($postid, $title)
+{
+    if (get_field('cdbcpt2_slug', 'option')) {
+        $sub_url = get_field('cdbcpt2_slug', 'option');
+    } else {
+        $sub_url = __('bao-cao', 'bsc');
+    }
+    $url = get_home_url() . '/' . $sub_url . '/' . $postid . '-' . sanitize_title($title);
+    return  $url;
+}
+
+/**
+ * News
+ */
+
 // Thêm rewrite rule cho 'tin-tuc' vào functions.php
 function custom_rewrite_rule_for_news()
 {
@@ -90,8 +105,8 @@ function custom_template_redirect()
             global $custom_meta_data;
             $custom_meta_data = array(
                 'title' => $news->title,
-                'description' => $news->description,
-                'thumbnail' => $news->imagethumbnail
+                'description' => $news->content,
+                'thumbnail' => $news->imageurl
             );
             get_template_part('single', null, array(
                 'data' => $news,
@@ -105,6 +120,102 @@ function custom_template_redirect()
     }
 }
 add_action('template_redirect', 'custom_template_redirect');
+
+/**
+ *  Report
+ */
+
+// Thêm rewrite rule cho 'bao-cao'
+function custom_rewrite_rule_for_report()
+{
+    if (get_field('cdbcpt2_slug', 'option')) {
+        $sub_url = get_field('cdbcpt2_slug', 'option');
+    } else {
+        $sub_url = __('bao-cao', 'bsc');
+    }
+    add_rewrite_rule('^' . $sub_url . '/([0-9]+)-', 'index.php?report_id=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule_for_report');
+
+// Thêm query var 'report_id' vào hệ thống query vars của WordPress
+function custom_query_vars_for_report($vars)
+{
+    $vars[] = 'report_id';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_for_report');
+
+// Xử lý template redirect cho 'report_id'
+function custom_template_redirect_for_report()
+{
+    // Lấy giá trị của 'report_id' từ query vars
+    $report_id = get_query_var('report_id');
+
+    // Kiểm tra nếu có 'report_id' trong URL
+    if ($report_id) {
+        $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
+        $array_data = array(
+            "id" => $report_id,
+        );
+        $get_report_detail = get_data_with_cache('GetReportsDetail', $array_data, $time_cache);
+        if ($get_report_detail) {
+            // Lấy chi tiết báo cáo từ API response
+            $report = $get_report_detail->d[0];
+            // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+            global $custom_meta_data;
+            $custom_meta_data = array(
+                'title' => $report->title,
+                'description' => $report->description,
+                'thumbnail' => $report->imagethumbnail
+            );
+            get_template_part('single-bao-cao-phan-tich', null, array(
+                'data' => $report,
+            ));
+            exit; // Dừng WordPress để tránh bị 404
+        } else {
+            // Nếu không có dữ liệu từ API
+            wp_redirect(home_url('/404'));
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'custom_template_redirect_for_report');
+
+/**
+ * Tag Report
+ */
+function custom_rewrite_rule_for_tag_report()
+{
+    $sub_url = __('tag-report', 'bsc');
+    add_rewrite_rule('^' . $sub_url . '/([^/]+)/?', 'index.php?tag_report_slug=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule_for_tag_report');
+
+function custom_query_vars_for_tag_report($vars)
+{
+    $vars[] = 'tag_report_slug';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_for_tag_report');
+
+function custom_template_redirect_for_tag_report()
+{
+    // Lấy giá trị của 'tag_report_slug' từ query vars
+    $tag_slug = get_query_var('tag_report_slug');
+
+    // Kiểm tra nếu có 'tag_report_slug' trong URL
+    if ($tag_slug) {
+        get_template_part('search-tag-report', null, array(
+            'search' => $tag_slug
+        ));
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_template_redirect_for_tag_report');
+
+/**
+ * Breadcrumb
+ */
 
 // Thiết lập meta title và description thông qua Rank Math hooks
 add_filter('rank_math/frontend/title', function ($title) {
@@ -152,4 +263,39 @@ function bsc_is_user_logged_out()
             </div>'
         ];
     }
+}
+
+//Get array id taxonomy
+function get_array_id_taxonomy($tax)
+{
+    if ($tax) {
+        $array_id_tax = array();
+        $terms = get_terms(array(
+            'taxonomy' => $tax,
+            'hide_empty' => false,
+        ));
+        if (! empty($terms) && ! is_wp_error($terms)) {
+            foreach ($terms as $term) :
+                $api_id = get_field('api_id_danh_muc', $term);
+                if ($api_id) {
+                    $array_id_tax[] = array(
+                        'id_api' => $api_id,
+                        'object' => $term,
+                    );
+                }
+            endforeach;
+        }
+        return $array_id_tax;
+    } else {
+        return null;
+    }
+}
+function get_name_by_tax_id($taxid, $array_id_tax)
+{
+    foreach ($array_id_tax as $item) {
+        if ($item['id_api'] == $taxid) {
+            return $item['object'];
+        }
+    }
+    return null;
 }
