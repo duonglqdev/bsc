@@ -34,7 +34,7 @@ if ($response) {
                                     class="lg:2xl:text-[28px] text-xl text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
                                     <?php echo htmlspecialchars($news->title) ?>
                                 </h2>
-                                <div class="line-clamp-3 font-Helvetica mb-10">
+                                <div class="line-clamp-2 font-Helvetica mb-10">
                                     <?php echo htmlspecialchars($news->description) ?>
                                 </div>
                                 <div class="mt-auto">
