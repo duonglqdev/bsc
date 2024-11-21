@@ -8,7 +8,7 @@
         <div class="flex md:flex-row flex-col md:gap-[38px] gap-8">
             <div class="md:max-w-80 w-full">
                 <div
-                    class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
+                    class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base 2xl:space-y-8 space-y-4 rounded-2xl h-full">
                     <?php
                     $time_cache = get_sub_field('time_cache') ?: 1;
                     ?>
@@ -67,7 +67,7 @@
                     $response = get_data_with_cache('GetSecurityDaily', $array_data, $time_cache);
                     if ($response) {
                     ?>
-                        <div class="space-y-4">
+                        <div class="2xl:space-y-4 space-y-3">
                             <?php if (isset($response->d[0]->outsshares)) { ?>
                                 <div class="font-bold space-y-2">
                                     <p>

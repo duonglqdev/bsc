@@ -13,9 +13,9 @@
                         <div class="flex h-full">
                             <div class="w-1/2 h-full">
                                 <div
-                                    class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
+                                    class="flex flex-col justify-end h-full 2xl:ml-10 ml-6 font-Helvetica pb-[43px]">
                                     <?php if (get_sub_field('title')) { ?>
-                                        <p class="font-bold mb-1 text-xl">
+                                        <p class="font-bold mb-1 2xl:text-xl text-lg">
                                             <?php the_sub_field('title') ?>
                                         </p>
                                     <?php } ?>
