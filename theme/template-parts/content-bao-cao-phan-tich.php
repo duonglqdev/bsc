@@ -21,16 +21,16 @@
                 </a>
             <?php } else { ?>
                 <div class="flex items-center gap-4">
-                    <a href=""
+                    <a href="javascript:void(0)"
                         class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                        BMP
+                        <?php echo $news->symbols ?>
                     </a>
                     <div class="flex flex-col font-Helvetica text-xs">
                         <p>
                             <?php _e('Giá mục tiêu', 'bsc') ?>
                         </p>
                         <p class="font-medium">
-                            89,400 <span class="text-[#30D158]">(+23%)</span>
+                            89,400 <span class="text-[#30D158]">(<?php echo $news->upsite ?>)</span>
                         </p>
                     </div>
                 </div>
