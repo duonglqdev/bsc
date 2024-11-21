@@ -127,8 +127,35 @@
 
 						</div>
 						<ul
-							class="main_menu-navbar lg:bg-[#F3FBFE] w-full max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu top-full 2xl:mt-[22px] mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex hidden">
-
+							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu lg:top-full 2xl:mt-[22px] lg:mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex">
+							<div class="lg:hidden flex items-center justify-between mb-6">
+								<?php echo svg( 'close', '24', '24' ) ?>
+								
+							</div>
+							<form action="<?php echo get_home_url() ?>"
+								class="lg:hidden flex flex-col p-4 bg-white rounded-lg gap-4 mb-4">
+								<div class="flex items-center gap-6">
+									<div class="flex">
+										<input type="radio" id="cp-mb" name="investment"
+											class="hidden peer">
+										<label for="cp-mb"
+											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1.5 before:top-1.5">
+											<?php _e( 'Cổ phiếu', 'bsc' ) ?>
+										</label>
+									</div>
+									<div class="flex items-center">
+										<input type="radio" id="other-mb" name="investment"
+											class="hidden peer" checked>
+										<label for="other-mb"
+											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1.5 before:top-1.5">
+											<?php _e( 'Khác', 'bsc' ) ?>
+										</label>
+									</div>
+								</div>
+								<input type="text" name="s" placeholder="Tra cứu..."
+									class="bg-transparent border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-black placeholder:text-paragraph focus:shadow-none placeholder:transition-all placeholder:duration-700 max-h-full w-full py-2 transition-all duration-500 px-0 focus:px-3 focus:rounded-md focus:border focus:border-solid focus:border-gray-100 text-xs"
+									autocomplete="off">
+							</form>
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',

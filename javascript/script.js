@@ -37,26 +37,21 @@ import WOW from 'wowjs';
 	});
 
 	function menuMobile() {
-		const elements = ['.bar__mb', '.header__menu'];
+		const elements = ['.bar__mb', '.main_menu-navbar '];
 		if (elements.some((el) => $(el).length)) {
 			$('.bar__mb').click(function () {
-				$('.header__menu').toggleClass('active');
-				$('.overlay').toggleClass('active');
+				$('.main_menu-navbar ').toggleClass('active');
 				$('html').toggleClass('overflow-hidden');
 			});
-			$('.overlay').click(function () {
-				$('.header__menu').removeClass('active');
-				$('.overlay').removeClass('active');
-				$('html').removeClass('overflow-hidden');
-			});
 		}
-		$('.header__menu ul li.menu-item-has-children>ul').before(
+		$('.main_menu-navbar li.menu-item-has-children>ul').before(
 			`<span class="li-plus"></span>`
 		);
 
 		if ($('.li-plus').length) {
 			$('.li-plus').click(function (e) {
 				$(this).toggleClass('clicked');
+				$(this).parent('li').toggleClass('active');
 				$(this).next('.sub-menu').slideToggle(200);
 				$(this)
 					.parent()
@@ -78,102 +73,111 @@ import WOW from 'wowjs';
 	}
 
 	function handleMegamenu() {
-		if ($(window).width() > 1024) {
-			$('.main_menu > ul > li:not(.menu-home)').each(function (index) {
-				var menuId = $(this).attr('id');
-				$(this).attr('data-menu', menuId);
-				$('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
-			});
-
-			$('.main_menu-navbar > li.menu-item-has-children').each(
-				function () {
+		function initializeMegamenu() {
+			if ($(window).width() >= 1024) {
+				$('.main_menu > ul > li:not(.menu-home)').each(function (index) {
+					var menuId = $(this).attr('id');
+					$(this).attr('data-menu', menuId);
+					$('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
+				});
+	
+				$('.main_menu-navbar > li.menu-item-has-children').each(function () {
 					var dataMenuValue = $(this).attr('data-menu');
 					$(this)
 						.children('.sub-menu')
 						.attr('data-submenu', dataMenuValue);
-				}
-			);
-
-			$('.main_menu-navbar > li').wrapAll(
-				"<div class='submenu-wrapper' />"
-			);
-			$('.submenu-wrapper').after("<div class='submenu-content'></div>");
-
-			var timeout;
-			var isMouseInNavbar = false;
-
-			$('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
-				var dataMenuValue = $(this).attr('data-menu');
-
-				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
-
-				$('.main_menu-navbar').addClass('active');
-
-				$(
-					'.submenu-wrapper > li[data-menu="' + dataMenuValue + '"]'
-				).trigger('mouseenter');
-
-				$(this).addClass('active');
-
-				clearTimeout(timeout);
-			});
-
-			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
-				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
-				if (isMouseInNavbar) {
+				});
+	
+				$('.main_menu-navbar > li').wrapAll(
+					"<div class='submenu-wrapper' />"
+				);
+				$('.submenu-wrapper').after("<div class='submenu-content'></div>");
+	
+				var timeout;
+				var isMouseInNavbar = false;
+	
+				$('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
+					var dataMenuValue = $(this).attr('data-menu');
+	
+					$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
+	
+					$('.main_menu-navbar').addClass('active');
+	
+					$(
+						'.submenu-wrapper > li[data-menu="' + dataMenuValue + '"]'
+					).trigger('mouseenter');
+	
+					$(this).addClass('active');
+	
+					clearTimeout(timeout);
+				});
+	
+				$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
+					$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
+					if (isMouseInNavbar) {
+						timeout = setTimeout(() => {
+							$('.main_menu-navbar').removeClass('active');
+	
+							$('.submenu-wrapper > li').removeClass('active');
+							$('.submenu-content').html('');
+							$('.submenu-content').css('max-height', '0');
+						}, 200);
+					}
+				});
+	
+				$('.main_menu-navbar').mouseenter(function () {
+					isMouseInNavbar = true;
+					clearTimeout(timeout);
+				});
+	
+				$('.main_menu-navbar').mouseleave(function () {
+					isMouseInNavbar = false;
 					timeout = setTimeout(() => {
 						$('.main_menu-navbar').removeClass('active');
-
+						$('.main_menu > ul > li:not(.menu-home)').removeClass(
+							'active'
+						);
 						$('.submenu-wrapper > li').removeClass('active');
-						$('.submenu-content').html('');
 						$('.submenu-content').css('max-height', '0');
 					}, 200);
-				}
-			});
-
-			$('.main_menu-navbar').mouseenter(function () {
-				isMouseInNavbar = true;
-				clearTimeout(timeout);
-			});
-
-			$('.main_menu-navbar').mouseleave(function () {
-				isMouseInNavbar = false;
-				timeout = setTimeout(() => {
-					$('.main_menu-navbar').removeClass('active');
-					$('.main_menu > ul > li:not(.menu-home)').removeClass(
-						'active'
+				});
+	
+				$('.submenu-wrapper > li').mouseenter(function () {
+					var dataMenuValue = $(this).attr('data-menu');
+					var submenuToMove = $(this).children(
+						'.sub-menu[data-submenu="' + dataMenuValue + '"]'
 					);
+	
 					$('.submenu-wrapper > li').removeClass('active');
-					// $('.submenu-content').html('');
-					$('.submenu-content').css('max-height', '0');
-				}, 200);
-			});
-
-			$('.submenu-wrapper > li').mouseenter(function () {
-				var dataMenuValue = $(this).attr('data-menu');
-				var submenuToMove = $(this).children(
-					'.sub-menu[data-submenu="' + dataMenuValue + '"]'
-				);
-
-				$('.submenu-wrapper > li').removeClass('active');
-				$(this).addClass('active');
-
-				if (submenuToMove.length) {
-					$('.submenu-content').html(submenuToMove.html());
-
-					var newHeight = $('.submenu-content').prop('scrollHeight');
-					$('.submenu-content').css({
-						'max-height': newHeight + 'px',
-						transition: 'max-height 0.5s ease',
-					});
-				} else {
-					$('.submenu-content').html('');
-					$('.submenu-content').css('max-height', '0');
-				}
-
-				clearTimeout(timeout);
-			});
+					$(this).addClass('active');
+	
+					if (submenuToMove.length) {
+						$('.submenu-content').html(submenuToMove.html());
+	
+						var newHeight = $('.submenu-content').prop('scrollHeight');
+						$('.submenu-content').css({
+							'max-height': newHeight + 'px',
+							transition: 'max-height 0.5s ease',
+						});
+					} else {
+						$('.submenu-content').html('');
+						$('.submenu-content').css('max-height', '0');
+					}
+	
+					clearTimeout(timeout);
+				});
+			} else {
+				// Xóa tất cả các thay đổi khi màn hình nhỏ hơn 1024px
+				$('.submenu-wrapper').children().unwrap();
+				$('.submenu-content').children().unwrap();
+			}
 		}
+	
+		// Gọi hàm initializeMegamenu khi resize
+		$(window).on('resize', initializeMegamenu);
+	
+		// Gọi ngay để khởi tạo ban đầu
+		initializeMegamenu();
 	}
 
 	function hoverSvg() {
@@ -928,7 +932,8 @@ import WOW from 'wowjs';
 	function stickyHeader() {
 		var lastScroll = 0;
 		var isScrolled = false;
-		window.addEventListener('scroll', function () {
+
+		function handleScroll() {
 			var topHeader = document.querySelector('header');
 			var currentScroll =
 				window.pageYOffset ||
@@ -940,7 +945,20 @@ import WOW from 'wowjs';
 			isScrolled = currentScroll > 100;
 			topHeader.classList.toggle('active', shouldToggle);
 			lastScroll = currentScroll;
-		});
+		}
+
+		function handleResize() {
+			if (window.innerWidth >= 1024) {
+				window.addEventListener('scroll', handleScroll);
+			} else {
+				window.removeEventListener('scroll', handleScroll);
+				document.querySelector('header').classList.remove('active');
+			}
+		}
+
+		window.addEventListener('resize', handleResize);
+
+		handleResize();
 	}
 
 	function livechat() {
@@ -982,19 +1000,22 @@ import WOW from 'wowjs';
 	function marqueeSlider() {
 		$('.block__slider-marquee').each(function () {
 			let $marqueeSlider = $(this);
-			
+
 			// Kiểm tra xem class có phải là block_slider-show-X không
-			let showClass = $marqueeSlider.attr('class').match(/block_slider-show-(\d)/);
+			let showClass = $marqueeSlider
+				.attr('class')
+				.match(/block_slider-show-(\d)/);
 			if (showClass) {
 				let showNumber = parseInt(showClass[1], 10); // Lấy số từ block_slider-show-X
-				
+
 				// Kiểm tra số lượng .block_slider-item
-				let itemCount = $marqueeSlider.find('.block_slider-item').length;
-				
+				let itemCount =
+					$marqueeSlider.find('.block_slider-item').length;
+
 				// Nếu số lượng phần tử lớn hơn số yêu cầu, khởi tạo slider
 				if (itemCount > showNumber) {
 					let isRtl = $marqueeSlider.hasClass('marquee-rtl');
-	
+
 					let mainTicker = new Flickity(this, {
 						accessibility: true,
 						resize: true,
@@ -1005,32 +1026,31 @@ import WOW from 'wowjs';
 						setGallerySize: true,
 						rightToLeft: isRtl,
 					});
-	
+
 					mainTicker.x = 0;
 					let requestId;
-	
+
 					function play() {
 						mainTicker.x -= 1; // Điều chỉnh giá trị này để thay đổi tốc độ
 						mainTicker.settle(mainTicker.x);
 						requestId = window.requestAnimationFrame(play);
 					}
-	
+
 					function pause() {
 						if (requestId) {
 							window.cancelAnimationFrame(requestId);
 							requestId = undefined;
 						}
 					}
-	
+
 					$marqueeSlider.on('mouseenter', pause);
 					$marqueeSlider.on('mouseleave', play);
-	
+
 					play(); // Start the animation initially
 				}
 			}
 		});
 	}
-	
 
 	jQuery(document).ready(function ($) {
 		function load__chuyen_gia(page = 1) {
