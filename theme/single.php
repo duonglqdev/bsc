@@ -191,7 +191,7 @@ get_header();
 					<?php if ($groupid == $chuong_trinh_khuyen_mai_id) {
 					?>
 						<div class="lg:flex items-center justify-between mb-8">
-							<?php if ($news->promotionstarted && $news->promotionended) {
+							<?php if ($news->promotionended) {
 								$startDate = new DateTime($news->promotionstarted);
 								$endDate = new DateTime($news->promotionended);
 								$formattedStartDate = $startDate->format('d/m/Y');
@@ -226,7 +226,7 @@ get_header();
 											<?php if ($remainingDays == 0) {
 												_e('Chương trình đã kết thúc', 'bsc');
 											} else { ?>
-												<?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
+												<?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $elapsedDays ?>
 													<?php _e('ngày', 'bsc') ?></strong>
 											<?php } ?>
 										</div>

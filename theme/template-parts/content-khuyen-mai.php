@@ -13,7 +13,7 @@
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </h3>
-        <?php if ($news->promotionstarted && $news->promotionended) {
+        <?php if ($news->promotionended) {
             $startDate = new DateTime($news->promotionstarted);
             $endDate = new DateTime($news->promotionended);
             $formattedStartDate = $startDate->format('d/m/Y');
@@ -46,7 +46,7 @@
                     <?php if ($remainingDays == 0) {
                         _e('Chương trình đã kết thúc', 'bsc');
                     } else { ?>
-                        <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
+                        <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $elapsedDays ?>
                             <?php _e('ngày', 'bsc') ?></strong>
                     <?php } ?>
                 </div>

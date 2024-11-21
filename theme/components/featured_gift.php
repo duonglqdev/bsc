@@ -38,7 +38,7 @@ if ($chuong_trinh_khuyen_mai_id) {
                                         class="lg:2xl:text-[28px] text-xl font-bold line-clamp-2 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
                                         <?php echo htmlspecialchars($news->title) ?>
                                     </h2>
-                                    <?php if ($news->promotionstarted && $news->promotionended) {
+                                    <?php if ($news->promotionended) {
                                         $startDate = new DateTime($news->promotionstarted);
                                         $endDate = new DateTime($news->promotionended);
                                         $formattedStartDate = $startDate->format('d/m/Y');
@@ -71,7 +71,7 @@ if ($chuong_trinh_khuyen_mai_id) {
                                                 <?php if ($remainingDays == 0) {
                                                     _e('Chương trình đã kết thúc', 'bsc');
                                                 } else { ?>
-                                                    <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
+                                                    <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $elapsedDays ?>
                                                         <?php _e('ngày', 'bsc') ?></strong>
                                                 <?php } ?>
                                             </div>
