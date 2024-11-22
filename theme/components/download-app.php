@@ -3,15 +3,15 @@
 		id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid grid-cols-2 gap-5">
-			<div class="md:col-span-1 col-span-full">
+			<div class="lg:col-span-1 col-span-full lg:order-1 order-2">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>
-					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s">
+					<h2 class="heading-title md:mb-4 mb-2 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'title' ) ?></h2>
 				<?php } ?>
 				<?php if ( get_sub_field( 'mota' ) )
 				{ ?>
-					<p class="uppercase text-primary-300 2xl:text-2xl text-xl font-bold wow fadeIn font-bold wow fadeIn"
+					<p class="uppercase text-primary-300 2xl:text-2xl lg:text-xl text-base font-bold wow fadeIn"
 						data-wow-duration="2s">
 						<?php the_sub_field( 'mota' ) ?>
 					</p>
@@ -25,7 +25,7 @@
 							$i++; ?>
 							<div data-download="<?php echo $i ?>"
 								class="<?php if ( $i == 1 )
-									echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 absolute w-full h-full top-0 left-0 ">
+									echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 lg:absolute w-full h-full top-0 left-0 ">
 								<?php if ( have_rows( 'qr_code' ) )
 								{
 									while ( have_rows( 'qr_code' ) ) :
@@ -117,7 +117,7 @@
 			<?php if ( have_rows( 'trai_nghiem' ) )
 			{
 				?>
-				<div class="md:col-span-1 col-span-full relative">
+				<div class="lg:col-span-1 col-span-full relative lg:order-2 order-1">
 					<?php
 					$i = 0;
 					while ( have_rows( 'trai_nghiem' ) ) :
