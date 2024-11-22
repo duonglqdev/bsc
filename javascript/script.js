@@ -208,7 +208,7 @@ import WOW from 'wowjs';
 	}
 
 	function hoverSvg() {
-		$('svg path').css({
+		$('.value-item svg path').css({
 			transition: 'fill 0.3s ease, stroke 0.3s ease',
 		});
 		$('.value-item').hover(
