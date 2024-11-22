@@ -1,12 +1,12 @@
-<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offers_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="bg-primary-200 lg:pt-[77px] pt-[50px] relative offers_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10 overflow-hidden">
-			<div class="col-span-1">
+			<div class="col-span-1 lg:order-1 order-2">
 				<?php if (get_sub_field('title')) { ?>
-					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
+					<h2 class="heading-title md:mb-4 mb-2 wow fadeIn" data-wow-duration="2s"><?php the_sub_field('title') ?></h2>
 				<?php } ?>
 				<?php if (get_sub_field('mota')) { ?>
-					<p class="uppercase text-primary-300 2xl:text-2xl text-xl font-bold wow fadeIn font-bold mb-10 wow fadeIn" data-wow-duration="2s">
+					<p class="uppercase text-primary-300 2xl:text-2xl sm:text-xl text-base font-bold md:mb-10 mb-6 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field('mota') ?>
 					</p>
 				<?php } ?>
@@ -51,9 +51,9 @@
 
 				</div>
 			</div>
-			<div class="col-span-1">
+			<div class="col-span-1 lg:order-2 order-1">
 				<?php if (get_sub_field('title_2')) { ?>
-					<h2 class="heading-title mb-8 wow fadeIn" data-wow-duration="2s">
+					<h2 class="heading-title md:mb-8 mb-6 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field('title_2') ?>
 					</h2>
 				<?php } ?>
@@ -73,15 +73,15 @@
 						<div class="block_slider block_slider-show-2 no-dots -mx-4">
 							<?php foreach ($response->d as $news) { ?>
 								<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-									<div class="bg-white lg:p-8 p-5 rounded-lg ">
+									<div class="bg-white lg:p-8 p-4 rounded-lg ">
 										<div class="max-h-44 overflow-hidden">
 											<p
-												class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+												class="relative font-bold lg:text-lg after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
 												<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-3">
 													<?php echo htmlspecialchars($news->title) ?>
 												</a>
 											</p>
-											<div class="">
+											<div class="font-Helvetica text-paragraph">
 												<?php echo htmlspecialchars($news->description) ?>
 											</div>
 										</div>
@@ -96,7 +96,7 @@
 					while (have_rows('video_youtube')) :
 						the_row();
 						if (get_sub_field('avatar')) { ?>
-							<div class="mt-[12px]">
+							<div class="lg:mt-[12px] mt-4">
 								<a href="<?php the_sub_field('url_youtube') ?>" data-fancybox
 									class="rounded-md overflow-hidden pt-[60%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
 									<?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
