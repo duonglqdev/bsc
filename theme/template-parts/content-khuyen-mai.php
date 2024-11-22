@@ -13,21 +13,27 @@
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </h3>
-        <?php if ($news->promotionstarted && $news->promotionended) {
+        <?php if ($news->promotionended) {
+            $remainingDays = 0;
+            $completionPercentage = 0;
             $startDate = new DateTime($news->promotionstarted);
             $endDate = new DateTime($news->promotionended);
-            $formattedStartDate = $startDate->format('d/m/Y');
             $formattedEndDate = $endDate->format('d/m/Y');
-            $interval = $startDate->diff($endDate);
-            $daysDifference = $interval->days;
-            $today = new DateTime();
-            $remainingInterval = $today->diff($endDate);
-            $remainingDays = $remainingInterval->days;
-            $elapsedDays = $daysDifference - $remainingDays;
-            $completionPercentage = ($elapsedDays / $daysDifference) * 100;
-            if ($today > $endDate) {
-                $remainingDays = 0;
-                $completionPercentage = 0;
+            if ($news->promotionstarted) {
+                $formattedStartDate = $startDate->format('d/m/Y');
+                $interval = $startDate->diff($endDate);
+                $daysDifference = $interval->days;
+                $today = new DateTime();
+                $remainingInterval = $today->diff($endDate);
+                $remainingDays = $remainingInterval->days;
+                $elapsedDays = $daysDifference - $remainingDays;
+                $completionPercentage = ($elapsedDays / $daysDifference) * 100;
+                if ($today > $endDate) {
+                    $remainingDays = 0;
+                    $completionPercentage = 0;
+                }
+            } else {
+                $formattedStartDate = 'N/A';
             }
         ?>
             <div class="mt-6 flex items-center gap-4">
@@ -46,7 +52,7 @@
                     <?php if ($remainingDays == 0) {
                         _e('Chương trình đã kết thúc', 'bsc');
                     } else { ?>
-                        <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $daysDifference ?>
+                        <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $remainingDays ?>
                             <?php _e('ngày', 'bsc') ?></strong>
                     <?php } ?>
                 </div>

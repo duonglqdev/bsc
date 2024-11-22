@@ -129,7 +129,7 @@
 								'lang' => pll_current_language(),
 								'maxitem' => 5,
 								'categoryid' => 1,
-								"recommendation" => "Mua mạnh"
+								"recomendation" => "Mua mạnh"
 							);
 							$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
 							if ($response) {
@@ -140,7 +140,7 @@
 										'lang' => pll_current_language(),
 										'maxitem' => $total,
 										'categoryid' => 1,
-										"recommendation" => "Mua"
+										"recomendation" => "Mua"
 									);
 									$response_more = get_data_with_cache('GetReportsBySymbol', $array_data_more, $time_cache);
 								}
@@ -153,7 +153,8 @@
 											</p>
 											<p
 												class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-												Hot</p>
+												<?php _e('Hot', 'bsc') ?>
+											</p>
 											<a href="">
 												<?php echo svg('download') ?>
 											</a>
@@ -220,7 +221,7 @@
 								<?php
 								$term = get_sub_field('danh_muc_bao_cao_phan_tich');
 								if ($term) {
-									$categoryid = get_sub_field('api_id_danh_muc', $term);
+									$categoryid = get_field('api_id_danh_muc', $term);
 									if ($categoryid) {
 										$array_data = array(
 											'lang' => pll_current_language(),

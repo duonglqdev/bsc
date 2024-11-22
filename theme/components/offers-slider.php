@@ -1,4 +1,4 @@
-<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offers_slider" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10 overflow-hidden">
 			<div class="col-span-1">
@@ -77,7 +77,7 @@
 										<div class="max-h-44 overflow-hidden">
 											<p
 												class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-												<a href="javascript:void(0)" class="line-clamp-3">
+												<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-3">
 													<?php echo htmlspecialchars($news->title) ?>
 												</a>
 											</p>

@@ -16,7 +16,7 @@ if ($term) {
                     <?php _e('Xem tất cả', 'bsc') ?>
                 </a>
             </div>
-            <?php $categoryid = get_sub_field('api_id_danh_muc', $term);
+            <?php $categoryid = get_field('api_id_danh_muc', $term);
             if ($categoryid) {
                 $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
                 $array_data = array(
