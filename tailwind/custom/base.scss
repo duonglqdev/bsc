@@ -97,7 +97,7 @@
 	}
 	@media (max-width: 1024px) {
 		.main_menu-navbar {
-			@apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden;
+			@apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden transition-all duration-500 [&:not(.active)]:-translate-x-full translate-x-0  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none;
 			> li {
 				@apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-5 before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
 			}

@@ -26,7 +26,7 @@
 
 	<?php wp_body_open(); ?>
 
-	<header class="transition duration-500 relative z-30">
+	<header class="transition duration-500 relative [&:not(.mobile-open)]:z-30 z-[100]">
 		<div
 			class="bg-gradient-blue py-2 text-white relative  overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg] lg:block hidden">
 			<div class="container">
@@ -129,8 +129,29 @@
 						<ul
 							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu lg:top-full 2xl:mt-[22px] lg:mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex">
 							<div class="lg:hidden flex items-center justify-between mb-6">
-								<?php echo svg( 'close', '24', '24' ) ?>
-								
+								<div class="close-mobile">
+									<?php echo svg( 'close', '24', '24' ) ?>
+								</div>
+								<?php if ( have_rows( 'h1_button', 'option' ) )
+								{ ?>
+									<?php
+									$i = 1;
+									while ( have_rows( 'h1_button', 'option' ) ) :
+										the_row();
+										$i++;
+										if ( get_sub_field( 'title' ) )
+										{
+											?>
+											<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+												class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xs">
+												<span class="block relative z-10 ">
+													<?php the_sub_field( 'title' ) ?>
+												</span>
+											</a>
+											<?php
+										}
+									endwhile; ?>
+								<?php } ?>
 							</div>
 							<form action="<?php echo get_home_url() ?>"
 								class="lg:hidden flex flex-col p-4 bg-white rounded-lg gap-4 mb-4">
