@@ -67,7 +67,7 @@
 						<?php the_sub_field('title') ?>
 					</h2>
 				<?php } ?>
-				<div class="bg-white rounded-2xl 2xl:p-7 p-5 flex flex-col lg:h-[calc(100%-50px)] 2xl:h-[calc(100%-90px)] lg:min-h-[480px]">
+				<div class="bg-white rounded-2xl 2xl:p-7 p-5 flex flex-col lg:h-[calc(100%-84px)] 2xl:h-[calc(100%-90px)] lg:min-h-[480px]">
 					<div class="flex justify-between items-center mb-6">
 						<div class="space-x-2 px-[6px] py-[2px] rounded-xl bg-[#F8F8FF] btn-chart">
 							<button data-chart="BSC10"
