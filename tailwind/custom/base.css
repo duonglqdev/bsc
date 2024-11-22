@@ -755,7 +755,7 @@ button#ib-button-messaging {
 .content_prose mark {
   @apply bg-transparent font-medium;
 }
-.content_prose ul > li > span:nth-child(1) > strong {
+.content_prose ul > li > span:nth-child(1) > strong, .content_prose ul > li > strong:nth-child(1) {
   @apply mr-3;
 }
 

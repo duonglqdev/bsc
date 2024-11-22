@@ -49,7 +49,9 @@ function bsc_new_report_cat_edit_success($term_id, $taxonomy)
 }
 
 
-// Bỏ slug /tuyen-dung/ hoặc các slug khác trong đường dẫn tuyển dụng
+/**
+ * /Bỏ slug /tuyen-dung/ hoặc các slug khác trong đường dẫn tuyển dụng
+ */
 function nsc_remove_slug($post_link, $post)
 {
     if (get_post_type($post) === 'tuyen-dung' && $post->post_status === 'publish') {
@@ -90,7 +92,9 @@ function nsc_woo_new_tuyen_dung_post_save($post_id)
 add_action('wp_insert_post', 'nsc_woo_new_tuyen_dung_post_save');
 
 
-// Bỏ slug /so-tay-giao-dich/ hoặc các slug khác trong đường dẫn tuyển dụng
+/**
+ * Bỏ slug /so-tay-giao-dich/ hoặc các slug khác trong đường dẫn tuyển dụng
+ */
 function so_tay_giao_dich_remove_slug($post_link, $post)
 {
     if (get_post_type($post) === 'so-tay-giao-dich' && $post->post_status === 'publish') {
@@ -130,7 +134,9 @@ function so_tay_giao_dich_woo_new_tuyen_dung_post_save($post_id)
 }
 add_action('wp_insert_post', 'so_tay_giao_dich_woo_new_tuyen_dung_post_save');
 
-// Bỏ slug /bieu-phi-giao-dich/ hoặc các slug khác trong đường dẫn tuyển dụng
+/**
+ * Bỏ slug /bieu-phi-giao-dich/ hoặc các slug khác trong đường dẫn tuyển dụng
+ */
 function bieu_phi_giao_dich_remove_slug($post_link, $post)
 {
     if (get_post_type($post) === 'bieu-phi-giao-dich' && $post->post_status === 'publish') {
@@ -217,5 +223,53 @@ function bsc_danh_muc_kien_thuc_cat_edit_success($term_id, $taxonomy)
 {
     if ($taxonomy === 'danh-muc-kien-thuc') {
         bsc_danh_muc_kien_thucegory_rewrite_rules(true);
+    }
+}
+
+/*
+* Loại bỏ /danh-muc-bao-cao-phan-tich/ ở đường dẫn
+* Thay /danh-muc-bao-cao-phan-tich/ slug hiện tại của bạn. Mặc định là /danh-muc-bao-cao-phan-tich/
+*/
+add_filter('term_link', 'bsc_danh_muc_bao_cao_phan_tich_permalink', 10, 3);
+function bsc_danh_muc_bao_cao_phan_tich_permalink($url, $term, $taxonomy)
+{
+    if ($taxonomy === 'danh-muc-bao-cao-phan-tich') {
+        $taxonomy_slug = 'danh-muc-bao-cao-phan-tich'; // Thay bằng slug hiện tại của bạn
+        $url = str_replace('/' . $taxonomy_slug, '', $url);
+    }
+    return $url;
+}
+
+// Thêm quy tắc rewrite cho bao-cao-phan-tich category
+function bsc_danh_muc_bao_cao_phan_tichegory_rewrite_rules($flush = false)
+{
+    $terms = get_terms(array(
+        'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+        'hide_empty' => false,
+    ));
+
+    if (!is_wp_error($terms)) {
+        $siteurl = esc_url(home_url('/'));
+        foreach ($terms as $term) {
+            $term_slug = $term->slug;
+            $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-bao-cao-phan-tich'));
+            add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug, 'top');
+            add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&paged=$matches[1]', 'top');
+            add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&feed=$matches[1]', 'top');
+        }
+    }
+
+    if ($flush) {
+        flush_rewrite_rules(false);
+    }
+}
+add_action('init', 'bsc_danh_muc_bao_cao_phan_tichegory_rewrite_rules');
+
+// Tự động cập nhật rewrite rules khi tạo mới taxonomy
+add_action('create_term', 'bsc_danh_muc_bao_cao_phan_tich_cat_edit_success', 10, 2);
+function bsc_danh_muc_bao_cao_phan_tich_cat_edit_success($term_id, $taxonomy)
+{
+    if ($taxonomy === 'danh-muc-bao-cao-phan-tich') {
+        bsc_danh_muc_bao_cao_phan_tichegory_rewrite_rules(true);
     }
 }

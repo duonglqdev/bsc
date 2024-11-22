@@ -82,9 +82,11 @@ get_header();
                         <?php
                         $hinh_anh_sidebar = get_field('hinh_anh_sidebar', get_queried_object());
                         if ($hinh_anh_sidebar) { ?>
-                            <a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
-                                <?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
-                            </a>
+                            <div class="mt-12">
+                                <a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
+                                    <?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
+                                </a>
+                            </div>
                         <?php } ?>
                         <div class="p-6 bg-gradient-blue-50 mb-10">
                             <h3 class="text-primary-300 font-bold text-xl mb-4">
@@ -114,16 +116,16 @@ get_header();
                                     <?php _e('Thời gian:', 'gnws') ?>
                                 </p>
                                 <div class="flex items-center gap-5">
-                                    <input id="datepicker-range-start" name="start" type="text"
+                                    <input id="datepicker-range-start" name="fromdate" type="text"
                                         class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
-                                        placeholder="<?php _e('Từ ngày', 'bsc') ?>">
+                                        placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate'])) echo $_GET['fromdate'] ?>">
                                     <?php echo svg('day', '20', '20') ?>
                                 </div>
                                 <span class="mx-4 text-gray-500">-</span>
                                 <div class="flex items-center gap-5">
-                                    <input id="datepicker-range-end" name="end" type="text"
+                                    <input id="datepicker-range-end" name="todate" type="text"
                                         class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
-                                        placeholder="<?php _e('Đến ngày', 'bsc') ?>">
+                                        placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate'])) echo $_GET['todate'] ?>">
                                     <?php echo svg('day', '20', '20') ?>
                                 </div>
                             </div>
@@ -184,105 +186,483 @@ get_header();
                             </div>
                         </form>
                     <?php } ?>
-                    <div class="grid lg:grid-cols-2 gap-6">
-                        <?php
-                        for ($i = 0; $i < 3; $i++) {
-                        ?>
-                            <div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-                                <div class="flex items-center justify-between mb-4">
-                                    <a href=""
-                                        class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                                        Báo cáo vĩ mô tuần
-                                    </a>
-                                    <div class="space-y-1.5 text-right">
-                                        <span
-                                            class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
-                                            cực</span>
-                                        <p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-                                    </div>
-                                </div>
-                                <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-                                    <a href="" class="line-clamp-2">
-                                        Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-                                        quỹ_20240808
-                                    </a>
-                                </h3>
-                                <div class="flex items-center justify-between">
-                                    <p class="italic text-paragraph text-xs font-Helvetica">
-                                        68 Lượt tải xuống
-                                    </p>
-                                    <a href=""
-                                        class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-                                        <?php _e('Tải xuống', 'bsc') ?>
-                                        <?php echo svg('download', '20', '20') ?>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-                                <div class="flex items-center justify-between mb-4">
-                                    <a href=""
-                                        class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                                        Báo cáo ngành
-                                    </a>
-                                    <div class="space-y-1.5 text-right">
-                                        <span
-                                            class="inline-block rounded-[45px] text-[#FF0017] bg-[#FFD9DC] px-4 py-0.5 text-[12px] font-semibold">Tiêu
-                                            cực</span>
-                                        <p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-                                    </div>
-                                </div>
-                                <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-                                    <a href="" class="line-clamp-2">
-                                        Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-                                        quỹ_20240808
-                                    </a>
-                                </h3>
-                                <div class="flex items-center justify-between">
-                                    <p class="italic text-paragraph text-xs font-Helvetica">
-                                        68 Lượt tải xuống
-                                    </p>
-                                    <a href=""
-                                        class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-                                        <?php _e('Tải xuống', 'bsc') ?>
-                                        <?php echo svg('download', '20', '20') ?>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-                                <div class="flex items-center justify-between mb-4">
-                                    <a href=""
-                                        class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                                        Báo cáo ngành
-                                    </a>
-                                    <div class="space-y-1.5 text-right">
-                                        <span
-                                            class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
-                                            lập</span>
-                                        <p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-                                    </div>
-                                </div>
-                                <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
-                                    <a href="" class="line-clamp-2">
-                                        Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-                                        quỹ_20240808
-                                    </a>
-                                </h3>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <p class="italic text-paragraph text-xs font-Helvetica">
-                                        68 Lượt tải xuống
-                                    </p>
-                                    <a href=""
-                                        class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-                                        <?php _e('Tải xuống', 'bsc') ?>
-                                        <?php echo svg('download', '20', '20') ?>
-                                    </a>
-                                </div>
-                            </div>
-                        <?php
+                    <?php
+                    if (isset($_GET['posts_to_show'])) {
+                        $post_per_page = $_GET['posts_to_show'];
+                    } else {
+                        $post_per_page = get_option('posts_per_page');
+                    }
+                    if (isset($_GET['page'])) {
+                        $index = ($_GET['page'] - 1) * $post_per_page + 1;
+                    } else {
+                        $index = 1;
+                    }
+                    $array_data = array(
+                        'lang' => pll_current_language(),
+                        'categoryid' => $groupid,
+                        'maxitem' => $post_per_page,
+                        'index' => $index
+                    );
+                    if (isset($_GET['key']) && !empty($_GET['key'])) {
+                        $array_data['title'] = $_GET['key'];
+                    }
+                    if (isset($_GET['fromdate']) && !empty($_GET['fromdate'])) {
+                        $fromdate = $_GET['fromdate'];
+                        $array_data['fromdate'] = $fromdate;
+                    }
+                    if (isset($_GET['todate']) && !empty($_GET['todate'])) {
+                        $todate = $_GET['todate'];
+                        $array_data['todate'] = $todate;
+                    }
+                    $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+                    if ($response) {
+                        if ($response->totalrecord) {
+                            $total_post = $response->totalrecord;
+                        } else {
+                            $total_post = $post_per_page;
                         }
+                        $total_page = ceil($total_post / $post_per_page);
+                        $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
+                    ?>
+                        <?php
+                        $check_logout = bsc_is_user_logged_out();
+                        $class = $check_logout ? 'blur-sm' : '';
+                        $type_danh_muc = get_field('type_danh_muc', get_queried_object());
+                        if ($type_danh_muc == 'thitruong') {
                         ?>
-                    </div>
-                    <?php get_template_part('components/pagination') ?>
+                            <div class="mb-[59px]">
+                                <h3 class="font-bold mb-6 text-2xl"><?php _e('Dự báo thị trường', 'bsc') ?></h3>
+                                <div class="relative">
+                                    <div class="lg:flex lg:gap-8 <?php echo $class ?>">
+                                        <div class="lg:w-[255px] lg:max-w-[27%]">
+                                            <div
+                                                class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+                                                <h4
+                                                    class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+                                                    Năm 2024</h4>
+                                                <div class="space-y-6">
+                                                    <div class="flex items-end justify-between pb-2">
+                                                        <div class="flex flex-col font-Helvetica">
+                                                            <p class="text-paragraph text-xs">VN-index</p>
+                                                            <h4 class="font-bold text-2xl">
+                                                                1500
+                                                            </h4>
+                                                        </div>
+                                                        <div
+                                                            class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+                                                            Tích cực
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flex items-end justify-between pb-2">
+                                                        <div class="flex flex-col font-Helvetica">
+                                                            <p class="text-paragraph text-xs">Ngành</p>
+                                                            <h4 class="font-bold text-2xl">
+                                                                1298
+                                                            </h4>
+                                                        </div>
+                                                        <div
+                                                            class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+                                                            Cơ sở
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-end justify-between pb-2">
+                                                        <div class="flex flex-col font-Helvetica">
+                                                            <p class="text-paragraph text-xs">Ngành</p>
+                                                            <h4 class="font-bold text-2xl">
+                                                                1200
+                                                            </h4>
+                                                        </div>
+                                                        <div
+                                                            class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+                                                            Tiêu cực
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 bg-[#F5FCFF] rounded-lg">
+                                            <div id="chart-forecast"></div>
+                                        </div>
+                                    </div>
+                                    <?php if ($check_logout) {
+                                        echo $result['html'];
+                                    } ?>
+                                </div>
+                            </div>
+                        <?php } elseif ($type_danh_muc == 'vimo') {
+                        ?>
+                            <div class="mb-[60px]">
+                                <h3 class="font-bold text-2xl"><?php _e('Dự báo vĩ mô', 'bsc') ?></h3>
+                                <div class="mt-4">
+                                    <h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
+                                        vĩ mô Việt Nam 2024-2025</h4>
+                                    <div
+                                        class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
+                                        <div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
+                                            <div
+                                                class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                                                <div
+                                                    class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
+                                                    <p>TB 8 năm <br>
+                                                        (15-22)</p>
+                                                    <p>
+                                                        2023
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px]">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    GDP (YoY%)
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>6.1</p>
+                                                    <p>5.25</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px]">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    CPI trung bình (YoY%)*
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>2.7</p>
+                                                    <p>3.26</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px]">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    Xuất khẩu (YoY%)*
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>2.7</p>
+                                                    <p>3.26</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px]">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    Nhập khẩu (YoY%)*
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>2.7</p>
+                                                    <p>3.26</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px]">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    LSĐH (YoY%)*
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>2.7</p>
+                                                    <p>3.26</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex gap-1 items-center min-h-[30px] font-bold">
+                                                <div class="w-[56%] px-2 py-1">
+                                                    USD/VND LNH trung bình
+                                                </div>
+                                                <div
+                                                    class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+                                                    <p>22,842</p>
+                                                    <p>23,839</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="w-[27%] grid grid-cols-2 text-center bg-[#F5FCFF] border-r border-[#C9CCD2]">
+                                            <div class="text-[#FF0017]">
+                                                <div
+                                                    class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                                                    <p class="font-semibold mb-1">
+                                                        BSC kịch bản 1
+                                                    </p>
+                                                    <div class="grid grid-cols-2 font-semibold">
+                                                        <p>2024</p>
+                                                        <p>2025</p>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                for ($i = 0; $i < 5; $i++) {
+                                                ?>
+                                                    <div
+                                                        class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+                                                        <p>6.1</p>
+                                                        <p>5.25</p>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
+                                                <div
+                                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+                                                    <p>22,842</p>
+                                                    <p>23,839</p>
+                                                </div>
+                                            </div>
+                                            <div class="text-[#30D158]">
+                                                <div
+                                                    class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                                                    <p class="font-semibold mb-1">
+                                                        BSC kịch bản 2
+                                                    </p>
+                                                    <div class="grid grid-cols-2 font-semibold">
+                                                        <p>2024</p>
+                                                        <p>2025</p>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                for ($i = 0; $i < 5; $i++) {
+                                                ?>
+                                                    <div
+                                                        class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+                                                        <p>6.1</p>
+                                                        <p>5.25</p>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
+                                                <div
+                                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+                                                    <p>22,842</p>
+                                                    <p>23,839</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
+                                            <div
+                                                class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                                                <p class="font-semibold mb-1">
+                                                    Consensus 2024
+                                                </p>
+                                                <div class="grid grid-cols-3 font-semibold">
+                                                    <p>Min</p>
+                                                    <p>TB</p>
+                                                    <p>Max</p>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            for ($i = 0; $i < 3; $i++) {
+                                            ?>
+                                                <div
+                                                    class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+                                                    <p>6.1</p>
+                                                    <p>5.25</p>
+                                                    <p>5.25</p>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            <div class="m-auto">
+                                                <p>6.1</p>
+                                            </div>
+                                        </div>
+                                        <div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
+                                            <div
+                                                class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                                                <p class="font-semibold mb-1">
+                                                    Consensus 2025
+                                                </p>
+                                                <div class="grid grid-cols-3 font-semibold">
+                                                    <p>Min</p>
+                                                    <p>TB</p>
+                                                    <p>Max</p>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            for ($i = 0; $i < 3; $i++) {
+                                            ?>
+                                                <div
+                                                    class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+                                                    <p>6.1</p>
+                                                    <p>5.25</p>
+                                                    <p>5.25</p>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            <div class="m-auto">
+                                                <p>6.1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <?php
+                        } elseif ($type_danh_muc == 'kqkd') {
+                        ?>
+                            <div class="mt-10 mb-[82px]">
+                                <h2 class="font-bold text-2xl"><?php _e('Dự báo KQKD', 'bsc') ?></h2>
+                                <div
+                                    class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4]">
+                                    <div
+                                        class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
+                                        <div class="w-[15%]">
+                                            Mã CK
+                                        </div>
+                                        <div class="w-[15%]">
+                                            Ngành
+                                        </div>
+                                        <div class="w-[15%]">
+                                            DTT 2024
+                                            <p>(tỷ VND)</p>
+                                        </div>
+                                        <div class="w-[17%]">
+                                            LNST CĐTS
+                                        </div>
+                                        <div class="w-[17%]">
+                                            EPS <br>
+                                            2024
+                                        </div>
+                                        <div class="w-[21%]">
+                                            Giá mục tiêu <br>
+                                            2024/2025
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="scroll-bar-custom overflow-y-auto max-h-80 prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                        <?php
+                                        for ($i = 0; $i < 12; $i++) {
+                                        ?>
+                                            <div class="flex items-center min-h-[30px]">
+                                                <div class="w-[15%] px-3 py-1">
+                                                    <a href="">BID</a>
+                                                </div>
+                                                <div class="w-[15%] px-3 py-1">
+                                                    Ngân hàng
+                                                </div>
+                                                <div class="w-[15%] px-3 py-1">
+                                                    81,424
+                                                </div>
+                                                <div class="w-[17%] px-3 py-1">
+                                                    45%
+                                                </div>
+                                                <div class="w-[17%] px-3 py-1">
+                                                    24,796
+                                                </div>
+                                                <div class="w-[21%] px-3 py-1">
+                                                    18,900
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <?php
+                        } elseif ($type_danh_muc == 'nganh') {
+                            $array_data_nganh = array();
+                            $response_nganh = get_data_with_cache('GetForecastProspectBranch', $array_data_nganh, $time_cache);
+                            if ($response_nganh) {
+                            ?>
+                                <div class="mt-10 mb-[82px]">
+                                    <h2 class="font-bold text-2xl"><?php _e('Dự báo KQKD', 'bsc') ?></h2>
+                                    <div class="relative">
+                                        <div
+                                            class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
+                                            <div
+                                                class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Ngành', 'bsc') ?>
+                                                </div>
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
+                                                </div>
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
+                                                </div>
+
+                                            </div>
+                                            <div
+                                                class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                                <?php
+                                                $i = 0;
+                                                foreach ($response_nganh->d as $nganh) {
+                                                    $i++;
+                                                    $qd1 = $nganh->forecasT1;
+                                                    if ($qd1 == 0) {
+                                                        $title_qd1 = __('Tích cực', 'bsc');
+                                                        $class_qd1 = 'text-[#30D158]';
+                                                    } elseif ($qd1 == 1) {
+                                                        $title_qd1 = __('Trung lập', 'bsc');
+                                                        $class_qd1 = 'text-black';
+                                                    } elseif ($qd1 == 3) {
+                                                        $title_qd1 = __('Kém tích cực', 'bsc');
+                                                        $class_qd1 = 'text-[#FF0017]';
+                                                    } else {
+                                                        $title_qd1 = '-';
+                                                        $class_qd1 = 'text-black';
+                                                    }
+                                                    $qd2 = $nganh->forecasT2;
+                                                    if ($qd2 == 0) {
+                                                        $title_qd2 = __('Tích cực', 'bsc');
+                                                        $class_qd2 = 'text-[#30D158]';
+                                                    } elseif ($qd2 == 1) {
+                                                        $title_qd2 = __('Trung lập', 'bsc');
+                                                        $class_qd2 = 'text-black';
+                                                    } elseif ($qd2 == 3) {
+                                                        $title_qd2 = __('Kém tích cực', 'bsc');
+                                                        $class_qd2 = 'text-[#FF0017]';
+                                                    } else {
+                                                        $title_qd2 = '-';
+                                                        $class_qd2 = 'text-black';
+                                                    }
+                                                ?>
+                                                    <div
+                                                        class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+                                                        <div
+                                                            class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+                                                            <?php echo $nganh->name ?>
+                                                        </div>
+                                                        <div
+                                                            class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
+                                                            <?php echo $title_qd1 ?>
+                                                        </div>
+                                                        <div
+                                                            class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
+                                                            <?php echo $title_qd2 ?>
+                                                        </div>
+                                                    </div>
+
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <?php if ($check_logout) {
+                                            echo $result['html'];
+                                        } ?>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        } ?>
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <?php
+                            foreach ($response->d as $news) {
+                                get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+                                    'data' => $news,
+                                    'get_array_id_taxonomy' => $get_array_id_taxonomy,
+                                ));
+                            }
+                            ?>
+                        </div>
+                        <div class="mt-12">
+                            <?php get_template_part('components/pagination', '', array(
+                                'get' => 'api',
+                                'total_page' => $total_page,
+                                'url' => get_term_link(get_queried_object_id()),
+                            )) ?>
+                        </div>
+                    <?php } else {
+                        get_template_part('template-parts/content', 'none');
+                    } ?>
                 </div>
             </div>
         </div>

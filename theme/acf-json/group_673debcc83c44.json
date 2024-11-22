@@ -394,7 +394,7 @@
             "label": "ID danh mục",
             "name": "api_id_danh_muc",
             "aria-label": "",
-            "type": "number",
+            "type": "text",
             "instructions": "Nếu danh mục này chứa nhiều ID, thì nhập cách nhau bởi dấu phẩy, VD: 3,4,5",
             "required": 0,
             "conditional_logic": 0,
@@ -404,10 +404,8 @@
                 "id": ""
             },
             "default_value": "",
-            "min": "",
-            "max": "",
+            "maxlength": "",
             "placeholder": "",
-            "step": "",
             "prepend": "",
             "append": ""
         }
@@ -430,5 +428,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732133357
+    "modified": 1732173046
 }

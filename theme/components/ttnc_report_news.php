@@ -1,5 +1,6 @@
 <?php
 $number = get_sub_field('number');
+$time_cache = 300;
 ?>
 <section class="xl:mt-[125px] xl:mb-[100px] my-20 ttnc_report_news" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -49,23 +50,29 @@ $number = get_sub_field('number');
                             <?php the_sub_field('title_ma_hieu_qua') ?>
                         </h2>
                     <?php } ?>
-                    <div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
-                        <?php
-                        for ($i = 0; $i < 6; $i++) {
-                        ?>
-                            <a href=""
-                                class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
-                                <span>
-                                    HPG
-                                </span>
-                                <span>
-                                    +11%
-                                </span>
-                            </a>
-                        <?php
-                        }
-                        ?>
-                    </div>
+                    <?php
+                    $array_data = array();
+                    $GetRecommendedCategory = get_data_with_cache('GetSymbolRecommendedPerformance', $array_data, $time_cache);
+                    if ($GetRecommendedCategory) {
+                    ?>
+                        <div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
+                            <?php
+                            foreach ($GetRecommendedCategory->d as $news) {
+                            ?>
+                                <a href="javascript:void(0)"
+                                    class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
+                                    <span>
+                                        <?php echo $news->symbol ?>
+                                    </span>
+                                    <span>
+                                        +<?php echo $news->upside ?>%
+                                    </span>
+                                </a>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    <?php } ?>
                     <div class="p-6 bg-gradient-blue-50 mb-10">
                         <?php if (get_sub_field('title_dang_ky')) { ?>
                             <h3 class="text-primary-300 font-bold text-2xl mb-4">

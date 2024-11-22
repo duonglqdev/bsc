@@ -731,7 +731,7 @@ button#ib-button-messaging {
 	mark {
 		@apply bg-transparent font-medium;
 	}
-	ul > li > span:nth-child(1) > strong {
+	ul > li > span:nth-child(1) > strong,ul > li > strong:nth-child(1){
 		@apply mr-3;
 	}
 }
