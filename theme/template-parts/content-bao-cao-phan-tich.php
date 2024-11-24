@@ -25,7 +25,7 @@
                     $background_status = '#d6f6de';
                     $title_status = __('Tích cực', 'bsc');
                 } elseif ($status == '1') {
-                    $text_status = '#3FFBF32';
+                    $text_status = '#FFB81C';
                     $background_status = '#FFF1D2';
                     $title_status = __('Trung lập', 'bsc');
                 } elseif ($status == '2') {
@@ -77,7 +77,7 @@
                             if ($news->pricerecommendation) echo number_format($news->pricerecommendation);
                             ?>
                             <?php if ($news->upsite) { ?>
-                                <span style="color:<?php echo $text_status ?>">
+                                <span class="text-[#30D158]">
                                     (<?php echo $news->upsite ?>)
                                 </span>
                             <?php } ?>
