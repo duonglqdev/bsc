@@ -108,7 +108,7 @@
                 <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
             <?php if ($news->reporturl) { ?>
-                <a href="<?php echo $news->reporturl ?>"
+                <a href="<?php echo $news->reporturl ?>" target="_blank"
                     class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
                     <?php _e('Tải xuống', 'bsc') ?>
                     <?php echo svg('download', '20', '20') ?>

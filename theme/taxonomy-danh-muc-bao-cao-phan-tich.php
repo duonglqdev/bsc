@@ -316,7 +316,7 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="flex-1 bg-[#F5FCFF] rounded-lg">
-                                                <div id="chart-forecast"
+                                                <div id="chart-forecast" class="font-body"
                                                     data-stock='<?php echo $stocksDataJson ?>'
                                                     data-title="Dự báo VN-Index 2024"
                                                     data-kb1="Dự báo KB1 (Giảm)"
