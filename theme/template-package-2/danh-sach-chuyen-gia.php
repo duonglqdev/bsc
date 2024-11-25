@@ -127,19 +127,19 @@ get_header();
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info">
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
@@ -147,7 +147,7 @@ get_header();
 							</p>
 						</li>
 						<div class="hidden">
-							<li class="flex items-center gap-2">
+							<li class="flex items-start gap-2">
 								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
@@ -246,19 +246,19 @@ get_header();
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info">
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
@@ -266,7 +266,7 @@ get_header();
 							</p>
 						</li>
 						<div class="hidden">
-							<li class="flex items-center gap-2">
+							<li class="flex items-start gap-2">
 								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
@@ -365,19 +365,19 @@ get_header();
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info">
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
@@ -385,7 +385,7 @@ get_header();
 							</p>
 						</li>
 						<div class="hidden">
-							<li class="flex items-center gap-2">
+							<li class="flex items-start gap-2">
 								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
@@ -484,19 +484,19 @@ get_header();
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info">
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
@@ -504,7 +504,7 @@ get_header();
 							</p>
 						</li>
 						<div class="hidden">
-							<li class="flex items-center gap-2">
+							<li class="flex items-start gap-2">
 								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
@@ -603,19 +603,19 @@ get_header();
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info">
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
-						<li class="flex items-center gap-2">
+						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
@@ -623,7 +623,7 @@ get_header();
 							</p>
 						</li>
 						<div class="hidden">
-							<li class="flex items-center gap-2">
+							<li class="flex items-start gap-2">
 								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>

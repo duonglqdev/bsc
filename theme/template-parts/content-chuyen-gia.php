@@ -61,7 +61,7 @@ $post_id = get_the_ID();
         $kinh_nghiem = get_the_terms($post_id, 'kinh-nghiem');
         if ($kinh_nghiem) {
         ?>
-            <li class="flex items-center gap-2">
+            <li class="flex items-start gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
                     <?php _e('Kinh nghiệm', 'bsc') ?>: <strong><?php echo $kinh_nghiem[0]->name; ?></strong>
