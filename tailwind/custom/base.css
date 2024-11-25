@@ -127,7 +127,7 @@
       @apply text-yellow-100;
     }
     .main_menu > ul > li:not(.menu-home) {
-      @apply relative after:absolute after:-bottom-1 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[2px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item)]:after:w-0 [&:not(.active,.current-menu-item)]:text-black text-yellow-100;
+      @apply relative after:absolute after:-bottom-1 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[2px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item,.current-menu-parent)]:after:w-0 [&:not(.active,.current-menu-item,.current-menu-parent)]:text-black text-yellow-100;
     }
     .main_menu > ul > li:not(.menu-home) a {
       @apply block transition-all duration-500;
