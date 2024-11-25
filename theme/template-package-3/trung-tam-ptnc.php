@@ -10,7 +10,7 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="mt-14 xl:mb-pb-[110px] mb-20">
 		<div class="container">
-			<div class="lg:flex gap-12">
+			<div class="lg:flex 2xl:gap-12 gap-10">
 				<div class="lg:w-[745px] lg:max-w-[56%]">
 					<h2 class="heading-title mb-8">
 						Danh mục khuyến nghị
@@ -42,16 +42,16 @@ get_header();
 						?>
 						<div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
 							id="tab-<?php echo $i ?>">
-							<div class="relative pt-[76.2416%] w-full rounded-lg overflow-hidden">
+							<div class="relative 2xl:pt-[76.2416%] pt-[80%] w-full rounded-lg overflow-hidden">
 								<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
-								<div class="absolute w-full h-full inset-0 blur-sm">
+								<div class="absolute w-full h-full inset-0">
 									<ul
-										class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 px-[30px] justify-between">
-										<li class="w-[8%]">Mã</li>
-										<li class="w-[16%]">Khuyến nghị</li>
-										<li class="w-[16%]">Giá</li>
-										<li class="w-[16%]">Mục tiêu</li>
-										<li class="w-[16%]">Upside</li>
+										class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 2xl:px-[30px] px-5 justify-between">
+										<li class="whitespace-nowrap w-[8%]">Mã</li>
+										<li class="whitespace-nowrap w-[16%]">Khuyến nghị</li>
+										<li class="whitespace-nowrap w-[16%]">Giá</li>
+										<li class="whitespace-nowrap w-[16%]">Mục tiêu</li>
+										<li class="whitespace-nowrap w-[16%]">Upside</li>
 									</ul>
 									<div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
 										<?php
@@ -59,7 +59,7 @@ get_header();
 										{
 											?>
 											<ul
-												class="flex gap-5 text-center justify-between px-[30px] py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
+												class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
 												<li class="w-[8%] font-medium">CTG</li>
 												<li class="w-[16%] font-medium"><span
 														class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] min-w-[78px]">Mua</span>
@@ -76,7 +76,7 @@ get_header();
 
 								</div>
 								<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-								<div
+								<!-- <div
 									class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 									<a href="#"
 										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -85,7 +85,7 @@ get_header();
 									<p class="italic mt-4 font-normal">
 										Để xem chi tiết danh mục
 									</p>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<?php
@@ -120,7 +120,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-semibold">
+									<div class="w-[70%] px-2 py-1 font-semibold">
 										GDP (YoY%)
 									</div>
 									<div class="flex-1 text-center">
@@ -128,7 +128,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-semibold">
+									<div class="w-[70%] px-2 py-1 font-semibold">
 										CPI trung bình (YoY%)*
 									</div>
 									<div class="flex-1 text-center">
@@ -136,7 +136,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-semibold">
+									<div class="w-[70%] px-2 py-1 font-semibold">
 										Xuất khẩu (YoY%)*
 									</div>
 									<div class="flex-1 text-center">
@@ -144,7 +144,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-semibold">
+									<div class="w-[70%] px-2 py-1 font-semibold">
 										Nhập khẩu (YoY%)*
 									</div>
 									<div class="flex-1 text-center">
@@ -152,7 +152,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-semibold">
+									<div class="w-[70%] px-2 py-1 font-semibold">
 										LSĐH (YoY%)*
 									</div>
 									<div class="flex-1 text-center">
@@ -160,7 +160,7 @@ get_header();
 									</div>
 								</div>
 								<div class="flex gap-1 items-center min-h-[30px]">
-									<div class="w-[66%] px-2 py-1 font-bold">
+									<div class="w-[70%] px-2 py-1 font-bold">
 										USD/VND LNH trung bình
 									</div>
 									<div class="flex-1 text-center font-semibold">
@@ -320,7 +320,7 @@ get_header();
 					<?php _e( 'Xem tất cả', 'bsc' ) ?>
 				</a>
 			</div>
-			<div class="lg:flex lg:gap-[70px]">
+			<div class="lg:flex 2xl:gap-[70px] gap-10">
 				<div class="lg:w-[843px] lg:max-w-[66%]">
 					<div class="grid grid-cols-2 gap-x-[23px] gap-y-6">
 						<?php
@@ -462,7 +462,7 @@ get_header();
 				</div>
 				<div class="flex-1">
 					<h2
-						class="text-primary-300 font-bold text-[28px] pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
+						class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
 						Các mã hiệu quả BSC
 					</h2>
 					<div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
