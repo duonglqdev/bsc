@@ -157,11 +157,11 @@ get_header();
                                     class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
                                     placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                             </div>
-                            <div class="flex gap-5 mb-10 mt-4">
+                            <div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
                                 <div
-                                    class="w-1/5 flex items-center justify-between h-[50px] px-5 border border-[#EAEEF4] rounded-[10px]">
-                                    <p class="2xl:min-w-20 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
-                                    <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0">
+                                    class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+                                    <p class="mr-2 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
+                                    <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
                                         <option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
                                         <?php
                                         $currentYear = date('Y');

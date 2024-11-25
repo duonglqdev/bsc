@@ -50,7 +50,7 @@ get_header();
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
 			</h2>
-			<div class="lg:flex lg:gap-[70px]">
+			<div class="lg:flex 2xl:gap-[70px] gap-10">
 				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
@@ -101,11 +101,12 @@ get_header();
 							class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
 							placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
 					</form>
-					<div class="flex gap-5 mb-10 mt-4">
+					<div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
 						<div
-							class="w-1/5 flex items-center justify-between h-[50px] px-5 border border-[#EAEEF4] rounded-[10px]">
-							<p class="2xl:min-w-20 text-xs font-medium">Năm: </p>
-							<select class="select_custom border-none focus:outline-0 focus:ring-0">
+							class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+							<p class="mr-2 text-xs font-medium">Năm: </p>
+							<select class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
+								<option value="">Chọn năm</option>
 								<option value="">2024</option>
 								<option value="">2023</option>
 							</select>
@@ -277,7 +278,8 @@ get_header();
 										</div>
 									</div>
 								</div>
-								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
+								<div
+									class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
 									<div
 										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
 										<p class="font-semibold mb-1">
@@ -306,7 +308,8 @@ get_header();
 										<p>6.1</p>
 									</div>
 								</div>
-								<div class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
+								<div
+									class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
 									<div
 										class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
 										<p class="font-semibold mb-1">
@@ -358,7 +361,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -388,7 +392,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -418,7 +423,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808

@@ -24,7 +24,7 @@ get_header();
             <h1 class="lg:text-[32px] text-2xl font-bold mb-8">
                 <?php echo $title ?>
             </h1>
-            <div class="lg:flex lg:gap-[70px]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
                 <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="rounded-lg px-4 py-6 bg-white shadow-base">
                         <div class="flex items-center justify-between mb-6">
