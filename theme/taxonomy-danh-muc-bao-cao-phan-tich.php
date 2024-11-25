@@ -12,11 +12,11 @@ get_header();
     <?php if (have_rows('menu_navigation', get_queried_object())) { ?>
         <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
             <div class="container">
-                <ul class="customtab-nav flex justify-between gap-10">
+                <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
                     <?php while (have_rows('menu_navigation', get_queried_object())): the_row(); ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
@@ -30,8 +30,8 @@ get_header();
             <h2 class="heading-title mb-[26px]">
                 <?php _e('CHUYÊN MỤC', 'bsc') ?>
             </h2>
-            <div class="lg:flex lg:gap-[70px]">
-                <div class="lg:w-80 lg:max-w-[35%]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="sticky lg:top-28 top-5 z-[9] space-y-12">
                         <?php
                         $current_term_id = get_queried_object_id();
@@ -157,11 +157,11 @@ get_header();
                                     class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
                                     placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                             </div>
-                            <div class="flex gap-5 mb-10 mt-4">
+                            <div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
                                 <div
-                                    class="w-1/5 flex items-center justify-between h-[50px] px-5 border border-[#EAEEF4] rounded-[10px]">
-                                    <p class="2xl:min-w-20 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
-                                    <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0">
+                                    class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+                                    <p class="mr-2 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
+                                    <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
                                         <option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
                                         <?php
                                         $currentYear = date('Y');
@@ -316,7 +316,7 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="flex-1 bg-[#F5FCFF] rounded-lg">
-                                                <div id="chart-forecast"
+                                                <div id="chart-forecast" class="font-body"
                                                     data-stock='<?php echo $stocksDataJson ?>'
                                                     data-title="Dự báo VN-Index 2024"
                                                     data-kb1="Dự báo KB1 (Giảm)"
@@ -564,7 +564,7 @@ get_header();
                                         </div>
                                     </div>
                                     <div
-                                        class="scroll-bar-custom overflow-y-auto max-h-80 prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                        class="scroll-bar-custom overflow-y-auto max-h-[300px] prose-a:text-primary-300 prose-a:font-bold font-medium">
                                         <?php
                                         for ($i = 0; $i < 12; $i++) {
                                         ?>

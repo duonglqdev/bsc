@@ -119,7 +119,7 @@ get_header();
 							<a href="#"
 								class="flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded text-gray-500 bg-white  hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
 								<span class="sr-only">Previous</span>
-								<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true"
+								<svg class="w-3 h-3 rtl:		" aria-hidden="true"
 									xmlns="http://www.w3.org/2000/svg" fill="none"
 									viewBox="0 0 6 10">
 									<path stroke="currentColor" stroke-linecap="round"

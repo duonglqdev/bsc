@@ -21,15 +21,19 @@
 				a {
 					@apply block transition-all duration-500 hover:text-yellow-100;
 				}
+				&.current-menu-item{
+					@apply text-yellow-100;
+				}
 			}
 		}
 		.main_menu {
 			> ul {
 				> li:not(.menu-home) {
-					@apply relative after:absolute after:-bottom-1 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[2px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item)]:after:w-0 [&:not(.active,.current-menu-item)]:text-black text-yellow-100;
+					@apply relative after:absolute after:-bottom-1 after:left-0 after:w-full after:transition-all after:duration-500 after:bg-yellow-100 after:h-[2px] hover:after:w-full hover:text-yellow-100 before:left-0 [&:not(.active,.current-menu-item,.current-menu-parent)]:after:w-0 [&:not(.active,.current-menu-item,.current-menu-parent)]:text-black text-yellow-100;
 					a {
 						@apply block transition-all duration-500;
 					}
+					
 				}
 			}
 		}
@@ -38,7 +42,7 @@
 			> .submenu-wrapper {
 				@apply w-[30%];
 				> li {
-					@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:pb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+					@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
 					a {
 						@apply inline-block;
 					}
@@ -98,7 +102,7 @@
 }
 @media (max-width: 1700px) and (min-width: 1367px) {
 	.container {
-		max-width: 85% !important;
+		max-width: 90% !important;
 	}
 }
 @media (max-width: 1366px) and (min-width: 1024px) {
@@ -687,10 +691,9 @@ button#ib-button-messaging {
 	}
 
 }
-.document-modal-content *{
+.font-content *{
 	font-family: 'Helvetica Neue,sans-serif' !important;
 }
-
 .sidebar-base {
 	li {
 		.li-plus {
@@ -858,7 +861,7 @@ button#ib-button-messaging {
 	}
 }
 
-.slider-tutorial {
+.slider-tutorial:not(.dmkm) {
 	.desc {
 		@apply lg:w-[305px];
 	}

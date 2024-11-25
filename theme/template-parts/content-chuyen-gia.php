@@ -61,7 +61,7 @@ $post_id = get_the_ID();
         $kinh_nghiem = get_the_terms($post_id, 'kinh-nghiem');
         if ($kinh_nghiem) {
         ?>
-            <li class="flex items-center gap-2">
+            <li class="flex items-start gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
                     <?php _e('Kinh nghiệm', 'bsc') ?>: <strong><?php echo $kinh_nghiem[0]->name; ?></strong>
@@ -72,7 +72,7 @@ $post_id = get_the_ID();
         $trinh_do_hoc_van = get_the_terms($post_id, 'trinh-do-hoc-van');
         if ($trinh_do_hoc_van) {
         ?>
-            <li class="flex items-center gap-2">
+            <li class="flex items-start gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
                     <?php _e('Trình độ học vấn', 'bsc') ?>: <strong><?php echo $trinh_do_hoc_van[0]->name; ?></strong>
@@ -83,7 +83,7 @@ $post_id = get_the_ID();
         $truong_phai_dau_tu = get_field('truong_phai_dau_tu');
         if ($truong_phai_dau_tu) {
         ?>
-            <li class="flex items-center gap-2">
+            <li class="flex items-start gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
                     <?php _e('Trường phái đầu tư', 'bsc') ?>: <strong><?php the_field('truong_phai_dau_tu') ?></strong>
@@ -94,7 +94,7 @@ $post_id = get_the_ID();
         $dia_chi = get_the_terms($post_id, 'thanh-pho');
         if ($dia_chi) {
         ?>
-            <li class="flex items-center gap-2">
+            <li class="flex items-start gap-2">
                 <?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
                 <p>
                     <?php _e('Địa chỉ', 'bsc') ?>: <strong><?php echo $dia_chi[0]->name; ?></strong>

@@ -17,7 +17,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                         $custom_taxterms = $thanh_pho->term_id;
                     }
                 ?>
-                    <li>
+                    <li class="cursor-pointer">
                         <input type="radio" name="thanh_pho" class="hidden peer" value="<?php echo $thanh_pho->term_id ?>" id="chuyen_gia<?php echo $thanh_pho->term_id ?>" <?php if ($i == 1) echo 'checked' ?>>
                         <label class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 text-black peer-checked:text-white bg-transparent peer-checked:bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]" for="chuyen_gia<?php echo $thanh_pho->term_id ?>"><?php echo $thanh_pho->name ?></label>
                     </li>

@@ -51,8 +51,8 @@ get_header();
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
 			</h2>
-			<div class="lg:flex lg:gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+			<div class="lg:flex 2xl:gap-[70px] gap-10">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 							<li>
@@ -216,7 +216,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -246,7 +246,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -276,7 +276,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808

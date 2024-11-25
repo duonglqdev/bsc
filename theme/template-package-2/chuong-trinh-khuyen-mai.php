@@ -24,7 +24,7 @@ get_header();
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
 									<?php echo svg( 'time' ) ?>
-									Thời gian chương trình:
+									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
 							</div>
@@ -66,7 +66,7 @@ get_header();
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
 									<?php echo svg( 'time' ) ?>
-									Thời gian chương trình:
+									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
 							</div>
@@ -108,7 +108,7 @@ get_header();
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
 									<?php echo svg( 'time' ) ?>
-									Thời gian chương trình:
+									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
 							</div>
@@ -163,7 +163,7 @@ get_header();
 						<div class="mt-6 flex items-center gap-4">
 							<div class="inline-flex items-center gap-2">
 								<?php echo svg( 'time' ) ?>
-								Thời gian chương trình:
+								Thời gian:
 							</div>
 							<div class="font-medium">22/08/2024 - 22/10/2024</div>
 						</div>

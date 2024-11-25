@@ -98,7 +98,7 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
@@ -108,7 +108,7 @@
                 <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
             <?php if ($news->reporturl) { ?>
-                <a href="<?php echo $news->reporturl ?>"
+                <a href="<?php echo $news->reporturl ?>" target="_blank"
                     class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
                     <?php _e('Tải xuống', 'bsc') ?>
                     <?php echo svg('download', '20', '20') ?>

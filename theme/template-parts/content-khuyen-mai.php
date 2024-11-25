@@ -39,7 +39,7 @@
             <div class="mt-6 flex items-center gap-4">
                 <div class="inline-flex items-center gap-2">
                     <?php echo svg('time') ?>
-                    <?php _e('Thời gian chương trình', 'bsc') ?>:
+                    <?php _e('Thời gian', 'bsc') ?>:
                 </div>
                 <div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
             </div>

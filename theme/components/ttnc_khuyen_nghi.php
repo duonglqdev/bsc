@@ -10,7 +10,7 @@ if ($response_instruments) {
 ?>
 <section class="mt-14 xl:mb-pb-[110px] mb-20 ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="lg:flex gap-12">
+        <div class="lg:flex 2xl:gap-12 gap-10">
             <div class="lg:w-[745px] lg:max-w-[56%]">
                 <?php if (get_sub_field('title')) { ?>
                     <h2 class="heading-title mb-8">
@@ -41,16 +41,16 @@ if ($response_instruments) {
                         $i++; ?>
                         <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                             id="<?php echo $tab ?>-<?php echo $i ?>">
-                            <div class="relative pt-[76.2416%] w-full rounded-lg overflow-hidden">
+                            <div class="relative 2xl:pt-[76.2416%] pt-[80%] w-full rounded-lg overflow-hidden">
                                 <?php $class = $check_logout ? 'blur-sm' : ''; ?>
                                 <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
                                     <ul
-                                        class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 px-[30px] justify-between">
-                                        <li class="w-[8%]"><?php _e('Mã', 'bsc') ?></li>
-                                        <li class="w-[16%]"><?php _e('Khuyến nghị', 'bsc') ?></li>
-                                        <li class="w-[16%]"><?php _e('Giá', 'bsc') ?></li>
-                                        <li class="w-[16%]"><?php _e('Mục tiêu', 'bsc') ?></li>
-                                        <li class="w-[16%]"><?php _e('Upside', 'bsc') ?></li>
+                                        class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 2xl:px-[30px] px-5 justify-between">
+                                        <li class="whitespace-nowrap w-[8%]"><?php _e('Mã', 'bsc') ?></li>
+                                        <li class="whitespace-nowrap w-[16%]"><?php _e('Khuyến nghị', 'bsc') ?></li>
+                                        <li class="whitespace-nowrap w-[16%]"><?php _e('Giá', 'bsc') ?></li>
+                                        <li class="whitespace-nowrap w-[16%]"><?php _e('Mục tiêu', 'bsc') ?></li>
+                                        <li class="whitespace-nowrap w-[16%]"><?php _e('Upside', 'bsc') ?></li>
                                     </ul>
                                     <?php
                                     $array_data_list_bsc = array(
@@ -71,7 +71,7 @@ if ($response_instruments) {
                                                     }
                                             ?>
                                                     <ul
-                                                        class="flex gap-5 text-center justify-between px-[30px] py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
+                                                        class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
                                                         <li class="w-[8%] font-medium"><?php echo $list_bsc->symbol ?></li>
                                                         <li class="w-[16%] font-medium"><span
                                                                 class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] min-w-[78px]"><?php echo $list_bsc->action ?></span>
@@ -149,7 +149,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-semibold">
+                                    <div class="w-[70%] px-2 py-1 font-semibold">
                                         <?php _e('GDP (YoY%)', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center">
@@ -157,7 +157,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-semibold">
+                                    <div class="w-[70%] px-2 py-1 font-semibold">
                                         <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center">
@@ -165,7 +165,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-semibold">
+                                    <div class="w-[70%] px-2 py-1 font-semibold">
                                         <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center">
@@ -173,7 +173,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-semibold">
+                                    <div class="w-[70%] px-2 py-1 font-semibold">
                                         <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center">
@@ -181,7 +181,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-semibold">
+                                    <div class="w-[70%] px-2 py-1 font-semibold">
                                         <?php _e('LSĐH (YoY%)*', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center">
@@ -189,7 +189,7 @@ if ($response_instruments) {
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-[30px]">
-                                    <div class="w-[66%] px-2 py-1 font-bold">
+                                    <div class="w-[70%] px-2 py-1 font-bold">
                                         <?php _e('USD/VND LNH trung bình', 'bsc') ?>
                                     </div>
                                     <div class="flex-1 text-center font-semibold">

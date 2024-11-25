@@ -10,34 +10,34 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
-			<ul class="customtab-nav flex justify-between gap-10">
+			<ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
 				<li class="flex-1">
 					<a href="#"
-						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo vĩ mô
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo Ngành - Doanh nghiệp
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo chuyên đề
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Danh mục khuyến nghị
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Quan điểm BSC
 					</a>
 				</li>
@@ -50,8 +50,8 @@ get_header();
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
 			</h2>
-			<div class="lg:flex lg:gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+			<div class="lg:flex 2xl:gap-[70px] gap-10">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 							<li>
@@ -146,7 +146,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -176,7 +176,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -206,7 +206,7 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808

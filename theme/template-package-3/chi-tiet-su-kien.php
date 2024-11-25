@@ -11,7 +11,7 @@ get_header();
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky top-5 z-10">
 						<div class="rounded-lg px-4 py-6 shadow-base">
 							<ul
