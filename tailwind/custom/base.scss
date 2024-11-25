@@ -21,6 +21,9 @@
 				a {
 					@apply block transition-all duration-500 hover:text-yellow-100;
 				}
+				&.current-menu-item{
+					@apply text-yellow-100;
+				}
 			}
 		}
 		.main_menu {
