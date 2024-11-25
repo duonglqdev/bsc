@@ -720,7 +720,7 @@ button#ib-button-messaging {
   @apply mr-3;
 }
 
-.document-modal-content * {
+.font-content * {
   font-family: "Helvetica Neue,sans-serif" !important;
 }
 

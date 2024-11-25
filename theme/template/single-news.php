@@ -79,7 +79,7 @@ get_header();
 							</ul>
 						</div>
 					</div>
-					<div class="the_content font-Helvetica">
+					<div class="the_content font-Helvetica font-content">
 						<p>
 							Discover the power of a captivating website header and footer. Enhance
 							user experience, increase engagement and stand out from the crowd. Click
