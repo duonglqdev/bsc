@@ -485,7 +485,7 @@ get_header();
 
 
 					</div>
-					<div class="p-6 bg-gradient-blue-50 mb-10">
+					<div class="p-6 bg-gradient-blue-50 mb-8">
 						<h3 class="text-primary-300 font-bold text-2xl mb-4">
 							Đăng ký nhận báo cáo từ BSC
 						</h3>
@@ -493,7 +493,7 @@ get_header();
 							<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
 						</div>
 					</div>
-					<h3 class="text-primary-300 font-bold text-2xl mb-4">
+					<h3 class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
 						Tiện ích cho khách hàng
 					</h3>
 					<div class="space-y-[14px]">
@@ -547,7 +547,7 @@ get_header();
 		style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-report.png)">
 		<div class="container">
 			<div class="lg:w-[602px] lg:max-w-[60%] bg-white p-10 rounded-2xl">
-				<h2 class="heading-title text-center mb-9">
+				<h2 class="heading-title text-center mb-6 !leading-none">
 					Báo cáo phân tích Từ bsc
 				</h2>
 				<ul class="divide-y divide-solid space-y-4">

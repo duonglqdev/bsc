@@ -73,7 +73,7 @@ $time_cache = 300;
                             ?>
                         </div>
                     <?php } ?>
-                    <div class="p-6 bg-gradient-blue-50 mb-10">
+                    <div class="p-6 bg-gradient-blue-50 mb-8">
                         <?php if (get_sub_field('title_dang_ky')) { ?>
                             <h3 class="text-primary-300 font-bold text-2xl mb-4">
                                 <?php the_sub_field('title_dang_ky') ?>
@@ -84,7 +84,7 @@ $time_cache = 300;
                         </div>
                     </div>
                     <?php if (get_sub_field('title_tien_ich')) { ?>
-                        <h3 class="text-primary-300 font-bold text-2xl mb-4">
+                        <h3 class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
                             <?php the_sub_field('title_tien_ich') ?>
                         </h3>
                     <?php } ?>
