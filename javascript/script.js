@@ -79,88 +79,82 @@ import WOW from 'wowjs';
 
     function handleMegamenu() {
         if ($(window).width() > 1024) {
-            $('.main_menu > ul > li:not(.menu-home)').each(function(index) {
+            $('.main_menu > ul > li:not(.menu-home)').each(function (index) {
                 var menuId = $(this).attr('id');
                 $(this).attr('data-menu', menuId);
                 $('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
             });
-
-            $('.main_menu-navbar > li.menu-item-has-children').each(
-                function() {
-                    var dataMenuValue = $(this).attr('data-menu');
-                    $(this)
-                        .children('.sub-menu')
-                        .attr('data-submenu', dataMenuValue);
-                }
-            );
-
-            $('.main_menu-navbar > li').wrapAll(
-                "<div class='submenu-wrapper' />"
-            );
+    
+            $('.main_menu-navbar > li.menu-item-has-children').each(function () {
+                var dataMenuValue = $(this).attr('data-menu');
+                $(this)
+                    .children('.sub-menu')
+                    .attr('data-submenu', dataMenuValue);
+            });
+    
+            $('.main_menu-navbar > li').wrapAll("<div class='submenu-wrapper' />");
             $('.submenu-wrapper').after("<div class='submenu-content'></div>");
-
+    
             var timeout;
             var isMouseInNavbar = false;
-
-            $('.main_menu > ul > li:not(.menu-home)').mouseenter(function() {
+    
+            $('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
                 var dataMenuValue = $(this).attr('data-menu');
-
+    
                 $('.main_menu > ul > li:not(.menu-home)').removeClass('active');
-
+    
                 $('.main_menu-navbar').addClass('active');
-
+    
                 $(
-                    '.submenu-wrapper > li[data-menu="' + dataMenuValue + '"]'
+                    '.submenu-wrapper > li[data-menu="' + dataMenuValue + '"] > a'
                 ).trigger('mouseenter');
-
+    
                 $(this).addClass('active');
-
+    
                 clearTimeout(timeout);
             });
-
-            $('.main_menu > ul > li:not(.menu-home)').mouseleave(function() {
+    
+            $('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
                 $('.main_menu > ul > li:not(.menu-home)').removeClass('active');
                 if (isMouseInNavbar) {
                     timeout = setTimeout(() => {
                         $('.main_menu-navbar').removeClass('active');
-
+    
                         $('.submenu-wrapper > li').removeClass('active');
                         $('.submenu-content').html('');
                         $('.submenu-content').css('max-height', '0');
                     }, 200);
                 }
             });
-
-            $('.main_menu-navbar').mouseenter(function() {
+    
+            $('.main_menu-navbar').mouseenter(function () {
                 isMouseInNavbar = true;
                 clearTimeout(timeout);
             });
-
-            $('.main_menu-navbar').mouseleave(function() {
+    
+            $('.main_menu-navbar').mouseleave(function () {
                 isMouseInNavbar = false;
                 timeout = setTimeout(() => {
                     $('.main_menu-navbar').removeClass('active');
-                    $('.main_menu > ul > li:not(.menu-home)').removeClass(
-                        'active'
-                    );
+                    $('.main_menu > ul > li:not(.menu-home)').removeClass('active');
                     $('.submenu-wrapper > li').removeClass('active');
-                    // $('.submenu-content').html('');
                     $('.submenu-content').css('max-height', '0');
                 }, 200);
             });
-
-            $('.submenu-wrapper > li').mouseenter(function() {
-                var dataMenuValue = $(this).attr('data-menu');
-                var submenuToMove = $(this).children(
+    
+            $('.submenu-wrapper > li > a').mouseenter(function () {
+                var $parentLi = $(this).parent(); // Lấy thẻ cha <li>
+                var dataMenuValue = $parentLi.attr('data-menu');
+                var submenuToMove = $parentLi.children(
                     '.sub-menu[data-submenu="' + dataMenuValue + '"]'
                 );
-
+    
                 $('.submenu-wrapper > li').removeClass('active');
-                $(this).addClass('active');
-
+                $parentLi.addClass('active'); // Thêm class vào thẻ <li>
+    
                 if (submenuToMove.length) {
                     $('.submenu-content').html(submenuToMove.html());
-
+    
                     var newHeight = $('.submenu-content').prop('scrollHeight');
                     $('.submenu-content').css({
                         'max-height': newHeight + 'px',
@@ -170,11 +164,12 @@ import WOW from 'wowjs';
                     $('.submenu-content').html('');
                     $('.submenu-content').css('max-height', '0');
                 }
-
+    
                 clearTimeout(timeout);
             });
         }
     }
+    
 
     function hoverSvg() {
         $('.value-item svg path').css({
