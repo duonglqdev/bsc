@@ -92,7 +92,7 @@ if ($response_instruments) {
                                                         </li>
                                                         <li class="w-[16%] font-bold text-[#1CCD83]">
                                                             <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-                                                                echo number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                                echo "+" . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
                                                             }  ?>
                                                         </li>
                                                     </ul>
