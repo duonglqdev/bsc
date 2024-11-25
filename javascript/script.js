@@ -79,60 +79,60 @@ import WOW from 'wowjs';
 
     function handleMegamenu() {
         if ($(window).width() > 1024) {
-            $('.main_menu > ul > li:not(.menu-home)').each(function (index) {
+            $('.main_menu > ul > li:not(.menu-home)').each(function(index) {
                 var menuId = $(this).attr('id');
                 $(this).attr('data-menu', menuId);
                 $('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
             });
-    
-            $('.main_menu-navbar > li.menu-item-has-children').each(function () {
+
+            $('.main_menu-navbar > li.menu-item-has-children').each(function() {
                 var dataMenuValue = $(this).attr('data-menu');
                 $(this)
                     .children('.sub-menu')
                     .attr('data-submenu', dataMenuValue);
             });
-    
+
             $('.main_menu-navbar > li').wrapAll("<div class='submenu-wrapper' />");
             $('.submenu-wrapper').after("<div class='submenu-content'></div>");
-    
+
             var timeout;
             var isMouseInNavbar = false;
-    
-            $('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
+
+            $('.main_menu > ul > li:not(.menu-home)').mouseenter(function() {
                 var dataMenuValue = $(this).attr('data-menu');
-    
+
                 $('.main_menu > ul > li:not(.menu-home)').removeClass('active');
-    
+
                 $('.main_menu-navbar').addClass('active');
-    
+
                 $(
                     '.submenu-wrapper > li[data-menu="' + dataMenuValue + '"] > a'
                 ).trigger('mouseenter');
-    
+
                 $(this).addClass('active');
-    
+
                 clearTimeout(timeout);
             });
-    
-            $('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
+
+            $('.main_menu > ul > li:not(.menu-home)').mouseleave(function() {
                 $('.main_menu > ul > li:not(.menu-home)').removeClass('active');
                 if (isMouseInNavbar) {
                     timeout = setTimeout(() => {
                         $('.main_menu-navbar').removeClass('active');
-    
+
                         $('.submenu-wrapper > li').removeClass('active');
                         $('.submenu-content').html('');
                         $('.submenu-content').css('max-height', '0');
                     }, 200);
                 }
             });
-    
-            $('.main_menu-navbar').mouseenter(function () {
+
+            $('.main_menu-navbar').mouseenter(function() {
                 isMouseInNavbar = true;
                 clearTimeout(timeout);
             });
-    
-            $('.main_menu-navbar').mouseleave(function () {
+
+            $('.main_menu-navbar').mouseleave(function() {
                 isMouseInNavbar = false;
                 timeout = setTimeout(() => {
                     $('.main_menu-navbar').removeClass('active');
@@ -141,20 +141,20 @@ import WOW from 'wowjs';
                     $('.submenu-content').css('max-height', '0');
                 }, 200);
             });
-    
-            $('.submenu-wrapper > li > a').mouseenter(function () {
+
+            $('.submenu-wrapper > li > a').mouseenter(function() {
                 var $parentLi = $(this).parent(); // Lấy thẻ cha <li>
                 var dataMenuValue = $parentLi.attr('data-menu');
                 var submenuToMove = $parentLi.children(
                     '.sub-menu[data-submenu="' + dataMenuValue + '"]'
                 );
-    
+
                 $('.submenu-wrapper > li').removeClass('active');
                 $parentLi.addClass('active'); // Thêm class vào thẻ <li>
-    
+
                 if (submenuToMove.length) {
                     $('.submenu-content').html(submenuToMove.html());
-    
+
                     var newHeight = $('.submenu-content').prop('scrollHeight');
                     $('.submenu-content').css({
                         'max-height': newHeight + 'px',
@@ -164,12 +164,12 @@ import WOW from 'wowjs';
                     $('.submenu-content').html('');
                     $('.submenu-content').css('max-height', '0');
                 }
-    
+
                 clearTimeout(timeout);
             });
         }
     }
-    
+
 
     function hoverSvg() {
         $('.value-item svg path').css({
@@ -1074,22 +1074,17 @@ import WOW from 'wowjs';
             }
         );
         $(document).on(
-            'change',
-            '#form-search-expert select, .list_chuyen_gia input[type="radio"],#posts_per_page',
-            function() {
+            'click',
+            '#chuyen_gia_submit',
+            function(e) {
                 load__chuyen_gia(1);
             }
         );
-        let typingTimer;
-
         $(document).on(
-            'input',
-            '#form-search-expert #name_chuyen_gia',
+            'change',
+            '.list_chuyen_gia input[type="radio"],#posts_per_page',
             function() {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(function() {
-                    load__chuyen_gia(1);
-                }, 1000);
+                load__chuyen_gia(1);
             }
         );
         $(document).on('click', '.expert_item .expert-open', function() {
@@ -1532,38 +1527,68 @@ import WOW from 'wowjs';
             let categories = stockData.map(item => item.date); // Lấy danh sách ngày từ dữ liệu
             const closeIndexes = stockData.map(item => item.closeindex); // Lấy dữ liệu chỉ số
 
-
-            // Tính tổng giá trị của VN-Index
-            const totalVNIndex = closeIndexes.reduce((acc, val) => acc + val, 0);
-
-            // Lấy giá trị cuối cùng của VN-Index
+            // Lấy giá trị KB1 và KB2
+            const kb1Value = parseFloat(chartElement.getAttribute('data-kb1-value')) || 0; // Giá trị cuối cùng của KB1
+            const kb2Value = parseFloat(chartElement.getAttribute('data-kb2-value')) || 0; // Giá trị cuối cùng của KB2
+            const kbcoso = parseFloat(chartElement.getAttribute('data-kb-coso')) || 0;
+            // Ngày cuối cùng của VN-Index
+            const lastDateVNIndex = new Date(categories[categories.length - 1]);
             const lastVNIndex = closeIndexes[closeIndexes.length - 1];
-            // Kiểm tra và lọc dữ liệu không hợp lệ
-            categories = categories.filter(date => date && !isNaN(new Date(date)));
 
-            // Xử lý tickInterval và định dạng ngày theo số lượng dữ liệu
+            // Tạo các ngày thêm cho 4 tháng tiếp theo
+            const kbDates = [];
+            for (let i = 0; i < 60; i++) {
+                const nextDate = new Date(lastDateVNIndex);
+                nextDate.setDate(nextDate.getDate() + i); // Cộng thêm từng ngày
+                kbDates.push(nextDate.toISOString().split('T')[0]); // Định dạng YYYY-MM-DD
+            }
+
+            // Hàm tạo giá trị đường chéo (linear interpolation) từ giá trị bắt đầu đến giá trị kết thúc
+            function generateLinearValues(startValue, endValue, numPoints) {
+                const values = [];
+                const step = (endValue - startValue) / (numPoints - 1); // Bước nhảy giữa các giá trị
+                for (let i = 0; i < numPoints; i++) {
+                    values.push(Math.round(startValue + i * step));
+                }
+                return values;
+            }
+
+            // Số ngày cần random (120 ngày tương ứng với 4 tháng)
+            const numDays = kbDates.length;
+
+            // Tạo giá trị đường chéo cho KB1 (giảm dần từ giá trị cuối VN-Index đến kb1Value)
+            const kb1DiagonalValues = generateLinearValues(lastVNIndex, kb1Value, numDays);
+
+            // Tạo giá trị đường chéo cho KB2 (tăng dần từ giá trị cuối VN-Index đến kb2Value)
+            const kb2DiagonalValues = generateLinearValues(lastVNIndex, kb2Value, numDays);
+
+            // Cập nhật trục X
+            const extendedCategories = [...categories, ...kbDates];
+
+            // Tạo dữ liệu cho KB1 và KB2 (bao gồm điểm đầu VN-Index tại ngày cuối cùng của VN-Index)
+            const kb1Series = [...closeIndexes.map(() => null), lastVNIndex, ...kb1DiagonalValues.slice(1)];
+            const kb2Series = [...closeIndexes.map(() => null), lastVNIndex, ...kb2DiagonalValues.slice(1)];
+
+            // Dữ liệu VN-Index được mở rộng với null
+            const extendedCloseIndexes = [...closeIndexes, lastVNIndex, ...Array(numDays - 1).fill(null)];
+
+            // Xử lý hiển thị đẹp trục X
             let tickInterval;
             let dateFormatter;
 
-            if (categories.length <= 7) {
+            if (extendedCategories.length <= 7) {
                 tickInterval = 1;
                 dateFormatter = 'dd MMM yyyy';
-            } else if (categories.length > 7 && categories.length <= 30) {
+            } else if (extendedCategories.length > 7 && extendedCategories.length <= 30) {
                 tickInterval = 5;
                 dateFormatter = 'dd MMM yyyy';
-            } else if (categories.length > 30 && categories.length <= 365) {
+            } else if (extendedCategories.length > 30 && extendedCategories.length <= 365) {
                 tickInterval = 30;
                 dateFormatter = 'MMM yyyy';
             } else {
                 tickInterval = 90;
                 dateFormatter = 'MMM yyyy';
             }
-
-            // Tạo trục X theo tickInterval
-            const filteredCategories = categories.filter((_, index) => index % tickInterval === 0);
-
-            // Cắt bớt `closeIndexes` theo `filteredCategories` để đồng bộ hóa trục X và dữ liệu Y
-            const filteredCloseIndexes = closeIndexes.filter((_, index) => index % tickInterval === 0);
 
             const options = {
                 chart: {
@@ -1578,35 +1603,35 @@ import WOW from 'wowjs';
                 },
                 series: [{
                         name: 'VN-Index',
-                        data: filteredCloseIndexes, // Dữ liệu thực tế đã cắt gọn
+                        data: extendedCloseIndexes, // Dữ liệu thực tế đã cắt gọn
                     },
-                    // {
-                    //     name: chartElement.getAttribute('data-kb2'), // KB2 (Tăng)
-                    //     data: [null, null, null, 1300, 1350, 1400, 1450], // Demo dữ liệu
-                    //     dashArray: 5,
-                    //     color: '#00E396',
-                    // },
-                    // {
-                    //     name: chartElement.getAttribute('data-kb1'), // KB1 (Giảm)
-                    //     data: [null, null, null, 900, 800, 700, 600], // Demo dữ liệu
-                    //     dashArray: 5,
-                    //     color: '#FF4560',
-                    // },
+                    {
+                        name: chartElement.getAttribute('data-kb2'), // KB2 (Tăng)
+                        data: kb2Series,
+                        dashArray: 5,
+                        color: '#00E396',
+                    },
+                    {
+                        name: chartElement.getAttribute('data-kb1'), // KB1 (Giảm)
+                        data: kb1Series,
+                        dashArray: 5,
+                        color: '#FF4560',
+                    },
                 ],
                 xaxis: {
-                    categories: filteredCategories, // Trục X đã cắt gọn
+                    categories: extendedCategories,
+                    tickAmount: Math.floor(extendedCategories.length / tickInterval),
                     labels: {
                         rotate: -45,
                         formatter: function(value) {
-                            // Định dạng giá trị ngày
                             const date = new Date(value);
                             return !isNaN(date) ?
                                 date.toLocaleDateString('en-GB', {
                                     day: '2-digit',
                                     month: 'short',
-                                    year: categories.length > 30 ? 'numeric' : undefined,
+                                    year: dateFormatter.includes('yyyy') ? 'numeric' : undefined,
                                 }) :
-                                value; // Trả về giá trị gốc nếu không phải ngày hợp lệ
+                                value;
                         },
                     },
                 },
@@ -1614,12 +1639,51 @@ import WOW from 'wowjs';
                     labels: {
                         formatter: value => Math.round(value),
                     },
-                    min: Math.min(...filteredCloseIndexes) - 50, // Y trục bắt đầu thấp hơn giá trị nhỏ nhất
-                    max: Math.max(...filteredCloseIndexes) + 50, // Y trục kết thúc cao hơn giá trị lớn nhất
+                    min: Math.min(...closeIndexes, kb1Value) - 50, // Y trục bắt đầu thấp hơn giá trị nhỏ nhất
+                    max: Math.max(...closeIndexes, kb2Value) + 50, // Y trục kết thúc cao hơn giá trị lớn nhất
                 },
                 stroke: {
                     width: [3, 3, 3],
                     curve: 'smooth',
+                },
+                annotations: {
+                    yaxis: [{
+                            y: kb2Value,
+                            borderColor: '#00E396',
+                            label: {
+                                borderColor: '#00E396',
+                                style: {
+                                    color: '#fff',
+                                    background: '#00E396',
+                                },
+                                text: 'KB2:' + kb2Value,
+                            },
+                        },
+                        {
+                            y: kbcoso,
+                            borderColor: '#775DD0',
+                            label: {
+                                borderColor: '#775DD0',
+                                style: {
+                                    color: '#fff',
+                                    background: '#775DD0',
+                                },
+                                text: chartElement.getAttribute('data-coso') + ':' + kbcoso,
+                            },
+                        },
+                        {
+                            y: kb1Value,
+                            borderColor: '#FF4560',
+                            label: {
+                                borderColor: '#FF4560',
+                                style: {
+                                    color: '#fff',
+                                    background: '#FF4560',
+                                },
+                                text: 'KB1:' + kb1Value,
+                            },
+                        },
+                    ],
                 },
                 colors: ['#008FFB', '#00E396', '#FF4560'],
                 tooltip: {

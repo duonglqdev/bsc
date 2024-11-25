@@ -69,13 +69,17 @@
                         </a>
                     <?php } ?>
                     <div class="flex flex-col font-Helvetica text-xs">
-                        <p>
-                            <?php _e('Giá mục tiêu', 'bsc') ?>
-                        </p>
+                        <?php if ($news->pricerecommendation) { ?>
+                            <p>
+                                <?php _e('Giá mục tiêu', 'bsc') ?>
+                            </p>
+                        <?php } ?>
                         <p class="font-medium">
-                            <?php
-                            if ($news->pricerecommendation) echo number_format($news->pricerecommendation);
-                            ?>
+                            <?php if ($news->pricerecommendation) { ?>
+                                <?php
+                                echo number_format($news->pricerecommendation);
+                                ?>
+                            <?php } ?>
                             <?php if ($news->upsite) { ?>
                                 <span class="text-[#30D158]">
                                     (<?php echo $news->upsite ?>)
