@@ -400,6 +400,8 @@ import WOW from 'wowjs';
     window.handleChart = function(seriesData, yAxisOptions) {
         var chartElement = document.querySelector('#chart');
         if (chartElement) {
+            var height_chart = chartElement.getAttribute('data-height') || '97%';
+
             // Chuyển đổi xAxisCategories thành timestamps
             const timestamps = seriesData[0].data.map((point) => point.x);
 
@@ -428,7 +430,7 @@ import WOW from 'wowjs';
             var options = {
                 chart: {
                     type: 'line',
-                    height: '97%',
+                    height: height_chart,
                     toolbar: {
                         show: true,
                         tools: {

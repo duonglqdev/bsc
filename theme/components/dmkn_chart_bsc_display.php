@@ -8,7 +8,7 @@
         <?php
         $term = get_sub_field('danh_muc_bao_cao');
         if ($term) {
-            $categoryid_kn = get_field('api_id_danh_muc', $term_kn);
+            $categoryid_kn = get_field('api_id_danh_muc', $term);
             if ($categoryid_kn) {
                 if (get_sub_field('number')) {
                     $post_per_page = get_sub_field('number');
@@ -52,7 +52,7 @@
                         <?php get_template_part('components/pagination', '', array(
                             'get' => 'api',
                             'total_page' => $total_page,
-                            'url' => get_term_link(get_queried_object_id()),
+                            'url' => get_permalink(get_the_ID()),
                             'post_per_page' => 'hide'
                         )) ?>
                     </div>

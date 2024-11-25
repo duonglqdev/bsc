@@ -5307,7 +5307,8 @@
                             "choices": {
                                 "nhdt": "Ngân hàng đầu tư",
                                 "stgd": "Sổ tay giao dịch",
-                                "ntgd": "Nền tảng giao dịch"
+                                "ntgd": "Nền tảng giao dịch",
+                                "bcpt": "Báo cáo phân tích"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -14325,56 +14326,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_6744b8a85a5c4": {
-                    "key": "layout_6744b8a85a5c4",
-                    "name": "dmkn_chart_bsc_details",
-                    "label": "[Khuyến nghị] Chi tiết BSC",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6744b8a85a5c5",
-                            "label": "ID Class",
-                            "name": "id_class",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_6744b8a85a5c6",
-                            "label": "Tiêu đề",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_6744b8aa5a5c7": {
                     "key": "layout_6744b8aa5a5c7",
                     "name": "dmkn_chart_bsc_display",
@@ -14457,7 +14408,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "category",
+                            "taxonomy": "danh-muc-bao-cao-phan-tich",
                             "add_term": 1,
                             "save_terms": 0,
                             "load_terms": 0,
@@ -14698,5 +14649,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732557383
+    "modified": 1732561053
 }
