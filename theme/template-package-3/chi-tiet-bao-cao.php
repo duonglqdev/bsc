@@ -14,7 +14,7 @@ get_header();
 				Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu quỹ_20240808
 			</h1>
 			<div class="lg:flex lg:gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="rounded-lg px-4 py-6 bg-white shadow-base">
 						<div class="flex items-center justify-between mb-6">
 							<a href=""

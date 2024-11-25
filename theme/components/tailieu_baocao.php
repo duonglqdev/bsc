@@ -17,7 +17,7 @@
 		if (! empty($terms) && ! is_wp_error($terms)) :
 		?>
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky top-5 z-10">
 						<ul
 							class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2 scroll_nav">

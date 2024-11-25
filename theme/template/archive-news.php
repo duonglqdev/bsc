@@ -108,7 +108,7 @@ get_header();
 	<section class="2xl:mt-[100px] mt-16 mb-16">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky top-5 z-10 scroll_nav">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white">
 							<li>

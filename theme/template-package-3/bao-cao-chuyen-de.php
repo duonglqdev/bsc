@@ -49,7 +49,7 @@ get_header();
 		<div class="container">
 			
 			<div class="lg:flex lg:gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 						
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"

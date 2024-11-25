@@ -12,11 +12,11 @@ get_header();
     <?php if (have_rows('menu_navigation', get_queried_object())) { ?>
         <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
             <div class="container">
-                <ul class="customtab-nav flex justify-between gap-10">
+                <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
                     <?php while (have_rows('menu_navigation', get_queried_object())): the_row(); ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
@@ -30,8 +30,8 @@ get_header();
             <h2 class="heading-title mb-[26px]">
                 <?php _e('CHUYÊN MỤC', 'bsc') ?>
             </h2>
-            <div class="lg:flex lg:gap-[70px]">
-                <div class="lg:w-80 lg:max-w-[35%]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="sticky lg:top-28 top-5 z-[9] space-y-12">
                         <?php
                         $current_term_id = get_queried_object_id();

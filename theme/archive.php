@@ -20,7 +20,7 @@ get_header();
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky top-5 z-10">
 						<?php
 						$terms = get_terms(array(

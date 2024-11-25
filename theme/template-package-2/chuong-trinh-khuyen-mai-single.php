@@ -11,7 +11,7 @@ get_header();
 	<section class="mt-12 xl:mb-[100px] mb-12">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9]">
 						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 105.png"
 							alt="" class="w-full rounded-lg">
