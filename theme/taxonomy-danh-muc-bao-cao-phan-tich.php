@@ -564,7 +564,7 @@ get_header();
                                         </div>
                                     </div>
                                     <div
-                                        class="scroll-bar-custom overflow-y-auto max-h-80 prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                        class="scroll-bar-custom overflow-y-auto max-h-[300px] prose-a:text-primary-300 prose-a:font-bold font-medium">
                                         <?php
                                         for ($i = 0; $i < 12; $i++) {
                                         ?>
