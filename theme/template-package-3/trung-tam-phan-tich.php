@@ -36,7 +36,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -66,7 +66,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -96,7 +96,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -157,7 +157,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -197,7 +197,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -237,7 +237,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -298,7 +298,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -338,7 +338,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -378,7 +378,7 @@ get_header();
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
 						</div>
-						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+						<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 							<a href="" class="line-clamp-2">
 								Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 								quỹ_20240808
@@ -411,12 +411,12 @@ get_header();
 					<?php _e( 'Xem tất cả', 'bsc' ) ?>
 				</a>
 			</div>
-			<div class="block_slider block_slider-show-3 has-nav no-dots -mx-3 slider-tutorial">
+			<div class="block_slider block_slider-show-3 has-nav no-dots -mx-3 slider-tutorial dmkm">
 				<div class="block_slider-item px-3 lg:w-1/3 w-1/2">
 					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
 						style="background-color:#235BA81a;">
-						<div class="pl-6 py-5 pr-1 w-1/2">
-							<h3 class="font-bold text-2xl mb-2">
+						<div class="pl-6 py-5 pr-1 w-2/3">
+							<h3 class="font-bold 2xl:text-2xl text-xl mb-2">
 								Danh mục BSC 10
 							</h3>
 							<a href=""
@@ -425,7 +425,7 @@ get_header();
 								Xem chi tiết
 							</a>
 						</div>
-						<div class="w-1/2">
+						<div class="w-1/3">
 							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23490.png" alt="">
 						</div>
 					</div>
@@ -434,7 +434,7 @@ get_header();
 					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
 						style="background-color:#F8F4D0;">
 						<div class="pl-6 py-5 pr-1 w-1/2">
-							<h3 class="font-bold text-2xl mb-2">
+							<h3 class="font-bold 2xl:text-2xl text-xl mb-2">
 								Danh mục BSC 40
 							</h3>
 							<a href=""
@@ -452,7 +452,7 @@ get_header();
 					<div class="min-h-[223px] rounded-xl overflow-hidden flex items-center"
 						style="background-color:#009E872a;">
 						<div class="pl-6 py-5 pr-1 w-1/2">
-							<h3 class="font-bold text-2xl mb-2">
+							<h3 class="font-bold 2xl:text-2xl text-xl mb-2">
 								Danh mục BSC 50
 							</h3>
 							<a href=""

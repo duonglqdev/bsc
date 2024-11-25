@@ -861,7 +861,7 @@ button#ib-button-messaging {
 	}
 }
 
-.slider-tutorial {
+.slider-tutorial:not(.dmkm) {
 	.desc {
 		@apply lg:w-[305px];
 	}

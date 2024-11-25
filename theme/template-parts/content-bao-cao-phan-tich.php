@@ -98,7 +98,7 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
