@@ -117,44 +117,48 @@
                         if ($search_template == 'default') { ?>
                             <form method="get" class="flex gap-5 mb-10" action="<?php echo get_term_link(get_queried_object()); ?>">
                                 <div
-                                    class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2 lg:w-[315px] max-w-[33.33%]">
-                                    <?php echo svg('search', '24', '24') ?>
+                                    class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2 lg:w-[270px] max-w-[33.33%] shrink-0">
+                                    <?php echo svgClass( 'search', '24', '24','shrink-0' ) ?>
                                     <input type="text" name="key"
-                                        class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
+                                        class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                                 </div>
                                 <div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
                                     datepicker-autohide datepicker-orientation="bottom right"
-                                    class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-1/2 w-full">
-                                    <p class="font-medium mr-5 lg:min-w-[94px]">
+                                    class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs flex-1">
+                                    <p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
                                         <?php _e('Thời gian:', 'gnws') ?>
                                     </p>
                                     <div class="flex items-center gap-5">
                                         <input id="datepicker-range-start" name="fromdate" type="text"
-                                            class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+                                            class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
                                             placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate'])) echo $_GET['fromdate'] ?>">
                                         <?php echo svg('day', '20', '20') ?>
                                     </div>
-                                    <span class="mx-4 text-gray-500">-</span>
+                                    <span class="2xl:mx-4 mx-3 text-gray-500">-</span>
                                     <div class="flex items-center gap-5">
                                         <input id="datepicker-range-end" name="todate" type="text"
-                                            class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+                                            class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
                                             placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate'])) echo $_GET['todate'] ?>">
                                         <?php echo svg('day', '20', '20') ?>
                                     </div>
                                 </div>
                                 <button type="submit"
-                                    class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
+                                    class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px] whitespace-nowrap">
                                     <?php _e('Tìm kiếm', 'bsc') ?>
                                 </button>
+                                <button type="reset"
+							class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+							<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+						</button>
                             </form>
                         <?php } else { ?>
                             <form method="get" action="<?php echo get_term_link(get_queried_object()); ?>">
                                 <div
-                                    class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2">
-                                    <?php echo svg('search', '24', '24') ?>
+                                    class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2">
+                                    <?php echo svgClass( 'search', '24', '24','shrink-0' ) ?>
                                     <input type="text" name="key"
-                                        class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
+                                        class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                                 </div>
                                 <div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
@@ -176,19 +180,19 @@
                                     <div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
                                         datepicker-autohide datepicker-orientation="bottom right"
                                         class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
-                                        <p class="font-medium mr-5 2xl:min-w-[94px]">
+                                        <p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
                                             <?php _e('Thời gian:', 'gnws') ?>
                                         </p>
                                         <div class="flex items-center 2xl:gap-5 gap-3">
                                             <input id="datepicker-range-start" name="fromdate" type="text"
-                                                class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+                                                class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
                                                 placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate'])) echo $_GET['fromdate'] ?>">
                                             <?php echo svg('day', '20', '20') ?>
                                         </div>
                                         <span class="2xl:mx-4 mx-2 text-gray-500">-</span>
                                         <div class="flex items-center 2xl:gap-5 gap-3">
                                             <input id="datepicker-range-end" name="todate" type="text"
-                                                class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+                                                class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
                                                 placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate'])) echo $_GET['todate'] ?>">
                                             <?php echo svg('day', '20', '20') ?>
                                         </div>
@@ -196,6 +200,10 @@
                                     <button type="submit"
                                         class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
                                         <?php _e('Tìm kiếm', 'bsc') ?>
+                                    </button>
+                                    <button type="reset"
+                                        class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                                        <?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
                                     </button>
                                 </div>
                             </form>

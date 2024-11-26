@@ -459,7 +459,7 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 		} else {
 			$url_prev = $url_tax . '?page=' . $page_prev . $endpoint;
 		}
-		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover-text-white transition-all duration-500" href="' . $url_prev . '">' . svg('angle-left') . '</a></li>' . "\n",);
+		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500" href="' . $url_prev . '">' . svg('angle-left') . '</a></li>' . "\n",);
 	}
 	/** Link to first page, plus ellipses if necessary */
 	if (! in_array(1, $links)) {
@@ -490,7 +490,7 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	if ($paged < $max) {
 		$page_next = $paged + 1;
 		$url_next = $url_tax . '?page=' . $page_next . $endpoint;
-		printf('<li><a class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover-text-white transition-all duration-500" href="' . $url_next . '">' . svg('angle-right') . '</a></li>' . "\n",);
+		printf('<li><a class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500" href="' . $url_next . '">' . svg('angle-right') . '</a></li>' . "\n",);
 	}
 ?>
 	</ul>
