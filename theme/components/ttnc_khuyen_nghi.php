@@ -73,8 +73,21 @@ if ($response_instruments) {
                                                     <ul
                                                         class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
                                                         <li class="w-[8%] font-medium"><?php echo $list_bsc->symbol ?></li>
-                                                        <li class="w-[16%] font-medium"><span
-                                                                class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] min-w-[78px]"><?php echo $list_bsc->action ?></span>
+                                                        <?php
+                                                        $status = $list_bsc->action;
+                                                        $check_status = get_color_by_number_bsc($status);
+                                                        $title_status = $check_status['title_status'];
+                                                        $text_status = $check_status['text_status'];
+                                                        $background_status = $check_status['background_status'];
+                                                        ?>
+                                                        <li class="w-[16%] font-medium">
+                                                            <?php if ($list_bsc->action) { ?>
+                                                                <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                                                    <?php
+                                                                    echo  $title_status;
+                                                                    ?>
+                                                                </span>
+                                                            <?php } ?>
                                                         </li>
                                                         <li class="w-[16%] font-bold text-[#1CCD83]">
                                                             <?php
@@ -92,7 +105,12 @@ if ($response_instruments) {
                                                         </li>
                                                         <li class="w-[16%] font-bold text-[#1CCD83]">
                                                             <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-                                                                echo "+" . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                                if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+                                                                    $before_text = '+';
+                                                                } else {
+                                                                    $before_text = '';
+                                                                }
+                                                                echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
                                                             }  ?>
                                                         </li>
                                                     </ul>
