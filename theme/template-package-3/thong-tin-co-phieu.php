@@ -11,14 +11,14 @@ get_header();
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
 			<form class="flex gap-4 items-end mb-10" id="form-search-cophieu">
-				<div class="lg:w-[23%] lg:max-w-[300px] flex flex-col font-Helvetica">
+				<div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Tìm theo tên
 					</p>
 					<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
 						class="w-full bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
 				</div>
-				<div class="lg:w-[23%] lg:max-w-[300px] flex flex-col font-Helvetica">
+				<div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Tìm mã cổ phiếu
 					</p>
@@ -29,7 +29,7 @@ get_header();
 						<option value="">BBB</option>
 					</select>
 				</div>
-				<div class="lg:w-[19%] lg:max-w-[243px] flex flex-col font-Helvetica">
+				<div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Tìm theo ngành
 					</p>
@@ -40,7 +40,7 @@ get_header();
 						<option value="">Cơ khí</option>
 					</select>
 				</div>
-				<div class="lg:w-[19%] lg:max-w-[241px] flex flex-col font-Helvetica">
+				<div class="lg:w-[20%] lg:max-w-[241px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Tìm theo sàn
 					</p>
@@ -53,10 +53,14 @@ get_header();
 				</div>
 
 				<button type="button" id="search_cophieu"
-					class="btn-base-yellow h-[50px] rounded-xl flex-1">
+					class="btn-base-yellow h-[50px] rounded-xl flex-1 whitespace-nowrap">
 					<span class="block relative z-10">
 						<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 					</span>
+				</button>
+				<button type="reset"
+					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 				</button>
 			</form>
 			<div class="flex flex-col">
@@ -86,57 +90,58 @@ get_header();
 							</tr>
 						</thead>
 						<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
-                            <?php 
-                             for ($i = 0; $i < 3; $i++) {
-                             ?>
-                             <tr>
-                                 <td class="!pl-5"><a href="">A32</a></td>
-                                 <td>CTCP 32</td>
-                                 <td>HOSE</td>
-                                 <td>Tài chính</td>
-                                 <td>36,80</td>
-                                 <td>36,80</td>
-                                 <td>36,80</td>
-                                 <td>301,24</td>
-                                 <td>6,99</td>
-                             </tr>
-                             <tr>
-                                 <td class="!pl-5"><a href="">AAA</a></td>
-                                 <td>CTCP Nhựa An Phát Xanh</td>
-                                 <td>HOSE</td>
-                                 <td>Tài chính</td>
-                                 <td>37,80</td>
-                                 <td>37,80</td>
-                                 <td>37,80</td>
-                                 <td>303,24</td>
-                                 <td>7,99</td>
-                             </tr>
-                             <tr>
-                                 <td class="!pl-5"><a href="">AAT</a></td>
-                                 <td>CTCP Chứng khoán Smart Invest</td>
-                                 <td>HOSE</td>
-                                 <td>Tài chính</td>
-                                 <td>38,80</td>
-                                 <td>38,80</td>
-                                 <td>38,80</td>
-                                 <td>305,24</td>
-                                 <td>8,99</td>
-                             </tr>
-                             
-                              <?php 
-                             } 
-                            ?>
+							<?php
+							for ( $i = 0; $i < 3; $i++ )
+							{
+								?>
+								<tr>
+									<td class="!pl-5"><a href="">A32</a></td>
+									<td>CTCP 32</td>
+									<td>HOSE</td>
+									<td>Tài chính</td>
+									<td>36,80</td>
+									<td>36,80</td>
+									<td>36,80</td>
+									<td>301,24</td>
+									<td>6,99</td>
+								</tr>
+								<tr>
+									<td class="!pl-5"><a href="">AAA</a></td>
+									<td>CTCP Nhựa An Phát Xanh</td>
+									<td>HOSE</td>
+									<td>Tài chính</td>
+									<td>37,80</td>
+									<td>37,80</td>
+									<td>37,80</td>
+									<td>303,24</td>
+									<td>7,99</td>
+								</tr>
+								<tr>
+									<td class="!pl-5"><a href="">AAT</a></td>
+									<td>CTCP Chứng khoán Smart Invest</td>
+									<td>HOSE</td>
+									<td>Tài chính</td>
+									<td>38,80</td>
+									<td>38,80</td>
+									<td>38,80</td>
+									<td>305,24</td>
+									<td>8,99</td>
+								</tr>
+
+							<?php
+							}
+							?>
 						</tbody>
 					</table>
 				</div>
 
-                <div class="pagination-center">
-                <?php get_template_part( 'components/pagination' ) ?>
-                </div>
+				<div class="pagination-center">
+					<?php get_template_part( 'components/pagination' ) ?>
+				</div>
 			</div>
 		</div>
 	</section>
-    <section class="xl:my-[100px] my-10">
+	<section class="xl:my-[100px] my-10">
 		<div class="container">
 			<h2 class="heading-title mb-10">
 				CÓ THỂ BẠN QUAN TÂM
@@ -169,7 +174,7 @@ get_header();
 						<div
 							class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
 							<p class="font-bold mb-2 text-2xl">
-							Ưu đãi từ BSC
+								Ưu đãi từ BSC
 							</p>
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
