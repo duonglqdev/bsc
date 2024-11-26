@@ -48,13 +48,17 @@
 					</select>
 				</div>
 			<?php endif; ?>
-			<div class="lg:col-span-1 col-span-full">
+			<div class="lg:col-span-1 col-span-full flex items-center gap-3">
 				<button type="button" id="tuyen-dung-tim-kiem"
 					class="btn-base-yellow w-full h-full rounded-xl">
 					<span class="block relative z-10">
 						<?php _e('Tìm kiếm', 'bsc') ?>
 					</span>
 				</button>
+				<button type="reset"
+                                        class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group shrink-0">
+                                        <?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+                                    </button>
 			</div>
 		</form>
 		<?php
