@@ -1,7 +1,7 @@
 <section class="mt-12 xl:mb-[100px] mb-20 stgd_video_introduce" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div class="lg:flex gap-[70px]">
-            <div class="lg:w-80 lg:max-w-[35%]">
+            <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                 <?php echo get_sidebar('stgd') ?>
             </div>
             <div class="flex-1">

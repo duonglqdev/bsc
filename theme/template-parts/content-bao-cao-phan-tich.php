@@ -14,6 +14,16 @@
 ?>
     <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
         <div class="flex items-center justify-between mb-4">
+            <?php
+
+            if ($news->recommendation) {
+                $status = $news->recommendation;
+                $check_status = get_color_by_number_bsc($status);
+                $title_status = $check_status['title_status'];
+                $text_status = $check_status['text_status'];
+                $background_status = $check_status['background_status'];
+            }
+            ?>
             <?php if ($khoi_template == 'taxonomy') { ?>
                 <a href="<?php echo $link ?>"
                     class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -21,16 +31,29 @@
                 </a>
             <?php } else { ?>
                 <div class="flex items-center gap-4">
-                    <a href="javascript:void(0)"
-                        class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                        <?php echo $news->symbols ?>
-                    </a>
+                    <?php if ($news->symbols) { ?>
+                        <a href="javascript:void(0)"
+                            class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+                            <?php echo $news->symbols ?>
+                        </a>
+                    <?php } ?>
                     <div class="flex flex-col font-Helvetica text-xs">
-                        <p>
-                            <?php _e('Giá mục tiêu', 'bsc') ?>
-                        </p>
+                        <?php if ($news->pricerecommendation) { ?>
+                            <p>
+                                <?php _e('Giá mục tiêu', 'bsc') ?>
+                            </p>
+                        <?php } ?>
                         <p class="font-medium">
-                            89,400 <span class="text-[#30D158]">(<?php echo $news->upsite ?>)</span>
+                            <?php if ($news->pricerecommendation) { ?>
+                                <?php
+                                echo number_format($news->pricerecommendation);
+                                ?>
+                            <?php } ?>
+                            <?php if ($news->upsite) { ?>
+                                <span class="text-[#30D158]">
+                                    (<?php echo $news->upsite ?>)
+                                </span>
+                            <?php } ?>
                         </p>
                     </div>
                 </div>
@@ -38,8 +61,8 @@
             <div class="space-y-1.5 text-right">
                 <?php if ($news->recommendation) { ?>
                     <span
-                        class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">
-                        <?php echo htmlspecialchars($news->recommendation) ?>
+                        class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                        <?php echo $title_status ?>
                     </span>
                 <?php } ?>
                 <?php
@@ -48,7 +71,7 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
@@ -58,7 +81,7 @@
                 <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
             <?php if ($news->reporturl) { ?>
-                <a href="<?php echo $news->reporturl ?>"
+                <a href="<?php echo $news->reporturl ?>" target="_blank"
                     class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
                     <?php _e('Tải xuống', 'bsc') ?>
                     <?php echo svg('download', '20', '20') ?>

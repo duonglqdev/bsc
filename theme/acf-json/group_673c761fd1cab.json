@@ -1701,6 +1701,31 @@
                                     "append": ""
                                 },
                                 {
+                                    "key": "field_6744b3bb5cc2a",
+                                    "label": "Danh mục báo cáo phân tích",
+                                    "name": "danh_muc_bao_cao_phan_tich",
+                                    "aria-label": "",
+                                    "type": "taxonomy",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "taxonomy": "danh-muc-bao-cao-phan-tich",
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": []
+                                },
+                                {
                                     "key": "field_670265ed5654a",
                                     "label": "Button Xem Thêm",
                                     "name": "button_xem_them",
@@ -5282,7 +5307,8 @@
                             "choices": {
                                 "nhdt": "Ngân hàng đầu tư",
                                 "stgd": "Sổ tay giao dịch",
-                                "ntgd": "Nền tảng giao dịch"
+                                "ntgd": "Nền tảng giao dịch",
+                                "bcpt": "Báo cáo phân tích"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -6442,6 +6468,26 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_67434138798d0",
+                            "label": "File Excel Bản Đồ",
+                            "name": "file_excel",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "Quy định: Cột D là tên mạng lưới, cột K là địa chỉ đầy đủ, cột J là tỉnh thành, cột I là quận huyện.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ],
                     "min": "",
@@ -7647,6 +7693,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_673371410da0e",
                                     "sub_fields": [
                                         {
                                             "key": "field_673370b80da0c",
@@ -7688,8 +7735,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673371410da0e"
+                                    ]
                                 }
                             ]
                         }
@@ -7976,6 +8022,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm dịch vụ",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67337e9aad277",
                                     "sub_fields": [
                                         {
                                             "key": "field_67337f40ad27a",
@@ -8066,6 +8113,7 @@
                                             "collapsed": "",
                                             "button_label": "Thêm danh sách",
                                             "rows_per_page": 20,
+                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337f84ad27d",
@@ -8088,8 +8136,7 @@
                                                     "new_lines": "",
                                                     "parent_repeater": "field_67337f6bad27c"
                                                 }
-                                            ],
-                                            "parent_repeater": "field_67337ed4ad279"
+                                            ]
                                         },
                                         {
                                             "key": "field_67337fa2ad27f",
@@ -8106,6 +8153,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337fa2ad280",
@@ -8147,11 +8195,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_67337ed4ad279"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_67337e9aad277"
+                                    ]
                                 }
                             ]
                         }
@@ -8340,6 +8386,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm danh sách",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_673380cfad295",
                                     "sub_fields": [
                                         {
                                             "key": "field_673380d0ad299",
@@ -8362,8 +8409,7 @@
                                             "new_lines": "",
                                             "parent_repeater": "field_673380d0ad298"
                                         }
-                                    ],
-                                    "parent_repeater": "field_673380cfad295"
+                                    ]
                                 },
                                 {
                                     "key": "field_673380d0ad29a",
@@ -8380,6 +8426,7 @@
                                         "id": ""
                                     },
                                     "layout": "",
+                                    "parent_repeater": "field_673380cfad295",
                                     "sub_fields": [
                                         {
                                             "key": "field_673380d0ad29b",
@@ -8421,8 +8468,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673380cfad295"
+                                    ]
                                 }
                             ]
                         }
@@ -8673,6 +8719,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_6734deb3c1add",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734de9ac1adb",
@@ -8714,8 +8761,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734deb3c1add"
+                                    ]
                                 }
                             ]
                         },
@@ -10030,6 +10076,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6734f6e31e61c",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734f82171369",
@@ -10071,8 +10118,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734f6e31e61c"
+                                    ]
                                 }
                             ]
                         }
@@ -10513,6 +10559,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_67357e56648f7",
                                     "sub_fields": [
                                         {
                                             "key": "field_67358015648fc",
@@ -10529,6 +10576,7 @@
                                                 "id": ""
                                             },
                                             "layout": "block",
+                                            "parent_repeater": "field_6735b109e9456",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67358015648fd",
@@ -10570,11 +10618,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735b109e9456"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_67357e56648f7"
+                                    ]
                                 }
                             ]
                         }
@@ -10737,6 +10783,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735817164903",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735824a64907",
@@ -10778,8 +10825,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735817164903"
+                                    ]
                                 }
                             ]
                         }
@@ -11100,6 +11146,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735b00ef497b",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735b00ff4980",
@@ -11141,8 +11188,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735b00ef497b"
+                                    ]
                                 }
                             ]
                         }
@@ -11602,6 +11648,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm mô tả",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735c6455d428",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735c6ec5d42d",
@@ -11624,8 +11671,7 @@
                                             "append": "",
                                             "parent_repeater": "field_6735c6465d42c"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735c6455d428"
+                                    ]
                                 }
                             ]
                         },
@@ -11712,6 +11758,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6735c5b25d421",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735c6075d425",
@@ -11753,8 +11800,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735c5b25d421"
+                                    ]
                                 }
                             ]
                         }
@@ -11967,6 +12013,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nội dung",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735d425a87f9",
@@ -11989,8 +12036,7 @@
                                             "append": "",
                                             "parent_repeater": "field_6735d425a87f8"
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 },
                                 {
                                     "key": "field_6735cbd349610",
@@ -12012,6 +12058,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735cbd449611",
@@ -12028,6 +12075,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_6735cbd349610",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_6735cbd449612",
@@ -12069,11 +12117,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735cbd349610"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 },
                                 {
                                     "key": "field_6735cc0949614",
@@ -12095,6 +12141,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm nút",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_6735cb824960d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735cc0a49615",
@@ -12111,6 +12158,7 @@
                                                 "id": ""
                                             },
                                             "layout": "",
+                                            "parent_repeater": "field_6735cc0949614",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_6735cc0a49616",
@@ -12152,11 +12200,9 @@
                                                     "prepend": "",
                                                     "append": ""
                                                 }
-                                            ],
-                                            "parent_repeater": "field_6735cc0949614"
+                                            ]
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735cb824960d"
+                                    ]
                                 }
                             ]
                         },
@@ -12240,6 +12286,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_6735ccba4961d",
                                     "sub_fields": [
                                         {
                                             "key": "field_6735ccba4961f",
@@ -12281,8 +12328,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6735ccba4961d"
+                                    ]
                                 }
                             ]
                         },
@@ -13578,6 +13624,8 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "layout": "block",
+                                    "parent_repeater": "field_673c71a661f7b",
                                     "sub_fields": [
                                         {
                                             "key": "field_673c72c661f7f",
@@ -13619,9 +13667,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "layout": "block",
-                                    "parent_repeater": "field_673c71a661f7b"
+                                    ]
                                 }
                             ]
                         }
@@ -14180,6 +14226,7 @@
                                         "id": ""
                                     },
                                     "layout": "table",
+                                    "parent_repeater": "field_673e34f6ae252",
                                     "sub_fields": [
                                         {
                                             "key": "field_673e3586ae257",
@@ -14221,10 +14268,356 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673e34f6ae252"
+                                    ]
                                 }
                             ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744b75c5a5c0": {
+                    "key": "layout_6744b75c5a5c0",
+                    "name": "dmkn_chart_bsc",
+                    "label": "[Khuyến nghị] Bản đồ BSC",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744b7795a5c2",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b8805a5c3",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744b8aa5a5c7": {
+                    "key": "layout_6744b8aa5a5c7",
+                    "name": "dmkn_chart_bsc_display",
+                    "label": "[Khuyến nghị] Hiển thị danh mục",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744b8aa5a5c8",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b8aa5a5c9",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b8d05a5ca",
+                            "label": "Số lượng bài viết",
+                            "name": "number",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b8dc5a5cb",
+                            "label": "Danh mục báo cáo phân tích",
+                            "name": "danh_muc_bao_cao",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "danh-muc-bao-cao-phan-tich",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "object",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744b9065a5cc": {
+                    "key": "layout_6744b9065a5cc",
+                    "name": "qdbsc_vi_mo",
+                    "label": "[Quan điểm] Dự báo vĩ mô",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744b99a5a5d0",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b9be5a5d1",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744b9f35a5d2": {
+                    "key": "layout_6744b9f35a5d2",
+                    "name": "qdbsc_thi_truong",
+                    "label": "[Quan điểm] Dự báo thị trường",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744b9f35a5d3",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744b9f35a5d4",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744ba165a5d5": {
+                    "key": "layout_6744ba165a5d5",
+                    "name": "qdbsc_ket_qua_kinh_doanh",
+                    "label": "[Quan điểm] Kết quả kinh doanh",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744ba165a5d6",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744ba175a5d7",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6744ba305a5d8": {
+                    "key": "layout_6744ba305a5d8",
+                    "name": "qdbsc_du_bao_nganh",
+                    "label": "[Quan điểm] Dự báo ngành",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6744ba305a5d9",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6744ba305a5da",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -14256,5 +14649,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732134353
+    "modified": 1732561053
 }

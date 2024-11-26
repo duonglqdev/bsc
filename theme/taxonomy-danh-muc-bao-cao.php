@@ -19,8 +19,8 @@ get_header();
     <?php get_template_part('components/page-banner') ?>
     <section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
         <div class="container">
-            <div class="lg:flex gap-[70px]">
-                <div class="lg:w-80 lg:max-w-[35%]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="sticky top-5 z-10">
                         <?php
                         $terms = get_terms(array(
@@ -132,13 +132,13 @@ get_header();
                     ?>
                         <form method="get" action="<?php echo get_term_link(get_queried_object()); ?>">
                             <div class="flex gap-5 mb-12 md:flex-nowrap flex-wrap">
-                                <div class="md:w-[518px] w-full md:max-w-[50%] max-w-full flex items-center gap-4 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3">
+                                <div class="md:w-[518px] w-full 2xl:max-w-[50%] md:max-w-[40%] max-w-full flex items-center gap-4 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3">
                                     <?php echo svg('search') ?>
                                     <input type="text" name="key" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>" placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>"
                                         class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent">
                                 </div>
                                 <div class="flex gap-4 flex-1">
-                                    <div class="md:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
+                                    <div class="2xl:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
                                         <label for="" class="font-bold"><?php _e('Năm:', 'bsc') ?></label>
                                         <select id="select_year" name="years" class="select_custom py-0 border-0 focus:ring-0">
                                             <option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
@@ -152,7 +152,7 @@ get_header();
                                             <?php endfor; ?>
                                         </select>
                                     </div>
-                                    <div class="md:w-[55%] w-1/2">
+                                    <div class="2xl:w-[55%] w-1/2">
                                         <button type="submit" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] 2xl:px-6  2xl:py-3  font-semibold relative transition-all duration-500 inline-block w-full h-full px-6 py-3 rounded-xl">
                                             <span class="block relative z-10"><?php _e('Tìm kiếm', 'bsc') ?></span>
                                         </button>

@@ -11,7 +11,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
     <section class="2xl:mt-[100px] mt-16 mb-16 list_grid_news" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <div class="lg:flex gap-[70px]">
-                <div class="lg:w-80 lg:max-w-[35%]">
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="sticky top-5 z-10 ">
                         <ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav">
                             <?php

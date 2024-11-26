@@ -30,7 +30,7 @@ $time_cache = 300;
         if ($response) {
             $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
         ?>
-            <div class="lg:flex lg:gap-[70px]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
                 <div class="lg:w-[843px] lg:max-w-[66%]">
                     <div class="grid grid-cols-2 gap-x-[23px] gap-y-6">
                         <?php
@@ -46,7 +46,7 @@ $time_cache = 300;
                 <div class="flex-1">
                     <?php if (get_sub_field('title_ma_hieu_qua')) { ?>
                         <h2
-                            class="text-primary-300 font-bold text-[28px] pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
+                            class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
                             <?php the_sub_field('title_ma_hieu_qua') ?>
                         </h2>
                     <?php } ?>
@@ -73,7 +73,7 @@ $time_cache = 300;
                             ?>
                         </div>
                     <?php } ?>
-                    <div class="p-6 bg-gradient-blue-50 mb-10">
+                    <div class="p-6 bg-gradient-blue-50 mb-8">
                         <?php if (get_sub_field('title_dang_ky')) { ?>
                             <h3 class="text-primary-300 font-bold text-2xl mb-4">
                                 <?php the_sub_field('title_dang_ky') ?>
@@ -84,7 +84,7 @@ $time_cache = 300;
                         </div>
                     </div>
                     <?php if (get_sub_field('title_tien_ich')) { ?>
-                        <h3 class="text-primary-300 font-bold text-2xl mb-4">
+                        <h3 class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
                             <?php the_sub_field('title_tien_ich') ?>
                         </h3>
                     <?php } ?>

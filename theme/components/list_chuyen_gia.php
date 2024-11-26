@@ -17,7 +17,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                         $custom_taxterms = $thanh_pho->term_id;
                     }
                 ?>
-                    <li>
+                    <li class="cursor-pointer">
                         <input type="radio" name="thanh_pho" class="hidden peer" value="<?php echo $thanh_pho->term_id ?>" id="chuyen_gia<?php echo $thanh_pho->term_id ?>" <?php if ($i == 1) echo 'checked' ?>>
                         <label class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 text-black peer-checked:text-white bg-transparent peer-checked:bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]" for="chuyen_gia<?php echo $thanh_pho->term_id ?>"><?php echo $thanh_pho->name ?></label>
                     </li>
@@ -108,13 +108,19 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                 <input id="name_chuyen_gia" type="text" placeholder="<?php _e('Nhập họ tên chuyên gia', 'bsc') ?>"
                     class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
             </div>
-            <input type="reset" value="<?php _e('Xóa tìm kiếm', 'bsc') ?>" class="btn-base-yellow h-[50px] rounded-xl min-w-[178px]">
+            <button type="button" id="chuyen_gia_submit" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e('Tìm kiếm', 'bsc') ?></button>
+            <button type="reset" id="btn-reload"
+					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+				</button>
         </form>
         <?php
         $args = array(
             'post_type' => 'chuyen-gia',
             'post_status' => 'publish',
             'posts_per_page' => 12,
+            'order' => 'ASC',
+            'orderby' => 'title',
             'paged' => 1,
             'tax_query' => array(
                 array(

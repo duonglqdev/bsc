@@ -10,7 +10,32 @@ if ($args['data']) {
         if ($term) {
             $link = get_term_link($term);
         }
+
+        $categories = get_terms(array(
+            'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+            'hide_empty' => false,
+            'meta_query' => array(
+                array(
+                    'key' => 'api_id_danh_muc', // tên meta field
+                    'value' => $categoryid, // giá trị cần tìm
+                    'compare' => '='
+                )
+            )
+        ));
+
+        // Kiểm tra nếu tìm thấy category
+        if (!is_wp_error($categories) && !empty($categories)) {
+            $tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+        } else {
+            $post_id = get_the_ID();
+            $taxonomy = get_the_terms($post->ID, $check_cat);
+            $tax = $taxonomy[0];
+        }
     }
+    $tax_name = $tax->name;
+    $banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+    $style = get_field('background_banner_display', $tax) ?: 'default';
+    $breadcrumb = 'baocao';
 } else {
     wp_redirect(home_url('/404'), 301);
     exit;
@@ -18,14 +43,19 @@ if ($args['data']) {
 get_header();
 ?>
 <main>
-    <?php get_template_part('components/page-banner') ?>
+    <?php get_template_part('components/page-banner', null, array(
+        'banner' => $banner,
+        'style' => $style,
+        'title' => $tax_name,
+        'breadcrumb' => $breadcrumb,
+    )) ?>
     <section class="mt-14 xl:mb-[100px] mb-20">
         <div class="container">
             <h1 class="lg:text-[32px] text-2xl font-bold mb-8">
                 <?php echo $title ?>
             </h1>
-            <div class="lg:flex lg:gap-[70px]">
-                <div class="lg:w-80 lg:max-w-[35%]">
+            <div class="lg:flex 2xl:gap-[70px] gap-10">
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="rounded-lg px-4 py-6 bg-white shadow-base">
                         <div class="flex items-center justify-between mb-6">
                             <a href="<?php echo $link ?>"

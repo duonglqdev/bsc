@@ -4,7 +4,7 @@
             <?php if (get_sub_field('title')) { ?>
                 <h2 class="heading-title"><?php the_sub_field('title') ?></h2>
             <?php } ?>
-            <a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?><?php if ($class = get_field('cdctkm1_pageid_class', 'option')):  echo $class;
+            <a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?><?php if ($class = get_field('cdctkm1_pageid_class', 'option')):  echo '#' . $class;
                                                                                     endif; ?>"
                 class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
                 <?php echo svg('arrow-btn', '20') ?>

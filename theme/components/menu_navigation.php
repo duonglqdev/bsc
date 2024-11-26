@@ -63,4 +63,21 @@ if ($style == 'nhdt') {
             <?php } ?>
         </div>
     </section>
+<?php } elseif ($style == 'bcpt') { ?>
+    <?php if (have_rows('menu_navigation')) { ?>
+        <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+            <div class="container">
+                <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
+                    <?php while (have_rows('menu_navigation')): the_row(); ?>
+                        <li class="flex-1">
+                            <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                <?php the_sub_field('title') ?>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+        </section>
+    <?php } ?>
 <?php } ?>

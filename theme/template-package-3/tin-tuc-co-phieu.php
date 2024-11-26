@@ -11,7 +11,7 @@ get_header();
 	<section class="my-[68px]">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
                     <div class="sticky top-5 z-10">
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
                             alt="" class="rounded-lg transition-all duration-500 hover:scale-105">

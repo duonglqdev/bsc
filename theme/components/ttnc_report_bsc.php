@@ -3,7 +3,7 @@
     <div class="container">
         <div class="lg:w-[602px] lg:max-w-[60%] bg-white p-10 rounded-2xl">
             <?php if (get_sub_field('title')) { ?>
-                <h2 class="heading-title text-center mb-9">
+                <h2 class="heading-title text-center mb-6 !leading-none">
                     <?php the_sub_field('title') ?>
                 </h2>
             <?php  } ?>

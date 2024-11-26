@@ -262,13 +262,13 @@ add_filter('wpcf7_autop_or_not', '__return_false');
  */
 function add_class_to_posts_link_prev()
 {
-    return 'class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover-text-white transition-all duration-500"';
+    return 'class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500"';
 }
 add_filter('previous_posts_link_attributes', 'add_class_to_posts_link_prev');
 
 function add_class_to_posts_link_next()
 {
-    return 'class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover-text-white transition-all duration-500"';
+    return 'class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500"';
 }
 add_filter('next_posts_link_attributes', 'add_class_to_posts_link_next');
 

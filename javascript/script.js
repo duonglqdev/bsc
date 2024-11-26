@@ -28,7 +28,6 @@ import WOW from 'wowjs';
 		//Chart
 		candleChart();
 		forecastChart();
-		performanceChart();
 		profitChart();
 		healthChart();
 		growthChart();
@@ -120,11 +119,11 @@ import WOW from 'wowjs';
 
 						$('.main_menu-navbar').addClass('active');
 
-						$(
-							'.submenu-wrapper > li[data-menu="' +
-								dataMenuValue +
-								'"]'
-						).trigger('mouseenter');
+				$(
+					'.submenu-wrapper > li[data-menu="' +
+						dataMenuValue +
+						'"] > a'
+				).trigger('mouseenter');
 
 						$(this).addClass('active');
 
@@ -156,26 +155,27 @@ import WOW from 'wowjs';
 					clearTimeout(timeout);
 				});
 
-				$('.main_menu-navbar').mouseleave(function () {
-					isMouseInNavbar = false;
-					timeout = setTimeout(() => {
-						$('.main_menu-navbar').removeClass('active');
-						$('.main_menu > ul > li:not(.menu-home)').removeClass(
-							'active'
-						);
-						$('.submenu-wrapper > li').removeClass('active');
-						$('.submenu-content').css('max-height', '0');
-					}, 200);
-				});
-
-				$('.submenu-wrapper > li').mouseenter(function () {
-					var dataMenuValue = $(this).attr('data-menu');
-					var submenuToMove = $(this).children(
-						'.sub-menu[data-submenu="' + dataMenuValue + '"]'
+			$('.main_menu-navbar').mouseleave(function () {
+				isMouseInNavbar = false;
+				timeout = setTimeout(() => {
+					$('.main_menu-navbar').removeClass('active');
+					$('.main_menu > ul > li:not(.menu-home)').removeClass(
+						'active'
 					);
-
 					$('.submenu-wrapper > li').removeClass('active');
-					$(this).addClass('active');
+					$('.submenu-content').css('max-height', '0');
+				}, 200);
+			});
+
+			$('.submenu-wrapper > li > a').mouseenter(function () {
+				var $parentLi = $(this).parent(); // Lấy thẻ cha <li>
+				var dataMenuValue = $parentLi.attr('data-menu');
+				var submenuToMove = $parentLi.children(
+					'.sub-menu[data-submenu="' + dataMenuValue + '"]'
+				);
+
+				$('.submenu-wrapper > li').removeClass('active');
+				$parentLi.addClass('active'); // Thêm class vào thẻ <li>
 
 					if (submenuToMove.length) {
 						$('.submenu-content').html(submenuToMove.html());
@@ -422,6 +422,18 @@ import WOW from 'wowjs';
 				50
 			);
 		});
+
+		$('.btn-chart button').on('click', function () {
+			var chartValue = $(this).attr('data-chart');
+
+			$('.btn-chart button').removeClass('active');
+			$(this).addClass('active');
+
+			$('.dmkn_chart_bsc_details[data-chart-tab="' + chartValue + '"]')
+				.fadeIn('slow')
+				.siblings('.dmkn_chart_bsc_details')
+				.hide();
+		});
 	}
 
 	function moveLine($button) {
@@ -437,6 +449,9 @@ import WOW from 'wowjs';
 	window.handleChart = function (seriesData, yAxisOptions) {
 		var chartElement = document.querySelector('#chart');
 		if (chartElement) {
+			var height_chart =
+				chartElement.getAttribute('data-height') || '97%';
+
 			// Chuyển đổi xAxisCategories thành timestamps
 			const timestamps = seriesData[0].data.map((point) => point.x);
 
@@ -465,7 +480,7 @@ import WOW from 'wowjs';
 			var options = {
 				chart: {
 					type: 'line',
-					height: '97%',
+					height: height_chart,
 					toolbar: {
 						show: true,
 						tools: {
@@ -1139,23 +1154,14 @@ import WOW from 'wowjs';
 				load__chuyen_gia(page);
 			}
 		);
+		$(document).on('click', '#chuyen_gia_submit', function (e) {
+			load__chuyen_gia(1);
+		});
 		$(document).on(
 			'change',
-			'#form-search-expert select, .list_chuyen_gia input[type="radio"],#posts_per_page',
+			'.list_chuyen_gia input[type="radio"],#posts_per_page',
 			function () {
 				load__chuyen_gia(1);
-			}
-		);
-		let typingTimer;
-
-		$(document).on(
-			'input',
-			'#form-search-expert #name_chuyen_gia',
-			function () {
-				clearTimeout(typingTimer);
-				typingTimer = setTimeout(function () {
-					load__chuyen_gia(1);
-				}, 1000);
 			}
 		);
 		$(document).on('click', '.expert_item .expert-open', function () {
@@ -1195,6 +1201,7 @@ import WOW from 'wowjs';
 				parent.find('.expert-desc').html()
 			);
 		});
+
 		function load_jobs(page = 1) {
 			var nghiep_vu = $('#nghiep_vu').val();
 			var noi_lam_viec = $('#noi_lam_viec').val();
@@ -1603,21 +1610,116 @@ import WOW from 'wowjs';
 	}
 
 	function forecastChart() {
-		// Biểu đồ dự báo thị trường
-		if (document.querySelector('#chart-forecast')) {
-			var options = {
+		const chartElement = document.querySelector('#chart-forecast');
+		if (chartElement) {
+			// Lấy dữ liệu từ data-stock
+			const stockData = JSON.parse(
+				chartElement.getAttribute('data-stock')
+			);
+			let categories = stockData.map((item) => item.date); // Lấy danh sách ngày từ dữ liệu
+			const closeIndexes = stockData.map((item) => item.closeindex); // Lấy dữ liệu chỉ số
+
+			// Lấy giá trị KB1 và KB2
+			const kb1Value =
+				parseFloat(chartElement.getAttribute('data-kb1-value')) || 0; // Giá trị cuối cùng của KB1
+			const kb2Value =
+				parseFloat(chartElement.getAttribute('data-kb2-value')) || 0; // Giá trị cuối cùng của KB2
+			const kbcoso =
+				parseFloat(chartElement.getAttribute('data-kb-coso')) || 0;
+			// Ngày cuối cùng của VN-Index
+			const lastDateVNIndex = new Date(categories[categories.length - 1]);
+			const lastVNIndex = closeIndexes[closeIndexes.length - 1];
+
+			// Tạo các ngày thêm cho 4 tháng tiếp theo
+			const kbDates = [];
+			for (let i = 0; i < 60; i++) {
+				const nextDate = new Date(lastDateVNIndex);
+				nextDate.setDate(nextDate.getDate() + i); // Cộng thêm từng ngày
+				kbDates.push(nextDate.toISOString().split('T')[0]); // Định dạng YYYY-MM-DD
+			}
+
+			// Hàm tạo giá trị đường chéo (linear interpolation) từ giá trị bắt đầu đến giá trị kết thúc
+			function generateLinearValues(startValue, endValue, numPoints) {
+				const values = [];
+				const step = (endValue - startValue) / (numPoints - 1); // Bước nhảy giữa các giá trị
+				for (let i = 0; i < numPoints; i++) {
+					values.push(Math.round(startValue + i * step));
+				}
+				return values;
+			}
+
+			// Số ngày cần random (120 ngày tương ứng với 4 tháng)
+			const numDays = kbDates.length;
+
+			// Tạo giá trị đường chéo cho KB1 (giảm dần từ giá trị cuối VN-Index đến kb1Value)
+			const kb1DiagonalValues = generateLinearValues(
+				lastVNIndex,
+				kb1Value,
+				numDays
+			);
+
+			// Tạo giá trị đường chéo cho KB2 (tăng dần từ giá trị cuối VN-Index đến kb2Value)
+			const kb2DiagonalValues = generateLinearValues(
+				lastVNIndex,
+				kb2Value,
+				numDays
+			);
+
+			// Cập nhật trục X
+			const extendedCategories = [...categories, ...kbDates];
+
+			// Tạo dữ liệu cho KB1 và KB2 (bao gồm điểm đầu VN-Index tại ngày cuối cùng của VN-Index)
+			const kb1Series = [
+				...closeIndexes.map(() => null),
+				lastVNIndex,
+				...kb1DiagonalValues.slice(1),
+			];
+			const kb2Series = [
+				...closeIndexes.map(() => null),
+				lastVNIndex,
+				...kb2DiagonalValues.slice(1),
+			];
+
+			// Dữ liệu VN-Index được mở rộng với null
+			const extendedCloseIndexes = [
+				...closeIndexes,
+				lastVNIndex,
+				...Array(numDays - 1).fill(null),
+			];
+
+			// Xử lý hiển thị đẹp trục X
+			let tickInterval;
+			let dateFormatter;
+
+			if (extendedCategories.length <= 7) {
+				tickInterval = 1;
+				dateFormatter = 'dd MMM yyyy';
+			} else if (
+				extendedCategories.length > 7 &&
+				extendedCategories.length <= 30
+			) {
+				tickInterval = 5;
+				dateFormatter = 'dd MMM yyyy';
+			} else if (
+				extendedCategories.length > 30 &&
+				extendedCategories.length <= 365
+			) {
+				tickInterval = 30;
+				dateFormatter = 'MMM yyyy';
+			} else {
+				tickInterval = 90;
+				dateFormatter = 'MMM yyyy';
+			}
+
+			const options = {
 				chart: {
 					type: 'line',
 					height: 364,
-					toolbar: {
-						show: false,
-					},
+					toolbar: { show: false },
 				},
 				title: {
-					text: 'Dự báo VN-Index 2024',
+					text: chartElement.getAttribute('data-title'),
 					align: 'center',
-					margin: 0,
-					offsetY: 10,
 					style: {
 						fontSize: '18px',
 						fontWeight: 'bold',
@@ -1627,76 +1729,58 @@ import WOW from 'wowjs';
 				series: [
 					{
 						name: 'VN-Index',
-						data: [50, 200, 150, 300, 400, 500, 700, 800, 900],
+						data: extendedCloseIndexes, // Dữ liệu thực tế đã cắt gọn
+						color: '#004DF0',
 					},
 					{
-						name: 'Dự báo KB2 (Tăng)',
-						data: [
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							900,
-							1000,
-							1100,
-							1200,
-						],
+						name: chartElement.getAttribute('data-kb2'), // KB2 (Tăng)
+						data: kb2Series,
 						dashArray: 5,
-						color: '#00E396',
+						color: '#30D158',
 					},
 					{
-						name: 'Dự báo KB1 (Giảm)',
-						data: [
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							null,
-							900,
-							800,
-							600,
-							400,
-						],
+						name: chartElement.getAttribute('data-kb1'), // KB1 (Giảm)
+						data: kb1Series,
 						dashArray: 5,
-						color: '#FF4560',
+						color: '#FF0017',
 					},
 				],
 				xaxis: {
-					categories: [
-						'T01',
-						'T02',
-						'T03',
-						'T04',
-						'T05',
-						'T06',
-						'T07',
-						'T08',
-						'T09',
-						'T10',
-						'T11',
-						'2025',
-					],
+					categories: extendedCategories,
+					tickAmount: Math.floor(
+						extendedCategories.length / tickInterval
+					),
+					labels: {
+						rotate: -45,
+						formatter: function (value) {
+							const date = new Date(value);
+							return !isNaN(date)
+								? date.toLocaleDateString('en-GB', {
+										day: '2-digit',
+										month: 'short',
+										year: dateFormatter.includes('yyyy')
+											? 'numeric'
+											: undefined,
+									})
+								: value;
+						},
+					},
 				},
 				yaxis: {
 					labels: {
-						formatter: function (value) {
-							return Math.round(value);
-						},
+						formatter: (value) => Math.round(value),
 					},
-					min: -100,
-					max: 2000,
+					min: Math.min(...closeIndexes, kb1Value) - 50, // Y trục bắt đầu thấp hơn giá trị nhỏ nhất
+					max: Math.max(...closeIndexes, kb2Value) + 50, // Y trục kết thúc cao hơn giá trị lớn nhất
+				},
+				stroke: {
+					width: [3, 3, 3],
+					curve: 'smooth',
 				},
 				annotations: {
 					yaxis: [
 						{
-							y: 1000,
+							y: kb2Value,
 							borderColor: '#00E396',
 							label: {
 								borderColor: '#00E396',
@@ -1704,11 +1788,11 @@ import WOW from 'wowjs';
 									color: '#fff',
 									background: '#00E396',
 								},
-								text: 'KB2: 1000.00',
+								text: 'KB2:' + kb2Value,
 							},
 						},
 						{
-							y: 523,
+							y: kbcoso,
 							borderColor: '#775DD0',
 							label: {
 								borderColor: '#775DD0',
@@ -1716,11 +1800,14 @@ import WOW from 'wowjs';
 									color: '#fff',
 									background: '#775DD0',
 								},
-								text: 'KB cơ sở: 523.00',
+								text:
+									chartElement.getAttribute('data-coso') +
+									':' +
+									kbcoso,
 							},
 						},
 						{
-							y: 2.18,
+							y: kb1Value,
 							borderColor: '#FF4560',
 							label: {
 								borderColor: '#FF4560',
@@ -1728,99 +1815,22 @@ import WOW from 'wowjs';
 									color: '#fff',
 									background: '#FF4560',
 								},
-								text: 'KB1: 2.18',
+								text: 'KB1:' + kb1Value,
 							},
 						},
 					],
 				},
 				colors: ['#008FFB', '#00E396', '#FF4560'],
-				stroke: {
-					width: [3, 3, 3],
-					curve: 'smooth',
-				},
-				markers: {
-					size: [4, 0, 0],
-				},
 				tooltip: {
 					shared: true,
 					intersect: false,
 				},
 				legend: {
-					show: false,
-				},
-			};
-			var chart = new ApexCharts(
-				document.querySelector('#chart-forecast'),
-				options
-			);
-			chart.render();
-		}
-	}
-
-	function performanceChart() {
-		if (document.querySelector('#performance-chart')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 514,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'BSC10',
-						data: [90, 70, 150, 130, 160, 140, 170, 150, 155],
-					},
-					{
-						name: 'VNINDEX',
-						data: [40, 50, 70, 65, 74, 68, 72, 74, 72],
-					},
-					{
-						name: 'VNDIAMOND',
-						data: [20, 45, 50, 42, 48, 44, 46, 50, 49],
-					},
-				],
-				xaxis: {
-					categories: [
-						'19 Sep',
-						'20 Sep',
-						'21 Sep',
-						'22 Sep',
-						'23 Sep',
-						'24 Sep',
-						'25 Sep',
-						'26 Sep',
-						'27 Sep',
-					],
-				},
-				yaxis: {
-					min: 0,
-					max: 200,
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-				},
-				markers: {
-					size: 4,
-				},
-				colors: ['#20C997', '#FFC107', '#007BFF'],
-				stroke: {
-					curve: 'smooth',
-					width: 2,
-				},
-				legend: {
-					position: 'bottom',
-					horizontalAlign: 'left',
-					offsetY: 10,
+					show: true,
 				},
 			};
 
-			var chart = new ApexCharts(
-				document.querySelector('#performance-chart'),
-				options
-			);
+			const chart = new ApexCharts(chartElement, options);
 			chart.render();
 		}
 	}
@@ -2767,6 +2777,7 @@ import WOW from 'wowjs';
 			chart.render();
 		}
 	}
+
 	function collapseChart() {
 		if (document.querySelector('.collapse-item-chart')) {
 			var options = {

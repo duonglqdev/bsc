@@ -10,34 +10,34 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
-			<ul class="customtab-nav flex justify-between gap-10">
+			<ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
 				<li class="flex-1">
 					<a href="#"
-						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo vĩ mô
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo Ngành - Doanh nghiệp
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Báo cáo chuyên đề
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Danh mục khuyến nghị
 					</a>
 				</li>
 				<li class="flex-1">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 						Quan điểm BSC
 					</a>
 				</li>
@@ -50,8 +50,8 @@ get_header();
 			<h2 class="heading-title mb-[26px]">
 				CHUYÊN MỤC
 			</h2>
-			<div class="lg:flex lg:gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+			<div class="lg:flex 2xl:gap-[70px] gap-10">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 						<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 							<li>
@@ -94,40 +94,44 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<div class="flex gap-5 mb-10">
-						<form action=""
-							class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2 lg:w-[315px] max-w-[33.33%]">
-							<?php echo svg( 'search', '24', '24' ) ?>
+					<form class="flex gap-5 mb-10">
+						<div
+							class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2 lg:w-[270px] max-w-[33.33%] shrink-0">
+							<?php echo svgClass( 'search', '24', '24','shrink-0' ) ?>
 							<input type="text" name="s"
-								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
+								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
 								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
-						</form>
+						</div>
 
 						<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 							datepicker-autohide datepicker-orientation="bottom right"
-							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-1/2 w-full">
-							<p class="font-medium mr-5 lg:min-w-[94px]">
+							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs flex-1">
+							<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
 								<?php _e( 'Thời gian:', 'gnws' ) ?>
 							</p>
 							<div class="flex items-center gap-5">
 								<input id="datepicker-range-start" name="start" type="text"
-									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+									class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
 								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
-							<span class="mx-4 text-gray-500">-</span>
+							<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
 							<div class="flex items-center gap-5">
 								<input id="datepicker-range-end" name="end" type="text"
-									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+									class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
 								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
 						</div>
 						<button type="submit"
-							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
+							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px] whitespace-nowrap">
 							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</button>
-					</div>
+						<button type="reset"
+							class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+							<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+						</button>
+					</form>
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
 						for ( $i = 0; $i < 3; $i++ )
@@ -146,7 +150,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -176,7 +181,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -206,7 +212,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-green">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808

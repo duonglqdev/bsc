@@ -137,7 +137,7 @@ get_header();
 				HOẠT ĐỘNG NỔI BẬT
 			</h2>
 			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%]">
+				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky top-5 z-10">
 						<ul class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[180px] overflow-y-auto space-y-2">
 							<li>
