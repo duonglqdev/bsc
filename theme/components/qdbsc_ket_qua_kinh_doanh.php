@@ -197,7 +197,7 @@ $class = $check_logout ? 'blur-sm' : '';
                                     foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            <?php echo number_format($GetForecastBussinessResults->roe) ?>
+                                            <?php echo number_format($GetForecastBussinessResults->closeprice) ?>
                                         </li>
                                     <?php
                                     }
