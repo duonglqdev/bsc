@@ -165,7 +165,7 @@
 					while ( have_rows( 'khuyen_nghi' ) ) :
 						the_row();
 						$time_cache = get_sub_field( 'time_cache' ) ?: 300; ?>
-						<div class="bg-white rounded-[10px] px-6 py-4 mb-4">
+						<div class="bg-white rounded-[10px] px-6 py-4 mb-4 font-Helvetica">
 							<?php if ( get_sub_field( 'title' ) )
 							{ ?>
 								<p class="font-bold text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
@@ -280,7 +280,7 @@
 				}
 				?>
 				<?php if ( have_rows( 'nganh_doanh_nghiep' ) ) : ?>
-					<div class="data-slick block_slider-show-1 slick-dots-center"
+					<div class="data-slick block_slider-show-1 slick-dots-center font-Helvetica"
 						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
 						<?php
 						$i = 0;
@@ -329,12 +329,14 @@
 															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 															<?php _e( 'Hot', 'bsc' ) ?>
 														</p>
-														<?php if ( $news->reporturl )
-														{ ?>
-															<a href="<?php echo $news->reporturl ?>">
-																<?php echo svg( 'download' ) ?>
-															</a>
-														<?php } ?>
+														<p class="min-w-5">
+															<?php if ( $news->reporturl )
+															{ ?>
+																<a href="<?php echo $news->reporturl ?>">
+																	<?php echo svg( 'download','20','20' ) ?>
+																</a>
+															<?php } ?>
+														</p>
 													</li>
 													<?php
 												}
