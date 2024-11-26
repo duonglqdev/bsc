@@ -1191,6 +1191,10 @@ import WOW from 'wowjs';
                 load_jobs(page);
             }
         );
+        $(document).on('click', '#tuyen_dung_btn-reload', function(e) {
+            $('#search_job')[0].reset();
+            load_jobs(1);
+        });
 
         function getMaxValue(dataSets) {
             return (
