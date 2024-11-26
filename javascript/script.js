@@ -1606,18 +1606,19 @@ import WOW from 'wowjs';
                 series: [{
                         name: 'VN-Index',
                         data: extendedCloseIndexes, // Dữ liệu thực tế đã cắt gọn
+                        color: '#004DF0',
                     },
                     {
                         name: chartElement.getAttribute('data-kb2'), // KB2 (Tăng)
                         data: kb2Series,
                         dashArray: 5,
-                        color: '#00E396',
+                        color: '#30D158',
                     },
                     {
                         name: chartElement.getAttribute('data-kb1'), // KB1 (Giảm)
                         data: kb1Series,
                         dashArray: 5,
-                        color: '#FF4560',
+                        color: '#FF0017',
                     },
                 ],
                 xaxis: {
