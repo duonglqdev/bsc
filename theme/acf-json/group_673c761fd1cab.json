@@ -10319,9 +10319,9 @@
                             "preview_size": "thumbnail"
                         },
                         {
-                            "key": "field_67357c37648f0",
-                            "label": "Tiêu đề",
-                            "name": "title",
+                            "key": "field_67357c49648f2",
+                            "label": "Tiêu đề lớn",
+                            "name": "title_big",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -10342,26 +10342,6 @@
                             "key": "field_67357c40648f1",
                             "label": "Tiêu đề nhỏ",
                             "name": "title_small",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_67357c49648f2",
-                            "label": "Tiêu đề lớn",
-                            "name": "title_big",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -14649,5 +14629,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732561053
+    "modified": 1732615421
 }
