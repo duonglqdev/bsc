@@ -281,7 +281,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[1]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -290,7 +290,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[7]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -301,7 +301,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[2]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -310,7 +310,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[8]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -523,7 +523,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[1]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -532,7 +532,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[7]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -543,7 +543,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[2]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -552,7 +552,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[8]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -765,7 +765,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[1]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -774,7 +774,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[7]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -785,7 +785,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[2]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
@@ -794,7 +794,7 @@ if ($response_instruments) {
 								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
 									<p class="font-medium text-[#FE5353] flex items-center gap-1">
 										<?php echo svg('downn', '16', '16') ?>
-										<?php echo '-' . $response_GetResearchPorCurMet->d[8]->value; ?>
+										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
