@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_6745f0a91448a",
+    "title": "Thông tin cổ phiếu",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Thông tin cổ phiếu",
+    "menu_slug": "thong-tin-co-phieu",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "dashicons-tickets-alt",
+    "menu_title": "",
+    "position": 20,
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1732636914
+}
