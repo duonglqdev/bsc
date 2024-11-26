@@ -56,7 +56,7 @@ $post_id = get_the_ID();
             </div>
         <?php } ?>
     </div>
-    <ul class="space-y-3 text-xs expert-info">
+    <ul class="space-y-3 text-xs expert-info text-justify">
         <?php
         $kinh_nghiem = get_the_terms($post_id, 'kinh-nghiem');
         if ($kinh_nghiem) {

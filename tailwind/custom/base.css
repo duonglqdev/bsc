@@ -769,7 +769,7 @@ button#ib-button-messaging {
 }
 
 .font-content * {
-  font-family: "Helvetica Neue,sans-serif" !important;
+  font-family: "Helvetica Neue", sans-serif !important;
 }
 
 .sidebar-base li .li-plus {

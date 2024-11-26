@@ -21,7 +21,7 @@
 				a {
 					@apply block transition-all duration-500 hover:text-yellow-100;
 				}
-				&.current-menu-item{
+				&.current-menu-item {
 					@apply text-yellow-100;
 				}
 			}
@@ -33,7 +33,6 @@
 					a {
 						@apply block transition-all duration-500;
 					}
-					
 				}
 			}
 		}
@@ -745,8 +744,8 @@ button#ib-button-messaging {
 		@apply mr-3;
 	}
 }
-.font-content *{
-	font-family: 'Helvetica Neue,sans-serif' !important;
+.font-content * {
+	font-family: "Helvetica Neue", sans-serif !important;
 }
 .sidebar-base {
 	li {

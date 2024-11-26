@@ -292,7 +292,7 @@ get_header();
 							</div>
 						</div>
 					<?php } ?>
-					<div class="the_content font-Helvetica font-content">
+					<div class="the_content font-Helvetica font-content text-justify">
 						<?php echo $body ?>
 						<?php
 						if ($news->attachedfileurl) {
