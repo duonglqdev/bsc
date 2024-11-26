@@ -108,8 +108,11 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                 <input id="name_chuyen_gia" type="text" placeholder="<?php _e('Nhập họ tên chuyên gia', 'bsc') ?>"
                     class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
             </div>
-            <button type="button" id="chuyen_gia_submit" class="bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] h-[50px] rounded-xl min-w-[178px]"><?php _e('Tìm kiếm', 'bsc') ?></button>
-            <input type="reset" value="<?php _e('Xóa tìm kiếm', 'bsc') ?>" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[178px]">
+            <button type="button" id="chuyen_gia_submit" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e('Tìm kiếm', 'bsc') ?></button>
+            <button type="reset" id="btn-reload"
+					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+				</button>
         </form>
         <?php
         $args = array(

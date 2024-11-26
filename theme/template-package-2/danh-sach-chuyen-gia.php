@@ -76,6 +76,10 @@ get_header();
 						<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 					</span>
 				</button>
+				<button type="reset" id="btn-reload"
+					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+				</button>
 			</form>
 			<div class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6">
 				<div
@@ -110,13 +114,14 @@ get_header();
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+							<a href="tel:0962787858"
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
@@ -229,13 +234,14 @@ get_header();
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+							<a href="tel:0962787858"
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
@@ -316,7 +322,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-                <div
+				<div
 					class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
@@ -339,7 +345,7 @@ get_header();
 
 						</div>
 						<h4 class="font-bold text-xl mt-1 expert-name">
-                        Nguyễn Thu Trang
+							Nguyễn Thu Trang
 						</h4>
 					</div>
 					<div
@@ -348,13 +354,14 @@ get_header();
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+							<a href="tel:0962787858"
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
@@ -435,7 +442,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-                <div
+				<div
 					class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
@@ -458,7 +465,7 @@ get_header();
 
 						</div>
 						<h4 class="font-bold text-xl mt-1 expert-name">
-                        Nguyễn Út Ny
+							Nguyễn Út Ny
 						</h4>
 					</div>
 					<div
@@ -467,13 +474,14 @@ get_header();
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+							<a href="tel:0962787858"
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
@@ -554,7 +562,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-                <div
+				<div
 					class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
@@ -577,7 +585,7 @@ get_header();
 
 						</div>
 						<h4 class="font-bold text-xl mt-1 expert-name">
-                        Lê Hữu Phương
+							Lê Hữu Phương
 						</h4>
 					</div>
 					<div
@@ -586,13 +594,14 @@ get_header();
 							<p class="font-bold mb-[12px]">
 								Thông tin liên hệ
 							</p>
-							<a href="tel:0962787858" class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+							<a href="tel:0962787858"
+								class="block relative pl-6 text-xs break-words">
+								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
@@ -674,9 +683,9 @@ get_header();
 					</div>
 				</div>
 			</div>
-            <div class="pagination-center">
-                <?php get_template_part( 'components/pagination' ) ?>
-            </div>
+			<div class="pagination-center">
+				<?php get_template_part( 'components/pagination' ) ?>
+			</div>
 	</section>
 </main>
 <div id="expert-modal" tabindex="-1" aria-hidden="true"
