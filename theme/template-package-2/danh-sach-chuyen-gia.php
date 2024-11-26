@@ -131,7 +131,7 @@ get_header();
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
-					<ul class="space-y-3 text-xs expert-info">
+					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
@@ -251,7 +251,7 @@ get_header();
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
-					<ul class="space-y-3 text-xs expert-info">
+					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
@@ -371,7 +371,7 @@ get_header();
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
-					<ul class="space-y-3 text-xs expert-info">
+					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
@@ -491,7 +491,7 @@ get_header();
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
-					<ul class="space-y-3 text-xs expert-info">
+					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>
@@ -611,7 +611,7 @@ get_header();
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
-					<ul class="space-y-3 text-xs expert-info">
+					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
 							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 							<p>

@@ -70,7 +70,7 @@ module.exports = {
 				'gradient-blue-550':
 					'linear-gradient(270deg, #F3FAFF 0%, #EAF8FE 100%), linear-gradient(270deg, #EBF4FA 0%, #F3FBFE 100%)',
 				'gradient-banner':
-					'linear-gradient(251deg, rgba(27, 70, 141, 0.00) 8.87%, rgba(34, 52, 114, 0.74) 43.96%, #252D69 98.08%)',
+					'linear-gradient(251deg, rgba(27, 70, 141, 0.00) 8.87%, rgba(34, 52, 114, 0.74) 77.96%, #252D69 98.08%)',
 				'gradient-banner-bold':
 					'linear-gradient(270deg, rgba(27, 70, 141, 0) 28.22%, #252D69 98.45%)',
 				'gradient-blue-to-top':

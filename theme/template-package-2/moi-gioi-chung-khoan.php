@@ -24,7 +24,8 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
+						<h3
+							class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Đa dạng sản phẩm <br>
 							và tiện ích
 						</h3>
@@ -44,7 +45,8 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
+						<h3
+							class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Phí giao dịch <br>
 							hấp dẫn
 						</h3>
@@ -64,7 +66,8 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
+						<h3
+							class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Nền tảng giao dịch <br>
 							hiện đại
 						</h3>
@@ -84,7 +87,8 @@ get_header();
 						</div>
 					</div>
 					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
+						<h3
+							class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
 							Hệ thống bảo mật <br>
 							toàn diện
 						</h3>
@@ -103,16 +107,14 @@ get_header();
 			<div class="bg-no-repeat bg-cover lg:py-0 py-5 rounded-3xl overflow-hidden lg:min-h-[438px] flex flex-col justify-center"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-mg.png)">
 				<div class="lg:max-w-[507px] lg:ml-[114px] ml-10">
-					<h4 class="font-bold text-2xl mb-4 font-Helvetica">
-						Chứng khoán BIDV
-					</h4>
-					<p class="font-medium mb-6 font-Helvetica">
-						02 năm liên tiếp vinh dự nhận giải thưởng quốc tế 
-					</p>
 					<h3
-						class="font-bold uppercase 22xl:text-[40px] text-3xl text-primary-300 !leading-[1.35]">
+						class="font-bold uppercase 2xl:text-[40px] text-3xl text-primary-300 !leading-[1.35] mb-6">
 						NHÀ MÔI GIỚI CHỨNG KHOÁN TỐT NHẤT VIỆT NAM 
 					</h3>
+					<div class="font-bold font-Helvetica lg:text-xl">
+						Trao tặng bởi Global Banking and Finance Review <br>
+						2 năm liên tiếp - 2023 & 2024
+					</div>
 				</div>
 			</div>
 		</div>
@@ -307,9 +309,10 @@ get_header();
 					<h2 class="heading-title mb-6">
 						BIỂU PHÍ DỊCH VỤ
 					</h2>
-					<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-							<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-							Xem chi tiết
+					<a href="#"
+						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						Xem chi tiết
 					</a>
 				</div>
 				<div class="col">
@@ -352,7 +355,7 @@ get_header();
 						<div
 							class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
 							<p class="font-bold mb-2 text-2xl">
-							Ưu đãi từ BSC
+								Ưu đãi từ BSC
 							</p>
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">

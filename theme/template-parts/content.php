@@ -16,9 +16,7 @@
             <span>
                 <?php echo $date->format('d/m/Y'); ?>
             </span>
-            <span>
-                <?php echo $date->format('H:i:s'); ?>
-            </span>
+           
         </div>
         <p class="mb-3 hover:text-green transition-all duration-500 font-bold">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
