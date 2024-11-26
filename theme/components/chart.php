@@ -4,7 +4,8 @@
 		<?php if ( get_sub_field( 'title_main' ) )
 		{ ?>
 			<h2 class="heading-title 2xl:mb-12 mb-8 wow fadeIn" data-wow-duration="2s">
-				<?php the_sub_field( 'title_main' ) ?></h2>
+				<?php the_sub_field( 'title_main' ) ?>
+			</h2>
 		<?php } ?>
 		<div class="md:flex relative z-[2]">
 			<?php
@@ -90,38 +91,38 @@
 								class="2xl:px-4 px-2 2xl:py-2 py-1 [&:not(.active)]:bg-transparent [&:not(.active)]:text-black text-white  bg-primary-700  rounded-[10px] 2xl:text-base text-sm">BSC50</button>
 						</div>
 
-						<!-- <div class="flex items-center 2xl:space-x-4 space-x-2">
-							<strong><?php _e( 'Thời gian', 'bsc' ) ?>:</strong>
-							<input type="date"
-								class="fromdate border border-[#ECE9F1] rounded-xl p-2"
-								value="<?php echo $fromdate ?>">
-							<input type="date" class="todate border border-[#ECE9F1] rounded-xl p-2"
-								value="<?php echo $todate ?>">
-						</div> -->
-						<div id="date-performance-picker" date-rangepicker
-							datepicker-format="yyyy-mm-dd" datepicker-autohide
-							datepicker-orientation="bottom left"
-							class="flex items-center 2xl:space-x-4 space-x-2">
-							<p class="font-bold">
-								<?php _e( 'Thời gian:', 'gnws' ) ?>
-							</p>
-							<div
-								class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-10 p-2">
-								<input id="datepicker-performance-start" name="start" type="text"
-									class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
-									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>"
-									value="<?php echo $fromdate ?>">
-								<?php echo svg( 'date-blue' ) ?>
+						<div class="flex 2xl:gap-6 gap-4 items-center">
+							<div id="date-performance-picker" date-rangepicker
+								datepicker-format="yyyy-mm-dd" datepicker-autohide
+								datepicker-orientation="bottom left"
+								class="flex items-center 2xl:space-x-4 space-x-2">
+								<p class="font-bold">
+									<?php _e( 'Thời gian:', 'gnws' ) ?>
+								</p>
+								<div
+									class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-11 p-3">
+									<input id="datepicker-performance-start" name="start"
+										type="text"
+										class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
+										placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>"
+										value="<?php echo $fromdate ?>">
+									<?php echo svg( 'date-blue' ) ?>
+								</div>
+								<div
+									class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-11 p-3">
+									<input id="datepicker-performance-end" name="end" type="text"
+										class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
+										placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
+										value="<?php echo $todate ?>">
+									<?php echo svg( 'date-blue' ) ?>
+								</div>
 							</div>
-							<div
-								class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-10 p-2">
-								<input id="datepicker-performance-end" name="end" type="text"
-									class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
-									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
-									value="<?php echo $todate ?>">
-								<?php echo svg( 'date-blue' ) ?>
-							</div>
+							<button type="reset"
+								class="w-11 h-11 rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+								<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+							</button>
 						</div>
+
 					</div>
 					<div class="flex-1 chart-info">
 						<div id="chart" data-time_cache="<?php echo $time_cache ?>"
