@@ -152,10 +152,14 @@ get_header();
                                             <?php endfor; ?>
                                         </select>
                                     </div>
-                                    <div class="2xl:w-[55%] w-1/2">
+                                    <div class="2xl:w-[55%] w-1/2 flex items-center gap-3">
                                         <button type="submit" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] 2xl:px-6  2xl:py-3  font-semibold relative transition-all duration-500 inline-block w-full h-full px-6 py-3 rounded-xl">
                                             <span class="block relative z-10"><?php _e('Tìm kiếm', 'bsc') ?></span>
                                         </button>
+                                        <button type="reset"
+                                        class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group shrink-0">
+                                        <?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+                                    </button>
                                     </div>
                                 </div>
                             </div>
