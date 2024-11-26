@@ -3,6 +3,26 @@
     "title": "Thông tin chuyên gia",
     "fields": [
         {
+            "key": "field_67458ad26ed80",
+            "label": "Tên đẩy đủ",
+            "name": "fullname",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_673640c798e3e",
             "label": "Số điện thoại",
             "name": "number",
@@ -168,5 +188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731732224
+    "modified": 1732610781
 }
