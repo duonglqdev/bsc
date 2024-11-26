@@ -83,7 +83,7 @@
 				<div class="flex justify-between items-center gap-3">
 					<div class="bar_mobile lg:hidden flex items-center gap-2">
 						<?php echo svg( 'bar' ) ?>
-						<button data-dropdown-toggle="dropdownLanguage"
+						<button data-dropdown-toggle="dropdownLanguagemb"
 							class="text-primary-300 flex items-center gap-1.5 uppercase"
 							type="button">
 							<?php echo svg( 'global', '24', '24' ) ?>
@@ -172,4 +172,13 @@
 				<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 			</ul>
 		</div>
+		<div id="dropdownLanguagemb"
+			class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 lg:hidden">
+			<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+				aria-labelledby="change_language">
+				<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
+			</ul>
+		</div>
 	</header>
+
+	
