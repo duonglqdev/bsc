@@ -4,11 +4,11 @@
     "fields": [
         {
             "key": "field_67458ad26ed80",
-            "label": "Tên đẩy đủ",
+            "label": "Tên chuyên viên",
             "name": "fullname",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Vui lòng chỉ điền tên: VD: Nguyễn Văn An => An",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -188,5 +188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732610781
+    "modified": 1732617424
 }

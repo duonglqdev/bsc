@@ -119,8 +119,9 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
             'post_type' => 'chuyen-gia',
             'post_status' => 'publish',
             'posts_per_page' => 12,
-            'order' => 'ASC',
-            'orderby' => 'title',
+            'meta_key'       => 'fullname',
+            'orderby'        => 'meta_value',
+            'order'          => 'ASC',
             'paged' => 1,
             'tax_query' => array(
                 array(

@@ -1,6 +1,6 @@
 <?php
 $post_id = get_the_ID();
-$fullname = get_field('fullname') ?: get_the_title();
+$fullname = get_the_title();
 ?>
 <div
     class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">

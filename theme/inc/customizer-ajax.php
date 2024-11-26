@@ -76,8 +76,9 @@ function filter_chuyengia_ajax()
         'post_type' => 'chuyen-gia',
         'post_status' => 'publish',
         'posts_per_page' => $posts_per_page,
-        'order' => 'ASC',
-        'orderby' => 'title',
+        'meta_key'       => 'fullname',
+        'orderby'        => 'meta_value',
+        'order'          => 'ASC',
         'paged' => $paged,
         'tax_query' => array(
             'relation' => 'AND',

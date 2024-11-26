@@ -190,7 +190,7 @@ $class = $check_logout ? 'blur-sm' : '';
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
                                     <?php _e('Giá ngày', 'bsc') ?> <br>
-                                    <?php echo date('d/m/Y') ?>
+                                    <?php echo date('d/m/Y', strtotime('-1 day')); ?>
                                 </div>
                                 <ul>
                                     <?php

@@ -193,7 +193,7 @@
 														<?php echo htmlspecialchars($news->symbols) ?>
 														<?php if ($news->upsite) { ?>
 															<span
-																class="text-[#30D158]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
+																class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
 														<?php } ?>
 														<?php if ($title_status != '') { ?>
 															<span
@@ -204,9 +204,11 @@
 														class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 														<?php _e('Hot', 'bsc') ?>
 													</p>
-													<a href="">
-														<?php echo svg('download') ?>
-													</a>
+													<?php if ($news->reporturl) { ?>
+														<a href="<?php echo $news->reporturl ?>" target="_blank">
+															<?php echo svg('download') ?>
+														</a>
+													<?php } ?>
 												</li>
 												<?php
 											}
@@ -215,18 +217,25 @@
 												?>
 													<li class="flex font-bold gap-[14px] items-center justify-between">
 														<p class="line-clamp-1 flex-1">
-															<?php echo htmlspecialchars($news->symbols) ?> <span
-																class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)
-																<?php echo htmlspecialchars($news->recommendation) ?></span> -
-															<?php echo htmlspecialchars($news->title) ?>
+															<?php echo htmlspecialchars($news->symbols) ?>
+															<?php if ($news->upsite) { ?>
+																<span
+																	class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
+															<?php } ?>
+															<?php if ($title_status != '') { ?>
+																<span
+																	style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
+															<?php } ?> - <?php echo htmlspecialchars($news->title) ?>
 														</p>
 														<p
 															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 															<?php _e('Hot', 'bsc') ?>
 														</p>
-														<a href="">
-															<?php echo svg('download') ?>
-														</a>
+														<?php if ($news->reporturl) { ?>
+															<a href="<?php echo $news->reporturl ?>" target="_blank">
+																<?php echo svg('download') ?>
+															</a>
+														<?php } ?>
 													</li>
 											<?php
 												}
