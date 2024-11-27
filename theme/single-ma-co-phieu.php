@@ -1,9 +1,17 @@
 <?php
-
-/**
-Template Name:  [Package 3] Thông tin cổ phiếu (tổng quan)
- */
-
+if ( $args['data'] )
+{
+	$news = $args['data'];
+	$get_array_id_taxonomy = get_array_id_taxonomy( 'danh-muc-bao-cao-phan-tich' );
+	$time_cache = get_field( 'cdttcp1_time_cache', 'option' ) ?: 300;
+	$banner = wp_get_attachment_image_url( get_field( 'background_banner', $tax ), 'full' );
+	$style = get_field( 'background_banner_display', $tax ) ?: 'default';
+	$breadcrumb = 'baocao';
+} else
+{
+	wp_redirect( home_url( '/404' ), 301 );
+	exit;
+}
 get_header();
 ?>
 <main>

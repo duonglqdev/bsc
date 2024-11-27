@@ -1,5 +1,6 @@
 <?php
 $post_id = get_the_ID();
+$fullname = get_the_title();
 ?>
 <div
     class="rounded-2xl bg-gradient-blue-200 flex flex-col gap-4 py-6 px-[12px] h-full font-Helvetica expert_item">
@@ -7,7 +8,7 @@ $post_id = get_the_ID();
         <div class="w-[120px] rounded-full overflow-hidden">
             <div class="relative w-full pt-[100%] group expert-img">
                 <img src="<?php echo bsc_post_thumbnail_medium() ?>"
-                    alt="<?php the_title() ?>"
+                    alt="<?php echo $fullname ?>"
                     class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
             </div>
         </div>
@@ -27,7 +28,7 @@ $post_id = get_the_ID();
             </div>
         <?php } ?>
         <h4 class="font-bold text-xl mt-1 expert-name">
-            <?php the_title() ?>
+            <?php echo $fullname ?>
         </h4>
     </div>
     <div
@@ -38,14 +39,14 @@ $post_id = get_the_ID();
             </p>
             <?php if (get_field('number')) { ?>
                 <a href="tel:<?php the_field('number') ?>" class="block relative pl-6 text-xs break-words">
-                <?php echo svgClass( 'fone', '19', '19','absolute top-0.5 left-0' ) ?>
+                    <?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
                     <?php the_field('number') ?>
                 </a>
             <?php } ?>
             <?php if (get_field('email')) { ?>
                 <a href="mailto:<?php the_field('email') ?>"
                     class="block relative pl-6 text-xs break-words">
-                    <?php echo svgClass( 'e-mail', '19', '19','absolute top-0.5 left-0' ) ?>
+                    <?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
                     <?php the_field('email') ?>
                 </a>
             <?php } ?>
