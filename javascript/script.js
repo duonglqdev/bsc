@@ -863,6 +863,13 @@ import WOW from 'wowjs';
             $(this).parent().siblings('.sub-collapse').slideToggle();
             $(this).toggleClass('active').find('svg').toggleClass('rotate-180');
         });
+
+        $('.collapse-footer').click(function () {
+            $(this).find('svg').toggleClass('rotate-180');
+            $(this).next().slideToggle();
+        })
+
+
     }
 
     function handlePhoneCf7() {
@@ -1029,7 +1036,7 @@ import WOW from 'wowjs';
                     let requestId;
 
                     function play() {
-                        mainTicker.x -= 1; // Điều chỉnh giá trị này để thay đổi tốc độ
+                        mainTicker.x -= 0.8; // Điều chỉnh giá trị này để thay đổi tốc độ
                         mainTicker.settle(mainTicker.x);
                         requestId = window.requestAnimationFrame(play);
                     }
