@@ -7,7 +7,7 @@ $class = $check_logout ? 'blur-sm' : '';
         <?php if (get_sub_field('title')) { ?>
             <h3 class="font-bold mb-6 text-2xl">
                 <?php the_sub_field('title') ?>
-            </h3>
+            </h3>`
         <?php } ?>
         <?php
         $array_data_GetForecastBussinessResults = array(
@@ -29,34 +29,10 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <ul>
                                 <?php
-                                for ($i = 0; $i < 6; $i++) {
+                                foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                 ?>
                                     <li>
-                                        Ngân hàng
-                                    </li>
-                                <?php
-                                }
-                                ?>
-                            </ul>
-                            <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                            <ul>
-                                <?php
-                                for ($i = 0; $i < 6; $i++) {
-                                ?>
-                                    <li>
-                                        Ngân hàng
-                                    </li>
-                                <?php
-                                }
-                                ?>
-                            </ul>
-                            <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                            <ul>
-                                <?php
-                                for ($i = 0; $i < 6; $i++) {
-                                ?>
-                                    <li>
-                                        Ngân hàng
+                                        <?php echo $GetForecastBussinessResults->namevn ?>
                                     </li>
                                 <?php
                                 }
@@ -68,44 +44,14 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    Mã CK
+                                    <?php _e('Mã CK', 'bsc') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            <a href="">
-                                                BID
-                                            </a>
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            <a href="">
-                                                BID
-                                            </a>
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            <a href="">
-                                                BID
-                                            </a>
+                                            <a href=""><?php echo $GetForecastBussinessResults->symbol ?></a>
                                         </li>
                                     <?php
                                     }
@@ -115,41 +61,15 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    DTT 2024
-                                    <p>
-                                        (tỷ VND)
-                                    </p>
+                                    <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
+                                    <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            81,424
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            81,424
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            81,424
+                                            <?php echo number_format($GetForecastBussinessResults->revenue) ?>
                                         </li>
                                     <?php
                                     }
@@ -159,38 +79,16 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    % YoY
+                                    <?php _e('% YoY', 'bsc') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            45%
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            45%
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            45%
+                                            <?php if ($GetForecastBussinessResults->npatmi) { ?>
+                                                <?php echo $GetForecastBussinessResults->npatmi ?>%
+                                            <?php } ?>
                                         </li>
                                     <?php
                                     }
@@ -200,39 +98,15 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    EPS <br>
-                                    2024
+                                    <?php _e('EPS', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            24,796
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            24,796
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            24,796
+                                            <?php echo number_format($GetForecastBussinessResults->eps) ?>
                                         </li>
                                     <?php
                                     }
@@ -242,39 +116,34 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    P/E FWD <br>
-                                    2024
+                                    <?php _e('P/E FWD', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            15%
+                                            <?php echo number_format($GetForecastBussinessResults->pe) ?>
                                         </li>
                                     <?php
                                     }
                                     ?>
                                 </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            15%
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
                                 </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
+                            </div>
+                            <div class="min-w-[110px]">
+                                <div
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    <?php _e('P/B FWD', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>
+                                </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            15%
+                                            <?php echo number_format($GetForecastBussinessResults->pb) ?>
                                         </li>
                                     <?php
                                     }
@@ -284,39 +153,15 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    P/B FWD <br>
-                                    2024
+                                    <?php _e('ROA', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            4.350
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            4.350
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            4.350
+                                            <?php echo number_format($GetForecastBussinessResults->roa) ?>
                                         </li>
                                     <?php
                                     }
@@ -326,39 +171,15 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    ROA <br>
-                                    2024
+                                    <?php _e('ROE', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            10.75
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            10.75
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            10.75
+                                            <?php echo number_format($GetForecastBussinessResults->roe) ?>
                                         </li>
                                     <?php
                                     }
@@ -368,39 +189,15 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    ROE <br>
-                                    2024
+                                    <?php _e('Giá ngày', 'bsc') ?> <br>
+                                    <?php echo date('d/m/Y', strtotime('-1 day')); ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            1.57
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            1.57
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            1.57
+                                            <?php echo number_format($GetForecastBussinessResults->closeprice) ?>
                                         </li>
                                     <?php
                                     }
@@ -410,123 +207,34 @@ $class = $check_logout ? 'blur-sm' : '';
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    Giá ngày <br>
-                                    15/08/2024
+                                    <?php _e('Giá mục tiêu', 'bsc') ?> <br>
+                                    <?php echo date('Y') ?>/<?php echo date('Y') + 1 ?>
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            22,760
+                                            <?php echo number_format($GetForecastBussinessResults->pricerecommended) ?>
                                         </li>
                                     <?php
                                     }
                                     ?>
                                 </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            22,760
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            22,760
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
+
                             </div>
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    Giá mục tiêu <br>
-                                    Giá mục tiêu
-                                </div>
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            27,970
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            27,970
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            27,970
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                            <div class="min-w-[110px]">
-                                <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
-                                    Upside <br>
+                                    <?php _e('Upside', 'bsc') ?> <br>
                                     (%)
                                 </div>
                                 <ul>
                                     <?php
-                                    for ($i = 0; $i < 6; $i++) {
+                                    foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            28%
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            28%
-                                        </li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                                <hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-                                <ul>
-                                    <?php
-                                    for ($i = 0; $i < 6; $i++) {
-                                    ?>
-                                        <li>
-                                            28%
+                                            <?php echo $GetForecastBussinessResults->upside ?>
                                         </li>
                                     <?php
                                     }

@@ -60,6 +60,17 @@ function slug_report($postid, $title)
     return  $url;
 }
 
+function slug_co_phieu($title)
+{
+    if (get_field('cdttcp1_slug', 'option')) {
+        $sub_url = get_field('cdttcp1_slug', 'option');
+    } else {
+        $sub_url = __('ma-co-phieu', 'bsc');
+    }
+    $url = get_home_url() . '/' . $sub_url . '/' . sanitize_title($title);
+    return  $url;
+}
+
 /**
  * News
  */
@@ -180,6 +191,65 @@ function custom_template_redirect_for_report()
     }
 }
 add_action('template_redirect', 'custom_template_redirect_for_report');
+
+/**
+ *  Mã cổ phiếu
+ */
+// Thêm rewrite rule cho 'bao-cao'
+function custom_rewrite_rule_for_co_phieu()
+{
+    if (get_field('cdttcp1_slug', 'option')) {
+        $sub_url = get_field('cdttcp1_slug', 'option');
+    } else {
+        $sub_url = __('ma-co-phhieu', 'bsc');
+    }
+    add_rewrite_rule('^' . $sub_url . '/([0-9]+)-', 'index.php?co_phieu_id=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule_for_co_phieu');
+
+// Thêm query var 'co_phieu_id' vào hệ thống query vars của WordPress
+function custom_query_vars_for_co_phieu($vars)
+{
+    $vars[] = 'co_phieu_id';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_for_co_phieu');
+
+// Xử lý template redirect cho 'co_phieu_id'
+function custom_template_redirect_for_co_phieu()
+{
+    // Lấy giá trị của 'co_phieu_id' từ query vars
+    $co_phieu_id = get_query_var('co_phieu_id');
+
+    // Kiểm tra nếu có 'co_phieu_id' trong URL
+    if ($co_phieu_id) {
+        $time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
+        $array_data = array(
+            "symbol" => $co_phieu_id,
+        );
+        $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
+        if ($get_co_phieu_detail) {
+            // Lấy chi tiết báo cáo từ API response
+            $co_phieu = $get_co_phieu_detail->d[0];
+            // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+            global $custom_meta_data;
+            $custom_meta_data = array(
+                'title' => $co_phieu->title,
+                'description' => $co_phieu->description,
+                'thumbnail' => $co_phieu->imagethumbnail
+            );
+            get_template_part('single-ma-co-phieu', null, array(
+                'data' => $co_phieu,
+            ));
+            exit; // Dừng WordPress để tránh bị 404
+        } else {
+            // Nếu không có dữ liệu từ API
+            wp_redirect(home_url('/404'));
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'custom_template_redirect_for_co_phieu');
 
 /**
  * Tag Report
