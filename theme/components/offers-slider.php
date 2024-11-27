@@ -43,7 +43,7 @@
 				<div class="mt-8 relative z-10">
 					<?php if (get_sub_field('icon')) { ?>
 						<div class="lg:block hidden absolute -top-28 right-0 lg:translate-x-10">
-							<img src="<?php echo wp_get_attachment_image_url(get_sub_field('icon'), 'large') ?>"
+							<img loading="lazy" src="<?php echo wp_get_attachment_image_url(get_sub_field('icon'), 'large') ?>"
 								alt="<?php the_sub_field('title') ?>">
 						</div>
 					<?php } ?>

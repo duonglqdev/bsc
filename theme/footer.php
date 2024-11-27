@@ -55,7 +55,7 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 				if ($custom_logo_id) {
 					$image = wp_get_attachment_image_src($custom_logo_id, 'full');
 					printf(
-						'<a class="max-w-[116px] block mb-6" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s"></a>',
+						'<a class="max-w-[116px] block mb-6" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s" loading="lazy"></a>',
 						get_bloginfo('url'),
 						get_bloginfo('description'),
 						$image[0],

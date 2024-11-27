@@ -7,7 +7,7 @@ Template Name: Về chúng tôi
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-primary-50 shadow-base  scroll_nav sticky top-0 z-10">
 		<div class="container">
 			<ul class="flex items-center justify-between gap-5">
@@ -43,7 +43,7 @@ get_header();
 			<div
 				class="relative max-w-[734px] mx-auto lg:mb-[50px] mb-10 2xl:text-2xl text-xl font-bold text-primary-400 text-center">
 				<div class="absolute lg:-left-10 lg:-top-5 -z-10 top-0 left-0">
-					<?php echo svg( 'quote' ) ?>
+					<?php echo svg('quote') ?>
 				</div>
 				“Là một định chế tài chính trung gian uy tín và giàu kinh nghiệm, BSC tự hào là cầu
 				nối gắn kết giữa các nền kinh tế, các NĐT tổ chức, cá nhân trong và ngoài nước”
@@ -70,11 +70,11 @@ get_header();
 				</div>
 				<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox=""
 					class="rounded-[10px] overflow-hidden pt-[54%] block">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-info.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-info.png"
 						alt="" class="absolute w-full h-full inset-0 object-cover">
 					<div
 						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110">
-						<?php echo svg( 'play' ) ?>
+						<?php echo svg('play') ?>
 					</div>
 				</a>
 			</div>
@@ -114,7 +114,7 @@ get_header();
 							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								NIỀM TIN
 							</h3>
-							<?php echo svg( 'faith' ) ?>
+							<?php echo svg('faith') ?>
 						</div>
 						<div class="text-primary-400 text-lg font-bold text-justify">
 							Xây dựng niềm tin vững chắc với Cổ đông, Người lao động, Đối tác và
@@ -128,7 +128,7 @@ get_header();
 							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								HỢP LỰC
 							</h3>
-							<?php echo svg( 'unite' ) ?>
+							<?php echo svg('unite') ?>
 						</div>
 						<div class="text-primary-400 text-lg font-bold text-justify">
 							Hợp sức đồng lòng của mỗi cá nhân, tập thể; giữa sức mạnh nội tại của tổ
@@ -142,7 +142,7 @@ get_header();
 							<h3 class="uppercase 2xl:text-2xl text-xl font-bold">
 								SÁNG TẠO
 							</h3>
-							<?php echo svg( 'creative' ) ?>
+							<?php echo svg('creative') ?>
 						</div>
 						<div class="text-primary-400 text-lg font-bold text-justify">
 							Không ngừng tư duy, học hỏi và đón nhận những tri thức mới, công nghệ
@@ -161,15 +161,14 @@ get_header();
 			</h2>
 			<div class="about_history-content">
 				<?php
-				for ( $i = 0; $i < 7; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 7; $i++) {
+				?>
 
 					<div class="w-full">
 						<div class="lg:flex">
 							<div class="max-w-[547px] w-full">
 								<div class="rounded-[20px] overflow-hidden relative pt-[70.21%] group">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-his.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/about-his.png"
 										alt=""
 										class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-110">
 								</div>
@@ -213,7 +212,7 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 
@@ -222,16 +221,15 @@ get_header();
 				<div
 					class="about_history-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2 ">
 					<?php
-					for ( $i = 0; $i < 7; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 7; $i++) {
+					?>
 						<div
 							class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_history-item cursor-pointer">
 							<div class="text-center">
 								2019 - 2023
 							</div>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
@@ -257,7 +255,7 @@ get_header();
 								role="tab" aria-controls="directors" aria-selected="false">Hội
 								đồng quản trị
 								<div class="hidden svg-container">
-									<?php echo svg( 'arrow-right-tab' ) ?>
+									<?php echo svg('arrow-right-tab') ?>
 								</div>
 							</button>
 						</li>
@@ -268,7 +266,7 @@ get_header();
 								role="tab" aria-controls="control" aria-selected="false">Ban
 								kiểm soát
 								<div class="hidden svg-container">
-									<?php echo svg( 'arrow-right-tab' ) ?>
+									<?php echo svg('arrow-right-tab') ?>
 								</div>
 							</button>
 						</li>
@@ -279,7 +277,7 @@ get_header();
 								role="tab" aria-controls="executive" aria-selected="false">Ban
 								điều hành
 								<div class="hidden svg-container">
-									<?php echo svg( 'arrow-right-tab' ) ?>
+									<?php echo svg('arrow-right-tab') ?>
 								</div>
 							</button>
 						</li>
@@ -292,15 +290,14 @@ get_header();
 							aria-labelledby="directors-tab">
 							<div class="flex flex-wrap justify-center gap-y-10 -mx-3">
 								<?php
-								for ( $i = 1; $i < 6; $i++ )
-								{
-									?>
+								for ($i = 1; $i < 6; $i++) {
+								?>
 									<div class="px-3 lg:w-1/3 md:w-1/2 w-full group cursor-pointer about_leadership-item"
 										data-modal-target="leader-modal"
 										data-modal-toggle="leader-modal">
 										<div
 											class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent after:transition-all after:opacity-0 group-hover:after:opacity-100">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
 												alt=""
 												class="w-full h-full absolute inset-0 object-cover leader_img">
 										</div>
@@ -353,7 +350,7 @@ get_header();
 											</ul>
 										</div>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 
@@ -363,15 +360,14 @@ get_header();
 							aria-labelledby="control-tab">
 							<div class="flex flex-wrap justify-center gap-y-10 -mx-3">
 								<?php
-								for ( $i = 1; $i < 6; $i++ )
-								{
-									?>
+								for ($i = 1; $i < 6; $i++) {
+								?>
 									<div class="px-3 lg:w-1/3 md:w-1/2 w-full group cursor-pointer about_leadership-item"
 										data-modal-target="leader-modal"
 										data-modal-toggle="leader-modal">
 										<div
 											class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent after:transition-all after:opacity-0 group-hover:after:opacity-100">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
 												alt=""
 												class="w-full h-full absolute inset-0 object-cover leader_img">
 										</div>
@@ -424,7 +420,7 @@ get_header();
 											</ul>
 										</div>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 							</div>
@@ -433,15 +429,14 @@ get_header();
 							aria-labelledby="executive-tab">
 							<div class="flex flex-wrap justify-center gap-y-10 -mx-3">
 								<?php
-								for ( $i = 1; $i < 6; $i++ )
-								{
-									?>
+								for ($i = 1; $i < 6; $i++) {
+								?>
 									<div class="px-3 lg:w-1/3 md:w-1/2 w-full group cursor-pointer about_leadership-item"
 										data-modal-target="leader-modal"
 										data-modal-toggle="leader-modal">
 										<div
 											class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-to-t after:from-white after:to-transparent after:transition-all after:opacity-0 group-hover:after:opacity-100">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/qt<?php echo $i ?>.png"
 												alt=""
 												class="w-full h-full absolute inset-0 object-cover leader_img">
 										</div>
@@ -494,7 +489,7 @@ get_header();
 											</ul>
 										</div>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 							</div>
@@ -516,7 +511,7 @@ get_header();
 					<div class="md:col-span-2">
 						<div class="leader_img lg:max-w-[349px] w-full">
 							<div class="relative w-full pt-[122%]">
-								<img src="" alt=""
+								<img loading="lazy" src="" alt=""
 									class="absolute w-full h-full object-cover inset-0 rounded-lg">
 							</div>
 						</div>
@@ -558,7 +553,7 @@ get_header();
 			<picture>
 				<source media="(max-width:1024px)"
 					srcset="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_organization.svg">
-				<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_organization.svg"
+				<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_organization.svg"
 					alt="">
 			</picture>
 		</div>
@@ -585,7 +580,7 @@ get_header();
 
 				</div>
 				<div class="col-span-1">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/strategic__partner.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/strategic__partner.png"
 						alt="">
 				</div>
 			</div>
@@ -600,7 +595,7 @@ get_header();
 			<div
 				class="relative max-w-[946px] mx-auto lg:mb-[50px] mb-10 2xl:text-2xl text-xl font-bold text-primary-400 text-center">
 				<div class="absolute lg:-left-10 lg:-top-5 -z-10 top-0 left-0">
-					<?php echo svg( 'quote' ) ?>
+					<?php echo svg('quote') ?>
 				</div>
 				Văn hóa doanh nghiệp là tài sản vô hình quý giá, là hệ GEN đặc biệt, riêng có của
 				mỗi doanh nghiệp. Tại BSC, văn hóa doanh nghiệp được xây dựng hài hòa giữa giá trị
@@ -615,7 +610,7 @@ get_header();
 						<div
 							class="about_culture-item rounded-[15px] overflow-hidden relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35">
 							<div class="relative w-full pt-[58%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture1.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture1.png"
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
@@ -628,7 +623,7 @@ get_header();
 						<div
 							class="about_culture-item rounded-[15px] overflow-hidden relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35">
 							<div class="relative w-full pt-[58%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture2.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture2.png"
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
@@ -641,7 +636,7 @@ get_header();
 						<div
 							class="about_culture-item rounded-[15px] overflow-hidden relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35">
 							<div class="relative w-full pt-[58%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture3.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture3.png"
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
@@ -654,7 +649,7 @@ get_header();
 						<div
 							class="about_culture-item rounded-[15px] overflow-hidden relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35">
 							<div class="relative w-full pt-[58%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture1.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/culture1.png"
 									alt="" class="absolute w-full h-full inset-0 object-cover">
 							</div>
 							<h4
@@ -668,10 +663,10 @@ get_header();
 
 
 				<div class="swiper-button-prev bg-none left-0">
-					<?php echo svg( 'prev' ) ?>
+					<?php echo svg('prev') ?>
 				</div>
 				<div class="swiper-button-next bg-none right-0">
-					<?php echo svg( 'next' ) ?>
+					<?php echo svg('next') ?>
 				</div>
 			</div>
 		</div>
@@ -685,7 +680,7 @@ get_header();
 			<div class="grid md:grid-cols-3 grid-cols-1 gap-10 font-Helvetica 2xl:mx-16">
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award1.png"
 							alt=""
 							class="h-full object-contain w-auto m-auto max-h-[140px] transition-all duration-500 group-hover:scale-105">
 					</div>
@@ -697,7 +692,7 @@ get_header();
 				</div>
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award2.png"
 							alt=""
 							class="h-full object-contain w-auto m-auto max-h-[140px] transition-all duration-500 group-hover:scale-105">
 					</div>
@@ -708,7 +703,7 @@ get_header();
 				</div>
 				<div class="rounded-2xl bg-gradient-blue-50 lg:p-10 p-5 h-full group">
 					<div class="mb-10">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/award3.png"
 							alt=""
 							class="h-full object-contain w-auto m-auto max-h-[140px] transition-all duration-500 group-hover:scale-105">
 					</div>
@@ -732,29 +727,27 @@ get_header();
 				<div
 					class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2 ">
 					<?php
-					for ( $i = 0; $i < 7; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 7; $i++) {
+					?>
 						<div
 							class="lg:w-1/5 w-1/3 px-4 [&:not(.slick-current)]:text-black text-primary-400 [&:not(.slick-current)]:font-semibold font-bold [&:not(.slick-current)]:text-base text-lg pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20 [&:not(.slick-current)]:after:bottom-0 after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_award-item cursor-pointer">
 							<div class="text-center">
 								2019 - 2023
 							</div>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
 			</div>
 			<div class="about_award-content mt-10">
 				<?php
-				for ( $i = 0; $i < 7; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 7; $i++) {
+				?>
 					<div class="w-full font-Helvetica">
 						<div
 							class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start ">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 								alt="" class="max-w-10">
 							<div class="the_content mt-2">
 								Giải thưởng “Công ty quản lý đầu tư tốt nhất Việt Nam năm 2021” do Tạp
@@ -764,7 +757,7 @@ get_header();
 						</div>
 						<div
 							class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 								alt="" class="max-w-10">
 							<div class="the_content mt-2">
 								<p><strong>06 giải thưởng do Tạp chí Asiamoney trao tặng:</strong></p>
@@ -783,7 +776,7 @@ get_header();
 						</div>
 						<div
 							class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 								alt="" class="max-w-10">
 							<div class="the_content mt-2">
 								Vinh danh “TOP 100 Thương hiệu mạnh Việt Nam giai đoạn 2020 – 2021” do
@@ -792,7 +785,7 @@ get_header();
 						</div>
 
 					</div>
-					<?php
+				<?php
 				}
 				?>
 

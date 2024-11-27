@@ -3,7 +3,7 @@
 ?>
     <div class="flex flex-col font-Helvetica">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
-            <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
+            <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                 alt="<?php echo htmlspecialchars($news->title) ?>"
                 class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
         </a>

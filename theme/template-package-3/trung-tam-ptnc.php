@@ -7,7 +7,7 @@ Template Name:[Package 3] Trung tâm phân tích nghiên cứu
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="mt-14 xl:mb-pb-[110px] mb-20">
 		<div class="container">
 			<div class="lg:flex 2xl:gap-12 gap-10">
@@ -37,9 +37,8 @@ get_header();
 
 					</ul>
 					<?php
-					for ( $i = 1; $i < 4; $i++ )
-					{
-						?>
+					for ($i = 1; $i < 4; $i++) {
+					?>
 						<div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
 							id="tab-<?php echo $i ?>">
 							<div class="relative 2xl:pt-[76.2416%] pt-[80%] w-full rounded-lg overflow-hidden">
@@ -55,9 +54,8 @@ get_header();
 									</ul>
 									<div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
 										<?php
-										for ( $j = 0; $j < 12; $j++ )
-										{
-											?>
+										for ($j = 0; $j < 12; $j++) {
+										?>
 											<ul
 												class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
 												<li class="w-[8%] font-medium">CTG</li>
@@ -68,7 +66,7 @@ get_header();
 												<li class="w-[16%] font-medium">43.65</li>
 												<li class="w-[16%] font-bold text-[#1CCD83]">+24.45%</li>
 											</ul>
-											<?php
+										<?php
 										}
 										?>
 
@@ -88,7 +86,7 @@ get_header();
 								</div> -->
 							</div>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
@@ -99,11 +97,11 @@ get_header();
 					<div class="mb-6">
 						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 							class="rounded-[10px] overflow-hidden pt-[55.576%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video2.png"
 								alt="" class="absolute w-full h-full inset-0 object-cover">
 							<div
 								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-								<?php echo svg( 'play', '62', '62' ) ?>
+								<?php echo svg('play', '62', '62') ?>
 							</div>
 						</a>
 					</div>
@@ -181,15 +179,14 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 5; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 5; $i++) {
+									?>
 										<div
 											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
 											<p>6.1</p>
 											<p>5.25</p>
 										</div>
-										<?php
+									<?php
 									}
 									?>
 									<div
@@ -210,15 +207,14 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 5; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 5; $i++) {
+									?>
 										<div
 											class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
 											<p>6.1</p>
 											<p>5.25</p>
 										</div>
-										<?php
+									<?php
 									}
 									?>
 									<div
@@ -233,7 +229,7 @@ get_header();
 						<div class="text-right mt-4">
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-								<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+								<?php echo svg('arrow-btn', '20', '20') ?>
 								Xem chi tiết
 							</a>
 						</div>
@@ -316,17 +312,16 @@ get_header();
 				<h2 class="heading-title">Báo cáo phân tích mới nhất</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '16', '16') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="lg:flex 2xl:gap-[70px] gap-10">
 				<div class="lg:w-[843px] lg:max-w-[66%]">
 					<div class="grid grid-cols-2 gap-x-[23px] gap-y-6">
 						<?php
-						for ( $i = 0; $i < 2; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 2; $i++) {
+						?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
@@ -352,8 +347,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
@@ -382,8 +377,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
@@ -412,18 +407,17 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 						<?php
-						for ( $i = 0; $i < 2; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 2; $i++) {
+						?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
@@ -449,12 +443,12 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 
@@ -467,9 +461,8 @@ get_header();
 					</h2>
 					<div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
 						<?php
-						for ( $i = 0; $i < 6; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 6; $i++) {
+						?>
 							<a href=""
 								class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
 								<span>
@@ -479,7 +472,7 @@ get_header();
 									+11%
 								</span>
 							</a>
-							<?php
+						<?php
 						}
 						?>
 
@@ -490,7 +483,7 @@ get_header();
 							Đăng ký nhận báo cáo từ BSC
 						</h3>
 						<div class="form_report">
-							<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
+							<?php echo do_shortcode('[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]') ?>
 						</div>
 					</div>
 					<h3 class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
@@ -499,7 +492,7 @@ get_header();
 					<div class="space-y-[14px]">
 						<div
 							class="rounded-lg overflow-hidden min-h-[161px] lg:px-9 px-5 py-5 flex flex-col justify-center relative text-white group">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (5).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (5).png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 							<div
@@ -511,15 +504,15 @@ get_header();
 								</h4>
 								<a href=""
 									class="inline-flex items-center gap-2 text-xs font-medium transition-all duration-500 hover:scale-105">
-									<?php _e( 'Xem chi tiết', 'bsc' ) ?>
-									<?php echo svgpath( 'arrow-btn', '12', '12', 'fill-white' ) ?>
+									<?php _e('Xem chi tiết', 'bsc') ?>
+									<?php echo svgpath('arrow-btn', '12', '12', 'fill-white') ?>
 								</a>
 							</div>
 
 						</div>
 						<div
 							class="rounded-lg overflow-hidden min-h-[161px] lg:px-9 px-5 py-5 flex flex-col justify-center relative text-white group">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (5).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (5).png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 							<div
@@ -531,8 +524,8 @@ get_header();
 								</h4>
 								<a href=""
 									class="inline-flex items-center gap-2 text-xs font-medium transition-all duration-500 hover:scale-105">
-									<?php _e( 'Xem chi tiết', 'bsc' ) ?>
-									<?php echo svgpath( 'arrow-btn', '12', '12', 'fill-white' ) ?>
+									<?php _e('Xem chi tiết', 'bsc') ?>
+									<?php echo svgpath('arrow-btn', '12', '12', 'fill-white') ?>
 								</a>
 							</div>
 
@@ -555,58 +548,58 @@ get_header();
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
 							<span class="inline-flex items-center gap-2">
-								<?php echo svgClass( 'report1', '30', '30', 'shrink-0' ) ?>
+								<?php echo svgClass('report1', '30', '30', 'shrink-0') ?>
 								Báo cáo vĩ mô
 							</span>
-							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
+							<?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>
 						</a>
 					</li>
 					<li class="[&:not(:first-child)]:pt-4">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
 							<span class="inline-flex items-center gap-2">
-								<?php echo svgClass( 'report2', '30', '30', 'shrink-0' ) ?>
+								<?php echo svgClass('report2', '30', '30', 'shrink-0') ?>
 								Báo cáo Ngành & Doanh nghiệp
 							</span>
-							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
+							<?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>
 						</a>
 					</li>
 					<li class="[&:not(:first-child)]:pt-4">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
 							<span class="inline-flex items-center gap-2">
-								<?php echo svgClass( 'report3', '30', '30', 'shrink-0' ) ?>
+								<?php echo svgClass('report3', '30', '30', 'shrink-0') ?>
 								Báo cáo chuyên đề
 							</span>
-							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
+							<?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>
 						</a>
 					</li>
 					<li class="[&:not(:first-child)]:pt-4">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
 							<span class="inline-flex items-center gap-2">
-								<?php echo svgClass( 'report4', '30', '30', 'shrink-0' ) ?>
+								<?php echo svgClass('report4', '30', '30', 'shrink-0') ?>
 								Danh mục khuyến nghị
 							</span>
-							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
+							<?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>
 						</a>
 					</li>
 					<li class="[&:not(:first-child)]:pt-4">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
 							<span class="inline-flex items-center gap-2">
-								<?php echo svgClass( 'report5', '30', '30', 'shrink-0' ) ?>
+								<?php echo svgClass('report5', '30', '30', 'shrink-0') ?>
 								Quan điểm BSC
 							</span>
-							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
+							<?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>
 						</a>
 					</li>
 				</ul>
 				<div class="mt-6">
 					<a href=""
 						class="inline-flex items-center gap-3 pl-6 pr-8 py-4 btn-base-yellow text-xs font-bold min-h-[52px] rounded-md">
-						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-						<?php _e( 'Khám phá', 'bsc' ) ?>
+						<?php echo svg('arrow-btn', '16', '16') ?>
+						<?php _e('Khám phá', 'bsc') ?>
 					</a>
 				</div>
 			</div>

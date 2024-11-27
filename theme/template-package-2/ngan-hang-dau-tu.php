@@ -88,7 +88,7 @@ get_header();
 						</div>
 						<div class="col-span-1 xl:pl-[22px]">
 							<div class="relative overflow-hidden pt-[65.743%] w-full rounded-2xl">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ba1.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ba1.png"
 									alt=""
 									class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 							</div>
@@ -110,7 +110,7 @@ get_header();
 								<div class="block_slider-item py-[12px] mx-[12px] lg:w-1/6 md:w-1/4 w-1/2">
 									<a href="<?php echo check_link(get_sub_field('link')) ?>"
 										class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 											alt=""
 											class="absolute w-full max-w-[80%] h-full object-contain inset-0 m-auto">
 									</a>
@@ -126,7 +126,7 @@ get_header();
 								<div class="block_slider-item py-[12px] mx-[12px] lg:w-1/6 md:w-1/4 w-1/2">
 									<a href="<?php echo check_link(get_sub_field('link')) ?>"
 										class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full bg-white transition-all duration-500 hover:scale-110 shadow-base">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/bidv.png"
 											alt=""
 											class="absolute w-full max-w-[80%] max-h-[80%] object-contain inset-0 m-auto">
 									</a>
@@ -149,14 +149,14 @@ get_header();
 							<div
 								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open hidden">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
 									class="active main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw1.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw1.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-contain transition-all">
 									</div>
@@ -194,14 +194,14 @@ get_header();
 							<div
 								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
 									class="main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw2.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw2.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-contain transition-all">
 									</div>
@@ -239,14 +239,14 @@ get_header();
 							<div
 								class="flex flex-col items-center justify-center w-full award__item-nav">
 								<div class="mb-4 hide-open">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw.png"
 										alt="" class="max-w-10 h-auto object-contain w-full">
 								</div>
 
 								<div
 									class="main-img [&:not(.active)]:mx-auto ml-10 w-full [&:not(.active)]:max-w-[98px] max-w-[190px] [&:not(.active)]:pl-0 ">
 									<div class="relative w-full pt-[124%]">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw3.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/aw3.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-contain transition-all">
 									</div>
@@ -290,7 +290,7 @@ get_header();
 								LIÊN HỆ TƯ VẤN
 							</h2>
 							<div class="relative w-full pt-[66.666%] overflow-hidden rounded-[10px]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
 									alt=""
 									class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 							</div>

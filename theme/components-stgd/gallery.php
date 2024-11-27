@@ -5,7 +5,7 @@ if ($images): ?>
     <div class="flex mt-10 <?php the_sub_field('style_image') ?> <?php echo $sapce_image ?>">
         <?php foreach ($images as $image): ?>
             <a href="<?php echo esc_url($image['url']); ?>" data-fancybox>
-                <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                <img loading="lazy" src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
             </a>
         <?php endforeach; ?>
     </div>

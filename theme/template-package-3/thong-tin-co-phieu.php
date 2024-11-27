@@ -7,7 +7,7 @@ Template Name: [Package 3] Thông tin cổ phiếu
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
 			<form class="flex gap-4 items-end mb-10" id="form-search-cophieu">
@@ -15,7 +15,7 @@ get_header();
 					<p class="font-medium mb-2">
 						Tìm theo tên
 					</p>
-					<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
+					<input type="text" placeholder="<?php _e('Nhập mã chứng khoán', 'bsc') ?>"
 						class="w-full bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
 				</div>
 				<div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
@@ -55,12 +55,12 @@ get_header();
 				<button type="button" id="search_cophieu"
 					class="btn-base-yellow h-[50px] rounded-xl flex-1 whitespace-nowrap">
 					<span class="block relative z-10">
-						<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+						<?php _e('Tìm kiếm', 'bsc') ?>
 					</span>
 				</button>
 				<button type="reset"
 					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+					<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 				</button>
 			</form>
 			<div class="flex flex-col">
@@ -71,29 +71,28 @@ get_header();
 						<thead>
 							<tr>
 								<th class="!pl-5 cursor-pointer filter-table">Mã CK
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
 								<th class="w-1/5">Tên công ty</th>
 								<th>Sàn</th>
 								<th>Ngành</th>
 								<th class="filter-table cursor-pointer">Vốn hóa
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
 								<th>KLGD</th>
 								<th>GTGD</th>
 								<th class="filter-table cursor-pointer">PE
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
 								<th class="filter-table cursor-pointer">PB
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
 							</tr>
 						</thead>
 						<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
 							<?php
-							for ( $i = 0; $i < 3; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 3; $i++) {
+							?>
 								<tr>
 									<td class="!pl-5"><a href="">A32</a></td>
 									<td>CTCP 32</td>
@@ -136,7 +135,7 @@ get_header();
 				</div>
 
 				<div class="pagination-center">
-					<?php get_template_part( 'components/pagination' ) ?>
+					<?php get_template_part('components/pagination') ?>
 				</div>
 			</div>
 		</div>
@@ -158,13 +157,13 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 
 						</div>
 					</div>
 					<div class="w-1/2 h-full flex items-center justify-center">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1.png"
 							alt="">
 					</div>
 				</div>
@@ -179,13 +178,13 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 
 						</div>
 					</div>
 					<div class="w-1/2 h-full flex items-center justify-center">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1 (1).png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1 (1).png"
 							alt="">
 					</div>
 				</div>

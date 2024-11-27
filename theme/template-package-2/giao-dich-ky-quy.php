@@ -7,7 +7,7 @@ Template Name:[Package-2] Giao dịch ký quỹ
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
@@ -31,7 +31,7 @@ get_header();
 			<div class="grid grid-cols-2 gap-9 items-center">
 				<div class="col-span-1">
 					<h2 class="heading-title mb-8">
-					GIAO DỊCH KÝ QUỸ
+						GIAO DỊCH KÝ QUỸ
 					</h2>
 					<div class="text-primary-300 2xl:text-2xl text-xl font-bold text-justify">
 						Giao dịch ký quỹ tại công ty chứng khoán (còn gọi là Margin) là giao dịch
@@ -52,13 +52,13 @@ get_header();
 					</ul>
 				</div>
 				<div class="col-span-1 ">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517 (2).png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517 (2).png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>
 			</div>
 		</div>
 		<div class="absolute top-0 right-0 pointer-events-none relative z-[1]">
-			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
+			<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
 	<section class="xl:py-[97px] py-20 bg-gradient-blue-250">
@@ -71,7 +71,7 @@ get_header();
 					style="background-color:#E5F5FF;">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -92,7 +92,7 @@ get_header();
 					style="background-color:#009e871a;">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -113,7 +113,7 @@ get_header();
 					style="background-color:#FFB81C1a;">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -133,7 +133,7 @@ get_header();
 					style="background-color:#EBF4FA;">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -156,25 +156,25 @@ get_header();
 				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
 						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
-						<?php echo svg( 'app', '30' ) ?>
+						<?php echo svg('app', '30') ?>
 						Danh mục Margin hiện hành
 					</div>
 					<a href=""
 						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
 						Xem chi tiết
-						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+						<?php echo svg('arrow-btn', '12', '12') ?>
 					</a>
 				</div>
 				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
 					<div
 						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
-						<?php echo svg( 'note', '30' ) ?>
+						<?php echo svg('note', '30') ?>
 						Biểu lãi suất
 					</div>
 					<a href=""
 						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
 						Xem chi tiết
-						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+						<?php echo svg('arrow-btn', '12', '12') ?>
 					</a>
 				</div>
 			</div>
@@ -199,10 +199,10 @@ get_header();
 									tại BSC.
 								</p>
 								<a href=""
-										class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
-										Mở tài khoản
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
-									</a>
+									class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+									Mở tài khoản
+									<?php echo svg('arrow-btn', '12', '12') ?>
+								</a>
 							</div>
 							<div class="item">
 								<p class="text-primary-300 text-xl font-bold mb-3">
@@ -220,7 +220,7 @@ get_header();
 						<div class="mt-4 pt-4 border-t border-[#CFCFCF]">
 							<a href="#"
 								class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 z-10 text-xs font-bold">
-								<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+								<?php echo svg('arrow-btn', '16', '16') ?>
 								Hướng dẫn giao dịch ký quỹ
 							</a>
 						</div>
@@ -229,12 +229,12 @@ get_header();
 				<div class="col-span-1 xl:-ml-[185px] lg:-ml-24">
 					<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 						class="relative block pt-[59.64%] overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23499 (1).png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23499 (1).png"
 							alt=""
 							class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						<div
 							class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-							<?php echo svgClass( 'play', '', '','lg:w-[80px] w-10' ) ?>
+							<?php echo svgClass('play', '', '', 'lg:w-[80px] w-10') ?>
 						</div>
 					</a>
 				</div>

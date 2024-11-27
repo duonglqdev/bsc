@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<main>
-		<?php get_template_part( 'components/page-banner' ) ?>
+		<?php get_template_part('components/page-banner') ?>
 		<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 			<div class="container">
 				<div class="lg:flex gap-[70px]">
@@ -44,7 +44,7 @@ get_header();
 								</li>
 							</ul>
 							<div class="mt-12">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 									alt=""
 									class="rounded-lg transition-all duration-500 hover:scale-105">
 							</div>
@@ -55,13 +55,12 @@ get_header();
 						<div class="space-y-6">
 							<div class="grid grid-cols-4 gap-5">
 								<?php
-								for ( $i = 0; $i < 8; $i++ )
-								{
-									?>
+								for ($i = 0; $i < 8; $i++) {
+								?>
 									<div class="flex flex-col">
 										<a href=""
 											class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
 												alt=""
 												class="absolute w-full h-full inset-0 object-cover group-hover:scale-105  transition-all duration-500">
 										</a>
@@ -74,17 +73,17 @@ get_header();
 										<a href="" download=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 											Tải xuống
-											<?php echo svg( 'download' ) ?>
+											<?php echo svg('download') ?>
 										</a>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 
 							</div>
 						</div>
 						<div class="mt-12">
-							<?php get_template_part( 'components/pagination' ) ?>
+							<?php get_template_part('components/pagination') ?>
 						</div>
 					</div>
 

@@ -7,7 +7,7 @@ Template Name: [Package-2] BSC smart invest
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
@@ -33,7 +33,7 @@ get_header();
 			<div class="space-y-10 max-w-[1115px] mx-auto">
 				<div class="md:flex gap-5 items-center">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm1.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -52,7 +52,7 @@ get_header();
 				</div>
 				<div class="md:flex gap-5 items-center flex-row-reverse">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm2.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -70,7 +70,7 @@ get_header();
 				</div>
 				<div class="md:flex gap-5 items-center">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/sm3.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -97,24 +97,24 @@ get_header();
 						<div class="flex gap-[44px] items-center">
 							<div class="flex flex-col gap-[18px] lg:w-[184px] lg:max-w-[40%]">
 								<a href="">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chplay.svg"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chplay.svg"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</a>
 								<a href="">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ios.svg"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ios.svg"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</a>
 							</div>
-							<strong class="text-primary-300"><?php _e( 'hoặc', 'bsc' ) ?></strong>
+							<strong class="text-primary-300"><?php _e('hoặc', 'bsc') ?></strong>
 							<div class="qr p-3 bg-white max-w-[134px] w-full">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 									alt="" class="transition-all duration-500 hover:scale-105">
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="lg:w-1/2 lg:flex pt-[54px]">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23513.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23513.png"
 						alt="">
 				</div>
 			</div>
@@ -129,18 +129,18 @@ get_header();
 				data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": true, "pageDots": false, "cellAlign": "left","contain": true, "autoPlay":3000}'>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
-									3 cách đặt lệnh <br> “THẦN TỐC” trên ứng <br> dụng  BSC Smart Invest
+									3 cách đặt lệnh <br> “THẦN TỐC” trên ứng <br> dụng BSC Smart Invest
 								</h3>
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -150,7 +150,7 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide2.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -178,18 +178,18 @@ get_header();
 
 								<div class="mt-auto">
 									<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-											Khám phá ngay
+										<?php echo svg('arrow-btn', '16', '16') ?>
+										Khám phá ngay
 									</a>
 								</div>
 							</div>
 						</div>
-							 <?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
+						<?php echo svgClass('after-slider', '', '', 'absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide3.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -207,20 +207,20 @@ get_header();
 								</div>
 
 								<div class="mt-auto">
-								<a href="#"
+									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
 							</div>
 						</div>
-						<?php echo svgClass('after-slider','','','absolute w-full h-full inset-0 pointer-events-none') ?>
+						<?php echo svgClass('after-slider', '', '', 'absolute w-full h-full inset-0 pointer-events-none') ?>
 					</div>
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide4.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide4.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -238,9 +238,9 @@ get_header();
 								</div>
 
 								<div class="mt-auto">
-								<a href="#"
+									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -250,23 +250,23 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
 							<div class=" desc lg:max-w-[60%] h-full flex flex-col">
 								<h3 class="font-bold text-2xl text-primary-300 mb-4">
-								Tip đặt lệnh “thần <br> tốc” trên ứng dụng <br> BSC Smart Invest 
+									Tip đặt lệnh “thần <br> tốc” trên ứng dụng <br> BSC Smart Invest 
 								</h3>
 								<div class="mt-auto">
-								<a href="#"
+									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>

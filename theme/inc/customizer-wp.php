@@ -240,7 +240,7 @@ function my_wp_nav_menu_objects($items, $args)
         // append icon
         if ($icon) {
 
-            $item->title = '<img src="' . $icon . '" alt="' . $item->title . '">' . $item->title;
+            $item->title = '<img loading="lazy" src="' . $icon . '" alt="' . $item->title . '">' . $item->title;
         }
     }
 
@@ -301,3 +301,16 @@ function custom_wp_get_attachment_image($html, $attachment_id)
     return $html;
 }
 add_filter('wp_get_attachment_image', 'custom_wp_get_attachment_image', 10, 2);
+
+/**
+ * Add loading="lazy" to all image
+ */
+function add_lazy_loading_to_wp_get_attachment_image($attr, $attachment, $size)
+{
+    // Kiểm tra nếu chưa có thuộc tính 'loading'
+    if (!isset($attr['loading'])) {
+        $attr['loading'] = 'lazy'; // Thêm thuộc tính loading="lazy"
+    }
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'add_lazy_loading_to_wp_get_attachment_image', 10, 3);

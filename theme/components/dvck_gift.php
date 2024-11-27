@@ -33,7 +33,7 @@
                             <div class="lg:w-[656px] lg:max-w-[50%]">
                                 <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
                                     class="w-full block relative overflow-hidden rounded-2xl pt-[55%]">
-                                    <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
+                                    <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                                         alt="<?php echo htmlspecialchars($news->title) ?>"
                                         class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
                                 </a>
@@ -52,7 +52,7 @@
                                         <div class="w-[270px] max-w-[45%]">
                                             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
                                                 class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
-                                                <img src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
+                                                <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                                                     alt="<?php echo htmlspecialchars($news->title) ?>"
                                                     class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
                                             </a>

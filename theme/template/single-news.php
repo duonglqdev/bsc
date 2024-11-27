@@ -7,7 +7,7 @@ Template Name: Chi tiết tin tức
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
@@ -41,7 +41,7 @@ get_header();
 							</li>
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -53,27 +53,27 @@ get_header();
 						đối tác chiến lược
 					</h1>
 					<div class="flex items-center text-xs mb-8 gap-[12px] font-Helvetica">
-						<?php echo svg( 'date' ) ?>
+						<?php echo svg('date') ?>
 						<span>Feb 26, 2024</span>-
 						<span class="text-primary-300">Website</span>
 						<div class="share flex items-center gap-[12px] ml-12">
 							<strong>
-								<?php _e( 'Share:', 'bsc' ) ?>
+								<?php _e('Share:', 'bsc') ?>
 							</strong>
 							<ul class="flex items-center gap-3">
 								<li>
 									<a href="">
-										<?php echo svg( 'ins' ) ?>
+										<?php echo svg('ins') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg( 'linkedin' ) ?>
+										<?php echo svg('linkedin') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg( 'fb' ) ?>
+										<?php echo svg('fb') ?>
 									</a>
 								</li>
 							</ul>
@@ -85,7 +85,7 @@ get_header();
 							user experience, increase engagement and stand out from the crowd. Click
 							now for expert ...
 						</p>
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/single-news.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/single-news.png"
 							alt="">
 						<p>
 							Nội dung về “Giới thiệu về Nghiệp vụ mua bán, sát nhập”
@@ -108,7 +108,7 @@ get_header();
 							dựng chiến lược giá và chiến lược thương lượng, hỗ trợ trong việc đàm
 							phán và lựa chọn nhà đầu tư.
 						</p>
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/11cfaaf174632853f690d4adc519a57c.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/11cfaaf174632853f690d4adc519a57c.png"
 							alt="">
 						<p>
 							Nội dung về “Giới thiệu về Nghiệp vụ mua bán, sát nhập”
@@ -145,18 +145,17 @@ get_header();
 			<div
 				class="grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8">
 				<?php
-				for ( $i = 0; $i < 3; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 3; $i++) {
+				?>
 					<div class="post_item font-Helvetica">
 						<a href=""
 							class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/post-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/post-img.png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 						</a>
 						<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-							<?php echo svg( 'date' ) ?>
+							<?php echo svg('date') ?>
 							<span>
 								Ngày 26/06/2024
 							</span>
@@ -178,10 +177,10 @@ get_header();
 						<a href=""
 							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 							Xem chi tiết
-							<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+							<?php echo svg('arrow-btn', '12', '12') ?>
 						</a>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>

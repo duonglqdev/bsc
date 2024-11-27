@@ -7,7 +7,7 @@ $fullname = get_the_title();
     <div class="flex flex-col items-center">
         <div class="w-[120px] rounded-full overflow-hidden">
             <div class="relative w-full pt-[100%] group expert-img">
-                <img src="<?php echo bsc_post_thumbnail_medium() ?>"
+                <img loading="lazy" src="<?php echo bsc_post_thumbnail_medium() ?>"
                     alt="<?php echo $fullname ?>"
                     class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
             </div>

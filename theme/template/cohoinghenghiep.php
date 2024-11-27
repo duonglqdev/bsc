@@ -7,7 +7,7 @@ Template Name: Cơ hội nghề nghiệp
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="lg:pt-14 pt-10 bg-gradient-blue-100">
 		<div class="container">
 			<h2 class="heading-title 2xl:mb-10 mb-8">
@@ -64,11 +64,11 @@ get_header();
 				</div>
 				<div class="w-full lg:w-[495px] lg:max-w-[40%] relative">
 					<div class="relative z-[2] main_image">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/job.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/job.png"
 							alt="">
 					</div>
 					<div class="lg:block hidden absolute lg:-top-16 top-0 lg:-right-6 right-0">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/job-layer.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/job-layer.png"
 							alt="">
 					</div>
 				</div>
@@ -102,16 +102,15 @@ get_header();
 					<button
 						class="btn-base-yellow w-full h-full rounded-xl">
 						<span class="block relative z-10">
-							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+							<?php _e('Tìm kiếm', 'bsc') ?>
 						</span>
 					</button>
 				</div>
 			</form>
 			<div class="mt-[51px]">
 				<?php
-				for ( $i = 0; $i < 3; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 3; $i++) {
+				?>
 
 					<div
 						class="job_item grid lg:grid-cols-9 gap-5 font-Helvetica mb-[30px] pb-[30px] border-b border-[#C3C3C3]">
@@ -159,8 +158,8 @@ get_header();
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
-								<?php _e( 'Xem chi tiết', 'bsc' ) ?>
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php _e('Xem chi tiết', 'bsc') ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</div>
 					</div>
@@ -210,12 +209,12 @@ get_header();
 							<a href=""
 								class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs">
 
-								<?php _e( 'Xem chi tiết', 'bsc' ) ?>
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php _e('Xem chi tiết', 'bsc') ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -239,9 +238,8 @@ get_header();
 				<div class="staff_content data-slick block_slider-show-1"
 					data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": true, "asNavFor": ".staff_image"}'>
 					<?php
-					for ( $i = 0; $i < 4; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 4; $i++) {
+					?>
 						<div class="flex flex-col font-Helvetica block_slider-item">
 							<h3 class="2xl:text-2xl text-lg font-bold mb-1">
 								Thông điệp từ chị Vân Anh
@@ -260,7 +258,7 @@ get_header();
 								được nhiều điều mới mẻ, trưởng thành hơn mỗi ngày.
 							</div>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
@@ -268,20 +266,19 @@ get_header();
 				<div class="staff_image data-slick block_slider-show-1"
 					data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "dots": false, "arrows": false, "fade": true, "draggable": false, "asNavFor": ".staff_content"}'>
 					<?php
-					for ( $i = 0; $i < 4; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 4; $i++) {
+					?>
 						<div class="block_slider-item">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/people.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/people.png"
 								alt="">
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
 
 				<div class="absolute -top-5 left-32">
-					<?php echo svg( 'quote2' ) ?>
+					<?php echo svg('quote2') ?>
 				</div>
 
 			</div>
@@ -321,18 +318,17 @@ get_header();
 			]
 		}'>
 				<?php
-				for ( $i = 0; $i < 8; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 8; $i++) {
+				?>
 					<div class="slider-item mx-3">
 						<a href="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk1.jpg"
 							class="block w-full relative pt-[60%]" data-fancybox>
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk1.jpg"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk1.jpg"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
 						</a>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -363,18 +359,17 @@ get_header();
 			]
 		}'>
 				<?php
-				for ( $i = 0; $i < 8; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 8; $i++) {
+				?>
 					<div class="slider-item mx-3">
 						<a href="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk2.jpg"
 							class="block w-full relative pt-[60%]" data-fancybox>
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk2.jpg"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kk2.jpg"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
 						</a>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>

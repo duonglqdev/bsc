@@ -7,7 +7,7 @@ Template Name: [Package-2] Kiến thức đầu tư
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="home_news bg-white lg:my-[100px] my-20">
 		<div class="container">
 			<div class="grid grid-cols-5 gap-5">
@@ -16,12 +16,12 @@ get_header();
 						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
 							class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px] after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40"
 							data-fancybox="">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 							<div
 								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-								<?php echo svg( 'play', '62', '62' ) ?>
+								<?php echo svg('play', '62', '62') ?>
 							</div>
 						</a>
 						<h3
@@ -40,7 +40,7 @@ get_header();
 						</div>
 						<a href=""
 							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
-							<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+							<?php echo svg('arrow-btn', '20', '20') ?>
 							Xem chi tiết
 						</a>
 					</div>
@@ -48,9 +48,8 @@ get_header();
 				<div class="md:col-span-2 col-span-full">
 					<ul class="space-y-[12px]">
 						<?php
-						for ( $i = 0; $i < 4; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 4; $i++) {
+						?>
 							<li class="lg:p-6 p-4 bg-[#F5FCFF] rounded-lg group">
 								<h3
 									class="text-lg font-bold mb-3 transition-all duration-500 group-hover:text-green font-Helvetica">
@@ -66,7 +65,7 @@ get_header();
 								</p>
 
 							</li>
-							<?php
+						<?php
 						}
 						?>
 					</ul>
@@ -107,7 +106,7 @@ get_header();
 							</li>
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -119,25 +118,24 @@ get_header();
 							<h2 class="heading-title ">KIẾN THỨC ĐẦU TƯ</h2>
 							<a href="" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
 							<?php
-							for ( $i = 0; $i < 2; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 2; $i++) {
+							?>
 								<div class="post_item font-Helvetica flex flex-col">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 									</a>
 									<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-										<?php echo svg( 'date' ) ?>
+										<?php echo svg('date') ?>
 										<span>
 											Ngày 26/06/2024
 										</span>
@@ -162,12 +160,12 @@ get_header();
 										<a href=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 											Xem chi tiết
-											<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+											<?php echo svg('arrow-btn', '12', '12') ?>
 										</a>
 
 									</div>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -177,25 +175,24 @@ get_header();
 							<h2 class="heading-title">Chuyển động chứng khoán</h2>
 							<a href="" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
 							<?php
-							for ( $i = 0; $i < 2; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 2; $i++) {
+							?>
 								<div class="flex flex-col">
 									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
 										data-fancybox
 										class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 											alt="" class="absolute w-full h-full inset-0 object-cover">
 										<div
 											class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-											<?php echo svg( 'play', '62', '62' ) ?>
+											<?php echo svg('play', '62', '62') ?>
 										</div>
 									</a>
 									<h4
@@ -207,7 +204,7 @@ get_header();
 										</a>
 									</h4>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -217,25 +214,24 @@ get_header();
 							<h2 class="heading-title">Bắt sóng thị trường</h2>
 							<a href="" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
 							<?php
-							for ( $i = 0; $i < 2; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 2; $i++) {
+							?>
 								<div class="flex flex-col">
 									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
 										data-fancybox
 										class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 											alt="" class="absolute w-full h-full inset-0 object-cover">
 										<div
 											class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-											<?php echo svg( 'play', '62', '62' ) ?>
+											<?php echo svg('play', '62', '62') ?>
 										</div>
 									</a>
 									<h4
@@ -247,7 +243,7 @@ get_header();
 										</a>
 									</h4>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -257,25 +253,24 @@ get_header();
 							<h2 class="heading-title">Stocktalk</h2>
 							<a href="" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
 							<?php
-							for ( $i = 0; $i < 2; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 2; $i++) {
+							?>
 								<div class="flex flex-col">
 									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
 										data-fancybox
 										class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 											alt="" class="absolute w-full h-full inset-0 object-cover">
 										<div
 											class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-											<?php echo svg( 'play', '62', '62' ) ?>
+											<?php echo svg('play', '62', '62') ?>
 										</div>
 									</a>
 									<h4
@@ -287,7 +282,7 @@ get_header();
 										</a>
 									</h4>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>

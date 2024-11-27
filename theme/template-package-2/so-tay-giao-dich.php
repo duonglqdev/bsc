@@ -7,7 +7,7 @@ Template Name: [Package-2] Sổ tay giao dịch
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="customtab-nav flex justify-between gap-10">
@@ -336,15 +336,15 @@ get_header();
 								<tbody>
 									<tr>
 										<td style="width: 33.3333%;">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step1.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step1.png"
 												alt="">
 										</td>
 										<td style="width: 33.3333%;">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step2.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step2.png"
 												alt="">
 										</td>
 										<td style="width: 33.3333%;">
-											<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step3.png"
+											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step3.png"
 												alt="">
 										</td>
 									</tr>
@@ -363,47 +363,47 @@ get_header();
 				<h2 class="heading-title">Ưu đãi từ BSC</h2>
 				<a href="" class="inline-block px-5 py-2 btn-base-yellow">
 					<span class="inline-flex items-center gap-2 relative z-10">
-						<?php _e( 'Xem tất cả', 'bsc' ) ?>
-						<?php echo svg( 'arrow-btn-2' ) ?>
+						<?php _e('Xem tất cả', 'bsc') ?>
+						<?php echo svg('arrow-btn-2') ?>
 					</span>
 				</a>
 			</div>
 			<div class="grid lg:grid-cols-3 grid-cols-1 gap-[21px]">
-                <?php 
-                 for ($i = 0; $i < 3; $i++) {
-                 ?>
-                 <div class="flex flex-col font-Helvetica">
-                     <a href="" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
-                         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
-                             alt=""
-                             class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
-                     </a>
-                     <h3
-                         class="mt-8 font-bold lg:text-lg transition-all duration-500 hover:text-green">
-                         <a href="" class="line-clamp-2">
-                             “Giao dịch ngay - Quay là trúng” cùng BSC WebTrading
-                         </a>
-                     </h3>
-                     <div class="mt-6 flex items-center gap-4">
-                         <div class="inline-flex items-center gap-2">
-                             <?php echo svg( 'time' ) ?>
-                             Thời gian chương trình:
-                         </div>
-                         <div class="font-medium">22/08/2024 - 22/10/2024</div>
-                     </div>
-                     <div class="mt-[14px]">
-                         <div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
-                             <p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
-                                 style="width:60%"></p>
-                         </div>
-                         <div class="mt-2 text-xs">
-                         Thời gian khuyến mãi còn <strong class="text-primary-300">20 ngày</strong>
-                         </div>
-                     </div>
-                 </div>
-                  <?php 
-                 } 
-                ?>
+				<?php
+				for ($i = 0; $i < 3; $i++) {
+				?>
+					<div class="flex flex-col font-Helvetica">
+						<a href="" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
+								alt=""
+								class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
+						</a>
+						<h3
+							class="mt-8 font-bold lg:text-lg transition-all duration-500 hover:text-green">
+							<a href="" class="line-clamp-2">
+								“Giao dịch ngay - Quay là trúng” cùng BSC WebTrading
+							</a>
+						</h3>
+						<div class="mt-6 flex items-center gap-4">
+							<div class="inline-flex items-center gap-2">
+								<?php echo svg('time') ?>
+								Thời gian chương trình:
+							</div>
+							<div class="font-medium">22/08/2024 - 22/10/2024</div>
+						</div>
+						<div class="mt-[14px]">
+							<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+								<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
+									style="width:60%"></p>
+							</div>
+							<div class="mt-2 text-xs">
+								Thời gian khuyến mãi còn <strong class="text-primary-300">20 ngày</strong>
+							</div>
+						</div>
+					</div>
+				<?php
+				}
+				?>
 			</div>
 		</div>
 	</section>

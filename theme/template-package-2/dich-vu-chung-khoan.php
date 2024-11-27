@@ -7,7 +7,7 @@ Template Name: [Package-2] Dịch vụ chứng khoán
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-300">
 		<div class="xl:py-[100px] py-20">
 			<div class="container overflow-hidden">
@@ -21,7 +21,7 @@ get_header();
 							class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 							<div
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
-								<?php echo svg( 'step-1' ) ?>
+								<?php echo svg('step-1') ?>
 							</div>
 							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Mở <br>
@@ -35,7 +35,7 @@ get_header();
 							class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 							<div
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
-								<?php echo svg( 'step-2' ) ?>
+								<?php echo svg('step-2') ?>
 							</div>
 							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Hướng Dẫn <br>
@@ -49,7 +49,7 @@ get_header();
 							class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 							<div
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
-								<?php echo svg( 'step-3' ) ?>
+								<?php echo svg('step-3') ?>
 							</div>
 							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Biểu Phí <br>
@@ -63,7 +63,7 @@ get_header();
 							class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 							<div
 								class="text-primary-300 group-hover:text-white transition-all duration-500">
-								<?php echo svg( 'step-4' ) ?>
+								<?php echo svg('step-4') ?>
 							</div>
 							<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 								Kiến Thức <br>
@@ -84,37 +84,36 @@ get_header();
 					<li>
 						<button data-tabs="#tab-1"
 							class="active inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
-							<?php echo svg( 'ic-1', '30', '30' ) ?>
+							<?php echo svg('ic-1', '30', '30') ?>
 							MÔI GIỚI CHỨNG KHOÁN
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-2"
 							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
-							<?php echo svg( 'ic-2', '30', '30' ) ?>
+							<?php echo svg('ic-2', '30', '30') ?>
 							TƯ VẤN ĐẦU TƯ
 						</button>
 					</li>
 					<li>
 						<button data-tabs="#tab-3"
 							class="inline-flex pb-6 text-xl uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
-							<?php echo svg( 'ic-3', '30', '30' ) ?>
+							<?php echo svg('ic-3', '30', '30') ?>
 							DỊCH VỤ TÀI CHÍNH
 						</button>
 					</li>
 				</ul>
 				<div class="mt-10">
 					<?php
-					for ( $i = 1; $i < 4; $i++ )
-					{
-						?>
+					for ($i = 1; $i < 4; $i++) {
+					?>
 						<div id="tab-<?php echo $i ?>"
 							class="space-y-10 tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>">
 							<div class="bg-white p-8 rounded-3xl lg:flex lg:gap-16 gap-10 items-center">
 								<div class="w-[563px] max-w-[50%]">
 									<div
 										class="relative w-full pt-[62.166%] rounded-2xl overflow-hidden">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 									</div>
@@ -141,7 +140,7 @@ get_header();
 									</ul>
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
-										<?php echo svg( 'arrow-btn', '20' ) ?>
+										<?php echo svg('arrow-btn', '20') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -151,7 +150,7 @@ get_header();
 								<div class="w-[563px] max-w-[50%]">
 									<div
 										class="relative w-full pt-[62.166%] rounded-2xl overflow-hidden">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 									</div>
@@ -183,13 +182,13 @@ get_header();
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
 
-										<?php echo svg( 'arrow-btn', '20' ) ?>
+										<?php echo svg('arrow-btn', '20') ?>
 										Khám phá ngay
 									</a>
 								</div>
 							</div>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
@@ -205,13 +204,13 @@ get_header();
 				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-end">
 					<div class="col-span-1">
 						<div class="relative w-full pt-[76%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap.png"
 								alt="" class="absolute w-full h-full inset-0 object-contain m-auto">
 						</div>
 					</div>
 					<div class="col-span-1">
 						<h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
-							<?php echo svgClass( 'tt-1', '', '', '2xl:max-w-10 max-w-8' ) ?>
+							<?php echo svgClass('tt-1', '', '', '2xl:max-w-10 max-w-8') ?>
 							BSC Web Trading
 						</h3>
 						<p class="font-bold mb-6 text-lg">
@@ -237,7 +236,7 @@ get_header();
 						</ul>
 						<a href="#"
 							class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
-							<?php echo svg( 'arrow-btn', '20' ) ?>
+							<?php echo svg('arrow-btn', '20') ?>
 							Khám phá ngay</span>
 						</a>
 					</div>
@@ -247,13 +246,13 @@ get_header();
 				<div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-center">
 					<div class="col-span-1">
 						<div class="relative w-full pt-[76%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Bitmap2.png"
 								alt="" class="absolute w-full h-full inset-0 object-contain m-auto">
 						</div>
 					</div>
 					<div class="col-span-1">
 						<h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
-							<?php echo svgClass( 'tt-2', '', '', '2xl:max-w-10 max-w-8' ) ?>
+							<?php echo svgClass('tt-2', '', '', '2xl:max-w-10 max-w-8') ?>
 							BSC Smart Invest
 						</h3>
 						<p class="font-bold mb-6 text-lg">
@@ -279,7 +278,7 @@ get_header();
 						</ul>
 						<a href="#"
 							class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
-							<?php echo svg( 'arrow-btn', '20' ) ?>
+							<?php echo svg('arrow-btn', '20') ?>
 							Khám phá ngay
 						</a>
 					</div>
@@ -313,15 +312,15 @@ get_header();
 				<h2 class="heading-title">CHƯƠNG TRÌNH KHUYẾN MÃI</h2>
 				<a href="#"
 					class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
-					<?php echo svg( 'arrow-btn', '20' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '20') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="lg:flex gap-10">
 				<div class="lg:w-[656px] lg:max-w-[50%]">
 					<a href=""
 						class="w-full block relative overflow-hidden rounded-2xl pt-[55%]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/km.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/km.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</a>
@@ -329,14 +328,13 @@ get_header();
 				<div class="flex-1">
 					<div class="2xl:space-y-[23px] space-y-4">
 						<?php
-						for ( $i = 0; $i < 2; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 2; $i++) {
+						?>
 							<div class="item flex gap-6 items-center">
 								<div class="w-[270px] max-w-[45%]">
 									<a href=""
 										class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news12.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news12.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 									</a>
@@ -349,7 +347,7 @@ get_header();
 										</a>
 									</h4>
 									<div class="mt-6 flex items-center gap-2 font-Helvetica">
-										<?php echo svg( 'time' ) ?>
+										<?php echo svg('time') ?>
 										<div class="font-medium">22/08/2024 - 22/10/2024</div>
 									</div>
 									<div class="mt-[14px] font-Helvetica">
@@ -365,7 +363,7 @@ get_header();
 									</div>
 								</div>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>

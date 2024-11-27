@@ -13,7 +13,7 @@ get_header();
 			<div class="grid md:grid-cols-2 grid-cols-1 gap-10">
 				<div class="col-span-1 max-w-[640px]">
 					<div class="relative w-full pt-[71.25%] overflow-hidden rounded-[10px]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</div>
@@ -101,7 +101,7 @@ get_header();
 						BẠN CẦN HỖ TRỢ?
 					</h2>
 					<div class="relative w-full pt-[66.666%] overflow-hidden rounded-[10px]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</div>

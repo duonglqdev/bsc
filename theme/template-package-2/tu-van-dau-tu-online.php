@@ -7,7 +7,7 @@ Template Name: [Package-2] Tư vấn đầu tư online
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
@@ -40,13 +40,13 @@ get_header();
 					</div>
 				</div>
 				<div class="col-span-1 relative z-[1]">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23517.png"
 						alt="" class="transition-all duration-500 hover:scale-105">
 				</div>
 			</div>
 		</div>
 		<div class="absolute top-0 right-0 pointer-events-none -z-1">
-			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
+			<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
 	<section class="xl:py-[97px] py-20 bg-gradient-blue-250 xl:space-y-[100px] space-y-20">
@@ -58,7 +58,7 @@ get_header();
 				<div class="lg:max-w-[660px] w-full">
 					<a href=""
 						class="rounded-2xl overflow-hidden relative pt-[87.8787%] group block">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23519.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23519.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 
@@ -74,7 +74,7 @@ get_header();
 				<div class="flex flex-col gap-[18px]">
 					<a href=""
 						class="relative block pt-[42.8%] w-full overflow-hidden rounded-2xl group">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/1.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
@@ -87,7 +87,7 @@ get_header();
 					</a>
 					<a href=""
 						class="relative block pt-[42.8%] w-full overflow-hidden rounded-2xl group">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/1.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
@@ -110,7 +110,7 @@ get_header();
 					style="background-color:#009E871a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group.png"
 								alt=""
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
@@ -123,7 +123,7 @@ get_header();
 					style="background-color:#FFB81C1a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group 1000007555.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group 1000007555.png"
 								alt=""
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
@@ -136,7 +136,7 @@ get_header();
 					style="background-color:#235BA81a;">
 					<div class="lg:max-w-[330px] mx-auto">
 						<div class="relative w-full pt-[47%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group (1).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group (1).png"
 								alt=""
 								class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 						</div>
@@ -176,19 +176,19 @@ get_header();
 							<a href=""
 								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								Mở tài khoản
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 							<a href=""
 								class="leading-none text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								Giao dịch ngay
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-span-1 xl:-ml-[185px] lg:-ml-24">
 					<div class="relative pt-[59.64%] overflow-hidden rounded-2xl group">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23499.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23499.png"
 							alt=""
 							class="absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105">
 
@@ -207,12 +207,12 @@ get_header();
 					</h2>
 					<a href="#"
 						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						<?php echo svg('arrow-btn', '16', '16') ?>
 						Xem chi tiết
 					</a>
 				</div>
 				<div class="col">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
 						alt="" class="mx-auto">
 				</div>
 			</div>

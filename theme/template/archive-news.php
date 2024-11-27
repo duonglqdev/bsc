@@ -7,7 +7,7 @@ Template Name: Archive tin tức
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="pt-12 featured_news bg-gradient-blue-to-bottom-50">
 		<div class="container">
 			<div class="featured_news-list block_slider-show-1"
@@ -31,13 +31,13 @@ get_header();
 								<p
 									class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -61,13 +61,13 @@ get_header();
 								<p
 									class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -91,13 +91,13 @@ get_header();
 								<p
 									class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -138,7 +138,7 @@ get_header();
 							</li>
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -151,26 +151,25 @@ get_header();
 							<a href=""
 								class="inline-block px-5 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div
 							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
 							<?php
-							for ( $i = 0; $i < 4; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 4; $i++) {
+							?>
 								<div class="post_item font-Helvetica">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/post-img.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/post-img.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 									</a>
 									<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-										<?php echo svg( 'date' ) ?>
+										<?php echo svg('date') ?>
 										<span>
 											Ngày 26/06/2024
 										</span>
@@ -192,10 +191,10 @@ get_header();
 									<a href=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -206,16 +205,15 @@ get_header();
 							<a href=""
 								class="inline-block px-5 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="mb-10 pb-10 border-b border-[#E1E1E1] space-y-6">
 							<?php
-							for ( $i = 0; $i < 4; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 4; $i++) {
+							?>
 								<div
 									class="news_service-item md:flex items-center justify-between md:gap-20">
 									<div class="flex items-center">
@@ -249,10 +247,10 @@ get_header();
 									<a href=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -263,26 +261,25 @@ get_header();
 							<a href=""
 								class="inline-block px-5 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div
 							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
 							<?php
-							for ( $i = 0; $i < 4; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 4; $i++) {
+							?>
 								<div class="post_item font-Helvetica">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-market.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-market.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 									</a>
 									<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-										<?php echo svg( 'date' ) ?>
+										<?php echo svg('date') ?>
 										<span>
 											Ngày 26/06/2024
 										</span>
@@ -304,10 +301,10 @@ get_header();
 									<a href=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -318,26 +315,25 @@ get_header();
 							<a href=""
 								class="inline-block px-5 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div
 							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
 							<?php
-							for ( $i = 0; $i < 4; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 4; $i++) {
+							?>
 								<div class="post_item font-Helvetica">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-act.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-act.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 									</a>
 									<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-										<?php echo svg( 'date' ) ?>
+										<?php echo svg('date') ?>
 										<span>
 											Ngày 26/06/2024
 										</span>
@@ -359,10 +355,10 @@ get_header();
 									<a href=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
@@ -373,25 +369,24 @@ get_header();
 							<a href=""
 								class="inline-block px-5 py-2 btn-base-yellow">
 								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
+									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg('arrow-btn-2') ?>
 								</span>
 							</a>
 						</div>
 						<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8">
 							<?php
-							for ( $i = 0; $i < 4; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 4; $i++) {
+							?>
 								<div class="post_item font-Helvetica">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-										<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-inter.png"
+										<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news-inter.png"
 											alt=""
 											class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 									</a>
 									<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-										<?php echo svg( 'date' ) ?>
+										<?php echo svg('date') ?>
 										<span>
 											Ngày 26/06/2024
 										</span>
@@ -413,10 +408,10 @@ get_header();
 									<a href=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 										Xem chi tiết
-										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>

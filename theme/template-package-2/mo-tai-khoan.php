@@ -7,7 +7,7 @@ Template Name: [Package-2] Mở tài khoản
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-350">
 		<div class="xl:pt-16 pb-[50px] relative">
 			<div class="container">
@@ -48,13 +48,13 @@ get_header();
 						</div>
 					</div>
 					<div class="col-span-1">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23515.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23515.png"
 							alt="">
 					</div>
 				</div>
 			</div>
 			<div class="absolute lg:block hidden top-0 right-0 pointer-events-none">
-				<?php echo svg( 'before' ) ?>
+				<?php echo svg('before') ?>
 			</div>
 		</div>
 		<div class="pt-[50px] xl:pb-[100px] pb-[50px]">
@@ -72,18 +72,18 @@ get_header();
 						<div class="flex gap-[61px] items-center">
 							<div class="flex flex-col gap-[21px]">
 								<a href="">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chplay.svg"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chplay.svg"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</a>
 								<a href="">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ios.svg"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ios.svg"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</a>
 							</div>
 							<strong
-								class="text-primary-300 text-2xl"><?php _e( 'hoặc', 'bsc' ) ?></strong>
+								class="text-primary-300 text-2xl"><?php _e('hoặc', 'bsc') ?></strong>
 							<div class="qr p-3 bg-white max-w-[184px] rounded-lg shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 									alt="" class="transition-all duration-500 hover:scale-105">
 							</div>
 						</div>
@@ -95,14 +95,14 @@ get_header();
 						<ul class="text-lg font-Helvetica space-y-4">
 							<li class="flex items-center gap-4">
 								<div class="flex-shrink-0">
-									<?php echo svg( 'location', '33', '33' ) ?>
+									<?php echo svg('location', '33', '33') ?>
 								</div>
 								<p><strong>Trụ sở chính BSC: </strong>Tầng 8 Tòa nhà Thái Holdings,
 									210 Trần Quang Khải, Hoàn Kiếm, Hà Nội</p>
 							</li>
 							<li class="flex items-center gap-4">
 								<div class="flex-shrink-0">
-									<?php echo svg( 'location', '33', '33' ) ?>
+									<?php echo svg('location', '33', '33') ?>
 								</div>
 								<p><strong>Chi nhánh BSC: </strong>Tầng 4, 9 Tòa nhà President
 									Place, Số 93 Đường Nguyễn Du, Phường Bến Nghé, Quận 1, Thành phố
@@ -110,14 +110,14 @@ get_header();
 							</li>
 							<li class="flex items-center gap-4">
 								<div class="flex-shrink-0">
-									<?php echo svg( 'location', '33', '33' ) ?>
+									<?php echo svg('location', '33', '33') ?>
 								</div>
 								<p>
 									<strong>Điểm hỗ trợ giao dịch BSC tại hệ thống Chi nhánh BIDV
 										trên cả nước </strong>
 								</p>
 								<div class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 110.png"
 										alt="" class="transition-all duration-500 hover:scale-105">
 								</div>
 							</li>
@@ -135,21 +135,21 @@ get_header();
 				</h2>
 				<div class="grid grid-cols-3 gap-10">
 					<div class="col-span-1">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st1.png"
 							alt="" class="m-auto transition-all duration-500 hover:scale-105">
 						<div class="text-lg mt-6 text-center font-Helvetica">
 							<strong>Bước 1: </strong> Điền thông tin đăng ký
 						</div>
 					</div>
 					<div class="col-span-1">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st2.png"
 							alt="" class="m-auto transition-all duration-500 hover:scale-105">
 						<div class="text-lg mt-6 text-center font-Helvetica">
 							<strong>Bước 2: </strong> Xác thực eKYC
 						</div>
 					</div>
 					<div class="col-span-1">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/st3.png"
 							alt="" class="m-auto transition-all duration-500 hover:scale-105">
 						<div class="text-lg mt-6 text-center font-Helvetica">
 							<strong>Bước 3: </strong> Đăng ký dịch vụ
@@ -168,7 +168,7 @@ get_header();
 						style="background-color:#E5F5FF;">
 						<div class="max-w-[155px] w-full mx-auto">
 							<div class="relative w-full pt-[100%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
 									class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 									alt="">
 							</div>
@@ -190,7 +190,7 @@ get_header();
 						style="background-color:#009e871a;">
 						<div class="max-w-[155px] w-full mx-auto">
 							<div class="relative w-full pt-[100%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
 									class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 									alt="">
 							</div>
@@ -211,7 +211,7 @@ get_header();
 						style="background-color:#FFB81C1a;">
 						<div class="max-w-[155px] w-full mx-auto">
 							<div class="relative w-full pt-[100%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
 									class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 									alt="">
 							</div>
@@ -233,7 +233,7 @@ get_header();
 						style="background-color:#EBF4FA;">
 						<div class="max-w-[155px] w-full mx-auto">
 							<div class="relative w-full pt-[100%]">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
 									class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 									alt="">
 							</div>
@@ -257,7 +257,7 @@ get_header();
 				<div class="text-center mt-10">
 					<a href="#"
 						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-lg">
-						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						<?php echo svg('arrow-btn', '16', '16') ?>
 						Mở tài khoản ngay
 					</a>
 				</div>

@@ -7,13 +7,13 @@ Template Name: [Package-2] Chi tiết chương trình KM
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="mt-12 xl:mb-[100px] mb-12">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
 				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 					<div class="sticky lg:top-28 top-5 z-[9]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 105.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 105.png"
 							alt="" class="w-full rounded-lg">
 					</div>
 				</div>
@@ -25,7 +25,7 @@ get_header();
 						<div class="">
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
-									<?php echo svg( 'time' ) ?>
+									<?php echo svg('time') ?>
 									Thời gian chương trình:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -44,22 +44,22 @@ get_header();
 						</div>
 						<div class="share flex items-center gap-[12px] ml-12">
 							<strong>
-								<?php _e( 'Chia sẻ:', 'bsc' ) ?>
+								<?php _e('Chia sẻ:', 'bsc') ?>
 							</strong>
 							<ul class="flex items-center gap-3">
 								<li>
 									<a href="">
-										<?php echo svg( 'ins' ) ?>
+										<?php echo svg('ins') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg( 'linkedin' ) ?>
+										<?php echo svg('linkedin') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg( 'fb' ) ?>
+										<?php echo svg('fb') ?>
 									</a>
 								</li>
 							</ul>
@@ -72,7 +72,7 @@ get_header();
 							mang đến chương trình khuyến mãi hấp dẫn “Mở tài khoản BSC – Nhận quà
 							liền tay”.
 						</p>
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 5827.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 5827.png"
 							alt="">
 						<p>
 							Nội dung về “Giới thiệu về Nghiệp vụ mua bán, sát nhập”
@@ -128,12 +128,11 @@ get_header();
 
 			<div class="grid lg:grid-cols-3 grid-cols-1 gap-[21px]">
 				<?php
-				for ( $i = 0; $i < 3; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 3; $i++) {
+				?>
 					<div class="flex flex-col font-Helvetica">
 						<a href="" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
 						</a>
@@ -145,7 +144,7 @@ get_header();
 						</h3>
 						<div class="mt-6 flex items-center gap-4">
 							<div class="inline-flex items-center gap-2">
-								<?php echo svg( 'time' ) ?>
+								<?php echo svg('time') ?>
 								Thời gian chương trình:
 							</div>
 							<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -161,7 +160,7 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>

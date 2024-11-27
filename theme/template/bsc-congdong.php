@@ -112,19 +112,19 @@ get_header();
 		<div class="absolute w-full h-full inset-0 -z-10">
 			<div class="community_content-bg block_slider-show-1">
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity1.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity1.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity2.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity2.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity3.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity3.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 				<div class="item block_slider-item">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity4.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/comunity4.png"
 						alt="" class="w-full h-full object-cover max-h-[714px] object-center">
 				</div>
 			</div>
@@ -162,7 +162,7 @@ get_header();
 							</li>
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -176,7 +176,7 @@ get_header();
 							<div class="post_item font-Helvetica">
 								<a href=""
 									class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
 										alt=""
 										class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 								</a>

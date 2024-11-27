@@ -7,22 +7,21 @@ Template Name:[Package 3] Trung tâm phân tích
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="xl:[my-100px] my-20">
 		<div class="container">
 			<div class="flex justify-between items-center mb-8">
 				<h2 class="heading-title">Báo cáo vĩ mô - THỊ TRƯỜNG</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '16', '16') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="grid gap-5 lg:grid-cols-3 grid-cols-2">
 				<?php
-				for ( $i = 0; $i < 2; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 2; $i++) {
+				?>
 					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 						<div class="flex items-center justify-between mb-4">
 							<a href=""
@@ -48,8 +47,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -78,8 +77,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -108,12 +107,12 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -125,15 +124,14 @@ get_header();
 				<h2 class="heading-title">Báo cáo ngành - doanh nghiệp</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '16', '16') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="grid gap-5 lg:grid-cols-3 grid-cols-2">
 				<?php
-				for ( $i = 0; $i < 2; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 2; $i++) {
+				?>
 					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 						<div class="flex items-center justify-between mb-4">
 							<div class="flex items-center gap-4">
@@ -169,8 +167,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -209,8 +207,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -249,12 +247,12 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -266,15 +264,14 @@ get_header();
 				<h2 class="heading-title">Báo cáo chuyên đề</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '16', '16') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="grid gap-5 lg:grid-cols-3 grid-cols-2">
 				<?php
-				for ( $i = 0; $i < 2; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 2; $i++) {
+				?>
 					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 						<div class="flex items-center justify-between mb-4">
 							<div class="flex items-center gap-4">
@@ -310,8 +307,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -350,8 +347,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -390,12 +387,12 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -407,8 +404,8 @@ get_header();
 				<h2 class="heading-title">DANH MỤC KHUYẾN NGHỊ</h2>
 				<a href=""
 					class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-					<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-					<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					<?php echo svg('arrow-btn', '16', '16') ?>
+					<?php _e('Xem tất cả', 'bsc') ?>
 				</a>
 			</div>
 			<div class="block_slider block_slider-show-3 has-nav no-dots -mx-3 slider-tutorial dmkm">
@@ -421,12 +418,12 @@ get_header();
 							</h3>
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 								Xem chi tiết
 							</a>
 						</div>
 						<div class="w-1/3">
-							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23490.png" alt="">
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23490.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -439,12 +436,12 @@ get_header();
 							</h3>
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 								Xem chi tiết
 							</a>
 						</div>
 						<div class="w-1/2">
-							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23489.png" alt="">
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23489.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -457,16 +454,16 @@ get_header();
 							</h3>
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 								Xem chi tiết
 							</a>
 						</div>
 						<div class="w-1/2">
-							<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Rectangle 23489 (1).png" alt="">
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23489 (1).png" alt="">
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

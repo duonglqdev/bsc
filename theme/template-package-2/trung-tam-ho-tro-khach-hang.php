@@ -7,20 +7,20 @@ Template Name:[Package-2] Trung tâm hỗ trợ khách hàng
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="lg:py-16 py-12 bg-gradient-blue-50">
 		<div class="container">
 			<form class="mx-auto max-w-[950px] flex gap-4" id="seach_support-content">
 				<div
 					class="flex-1 rounded-[10px] bg-white lg:px-[26px] px-5 h-[50px] flex gap-3 items-center">
-					<?php echo svg( 'search', '24', '24' ) ?>
+					<?php echo svg('search', '24', '24') ?>
 					<input type="text"
 						class="w-full placeholder:text-[#898A8D] border-none focus:outline-0 focus:ring-0"
-						placeholder="<?php _e( 'Tìm kiếm nội dung hỗ trợ', 'bsc' ) ?>">
+						placeholder="<?php _e('Tìm kiếm nội dung hỗ trợ', 'bsc') ?>">
 				</div>
 				<button type="submit"
 					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight lg:min-w-[210px] rounded-xl h-[50px]">
-					<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+					<?php _e('Tìm kiếm', 'bsc') ?>
 				</button>
 			</form>
 			<div class="mt-16">
@@ -29,9 +29,8 @@ get_header();
 				</h2>
 				<div class="grid lg:grid-cols-3 grid-cols-2 lg:gap-12 gap-10">
 					<?php
-					for ( $i = 0; $i < 7; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 7; $i++) {
+					?>
 						<div class="space-y-4 font-Helvetica">
 							<h4 class="xl:text-2xl text-xl font-bold">
 								Mở tài khoản
@@ -52,11 +51,11 @@ get_header();
 							</ul>
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105">
-								<?php _e( 'Xem thêm', 'gnws' ) ?>
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php _e('Xem thêm', 'gnws') ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</div>
-						<?php
+					<?php
 					}
 					?>
 				</div>
@@ -73,12 +72,12 @@ get_header();
 						BIỂU PHÍ DỊCH VỤ
 					</h2>
 					<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-							<?php echo svg( 'arrow-btn', '16', '16' ) ?>
-							Xem chi tiết
+						<?php echo svg('arrow-btn', '16', '16') ?>
+						Xem chi tiết
 					</a>
 				</div>
 				<div class="col">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
 						alt="" class="mx-auto">
 				</div>
 			</div>
@@ -91,8 +90,8 @@ get_header();
 				<h2 class="heading-title ">KIẾN THỨC ĐẦU TƯ</h2>
 				<a href="" class="inline-block px-5 py-2 btn-base-yellow">
 					<span class="inline-flex items-center gap-2 relative z-10">
-						<?php _e( 'Xem tất cả', 'bsc' ) ?>
-						<?php echo svg( 'arrow-btn-2' ) ?>
+						<?php _e('Xem tất cả', 'bsc') ?>
+						<?php echo svg('arrow-btn-2') ?>
 					</span>
 				</a>
 			</div>
@@ -101,12 +100,12 @@ get_header();
 					<div class="group">
 						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e"
 							class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px] after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40" data-fancybox="">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/news.jpg"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
-								<div
+							<div
 								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-								<?php echo svg( 'play', '62', '62' ) ?>
+								<?php echo svg('play', '62', '62') ?>
 							</div>
 						</a>
 						<h3
@@ -125,7 +124,7 @@ get_header();
 						</div>
 						<a href=""
 							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
-							<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+							<?php echo svg('arrow-btn', '20', '20') ?>
 							Xem chi tiết
 						</a>
 					</div>
@@ -133,9 +132,8 @@ get_header();
 				<div class="md:col-span-2 col-span-full">
 					<ul class="space-y-[12px]">
 						<?php
-						for ( $i = 0; $i < 3; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 3; $i++) {
+						?>
 							<li class="lg:p-6 p-4 bg-[#F5FCFF] rounded-lg group">
 								<h3
 									class="text-lg font-bold mb-3 transition-all duration-500 group-hover:text-green font-Helvetica">
@@ -151,11 +149,11 @@ get_header();
 								</p>
 								<div class="mt-3">
 									<a href="" class="text-green font-xs font-medium">
-									Blog kiến thức
+										Blog kiến thức
 									</a>
 								</div>
 							</li>
-							<?php
+						<?php
 						}
 						?>
 					</ul>
@@ -170,24 +168,23 @@ get_header();
 				<h2 class="heading-title">NHẬN ĐỊNH CHỨNG KHOÁN</h2>
 				<a href="" class="inline-block px-5 py-2 btn-base-yellow">
 					<span class="inline-flex items-center gap-2 relative z-10">
-						<?php _e( 'Xem tất cả', 'bsc' ) ?>
-						<?php echo svg( 'arrow-btn-2' ) ?>
+						<?php _e('Xem tất cả', 'bsc') ?>
+						<?php echo svg('arrow-btn-2') ?>
 					</span>
 				</a>
 			</div>
 			<div class="block_slider has-nav no-dots block_slider-show-3 -mx-[12px]">
 				<?php
-				for ( $i = 0; $i < 6; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 6; $i++) {
+				?>
 					<div class="block_slider-item lg:w-1/3 md:w-1/2 w-2/3 px-[12px]">
 						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 							class="rounded-md overflow-hidden pt-[60%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 								alt="" class="absolute w-full h-full inset-0 object-cover">
 							<div
 								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-								<?php echo svg( 'play', '62', '62' ) ?>
+								<?php echo svg('play', '62', '62') ?>
 							</div>
 						</a>
 						<h4
@@ -195,7 +192,7 @@ get_header();
 							CHUYỂN ĐỘNG CHỨNG KHOÁN #1| TIỀM NĂNG TTCK VIỆT NAM KHI ĐƯỢC NÂNG HẠNG?
 						</h4>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
@@ -209,18 +206,18 @@ get_header();
 						LIÊN HỆ TƯ VẤN
 					</h2>
 					<div class="relative w-full pt-[66.666%] overflow-hidden rounded-[10px]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</div>
 				</div>
 				<div class="flex-1 2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]">
 					<h3 class="mb-6 text-primary-300 font-bold xl:text-2xl text-xl">
-						<?php _e( 'Đăng ký thông tin hỗ trợ', 'gnws' ) ?>
+						<?php _e('Đăng ký thông tin hỗ trợ', 'gnws') ?>
 					</h3>
 					<div
 						class="form_support relative font-Helvetica bg-white lg:px-8 px-5 lg:py-6 py-4 rounded-2xl">
-						<?php echo do_shortcode( '[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]' ) ?>
+						<?php echo do_shortcode('[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]') ?>
 					</div>
 				</div>
 			</div>
