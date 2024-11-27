@@ -51,7 +51,9 @@ $class = $check_logout ? 'blur-sm' : '';
                                     foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            <a href=""><?php echo $GetForecastBussinessResults->symbol ?></a>
+                                            <?php if ($GetForecastBussinessResults->symbol) { ?>
+                                                <a href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
+                                            <?php } ?>
                                         </li>
                                     <?php
                                     }

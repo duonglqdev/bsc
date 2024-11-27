@@ -421,6 +421,9 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	if (isset($_GET['years'])) {
 		$endpoint .= '&years=' . $_GET['years'];
 	}
+	if (isset($_GET['s'])) {
+		$endpoint .= '&s=' . $_GET['s'];
+	}
 	if (isset($_GET['posts_to_show'])) {
 		$endpoint .= '&posts_to_show=' . $_GET['posts_to_show'];
 	}
@@ -454,18 +457,17 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	/** Previous Post Link */
 	if ($paged > 1) {
 		$page_prev = $paged - 1;
-		if ($paged == 2) {
-			$url_prev  = $url_tax . $endpoint;
-		} else {
-			$url_prev = $url_tax . '?page=' . $page_prev . $endpoint;
-		}
+		$url_prev = $url_tax . '?page=' . $page_prev . $endpoint;
 		printf('<li><a class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500" href="' . $url_prev . '">' . svg('angle-left') . '</a></li>' . "\n",);
 	}
 	/** Link to first page, plus ellipses if necessary */
 	if (! in_array(1, $links)) {
 		$class = 1 == $paged ? ' class="active"' : '';
-		printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . $endpoint, '1');
-
+		if (is_search()) {
+			printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . '?page=1' . $endpoint, '1');
+		} else {
+			printf('<li><a class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" href="%s">%s</a></li>' . "\n", $class, $url_tax . $endpoint, '1');
+		}
 		if (! in_array(2, $links))
 			echo '<li>…</li>';
 	}

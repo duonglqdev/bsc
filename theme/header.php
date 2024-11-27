@@ -51,7 +51,7 @@
 							</div>
 						</div>
 						<div class="relative pl-3 pr-6">
-							<input type="text" name="s" placeholder="Tra cứu..."
+							<input type="text" name="s" placeholder="<?php _e('Tra cứu', 'bsc') ?>..."
 								class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 								autocomplete="off">
 

@@ -195,7 +195,7 @@ add_action('template_redirect', 'custom_template_redirect_for_report');
 /**
  *  Mã cổ phiếu
  */
-// Thêm rewrite rule cho 'bao-cao'
+// Thêm rewrite rule cho 'ma-co-phieu'
 function custom_rewrite_rule_for_co_phieu()
 {
     if (get_field('cdttcp1_slug', 'option')) {
@@ -203,7 +203,7 @@ function custom_rewrite_rule_for_co_phieu()
     } else {
         $sub_url = __('ma-co-phhieu', 'bsc');
     }
-    add_rewrite_rule('^' . $sub_url . '/([0-9]+)-', 'index.php?co_phieu_id=$matches[1]', 'top');
+    add_rewrite_rule('^' . $sub_url . '/([^/]+)/?', 'index.php?co_phieu_id=$matches[1]', 'top');
 }
 add_action('init', 'custom_rewrite_rule_for_co_phieu');
 
@@ -231,7 +231,7 @@ function custom_template_redirect_for_co_phieu()
         if ($get_co_phieu_detail) {
             // Lấy chi tiết báo cáo từ API response
             $co_phieu = $get_co_phieu_detail->d[0];
-            // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+            // // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
             global $custom_meta_data;
             $custom_meta_data = array(
                 'title' => $co_phieu->title,
