@@ -14837,6 +14837,107 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_674844a750dd6": {
+                    "key": "layout_674844a750dd6",
+                    "name": "data_history_price",
+                    "label": "[Dữ liệu lịch sử] Data",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_674844ba50dd8",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_674845ea50dd9",
+                            "label": "Dữ liệu",
+                            "name": "data",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Thêm dữ liệu",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_6748465050dda",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_674845ea50dd9"
+                                },
+                                {
+                                    "key": "field_6748465550ddb",
+                                    "label": "Dữ liệu",
+                                    "name": "display",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "history": "Lịch sử giá",
+                                        "ndtnn": "Nhà đầu tư nước ngoài"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_674845ea50dd9"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -14864,5 +14965,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732634518
+    "modified": 1732791355
 }

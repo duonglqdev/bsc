@@ -10,7 +10,7 @@
                 <div
                     class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base 2xl:space-y-8 space-y-4 rounded-2xl h-full">
                     <?php
-                    $time_cache = get_sub_field('time_cache') ?: 1;
+                    $time_cache = get_sub_field('time_cache') ?: 300;
                     ?>
                     <?php
                     $array_data_value = array(

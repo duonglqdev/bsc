@@ -193,7 +193,7 @@ if ($response_instruments) {
 											$background_status = $check_status['background_status'];
 											?>
 											<?php if ($list_bsc->action) { ?>
-												<span class="inline-block px-4 py-0.5 font-semibold rounded-full"" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+												<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 													<?php
 													echo  $title_status;
 													?>
@@ -278,18 +278,34 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[1]->value) {
+									if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[7]->value) {
+									if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
@@ -298,18 +314,34 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[2]->value) {
+									if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[8]->value) {
+									if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>
@@ -435,7 +467,7 @@ if ($response_instruments) {
 											$background_status = $check_status['background_status'];
 											?>
 											<?php if ($list_bsc->action) { ?>
-												<span class="inline-block px-4 py-0.5 font-semibold rounded-full"" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+												<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 													<?php
 													echo  $title_status;
 													?>
@@ -520,18 +552,34 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[1]->value) {
+									if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[7]->value) {
+									if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
@@ -540,18 +588,70 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[2]->value) {
+									if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[8]->value) {
+									if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
+										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
+									</p>
+								<?php } ?>
+							</div>
+						</li>
+						<li class="flex xl:gap-20 gap-10">
+							<div class="w-[62%] space-y-1">
+								<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
+								<?php if ($response_GetResearchPorCurMet->d[2]->value) {
+									if ($response_GetResearchPorCurMet->d[2]->value > 0) {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									} else {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
+										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
+									</p>
+								<?php } ?>
+							</div>
+							<div class="w-[38%] space-y-1">
+								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
+								<?php if ($response_GetResearchPorCurMet->d[8]->value) {
+									if ($response_GetResearchPorCurMet->d[8]->value > 0) {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									} else {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>
@@ -677,7 +777,7 @@ if ($response_instruments) {
 											$background_status = $check_status['background_status'];
 											?>
 											<?php if ($list_bsc->action) { ?>
-												<span class="inline-block px-4 py-0.5 font-semibold rounded-full"" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+												<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 													<?php
 													echo  $title_status;
 													?>
@@ -762,18 +862,34 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[1]->value) {
+									if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[7]->value) {
+									if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 									</p>
 								<?php } ?>
@@ -782,18 +898,70 @@ if ($response_instruments) {
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[2]->value) {
+									if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 									</p>
 								<?php } ?>
 							</div>
 							<div class="w-[38%] space-y-1">
 								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-								<?php if ($response_GetResearchPorCurMet->d[1]->value) { ?>
-									<p class="font-medium text-[#FE5353] flex items-center gap-1">
-										<?php echo svg('downn', '16', '16') ?>
+								<?php if ($response_GetResearchPorCurMet->d[8]->value) {
+									if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									} else {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
+										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
+									</p>
+								<?php } ?>
+							</div>
+						</li>
+						<li class="flex xl:gap-20 gap-10">
+							<div class="w-[62%] space-y-1">
+								<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
+								<?php if ($response_GetResearchPorCurMet->d[2]->value) {
+									if ($response_GetResearchPorCurMet->d[2]->value > 0) {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									} else {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
+										<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
+									</p>
+								<?php } ?>
+							</div>
+							<div class="w-[38%] space-y-1">
+								<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
+								<?php if ($response_GetResearchPorCurMet->d[8]->value) {
+									if ($response_GetResearchPorCurMet->d[8]->value > 0) {
+										$class = "text-[#1CCD83]";
+										$class_svg = 'up';
+									} else {
+										$class = "text-[#FE5353]";
+										$class_svg = 'down';
+									}
+								?>
+									<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+										<?php echo svg($class_svg, '16', '16') ?>
 										<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 									</p>
 								<?php } ?>

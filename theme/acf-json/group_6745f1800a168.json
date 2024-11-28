@@ -291,6 +291,108 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_67481fd048f33",
+            "label": "Thông tin công ty",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_67481fe748f34",
+            "label": "Tiêu đề lớn",
+            "name": "cdttcp2_title_big",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "CÔNG TY CỔ PHẦN CHỨNG KHOÁN BIDV",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6748200a48f35",
+            "label": "Tiêu đề nhỏ",
+            "name": "cdttcp2_title_small",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "BIDV Securities Joint Stock Company",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67482727ef844",
+            "label": "Iframe biểu đồ",
+            "name": "cdttcp2_iframe",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6748338508fd4",
+            "label": "Danh mục khuyến nghị",
+            "name": "cdttcp2_tax_kn",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "danh-muc-bao-cao-phan-tich",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -311,5 +413,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732637271
+    "modified": 1732785378
 }
