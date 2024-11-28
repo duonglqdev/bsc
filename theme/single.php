@@ -53,16 +53,14 @@ if ($args['data']) {
 			'hide_empty' => false,
 			'meta_query' => array(
 				array(
-					'key' => 'api_id_danh_muc', // tên meta field
-					'value' => $groupid, // giá trị cần tìm
+					'key' => 'api_id_danh_muc',
+					'value' => $groupid,
 					'compare' => '='
 				)
 			)
 		));
-
-		// Kiểm tra nếu tìm thấy category
 		if (!is_wp_error($categories) && !empty($categories)) {
-			$tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+			$tax = $categories[0];
 		} else {
 			$post_id = get_the_ID();
 			$taxonomy = get_the_terms($post->ID, $check_cat);

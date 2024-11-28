@@ -157,36 +157,61 @@
 								</p>
 							<?php } ?>
 							<?php
-							$term_kn = get_sub_field('danh_muc_bao_cao_phan_tich');
-							if ($term_kn) {
-								$categoryid_kn = get_field('api_id_danh_muc', $term_kn);
-								if ($categoryid_kn) {
-									$array_data = array(
-										'lang' => pll_current_language(),
-										'maxitem' => 5,
-										'categoryid' => $categoryid_kn,
-										"recommendation" => 3
-									);
-									$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-									if ($response) {
-										$count = count($response->d);
-										if ($count < 5) {
-											$total = 5 - $count;
-											$array_data_more = array(
-												'lang' => pll_current_language(),
-												'maxitem' => $total,
-												'categoryid' => $categoryid_kn,
-												"recommendation" => 4
-											);
-											$response_more = get_data_with_cache('GetReportsBySymbol', $array_data_more, $time_cache);
-										}
+							$categoryid_kn = get_field('cddmkn1_id_danh_mục', 'option');
+							if ($categoryid_kn) {
+								$array_data = array(
+									'lang' => pll_current_language(),
+									'maxitem' => 5,
+									'categoryid' => $categoryid_kn,
+									"recommendation" => 3
+								);
+								$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+								if ($response) {
+									$count = count($response->d);
+									if ($count < 5) {
+										$total = 5 - $count;
+										$array_data_more = array(
+											'lang' => pll_current_language(),
+											'maxitem' => $total,
+											'categoryid' => $categoryid_kn,
+											"recommendation" => 4
+										);
+										$response_more = get_data_with_cache('GetReportsBySymbol', $array_data_more, $time_cache);
+									}
 							?>
-										<ul class="space-y-4">
-											<?php foreach ($response->d as $news) {
-												$status = $news->recommendation;
-												$check_status = get_color_by_number_bsc($status);
-												$title_status = $check_status['title_status'];
-												$text_status = $check_status['text_status'];
+									<ul class="space-y-4">
+										<?php foreach ($response->d as $news) {
+											$status = $news->recommendation;
+											$check_status = get_color_by_number_bsc($status);
+											$title_status = $check_status['title_status'];
+											$text_status = $check_status['text_status'];
+										?>
+											<li class="flex font-bold gap-[14px] items-center justify-between">
+												<p class="line-clamp-1 flex-1">
+													<?php echo htmlspecialchars($news->symbols) ?>
+													<?php if ($news->upsite) { ?>
+														<span
+															class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
+													<?php } ?>
+													<?php if ($title_status != '') { ?>
+														<span
+															style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
+													<?php } ?> - <?php echo htmlspecialchars($news->title) ?>
+												</p>
+												<p
+													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
+													<?php _e('Hot', 'bsc') ?>
+												</p>
+												<?php if ($news->reporturl) { ?>
+													<a href="<?php echo $news->reporturl ?>" target="_blank">
+														<?php echo svg('download') ?>
+													</a>
+												<?php } ?>
+											</li>
+											<?php
+										}
+										if ($response_more) {
+											foreach ($response_more->d as $news) {
 											?>
 												<li class="flex font-bold gap-[14px] items-center justify-between">
 													<p class="line-clamp-1 flex-1">
@@ -210,41 +235,14 @@
 														</a>
 													<?php } ?>
 												</li>
-												<?php
+										<?php
 											}
-											if ($response_more) {
-												foreach ($response_more->d as $news) {
-												?>
-													<li class="flex font-bold gap-[14px] items-center justify-between">
-														<p class="line-clamp-1 flex-1">
-															<?php echo htmlspecialchars($news->symbols) ?>
-															<?php if ($news->upsite) { ?>
-																<span
-																	class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
-															<?php } ?>
-															<?php if ($title_status != '') { ?>
-																<span
-																	style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
-															<?php } ?> - <?php echo htmlspecialchars($news->title) ?>
-														</p>
-														<p
-															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-															<?php _e('Hot', 'bsc') ?>
-														</p>
-														<?php if ($news->reporturl) { ?>
-															<a href="<?php echo $news->reporturl ?>" target="_blank">
-																<?php echo svg('download') ?>
-															</a>
-														<?php } ?>
-													</li>
-											<?php
-												}
-											}
-											?>
-										</ul>
+										}
+										?>
+									</ul>
 							<?php }
-								}
-							} ?>
+							}
+							?>
 							<?php if (have_rows('button_xem_them')) {
 								while (have_rows('button_xem_them')) :
 									the_row(); ?>

@@ -15,19 +15,19 @@
                 <select
                     class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-code">
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                   
+
                 </select>
             </div>
             <div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
-                    <p class="font-medium mb-2">
-                        <?php _e('Tìm theo ngành', 'bsc') ?>
-                    </p>
-                    <select
-                        class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-major">
-                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                       
-                    </select>
-                </div>
+                <p class="font-medium mb-2">
+                    <?php _e('Tìm theo ngành', 'bsc') ?>
+                </p>
+                <select
+                    class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-major">
+                    <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+
+                </select>
+            </div>
             <div class="lg:w-[20%] lg:max-w-[241px] flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
                     <?php _e('Tìm theo sàn', 'bsc') ?>
@@ -35,7 +35,7 @@
                 <select
                     class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-trading">
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                   
+
                 </select>
             </div>
             <button type="button" id="search_cophieu"
@@ -44,7 +44,7 @@
                     <?php _e('Tìm kiếm', 'bsc') ?>
                 </span>
             </button>
-            <button type="reset"  id="reset-ttcp"
+            <button type="reset" id="reset-ttcp"
                 class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
                 <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
             </button>
@@ -74,7 +74,7 @@
                 if ($response) {
                 ?>
                     <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                        <table
+                        <table id="ttcp-table"
                             class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3">
                             <thead>
                                 <tr>
@@ -102,15 +102,15 @@
                                 foreach ($response->d as $news) {
                                 ?>
                                     <tr class="border-b border-[#C9CCD2]">
-                                        <td class="!pl-5" data-code="<?php echo $news->symbol ?>"><a href=""><?php echo $news->symbol ?></a></td>
-                                        <td><?php echo $news->fullname ?></td>
-                                        <td data-trading="<?php echo $news->exchange ?>"><?php echo $news->exchange ?></td>
-                                        <td data-major="<?php echo $news->industryname ?>"><?php echo $news->industryname ?></td>
-                                        <td><?php echo $news->mc ?></td>
-                                        <td><?php echo $news->totalvolume ?></td>
-                                        <td><?php echo $news->totalvalue ?></td>
-                                        <td><?php echo $news->pe ?></td>
-                                        <td><?php echo $news->pb ?></td>
+                                        <td class="!pl-5" data-code="<?php echo $news->SYMBOL ?>"><a href=""><?php echo $news->SYMBOL ?></a></td>
+                                        <td><?php echo $news->FULLNAME ?></td>
+                                        <td data-trading="<?php echo $news->EXCHANGE ?>"><?php echo $news->EXCHANGE ?></td>
+                                        <td data-major="<?php echo $news->INDUSTRYNAME ?>"><?php echo $news->INDUSTRYNAME ?></td>
+                                        <td><?php echo $news->MC ?></td>
+                                        <td><?php echo $news->TOTALVOLUME ?></td>
+                                        <td><?php echo number_format($news->TOTALVALUE) ?></td>
+                                        <td><?php echo $news->PE ?></td>
+                                        <td><?php echo $news->PB ?></td>
                                     </tr>
                                 <?php
                                 }
@@ -118,12 +118,12 @@
                             </tbody>
                         </table>
                     </div>
-                   
+
                 <?php } else {
                     get_template_part('template-parts/content', 'none');
                 } ?>
             </div>
-           
+
         </div>
     </div>
 </section>

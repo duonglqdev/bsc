@@ -1701,31 +1701,6 @@
                                     "append": ""
                                 },
                                 {
-                                    "key": "field_6744b3bb5cc2a",
-                                    "label": "Danh mục báo cáo phân tích",
-                                    "name": "danh_muc_bao_cao_phan_tich",
-                                    "aria-label": "",
-                                    "type": "taxonomy",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "taxonomy": "danh-muc-bao-cao-phan-tich",
-                                    "add_term": 1,
-                                    "save_terms": 0,
-                                    "load_terms": 0,
-                                    "return_format": "object",
-                                    "field_type": "select",
-                                    "allow_null": 0,
-                                    "bidirectional": 0,
-                                    "multiple": 0,
-                                    "bidirectional_target": []
-                                },
-                                {
                                     "key": "field_670265ed5654a",
                                     "label": "Button Xem Thêm",
                                     "name": "button_xem_them",
@@ -14373,31 +14348,6 @@
                             "step": "",
                             "prepend": "",
                             "append": ""
-                        },
-                        {
-                            "key": "field_6744b8dc5a5cb",
-                            "label": "Danh mục báo cáo phân tích",
-                            "name": "danh_muc_bao_cao",
-                            "aria-label": "",
-                            "type": "taxonomy",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "taxonomy": "danh-muc-bao-cao-phan-tich",
-                            "add_term": 1,
-                            "save_terms": 0,
-                            "load_terms": 0,
-                            "return_format": "object",
-                            "field_type": "select",
-                            "allow_null": 0,
-                            "bidirectional": 0,
-                            "multiple": 0,
-                            "bidirectional_target": []
                         }
                     ],
                     "min": "",
@@ -14965,5 +14915,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732791355
+    "modified": 1732801465
 }

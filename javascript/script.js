@@ -2928,8 +2928,8 @@ import { DataTable } from 'simple-datatables';
 		const dataTable = new DataTable('#ttcp-table', {
 			searchable: false,
 			fixedHeight: true,
-			perPage: 10, // Số lượng mục mỗi trang mặc định là 10
-			perPageSelect: [10, 20, 30, 40], // Các lựa chọn số lượng mục trên mỗi trang
+			perPage: 12, // Số lượng mục mỗi trang mặc định là 10
+			perPageSelect: [12, 24, 36, 48], // Các lựa chọn số lượng mục trên mỗi trang
 		});
 
 		const dropdownElement = document.querySelector(
@@ -2947,8 +2947,8 @@ import { DataTable } from 'simple-datatables';
 			// Append phần tử dropdown vào phân trang
 			paginationElement.prepend(dropdownElement); // Di chuyển dropdown lên đầu phần phân trang
 			const options = dropdownElement.querySelectorAll('option');
-			options.forEach(option => {
-				option.text = option.text + " /trang"; // Thêm chữ "/trang" vào mỗi option
+			options.forEach((option) => {
+				option.text = option.text + ' /trang'; // Thêm chữ "/trang" vào mỗi option
 			});
 		}
 
@@ -2993,11 +2993,11 @@ import { DataTable } from 'simple-datatables';
 
 		// Hàm lọc dữ liệu cho tất cả các trường
 		function filterData() {
-			const nameFilter = searchInput?.value.trim().toLowerCase() || '';
-			const codeFilter = searchCode?.value || '';
-			const majorFilter = searchMajor?.value || '';
-			const tradingFilter = searchTrading?.value || '';
-
+			const nameFilter =
+				(searchInput && searchInput.value.trim().toLowerCase()) || '';
+			const codeFilter = (searchCode && searchCode.value) || '';
+			const majorFilter = (searchMajor && searchMajor.value) || '';
+			const tradingFilter = (searchTrading && searchTrading.value) || '';
 			const tableRows = document.querySelectorAll('#ttcp-table tbody tr');
 			let foundMatch = false; // Biến kiểm tra nếu có ít nhất 1 kết quả phù hợp
 
