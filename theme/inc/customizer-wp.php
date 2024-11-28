@@ -346,3 +346,14 @@ function wpse_11826_search_by_title($search, $wp_query)
 }
 
 add_filter('posts_search', 'wpse_11826_search_by_title', 10, 2);
+
+/**
+ * Direct to MCP
+ */
+add_action('template_redirect', function () {
+    if (isset($_GET['investment']) && isset($_GET['s']) && $_GET['investment'] === 'co_phieu') {
+        $redirect_url = get_field('cdttcp1_page', 'option') . '?mcp=' . $_GET['s'];
+        wp_redirect($redirect_url);
+        exit;
+    }
+});

@@ -25,7 +25,6 @@
 <body <?php body_class('font-body text-black font-normal'); ?>>
 
 	<?php wp_body_open(); ?>
-
 	<header class="transition duration-500 relative z-30">
 		<div
 			class="bg-gradient-blue py-2 text-white relative  overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg] lg:block hidden">
@@ -35,7 +34,7 @@
 						class="border border-white border-opacity-60 rounded-lg flex items-center  text-xs leading-none">
 						<div class="py-3 pl-6 flex items-center">
 							<div class="flex">
-								<input type="radio" id="cp" name="investment" class="hidden peer">
+								<input type="radio" id="cp" name="investment" class="hidden peer" value="co_phieu">
 								<label for="cp"
 									class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 									<?php _e('Cổ phiếu', 'bsc') ?>

@@ -102,7 +102,11 @@
                                 foreach ($response->d as $news) {
                                 ?>
                                     <tr class="border-b border-[#C9CCD2]">
-                                        <td class="!pl-5" data-code="<?php echo $news->SYMBOL ?>"><a href=""><?php echo $news->SYMBOL ?></a></td>
+                                        <td class="!pl-5" data-code="<?php echo $news->SYMBOL ?>">
+                                            <?php if ($news->SYMBOL) { ?>
+                                                <a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"><?php echo $news->SYMBOL ?></a>
+                                            <?php } ?>
+                                        </td>
                                         <td><?php echo $news->FULLNAME ?></td>
                                         <td data-trading="<?php echo $news->EXCHANGE ?>"><?php echo $news->EXCHANGE ?></td>
                                         <td data-major="<?php echo $news->INDUSTRYNAME ?>"><?php echo $news->INDUSTRYNAME ?></td>

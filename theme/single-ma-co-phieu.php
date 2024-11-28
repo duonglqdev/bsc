@@ -323,7 +323,7 @@ get_header();
 								</button>
 							</li>
 						</ul>
-						<div class="block" id="lichsugiaodich">
+						<div class="tab-content block" id="lichsugiaodich">
 							<div
 								class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
 								<div class="flex bg-primary-300 text-white">
@@ -439,7 +439,7 @@ get_header();
 								</p>
 							</div>
 						</div>
-						<div class="hidden" id="ndtnn">
+						<div class="tab-content hidden" id="ndtnn">
 							<div
 								class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
 								<div class="flex bg-primary-300 text-white">

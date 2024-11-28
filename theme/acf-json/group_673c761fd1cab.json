@@ -4529,7 +4529,7 @@
                                         "id": ""
                                     },
                                     "return_format": "id",
-                                    "library": "all",
+                                    "library": "",
                                     "min_width": "",
                                     "min_height": "",
                                     "min_size": "",
@@ -14353,6 +14353,119 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_67488b806bc2e": {
+                    "key": "layout_67488b806bc2e",
+                    "name": "dmkn_chart_bsc_display_pagination",
+                    "label": "[Khuyến nghị] Danh sách khuyến nghị",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67488b806bc2f",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67488c6e6bc35",
+                            "label": "ID API",
+                            "name": "id_api",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_67488bb06bc32",
+                            "label": "Hình ảnh Sidebar",
+                            "name": "hinh_anh_sidebar",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_67488bb06bc33",
+                                    "label": "Đường dẫn",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_67488bb06bc34",
+                                    "label": "Hình ảnh",
+                                    "name": "img",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_6744b9065a5cc": {
                     "key": "layout_6744b9065a5cc",
                     "name": "qdbsc_vi_mo",
@@ -14915,5 +15028,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732801465
+    "modified": 1732807835
 }

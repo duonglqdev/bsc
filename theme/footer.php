@@ -342,7 +342,7 @@ if (is_tax('danh-muc-bao-cao')) {
 			the_row();
 			$module_name = get_row_layout();
 
-			if (($module_name == 'tailieu_baocao')) {
+			if (($module_name == 'tailieu_baocao') || ($module_name == 'dmkn_chart_bsc_display_pagination')) {
 				$true_form_modal = 1;
 			}
 
