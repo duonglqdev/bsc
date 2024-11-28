@@ -126,7 +126,9 @@ module.exports = {
 
 		// Extract colors and widths from `theme.json`.
 		require('@_tw/themejson'),
-		require('flowbite/plugin'),
+		require('flowbite/plugin')({
+			datatables: true,
+		}),
 		// Uncomment below to add additional first-party Tailwind plugins.
 		// require('@tailwindcss/forms'),
 		// require('@tailwindcss/aspect-ratio'),
