@@ -1,4 +1,4 @@
-<section class="xl:my-[100px] my-20" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="xl:my-[100px] my-20 co_phieu_list" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <form class="flex gap-4 items-end mb-10" id="form-search-cophieu">
             <div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
