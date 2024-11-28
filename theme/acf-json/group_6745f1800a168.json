@@ -368,31 +368,6 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_6748338508fd4",
-            "label": "Danh mục khuyến nghị",
-            "name": "cdttcp2_tax_kn",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "danh-muc-bao-cao-phan-tich",
-            "add_term": 1,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "field_type": "select",
-            "allow_null": 0,
-            "bidirectional": 0,
-            "multiple": 0,
-            "bidirectional_target": []
         }
     ],
     "location": [
@@ -413,5 +388,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732785378
+    "modified": 1732816198
 }

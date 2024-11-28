@@ -244,7 +244,7 @@ function custom_template_redirect_for_co_phieu()
             // // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
             global $custom_meta_data;
             $custom_meta_data = array(
-                'title' => $co_phieu->title,
+                'title' => $co_phieu_id,
                 'description' => $co_phieu->description,
                 'thumbnail' => $co_phieu->imagethumbnail
             );

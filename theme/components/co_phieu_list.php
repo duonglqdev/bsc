@@ -6,7 +6,7 @@
                     <?php _e('Tìm theo tên', 'bsc') ?>
                 </p>
                 <input type="text" placeholder="<?php _e('Nhập mã chứng khoán', 'bsc') ?>"
-                    class="w-full bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]" id="search-name">
+                    class="w-full bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]" id="search-name" value="<?php if (isset($_GET['mcp'])) echo $_GET['mcp'] ?>">
             </div>
             <div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
