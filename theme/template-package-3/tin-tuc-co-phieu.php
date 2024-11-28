@@ -7,21 +7,20 @@ Template Name: [Package 3] Danh sách tin tức mã cổ phiếu
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="my-[68px]">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
 				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
-                    <div class="sticky top-5 z-10">
-                        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
-                            alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
-                    </div>
+					<div class="sticky top-5 z-10">
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
+					</div>
 				</div>
 				<div class="flex-1 space-y-11">
 					<?php
-					for ( $i = 0; $i < 10; $i++ )
-					{
-						?>
+					for ($i = 0; $i < 10; $i++) {
+					?>
 						<div class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8"
 							data-modal-target="document-modal" data-modal-toggle="document-modal"
 							data-doccument="" data-id="">
@@ -53,13 +52,13 @@ get_header();
 							<p
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
 								Xem nội dung
-								<?php echo svg( 'download' ) ?>
+								<?php echo svg('download') ?>
 							</p>
 						</div>
 					<?php
 					}
 					?>
-                    <?php get_template_part( 'components/pagination' ) ?>
+					<?php get_template_part('components/pagination') ?>
 				</div>
 			</div>
 		</div>

@@ -20,10 +20,9 @@
 			<div class="lg:col-span-1 col-span-full lg:order-1 order-2">
 
 				<div class="relative">
-					<?php if ( have_rows( 'trai_nghiem' ) )
-					{
+					<?php if (have_rows('trai_nghiem')) {
 						$i = 0;
-						while ( have_rows( 'trai_nghiem' ) ) :
+						while (have_rows('trai_nghiem')) :
 							the_row();
 							$i++; ?>
 							<div data-download="<?php echo $i ?>"
@@ -47,13 +46,12 @@
 															class="md:text-lg text-xs font-semibold list-icon-item lg:w-full w-1/2 lg:px-0 px-2">
 															<?php the_sub_field( 'content' ) ?>
 														</li>
-														<?php
+												<?php
 													endwhile;
 												}
 												?>
-												<?php if ( have_rows( 'button' ) )
-												{
-													while ( have_rows( 'button' ) ) :
+												<?php if (have_rows('button')) {
+													while (have_rows('button')) :
 														the_row();
 														if ( get_sub_field( 'title' ) )
 														{ ?>
@@ -61,18 +59,17 @@
 																<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 																	class="btn-base-yellow lg:inline-block block text-center">
 																	<span
-																		class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg( 'arrow-btn', '20' ) ?><?php the_sub_field( 'title' ) ?></span>
+																		class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg('arrow-btn', '20') ?><?php the_sub_field('title') ?></span>
 																</a>
 															</li>
-															<?php
-														}
-														;
+												<?php
+														};
 													endwhile;
 												}
 												?>
 											</ul>
 										</div>
-										<?php
+								<?php
 									endwhile;
 								}
 								?>
@@ -89,15 +86,14 @@
 													<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 														target="_blank" rel="nofollow"
 														class="w-12 h-12 p-2 rounded-md bg-gradient-menu inline-block group">
-														<?php echo wp_get_attachment_image( get_sub_field( 'icon' ), 'medium', '', array( 'class' => 'transition-all group-hover:scale-110' ) ) ?>
+														<?php echo wp_get_attachment_image(get_sub_field('icon'), 'medium', '', array('class' => 'transition-all group-hover:scale-110')) ?>
 													</a>
 												</li>
-											<?php endwhile;
+										<?php endwhile;
 										} ?>
-										<?php if ( have_rows( 'button' ) )
-										{
+										<?php if (have_rows('button')) {
 											$i = 0;
-											while ( have_rows( 'button' ) ) :
+											while (have_rows('button')) :
 												the_row();
 												$i++;
 												if ( get_sub_field( 'title' ) )
@@ -110,8 +106,7 @@
 															<?php the_sub_field( 'title' ) ?>
 														</a>
 													</li>
-												<?php }
-												;
+										<?php };
 											endwhile;
 										} ?>
 										<?php if ( have_rows( 'qr_code' ) )
@@ -145,7 +140,7 @@
 									</ul>
 								</div>
 							</div>
-						<?php endwhile;
+					<?php endwhile;
 					} ?>
 
 				</div>
@@ -156,10 +151,10 @@
 				<div class="lg:col-span-1 col-span-full relative lg:order-2 order-1 lg:-mt-20">
 					<?php
 					$i = 0;
-					while ( have_rows( 'trai_nghiem' ) ) :
+					while (have_rows('trai_nghiem')) :
 						the_row();
 						$i++;
-						?>
+					?>
 						<div data-download="<?php echo $i ?>"
 							class="<?php if ( $i == 1 )
 								echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-700 [&:not(.active)]:absolute [&:not(.active)]:w-full [&:not(.active)]:h-full [&:not(.active)]:inset-0 static">
@@ -173,8 +168,8 @@
 										<?php foreach ( $images as $image ) : ?>
 											<div class="w-[210px] max-w-[50%]">
 												<div class="relative pt-[203%]">
-													<img src="<?php echo esc_url( $image['sizes']['medium'] ); ?>"
-														alt="<?php echo esc_attr( $image['alt'] ); ?>"
+													<img loading="lazy" src="<?php echo esc_url($image['sizes']['medium']); ?>"
+														alt="<?php echo esc_attr($image['alt']); ?>"
 														class="absolute w-full h-full inset-0 object-cover border-[5px] rounded-2xl border-[#e3e3e3]">
 												</div>
 											</div>
@@ -185,11 +180,11 @@
 									?>
 									<?php foreach ( $images as $image ) : ?>
 										<div class="relative lg:pt-0 pt-[75%]">
-											<img src="<?php echo esc_url( $image['sizes']['large'] ); ?>" alt=""
+											<img loading="lazy" src="<?php echo esc_url( $image['sizes']['large'] ); ?>" alt=""
 												class="w-full h-full lg:h-[426px] object-contain lg:static absolute inset-0 m-auto">
 										</div>
 									<?php endforeach; ?>
-									<?php
+								<?php
 								} ?>
 							<?php endif; ?>
 						</div>
@@ -200,10 +195,10 @@
 							class="inline-flex justify-center lg:gap-8 gap-14 md:mt-[30px] mt-4 pb-2 border-b border-[#D9D9D9] relative">
 							<?php
 							$i = 0;
-							while ( have_rows( 'trai_nghiem' ) ) :
+							while (have_rows('trai_nghiem')) :
 								the_row();
 								$i++;
-								?>
+							?>
 								<li>
 									<button type="button" data-tab-download="<?php echo $i ?>" class="font-bold text-black [&:not(.active)]:text-opacity-70 transition-all duration-500 hover:scale-105 <?php if ( $i == 1 )
 										   echo 'active' ?>">
@@ -217,7 +212,7 @@
 
 					</div>
 				</div>
-				<?php
+			<?php
 			} ?>
 		</div>
 	</div>

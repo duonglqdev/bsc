@@ -7,7 +7,7 @@ Template Name: [Package-2] Blog kiến thức đầu tư
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="lg:mb-[100px] mb-20 mt-12">
 		<div class="container">
 			<div class="lg:flex 2xl:gap-[70px] gap-12">
@@ -42,7 +42,7 @@ get_header();
 
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -51,18 +51,17 @@ get_header();
 				<div class="lg:flex-1">
 					<div class="grid md:grid-cols-2 grid-cols-1 gap-5 gap-x-6 gap-y-8">
 						<?php
-						for ( $i = 0; $i < 10; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 10; $i++) {
+						?>
 							<div class="post_item font-Helvetica">
 								<a href=""
 									class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/activity.png"
 										alt=""
 										class="absolute w-full h-full inset-0 object-cover group-hover:scale-110 transition-all duration-500">
 								</a>
 								<div class="date flex items-center gap-x-[12px] mb-2 text-xs">
-									<?php echo svg( 'date' ) ?>
+									<?php echo svg('date') ?>
 									<span>
 										Ngày 26/06/2024
 									</span>
@@ -86,14 +85,14 @@ get_header();
 								<a href=""
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 									Xem chi tiết
-									<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
-					<?php get_template_part( 'components/pagination' ) ?>
+					<?php get_template_part('components/pagination') ?>
 				</div>
 			</div>
 		</div>

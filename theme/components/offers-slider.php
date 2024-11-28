@@ -67,7 +67,7 @@
 					<?php if ( get_sub_field( 'icon' ) )
 					{ ?>
 						<div class="absolute lg:w-auto w-1/2 lg:-top-28 -top-4 lg:right-0 right-4 lg:translate-x-10 pointer-events-none">
-							<img src="<?php echo wp_get_attachment_image_url( get_sub_field( 'icon' ), 'large' ) ?>"
+							<img loading="lazy" src="<?php echo wp_get_attachment_image_url( get_sub_field( 'icon' ), 'large' ) ?>"
 								alt="<?php the_sub_field( 'title' ) ?>">
 						</div>
 					<?php } ?>

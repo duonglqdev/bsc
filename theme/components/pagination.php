@@ -18,6 +18,9 @@
 					if (isset($_GET['years'])) {
 						$endpoint .= '&years=' . $_GET['years'];
 					}
+					if (isset($_GET['s'])) {
+						$endpoint .= '&s=' . $_GET['s'];
+					}
 					foreach ($posts_to_show as $number) :
 						$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
 					?>

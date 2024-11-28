@@ -39,7 +39,7 @@
 										<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
 											class="about_culture-item block rounded-[15px] overflow-hidden relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35">
 											<div class="relative w-full pt-[58%]">
-												<img class="absolute w-full h-full inset-0 object-cover" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>" alt="<?php echo htmlspecialchars($news->title) ?>">
+												<img class="absolute w-full h-full inset-0 object-cover" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>" alt="<?php echo htmlspecialchars($news->title) ?>" loading="lazy">
 											</div>
 											<h4
 												class="text-center p-4 text-primary-400 font-bold bg-white hidden title lg:text-2xl text-lg line-clamp-1">

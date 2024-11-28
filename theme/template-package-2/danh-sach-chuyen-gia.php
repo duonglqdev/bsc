@@ -7,7 +7,7 @@ Template Name: [Package-2] Danh sách chuyên gia
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
@@ -67,18 +67,18 @@ get_header();
 					<p class="font-semibold mb-2">
 						Tên chuyên gia
 					</p>
-					<input type="text" placeholder="<?php _e( 'Nhập họ tên chuyên gia', 'bsc' ) ?>"
+					<input type="text" placeholder="<?php _e('Nhập họ tên chuyên gia', 'bsc') ?>"
 						class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
 				</div>
 				<button type="button" id="search_expert"
 					class="btn-base-yellow h-[50px] rounded-xl min-w-[178px]">
 					<span class="block relative z-10">
-						<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+						<?php _e('Tìm kiếm', 'bsc') ?>
 					</span>
 				</button>
 				<button type="reset" id="btn-reload"
 					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+					<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 				</button>
 			</form>
 			<div class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6">
@@ -87,7 +87,7 @@ get_header();
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
 							<div class="relative w-full pt-[100%] group expert-img">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 108.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 108.png"
 									alt=""
 									class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 							</div>
@@ -97,7 +97,7 @@ get_header();
 								style="background-color:#F5E0E2; color:#EF2D2E;">
 								<div
 									class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/fire 1.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/fire 1.png"
 										alt="" class="w-[12px] h-[12px] object-contain">
 								</div>
 								Mệnh hỏa
@@ -116,36 +116,36 @@ get_header();
 							</p>
 							<a href="tel:0962787858"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
 						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
 									thuật</strong>
@@ -153,7 +153,7 @@ get_header();
 						</li>
 						<div class="hidden">
 							<li class="flex items-start gap-2">
-								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+								<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
 								</p>
@@ -207,7 +207,7 @@ get_header();
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
 							<div class="relative w-full pt-[100%] group expert-img">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
 									alt=""
 									class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 							</div>
@@ -217,7 +217,7 @@ get_header();
 								style="background-color:#EFEFEF; color:#4F4F4F;">
 								<div
 									class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kim.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/kim.png"
 										alt="" class="w-[12px] h-[12px] object-contain">
 								</div>
 								Mệnh kim
@@ -236,36 +236,36 @@ get_header();
 							</p>
 							<a href="tel:0962787858"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
 						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
 									thuật</strong>
@@ -273,7 +273,7 @@ get_header();
 						</li>
 						<div class="hidden">
 							<li class="flex items-start gap-2">
-								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+								<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
 								</p>
@@ -327,7 +327,7 @@ get_header();
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
 							<div class="relative w-full pt-[100%] group expert-img">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
 									alt=""
 									class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 							</div>
@@ -337,7 +337,7 @@ get_header();
 								style="background-color:#B3EDC1; color:#30D158;">
 								<div
 									class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/moc.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/moc.png"
 										alt="" class="w-[12px] h-[12px] object-contain">
 								</div>
 								Mệnh mộc
@@ -356,36 +356,36 @@ get_header();
 							</p>
 							<a href="tel:0962787858"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
 						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
 									thuật</strong>
@@ -393,7 +393,7 @@ get_header();
 						</li>
 						<div class="hidden">
 							<li class="flex items-start gap-2">
-								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+								<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
 								</p>
@@ -447,7 +447,7 @@ get_header();
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
 							<div class="relative w-full pt-[100%] group expert-img">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
 									alt=""
 									class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 							</div>
@@ -457,7 +457,7 @@ get_header();
 								style="background-color:#EDC8AD; color:#913400;">
 								<div
 									class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/tho.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/tho.png"
 										alt="" class="w-[12px] h-[12px] object-contain">
 								</div>
 								Mệnh thổ
@@ -476,36 +476,36 @@ get_header();
 							</p>
 							<a href="tel:0962787858"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
 						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
 									thuật</strong>
@@ -513,7 +513,7 @@ get_header();
 						</li>
 						<div class="hidden">
 							<li class="flex items-start gap-2">
-								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+								<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
 								</p>
@@ -567,7 +567,7 @@ get_header();
 					<div class="flex flex-col items-center">
 						<div class="w-[120px] rounded-full overflow-hidden">
 							<div class="relative w-full pt-[100%] group expert-img">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109.png"
 									alt=""
 									class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 							</div>
@@ -577,7 +577,7 @@ get_header();
 								style="background-color:#D7E9F3; color:#0678F4;">
 								<div
 									class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/thuy.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/thuy.png"
 										alt="" class="w-[12px] h-[12px] object-contain">
 								</div>
 								Mệnh thủy
@@ -596,36 +596,36 @@ get_header();
 							</p>
 							<a href="tel:0962787858"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('fone', '19', '19', 'absolute top-0.5 left-0') ?>
 								0962787858
 							</a>
 							<a href="mailto:phuonglh@bsc.com.vn"
 								class="block relative pl-6 text-xs break-words">
-								<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ) ?>
+								<?php echo svgClass('e-mail', '19', '19', 'absolute top-0.5 left-0') ?>
 								phuonglh@bsc.com.vn
 							</a>
 						</div>
 						<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Vector.png"
 								alt=""
 								class="w-full h-auto transition-all duration-500 hover:scale-105">
 						</div>
 					</div>
 					<ul class="space-y-3 text-xs expert-info text-justify">
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Kinh nghiệm: <strong>15 năm</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trình độ học vấn: <strong>Thạc sĩ</strong>
 							</p>
 						</li>
 						<li class="flex items-start gap-2">
-							<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+							<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 							<p>
 								Trường phái đầu tư: <strong>Đầu tư cơ bản, Phân tích kỹ
 									thuật</strong>
@@ -633,7 +633,7 @@ get_header();
 						</li>
 						<div class="hidden">
 							<li class="flex items-start gap-2">
-								<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
+								<?php echo svgClass('triangle', '20', '20', 'shrink-0') ?>
 								<p>
 									Địa chỉ: <strong>Thành phố Hà Nội</strong>
 								</p>
@@ -684,7 +684,7 @@ get_header();
 				</div>
 			</div>
 			<div class="pagination-center">
-				<?php get_template_part( 'components/pagination' ) ?>
+				<?php get_template_part('components/pagination') ?>
 			</div>
 	</section>
 </main>
@@ -696,7 +696,7 @@ get_header();
 
 			<div class="flex items-center justify-between bg-primary-50 px-6 py-[18px]">
 				<h3 class="text-2xl font-bold text-primary-300">
-					<?php _e( 'CHI TIẾT CHUYÊN GIA TƯ VẤN', 'bsc' ) ?>
+					<?php _e('CHI TIẾT CHUYÊN GIA TƯ VẤN', 'bsc') ?>
 				</h3>
 				<button type="button"
 					class="text-primary-300 w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-base"

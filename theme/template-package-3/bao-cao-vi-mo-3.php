@@ -7,7 +7,7 @@ Template Name: [Package 3] Báo cáo vĩ mô #3
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="customtab-nav flex justify-between gap-10">
@@ -81,14 +81,14 @@ get_header();
 									cáo chiến lược</a>
 							</li>
 						</ul>
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
 						<div class="p-6 bg-gradient-blue-50 mb-10">
 							<h3 class="text-primary-300 font-bold text-xl mb-4">
 								Đăng ký nhận báo cáo từ BSC
 							</h3>
 							<div class="form_report">
-								<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
+								<?php echo do_shortcode('[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]') ?>
 							</div>
 						</div>
 					</div>
@@ -96,10 +96,10 @@ get_header();
 				<div class="flex-1">
 					<form action=""
 						class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2">
-						<?php echo svg( 'search', '24', '24' ) ?>
+						<?php echo svg('search', '24', '24') ?>
 						<input type="text" name="s"
 							class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
-							placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
+							placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>">
 					</form>
 					<div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
 						<div
@@ -116,29 +116,29 @@ get_header();
 							datepicker-autohide datepicker-orientation="bottom right"
 							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
 							<p class="font-medium mr-5 2xl:min-w-[94px]">
-								<?php _e( 'Thời gian:', 'gnws' ) ?>
+								<?php _e('Thời gian:', 'gnws') ?>
 							</p>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
-									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
-								<?php echo svg( 'day', '20', '20' ) ?>
+									placeholder="<?php _e('Từ ngày', 'bsc') ?>">
+								<?php echo svg('day', '20', '20') ?>
 							</div>
 							<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-end" name="end" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
-									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
-								<?php echo svg( 'day', '20', '20' ) ?>
+									placeholder="<?php _e('Đến ngày', 'bsc') ?>">
+								<?php echo svg('day', '20', '20') ?>
 							</div>
 						</div>
 						<button type="submit"
 							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
-							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+							<?php _e('Tìm kiếm', 'bsc') ?>
 						</button>
 						<button type="reset"
 							class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-							<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+							<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 						</button>
 					</div>
 					<div class="mb-[60px]">
@@ -235,15 +235,14 @@ get_header();
 											</div>
 										</div>
 										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
-											?>
+										for ($i = 0; $i < 5; $i++) {
+										?>
 											<div
 												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
-											<?php
+										<?php
 										}
 										?>
 										<div
@@ -264,15 +263,14 @@ get_header();
 											</div>
 										</div>
 										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
-											?>
+										for ($i = 0; $i < 5; $i++) {
+										?>
 											<div
 												class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
-											<?php
+										<?php
 										}
 										?>
 										<div
@@ -296,16 +294,15 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 3; $i++) {
+									?>
 										<div
 											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
 										</div>
-										<?php
+									<?php
 									}
 									?>
 									<div class="m-auto">
@@ -326,16 +323,15 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 3; $i++) {
+									?>
 										<div
 											class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
 										</div>
-										<?php
+									<?php
 									}
 									?>
 									<div class="m-auto">
@@ -349,9 +345,8 @@ get_header();
 
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
-						for ( $i = 0; $i < 3; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 3; $i++) {
+						?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<a href=""
@@ -378,8 +373,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
@@ -409,8 +404,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
@@ -440,16 +435,16 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
+										<?php _e('Tải xuống', 'bsc') ?>
+										<?php echo svg('download', '20', '20') ?>
 									</a>
 								</div>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
-					<?php get_template_part( 'components/pagination' ) ?>
+					<?php get_template_part('components/pagination') ?>
 				</div>
 			</div>
 		</div>

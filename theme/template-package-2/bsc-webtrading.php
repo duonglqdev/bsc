@@ -7,7 +7,7 @@ Template Name: [Package-2] BSC webtrading
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav">
 		<div class="container">
 			<ul class="flex justify-center gap-10">
@@ -33,7 +33,7 @@ get_header();
 			<div class="space-y-10 max-w-[1115px] mx-auto">
 				<div class="md:flex gap-5 items-center">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a1.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -52,7 +52,7 @@ get_header();
 				</div>
 				<div class="md:flex gap-5 items-center flex-row-reverse">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a2.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -70,7 +70,7 @@ get_header();
 				</div>
 				<div class="md:flex gap-5 items-center">
 					<div class="md:w-1/2">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/a3.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="md:w-1/2">
@@ -99,7 +99,7 @@ get_header();
 							<a href="#" class="btn-base-yellow py-[12px] pl-4 pr-6">
 								<span
 									class="inline-flex items-center gap-x-3 relative z-10 text-xs">
-									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php echo svg('arrow-btn', '16', '16') ?>
 									Truy cập ngay
 								</span>
 							</a>
@@ -107,7 +107,7 @@ get_header();
 					</div>
 				</div>
 				<div class="lg:w-1/2 lg:flex pt-[54px]">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group 1000009486.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Group 1000009486.png"
 						alt="">
 				</div>
 			</div>
@@ -122,7 +122,7 @@ get_header();
 				data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": true, "pageDots": false, "cellAlign": "left","contain": true, "autoPlay":3000}'>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1-1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1-1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -137,7 +137,7 @@ get_header();
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -147,7 +147,7 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide2.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide2.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -176,7 +176,7 @@ get_header();
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -186,7 +186,7 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide3.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide3.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -206,7 +206,7 @@ get_header();
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -216,7 +216,7 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide4.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide4.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -236,7 +236,7 @@ get_header();
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>
@@ -246,7 +246,7 @@ get_header();
 				</div>
 				<div class="block_slider-item lg:w-[57.686567%] w-full mr-[23px] min-h-[420px]">
 					<div class="relative pt-[54.33376%]  rounded-[20px] overflow-hidden h-full">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
 							alt="" class="absolute w-full h-full inset-0 object-cover">
 						<div
 							class="lg:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8 absolute w-full h-full inset-0 z-10">
@@ -257,7 +257,7 @@ get_header();
 								<div class="mt-auto">
 									<a href="#"
 										class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-										<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+										<?php echo svg('arrow-btn', '16', '16') ?>
 										Khám phá ngay
 									</a>
 								</div>

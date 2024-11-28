@@ -7,7 +7,7 @@ Template Name: [Package-2] Chương trình khuyến mãi
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="my-12 featured_news bg-gradient-blue-to-bottom-50">
 		<div class="container">
 			<div class="featured_news-list block_slider-show-1"
@@ -23,7 +23,7 @@ get_header();
 							</h2>
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
-									<?php echo svg( 'time' ) ?>
+									<?php echo svg('time') ?>
 									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -43,13 +43,13 @@ get_header();
 								<p
 									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -65,7 +65,7 @@ get_header();
 							</h2>
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
-									<?php echo svg( 'time' ) ?>
+									<?php echo svg('time') ?>
 									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -85,13 +85,13 @@ get_header();
 								<p
 									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -107,7 +107,7 @@ get_header();
 							</h2>
 							<div class="mt-4 flex items-center gap-2 font-Helvetica">
 								<div class="inline-flex items-center gap-2">
-									<?php echo svg( 'time' ) ?>
+									<?php echo svg('time') ?>
 									Thời gian:
 								</div>
 								<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -127,13 +127,13 @@ get_header();
 								<p
 									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+										class="block relative z-10"><?php _e('Xem chi tiết', 'bsc') ?></span>
 								</p>
 
 							</div>
 						</div>
 						<div class="relative w-full pt-[55%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
 								alt="" class="object-cover absolute w-full h-full inset-0">
 						</div>
 					</a>
@@ -145,12 +145,11 @@ get_header();
 		<div class="container">
 			<div class="grid lg:grid-cols-3 grid-cols-1 gap-x-[21px] gap-y-[30px]">
 				<?php
-				for ( $i = 0; $i < 9; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 9; $i++) {
+				?>
 					<div class="flex flex-col font-Helvetica">
 						<a href="" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
 						</a>
@@ -162,7 +161,7 @@ get_header();
 						</h3>
 						<div class="mt-6 flex items-center gap-4">
 							<div class="inline-flex items-center gap-2">
-								<?php echo svg( 'time' ) ?>
+								<?php echo svg('time') ?>
 								Thời gian:
 							</div>
 							<div class="font-medium">22/08/2024 - 22/10/2024</div>
@@ -178,12 +177,12 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
 			<div class="pagination-center">
-				<?php get_template_part( 'components/pagination' ) ?>
+				<?php get_template_part('components/pagination') ?>
 			</div>
 		</div>
 	</section>
@@ -200,24 +199,24 @@ get_header();
 						<a href=""
 							class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 							Mở tài khoản
-							<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+							<?php echo svg('arrow-btn', '12', '12') ?>
 						</a>
 						<div class="flex items-center">
 							<a href=""
 								class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								Trải nghiệm BSC Web Trading
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 							<a href=""
 								class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
 								BSC Smart Invest
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</div>
 					</div>
 				</div>
 				<div class="">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23515 (1).png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23515 (1).png"
 						alt="">
 				</div>
 			</div>

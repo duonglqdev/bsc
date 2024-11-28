@@ -7,7 +7,7 @@ Template Name: [Package 3] Chi tiết báo cáo vĩ mô
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="mt-14 xl:mb-[100px] mb-20">
 		<div class="container">
 			<h1 class="lg:text-[32px] text-2xl font-bold mb-8">
@@ -76,7 +76,7 @@ get_header();
 						<div class="mt-6">
 							<a href=""
 								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
 							</a>
 						</div>
 					</div>
@@ -118,7 +118,7 @@ get_header();
 						</h2>
 						<div
 							class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109 (1).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109 (1).png"
 								alt="">
 							<ul>
 								<li>SMB: CTCP Bia Sài Gòn – Miền Trung (SMB – sàn HOSE) cho biết,
@@ -165,9 +165,8 @@ get_header();
 			</h3>
 			<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
 				<?php
-				for ( $i = 0; $i < 2; $i++ )
-				{
-					?>
+				for ($i = 0; $i < 2; $i++) {
+				?>
 					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 						<div class="flex items-center justify-between mb-4">
 							<a href=""
@@ -193,8 +192,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -223,8 +222,8 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
@@ -253,12 +252,12 @@ get_header();
 							</p>
 							<a href=""
 								class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-								<?php _e( 'Tải xuống', 'bsc' ) ?>
-								<?php echo svg( 'download', '20', '20' ) ?>
+								<?php _e('Tải xuống', 'bsc') ?>
+								<?php echo svg('download', '20', '20') ?>
 							</a>
 						</div>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>

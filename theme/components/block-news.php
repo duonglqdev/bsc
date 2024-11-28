@@ -22,7 +22,7 @@ if ($response) {
 						<div class="md:col-span-3 col-span-full">
 							<div class="group">
 								<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px]">
-									<img src="<?php echo bsc_set_thumbnail($news, 'large') ?>"
+									<img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'large') ?>"
 										alt="<?php echo htmlspecialchars($news->title) ?>"
 										class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 								</a>

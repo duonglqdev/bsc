@@ -11,7 +11,7 @@
                     srcset="<?php echo wp_get_attachment_image_url(get_sub_field('img_mobile', 'full')) ?>">
             <?php } ?>
             <?php if (get_sub_field('img_desktop')) { ?>
-                <img src="<?php echo wp_get_attachment_image_url(get_sub_field('img_desktop'), 'full') ?>" alt="<?php the_sub_field('title') ?>">
+                <img loading="lazy" src="<?php echo wp_get_attachment_image_url(get_sub_field('img_desktop'), 'full') ?>" alt="<?php the_sub_field('title') ?>">
             <?php } ?>
         </picture>
     </div>

@@ -16,7 +16,7 @@
                     <div class="block_slider-item px-4 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
                             class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
-                            <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
+                            <img loading="lazy" src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>"
                                 class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
                         </a>
@@ -27,12 +27,12 @@
         <?php
         $images = get_sub_field('gallery_duoi');
         if ($images): ?>
-            <div class="block_slider-show-4 block__slider-marquee marquee-rtl" >
+            <div class="block_slider-show-4 block__slider-marquee marquee-rtl">
                 <?php foreach ($images as $image): ?>
                     <div class="block_slider-item px-4 py-3 lg:w-1/4 w-1/2">
                         <a href="<?php echo esc_url($image['url']); ?>"
                             class="block w-full relative pt-[60%] transition-all duration-500 hover:scale-105 rounded-[10px] overflow-hidden" data-fancybox>
-                            <img src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
+                            <img loading="lazy" src="<?php echo esc_url($image['sizes']['thumbnail']); ?>"
                                 alt="<?php echo esc_attr($image['alt']); ?>"
                                 class="absolute w-full h-full inset-0 object-cover rounded-[10px]">
                         </a>

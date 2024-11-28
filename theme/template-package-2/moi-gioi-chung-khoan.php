@@ -7,7 +7,7 @@ Template Name: [Package-2] Môi giới chứng khoán
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
 			<h2 class="heading-title text-center mb-10">
@@ -18,7 +18,7 @@ get_header();
 					style="background: linear-gradient(147deg, #FAFAFA 0%, #E5F4FF 78.66%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -39,7 +39,7 @@ get_header();
 					style="background: linear-gradient(327deg, #FAFAFA -10%, #E5F4FF 78.76%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -60,7 +60,7 @@ get_header();
 					style="background: linear-gradient(46deg, #E5F4FF 24.72%, #FAFAFA 105.17%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -81,7 +81,7 @@ get_header();
 					style="background: linear-gradient(226deg, #E5F4FF 26.88%, #FAFAFA 107.34%);">
 					<div class="max-w-[155px] w-full mx-auto">
 						<div class="relative w-full pt-[100%]">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
 								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
 								alt="">
 						</div>
@@ -127,7 +127,7 @@ get_header();
 			<div class="space-y-16 max-w-[1114px] mx-auto">
 				<div class="lg:flex lg:gap-[54px] gap-10 items-center">
 					<div class="lg:w-[660px] lg:max-w-[70%]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 24.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 24.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="flex-1 font-Helvetica">
@@ -147,7 +147,7 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Hướng dẫn mở tài khoản trực tuyến
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 
 						</p>
@@ -155,7 +155,7 @@ get_header();
 				</div>
 				<div class="lg:flex flex-row-reverse lg:gap-[54px] gap-10 items-center">
 					<div class="lg:w-[660px] lg:max-w-[70%]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 25.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 25.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="flex-1 font-Helvetica">
@@ -175,14 +175,14 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105">
 								Hướng dẫn nộp tiền
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</p>
 					</div>
 				</div>
 				<div class="lg:flex lg:gap-[54px] gap-10 items-center">
 					<div class="lg:w-[660px] lg:max-w-[70%]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 26.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/2 26.png"
 							alt="" class="transition-all duration-500 hover:scale-105">
 					</div>
 					<div class="flex-1 font-Helvetica">
@@ -201,21 +201,21 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Trải nghiệm BSC Web Trading
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</p>
 						<p>
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								BSC Smart Invest
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</p>
 						<p>
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
 								Hướng dẫn đặt lệnh
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 						</p>
 					</div>
@@ -241,13 +241,13 @@ get_header();
 								<a href="#"
 									class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
 									Truy cập ngay
-									<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 
 							</div>
 						</div>
 						<div class="w-1/2">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534.png"
 								alt="" class="lg:ml-auto">
 						</div>
 					</div>
@@ -264,13 +264,13 @@ get_header();
 								<a href="#"
 									class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
 									Truy cập ngay
-									<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 
 							</div>
 						</div>
 						<div class="w-1/2">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (1).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (1).png"
 								alt="" class="lg:ml-auto">
 						</div>
 					</div>
@@ -287,13 +287,13 @@ get_header();
 								<a href="#"
 									class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs mb-3">
 									Truy cập ngay
-									<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 
 							</div>
 						</div>
 						<div class="w-1/2">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (2).png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23534 (2).png"
 								alt="" class="lg:ml-auto">
 						</div>
 					</div>
@@ -311,12 +311,12 @@ get_header();
 					</h2>
 					<a href="#"
 						class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
-						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						<?php echo svg('arrow-btn', '16', '16') ?>
 						Xem chi tiết
 					</a>
 				</div>
 				<div class="col">
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image.png"
 						alt="" class="mx-auto">
 				</div>
 			</div>
@@ -339,13 +339,13 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 
 						</div>
 					</div>
 					<div class="w-1/2 h-full flex items-center justify-center">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1.png"
 							alt="">
 					</div>
 				</div>
@@ -360,13 +360,13 @@ get_header();
 							<a href="#"
 								class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
 								Truy cập ngay
-								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
 
 						</div>
 					</div>
 					<div class="w-1/2 h-full flex items-center justify-center">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1 (1).png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/OZI9ES1 1 (1).png"
 							alt="">
 					</div>
 				</div>

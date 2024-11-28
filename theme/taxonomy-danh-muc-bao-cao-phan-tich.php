@@ -118,7 +118,7 @@
                             <form method="get" class="flex gap-5 mb-10" action="<?php echo get_term_link(get_queried_object()); ?>">
                                 <div
                                     class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2 lg:w-[270px] max-w-[33.33%] shrink-0">
-                                    <?php echo svgClass( 'search', '24', '24','shrink-0' ) ?>
+                                    <?php echo svgClass('search', '24', '24', 'shrink-0') ?>
                                     <input type="text" name="key"
                                         class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
@@ -148,15 +148,15 @@
                                     <?php _e('Tìm kiếm', 'bsc') ?>
                                 </button>
                                 <button type="reset"
-							class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-							<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
-						</button>
+                                    class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                                    <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+                                </button>
                             </form>
                         <?php } else { ?>
                             <form method="get" action="<?php echo get_term_link(get_queried_object()); ?>">
                                 <div
                                     class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2">
-                                    <?php echo svgClass( 'search', '24', '24','shrink-0' ) ?>
+                                    <?php echo svgClass('search', '24', '24', 'shrink-0') ?>
                                     <input type="text" name="key"
                                         class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
@@ -203,7 +203,7 @@
                                     </button>
                                     <button type="reset"
                                         class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-                                        <?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+                                        <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
                                     </button>
                                 </div>
                             </form>
@@ -580,7 +580,9 @@
                                             ?>
                                                 <div class="flex items-center min-h-[30px]">
                                                     <div class="w-[15%] px-3 py-1">
-                                                        <a href=""><?php echo $GetForecastBussinessResults->symbol ?></a>
+                                                        <?php if ($GetForecastBussinessResults->symbol) { ?>
+                                                            <a href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
+                                                        <?php } ?>
                                                     </div>
                                                     <div class="w-[15%] px-3 py-1">
                                                         <?php echo $GetForecastBussinessResults->namevn ?>

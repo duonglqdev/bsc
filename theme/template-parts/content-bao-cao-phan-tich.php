@@ -32,7 +32,7 @@
             <?php } else { ?>
                 <div class="flex items-center gap-4">
                     <?php if ($news->symbols) { ?>
-                        <a href="javascript:void(0)"
+                        <a href="<?php echo slug_co_phieu($news->symbols) ?>"
                             class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
                             <?php echo $news->symbols ?>
                         </a>

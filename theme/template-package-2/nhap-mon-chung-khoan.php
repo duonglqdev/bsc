@@ -7,7 +7,7 @@ Template Name: [Package-2] Nhập môn chứng khoán
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="lg:mb-[100px] mb-20 mt-12">
 		<div class="container">
 			<div class="lg:flex 2xl:gap-[70px] gap-12">
@@ -42,7 +42,7 @@ get_header();
 
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>
@@ -51,17 +51,16 @@ get_header();
 				<div class="lg:flex-1">
 					<div class="grid md:grid-cols-2 grid-cols-1 gap-5 gap-x-6 gap-y-8">
 						<?php
-						for ( $i = 0; $i < 10; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 10; $i++) {
+						?>
 							<div class="flex flex-col">
 								<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 									class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
-									<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
+									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 										alt="" class="absolute w-full h-full inset-0 object-cover">
 									<div
 										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-										<?php echo svg( 'play', '62', '62' ) ?>
+										<?php echo svg('play', '62', '62') ?>
 									</div>
 								</a>
 								<h4
@@ -73,11 +72,11 @@ get_header();
 									</a>
 								</h4>
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
-					<?php get_template_part( 'components/pagination' ) ?>
+					<?php get_template_part('components/pagination') ?>
 				</div>
 			</div>
 		</div>

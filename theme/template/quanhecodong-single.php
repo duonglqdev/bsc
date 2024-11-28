@@ -43,7 +43,7 @@ get_header();
 							</li>
 						</ul>
 						<div class="mt-12">
-							<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 								alt=""
 								class="rounded-lg transition-all duration-500 hover:scale-105">
 						</div>

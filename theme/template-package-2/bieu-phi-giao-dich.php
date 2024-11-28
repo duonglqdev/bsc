@@ -7,7 +7,7 @@ Template Name: [Package-2] Biểu phí giao dịch
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="customtab-nav flex justify-between gap-10">
@@ -242,9 +242,9 @@ get_header();
 							</div>
 						</div>
 						<div class="table__item mb-10">
-							
+
 							<table>
-							<thead>
+								<thead>
 									<tr>
 										<th rowspan="2" class="w-[7.313%] px-0">STT
 										</th>
@@ -257,7 +257,7 @@ get_header();
 									<tr>
 										<td rowspan="3" style="background-color:#EBF4FA;">1</td>
 										<td style="background-color:#EBF4FA;">Lưu ký chứng khoán</td>
-										<td rowspan="3"style="background-color:#EBF4FA;">Thu theo giá dịch vụ của VSD/VSDC</td>
+										<td rowspan="3" style="background-color:#EBF4FA;">Thu theo giá dịch vụ của VSD/VSDC</td>
 									</tr>
 									<tr>
 										<td style="background-color:#EBF4FA;">Cổ phiếu, chứng chỉ quỹ, chứng quyền có bảo đảm</td>
@@ -266,23 +266,23 @@ get_header();
 										<td style="background-color:#EBF4FA;">Trái phiếu niêm yết</td>
 									</tr>
 									<tr>
-										<td rowspan="2"style="background-color:#DFF2FF ;">2</td>
+										<td rowspan="2" style="background-color:#DFF2FF ;">2</td>
 										<td style="background-color:#DFF2FF ;">Giá dịch vụ xác nhận phong tỏa chứng khoán một lần theo yêu cầu của khách hàng</td>
 										<td style="background-color:#DFF2FF ;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có) Chỉ tiết mức phí BSC thu:
-										0,2% giá trị theo mệnh giá, Tối thiểu 300.000 VND/yêu cầu, tối đa 1.000.000 VND/yêu cầu</td>
+											0,2% giá trị theo mệnh giá, Tối thiểu 300.000 VND/yêu cầu, tối đa 1.000.000 VND/yêu cầu</td>
 									</tr>
 									<tr>
 										<td style="background-color:#DFF2FF ;">Giá dịch vụ xác nhận phong tỏa và theo dõi chứng khoán (Ký thỏa thuận/Hợp đồng quản lý tài sản cầm cố 3 bên)</td>
 										<td style="background-color:#DFF2FF;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có) Chỉ tiết mức phí BSC thu: -0,2% giá trị theo mệnh giá, tối thiểu 500.000 VND/hợp đồng, tối đa 10.000.000 VND/hợp đồng</td>
 									</tr>
 									<tr>
-										<td rowspan="3"style="background-color:#EBF4FA;">3</td>
+										<td rowspan="3" style="background-color:#EBF4FA;">3</td>
 										<td style="background-color:#EBF4FA;">Giá dịch vụ chuyển khoản chứng khoán</td>
 										<td style="background-color:#DFF2FF;"></td>
 									</tr>
 									<tr>
 										<td style="background-color:#EBF4FA;">Giá dịch vụ chuyển khoản tất
-										toán tài khoản</td>
+											toán tài khoản</td>
 										<td style="background-color:#DFF2FF ;">Phí dịch vụ = Phí BSC thu + Mức giá dịch vụ của VSD/ VSDC (nếu có)
 											Chi tiết mức phí BSC thu:
 											- 100.000 VND/giao dịch
@@ -299,8 +299,8 @@ get_header();
 					<div class="mt-10 text-right">
 						<a href="" class="inline-block px-6 py-3 btn-base-yellow" target="_blank">
 							<span class="inline-flex items-center gap-2 relative z-10">
-								<?php _e( 'Tải xuống tài liệu', 'bsc' ) ?>
-								<?php echo svgpath( 'download', '', '', 'fill-black' ) ?>
+								<?php _e('Tải xuống tài liệu', 'bsc') ?>
+								<?php echo svgpath('download', '', '', 'fill-black') ?>
 							</span>
 						</a>
 
@@ -317,18 +317,18 @@ get_header();
 						BẠN CẦN HỖ TRỢ?
 					</h2>
 					<div class="relative w-full pt-[66.666%] overflow-hidden rounded-[10px]">
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
+						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/img-contact.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 					</div>
 				</div>
 				<div class="flex-1 2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]">
 					<h3 class="mb-6 text-primary-300 font-bold xl:text-2xl text-xl">
-						<?php _e( 'Đăng ký thông tin hỗ trợ', 'gnws' ) ?>
+						<?php _e('Đăng ký thông tin hỗ trợ', 'gnws') ?>
 					</h3>
 					<div
 						class="form_support relative font-Helvetica bg-white lg:px-8 px-5 lg:py-6 py-4 rounded-2xl">
-						<?php echo do_shortcode( '[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]' ) ?>
+						<?php echo do_shortcode('[contact-form-7 id="d5b6a0a" title="Đăng ký thông tin hỗ trợ"]') ?>
 					</div>
 				</div>
 			</div>

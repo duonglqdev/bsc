@@ -1,10 +1,10 @@
 <section class="lg:py-16 py-12 bg-gradient-blue-50 tthtkh_search" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <form class="mx-auto max-w-[950px] flex gap-4" id="seach_support-content">
+        <form class="mx-auto max-w-[950px] flex gap-4" id="seach_support-content" action="<?php echo get_home_url() ?>">
             <div
                 class="flex-1 rounded-[10px] bg-white lg:px-[26px] px-5 h-[50px] flex gap-3 items-center">
                 <?php echo svg('search', '24', '24') ?>
-                <input type="text"
+                <input type="text" name="s"
                     class="w-full placeholder:text-[#898A8D] border-none focus:outline-0 focus:ring-0"
                     placeholder="<?php _e('Tìm kiếm nội dung hỗ trợ', 'bsc') ?>">
             </div>

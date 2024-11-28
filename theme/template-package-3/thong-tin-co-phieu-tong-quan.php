@@ -7,7 +7,7 @@ Template Name:  [Package 3] Thông tin cổ phiếu (tổng quan)
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner' ) ?>
+	<?php get_template_part('components/page-banner') ?>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
 			<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
@@ -22,7 +22,7 @@ get_header();
 						<div class="flex gap-6 items-center">
 							<div
 								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-								<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
+								<?php echo svgClass('icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9') ?>
 							</div>
 							<div class="flex flex-col">
 								<h4
@@ -221,7 +221,7 @@ get_header();
 						<div class="mt-auto">
 							<p
 								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-								<?php echo svg( 'gold', '24', '24' ) ?>
+								<?php echo svg('gold', '24', '24') ?>
 								Hạng A
 							</p>
 						</div>
@@ -259,7 +259,7 @@ get_header();
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-4"
 						class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php echo svg( 'star', '24', '24' ) ?>
+						<?php echo svg('star', '24', '24') ?>
 						BSC DỰ PHÓNG
 					</button>
 				</li>
@@ -351,9 +351,8 @@ get_header();
 							</div>
 							<ul>
 								<?php
-								for ( $i = 0; $i < 3; $i++ )
-								{
-									?>
+								for ($i = 0; $i < 3; $i++) {
+								?>
 									<li
 										class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
 										<div
@@ -367,7 +366,7 @@ get_header();
 											</p>
 											<p
 												class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-												<?php echo svg( 'up', '17', '17' ) ?>
+												<?php echo svg('up', '17', '17') ?>
 												+0.98%
 											</p>
 										</div>
@@ -393,7 +392,7 @@ get_header();
 											</p>
 											<p
 												class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-												<?php echo svg( 'downn', '17', '17' ) ?>
+												<?php echo svg('downn', '17', '17') ?>
 												+0.98%
 											</p>
 										</div>
@@ -406,7 +405,7 @@ get_header();
 											15,608,000
 										</div>
 									</li>
-									<?php
+								<?php
 								}
 								?>
 								<li
@@ -422,7 +421,7 @@ get_header();
 										</p>
 										<p
 											class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-											<?php echo svg( 'up', '17', '17' ) ?>
+											<?php echo svg('up', '17', '17') ?>
 											+0.98%
 										</p>
 									</div>
@@ -441,7 +440,7 @@ get_header();
 						<div class="flex items-center justify-between mt-4">
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-								<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+								<?php echo svg('arrow-btn', '20', '20') ?>
 								Xem tất cả
 							</a>
 							<p class="font-medium text-xs font-Helvetica">
@@ -458,9 +457,8 @@ get_header();
 							</h2>
 							<div class="space-y-4">
 								<?php
-								for ( $i = 0; $i < 3; $i++ )
-								{
-									?>
+								for ($i = 0; $i < 3; $i++) {
+								?>
 									<div
 										class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 										<div class="flex items-center justify-between mb-4">
@@ -491,12 +489,12 @@ get_header();
 
 											<a href=""
 												class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105 ml-auto">
-												<?php _e( 'Tải xuống', 'bsc' ) ?>
-												<?php echo svg( 'download', '20', '20' ) ?>
+												<?php _e('Tải xuống', 'bsc') ?>
+												<?php echo svg('download', '20', '20') ?>
 											</a>
 										</div>
 									</div>
-									<?php
+								<?php
 								}
 								?>
 							</div>
@@ -506,7 +504,7 @@ get_header();
 								CƠ CẤU CỔ ĐÔNG
 							</h2>
 							<div class="space-y-4">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/cctc.svg"
+								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/cctc.svg"
 									alt="" class="w-full h-auto">
 								<div
 									class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
@@ -558,29 +556,28 @@ get_header();
 									<thead>
 										<tr>
 											<th class="!pl-5 cursor-pointer">Mã CK
-												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+												<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 											</th>
 
 											<th class="filter-table cursor-pointer filter-table">
 												Vốn hóa
-												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+												<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 											</th>
 
 											<th class="filter-table cursor-pointer filter-table">
 												PE
-												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+												<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 											</th>
 											<th class="filter-table cursor-pointer filter-table">
 												PB
-												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+												<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 											</th>
 										</tr>
 									</thead>
 									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
 										<?php
-										for ( $i = 0; $i < 3; $i++ )
-										{
-											?>
+										for ($i = 0; $i < 3; $i++) {
+										?>
 											<tr>
 												<td class="!pl-5"><a href="">A32</a></td>
 												<td>36,80</td>
@@ -599,7 +596,7 @@ get_header();
 												<td>303,24</td>
 												<td>8,99</td>
 											</tr>
-											<?php
+										<?php
 										}
 										?>
 
@@ -618,9 +615,8 @@ get_header();
 					</h2>
 					<div class="grid grid-cols-2 gap-x-9 gap-y-[46px]">
 						<?php
-						for ( $i = 0; $i < 6; $i++ )
-						{
-							?>
+						for ($i = 0; $i < 6; $i++) {
+						?>
 							<div class="news_service-item">
 								<div class="flex items-center">
 									<div
@@ -655,7 +651,7 @@ get_header();
 								</div>
 
 							</div>
-							<?php
+						<?php
 						}
 						?>
 					</div>
@@ -681,14 +677,13 @@ get_header();
 						<a href=""
 							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
 							Xem chi tiết
-							<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+							<?php echo svg('arrow-btn', '12', '12') ?>
 						</a>
 					</div>
 					<ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
 						<?php
-						for ( $i = 18; $i < 24; $i++ )
-						{
-							?>
+						for ($i = 18; $i < 24; $i++) {
+						?>
 							<li class="lg:min-w-[140px] font-bold">
 								<p>
 									Năm 20<?= $i ?>
@@ -697,7 +692,7 @@ get_header();
 									(Đã kiểm toán)
 								</p>
 							</li>
-							<?php
+						<?php
 						}
 						?>
 					</ul>
@@ -712,9 +707,8 @@ get_header();
 								</thead>
 								<tbody>
 									<?php
-									for ( $i = 0; $i < 4; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 4; $i++) {
+									?>
 										<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
 											<td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV</td>
 											<td>911,959,220</td>
@@ -724,7 +718,7 @@ get_header();
 											<td>1,089,005,390</td>
 											<td>1,258,998,059</td>
 										</tr>
-										<?php
+									<?php
 									}
 									?>
 								</tbody>
@@ -740,9 +734,8 @@ get_header();
 								</thead>
 								<tbody>
 									<?php
-									for ( $i = 0; $i < 4; $i++ )
-									{
-										?>
+									for ($i = 0; $i < 4; $i++) {
+									?>
 										<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
 											<td class="lg:min-w-[231px]">Tổng tài sản</td>
 											<td>911,959,220</td>
@@ -752,7 +745,7 @@ get_header();
 											<td>1,089,005,390</td>
 											<td>1,258,998,059</td>
 										</tr>
-										<?php
+									<?php
 									}
 									?>
 								</tbody>
@@ -787,7 +780,7 @@ get_header();
 								</h2>
 								<p
 									class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-									<?php echo svg( 'gold', '24', '24' ) ?>
+									<?php echo svg('gold', '24', '24') ?>
 									Hạng A
 								</p>
 							</div>
@@ -852,7 +845,7 @@ get_header();
 								</h2>
 								<p
 									class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#4F4F4F] bg-gradient-sliver-50">
-									<?php echo svg( 'sliver', '24', '24' ) ?>
+									<?php echo svg('sliver', '24', '24') ?>
 									Hạng B
 								</p>
 							</div>
@@ -917,7 +910,7 @@ get_header();
 								</h2>
 								<p
 									class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#A87E5C] bg-gradient-bronze-50">
-									<?php echo svg( 'bronze', '24', '24' ) ?>
+									<?php echo svg('bronze', '24', '24') ?>
 									Hạng C
 								</p>
 							</div>
@@ -982,7 +975,7 @@ get_header();
 								</h2>
 								<p
 									class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#869299] bg-gradient-sliver-100">
-									<?php echo svg( 'sliver-2', '24', '24' ) ?>
+									<?php echo svg('sliver-2', '24', '24') ?>
 									Hạng D
 								</p>
 							</div>
@@ -1036,7 +1029,7 @@ get_header();
 					<a href=""
 						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
 						Xem chi tiết
-						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+						<?php echo svg('arrow-btn', '12', '12') ?>
 					</a>
 				</div>
 				<div class="rounded-lg overflow-hidden relative mt-10">
@@ -1055,9 +1048,8 @@ get_header();
 						</thead>
 						<tbody>
 							<?php
-							for ( $i = 0; $i < 11; $i++ )
-							{
-								?>
+							for ($i = 0; $i < 11; $i++) {
+							?>
 								<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 									<td class="font-bold !pl-[30px]">Doanh thu (tỷ đồng)</td>
 									<td>4,380</td>
@@ -1066,7 +1058,7 @@ get_header();
 									<td>4,893</td>
 									<td>5,277</td>
 								</tr>
-								<?php
+							<?php
 							}
 							?>
 						</tbody>

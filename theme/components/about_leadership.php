@@ -90,7 +90,7 @@
                 <div class="md:col-span-2">
                     <div class="leader_img lg:max-w-[349px] w-full">
                         <div class="relative w-full pt-[122%]">
-                            <img src="" alt=""
+                            <img loading="lazy" src="" alt=""
                                 class="absolute w-full h-full object-cover inset-0 rounded-lg">
                         </div>
                     </div>
