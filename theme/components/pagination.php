@@ -21,6 +21,9 @@
 					if (isset($_GET['s'])) {
 						$endpoint .= '&s=' . $_GET['s'];
 					}
+					if (isset($_GET['type_search'])) {
+						$endpoint .= '&type_search=' . $_GET['type_search'];
+					}
 					foreach ($posts_to_show as $number) :
 						$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
 					?>

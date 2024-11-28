@@ -1,11 +1,12 @@
 <?php
 if ($args['data']) {
 	$news = $args['data'];
-	$get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
+	$symbol = strtoupper($args['symbol']);
 	$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
-	$banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
-	$style = get_field('background_banner_display', $tax) ?: 'default';
-	$breadcrumb = 'baocao';
+	$banner = wp_get_attachment_image_url(get_field('cdttcp1_background_banner', 'option'), 'full');
+	$style = get_field('cdttcp1_background_banner_display', 'option') ?: 'default';
+	$title_breadcrumb = get_field('cdttcp1_title', 'option');
+	$breadcrumb = 'cophieu';
 } else {
 	wp_redirect(home_url('/404'), 301);
 	exit;
@@ -13,227 +14,249 @@ if ($args['data']) {
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
+	<?php get_template_part('components/page-banner', null, array(
+		'banner' => $banner,
+		'style' => $style,
+		'title' => $title_breadcrumb,
+		'breadcrumb' => $breadcrumb,
+	)) ?>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
-			<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
-				CÔNG TY CỔ PHẦN CHỨNG KHOÁN BIDV
-			</h2>
-			<p class="font-bold text-lg text-opacity-50 text-black">BIDV Securities Joint Stock
-				Company</p>
-			<div class="mt-10 lg:flex lg:gap-5">
-				<div class="lg:w-[547px] max-w-[41%]">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
-						<div class="flex gap-6 items-center">
-							<div
-								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-								<?php echo svgClass('icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9') ?>
-							</div>
-							<div class="flex flex-col">
-								<h4
-									class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
-									BSI
-								</h4>
-								<p class="uppercase text-lg text-paragraph">
-									HOSE
-								</p>
-
-							</div>
-						</div>
-						<div class="flex items-center gap-7">
-							<div class="lg:w-[172px] lg:max-w-[37%]">
-								<div class="flex-col gap-2">
-									<div class="flex gap-[14px] data_number">
-										<div class="lg:text-[40px] text-4xl font-bold">
-											43.30
-										</div>
-										<div class="flex flex-col text-[#FE5353]">
-											<p>
-												-0.20%
-											</p>
-											<p>
-												-0.46%
-											</p>
-										</div>
-									</div>
-									<p class="time-update mt-1">
-										Cập nhật lúc 14:45 UTC_7
+			<?php if (get_field('cdttcp2_title_big', 'option')) { ?>
+				<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
+					<?php the_field('cdttcp2_title_big', 'option') ?>
+				</h2>
+			<?php } ?>
+			<?php if (get_field('cdttcp2_title_small', 'option')) { ?>
+				<p class="font-bold text-lg text-opacity-50 text-black"><?php the_field('cdttcp2_title_small', 'option') ?></p>
+			<?php } ?>
+			<?php
+			$array_data_value = array(
+				'symbols' => $symbol
+			);
+			$response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
+			if ($response_value) {
+			?>
+				<div class="mt-10 lg:flex lg:gap-5">
+					<div class="lg:w-[547px] max-w-[41%]">
+						<div
+							class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
+							<div class="flex gap-6 items-center">
+								<div
+									class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
+									<?php echo svgClass('icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9') ?>
+								</div>
+								<div class="flex flex-col">
+									<h4
+										class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+										<?php echo $response_value->d[0]->symbol; ?>
+									</h4>
+									<p class="uppercase text-lg text-paragraph">
+										<?php echo $response_value->d[0]->exchange; ?>
 									</p>
 
 								</div>
 							</div>
-							<div class="flex-1 grid grid-cols-3 gap-5 font-Helvetica">
-								<div class="col-span-1 space-y-5">
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Trần
-										</p>
-										<p class="font-bold text-[#1CCD83] text-lg">
-											49.95
-										</p>
-									</div>
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Cao nhất
-										</p>
-										<p class="font-bold text-black text-lg">
-											47.70
-										</p>
-									</div>
+							<div class="flex items-center gap-7">
+								<div class="lg:w-[172px] lg:max-w-[37%]">
+									<?php if ($response_value->d[0]->bidPrice1) { ?>
+										<div class="flex-col gap-2">
+											<div class="flex gap-[14px] data_number">
+												<div class="lg:text-[40px] text-4xl font-bold">
+													<?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
+												</div>
+												<div class="flex flex-col text-[#FE5353]">
+													<p>
+														<?php
+														echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
+														?>
+													</p>
+													<p>
+														<?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
+													</p>
+												</div>
+											</div>
+											<p class="time-update mt-1">
+												<?php _e('Cập nhật lúc', 'bsc') ?>
+												<?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+												echo date("H:i:s"); ?>
+												UTC_7
+											</p>
+										</div>
+									<?php } ?>
 								</div>
-								<div class="col-span-1 space-y-5">
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Tham chiếu
-										</p>
-										<p class="font-bold text-[#FFB81C] text-lg">
-											49.95
-										</p>
+								<div class="flex-1 grid grid-cols-3 gap-5 font-Helvetica">
+									<div class="col-span-1 space-y-5">
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Trần
+											</p>
+											<p class="font-bold text-[#1CCD83] text-lg">
+												49.95
+											</p>
+										</div>
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Cao nhất
+											</p>
+											<p class="font-bold text-black text-lg">
+												47.70
+											</p>
+										</div>
 									</div>
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Thấp nhất
-										</p>
-										<p class="font-bold text-black text-lg">
-											46.65
-										</p>
+									<div class="col-span-1 space-y-5">
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Tham chiếu
+											</p>
+											<p class="font-bold text-[#FFB81C] text-lg">
+												49.95
+											</p>
+										</div>
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Thấp nhất
+											</p>
+											<p class="font-bold text-black text-lg">
+												46.65
+											</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-span-1 space-y-5">
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Sàn
-										</p>
-										<p class="font-bold text-[#FE5353] text-lg">
-											43.45
-										</p>
-									</div>
-									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 text-xs">
-											Trung bình
-										</p>
-										<p class="font-bold text-black text-lg">
-											47.31
-										</p>
+									<div class="col-span-1 space-y-5">
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Sàn
+											</p>
+											<p class="font-bold text-[#FE5353] text-lg">
+												43.45
+											</p>
+										</div>
+										<div class="flex flex-col gap-0.5">
+											<p class="text-paragraph text-opacity-70 text-xs">
+												Trung bình
+											</p>
+											<p class="font-bold text-black text-lg">
+												47.31
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="lg:w-[433px] max-w-[33%]">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Tham chiếu
-								</p>
-								<p class="font-medium text-lg">
-									133,883,457
-								</p>
+					<div class="lg:w-[433px] max-w-[33%]">
+						<div
+							class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
+							<div class="flex items-end justify-between">
+								<div class="lg:w-[120px] space-y-2">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										Tham chiếu
+									</p>
+									<p class="font-medium text-lg">
+										133,883,457
+									</p>
+								</div>
+								<div class="lg:w-[120px]">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										Vốn hóa
+									</p>
+									<p class="font-medium text-lg">
+										1,600
+									</p>
+								</div>
 							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Vốn hóa
-								</p>
-								<p class="font-medium text-lg">
-									1,600
-								</p>
+							<div class="flex items-end justify-between">
+								<div class="lg:w-[120px] space-y-2">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										KLGD trung bình
+										10 ngày
+									</p>
+									<p class="font-medium text-lg">
+										6,800
+									</p>
+								</div>
+								<div class="lg:w-[120px]">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										P/E
+									</p>
+									<p class="font-medium text-lg">
+										23.73
+									</p>
+								</div>
 							</div>
-						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									KLGD trung bình
-									10 ngày
-								</p>
-								<p class="font-medium text-lg">
-									6,800
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/E
-								</p>
-								<p class="font-medium text-lg">
-									23.73
-								</p>
-							</div>
-						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/B
-								</p>
-								<p class="font-medium text-lg">
-									24,191
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									ROE
-								</p>
-								<p class="font-medium text-lg">
-									2.12
-								</p>
+							<div class="flex items-end justify-between">
+								<div class="lg:w-[120px] space-y-2">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										P/B
+									</p>
+									<p class="font-medium text-lg">
+										24,191
+									</p>
+								</div>
+								<div class="lg:w-[120px]">
+									<p class="text-paragraph text-opacity-70 text-xs">
+										ROE
+									</p>
+									<p class="font-medium text-lg">
+										2.12
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="flex-1">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
-						<h3 class="font-bold mb-6">
-							KHUYẾN NGHỊ
-						</h3>
-						<div class="space-y-4 mb-6">
-							<div class="flex items-center justify-between text-xs">
-								<p class="text-xs">
-									Analyst:
-								</p>
-								<p class="font-bold text-primary-300">
-									Trịnh Tuấn Ngọc
-								</p>
+					<div class="flex-1">
+						<div
+							class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+							<h3 class="font-bold mb-6">
+								KHUYẾN NGHỊ
+							</h3>
+							<div class="space-y-4 mb-6">
+								<div class="flex items-center justify-between text-xs">
+									<p class="text-xs">
+										Analyst:
+									</p>
+									<p class="font-bold text-primary-300">
+										Trịnh Tuấn Ngọc
+									</p>
+								</div>
+								<div class="flex items-center justify-between text-xs">
+									<p class="text-xs">
+										Khuyến nghị:
+									</p>
+									<p
+										class="inline-block rounded-full px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold">
+										Mua
+									</p>
+								</div>
+								<div class="flex items-center justify-between text-xs">
+									<p class="text-xs">
+										Danh mục:
+									</p>
+									<p
+										class="inline-block rounded-full px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold">
+										Mua
+									</p>
+								</div>
+								<div class="flex items-center justify-between text-xs">
+									<p class="text-xs">
+										Ngày cập nhật
+									</p>
+									<p class="font-bold">
+										18/11/1998
+									</p>
+								</div>
 							</div>
-							<div class="flex items-center justify-between text-xs">
-								<p class="text-xs">
-									Khuyến nghị:
-								</p>
+							<div class="mt-auto">
 								<p
-									class="inline-block rounded-full px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold">
-									Mua
+									class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
+									<?php echo svg('gold', '24', '24') ?>
+									Hạng A
 								</p>
 							</div>
-							<div class="flex items-center justify-between text-xs">
-								<p class="text-xs">
-									Danh mục:
-								</p>
-								<p
-									class="inline-block rounded-full px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold">
-									Mua
-								</p>
-							</div>
-							<div class="flex items-center justify-between text-xs">
-								<p class="text-xs">
-									Ngày cập nhật
-								</p>
-								<p class="font-bold">
-									18/11/1998
-								</p>
-							</div>
-						</div>
-						<div class="mt-auto">
-							<p
-								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-								<?php echo svg('gold', '24', '24') ?>
-								Hạng A
-							</p>
 						</div>
 					</div>
 				</div>
-			</div>
+			<?php } ?>
 		</div>
 	</section>
 	<section class="xl:my-[100px] my-20">
@@ -244,21 +267,21 @@ get_header();
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-1"
 						class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						TỔNG QUAN
+						<?php _e('TỔNG QUAN', 'bsc') ?>
 					</button>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-2"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						BÁO CÁO TÀI CHÍNH
+						<?php _e('BÁO CÁO TÀI CHÍNH', 'bsc') ?>
 					</button>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-3"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						CHỈ TIÊU TÀI CHÍNH
+						<?php _e('CHỈ TIÊU TÀI CHÍNH', 'bsc') ?>
 					</button>
 				</li>
 				<li
@@ -266,99 +289,116 @@ get_header();
 					<button data-tabs="#tab-4"
 						class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 						<?php echo svg('star', '24', '24') ?>
-						BSC DỰ PHÓNG
+						<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
 					</button>
 				</li>
 			</ul>
 			<div class="tab-content block" id="tab-1">
 				<div class="lg:flex mt-10 lg:gap-[69px]">
 					<div class="lg:w-[744px] lg:max-w-[56%]">
-						<h2 class="heading-title mb-10">
-							BIỂU ĐỒ GIÁ
-						</h2>
-						<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]">
-							<ul
-								class="flex items-center justify-between font-Helvetica font-medium mb-6 px-4">
-								<li>
-									<button type="button"
-										class="active [&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										1 giờ
-									</button>
-								</li>
-								<li>
-									<button type="button"
-										class="[&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										12 giờ
-									</button>
-								</li>
-								<li>
-									<button type="button"
-										class="[&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										1 ngày
-									</button>
-								</li>
-								<li>
-									<button type="button"
-										class="[&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										1 tháng
-									</button>
-								</li>
-								<li>
-									<button type="button"
-										class="[&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										3 tháng
-									</button>
-								</li>
-								<li>
-									<button type="button"
-										class="[&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
-										6 tháng
-									</button>
-								</li>
-							</ul>
-							<div class="font-Helvetica" id="chart-candle">
-
+						<?php if (get_field('cdttcp2_iframe', 'option')) { ?>
+							<h2 class="heading-title mb-10">
+								<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
+							</h2>
+							<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]" style="height:100%">
+								<?php the_field('cdttcp2_iframe', 'option') ?>
 							</div>
-						</div>
+						<?php } ?>
 					</div>
 					<div class="flex-1">
 						<h2 class="heading-title mb-10">
-							LỊCH SỬ GIAO DỊCH
+							<?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
 						</h2>
-						<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4">
+						<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav">
 							<li>
-								<a href=""
+								<button data-tabs="#lichsugiaodich"
 									class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									Lịch sử GD
-								</a>
+									<?php _e('Lịch sử GD', 'bsc') ?>
+								</button>
 							</li>
 							<li>
-								<a href=""
+								<button data-tabs="#ndtnn"
 									class="inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									NĐTNN
-								</a>
+									<?php _e('NĐTNN', 'bsc') ?>
+								</button>
 							</li>
 						</ul>
-						<div
-							class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center">
-							<div class="flex bg-primary-300 text-white">
-								<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-									Nhóm
+						<div class="block" id="lichsugiaodich">
+							<div
+								class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+								<div class="flex bg-primary-300 text-white">
+									<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+										Nhóm
+									</div>
+									<div class="w-[152px] max-w-[30%] px-3 py-2">
+										Thay đổi giá
+									</div>
+									<div class="w-[136px] max-w-[27%] px-3 py-2">
+										KL khớp lệnh
+									</div>
+									<div class="flex-1 px-3 py-2">
+										Tổng GTGD
+									</div>
 								</div>
-								<div class="w-[152px] max-w-[30%] px-3 py-2">
-									Thay đổi giá
-								</div>
-								<div class="w-[136px] max-w-[27%] px-3 py-2">
-									KL khớp lệnh
-								</div>
-								<div class="flex-1 px-3 py-2">
-									Tổng GTGD
-								</div>
-							</div>
-							<ul>
-								<?php
-								for ($i = 0; $i < 3; $i++) {
-								?>
+								<ul>
+									<?php
+									for ($i = 0; $i < 3; $i++) {
+									?>
+										<li
+											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+											<div
+												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+												16/09
+											</div>
+											<div
+												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+												<p>
+													46.7
+												</p>
+												<p
+													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
+													<?php echo svg('up', '17', '17') ?>
+													+0.98%
+												</p>
+											</div>
+											<div
+												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												331,200
+											</div>
+											<div
+												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+												15,608,000
+											</div>
+										</li>
+										<li
+											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+											<div
+												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+												16/09
+											</div>
+											<div
+												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+												<p>
+													46.7
+												</p>
+												<p
+													class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
+													<?php echo svg('downn', '17', '17') ?>
+													+0.98%
+												</p>
+											</div>
+											<div
+												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												331,200
+											</div>
+											<div
+												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+												15,608,000
+											</div>
+										</li>
+									<?php
+									}
+									?>
 									<li
 										class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
 										<div
@@ -385,6 +425,96 @@ get_header();
 											15,608,000
 										</div>
 									</li>
+								</ul>
+
+							</div>
+							<div class="flex items-center justify-between mt-4">
+								<a href=""
+									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+									<?php echo svg('arrow-btn', '20', '20') ?>
+									Xem tất cả
+								</a>
+								<p class="font-medium text-xs font-Helvetica">
+									Đơn vị GTGD: 1000 VNĐ
+								</p>
+							</div>
+						</div>
+						<div class="hidden" id="ndtnn">
+							<div
+								class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+								<div class="flex bg-primary-300 text-white">
+									<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+										Nhóm
+									</div>
+									<div class="w-[152px] max-w-[30%] px-3 py-2">
+										Thay đổi giá
+									</div>
+									<div class="w-[136px] max-w-[27%] px-3 py-2">
+										KL khớp lệnh
+									</div>
+									<div class="flex-1 px-3 py-2">
+										Tổng GTGD
+									</div>
+								</div>
+								<ul>
+									<?php
+									for ($i = 0; $i < 3; $i++) {
+									?>
+										<li
+											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+											<div
+												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+												16/09
+											</div>
+											<div
+												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+												<p>
+													46.7
+												</p>
+												<p
+													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
+													<?php echo svg('up', '17', '17') ?>
+													+0.98%
+												</p>
+											</div>
+											<div
+												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												331,200
+											</div>
+											<div
+												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+												15,608,000
+											</div>
+										</li>
+										<li
+											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+											<div
+												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+												16/09
+											</div>
+											<div
+												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+												<p>
+													46.7
+												</p>
+												<p
+													class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
+													<?php echo svg('downn', '17', '17') ?>
+													+0.98%
+												</p>
+											</div>
+											<div
+												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												331,200
+											</div>
+											<div
+												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+												15,608,000
+											</div>
+										</li>
+									<?php
+									}
+									?>
 									<li
 										class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
 										<div
@@ -397,8 +527,8 @@ get_header();
 												46.7
 											</p>
 											<p
-												class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-												<?php echo svg('downn', '17', '17') ?>
+												class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
+												<?php echo svg('up', '17', '17') ?>
 												+0.98%
 											</p>
 										</div>
@@ -411,47 +541,19 @@ get_header();
 											15,608,000
 										</div>
 									</li>
-								<?php
-								}
-								?>
-								<li
-									class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-									<div
-										class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-										16/09
-									</div>
-									<div
-										class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-										<p>
-											46.7
-										</p>
-										<p
-											class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-											<?php echo svg('up', '17', '17') ?>
-											+0.98%
-										</p>
-									</div>
-									<div
-										class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-										331,200
-									</div>
-									<div
-										class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-										15,608,000
-									</div>
-								</li>
-							</ul>
+								</ul>
 
-						</div>
-						<div class="flex items-center justify-between mt-4">
-							<a href=""
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-								<?php echo svg('arrow-btn', '20', '20') ?>
-								Xem tất cả
-							</a>
-							<p class="font-medium text-xs font-Helvetica">
-								Đơn vị GTGD: 1000 VNĐ
-							</p>
+							</div>
+							<div class="flex items-center justify-between mt-4">
+								<a href=""
+									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+									<?php echo svg('arrow-btn', '20', '20') ?>
+									Xem tất cả
+								</a>
+								<p class="font-medium text-xs font-Helvetica">
+									Đơn vị GTGD: 1000 VNĐ
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -459,51 +561,48 @@ get_header();
 					<div class="lg:flex gap-5">
 						<div class="w-[386px] max-w-[29%]">
 							<h2 class="heading-title mb-10">
-								BÁO CÁO PHÂN TÍCH
+								<?php _e('BÁO CÁO PHÂN TÍCH', 'bsc') ?>
 							</h2>
-							<div class="space-y-4">
-								<?php
-								for ($i = 0; $i < 3; $i++) {
-								?>
-									<div
-										class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-										<div class="flex items-center justify-between mb-4">
-											<div class="flex items-center gap-4">
-												<a href=""
-													class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-													Báo cáo ngành
-												</a>
+							<?php
+							$term = get_field('cdttcp2_tax_kn', 'option');
+							if ($term) {
+								$categoryid_kn = get_field('api_id_danh_muc', $term);
+								if ($categoryid_kn) {
+									if (get_sub_field('number')) {
+										$post_per_page = get_sub_field('number');
+									} else {
+										$post_per_page = 3;
+									}
+									if (isset($_GET['page'])) {
+										$index = ($_GET['page'] - 1) * $post_per_page + 1;
+									} else {
+										$index = 1;
+									}
+									$array_data = array(
+										'lang' => pll_current_language(),
+										'categoryid' => $categoryid_kn,
+										'maxitem' => 3,
+										'symbol' =>  $symbol
 
-											</div>
-											<div class="space-y-1.5 text-right">
-												<span
-													class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold ">Tích
-													cực</span>
-												<p class="text-paragraph text-xs font-Helvetica">
-													22/10/2024
-													2:22:19 CH</p>
-											</div>
+									);
+									$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+							?>
+									<?php
+									if ($response) {
+									?>
+										<div class="space-y-4">
+											<?php
+											foreach ($response->d as $news) {
+												get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+													'data' => $news,
+													'get_array_id_taxonomy' => $get_array_id_taxonomy,
+												));
+											}
+											?>
 										</div>
-										<h3
-											class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
-											<a href="" class="line-clamp-2">
-												Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-												quỹ_20240808
-											</a>
-										</h3>
-										<div class="flex items-center justify-between">
-
-											<a href=""
-												class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105 ml-auto">
-												<?php _e('Tải xuống', 'bsc') ?>
-												<?php echo svg('download', '20', '20') ?>
-											</a>
-										</div>
-									</div>
-								<?php
+							<?php };
 								}
-								?>
-							</div>
+							} ?>
 						</div>
 						<div class="w-[414px] max-w-[31%]">
 							<h2 class="heading-title mb-10">

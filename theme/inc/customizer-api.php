@@ -240,6 +240,7 @@ function custom_template_redirect_for_co_phieu()
             );
             get_template_part('single-ma-co-phieu', null, array(
                 'data' => $co_phieu,
+                'symbol' => $co_phieu_id,
             ));
             exit; // Dừng WordPress để tránh bị 404
         } else {

@@ -7,6 +7,7 @@
                 <input type="text" name="s"
                     class="w-full placeholder:text-[#898A8D] border-none focus:outline-0 focus:ring-0"
                     placeholder="<?php _e('Tìm kiếm nội dung hỗ trợ', 'bsc') ?>">
+                <input type="hidden" name="type_search" value="so_tay">
             </div>
             <button type="submit"
                 class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight lg:min-w-[210px] rounded-xl h-[50px]">
