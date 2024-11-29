@@ -23,29 +23,31 @@
             ?>
                 <div class="flex-1 flex justify-end items-center flex-wrap gap-6">
                     <?php foreach ($response_value->d as $respon_symbol) {
-                        $bg_color_class = '';
+                        $bg_color_class = 'bg-[#1CCD83]';
                         $title_symbol = '';
-                        if ($respon_symbol->changePercent) {
+                        if ($respon_symbol->changePercent != '') {
                             if (($respon_symbol->changePercent) > 0) {
                                 $bg_color_class = 'bg-[#1CCD83]';
-                                $title_symbol = '+' . round($respon_symbol->changePercent) . '%';
+                                $title_symbol = '+' . round($respon_symbol->changePercent, 2) . '%';
                             } elseif (($respon_symbol->changePercent) < 0) {
                                 $bg_color_class = 'bg-[#FE5353]';
-                                $title_symbol = round($respon_symbol->changePercent) . '%';
+                                $title_symbol = round($respon_symbol->changePercent, 2) . '%';
                             } elseif (($respon_symbol->changePercent) == 0) {
                                 $bg_color_class = 'bg-[#EB0]';
-                                $title_symbol = round($respon_symbol->changePercent) . '%';
+                                $title_symbol = '+' . round($respon_symbol->changePercent, 2) . '%';
                             }
                         }
                     ?>
                         <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
                             class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center gap-4 py-3 px-[12px]">
                             <span>
-                                <?php echo $respon_symbol->symbol ?>
+                                <?php echo $respon_symbol->symbol  ?>
                             </span>
-                            <span>
-                                <?php echo  $title_symbol ?>
-                            </span>
+                            <?php if ($title_symbol != '') { ?>
+                                <span>
+                                    <?php echo  $title_symbol ?>
+                                </span>
+                            <?php  } ?>
                         </a>
                     <?php } ?>
                 </div>
