@@ -47,7 +47,7 @@ get_header();
 	</section>
 	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
-			<h2 class="font-bold text-2xl">
+			<h2 class="font-bold 2xl:text-[32px] text-2xl">
 				Danh mục
 			</h2>
 			<ul class="flex items-center flex-wrap mt-6 mb-10 gap-6">
@@ -70,7 +70,7 @@ get_header();
 					</a>
 				</li>
 			</ul>
-			<h2 class="font-bold text-2xl">
+			<h2 class="font-bold 2xl:text-[32px] text-2xl">
 				Hiệu suất danh mục
 			</h2>
 			<div class="mt-12 rounded-2xl py-6 px-7 shadow-base performance-chart">
@@ -105,7 +105,7 @@ get_header();
 	</section>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
-			<h2 class="font-bold text-2xl mb-6">
+			<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 				Chi tiết danh mục
 			</h2>
 			<div class="lg:flex xl:gap-14 gap-10">
@@ -292,7 +292,7 @@ get_header();
 	</section>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
-			<h2 class="font-bold text-2xl">
+			<h2 class="font-bold 2xl:text-[32px] text-2xl">
 				Báo cáo danh mục
 			</h2>
 			<div class="mt-6 grid lg:grid-cols-3 gap-6">

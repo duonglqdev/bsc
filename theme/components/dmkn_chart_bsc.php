@@ -2,7 +2,7 @@
 	id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title')) { ?>
-			<h2 class="font-bold text-2xl">
+			<h2 class="font-bold 2xl:text-[32px] text-2xl">
 				<?php the_sub_field('title') ?>
 			</h2>
 		<?php } ?>
@@ -80,7 +80,7 @@
 				</button>
 			</li>
 		</ul>
-		<h2 class="font-bold text-2xl">
+		<h2 class="font-bold 2xl:text-[32px] text-2xl">
 			<?php _e('Hiệu suất danh mục', 'bsc') ?>
 		</h2>
 		<div class="mt-12 rounded-2xl py-6 px-7 shadow-base performance-chart">
@@ -123,7 +123,7 @@ if ($response_instruments) {
 ?>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details block" data-chart-tab="BSC10">
 	<div class="container">
-		<h2 class="font-bold text-2xl mb-6">
+		<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
@@ -397,7 +397,7 @@ if ($response_instruments) {
 </section>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details hidden" data-chart-tab="BSC30">
 	<div class="container">
-		<h2 class="font-bold text-2xl mb-6">
+		<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
@@ -707,7 +707,7 @@ if ($response_instruments) {
 </section>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details hidden" data-chart-tab="BSC50">
 	<div class="container">
-		<h2 class="font-bold text-2xl mb-6">
+		<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
