@@ -962,3 +962,9 @@ button#ib-button-messaging {
 		}
 	}
 }
+
+.shares-result{
+	a{
+		@apply transition-all duration-500 hover:bg-primary-200 hover:text-primary-300 rounded;
+	}
+}
