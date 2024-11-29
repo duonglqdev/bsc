@@ -187,7 +187,7 @@
 											$text_status = $check_status['text_status'];
 										?>
 											<li class="flex font-bold gap-[14px] items-center justify-between">
-												<p class="line-clamp-1 flex-1">
+												<a href="#" class="line-clamp-1 flex-1">
 													<?php echo htmlspecialchars($news->symbols) ?>
 													<?php if ($news->upsite) { ?>
 														<span
@@ -197,7 +197,7 @@
 														<span
 															style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
 													<?php } ?> - <?php echo htmlspecialchars($news->title) ?>
-												</p>
+												</a>
 												<p
 													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 													<?php _e('Hot', 'bsc') ?>
@@ -216,7 +216,7 @@
 											foreach ($response_more->d as $news) {
 											?>
 												<li class="flex font-bold gap-[14px] items-center justify-between">
-													<p class="line-clamp-1 flex-1">
+													<a href="#" class="line-clamp-1 flex-1">
 														<?php echo htmlspecialchars($news->symbols) ?>
 														<?php if ($news->upsite) { ?>
 															<span
@@ -226,7 +226,7 @@
 															<span
 																style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
 														<?php } ?> - <?php echo htmlspecialchars($news->title) ?>
-													</p>
+													</a>
 													<p
 														class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 														<?php _e('Hot', 'bsc') ?>
@@ -302,9 +302,9 @@
 											<ul class="space-y-4">
 												<?php foreach ($response->d as $news) { ?>
 													<li class="flex gap-[14px] items-center justify-between">
-														<p class="line-clamp-1 flex-1">
+														<a href="#" class="line-clamp-1 flex-1">
 															<?php echo htmlspecialchars($news->title) ?>
-														</p>
+														</a>
 														<p
 															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 															<?php _e('Hot', 'bsc') ?>
