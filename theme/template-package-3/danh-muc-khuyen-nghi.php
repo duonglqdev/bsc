@@ -105,14 +105,14 @@ get_header();
 	</section>
 	<section class="xl:my-[100px] my-20">
 		<div class="container">
-			<h2 class="font-bold text-2xl">
+			<h2 class="font-bold text-2xl mb-6">
 				Chi tiết danh mục
 			</h2>
 			<div class="lg:flex xl:gap-14 gap-10">
 				<div class="relative lg:w-[887px] max-w-[66%]">
 					<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 					<div
-						class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] blur-sm">
+						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] blur-sm">
 						<div
 							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">

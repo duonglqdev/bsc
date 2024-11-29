@@ -123,7 +123,7 @@ if ($response_instruments) {
 ?>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details block" data-chart-tab="BSC10">
 	<div class="container">
-		<h2 class="font-bold text-2xl">
+		<h2 class="font-bold text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
@@ -137,7 +137,7 @@ if ($response_instruments) {
 				<div class="relative lg:w-[887px] max-w-[66%]">
 					<?php $class = $check_logout ? 'blur-sm' : ''; ?>
 					<div
-						class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
+						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 						<div
 							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
@@ -397,7 +397,7 @@ if ($response_instruments) {
 </section>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details hidden" data-chart-tab="BSC30">
 	<div class="container">
-		<h2 class="font-bold text-2xl">
+		<h2 class="font-bold text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
@@ -411,7 +411,7 @@ if ($response_instruments) {
 				<div class="relative lg:w-[887px] max-w-[66%]">
 					<?php $class = $check_logout ? 'blur-sm' : ''; ?>
 					<div
-						class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
+						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 						<div
 							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
@@ -707,7 +707,7 @@ if ($response_instruments) {
 </section>
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_details hidden" data-chart-tab="BSC50">
 	<div class="container">
-		<h2 class="font-bold text-2xl">
+		<h2 class="font-bold text-2xl mb-6">
 			<?php _e('Chi tiết danh mục', 'bsc') ?>
 		</h2>
 		<div class="lg:flex xl:gap-14 gap-10">
@@ -721,7 +721,7 @@ if ($response_instruments) {
 				<div class="relative lg:w-[887px] max-w-[66%]">
 					<?php $class = $check_logout ? 'blur-sm' : ''; ?>
 					<div
-						class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
+						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 						<div
 							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
