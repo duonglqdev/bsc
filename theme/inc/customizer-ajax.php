@@ -237,3 +237,25 @@ function get_content_qhcd_ajax()
     }
     die();
 }
+
+
+add_action('wp_ajax_get_shares_data', 'get_shares_data');
+add_action('wp_ajax_nopriv_get_shares_data', 'get_shares_data');
+
+function get_shares_data() {
+    check_ajax_referer('common_nonce', 'security');
+
+    $shares_data = [
+        ['name' => 'ABC', 'link' => 'https://demo.com/abc'],
+        ['name' => 'DEF', 'link' => 'https://demo.com/def'],
+        ['name' => 'GHI', 'link' => 'https://demo.com/ghi'],
+        ['name' => 'JKL', 'link' => 'https://demo.com/jkl'],
+        ['name' => 'MNO', 'link' => 'https://demo.com/mno'],
+        ['name' => 'PQR', 'link' => 'https://demo.com/pqr'],
+        ['name' => 'STU', 'link' => 'https://demo.com/stu'],
+        ['name' => 'VWX', 'link' => 'https://demo.com/vwx'],
+        ['name' => 'YZA', 'link' => 'https://demo.com/yza'],
+        ['name' => 'BCD', 'link' => 'https://demo.com/bcd'],
+    ];
+    wp_send_json_success($shares_data);
+}
