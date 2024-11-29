@@ -15001,6 +15001,139 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6749993d7212e": {
+                    "key": "layout_6749993d7212e",
+                    "name": "report_finance_list",
+                    "label": "[Báo cáo tài  chính] Danh sách",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6749993d7212f",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6749993d72130",
+                            "label": "Báo cáo",
+                            "name": "data",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Thêm dữ liệu",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_6749993d72131",
+                                    "label": "Tiêu đề",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6749993d72130"
+                                },
+                                {
+                                    "key": "field_6749993d72132",
+                                    "label": "Dữ liệu",
+                                    "name": "display",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "candoi": "Cân đối kế toán",
+                                        "kinhdoanh": "Kết quả hoạt động kinh doanh",
+                                        "luuchuyen": "Lưu chuyển tiền tệ gián tiếp",
+                                        "tructiep": "Lưu chuyển tiền tệ trực tiếp"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_6749993d72130"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67499a3172133": {
+                    "key": "layout_67499a3172133",
+                    "name": "lich_thi_truong_list",
+                    "label": "[Lịch thị trường] Danh sách",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67499a3272134",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -15028,5 +15161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732817405
+    "modified": 1732877292
 }

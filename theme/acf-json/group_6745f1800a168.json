@@ -310,46 +310,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_67481fe748f34",
-            "label": "Tiêu đề lớn",
-            "name": "cdttcp2_title_big",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "CÔNG TY CỔ PHẦN CHỨNG KHOÁN BIDV",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6748200a48f35",
-            "label": "Tiêu đề nhỏ",
-            "name": "cdttcp2_title_small",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "BIDV Securities Joint Stock Company",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_67482727ef844",
             "label": "Iframe biểu đồ",
             "name": "cdttcp2_iframe",
@@ -388,5 +348,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732816198
+    "modified": 1732872167
 }

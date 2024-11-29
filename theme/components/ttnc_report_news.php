@@ -62,10 +62,10 @@ $time_cache = 300;
                                 <a href="javascript:void(0)"
                                     class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
                                     <span>
-                                        <?php echo $news->symbol ?>
+                                        <?php echo $news->SYMBOL ?>
                                     </span>
                                     <span>
-                                        +<?php echo $news->upside ?>%
+                                        +<?php echo $news->UPSIDE ?>%
                                     </span>
                                 </a>
                             <?php
