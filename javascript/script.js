@@ -2967,6 +2967,11 @@ import { DataTable } from 'simple-datatables';
 					dataTable.search(value);
 				}
 			});
+			 // Kích hoạt tìm kiếm ngay khi trang tải nếu #search-name có giá trị
+			 if (searchNameInput.value.trim() !== '') {
+				const value = searchNameInput.value.trim();
+				dataTable.search(value); // Kích hoạt tìm kiếm
+			}
 		}
 	
 		// Gắn input ẩn cho các bộ lọc theo cột
