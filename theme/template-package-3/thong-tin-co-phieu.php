@@ -25,8 +25,10 @@ get_header();
 					<select
 						class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-code">
 						<option value="">Tất cả</option>
-						
+						<option value="A32">A32</option>
+						<option value="AAA">AAA</option>
 					</select>
+					<input type="hidden" id="filter-code">	
 				</div>
 				<div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
@@ -35,7 +37,11 @@ get_header();
 					<select
 						class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-major">
 						<option value="">Tất cả</option>
+						<option value="Tài chính">Tài chính</option>
+						<option value="Công nghệ thông tin">Công nghệ thông tin</option>
+						<option value="Hóa chất">Hóa chất</option>
 					</select>
+					<input type="hidden" id="filter-major">							
 				</div>
 				<div class="lg:w-[20%] lg:max-w-[241px] flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
@@ -44,8 +50,11 @@ get_header();
 					<select
 						class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-trading">
 						<option value="">Tất cả</option>
-						
+						<option value="HOSE">HOSE</option>
+						<option value="HNX">HNX</option>
+						<option value="UPCOM">UPCOM</option>
 					</select>
+					<input type="hidden" id="filter-trading">
 				</div>
 
 				<button type="button" id="search_cophieu"
@@ -66,12 +75,12 @@ get_header();
 						class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3">
 						<thead>
 							<tr>
-								<th class="!pl-5 cursor-pointer ">Mã CK
+								<th data-sortable="true" class="!pl-5 cursor-pointer ">Mã CK
 									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
 								<th class="w-1/5">Tên công ty</th>
-								<th>Sàn</th>
-								<th>Ngành</th>
+								<th data-sortable="true">Sàn</th>
+								<th data-sortable="true">Ngành</th>
 								<th class=" cursor-pointer">Vốn hóa
 									<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 								</th>
@@ -90,10 +99,10 @@ get_header();
 							for ($i = 0; $i < 10; $i++) {
 							?>
 								<tr class="border-b border-[#C9CCD2]">
-									<td class="!pl-5" data-code="A32"><a href="">A32</a></td>
+									<td class="!pl-5" data-code><a href="">A32</a></td>
 									<td>CTCP 32</td>
-									<td data-trading="HOSE">HOSE</td>
-									<td data-major="Tài chính">Tài chính</td>
+									<td data-trading>HOSE</td>
+									<td data-major>Tài chính</td>
 									<td>36,80</td>
 									<td>36,80</td>
 									<td>36,80</td>
@@ -101,10 +110,10 @@ get_header();
 									<td>6,99</td>
 								</tr>
 								<tr class="border-b border-[#C9CCD2]">
-									<td class="!pl-5" data-code="AAA"><a href="">AAA</a></td>
+									<td class="!pl-5" data-code><a href="">AAA</a></td>
 									<td>CTCP Nhựa An Phát Xanh</td>
-									<td data-trading="HNX">HNX</td>
-									<td data-major="Công nghệ thông tin">Công nghệ thông tin</td>
+									<td data-trading>HNX</td>
+									<td data-major>Công nghệ thông tin</td>
 									<td>37,80</td>
 									<td>37,80</td>
 									<td>37,80</td>
@@ -112,10 +121,10 @@ get_header();
 									<td>7,99</td>
 								</tr>
 								<tr class="border-b border-[#C9CCD2]">
-									<td class="!pl-5" data-code="AAT"><a href="">AAT</a></td>
+									<td class="!pl-5" data-code><a href="">AAT</a></td>
 									<td>CTCP Chứng khoán Smart Invest</td>
-									<td data-trading="UPCOM">UPCOM</td>
-									<td data-major="Hóa chất">Hóa chất</td>
+									<td data-trading>UPCOM</td>
+									<td data-major>Hóa chất</td>
 									<td>38,80</td>
 									<td>38,80</td>
 									<td>38,80</td>

@@ -17,6 +17,7 @@
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
 
                 </select>
+                <input type="hidden" id="filter-code">	
             </div>
             <div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
@@ -27,6 +28,7 @@
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
 
                 </select>
+                <input type="hidden" id="filter-major">		
             </div>
             <div class="lg:w-[20%] lg:max-w-[241px] flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
@@ -37,6 +39,7 @@
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
 
                 </select>
+                <input type="hidden" id="filter-trading">
             </div>
             <button type="button" id="search_cophieu"
                 class="btn-base-yellow h-[50px] rounded-xl flex-1 whitespace-nowrap">
@@ -78,12 +81,12 @@
                             class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3">
                             <thead>
                                 <tr>
-                                    <th class="!pl-5 cursor-pointer "><?php _e('Mã CK', 'bsc') ?>
+                                    <th data-sortable="true" class="!pl-5 cursor-pointer "><?php _e('Mã CK', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
                                     <th class="w-1/5"><?php _e('Tên công ty', 'bsc') ?></th>
-                                    <th><?php _e('Sàn', 'bsc') ?></th>
-                                    <th><?php _e('Ngành', 'bsc') ?></th>
+                                    <th data-sortable="true"><?php _e('Sàn', 'bsc') ?></th>
+                                    <th data-sortable="true"><?php _e('Ngành', 'bsc') ?></th>
                                     <th class=" cursor-pointer"><?php _e('Vốn hóa', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
@@ -102,14 +105,14 @@
                                 foreach ($response->d as $news) {
                                 ?>
                                     <tr class="border-b border-[#C9CCD2]">
-                                        <td class="!pl-5" data-code="<?php echo $news->SYMBOL ?>">
+                                        <td class="!pl-5" data-code>
                                             <?php if ($news->SYMBOL) { ?>
                                                 <a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"><?php echo $news->SYMBOL ?></a>
                                             <?php } ?>
                                         </td>
                                         <td><?php echo $news->FULLNAME ?></td>
-                                        <td data-trading="<?php echo $news->EXCHANGE ?>"><?php echo $news->EXCHANGE ?></td>
-                                        <td data-major="<?php echo $news->INDUSTRYNAME ?>"><?php echo $news->INDUSTRYNAME ?></td>
+                                        <td data-trading><?php echo $news->EXCHANGE ?></td>
+                                        <td data-major><?php echo $news->INDUSTRYNAME ?></td>
                                         <td><?php echo $news->MC ?></td>
                                         <td><?php echo $news->TOTALVOLUME ?></td>
                                         <td><?php echo number_format($news->TOTALVALUE) ?></td>
