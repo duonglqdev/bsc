@@ -568,3 +568,9 @@ function generateRandomString($length = 10)
 
 	return $randomString;
 }
+function bsc_is_mobile() {
+    if (!wp_is_mobile()) {
+        return false;
+    }
+    return true;
+}

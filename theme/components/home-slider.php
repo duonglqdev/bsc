@@ -3,8 +3,8 @@ $id_class = get_sub_field( 'id_class' );
 if ( have_rows( 'slider' ) )
 {
 	?>
-	<section class="home__banner data-slick slick-dots-center dots-white block_slider-show-1"
-		data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": false, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'
+	<section class="home__banner dots-white block_slider-show-1"
+		data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
 		<?php if ( $id_class )
 		{ ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while ( have_rows( 'slider' ) ) :
@@ -31,7 +31,7 @@ if ( have_rows( 'slider' ) )
 				if ( get_sub_field( 'video' ) )
 				{
 					?>
-					<div class="block_slider-item">
+					<div class="w-full block_slider-item">
 						<div
 							class="w-full relative max-h-full h-full after:absolute lg:after:w-3/4 after:w-full after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none">
 							<video preload="none" id="video-banner" class="object-cover w-full max-w-full h-full max-h-full"

@@ -1,8 +1,8 @@
-<section class="bg-primary-200 lg:pt-[77px] pt-14 relative offters_slider" <?php if ( get_sub_field( 'id_class' ) )
+<section class="bg-primary-200 relative offters_slider <?php  echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[77px]':'pt-[50px]' ?>" <?php if ( get_sub_field( 'id_class' ) )
 { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<div class="grid lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10 overflow-hidden">
-			<div class="col-span-1 lg:order-1 order-2">
+		<div class="grid overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 2xl:gap-32 gap-20':'gap-10' ?>">
+			<div class="col-span-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'order-1':'order-2' ?>">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>
 					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s">
@@ -11,12 +11,12 @@
 				<?php } ?>
 				<?php if ( get_sub_field( 'mota' ) )
 				{ ?>
-					<p class="uppercase text-primary-300 2xl:text-2xl text-xl font-bold mb-10 wow fadeIn"
+					<p class="uppercase text-primary-300 <?php  echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl xl:text-xl mb-10':'text-base mb-6' ?> font-bold  wow fadeIn"
 						data-wow-duration="2s">
 						<?php the_sub_field( 'mota' ) ?>
 					</p>
 				<?php } ?>
-				<div class="lg:block flex items-center gap-6">
+				<div class="<?php  echo !wp_is_mobile() && !bsc_is_mobile() ?'block':'flex flex items-center gap-6' ?>">
 					<?php if ( have_rows( 'button' ) )
 					{
 						while ( have_rows( 'button' ) ) :
@@ -25,15 +25,19 @@
 							{
 								?>
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="btn-base-yellow inline-flex items-center gap-x-3 md:text-base text-xs lg:rounded-md rounded-lg">
+									class="btn-base-yellow inline-flex items-center gap-x-3 md:text-base text-xs <?php  echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-md':'rounded-lg' ?>">
 									<?php echo svg( 'arrow-btn', '20' ) ?>
-									<span class="lg:inline-block hidden">
-										<?php the_sub_field( 'title' ) ?>
-									</span>
-									<!-- @todo:Thêm tiêu đề mobile -->
-									<span class="lg:hidden inline-block">
-										Mở tài khoản
-									</span>
+									<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+										<span>
+											<?php the_sub_field( 'title' ) ?>
+										</span>
+									<?php } ?>
+									<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+										<!-- @todo:Thêm tiêu đề mobile -->
+										<span>
+											Mở tài khoản
+										</span>
+									<?php } ?>
 								</a>
 								<?php
 							}
@@ -46,7 +50,7 @@
 							if ( get_sub_field( 'title' ) )
 							{
 								?>
-								<p class="lg:mt-4">
+								<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'' ?>">
 									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 										class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn"
 										data-wow-duration="2s">
@@ -63,10 +67,10 @@
 				</div>
 
 
-				<div class="lg:mt-8 mt-[82px] relative z-10">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8':'mt-[82px]' ?>  relative z-10">
 					<?php if ( get_sub_field( 'icon' ) )
 					{ ?>
-						<div class="absolute lg:w-auto w-1/2 lg:-top-28 -top-4 lg:right-0 right-4 lg:translate-x-10 pointer-events-none">
+						<div class="absolute <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-auto -top-28 right-0':'w-1/2 -top-4 right-4' ?>    pointer-events-none">
 							<img loading="lazy" src="<?php echo wp_get_attachment_image_url( get_sub_field( 'icon' ), 'large' ) ?>"
 								alt="<?php the_sub_field( 'title' ) ?>">
 						</div>
@@ -75,7 +79,7 @@
 
 				</div>
 			</div>
-			<div class="col-span-1 lg:order-2 order-1">
+			<div class="col-span-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'order-2':'order-1' ?>">
 				<?php if ( get_sub_field( 'title_2' ) )
 				{ ?>
 					<h2 class="heading-title mb-8 wow fadeIn" data-wow-duration="2s">
@@ -93,10 +97,10 @@
 					<div class="block_slider block_slider-show-2 no-dots -mx-4">
 						<?php foreach ($response->d as $news) { ?>
 							<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-								<div class="bg-white lg:p-8 p-5 rounded-lg ">
+								<div class="bg-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-8':'p-5' ?> rounded-lg ">
 									<div class="max-h-44 overflow-hidden">
 										<p
-											class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+											class="relative font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?> after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
 											<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-3">
 												<?php echo htmlspecialchars($news->title) ?>
 											</a>
@@ -162,9 +166,9 @@
 			</div>
 		</div>
 	</div>
-	<?php if ( get_sub_field( 'background' ) )
+	<?php if ( get_sub_field( 'background' )&&!wp_is_mobile() )
 	{ ?>
-		<div class="lg:block hidden absolute bottom-0 left-0">
+		<div class="absolute bottom-0 left-0">
 			<?php echo wp_get_attachment_image( get_sub_field( 'background' ), 'large' ) ?>
 		</div>
 	<?php } ?>
