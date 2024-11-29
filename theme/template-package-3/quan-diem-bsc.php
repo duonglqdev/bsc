@@ -119,10 +119,10 @@ get_header();
 			<h3 class="font-bold mb-6 text-2xl">Dự báo vĩ mô</h3>
 			<h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
 				vĩ mô Việt Nam 2024-2025</h4>
-			<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
+			<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
 				<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
 					<div
-						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
 						<div
 							class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
 							<p>TB 8 năm <br>
@@ -314,12 +314,12 @@ get_header();
 			<div class="relative">
 				<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 				<div
-					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium bg-white blur-sm">
-					<div class="flex">
+					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium bg-white">
+					<div class="flex rounded-md overflow-hidden">
 						<div
-							class="w-[140px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 shadow-[2px_3px_7px_0px_#ccc]">
+							class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
 							<div
-								class="text-white bg-primary-300 font-semibold flex justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2 pl-4">
+								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
 								Ngành
 							</div>
 							<ul>
@@ -365,7 +365,7 @@ get_header();
 							class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal">
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									Mã CK
 								</div>
 								<ul>
@@ -415,7 +415,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									DTT 2024
 									<p>
 										(tỷ VND)
@@ -462,7 +462,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									% YoY
 								</div>
 								<ul>
@@ -506,7 +506,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									EPS <br>
 									2024
 								</div>
@@ -551,7 +551,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									P/E FWD <br>
 									2024
 								</div>
@@ -596,7 +596,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									P/B FWD <br>
 									2024
 								</div>
@@ -641,7 +641,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									ROA <br>
 									2024
 								</div>
@@ -686,7 +686,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									ROE <br>
 									2024
 								</div>
@@ -731,7 +731,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									Giá ngày <br>
 									15/08/2024
 								</div>
@@ -776,7 +776,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									Giá mục tiêu <br>
 									Giá mục tiêu
 								</div>
@@ -821,7 +821,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
 									Upside <br>
 									(%)
 								</div>
@@ -869,7 +869,7 @@ get_header();
 
 				</div>
 				<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-				<div
+				<!-- <div
 					class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 					<a href="#"
 						class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -878,7 +878,7 @@ get_header();
 					<p class="italic mt-4 font-normal">
 						Để xem chi tiết danh mục
 					</p>
-				</div>
+				</div> -->
 			</div>
 
 
@@ -892,7 +892,7 @@ get_header();
 				<div
 					class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] blur-sm">
 					<div
-						class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
+						class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.5]">
 						<div class="w-1/3 py-2 px-3">
 							Ngành
 						</div>
@@ -913,15 +913,15 @@ get_header();
 							<div
 								class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 								<div
-									class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+									class="w-1/3 min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 									CNTT - Viễn thông
 								</div>
 								<div
-									class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+									class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 									Tích cực
 								</div>
 								<div
-									class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
+									class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158]">
 									Tích cực
 								</div>
 							</div>
@@ -932,15 +932,15 @@ get_header();
 						<div
 							class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 							<div
-								class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+								class="w-1/3 min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 								Vận tải & Cảng biển
 							</div>
 							<div
-								class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+								class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 								Tích cực
 							</div>
 							<div
-								class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
+								class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-black">
 								Trung lập
 							</div>
 						</div>

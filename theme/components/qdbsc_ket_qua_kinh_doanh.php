@@ -22,9 +22,9 @@ $class = $check_logout ? 'blur-sm' : '';
                     class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium bg-white <?php echo $class ?>">
                     <div class="flex">
                         <div
-                            class="w-[140px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 shadow-[2px_3px_7px_0px_#ccc]">
+                            class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
                             <div
-                                class="text-white bg-primary-300 font-semibold flex justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2 pl-4">
+                                class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
                                 <?php _e('Ngành', 'bsc') ?>
                             </div>
                             <ul>
@@ -43,7 +43,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal">
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('Mã CK', 'bsc') ?>
                                 </div>
                                 <ul>
@@ -62,7 +62,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
                                     <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
                                 </div>
@@ -80,7 +80,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('% YoY', 'bsc') ?>
                                 </div>
                                 <ul>
@@ -99,7 +99,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('EPS', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>
                                 </div>
@@ -117,7 +117,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('P/E FWD', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>
                                 </div>
@@ -136,7 +136,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('P/B FWD', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>
                                 </div>
@@ -154,7 +154,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('ROA', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>
                                 </div>
@@ -172,7 +172,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('ROE', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>
                                 </div>
@@ -190,7 +190,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('Giá ngày', 'bsc') ?> <br>
                                     <?php echo date('d/m/Y', strtotime('-1 day')); ?>
                                 </div>
@@ -208,7 +208,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('Giá mục tiêu', 'bsc') ?> <br>
                                     <?php echo date('Y') ?>/<?php echo date('Y') + 1 ?>
                                 </div>
@@ -227,7 +227,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                             <div class="min-w-[110px]">
                                 <div
-                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col gap-1 min-h-[60px] leading-[1.125] py-2">
+                                    class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
                                     <?php _e('Upside', 'bsc') ?> <br>
                                     (%)
                                 </div>
