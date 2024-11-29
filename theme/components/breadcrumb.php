@@ -125,6 +125,76 @@ if (is_page() && have_rows('breacrumb')) {
         </nav>
     <?php
     }
+} elseif (($args['custom'] == 'cophieu') && get_field('cdttcp1_breadcrumb', 'option')) {
+    if (have_rows('cdttcp1_breadcrumb', 'option')) {
+    ?>
+        <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+            <p>
+                <?php
+                $i = 0;
+                while (have_rows('cdttcp1_breadcrumb', 'option')): the_row();
+                    $i++; ?>
+                    <?php
+                    if ($i != 1) {
+                    ?>
+                        <span class="separator"> / </span>
+                    <?php
+                    }
+                    ?>
+                    <?php if (get_sub_field('link')) { ?>
+                        <a href="<?php the_sub_field('link') ?>"><?php the_sub_field('title') ?></a>
+                    <?php } else { ?>
+                        <span><?php the_sub_field('title') ?></span>
+                    <?php } ?>
+                <?php endwhile; ?>
+                <?php if ($args['title']) { ?>
+                    <span class="separator"> / </span>
+                    <span>
+                        <?php
+                        $title = $args['title'];
+                        echo $title;
+                        ?>
+                    </span>
+                <?php } ?>
+            </p>
+        </nav>
+    <?php
+    }
+} elseif (($args['custom'] == 'khuyennghi') && get_field('cddmkn1_breadcrumb', 'option')) {
+    if (have_rows('cddmkn1_breadcrumb', 'option')) {
+    ?>
+        <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+            <p>
+                <?php
+                $i = 0;
+                while (have_rows('cddmkn1_breadcrumb', 'option')): the_row();
+                    $i++; ?>
+                    <?php
+                    if ($i != 1) {
+                    ?>
+                        <span class="separator"> / </span>
+                    <?php
+                    }
+                    ?>
+                    <?php if (get_sub_field('link')) { ?>
+                        <a href="<?php the_sub_field('link') ?>"><?php the_sub_field('title') ?></a>
+                    <?php } else { ?>
+                        <span><?php the_sub_field('title') ?></span>
+                    <?php } ?>
+                <?php endwhile; ?>
+                <?php if ($args['title']) { ?>
+                    <span class="separator"> / </span>
+                    <span>
+                        <?php
+                        $title = $args['title'];
+                        echo $title;
+                        ?>
+                    </span>
+                <?php } ?>
+            </p>
+        </nav>
+    <?php
+    }
 } elseif (($args['custom'] == 'khuyenmai') && get_field('cdctkm1_breadcrumb', 'option')) {
     if (have_rows('cdctkm1_breadcrumb', 'option')) {
     ?>

@@ -11,12 +11,6 @@
  */
 
 ?>
-<?php
-if ( get_field( 'cdc5_iframe_live_chat', 'option' ) )
-{
-	the_field( 'cdc5_iframe_live_chat', 'option' );
-}
-?>
 <footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica">
 	<div class="container">
 		<div
@@ -292,10 +286,7 @@ if ( get_field( 'cdc5_iframe_live_chat', 'option' ) )
 		</div>
 	</div>
 </footer>
-
-
-<?php if ( get_field( 'cdc2_tien_ich_on', 'option' ) )
-{ ?>
+<?php if (get_field('cdc2_tien_ich_on', 'option')) { ?>
 	<div
 		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed 2xl:top-1/2 top-2/3 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-50 [&:not(.show)]:-right-20 right-0">
 		<?php the_field( 'cdc2_title', 'option' ) ?>
@@ -326,7 +317,6 @@ if ( get_field( 'cdc5_iframe_live_chat', 'option' ) )
 		</div>
 	<?php } ?>
 <?php } ?>
-
 <div class="inline-flex flex-col fixed 2xl:bottom-8 bottom-[6px] right-3 2xl:gap-4 gap-2 z-[99]">
 	<?php if ( get_field( 'cdc3_link', 'option' ) )
 	{ ?>
@@ -438,7 +428,6 @@ if ( get_field( 'cdc5_iframe_live_chat', 'option' ) )
 		<?php echo svgClass( 'back-top', '', '', 'm-auto h-full cursor-pointer' ) ?>
 	</div>
 </div>
-
 <?php
 $true_form_modal = 0;
 $page_id = get_the_ID();
@@ -453,8 +442,7 @@ if ( is_tax( 'danh-muc-bao-cao' ) )
 			the_row();
 			$module_name = get_row_layout();
 
-			if ( ( $module_name == 'tailieu_baocao' ) )
-			{
+			if (($module_name == 'tailieu_baocao') || ($module_name == 'dmkn_chart_bsc_display_pagination')) {
 				$true_form_modal = 1;
 			}
 
@@ -521,10 +509,13 @@ if ( $true_form_modal == 1 )
 	<?php
 }
 ?>
-
-
 <?php wp_footer(); ?>
-
+<?php
+if (get_field('cdc5_iframe_live_chat', 'option')) {
+	the_field('cdc5_iframe_live_chat', 'option');
+	echo 'abc';
+}
+?>
 </body>
 
 </html>

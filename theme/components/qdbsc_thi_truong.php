@@ -13,10 +13,10 @@
             <h4 class="text-center font-bold text-primary-300 mb-4"><?php _e('Dự báo kinh tế
                                             vĩ mô Việt Nam', 'bsc') ?> <?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?></h4>
             <div
-                class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
+                class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
                 <div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
                     <div
-                        class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+                        class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
                         <div
                             class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
                             <p>

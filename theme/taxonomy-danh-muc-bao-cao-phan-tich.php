@@ -147,10 +147,10 @@
                                     class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px] whitespace-nowrap">
                                     <?php _e('Tìm kiếm', 'bsc') ?>
                                 </button>
-                                <button type="reset"
-                                    class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                                <a href="<?php echo get_term_link(get_queried_object()) ?>"
+                                    class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
                                     <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
-                                </button>
+                                </a>
                             </form>
                         <?php } else { ?>
                             <form method="get" action="<?php echo get_term_link(get_queried_object()); ?>">
@@ -201,10 +201,10 @@
                                         class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
                                         <?php _e('Tìm kiếm', 'bsc') ?>
                                     </button>
-                                    <button type="reset"
-                                        class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                                    <a href="<?php echo get_term_link(get_queried_object()) ?>"
+                                        class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
                                         <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
-                                    </button>
+                                    </a>
                                 </div>
                             </form>
                         <?php } ?>

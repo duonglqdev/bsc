@@ -10,7 +10,7 @@
                 <div
                     class="bg-gradient-blue-50 lg:p-6 p-5 shadow-base 2xl:space-y-8 space-y-4 rounded-2xl h-full">
                     <?php
-                    $time_cache = get_sub_field('time_cache') ?: 1;
+                    $time_cache = get_sub_field('time_cache') ?: 300;
                     ?>
                     <?php
                     $array_data_value = array(
@@ -40,16 +40,28 @@
                                     <div class="lg:text-[40px] text-4xl font-bold">
                                         <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
                                     </div>
-                                    <div class="flex flex-col text-[#EB0]">
-                                        <p>
-                                            <?php
-                                            echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
-                                            ?>
-                                        </p>
-                                        <p>
-                                            <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
-                                        </p>
-                                    </div>
+                                    <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
+                                        if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
+                                            $text_color_class = 'text-[#1CCD83]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
+                                            $text_color_class = 'text-[#FE5353]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
+                                            $text_color_class = 'text-[#EB0]';
+                                        } else {
+                                            $text_color_class = '';
+                                        }
+                                    ?>
+                                        <div class="flex flex-col <?php echo $text_color_class ?>">
+                                            <p>
+                                                <?php
+                                                echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
+                                                ?>
+                                            </p>
+                                            <p>
+                                                <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
+                                            </p>
+                                        </div>
+                                    <?php } ?>
                                 <?php } ?>
                             </div>
                             <p class="time-update mt-1">

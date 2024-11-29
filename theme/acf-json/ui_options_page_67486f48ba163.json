@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_67486f48ba163",
+    "title": "Danh mục khuyến nghị",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Danh mục khuyến nghị",
+    "menu_slug": "danh-muc-khuyen-nghi",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "dashicons-editor-kitchensink",
+    "menu_title": "",
+    "position": 20,
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1732800364
+}

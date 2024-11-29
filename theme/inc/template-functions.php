@@ -427,6 +427,9 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 	if (isset($_GET['posts_to_show'])) {
 		$endpoint .= '&posts_to_show=' . $_GET['posts_to_show'];
 	}
+	if (isset($_GET['type_search'])) {
+		$endpoint .= '&type_search=' . $_GET['type_search'];
+	}
 	if (isset($_GET['page'])) {
 		$paged = $_GET['page'];
 	} else {

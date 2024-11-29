@@ -83,42 +83,33 @@
 					</h2>
 				<?php } ?>
 				<?php
-				$chuong_trinh_khuyen_mai_id = get_field( 'cdctkm1_id_danh_mục', 'option' );
-				if ( $chuong_trinh_khuyen_mai_id )
-				{
-					$time_cache = get_sub_field( 't2_time_cache' ) ?: 300;
-					$array_data = array(
-						"maxitem" => "10",
-						"lang" => pll_current_language(),
-						"groupid" => $chuong_trinh_khuyen_mai_id,
-						'index' => 1
-					);
-					$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
-					if ( $response )
-					{
-						?>
-						<div class="block_slider block_slider-show-2 no-dots -mx-4">
-							<?php foreach ( $response->d as $news )
-							{ ?>
-								<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-									<div class="bg-white lg:p-8 p-5 rounded-lg ">
-										<div class="max-h-44 overflow-hidden">
-											<p
-												class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-												<a href="javascript:void(0)" class="line-clamp-3">
-													<?php echo htmlspecialchars( $news->title ) ?>
-												</a>
-											</p>
-											<div class="">
-												<?php echo htmlspecialchars( $news->description ) ?>
-											</div>
+				$time_cache = get_sub_field('t2_time_cache') ?: 300;
+				$array_data = array(
+					"lang" => pll_current_language(),
+				);
+				$response = get_data_with_cache('GetPromotionNews', $array_data, $time_cache);
+				if ($response) {
+				?>
+					<div class="block_slider block_slider-show-2 no-dots -mx-4">
+						<?php foreach ($response->d as $news) { ?>
+							<div class="block_slider-item md:w-3/5 w-4/5 px-4">
+								<div class="bg-white lg:p-8 p-5 rounded-lg ">
+									<div class="max-h-44 overflow-hidden">
+										<p
+											class="relative font-bold lg:text-lg  after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+											<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-3">
+												<?php echo htmlspecialchars($news->title) ?>
+											</a>
+										</p>
+										<div class="">
+											<?php echo htmlspecialchars($news->description) ?>
 										</div>
 									</div>
 								</div>
-							<?php } ?>
-						</div>
-					<?php }
-				}
+							</div>
+						<?php } ?>
+					</div>
+				<?php }
 				?>
 				<?php if ( have_rows( 'video_youtube' ) )
 				{

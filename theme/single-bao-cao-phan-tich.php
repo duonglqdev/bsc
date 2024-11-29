@@ -4,38 +4,45 @@ if ($args['data']) {
     $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $link = 'javascript:void(0)';
+    $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
-        $term = get_name_by_tax_id($categoryid, $get_array_id_taxonomy);
-        if ($term) {
-            $link = get_term_link($term);
-        }
-
-        $categories = get_terms(array(
-            'taxonomy' => 'danh-muc-bao-cao-phan-tich',
-            'hide_empty' => false,
-            'meta_query' => array(
-                array(
-                    'key' => 'api_id_danh_muc', // tên meta field
-                    'value' => $categoryid, // giá trị cần tìm
-                    'compare' => '='
-                )
-            )
-        ));
-
-        // Kiểm tra nếu tìm thấy category
-        if (!is_wp_error($categories) && !empty($categories)) {
-            $tax = $categories[0]; // Trả về category đầu tiên khớp với meta field
+        if ($categoryid == $danh_muc_khuyen_nghi) {
+            $tax_name = get_field('cddmkn1_title', 'option');
+            $banner = wp_get_attachment_image_url(get_field('cddmkn1_background_banner', 'option'), 'full');
+            $style = get_field('cddmkn1_background_banner_display', 'option') ?: 'default';
+            $breadcrumb = 'khuyennghi';
+            $title_lienquan = __('khuyến nghị', 'bsc');
         } else {
-            $post_id = get_the_ID();
-            $taxonomy = get_the_terms($post->ID, $check_cat);
-            $tax = $taxonomy[0];
+            $term = get_name_by_tax_id($categoryid, $get_array_id_taxonomy);
+            if ($term) {
+                $link = get_term_link($term);
+            }
+            $categories = get_terms(array(
+                'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+                'hide_empty' => false,
+                'meta_query' => array(
+                    array(
+                        'key' => 'api_id_danh_muc',
+                        'value' => $categoryid,
+                        'compare' => '='
+                    )
+                )
+            ));
+            if (!is_wp_error($categories) && !empty($categories)) {
+                $tax = $categories[0];
+            } else {
+                $post_id = get_the_ID();
+                $taxonomy = get_the_terms($post->ID, $check_cat);
+                $tax = $taxonomy[0];
+            }
+            $tax_name = $tax->name;
+            $banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+            $style = get_field('background_banner_display', $tax) ?: 'default';
+            $breadcrumb = 'baocao';
+            $title_lienquan = __('báo cáo', 'bsc');
         }
     }
-    $tax_name = $tax->name;
-    $banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
-    $style = get_field('background_banner_display', $tax) ?: 'default';
-    $breadcrumb = 'baocao';
 } else {
     wp_redirect(home_url('/404'), 301);
     exit;
@@ -170,7 +177,7 @@ get_header();
             <section class="xl:my-[100px] my-20">
                 <div class="container">
                     <h3 class="text-center font-bold lg:text-[32px] text-2xl mb-8">
-                        <?php _e('Các báo cáo liên quan', 'bsc') ?>
+                        <?php echo __('Các', 'bsc') . ' ' . $title_lienquan . ' ' .  __('liên quan', 'bsc') ?>
                     </h3>
                     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
                         <?php
