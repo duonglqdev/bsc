@@ -3078,81 +3078,99 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-	function handleSearch() {
-		$('#search-shares').on('focus', function () {
-			if (!$('#cp').is(':checked')) {
-				return; 
-			}
-	
-			$.ajax({
-				url: ajaxurl.ajaxurl,
-				type: 'POST',
-				data: {
-					action: 'get_shares_data',
-					security: ajaxurl.security,
-				},
-				success: function (response) {
-					if (response.success) {
-						const sharesResult = $('.shares-result');
-						const noResults = sharesResult.find('.no-results');
-						
-						sharesResult.empty();
-						sharesResult.append(noResults); 
-	
-						let hasResults = false;
-	
-						response.data.forEach(function (share) {
-							sharesResult.append(
-								`<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
-							);
-							hasResults = true; 
-						});
-	
-						if (hasResults) {
-							noResults.addClass('hidden'); 
-						} else {
-							noResults.removeClass('hidden'); 
-						}
-	
-						sharesResult.addClass('active'); 
-					} else {
-						console.error('Error: ', response.data);
-					}
-				},
-				error: function (xhr, status, error) {
-					console.error('AJAX Error: ', error);
-				},
-			});
-		});
-	
-		$('#search-shares').on('keyup', function () {
-			const searchValue = $(this).val().toLowerCase(); 
-			const sharesResult = $('.shares-result');
-			const noResults = sharesResult.find('.no-results');
-			let hasResults = false;
-	
-			sharesResult.find('li').not('.no-results').each(function () {
-				const shareName = $(this).text().toLowerCase(); 
-				if (shareName.includes(searchValue)) {
-					$(this).show(); 
-					hasResults = true;
-				} else {
-					$(this).hide(); 
-				}
-			});
-	
-			if (!hasResults) {
-				noResults.removeClass('hidden'); 
-			} else {
-				noResults.addClass('hidden'); 
-			}
-		});
-	
-		$(document).on('click', function (e) {
-			if (!$(e.target).closest('.shares-result, #search-shares').length) {
-				$('.shares-result').removeClass('active');
-			}
-		});
-	}
+let isAjaxInProgress = false;
+
+function handleSearch() {
+    $('#search-shares').on('focus', function () {
+        if (!$('#cp').is(':checked')) {
+            return; 
+        }
+
+        const sharesResult = $('.shares-result');
+        const loader = sharesResult.find('.loader'); 
+        sharesResult.addClass('active');
+        loader.removeClass('hidden');
+
+        if (isAjaxInProgress) {
+            return;
+        }
+        isAjaxInProgress = true; 
+
+        $.ajax({
+            url: ajaxurl.ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'get_shares_data',
+                security: ajaxurl.security, 
+            },
+            success: function (response) {
+                isAjaxInProgress = false; 
+
+                if (response.success) {
+                    const noResults = sharesResult.find('.no-results');
+                    sharesResult.empty(); 
+                    sharesResult.append(noResults); 
+
+                    let hasResults = false;
+
+                    response.data.forEach(function (share) {
+                        sharesResult.append(
+                            `<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
+                        );
+                        hasResults = true; 
+                    });
+
+                    if (hasResults) {
+                        noResults.addClass('hidden');
+                    } else {
+                        noResults.removeClass('hidden'); 
+                    }
+
+                    loader.addClass('hidden'); 
+                } else {
+                    console.error('Error: ', response.data);
+                    loader.addClass('hidden');
+                }
+            },
+            error: function (xhr, status, error) {
+                isAjaxInProgress = false; 
+                console.error('AJAX Error: ', error);
+                loader.addClass('hidden'); 
+            },
+        });
+    });
+
+    $('#search-shares').on('keyup', function () {
+        const searchValue = $(this).val().toLowerCase(); 
+        const sharesResult = $('.shares-result');
+        const noResults = sharesResult.find('.no-results');
+        let hasResults = false;
+
+       
+        sharesResult.find('li').not('.no-results').each(function () {
+            const shareName = $(this).text().toLowerCase(); 
+            if (shareName.includes(searchValue)) {
+                $(this).show(); 
+                hasResults = true; 
+            } else {
+                $(this).hide(); 
+            }
+        });
+
+        
+        if (!hasResults) {
+            noResults.removeClass('hidden'); 
+        } else {
+            noResults.addClass('hidden'); 
+        }
+    });
+
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.shares-result, #search-shares').length) {
+            $('.shares-result').removeClass('active');
+        }
+    });
+}
+
 	
 })(jQuery);

@@ -930,4 +930,8 @@ button#ib-button-messaging {
   background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5 7.05957L15.5 12.0596L10.5 17.0596' stroke='%23453F3F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 
+.shares-result a {
+  @apply transition-all duration-500 hover:bg-primary-200 hover:text-primary-300 rounded;
+}
+
 /*# sourceMappingURL=base.css.map */
