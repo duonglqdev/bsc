@@ -3,7 +3,7 @@ $id_class = get_sub_field('id_class');
 $tab = generateRandomString();
 ?>
 <?php if (have_rows('data')) { ?>
-    <section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
+    <section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav data_history_price" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
         <div class="container">
             <ul class="flex justify-center gap-10 customtab-nav">
                 <?php
@@ -29,7 +29,7 @@ $tab = generateRandomString();
         $i++;
     ?>
         <section class="tab-content lg:mt-[86px] mt-20 lg:mb-[100px] mb-20 <?php if ($i % 2 == 1) echo 'block';
-                                                                            else 'hidden' ?>" id="<?php echo $tab . $i ?>">
+                                                                            else echo 'hidden' ?>" id="<?php echo $tab . $i ?>">
             <div class="container">
                 <div class="lg:flex gap-5 mb-20 mt-4 items-end">
                     <div class="lg:w-80 lg:max-w-1/3 flex flex-col font-Helvetica">
