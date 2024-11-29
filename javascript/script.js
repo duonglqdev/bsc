@@ -34,7 +34,10 @@ import { DataTable } from 'simple-datatables';
 		growthChart();
 		effectiveChart();
 		collapseChart();
+		//
 		handleDatatables();
+		//
+		handleSearch();
 	});
 
 	function menuMobile() {
@@ -1402,7 +1405,7 @@ import { DataTable } from 'simple-datatables';
 				);
 			}
 		}
-		running_chart();
+		// running_chart();
 
 		jQuery('section.chart .btn-chart button').click(function () {
 			const chart_name = jQuery(this).attr('data-chart');
@@ -2924,13 +2927,24 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function handleDatatables() {
-		// Khởi tạo DataTable
+		const tableElement = document.querySelector('#ttcp-table');
+		if (!tableElement) {
+			// Thoát khỏi hàm nếu không tìm thấy #ttcp-table
+			return;
+		}
+		// Khởi tạo DataTable với chức năng searchable
 		const dataTable = new DataTable('#ttcp-table', {
-			searchable: false,
+			searchable: true,
 			fixedHeight: true,
-			perPage: 12, // Số lượng mục mỗi trang mặc định là 10
-			perPageSelect: [12, 24, 36, 48], // Các lựa chọn số lượng mục trên mỗi trang
+			perPage: 12,
+			perPageSelect: [12, 24, 36, 48],
 		});
+
+		// Ẩn input mặc định của searchable bằng CSS
+		const searchableInput = document.querySelector('.datatable-input');
+		if (searchableInput) {
+			searchableInput.style.display = 'none';
+		}
 
 		const dropdownElement = document.querySelector(
 			'.datatable-top .datatable-dropdown'
@@ -2952,135 +2966,193 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 
-		// Lấy tham chiếu đến các bộ lọc tùy chỉnh, nút lọc và nút reset
-		const searchInput = document.querySelector('#search-name');
-		const searchCode = document.querySelector('#search-code');
-		const searchMajor = document.querySelector('#search-major');
-		const searchTrading = document.querySelector('#search-trading');
-		const searchButton = document.querySelector('#search_cophieu');
-		const resetButton = document.querySelector('#reset-ttcp');
-		const tableBody = document.querySelector('#ttcp-table tbody');
-		const noDataMessage = document.createElement('tr');
-		noDataMessage.setAttribute('id', 'no-data-message');
-		noDataMessage.innerHTML = `<td colspan="9" class="text-center">Không tìm thấy dữ liệu!</td>`;
-
-		// Hàm tạo các option cho select
-		function populateSelect(selectElement, attribute) {
-			if (!selectElement) return;
-
-			const tableRows = document.querySelectorAll('#ttcp-table tbody tr');
-			const uniqueValues = new Set();
-
-			tableRows.forEach((row) => {
-				const cell = row.querySelector(`td[${attribute}]`);
-				if (cell) {
-					uniqueValues.add(cell.getAttribute(attribute).trim());
+		// Kết nối ô tìm kiếm #search-name với searchable của DataTable
+		const searchNameInput = document.querySelector('#search-name');
+		if (searchNameInput) {
+			searchNameInput.addEventListener('input', () => {
+				const value = searchNameInput.value.trim();
+				if (dataTable) {
+					dataTable.search(value);
 				}
 			});
-
-			uniqueValues.forEach((value) => {
-				const option = document.createElement('option');
-				option.value = value;
-				option.textContent = value;
-				selectElement.appendChild(option);
-			});
-		}
-
-		// Tạo các option cho các select
-		populateSelect(searchCode, 'data-code');
-		populateSelect(searchMajor, 'data-major');
-		populateSelect(searchTrading, 'data-trading');
-
-		// Hàm lọc dữ liệu cho tất cả các trường
-		function filterData() {
-			const nameFilter =
-				(searchInput && searchInput.value.trim().toLowerCase()) || '';
-			const codeFilter = (searchCode && searchCode.value) || '';
-			const majorFilter = (searchMajor && searchMajor.value) || '';
-			const tradingFilter = (searchTrading && searchTrading.value) || '';
-			const tableRows = document.querySelectorAll('#ttcp-table tbody tr');
-			let foundMatch = false; // Biến kiểm tra nếu có ít nhất 1 kết quả phù hợp
-
-			tableRows.forEach((row) => {
-				const nameCell = row.querySelector('td[data-code]');
-				const majorCell = row.querySelector('td[data-major]');
-				const tradingCell = row.querySelector('td[data-trading]');
-
-				const nameMatches =
-					!nameFilter ||
-					row.textContent.toLowerCase().includes(nameFilter);
-				const codeMatches =
-					!codeFilter ||
-					nameCell.getAttribute('data-code') === codeFilter;
-				const majorMatches =
-					!majorFilter ||
-					majorCell.getAttribute('data-major') === majorFilter;
-				const tradingMatches =
-					!tradingFilter ||
-					tradingCell.getAttribute('data-trading') === tradingFilter;
-
-				if (
-					nameMatches &&
-					codeMatches &&
-					majorMatches &&
-					tradingMatches
-				) {
-					row.style.display = ''; // Hiển thị dòng
-					foundMatch = true;
-				} else {
-					row.style.display = 'none'; // Ẩn dòng
-				}
-			});
-
-			// Nếu không có kết quả phù hợp, hiển thị thông báo "Không tìm thấy dữ liệu!"
-			if (!foundMatch) {
-				if (!document.querySelector('#no-data-message')) {
-					tableBody.appendChild(noDataMessage); // Thêm thông báo nếu chưa có
-				}
-			} else {
-				// Nếu có kết quả, đảm bảo không có thông báo "Không tìm thấy dữ liệu!"
-				const noDataRow = document.querySelector('#no-data-message');
-				if (noDataRow) {
-					noDataRow.remove(); // Xóa thông báo nếu có kết quả
-				}
+			// Kích hoạt tìm kiếm ngay khi trang tải nếu #search-name có giá trị
+			if (searchNameInput.value.trim() !== '') {
+				const value = searchNameInput.value.trim();
+				dataTable.search(value); // Kích hoạt tìm kiếm
 			}
 		}
 
-		// Sự kiện tìm kiếm ngay lập tức trên ô input #search-name (tìm kiếm toàn bộ bảng)
-		if (searchInput) {
-			searchInput.addEventListener('input', () => {
-				// Lọc lại bảng ngay lập tức khi người dùng nhập
-				filterData();
+		// Gắn input ẩn cho các bộ lọc theo cột
+		const filterInputs = {
+			code: document.querySelector('#filter-code'),
+			trading: document.querySelector('#filter-trading'),
+			major: document.querySelector('#filter-major'),
+		};
+
+		const selects = {
+			code: document.querySelector('#search-code'),
+			trading: document.querySelector('#search-trading'),
+			major: document.querySelector('#search-major'),
+		};
+
+		Object.keys(selects).forEach((key) => {
+			const select = selects[key];
+			const input = filterInputs[key];
+
+			if (select && input) {
+				select.addEventListener('change', () => {
+					input.value = select.value.trim();
+				});
+			}
+		});
+
+		// Thêm chức năng lọc AND khi nhấn nút #search_cophieu
+		const searchButton = document.querySelector('#search_cophieu');
+		if (searchButton) {
+			searchButton.addEventListener('click', () => {
+				// Tạo danh sách các điều kiện lọc
+				const queries = [];
+				const filterValues = {
+					code: filterInputs.code.value.trim().toLowerCase(),
+					trading: filterInputs.trading.value.trim().toLowerCase(),
+					major: filterInputs.major.value.trim().toLowerCase(),
+				};
+
+				// Thêm điều kiện lọc cho từng cột
+				if (filterValues.code) {
+					queries.push({ terms: [filterValues.code], columns: [0] }); // Lọc theo cột "Mã CK" (cột 0)
+				}
+				if (filterValues.trading) {
+					queries.push({
+						terms: [filterValues.trading],
+						columns: [2],
+					}); // Lọc theo cột "Sàn" (cột 2)
+				}
+				if (filterValues.major) {
+					queries.push({ terms: [filterValues.major], columns: [3] }); // Lọc theo cột "Ngành" (cột 3)
+				}
+
+				// Gọi hàm multiSearch để thực hiện lọc
+				dataTable.multiSearch(queries);
+
+				// Hiển thị thông báo nếu không có dữ liệu phù hợp
+				const visibleRows = dataTable.activeRows;
+				const noDataMessage =
+					document.querySelector('#no-data-message');
+				if (visibleRows.length === 0) {
+					if (!noDataMessage) {
+						const message = `<tr id="no-data-message"><td colspan="9" class="text-center">Không tìm thấy dữ liệu!</td></tr>`;
+						document.querySelector('#ttcp-table tbody').innerHTML =
+							message;
+					}
+				} else if (noDataMessage) {
+					noDataMessage.remove();
+				}
 			});
 		}
-
-		// Gắn sự kiện cho nút lọc
-		if (searchButton) {
-			searchButton.addEventListener('click', filterData);
-		}
-
-		// Gắn sự kiện cho nút reset
+		// Thêm chức năng Reset
+		const resetButton = document.querySelector('#reset-ttcp');
 		if (resetButton) {
 			resetButton.addEventListener('click', () => {
-				// Xóa giá trị các bộ lọc
-				if (searchInput) searchInput.value = '';
-				if (searchCode) searchCode.value = '';
-				if (searchMajor) searchMajor.value = '';
-				if (searchTrading) searchTrading.value = '';
-
-				// Hiển thị tất cả các dòng và xóa thông báo "Không tìm thấy dữ liệu!"
-				const tableRows = document.querySelectorAll(
-					'#ttcp-table tbody tr'
-				);
-				tableRows.forEach((row) => {
-					row.style.display = ''; // Hiển thị tất cả các dòng
+				// Xóa tất cả các giá trị trong bộ lọc
+				if (searchNameInput) searchNameInput.value = '';
+				Object.keys(filterInputs).forEach((key) => {
+					const input = filterInputs[key];
+					const select = selects[key];
+					if (input) input.value = '';
+					if (select) select.value = '';
 				});
 
-				const noDataRow = document.querySelector('#no-data-message');
-				if (noDataRow) {
-					noDataRow.remove(); // Xóa thông báo nếu có
+				// Reset lại DataTable về trạng thái ban đầu
+				dataTable.search(''); // Xóa tìm kiếm toàn bảng
+				dataTable.multiSearch([]); // Xóa tất cả các bộ lọc
+				dataTable.update(); // Cập nhật lại bảng
+
+				// Xóa thông báo "Không tìm thấy dữ liệu!" nếu có
+				const noDataMessage =
+					document.querySelector('#no-data-message');
+				if (noDataMessage) {
+					noDataMessage.remove();
 				}
 			});
 		}
 	}
+
+	function handleSearch() {
+		$('#search-shares').on('focus', function () {
+			if (!$('#cp').is(':checked')) {
+				return; 
+			}
+	
+			$.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'get_shares_data',
+					security: ajaxurl.security,
+				},
+				success: function (response) {
+					if (response.success) {
+						const sharesResult = $('.shares-result');
+						const noResults = sharesResult.find('.no-results');
+						
+						sharesResult.empty();
+						sharesResult.append(noResults); 
+	
+						let hasResults = false;
+	
+						response.data.forEach(function (share) {
+							sharesResult.append(
+								`<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
+							);
+							hasResults = true; 
+						});
+	
+						if (hasResults) {
+							noResults.addClass('hidden'); 
+						} else {
+							noResults.removeClass('hidden'); 
+						}
+	
+						sharesResult.addClass('active'); 
+					} else {
+						console.error('Error: ', response.data);
+					}
+				},
+				error: function (xhr, status, error) {
+					console.error('AJAX Error: ', error);
+				},
+			});
+		});
+	
+		$('#search-shares').on('keyup', function () {
+			const searchValue = $(this).val().toLowerCase(); 
+			const sharesResult = $('.shares-result');
+			const noResults = sharesResult.find('.no-results');
+			let hasResults = false;
+	
+			sharesResult.find('li').not('.no-results').each(function () {
+				const shareName = $(this).text().toLowerCase(); 
+				if (shareName.includes(searchValue)) {
+					$(this).show(); 
+					hasResults = true;
+				} else {
+					$(this).hide(); 
+				}
+			});
+	
+			if (!hasResults) {
+				noResults.removeClass('hidden'); 
+			} else {
+				noResults.addClass('hidden'); 
+			}
+		});
+	
+		$(document).on('click', function (e) {
+			if (!$(e.target).closest('.shares-result, #search-shares').length) {
+				$('.shares-result').removeClass('active');
+			}
+		});
+	}
+	
 })(jQuery);
