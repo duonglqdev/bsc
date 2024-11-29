@@ -202,11 +202,13 @@
 													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 													<?php _e('Hot', 'bsc') ?>
 												</p>
-												<?php if ($news->reporturl) { ?>
-													<a href="<?php echo $news->reporturl ?>" target="_blank">
-														<?php echo svg('download') ?>
-													</a>
-												<?php } ?>
+												<p class="min-w-5">
+													<?php if ($news->reporturl) { ?>
+														<a href="<?php echo $news->reporturl ?>" target="_blank">
+															<?php echo svg('download', '20', '20') ?>
+														</a>
+													<?php } ?>
+												</p>
 											</li>
 											<?php
 										}
@@ -229,11 +231,13 @@
 														class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 														<?php _e('Hot', 'bsc') ?>
 													</p>
-													<?php if ($news->reporturl) { ?>
-														<a href="<?php echo $news->reporturl ?>" target="_blank">
-															<?php echo svg('download') ?>
-														</a>
-													<?php } ?>
+													<p class="min-w-5">
+														<?php if ($news->reporturl) { ?>
+															<a href="<?php echo $news->reporturl ?>" target="_blank">
+																<?php echo svg('download', '20', '20') ?>
+															</a>
+														<?php } ?>
+													</p>
 												</li>
 										<?php
 											}
