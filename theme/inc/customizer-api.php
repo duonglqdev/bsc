@@ -243,6 +243,7 @@ function custom_template_redirect_for_co_phieu()
             $co_phieu = $get_co_phieu_detail->d[0];
             // // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
             global $custom_meta_data;
+            update_co_phieu_view_count_option($co_phieu_id);
             $custom_meta_data = array(
                 'title' => $co_phieu_id,
                 'description' => $co_phieu->description,
@@ -431,4 +432,36 @@ function get_color_by_number_bsc($status)
         'background_status' => $background_status,
         'title_status' => $title_status
     ];
+}
+
+/**
+ * Create View count
+ */
+function update_co_phieu_view_count_option($symbol)
+{
+    $key = 'co_phieu_views';
+    $views = get_option($key, array()); // Lấy danh sách lượt xem
+
+    if (isset($views[$symbol])) {
+        $views[$symbol]++; // Tăng lượt xem nếu đã tồn tại
+    } else {
+        $views[$symbol] = 1; // Khởi tạo lượt xem nếu chưa tồn tại
+    }
+
+    update_option($key, $views); // Lưu lại danh sách
+}
+
+/**
+ * Get top View
+ */
+function get_top_viewed_co_phieu_option($limit = 6)
+{
+    $key = 'co_phieu_views';
+    $views = get_option($key, array());
+
+    // Sắp xếp lượt xem giảm dần
+    arsort($views);
+
+    // Lấy top mã cổ phiếu
+    return array_slice($views, 0, $limit, true);
 }

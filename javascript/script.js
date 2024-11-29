@@ -421,7 +421,7 @@ import { DataTable } from 'simple-datatables';
 		});
 	}
 
-	window.handleChart = function (seriesData, yAxisOptions) {
+	function handleChart(seriesData, yAxisOptions) {
 		var chartElement = document.querySelector('#chart');
 		if (chartElement) {
 			var height_chart =
@@ -546,11 +546,10 @@ import { DataTable } from 'simple-datatables';
 					},
 				},
 			};
-
 			var chart = new ApexCharts(chartElement, options);
 			chart.render();
 		}
-	};
+	}
 
 	function aboutUsSlider() {
 		$('.about_history-content').slick({
@@ -974,30 +973,9 @@ import { DataTable } from 'simple-datatables';
 		jQuery(document).on('click', '#ib-button-messaging', function () {
 			jQuery('#ib-button-messaging').css('display', 'none');
 		});
-		(function (I, n, f, o, b, i, p) {
-			I[b] =
-				I[b] ||
-				function () {
-					(I[b].q = I[b].q || []).push(arguments);
-				};
-
-			I[b].t = 1 * new Date();
-			i = n.createElement(f);
-			i.async = 1;
-			i.src = o;
-
-			p = n.getElementsByTagName(f)[0];
-			p.parentNode.insertBefore(i, p);
-		})(
-			window,
-			document,
-			'script',
-			'https://livechat.infobip.com/widget.js',
-			'liveChat'
-		);
-
-		liveChat('init', 'f6a95a7a-4346-4059-8343-d646578b8269');
-		liveChat('hide');
+		if ($('#ib-button-messaging').length) {
+			liveChat('hide');
+		}
 	}
 
 	function marqueeSlider() {
@@ -1353,7 +1331,7 @@ import { DataTable } from 'simple-datatables';
 			];
 
 			jQuery('#chart').empty();
-			window.handleChart(chartData, newYAxisOptions);
+			handleChart(chartData, newYAxisOptions);
 		}
 
 		function formatDate(date) {
@@ -1405,7 +1383,7 @@ import { DataTable } from 'simple-datatables';
 				);
 			}
 		}
-		// running_chart();
+		running_chart();
 
 		jQuery('section.chart .btn-chart button').click(function () {
 			const chart_name = jQuery(this).attr('data-chart');
@@ -3078,99 +3056,98 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-let isAjaxInProgress = false;
+	let isAjaxInProgress = false;
 
-function handleSearch() {
-    $('#search-shares').on('focus', function () {
-        if (!$('#cp').is(':checked')) {
-            return; 
-        }
+	function handleSearch() {
+		$('#search-shares').on('focus', function () {
+			if (!$('#cp').is(':checked')) {
+				return;
+			}
 
-        const sharesResult = $('.shares-result');
-        const loader = sharesResult.find('.loader'); 
-        sharesResult.addClass('active');
-        loader.removeClass('hidden');
+			const sharesResult = $('.shares-result');
+			const loader = sharesResult.find('.loader');
+			sharesResult.addClass('active');
+			loader.removeClass('hidden');
 
-        if (isAjaxInProgress) {
-            return;
-        }
-        isAjaxInProgress = true; 
+			if (isAjaxInProgress) {
+				return;
+			}
+			isAjaxInProgress = true;
 
-        $.ajax({
-            url: ajaxurl.ajaxurl,
-            type: 'POST',
-            data: {
-                action: 'get_shares_data',
-                security: ajaxurl.security, 
-            },
-            success: function (response) {
-                isAjaxInProgress = false; 
+			$.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'get_shares_data',
+					security: ajaxurl.security,
+				},
+				success: function (response) {
+					isAjaxInProgress = false;
 
-                if (response.success) {
-                    const noResults = sharesResult.find('.no-results');
-                    sharesResult.empty(); 
-                    sharesResult.append(noResults); 
+					if (response.success) {
+						const noResults = sharesResult.find('.no-results');
+						sharesResult.empty();
+						sharesResult.append(noResults);
 
-                    let hasResults = false;
+						let hasResults = false;
 
-                    response.data.forEach(function (share) {
-                        sharesResult.append(
-                            `<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
-                        );
-                        hasResults = true; 
-                    });
+						response.data.forEach(function (share) {
+							sharesResult.append(
+								`<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
+							);
+							hasResults = true;
+						});
 
-                    if (hasResults) {
-                        noResults.addClass('hidden');
-                    } else {
-                        noResults.removeClass('hidden'); 
-                    }
+						if (hasResults) {
+							noResults.addClass('hidden');
+						} else {
+							noResults.removeClass('hidden');
+						}
 
-                    loader.addClass('hidden'); 
-                } else {
-                    console.error('Error: ', response.data);
-                    loader.addClass('hidden');
-                }
-            },
-            error: function (xhr, status, error) {
-                isAjaxInProgress = false; 
-                console.error('AJAX Error: ', error);
-                loader.addClass('hidden'); 
-            },
-        });
-    });
+						loader.addClass('hidden');
+					} else {
+						console.error('Error: ', response.data);
+						loader.addClass('hidden');
+					}
+				},
+				error: function (xhr, status, error) {
+					isAjaxInProgress = false;
+					console.error('AJAX Error: ', error);
+					loader.addClass('hidden');
+				},
+			});
+		});
 
-    $('#search-shares').on('keyup', function () {
-        const searchValue = $(this).val().toLowerCase(); 
-        const sharesResult = $('.shares-result');
-        const noResults = sharesResult.find('.no-results');
-        let hasResults = false;
+		$('#search-shares').on('keyup', function () {
+			const searchValue = $(this).val().toLowerCase();
+			const sharesResult = $('.shares-result');
+			const noResults = sharesResult.find('.no-results');
+			let hasResults = false;
 
-       
-        sharesResult.find('li').not('.no-results').each(function () {
-            const shareName = $(this).text().toLowerCase(); 
-            if (shareName.includes(searchValue)) {
-                $(this).show(); 
-                hasResults = true; 
-            } else {
-                $(this).hide(); 
-            }
-        });
+			sharesResult
+				.find('li')
+				.not('.no-results')
+				.each(function () {
+					const shareName = $(this).text().toLowerCase();
+					if (shareName.includes(searchValue)) {
+						$(this).show();
+						hasResults = true;
+					} else {
+						$(this).hide();
+					}
+				});
 
-        
-        if (!hasResults) {
-            noResults.removeClass('hidden'); 
-        } else {
-            noResults.addClass('hidden'); 
-        }
-    });
+			if (!hasResults) {
+				noResults.removeClass('hidden');
+			} else {
+				noResults.addClass('hidden');
+			}
+		});
 
-    $(document).on('click', function (e) {
-        if (!$(e.target).closest('.shares-result, #search-shares').length) {
-            $('.shares-result').removeClass('active');
-        }
-    });
-}
-
-	
+		$(document).on('click', function (e) {
+			if (!$(e.target).closest('.shares-result, #search-shares').length) {
+				$('.shares-result').removeClass('active');
+			}
+		});
+	}
 })(jQuery);

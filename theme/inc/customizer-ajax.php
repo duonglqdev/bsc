@@ -238,24 +238,30 @@ function get_content_qhcd_ajax()
     die();
 }
 
-
+/**
+ * Add API MCK
+ */
 add_action('wp_ajax_get_shares_data', 'get_shares_data');
 add_action('wp_ajax_nopriv_get_shares_data', 'get_shares_data');
 
-function get_shares_data() {
+function get_shares_data()
+{
     check_ajax_referer('common_nonce', 'security');
-
-    $shares_data = [
-        ['name' => 'ABC', 'link' => 'https://demo.com/abc'],
-        ['name' => 'DEF', 'link' => 'https://demo.com/def'],
-        ['name' => 'GHI', 'link' => 'https://demo.com/ghi'],
-        ['name' => 'JKL', 'link' => 'https://demo.com/jkl'],
-        ['name' => 'MNO', 'link' => 'https://demo.com/mno'],
-        ['name' => 'PQR', 'link' => 'https://demo.com/pqr'],
-        ['name' => 'STU', 'link' => 'https://demo.com/stu'],
-        ['name' => 'VWX', 'link' => 'https://demo.com/vwx'],
-        ['name' => 'YZA', 'link' => 'https://demo.com/yza'],
-        ['name' => 'BCD', 'link' => 'https://demo.com/bcd'],
-    ];
-    wp_send_json_success($shares_data);
+    $time_cache = 300;
+    $array_data = json_encode([
+        'lang' => pll_current_language(),
+    ]);
+    $response = get_data_with_cache('secListAll', $array_data, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+    $data = json_decode($response->data, true);
+    if (isset($data['dict'])) {
+        $codes = array_keys($data['dict']);
+        $shares_data =  [];
+        if ($codes) {
+            foreach ($codes as $code) {
+                $shares_data[] = ['name' => $code, 'link' => slug_co_phieu($code)];
+            }
+        }
+        wp_send_json_success($shares_data);
+    }
+    die();
 }

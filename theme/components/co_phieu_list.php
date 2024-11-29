@@ -1,3 +1,6 @@
+<?php
+$time_cache  = 3000;
+?>
 <section class="xl:my-[100px] my-20 co_phieu_list" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <form class="flex gap-4 items-end mb-10" id="form-search-cophieu">
@@ -8,28 +11,55 @@
                 <input type="text" placeholder="<?php _e('Nhập mã chứng khoán', 'bsc') ?>"
                     class="w-full bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]" id="search-name" value="<?php if (isset($_GET['mcp'])) echo $_GET['mcp'] ?>">
             </div>
-            <div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
-                <p class="font-medium mb-2">
-                    <?php _e('Tìm mã cổ phiếu', 'bsc') ?>
-                </p>
-                <select
-                    class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-code">
-                    <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-
-                </select>
-                <input type="hidden" id="filter-code">	
-            </div>
-            <div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
-                <p class="font-medium mb-2">
-                    <?php _e('Tìm theo ngành', 'bsc') ?>
-                </p>
-                <select
-                    class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-major">
-                    <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-
-                </select>
-                <input type="hidden" id="filter-major">		
-            </div>
+            <?php
+            $array_data = json_encode([
+                'lang' => pll_current_language(),
+            ]);
+            $response = get_data_with_cache('secListAll', $array_data, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+            $data = json_decode($response->data, true);
+            if (isset($data['dict'])) {
+                $codes = array_keys($data['dict']);
+                $shares_data =  [];
+                if ($codes) {
+            ?>
+                    <div class="lg:w-[20%] lg:max-w-[300px] flex flex-col font-Helvetica">
+                        <p class="font-medium mb-2">
+                            <?php _e('Tìm mã cổ phiếu', 'bsc') ?>
+                        </p>
+                        <select
+                            class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-code">
+                            <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+                            <?php foreach ($codes as $code) { ?>
+                                <option value="<?php echo $code ?>"><?php echo $code ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="hidden" id="filter-code">
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <?php
+            $array_data_GetIndustryLv2 = array(
+                'lang' => pll_current_language(),
+            );
+            $response_GetIndustryLv2 = get_data_with_cache('GetIndustryLv2', $array_data_GetIndustryLv2, $time_cache);
+            if ($response_GetIndustryLv2) {
+            ?>
+                <div class="lg:w-[20%] lg:max-w-[243px] flex flex-col font-Helvetica">
+                    <p class="font-medium mb-2">
+                        <?php _e('Tìm theo ngành', 'bsc') ?>
+                    </p>
+                    <select
+                        class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-major">
+                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+                        <?php foreach ($response_GetIndustryLv2->d as $GetIndustryLv2) { ?>
+                            <option value="<?php echo $GetIndustryLv2->name ?>"><?php echo $GetIndustryLv2->name ?></option>
+                        <?php } ?>
+                    </select>
+                    <input type="hidden" id="filter-major">
+                </div>
+            <?php } ?>
             <div class="lg:w-[20%] lg:max-w-[241px] flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
                     <?php _e('Tìm theo sàn', 'bsc') ?>
@@ -37,7 +67,9 @@
                 <select
                     class="select_custom w-full bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]" id="search-trading">
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-
+                    <option value="HOSE">HOSE</option>
+                    <option value="HNX">HNX</option>
+                    <option value="UPCOM">UPCOM</option>
                 </select>
                 <input type="hidden" id="filter-trading">
             </div>

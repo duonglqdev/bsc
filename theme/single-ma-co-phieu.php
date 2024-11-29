@@ -22,13 +22,10 @@
 		)) ?>
 		<section class="xl:my-[100px] my-20">
 			<div class="container">
-				<?php if (get_field('cdttcp2_title_big', 'option')) { ?>
+				<?php if ($news->FULLNAME) { ?>
 					<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
-						<?php the_field('cdttcp2_title_big', 'option') ?>
+						<?php echo $news->FULLNAME ?>
 					</h2>
-				<?php } ?>
-				<?php if (get_field('cdttcp2_title_small', 'option')) { ?>
-					<p class="font-bold text-lg text-opacity-50 text-black"><?php the_field('cdttcp2_title_small', 'option') ?></p>
 				<?php } ?>
 				<?php
 				$array_data_value = array(
@@ -794,7 +791,8 @@
 					<?php $array_data_GetNews = array(
 						'lang' => pll_current_language(),
 						'maxitem' => 6,
-						'symbol' => $symbol
+						'symbol' => $symbol,
+						'newstype' => 1
 					);
 					$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
 					if ($response_GetNews) { ?>

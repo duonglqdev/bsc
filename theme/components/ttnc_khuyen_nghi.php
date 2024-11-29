@@ -89,7 +89,19 @@ if ($response_instruments) {
                                                                 </span>
                                                             <?php } ?>
                                                         </li>
-                                                        <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
+                                                            if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+                                                                $text_color_class = 'text-[#1CCD83]';
+                                                            } elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
+                                                                $text_color_class = 'text-[#FE5353]';
+                                                            } elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
+                                                                $text_color_class = 'text-[#EB0]';
+                                                            } else {
+                                                                $text_color_class = '';
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
                                                             <?php
                                                             if ($stockData->closePrice) {
                                                                 echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
@@ -103,7 +115,7 @@ if ($response_instruments) {
                                                             }
                                                             ?>
                                                         </li>
-                                                        <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
                                                             <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
                                                                 if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
                                                                     $before_text = '+';
