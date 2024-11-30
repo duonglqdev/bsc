@@ -1,19 +1,19 @@
-<section class="about_leadership 2xl:mt-[100px] mt-14" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="about_leadership <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mt-[100px] mt-14':'mt-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title 2xl:mb-12 mb-10">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-6' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
         <?php
         $title_tab = generateRandomString(10);
         if (have_rows('doi_ngu')) { ?>
-            <div class="grid md:grid-cols-4 2xl:gap-[50px] gap-9">
-                <div class="md:col-span-1">
-                    <ul class="flex flex-col about_leadership-nav py-[15px] pr-[15px] rounded-[15px] space-y-3"
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-4 2xl:gap-[50px] gap-9':'' ?>">
+                <div class="col-span-1">
+                    <ul class="flex about_leadership-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3':'justify-between shadow-none pb-6 mb-6 border-b border-[#C9CCD2]' ?>"
                         data-tabs-toggle="#about_leadership-tab" role="tablist"
-                        data-tabs-active-classes="text-white bg-primary-400 rounded-tr-xl rounded-br-xl"
-                        data-tabs-inactive-classes="text-black">
+                        data-tabs-active-classes="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-white bg-primary-400 rounded-tr-xl rounded-br-xl':'text-primary-300 after:w-full' ?>"
+                        data-tabs-inactive-classes="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-black':'text-[#31333F]' ?>">
                         <?php
                         $i = 0;
                         while (have_rows('doi_ngu')): the_row();
@@ -22,18 +22,20 @@
                         ?>
                             <li role="presentation">
                                 <button
-                                    class="flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 hover:rounded-tr-xl hover:rounded-br-xl"
+                                    class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 hover:rounded-tr-xl hover:rounded-br-xl':'text-xs font-bold relative after:w-0 after:h-[3px] after:-bottom-[26px] after:bg-primary-300 after:left-0 after:absolute' ?>"
                                     id="<?php echo $title_tab_muc ?>-tab" data-tabs-target="#<?php echo $title_tab_muc ?>" type="button"
                                     role="tab" aria-controls="<?php echo $title_tab_muc ?>" aria-selected="false"><?php echo get_sub_field('title') ?>
-                                    <div class="hidden svg-container">
-                                        <?php echo svg('arrow-right-tab') ?>
-                                    </div>
+                                    <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                                        <div class="hidden svg-container">
+                                            <?php echo svg('arrow-right-tab') ?>
+                                        </div>
+                                    <?php } ?>
                                 </button>
                             </li>
                         <?php endwhile; ?>
                     </ul>
                 </div>
-                <div class="md:col-span-3">
+                <div class="col-span-3">
                     <div id="about_leadership-tab">
                         <?php
                         $i = 0;

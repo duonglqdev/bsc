@@ -86,3 +86,7 @@
     @apply bg-green;
     @include btn-base(rgba(0, 158, 135, 0.4));
 }
+
+svg{
+    @apply max-w-full;
+}

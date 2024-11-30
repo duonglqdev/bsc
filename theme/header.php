@@ -13,7 +13,8 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> class="scroll-smooth scroll-pt-10">
+<html <?php language_attributes(); ?>
+	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'style-pc' : 'style-mb' ?>">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -26,7 +27,8 @@
 
 	<?php wp_body_open(); ?>
 	<header class="transition duration-500 relative z-30">
-		<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+		{ ?>
 			<div class="bg-gradient-blue py-2 text-white relative lg:block hidden">
 				<div
 					class="absolute top-0 left-0 pointer-events-none w-full h-full overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg]">
@@ -61,9 +63,11 @@
 								<ul
 									class="shares-result absolute py-2 rounded-md z-30 p-1 w-full h-56 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-gradient-blue text-white prose-a:block prose-a:px-4 prose-a:py-2 prose-a:font-medium prose-a:font-Helvetica">
 									<li class="no-results text-center p-4 font-bold hidden">
-										<?php _e( 'Không thấy kết quả!', 'bsc' ) ?></li>
+										<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
+									</li>
 									<div class="text-center loader hidden w-full h-full">
-										<div class="h-full w-full flex flex-col justify-center items-center">
+										<div
+											class="h-full w-full flex flex-col justify-center items-center">
 											<div role="status">
 												<svg aria-hidden="true"
 													class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -95,7 +99,8 @@
 							) );
 							?>
 						</ul>
-						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						{ ?>
 							<button data-dropdown-toggle="dropdownLanguage"
 								class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
 								<?php echo svg( 'global', '24', '24' ) ?>
@@ -106,12 +111,13 @@
 					</div>
 				</div>
 			</div>
-							
+
 		<?php } ?>
 		<div class="bg-white 2xl:py-[14px] py-3 shadow-base">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
-					<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
 						<div class="flex items-center gap-2">
 							<div class="bar_mobile ">
 								<?php echo svg( 'bar' ) ?>
@@ -138,8 +144,11 @@
 					}
 					?>
 
-					<div class="<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> relative flex items-center<?php } ?>" >
-						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+					<div
+						class="<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						{ ?> relative flex items-center<?php } ?>">
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						{ ?>
 							<div class="main_menu">
 								<ul
 									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-bold text-black">
@@ -159,12 +168,13 @@
 									) );
 									?>
 								</ul>
-	
+
 							</div>
 						<?php } ?>
 						<ul
 							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu lg:top-full 2xl:mt-[22px] lg:mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex">
-							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							<?php if ( wp_is_mobile() && bsc_is_mobile() )
+							{ ?>
 								<div class="flex items-center justify-between mb-6">
 									<div class="close-mobile">
 										<?php echo svg( 'close', '24', '24' ) ?>
@@ -258,5 +268,5 @@
 				<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 			</ul>
 		</div>
-		
+
 	</header>

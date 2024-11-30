@@ -69,15 +69,18 @@ if ($args['breadcrumb']) {
 ?>
 
 <section <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>
-    class="page__banner relative after:absolute after:inset-0 after:w-full after:h-full after:pointer-events-none <?php echo $style == 'default' ? 'after:bg-gradient-banner' : 'page__banner-haft'  ?>  py-24 text-white bg-no-repeat bg-cover " style="background-image:url('<?php echo $banner ?>')">
+    class="page__banner relative after:absolute after:inset-0 after:w-full after:h-full after:bg-no-repeat after:pointer-events-none <?php echo $style == 'default' && !wp_is_mobile() && !bsc_is_mobile() ? 'after:bg-gradient-banner' : 'page__banner-haft'  ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-24':'py-[50px]' ?>  text-white bg-no-repeat bg-cover " style="background-image:url('<?php echo $banner ?>')">
     <div class="container relative z-[1]">
-        <div class="mb-5">
-            <?php get_template_part('components/breadcrumb', null, array(
-                'custom' => $breadcrumb,
-                'title' => $args['title']
-            )) ?>
-        </div>
-        <h2 class="lg:text-[40px] text-4xl font-bold">
+        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+            <div class="mb-5">
+                <?php get_template_part('components/breadcrumb', null, array(
+                    'custom' => $breadcrumb,
+                    'title' => $args['title']
+                )) ?>
+            </div>
+                            
+        <?php } ?>
+        <h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[40px] text-4xl':'text-2xl' ?>">
             <?php echo $title; ?>
         </h2>
     </div>
