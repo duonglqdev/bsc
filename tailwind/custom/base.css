@@ -981,4 +981,14 @@ button#ib-button-messaging {
   @apply transition-all duration-500 hover:bg-primary-200 hover:text-primary-300 rounded;
 }
 
+.home_news .flickity-page-dots {
+  @apply -bottom-6;
+}
+.home_news .flickity-page-dots .dot {
+  @apply mx-1;
+}
+.home_news .flickity-page-dots .dot.is-selected {
+  @apply bg-primary-300;
+}
+
 /*# sourceMappingURL=base.css.map */

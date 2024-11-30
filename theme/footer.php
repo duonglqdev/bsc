@@ -14,17 +14,21 @@
 <footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica">
 	<div class="container">
 		<div
-			class="lg:flex lg:justify-between items-center gap-4 pb-6 lg:mb-10 mb-6 border-b border-[#f3f3f3] border-opacity-50">
+			class="pb-6 border-b border-[#f3f3f3] border-opacity-50 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center gap-4 mb-10' : 'mb-6' ?>">
 			<?php if ( get_field( 'f1_tongdai', 'option' ) )
 			{ ?>
 				<div class="flex items-center gap-x-4 text-white font-normal hidden-br-pc">
-					<?php echo svgClass( 'phone', '', '', 'lg:block hidden' ) ?>
+					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+					{ ?>
+						<?php echo svg( 'phone', '', '' ) ?>
+					<?php } ?>
 					<p><?php the_field( 'f1_tongdai', 'option' ) ?></p>
 				</div>
 			<?php } ?>
 			<?php if ( have_rows( 'f1_mxh', 'option' ) )
 			{ ?>
-				<div class="flex items-center gap-x-2 text-white lg:mt-0 mt-4">
+				<div
+					class="flex items-center gap-x-2 text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-0' : 'mt-4' ?>">
 					<?php while ( have_rows( 'f1_mxh', 'option' ) ) :
 						the_row(); ?>
 						<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
@@ -46,8 +50,9 @@
 			<?php } ?>
 		</div>
 		<div
-			class="grid grid-cols-8 2xl:gap-12 lg:gap-10 md:gap-5 lg:mb-10 lg:pb-10 mb-6 lg:border-b lg:border-[#f3f3f3] border-opacity-50 font-light">
-			<div class="lg:col-span-3 md:col-span-4 col-span-full">
+			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-10 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
 				<?php
 				$custom_logo_id = get_field( 'f1_logo', 'option' );
 				if ( $custom_logo_id )
@@ -55,19 +60,23 @@
 					$image = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 					printf(
 						'<a class="max-w-[116px] block mb-6" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s" loading="lazy"></a>',
-						get_bloginfo('url'),
-						get_bloginfo('description'),
+						get_bloginfo( 'url' ),
+						get_bloginfo( 'description' ),
 						$image[0],
 
 					);
 				}
 				?>
-				<div class="lg:block hidden">
+				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+				{ ?>
 					<?php the_field( 'f1_mota', 'option' ) ?>
-				</div>
+				<?php } ?>
+
 			</div>
-			<div class="lg:col-span-3 md:col-span-4 col-span-full">
-				<ul class="lg:space-y-4 space-y-2 lg:text-base text-xs">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
+				<ul
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-2 text-xs' ?>">
 					<?php if ( have_rows( 'f1_thongtintruso', 'option' ) )
 					{
 						while ( have_rows( 'f1_thongtintruso', 'option' ) ) :
@@ -118,93 +127,102 @@
 					} ?>
 				</ul>
 			</div>
-			<div class="lg:col-span-2 col-span-full lg:block hidden">
-				<?php if ( get_field( 'f2_title', 'option' ) )
-				{ ?>
-					<p class="font-bold text-xs uppercase mb-4">
-						<?php the_field( 'f2_title', 'option' ) ?>
-					</p>
-				<?php } ?>
-				<div class="flex gap-6">
-					<?php if ( have_rows( 'f2_qr_code', 'option' ) )
-					{
-						while ( have_rows( 'f2_qr_code', 'option' ) ) :
-							the_row();
-							if ( get_sub_field( 'img' ) )
-							{ ?>
-								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
-									rel="nofollow" class="md:w-[114px] md:max-w-[40%]">
-									<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
-								</a>
-								<?php
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+			{ ?>
+				<div class="col-span-2">
+					<?php if ( get_field( 'f2_title', 'option' ) )
+					{ ?>
+						<p class="font-bold text-xs uppercase mb-4">
+							<?php the_field( 'f2_title', 'option' ) ?>
+						</p>
+					<?php } ?>
+					<div class="flex gap-6">
+						<?php if ( have_rows( 'f2_qr_code', 'option' ) )
+						{
+							while ( have_rows( 'f2_qr_code', 'option' ) ) :
+								the_row();
+								if ( get_sub_field( 'img' ) )
+								{ ?>
+									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
+										rel="nofollow" class="md:w-[114px] md:max-w-[40%]">
+										<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
+									</a>
+									<?php
+								}
+							endwhile;
+						}
+						?>
+						<div class="flex flex-col gap-4">
+							<?php if ( have_rows( 'f2_google_play', 'option' ) )
+							{
+								while ( have_rows( 'f2_google_play', 'option' ) ) :
+									the_row();
+									if ( get_sub_field( 'img' ) )
+									{ ?>
+										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+											target="_blank" rel="nofollow">
+											<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
+										</a>
+										<?php
+									}
+								endwhile;
 							}
-						endwhile;
-					}
-					?>
-					<div class="flex flex-col gap-4">
-						<?php if ( have_rows( 'f2_google_play', 'option' ) )
-						{
-							while ( have_rows( 'f2_google_play', 'option' ) ) :
-								the_row();
-								if ( get_sub_field( 'img' ) )
-								{ ?>
-									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										target="_blank" rel="nofollow">
-										<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
-									</a>
-									<?php
-								}
-							endwhile;
-						}
-						?>
-						<?php if ( have_rows( 'f2_apple_store', 'option' ) )
-						{
-							while ( have_rows( 'f2_apple_store', 'option' ) ) :
-								the_row();
-								if ( get_sub_field( 'img' ) )
-								{ ?>
-									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										target="_blank" rel="nofollow">
-										<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
-									</a>
-									<?php
-								}
-							endwhile;
-						}
-						?>
+							?>
+							<?php if ( have_rows( 'f2_apple_store', 'option' ) )
+							{
+								while ( have_rows( 'f2_apple_store', 'option' ) ) :
+									the_row();
+									if ( get_sub_field( 'img' ) )
+									{ ?>
+										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+											target="_blank" rel="nofollow">
+											<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
+										</a>
+										<?php
+									}
+								endwhile;
+							}
+							?>
+						</div>
 					</div>
+					<?php if ( get_field( 'f1_copyright', 'option' ) )
+					{ ?>
+						<div class="mt-6">
+							<?php the_field( 'f1_copyright', 'option' ) ?>
+						</div>
+					<?php } ?>
 				</div>
-				<?php if ( get_field( 'f1_copyright', 'option' ) )
-				{ ?>
-					<div class="mt-6">
-						<?php the_field( 'f1_copyright', 'option' ) ?>
-					</div>
-				<?php } ?>
-			</div>
+			<?php } ?>
 		</div>
-		<div class="lg:py-0 py-6 lg:mt-0 mt-6 lg:border-0 border-t border-b border-[#f3f3f3]">
-			<div
-				class="lg:hidden flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer">
-				<span><?php _e( 'Liên kết thêm', 'gnws' ) ?></span>
-				<?php echo svg( 'down-yellow' ) ?>
-			</div>
-			<div class="lg:block hidden lg:mt-0 mt-6">
+		<div
+			class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'py-6 mt-6 border-t border-b border-[#f3f3f3]' ?>">
+			<?php if ( wp_is_mobile() && bsc_is_mobile() )
+			{ ?>
 				<div
-					class="flex justify-between lg:gap-5 lg:flex-nowrap flex-wrap lg:space-y-0 space-y-5">
+					class=" flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer">
+					<span><?php _e( 'Liên kết thêm', 'gnws' ) ?></span>
+					<?php echo svg( 'down-yellow' ) ?>
+				</div>
+
+			<?php } ?>
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'hidden mt-6' ?>">
+				<div
+					class="flex justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' gap-5':'flex-wrap gap-y-5' ?>">
 					<?php if ( have_rows( 'f3_menu', 'option' ) )
 					{
 						while ( have_rows( 'f3_menu', 'option' ) ) :
 							the_row(); ?>
-							<div class="space-y-4 footer-item lg:w-full w-[48%]">
+							<div class="space-y-4 footer-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-full':'w-[48%]' ?>">
 								<?php if ( get_sub_field( 'title' ) )
 								{ ?>
-									<p class="font-bold uppercase text-yellow-100 lg:text-base text-xs">
-										<?php the_sub_field( 'title' ) ?></p>
+									<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base':'text-xs' ?>">
+										<?php the_sub_field( 'title' ) ?>
+									</p>
 								<?php }
 								;
 								if ( have_rows( 'menu', 'option' ) )
 								{ ?>
-									<ul class="lg:space-y-4 space-y-3 font-bold lg:text-base text-xs">
+									<ul class=" font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base space-y-4':'text-xs space-y-3' ?>">
 										<?php while ( have_rows( 'menu', 'option' ) ) :
 											the_row(); ?>
 											<li><a
@@ -216,10 +234,10 @@
 							</div>
 						<?php endwhile;
 					} ?>
-					<div class="2xl:max-w-[33%] lg:max-w-[38%] space-y-4 max-w-full">
+					<div class="space-y-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:max-w-[33%] max-w-[38%]':'max-w-full' ?>">
 						<?php if ( get_field( 'f4_title', 'option' ) )
 						{ ?>
-							<p class="font-bold uppercase text-yellow-100 lg:text-base text-xs">
+							<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base':'text-xs' ?>">
 								<?php the_field( 'f4_title', 'option' ) ?>
 							</p>
 						<?php }
@@ -233,60 +251,63 @@
 						<?php echo do_shortcode( '[contact-form-7 id="972a993" title="Đăng ký nhận tin"]' ) ?>
 					</div>
 				</div>
-
 			</div>
+
 
 		</div>
-		<div class="lg:col-span-2 col-span-full lg:hidden lg:mt-0 mt-6">
-			<?php if ( get_field( 'f2_title', 'option' ) )
-			{ ?>
-				<p class="font-bold text-xs uppercase mb-4 text-center">
-					<?php the_field( 'f2_title', 'option' ) ?>
-				</p>
-			<?php } ?>
-
-			<div class="grid grid-cols-2 gap-4">
-				<?php if ( have_rows( 'f2_google_play', 'option' ) )
-				{
-					while ( have_rows( 'f2_google_play', 'option' ) ) :
-						the_row();
-						if ( get_sub_field( 'img' ) )
-						{ ?>
-							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
-								rel="nofollow">
-								<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full','',array('class'=>'mx-auto') ) ?>
-							</a>
-							<?php
-						}
-					endwhile;
-				}
-				?>
-				<?php if ( have_rows( 'f2_apple_store', 'option' ) )
-				{
-					while ( have_rows( 'f2_apple_store', 'option' ) ) :
-						the_row();
-						if ( get_sub_field( 'img' ) )
-						{ ?>
-							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
-								rel="nofollow">
-								<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
-							</a>
-							<?php
-						}
-					endwhile;
-				}
-				?>
-			</div>
-			<?php if ( get_field( 'f1_copyright', 'option' ) )
-			{ ?>
-				<div class="mt-6 flex justify-center gap-1 text-xs">
-					<?php the_field( 'f1_copyright', 'option' ) ?>
+		<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+			<div class="col-span-full mt-6">
+				<?php if ( get_field( 'f2_title', 'option' ) )
+				{ ?>
+					<p class="font-bold text-xs uppercase mb-4 text-center">
+						<?php the_field( 'f2_title', 'option' ) ?>
+					</p>
+				<?php } ?>
+	
+				<div class="grid grid-cols-2 gap-4">
+					<?php if ( have_rows( 'f2_google_play', 'option' ) )
+					{
+						while ( have_rows( 'f2_google_play', 'option' ) ) :
+							the_row();
+							if ( get_sub_field( 'img' ) )
+							{ ?>
+								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
+									rel="nofollow">
+									<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full', '', array( 'class' => 'mx-auto' ) ) ?>
+								</a>
+								<?php
+							}
+						endwhile;
+					}
+					?>
+					<?php if ( have_rows( 'f2_apple_store', 'option' ) )
+					{
+						while ( have_rows( 'f2_apple_store', 'option' ) ) :
+							the_row();
+							if ( get_sub_field( 'img' ) )
+							{ ?>
+								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
+									rel="nofollow">
+									<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
+								</a>
+								<?php
+							}
+						endwhile;
+					}
+					?>
 				</div>
-			<?php } ?>
-		</div>
+				<?php if ( get_field( 'f1_copyright', 'option' ) )
+				{ ?>
+					<div class="mt-6 flex justify-center gap-1 text-xs">
+						<?php the_field( 'f1_copyright', 'option' ) ?>
+					</div>
+				<?php } ?>
+			</div>
+		<?php } ?>
 	</div>
 </footer>
-<?php if (get_field('cdc2_tien_ich_on', 'option')) { ?>
+<?php if ( get_field( 'cdc2_tien_ich_on', 'option' ) && !wp_is_mobile() && !bsc_is_mobile())
+{ ?>
 	<div
 		class="utilities_button will-change-transform translate-z-0 [&:not(.active)]:opacity-100 opacity-0 [&:not(.active)]:visible invisible [&:not(.active)]:pointer-events-auto pointer-events-none  transition-all duration-500 inline-flex items-center gap-2 px-6 py-3 font-semibold text-white bg-gradient-blue fixed 2xl:top-1/2 top-2/3 rotate-90 origin-top-right cursor-pointer rounded-br-[10px] rounded-bl-[10px] border-2 border-[#FFB81C] border-t-0 z-50 [&:not(.show)]:-right-20 right-0">
 		<?php the_field( 'cdc2_title', 'option' ) ?>
@@ -442,7 +463,8 @@ if ( is_tax( 'danh-muc-bao-cao' ) )
 			the_row();
 			$module_name = get_row_layout();
 
-			if (($module_name == 'tailieu_baocao') || ($module_name == 'dmkn_chart_bsc_display_pagination')) {
+			if ( ( $module_name == 'tailieu_baocao' ) || ( $module_name == 'dmkn_chart_bsc_display_pagination' ) )
+			{
 				$true_form_modal = 1;
 			}
 
@@ -511,8 +533,9 @@ if ( $true_form_modal == 1 )
 ?>
 <?php wp_footer(); ?>
 <?php
-if (get_field('cdc5_iframe_live_chat', 'option')) {
-	the_field('cdc5_iframe_live_chat', 'option');
+if ( get_field( 'cdc5_iframe_live_chat', 'option' ) )
+{
+	the_field( 'cdc5_iframe_live_chat', 'option' );
 	echo 'abc';
 }
 ?>
