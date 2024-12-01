@@ -143,6 +143,140 @@
             "step": "",
             "prepend": "",
             "append": "giây"
+        },
+        {
+            "key": "field_674c64f9e40e9",
+            "label": "Thẻ báo cáo",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_674c653395689",
+            "label": "Background Banner",
+            "name": "cdbcpt1_background_banner_tag",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_674c653095688",
+            "label": "Hiển thị background",
+            "name": "cdbcpt1_background_banner_display_tag",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Ảnh nền hiển thị hết",
+                "half": "Ảnh nền hiển thị 1 nửa"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_674c6505e40ea",
+            "label": "Breadcrumb",
+            "name": "cdbcpt1_breadcrumb_tag",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Breadcrumb cuối cùng sẽ tự nhận diện chuyên mục, vì vậy không cần điền đường dẫn cuối cùng",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm đường dẫn",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_674c6505e40eb",
+                    "label": "Đường dẫn",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_674c6505e40ea"
+                },
+                {
+                    "key": "field_674c6505e40ec",
+                    "label": "Tiêu đề",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_674c6505e40ea"
+                }
+            ]
         }
     ],
     "location": [
@@ -163,5 +297,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732114075
+    "modified": 1733059955
 }
