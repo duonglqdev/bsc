@@ -1,6 +1,6 @@
 @mixin dot-style($color) {
     .flickity-page-dots {
-        .dot {
+        .dot.is-selected {
             @apply opacity-100;
             background-color: $color;
         }

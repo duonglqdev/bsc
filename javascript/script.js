@@ -600,19 +600,19 @@ import { DataTable } from 'simple-datatables';
 
 		var $aboutHistoryNav = $('.about_history-nav');
 		var totalItems = $aboutHistoryNav.slick('getSlick').slideCount;
-		
+
 		if ($aboutHistoryNav.hasClass('mb')) {
-			if (totalItems <= 3) { 
+			if (totalItems <= 3) {
 				$aboutHistoryNav.find('.slick-track').addClass('no-transform');
 			}
 		} else {
-			if (totalItems <= 5) { 
+			if (totalItems <= 5) {
 				$aboutHistoryNav.find('.slick-track').addClass('no-transform');
 			}
 		}
-		
+
 		$aboutHistoryNav.slick('slickGoTo', totalItems - 1);
-		
+
 		$('.about_award-content').slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -644,9 +644,9 @@ import { DataTable } from 'simple-datatables';
 					},
 				},
 				{
-					breakpoint: 600,
+					breakpoint: 767,
 					settings: {
-						slidesToShow: 3,
+						slidesToShow: 4,
 					},
 				},
 				{
@@ -657,31 +657,47 @@ import { DataTable } from 'simple-datatables';
 				},
 			],
 		});
-		var totalItemsAward =
-			$('.about_award-nav').slick('getSlick').slideCount;
-		$('.about_award-nav').slick('slickGoTo', totalItemsAward - 1);
+		
 
-		if (totalItemsAward <= 5) {
-			$('.about_award-nav .slick-track').addClass('no-transform');
+		var $ItemsAwardNav = $('.about_award-nav');
+		var totalItemsAward = $ItemsAwardNav.slick('getSlick').slideCount;
+
+		if ($ItemsAwardNav.hasClass('mb')) {
+			if (totalItemsAward <= 4) {
+				$ItemsAwardNav.find('.slick-track').addClass('no-transform');
+			}
+		} else {
+			if (totalItemsAward <= 5) {
+				$ItemsAwardNav.find('.slick-track').addClass('no-transform');
+			}
 		}
 
-		var mySwiper = new Swiper('.about_culture-list', {
+		$ItemsAwardNav.slick('slickGoTo', totalItemsAward - 1);
+
+
+
+		var mySwiper = new Swiper('.about_culture-list-pc', {
 			loop: true,
-			slidesPerView: 2,
-			centeredSlides: true,
+			speed: 1000,
+			autoplay: {
+				delay: 3000,
+			},
 			effect: 'coverflow',
-			coverflow: {
+			grabCursor: true,
+			centeredSlides: true,
+			slidesPerView: 2,
+			coverflowEffect: {
 				rotate: 0,
-				stretch: 0,
+				stretch: 170,
 				depth: 300,
-				modifier: 2,
-				slideShadows: true,
+				modifier: 1,
+				slideShadows: false,
 			},
 			nextButton: '.swiper-button-next',
 			prevButton: '.swiper-button-prev',
 		});
 		document
-			.querySelectorAll('.about_culture-list .swiper-slide')
+			.querySelectorAll('.about_culture-list-pc .swiper-slide')
 			.forEach((slide) => {
 				slide.addEventListener('click', function () {
 					if (!this.classList.contains('swiper-slide-active')) {
@@ -695,6 +711,17 @@ import { DataTable } from 'simple-datatables';
 					}
 				});
 			});
+
+		var swiper = new Swiper('.about_culture-list-mb', {
+			loop: true,
+			slidesPerView: 1,
+			centeredSlides: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+			},
+		});
 	}
 
 	function aboutDynamicPopup() {
@@ -888,18 +915,16 @@ import { DataTable } from 'simple-datatables';
 				$(this).attr('placeholder', $(this).data('placeholder'));
 			});
 
-        $('.collapse-item.has-children > div > h3').click(function name() {
-            $(this).parent().siblings('.sub-collapse').slideToggle();
-            $(this).toggleClass('active').find('svg').toggleClass('rotate-180');
-        });
+		$('.collapse-item.has-children > div > h3').click(function name() {
+			$(this).parent().siblings('.sub-collapse').slideToggle();
+			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
+		});
 
-        $('.collapse-footer').click(function () {
-            $(this).find('svg').toggleClass('rotate-180');
-            $(this).next().slideToggle();
-        })
-
-
-    }
+		$('.collapse-footer').click(function () {
+			$(this).find('svg').toggleClass('rotate-180');
+			$(this).next().slideToggle();
+		});
+	}
 
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
@@ -1043,11 +1068,11 @@ import { DataTable } from 'simple-datatables';
 					mainTicker.x = 0;
 					let requestId;
 
-                    function play() {
-                        mainTicker.x -= 0.8; // Điều chỉnh giá trị này để thay đổi tốc độ
-                        mainTicker.settle(mainTicker.x);
-                        requestId = window.requestAnimationFrame(play);
-                    }
+					function play() {
+						mainTicker.x -= 0.8; // Điều chỉnh giá trị này để thay đổi tốc độ
+						mainTicker.settle(mainTicker.x);
+						requestId = window.requestAnimationFrame(play);
+					}
 
 					function pause() {
 						if (requestId) {
@@ -3183,22 +3208,22 @@ import { DataTable } from 'simple-datatables';
 		});
 	}
 	function sameHeight() {
-		if ($(".block_sameheight").length) {
-			$(".block_sameheight").each(function () {
-			  var h = 0;
-		
-			  $(this)
-				.find(".sameheight_item")
-				.each(function () {
-				  if ($(this).outerHeight() > h) {
-					h = $(this).outerHeight();
-				  }
+		if ($('.block_sameheight').length) {
+			$('.block_sameheight').each(function () {
+				var h = 0;
+
+				$(this)
+					.find('.sameheight_item')
+					.each(function () {
+						if ($(this).outerHeight() > h) {
+							h = $(this).outerHeight();
+						}
+					});
+
+				$(this).find('.sameheight_item').css({
+					height: h,
 				});
-		
-			  $(this).find(".sameheight_item").css({
-				height: h,
-			  });
 			});
-		  }
+		}
 	}
 })(jQuery);
