@@ -1,4 +1,4 @@
-<section class="about_leadership <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mt-[100px] mt-14':'mt-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="about_leadership <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mt-[100px] mt-14':'mt-[50px] bg-gradient-blue-to-top pb-[46px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-6' ?>">
@@ -46,25 +46,25 @@
                             <div class="hidden" id="<?php echo $title_tab_muc ?>" role="tabpanel"
                                 aria-labelledby="<?php echo $title_tab_muc ?>-tab">
                                 <?php if (have_rows('member')) { ?>
-                                    <div class="flex flex-wrap justify-center gap-y-10 -mx-3">
+                                    <div class="flex flex-wrap justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'-mx-3 gap-y-10':'-mx-2 gap-y-4' ?>">
                                         <?php
                                         while (have_rows('member')): the_row();
                                         ?>
-                                            <div class="px-3 lg:w-1/3 md:w-1/2 w-full group cursor-pointer about_leadership-item"
+                                            <div class="group cursor-pointer about_leadership-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3 px-3':'w-1/2 px-2' ?>"
                                                 data-modal-target="leader-modal"
                                                 data-modal-toggle="leader-modal">
                                                 <?php if (get_sub_field('avatar')) { ?>
                                                     <div
-                                                        class="rounded-lg relative w-full pt-[100%] after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-white-to-top-50 after:transition-all after:opacity-0 group-hover:after:opacity-100">
+                                                        class="relative w-full overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[100%] rounded-lg':'pt-[136.25%] rounded-[10px]' ?> after:absolute after:w-full after:h-1/2 after:bottom-0 after:left-0 after:bg-gradient-white-to-top-50 after:transition-all after:opacity-0 group-hover:after:opacity-100">
                                                         <?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'w-full h-full absolute inset-0 object-cover leader_img')) ?>
                                                     </div>
                                                 <?php } ?>
                                                 <div class="mt-[15px] font-Helvetica about_leadership-title">
                                                     <h4
-                                                        class="font-bold text-xl mb-2 text-black group-hover:text-primary-400 transition-all">
+                                                        class="font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-2':'md:text-lg text-xs mb-0.5' ?>  text-black group-hover:text-primary-400 transition-all">
                                                         <?php the_sub_field('name') ?>
                                                     </h4>
-                                                    <p class="font-medium text-black text-opacity-50">
+                                                    <p class="font-medium text-black text-opacity-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'md:text-base text text-xxs' ?>">
                                                         <?php the_sub_field('position') ?>
                                                     </p>
                                                 </div>
