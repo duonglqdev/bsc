@@ -138,7 +138,7 @@ function filter_chuyengia_ajax()
             )) ?>
         </div>
 
-<?php
+    <?php
     else :
         echo '<p>' . __('Không có chuyên gia nào phù hợp', 'bsc') . '</p>';
     endif;
@@ -263,5 +263,87 @@ function get_shares_data()
         }
         wp_send_json_success($shares_data);
     }
+    die();
+}
+
+/**
+ * API Filter Event Calendar
+ */
+add_action('wp_ajax_filter_event_calendar', 'filter_event_calendar');
+add_action('wp_ajax_nopriv_filter_event_calendar', 'filter_event_calendar');
+
+function filter_event_calendar()
+{
+    check_ajax_referer('common_nonce', 'security');
+    $time_cache = 300;
+    $total_page = 0;
+    $post_per_page = 12;
+    $eventcode = isset($_POST['eventcode']) ? $_POST['eventcode'] : '';
+    $mck = isset($_POST['mck']) ? $_POST['mck'] : '';
+    $fromdate = isset($_POST['fromdate']) ? $_POST['fromdate'] : '';
+    $todate = isset($_POST['todate']) ? $_POST['todate'] : '';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : '1';
+    $sortfield = isset($_POST['sortfield']) ? $_POST['sortfield'] : 'ex_date';
+    if ($paged) {
+        $index = ($paged - 1) * $post_per_page + 1;
+    } else {
+        $index = 1;
+    }
+    ob_start();
+    $array_data_GetEvents = array(
+        'lang' => pll_current_language(),
+        'maxitem' => $post_per_page,
+        'index' => $index
+    );
+    if (isset($sortfield) && !empty($sortfield)) {
+        $array_data_GetEvents['sortField'] = $sortfield;
+    }
+    if (isset($eventcode) && !empty($eventcode)) {
+        $array_data_GetEvents['eventcode'] = $eventcode;
+    }
+    if (isset($mck) && !empty($mck)) {
+        $array_data_GetEvents['symbol'] = $mck;
+    }
+    if (isset($fromdate) && !empty($fromdate)) {
+        $fromdate = $fromdate;
+        $array_data_GetEvents['fromdate'] = $fromdate;
+    }
+    if (isset($todate) && !empty($todate)) {
+        $todate = $todate;
+        $array_data_GetEvents['todate'] = $todate;
+    }
+    $response_GetEvents = get_data_with_cache('GetEvents', $array_data_GetEvents, $time_cache);
+    if ($response_GetEvents) {
+        if ($response_GetEvents->totalrecord) {
+            $total_post = $response_GetEvents->totalrecord;
+        } else {
+            $total_post = $post_per_page;
+        }
+        $total_page = ceil($total_post / $post_per_page);
+    ?>
+        <?php
+        foreach ($response_GetEvents->d as $GetEvents) {
+            get_template_part('template-parts/content-lich-thi-truong', '', array(
+                'data' => $GetEvents,
+            ));
+        }
+        ?>
+<?php }
+    $html = ob_get_contents();
+    ob_end_clean();
+    ob_start();
+    get_template_part('components/pagination', '', array(
+        'get' => 'ajax_api',
+        'total_page' => $total_page,
+        'post_per_page' => 'hide',
+        'paged' => $paged
+    ));
+    $pagination = ob_get_contents();
+    ob_end_clean();
+    wp_send_json_success(array(
+        'html' => $html,
+        'pagination' => $pagination
+    ));
+
     die();
 }

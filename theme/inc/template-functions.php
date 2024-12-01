@@ -503,6 +503,83 @@ function bsc_pagination_api($max_num_pages = 1, $url_tax)
 }
 
 /**
+ * Displays pagination api style by number page
+ */
+function bsc_pagination_api_ajax($max_num_pages = 1, $custom_paged = 1)
+{
+	if ($custom_paged) {
+		$paged = $custom_paged;
+	} else {
+		$paged = 1;
+	}
+	if ($max_num_pages <= 1) {
+		return; // Dừng nếu chỉ có 1 trang
+	}
+	$max = intval($max_num_pages);
+
+	/** Add current page to the array */
+	if ($paged >= 1)
+		$links[] = $paged;
+
+	/** Add the pages around the current page to the array */
+	if ($paged >= 3) {
+		$links[] = $paged - 1;
+		$links[] = $paged - 2;
+	}
+
+	if (($paged + 2) <= $max) {
+		$links[] = $paged + 2;
+		$links[] = $paged + 1;
+	}
+
+	echo '<ul class="flex items-center gap-[11px] h-9 text-base bsc_pagination_api_ajax">' . "\n";
+
+	/** Previous Post Link */
+	if ($paged > 1) {
+		$page_prev = $paged - 1;
+		$url_prev = $page_prev;
+		printf('<li><button type="button" class="prev flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500" data-page="' . $url_prev . '">' . svg('angle-left') . '</a></li>' . "\n",);
+	}
+	/** Link to first page, plus ellipses if necessary */
+	if (! in_array(1, $links)) {
+		$class = 1 == $paged ? ' class="active"' : '';
+		if (is_search()) {
+			printf('<li><button type="button" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="%s">%s</button></li>' . "\n", $class, '1', '1');
+		} else {
+			printf('<li><button type="button" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="%s">%s</button></li>' . "\n", $class, '1', '1');
+		}
+		if (! in_array(2, $links))
+			echo '<li>…</li>';
+	}
+
+	/** Link to current page, plus 2 pages in either direction if necessary */
+	sort($links);
+	foreach ((array) $links as $link) {
+		$class = $paged == $link ? ' active' : '';
+		printf('<li><button type="button" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="%s">%s</button></li>' . "\n", $class, $link, $link);
+	}
+
+	/** Link to last page, plus ellipses if necessary */
+	if (! in_array($max, $links)) {
+		if (! in_array($max - 1, $links))
+			echo '<li>…</li>' . "\n";
+
+		$class = $paged == $max ? 'active' : '';
+		printf('<li><button type="button" class="%s item-paged flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="%s">%s</button></li>' . "\n", $class, $max, $max);
+	}
+
+	/** Next Post Link */
+	if ($paged < $max) {
+		$page_next = $paged + 1;
+		$url_next = $page_next;
+		printf('<li><button type="button" class="next flex items-center justify-center px-2 min-w-9 h-9 leading-tight rounded bg-white  hover:bg-primary-300 hover:text-white transition-all duration-500" data-page="' . $url_next . '">' . svg('angle-right') . '</button></li>' . "\n",);
+	}
+?>
+	</ul>
+<?php
+}
+
+/**
  * Displays exceprt by number string
  * How to use: echo excerpt(x) width x is number length
  */

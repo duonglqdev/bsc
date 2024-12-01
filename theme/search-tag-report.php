@@ -5,6 +5,7 @@ if ($args['search']) {
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $banner = wp_get_attachment_image_url(get_field('cdbcpt1_background_banner_tag', 'option'), 'full');
     $style = get_field('cdbcpt1_background_banner_display_tag', 'option') ?: 'default';
+    $title = get_field('cdbcpt1_title_tag', 'option');
     $breadcrumb = 'tagbaocao';
 } else {
     wp_redirect(home_url('/404'), 301);
@@ -16,6 +17,7 @@ get_header();
     <?php get_template_part('components/page-banner', null, array(
         'banner' => $banner,
         'style' => $style,
+        'title' =>  $title,
         'breadcrumb' => $breadcrumb,
     )) ?>
     <section class="xl:[my-100px] my-20">

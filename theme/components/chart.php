@@ -189,9 +189,9 @@
 											<li class="flex font-bold gap-[14px] items-center justify-between">
 												<a href="#" class="line-clamp-1 flex-1">
 													<?php echo htmlspecialchars($news->symbols) ?>
-													<?php if ($news->upsite) { ?>
+													<?php if ($news->upside) { ?>
 														<span
-															class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
+															style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars($news->upside) ?>)</span>
 													<?php } ?>
 													<?php if ($title_status != '') { ?>
 														<span
@@ -218,9 +218,9 @@
 												<li class="flex font-bold gap-[14px] items-center justify-between">
 													<a href="#" class="line-clamp-1 flex-1">
 														<?php echo htmlspecialchars($news->symbols) ?>
-														<?php if ($news->upsite) { ?>
+														<?php if ($news->upside) { ?>
 															<span
-																class="text-[#00BD62]">(<?php echo htmlspecialchars($news->upsite) ?>)</span>
+																style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars($news->upside) ?>)</span>
 														<?php } ?>
 														<?php if ($title_status != '') { ?>
 															<span

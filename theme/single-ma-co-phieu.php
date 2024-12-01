@@ -399,16 +399,17 @@
 							</ul>
 							<div class="tab-content block" id="lichsugiaodich">
 								<?php
-								$current_date = date('Y-m-d');
-								$last_month_date = date('Y-m-d', strtotime('-1 month', strtotime($current_date)));
+								$current_date_ymd = date('Y-m-d');
+								$last_month_date_ymd = date('Y-m-d', strtotime('-1 month', strtotime($current_date_ymd)));
 								$array_data_secTradingHistory = json_encode([
 									'lang' => pll_current_language(),
 									'secCode' => $symbol,
-									'startDate' => $last_month_date,
-									'endDate' => $current_date
+									'startDate' => $last_month_date_ymd,
+									'endDate' => $current_date_ymd
 								]);
 								$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
 								if ($response_secTradingHistory) {
+									$data = json_decode($response->data, true);
 								?>
 									<div
 										class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
@@ -485,41 +486,17 @@
 											<?php
 											}
 											?>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-														<?php echo svg('up', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
 										</ul>
 
 									</div>
 									<div class="flex items-center justify-between mt-4">
-										<a href=""
-											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-											<?php echo svg('arrow-btn', '20', '20') ?>
-											<?php _e('Xem tất cả', 'bsc') ?>
-										</a>
+										<?php if (get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option')) { ?>
+											<a href="<?php echo get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option') . '?mck=' . $symbol ?>"
+												class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+												<?php echo svg('arrow-btn', '20', '20') ?>
+												<?php _e('Xem tất cả', 'bsc') ?>
+											</a>
+										<?php } ?>
 										<p class="font-medium text-xs font-Helvetica">
 											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
 										</p>
@@ -527,120 +504,121 @@
 								<?php  } ?>
 							</div>
 							<div class="tab-content hidden" id="ndtnn">
-								<div
-									class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
-									<div class="flex bg-primary-300 text-white">
-										<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-											Nhóm
-										</div>
-										<div class="w-[152px] max-w-[30%] px-3 py-2">
-											Thay đổi giá
-										</div>
-										<div class="w-[136px] max-w-[27%] px-3 py-2">
-											KL khớp lệnh
-										</div>
-										<div class="flex-1 px-3 py-2">
-											Tổng GTGD
-										</div>
-									</div>
-									<ul>
-										<?php
-										for ($i = 0; $i < 3; $i++) {
-										?>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-														<?php echo svg('up', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-														<?php echo svg('downn', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
-										<?php
-										}
-										?>
-										<li
-											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-											<div
-												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-												16/09
+								<?php
+								$current_date_dmy = date('d/m/Y');
+								$last_month_date_dmy = date('d/m/Y', strtotime('-1 month'));
+								$array_data_GetForeignInvestors = array(
+									'lang' => pll_current_language(),
+									'symbol' => $symbol,
+									'fromdate' => $last_month_date_dmy,
+									'todate' => $current_date_dmy
+								);
+								$response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
+								if ($response_GetForeignInvestors) {
+								?>
+									<div
+										class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+										<div class="flex bg-primary-300 text-white">
+											<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+												<?php _e('Ngày', 'bsc') ?>
 											</div>
-											<div
-												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-												<p>
-													46.7
-												</p>
-												<p
-													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-													<?php echo svg('up', '17', '17') ?>
-													+0.98%
-												</p>
+											<div class="w-[152px] max-w-[30%] px-3 py-2">
+												<?php _e('Thay đổi giá', 'bsc') ?>
 											</div>
-											<div
-												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-												331,200
+											<div class="w-[136px] max-w-[27%] px-3 py-2">
+												<?php _e('KL khớp lệnh', 'bsc') ?>
 											</div>
-											<div
-												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-												15,608,000
+											<div class="flex-1 px-3 py-2">
+												<?php _e('Tổng GTGD', 'bsc') ?>
 											</div>
-										</li>
-									</ul>
+										</div>
+										<ul>
+											<?php
+											$i_GetForeignInvestors = 0;
+											foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
+												$i_GetForeignInvestors++;
+												if ($i_GetForeignInvestors < 8) {
+											?>
+													<li
+														class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+														<div
+															class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+															<?php
+															if ($GetForeignInvestors->tradedate) {
+																$date = new DateTime($GetForeignInvestors->tradedate);
+																echo $date->format('d/m');
+															}
+															?>
+														</div>
+														<?php if ($GetForeignInvestors->closeprice && $GetForeignInvestors->refprice) {
+															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#EB0]';
+															} else {
+																$text_color_class_GetForeignInvestors = '';
+															}
+															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
+																$first_GetForeignInvestors = '+';
+																$icon_GetForeignInvestors = svg('up', '17', '17');
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = svg('downn', '17', '17');
+															} else {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															}
+														}
+														?>
+														<div
+															class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+															<p>
+																<?php
+																if ($GetForeignInvestors->closeprice) {
+																	echo number_format(($GetForeignInvestors->closeprice) / 1000, 2, '.', '');
+																}
+																?>
+															</p>
+															<p
+																class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors	 ?> font-Helvetica">
+																<?php echo $icon_GetForeignInvestors ?>
+																<?php echo number_format((($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) / ($GetForeignInvestors->refprice)) * 100, 2, '.', '') ?>%
+															</p>
+														</div>
+														<div
+															class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+															331,200
+														</div>
+														<div
+															class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+															15,608,000
+														</div>
+													</li>
+											<?php
+												}
+											}
+											?>
+										</ul>
 
-								</div>
-								<div class="flex items-center justify-between mt-4">
-									<a href=""
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-										<?php echo svg('arrow-btn', '20', '20') ?>
-										Xem tất cả
-									</a>
-									<p class="font-medium text-xs font-Helvetica">
-										Đơn vị GTGD: 1000 VNĐ
-									</p>
-								</div>
+									</div>
+									<div class="flex items-center justify-between mt-4">
+										<?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
+											<a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
+												class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+												<?php echo svg('arrow-btn', '20', '20') ?>
+												<?php _e('Xem tất cả', 'bsc') ?>
+											</a>
+										<?php } ?>
+										<p class="font-medium text-xs font-Helvetica">
+											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
+										</p>
+									</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -724,68 +702,78 @@
 									</div>
 								</div>
 							</div>
-							<div class="flex-1">
-								<h2 class="heading-title mb-10">
-									DOANH NGHIỆP CÙNG NGÀNH
-								</h2>
-								<div
-									class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
-									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
-										<thead>
-											<tr>
-												<th class="!pl-5 cursor-pointer">Mã CK
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-
-												<th class="filter-table cursor-pointer filter-table">
-													Vốn hóa
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-
-												<th class="filter-table cursor-pointer filter-table">
-													PE
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-												<th class="filter-table cursor-pointer filter-table">
-													PB
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-											</tr>
-										</thead>
-										<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
-											<?php
-											for ($i = 0; $i < 3; $i++) {
-											?>
+							<?php
+							$array_data_sameIndustry = json_encode([
+								'lang' => pll_current_language(),
+								'secCode' => $symbol,
+							]);
+							$response_sameIndustry = get_data_with_cache('sameIndustry', $array_data_sameIndustry, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
+							if ($response_sameIndustry) {
+								$data = json_decode($response->data, true);
+							?>
+								<div class="flex-1">
+									<h2 class="heading-title mb-10">
+										<?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
+									</h2>
+									<div
+										class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
+										<table
+											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
+											<thead>
 												<tr>
-													<td class="!pl-5"><a href="">A32</a></td>
-													<td>36,80</td>
-													<td>301,24</td>
-													<td>6,99</td>
-												</tr>
-												<tr>
-													<td class="!pl-5"><a href="">A33</a></td>
-													<td>37,80</td>
-													<td>302,24</td>
-													<td>7,99</td>
-												</tr>
-												<tr>
-													<td class="!pl-5"><a href="">A34</a></td>
-													<td>38,80</td>
-													<td>303,24</td>
-													<td>8,99</td>
-												</tr>
-											<?php
-											}
-											?>
+													<th class="!pl-5 cursor-pointer">Mã CK
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
 
-										</tbody>
-									</table>
+													<th class="filter-table cursor-pointer filter-table">
+														Vốn hóa
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+
+													<th class="filter-table cursor-pointer filter-table">
+														PE
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+													<th class="filter-table cursor-pointer filter-table">
+														PB
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
+												<?php
+												for ($i = 0; $i < 3; $i++) {
+												?>
+													<tr>
+														<td class="!pl-5"><a href="">A32</a></td>
+														<td>36,80</td>
+														<td>301,24</td>
+														<td>6,99</td>
+													</tr>
+													<tr>
+														<td class="!pl-5"><a href="">A33</a></td>
+														<td>37,80</td>
+														<td>302,24</td>
+														<td>7,99</td>
+													</tr>
+													<tr>
+														<td class="!pl-5"><a href="">A34</a></td>
+														<td>38,80</td>
+														<td>303,24</td>
+														<td>8,99</td>
+													</tr>
+												<?php
+												}
+												?>
+
+											</tbody>
+										</table>
+									</div>
+									<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
+										<?php _e('Đơn vị Vốn hóa (Triệu đồng)', 'bsc') ?>
+									</p>
 								</div>
-								<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
-									Đơn vị Vốn hóa (Triệu đồng)
-								</p>
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 					<?php $array_data_GetNews = array(
