@@ -340,7 +340,7 @@
 					<li
 						class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 						<button data-tabs="#tab-1"
-							class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+							class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 							<?php _e('TỔNG QUAN', 'bsc') ?>
 						</button>
 					</li>
@@ -383,7 +383,7 @@
 							<h2 class="heading-title mb-10">
 								<?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
 							</h2>
-							<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav">
+							<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
 								<li>
 									<button data-tabs="#lichsugiaodich"
 										class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
@@ -493,8 +493,8 @@
 										<?php if (get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option')) { ?>
 											<a href="<?php echo get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option') . '?mck=' . $symbol ?>"
 												class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-												<?php echo svg('arrow-btn', '20', '20') ?>
 												<?php _e('Xem tất cả', 'bsc') ?>
+												<?php echo svg('arrow-btn', '20', '20') ?>
 											</a>
 										<?php } ?>
 										<p class="font-medium text-xs font-Helvetica">
@@ -661,8 +661,67 @@
 									<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
 								</h2>
 								<div class="space-y-4">
-									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/cctc.svg"
-										alt="" class="w-full h-auto" loading="lazy">
+								<div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
+									<h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+										Tỷ lệ cơ cấu cổ đông
+									</h4>
+									<div class="relative text-center">
+										<div
+											class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
+											<p class="text-xxs">
+												<?php _e( 'Số lượng cổ phiếu', 'bsc' ) ?>
+											</p>
+											<p class="font-bold">223.060.701</p>
+										</div>
+										<svg id="progress-ring" class="mx-auto" width="166"
+											height="166" viewBox="0 0 166 167" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+
+											<circle cx="83.0342" cy="83.6479" r="72.3521"
+												stroke="#295CA9" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round" />
+
+											<circle id="progress-circle" cx="83.0342" cy="83.6479"
+												r="72.3521" stroke="#F2B122" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round"
+												stroke-dasharray="454" stroke-dashoffset="0"
+												transform="rotate(90 83.0342 83.6479)" />
+										</svg>
+
+									</div>
+									<div class="mt-5 mx-auto max-w-[215px] space-y-2">
+										<div
+											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
+											<p>
+												Cổ đông lớn
+											</p>
+											<p>
+												86,69%
+											</p>
+										</div>
+										<div
+											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
+											<p>
+												Cổ đông khác
+											</p>
+											<p>
+												13,02% 
+											</p>
+										</div>
+									</div>
+									<script>
+
+										function setProgress(percent) {
+											const circle = document.getElementById('progress-circle');
+											const circumference = 454;
+											const offset = circumference - (percent / 100) * circumference;
+											circle.style.strokeDashoffset = offset;
+										}
+
+
+										setProgress(13); // 13% đường tròn là màu vàng
+									</script>
+								</div>
 									<div
 										class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
 										<ul class="font-Helvetica space-y-4">
@@ -734,7 +793,7 @@
 														PE
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
-													<th class="filter-table cursor-pointer filter-table">
+													<th class="filter-table cursor-pointer filter-table !pl-5">
 														PB
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
@@ -748,19 +807,19 @@
 														<td class="!pl-5"><a href="">A32</a></td>
 														<td>36,80</td>
 														<td>301,24</td>
-														<td>6,99</td>
+														<td class="text-center">6,99</td>
 													</tr>
 													<tr>
 														<td class="!pl-5"><a href="">A33</a></td>
 														<td>37,80</td>
 														<td>302,24</td>
-														<td>7,99</td>
+														<td class="text-center">7,99</td>
 													</tr>
 													<tr>
 														<td class="!pl-5"><a href="">A34</a></td>
 														<td>38,80</td>
 														<td>303,24</td>
-														<td>8,99</td>
+														<td class="text-center">8,99</td>
 													</tr>
 												<?php
 												}
