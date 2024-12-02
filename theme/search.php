@@ -43,7 +43,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 			<div class="lg:flex gap-[70px] max-w-[1112px] mx-auto">
 				<div class="lg:w-[290px]">
 					<ul
-						class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base">
+						class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base sticky top-5 z-10">
 						<li>
 							<a href="<?php echo $current_url ?>?s=<?php echo $search ?>"
 								class="<?php if ($type_search == 'default') echo 'active' ?> flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left hover:!text-white hover:!bg-primary-400 hover:!rounded-tr-xl hover:!rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-400 [&:not(.active)]:rounded-br-none rounded-br-xl [&:not(.active)]:rounded-tr-none rounded-tr-xl">
