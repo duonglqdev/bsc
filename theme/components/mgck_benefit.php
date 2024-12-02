@@ -35,7 +35,7 @@
                                 </h3>
                             <?php } ?>
                             <?php if (get_sub_field('mota')) { ?>
-                                <div class="font-Helvetica">
+                                <div class="font-Helvetica text-justify">
                                     <?php the_sub_field('mota') ?>
                                 </div>
                             <?php } ?>

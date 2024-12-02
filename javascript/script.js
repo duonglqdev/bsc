@@ -881,6 +881,10 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent().siblings('.sub-collapse').slideToggle();
 			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
 		});
+		$('.form-search-result button[type="reset"]').on('click', function(e) {
+			e.preventDefault(); 
+			$('.form-search-result .form-search-input').val(''); 
+		});
 	}
 
 	function handlePhoneCf7() {
