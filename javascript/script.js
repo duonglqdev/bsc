@@ -510,6 +510,10 @@ import { DataTable } from 'simple-datatables';
 					position: 'bottom',
 					horizontalAlign: 'left',
 					offsetY: 10,
+					markers: {
+						width: 8,
+						height: 8
+					}
 				},
 				tooltip: {
 					x: {
@@ -1675,7 +1679,7 @@ import { DataTable } from 'simple-datatables';
 			const options = {
 				chart: {
 					type: 'line',
-					height: 364,
+					height: 344,
 					toolbar: { show: false },
 				},
 				title: {
@@ -1685,6 +1689,7 @@ import { DataTable } from 'simple-datatables';
 						fontSize: '18px',
 						fontWeight: 'bold',
 						color: '#235BA8',
+						fontFamily: 'Barow',
 					},
 				},
 				series: [

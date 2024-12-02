@@ -24,7 +24,7 @@ $class = $check_logout ? 'blur-sm' : '';
         ?>
             <div class="relative">
                 <div class="lg:flex lg:gap-8 <?php echo $class ?>">
-                    <div class="lg:w-[255px] lg:max-w-[27%]">
+                    <div class="lg:w-[255px] lg:max-w-[27%] shrink-0">
                         <div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
                             <h4
                                 class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
@@ -71,7 +71,7 @@ $class = $check_logout ? 'blur-sm' : '';
                             </div>
                         </div>
                     </div>
-                    <div class="flex-1 bg-[#F5FCFF] rounded-lg">
+                    <div class="flex-1 bg-[#F5FCFF] rounded-lg px-5 pt-5">
                         <div id="chart-forecast" class="font-body"
                             data-stock='<?php echo $stocksDataJson ?>'
                             data-title="Dự báo VN-Index <?php echo date("Y"); ?>"
