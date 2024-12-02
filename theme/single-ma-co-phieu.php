@@ -409,7 +409,7 @@
 								]);
 								$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
 								if ($response_secTradingHistory) {
-									$data = json_decode($response->data, true);
+									$data = json_decode($response_secTradingHistory->data, true);
 								?>
 									<div
 										class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
@@ -429,61 +429,73 @@
 										</div>
 										<ul>
 											<?php
-											for ($i = 0; $i < 3; $i++) {
+											$i = 0;
+											foreach ($data as $record) {
+												$i++;
+												if ($i < 8) {
 											?>
-												<li
-													class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-													<div
-														class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-														16/09
-													</div>
-													<div
-														class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-														<p>
-															46.7
-														</p>
-														<p
-															class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-															<?php echo svg('up', '17', '17') ?>
-															+0.98%
-														</p>
-													</div>
-													<div
-														class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-														331,200
-													</div>
-													<div
-														class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-														15,608,000
-													</div>
-												</li>
-												<li
-													class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-													<div
-														class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-														16/09
-													</div>
-													<div
-														class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-														<p>
-															46.7
-														</p>
-														<p
-															class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-															<?php echo svg('downn', '17', '17') ?>
-															+0.98%
-														</p>
-													</div>
-													<div
-														class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-														331,200
-													</div>
-													<div
-														class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-														15,608,000
-													</div>
-												</li>
+													<li
+														class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+														<div
+															class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+															<?php
+															if ($record['TRADE_DATE']) {
+																$date = new DateTime($record['TRADE_DATE']);
+																echo $date->format('d/m');
+															}
+															?>
+														</div>
+														<?php if ($record['CLOSE_PRICE'] && $record['REF_PRICE']) {
+															if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
+															} elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
+															} elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#EB0]';
+															} else {
+																$text_color_class_GetForeignInvestors = '';
+															}
+															if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
+																$first_GetForeignInvestors = '+';
+																$icon_GetForeignInvestors = svg('up', '17', '17');
+															} elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															} elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = svg('downn', '17', '17');
+															} else {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															}
+														}
+														?>
+														<div
+															class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+															<p>
+																<?php
+																if ($record['CLOSE_PRICE']) {
+																	echo number_format(($record['CLOSE_PRICE']) / 1000, 2, '.', '');
+																}
+																?>
+															</p>
+															<p
+																class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors	 ?> font-Helvetica">
+																<?php echo $icon_GetForeignInvestors ?>
+																<?php echo number_format((($record['CLOSE_PRICE'] - $record['REF_PRICE']) / ($record['REF_PRICE'])) * 100, 2, '.', '') ?>%
+															</p>
+														</div>
+														<div
+															class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+															<?php echo number_format($record['TOT_VOLUME']) ?>
+														</div>
+														<div
+															class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+															<?php echo number_format($record['TOT_VALUE']) ?>
+														</div>
+													</li>
 											<?php
+												}
 											}
 											?>
 										</ul>
@@ -522,14 +534,17 @@
 											<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
 												<?php _e('Ngày', 'bsc') ?>
 											</div>
-											<div class="w-[152px] max-w-[30%] px-3 py-2">
-												<?php _e('Thay đổi giá', 'bsc') ?>
+											<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+												<?php _e('KL Mua', 'bsc') ?>
+											</div>
+											<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+												<?php _e('GT Mua', 'bsc') ?>
 											</div>
 											<div class="w-[136px] max-w-[27%] px-3 py-2">
-												<?php _e('KL khớp lệnh', 'bsc') ?>
+												<?php _e('KL bán', 'bsc') ?>
 											</div>
 											<div class="flex-1 px-3 py-2">
-												<?php _e('Tổng GTGD', 'bsc') ?>
+												<?php _e('GT bán', 'bsc') ?>
 											</div>
 										</div>
 										<ul>
@@ -550,53 +565,37 @@
 															}
 															?>
 														</div>
-														<?php if ($GetForeignInvestors->closeprice && $GetForeignInvestors->refprice) {
-															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
-																$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
-															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
-																$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
-															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
-																$text_color_class_GetForeignInvestors = 'text-[#EB0]';
-															} else {
-																$text_color_class_GetForeignInvestors = '';
-															}
-															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
-																$first_GetForeignInvestors = '+';
-																$icon_GetForeignInvestors = svg('up', '17', '17');
-															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
-																$first_GetForeignInvestors = '';
-																$icon_GetForeignInvestors = '';
-															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
-																$first_GetForeignInvestors = '';
-																$icon_GetForeignInvestors = svg('downn', '17', '17');
-															} else {
-																$first_GetForeignInvestors = '';
-																$icon_GetForeignInvestors = '';
-															}
-														}
-														?>
 														<div
-															class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-															<p>
-																<?php
-																if ($GetForeignInvestors->closeprice) {
-																	echo number_format(($GetForeignInvestors->closeprice) / 1000, 2, '.', '');
-																}
-																?>
-															</p>
-															<p
-																class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors	 ?> font-Helvetica">
-																<?php echo $icon_GetForeignInvestors ?>
-																<?php echo number_format((($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) / ($GetForeignInvestors->refprice)) * 100, 2, '.', '') ?>%
-															</p>
+															class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+															<?php
+															if ($GetForeignInvestors->f_BUY_VOLUME) {
+																echo number_format(($GetForeignInvestors->f_BUY_VOLUME));
+															}
+															?>
+														</div>
+														<div
+															class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+															<?php
+															if ($GetForeignInvestors->f_BUY_VALUE) {
+																echo ($GetForeignInvestors->f_BUY_VALUE);
+															}
+															?>
 														</div>
 														<div
 															class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-															331,200
+															<?php
+															if ($GetForeignInvestors->f_SELL_VOLUME) {
+																echo number_format(($GetForeignInvestors->f_SELL_VOLUME));
+															}
+															?>
 														</div>
 														<div
 															class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-															15,608,000
+															<?php
+															if ($GetForeignInvestors->f_SELL_VALUE) {
+																echo $GetForeignInvestors->f_SELL_VALUE;
+															}
+															?>
 														</div>
 													</li>
 											<?php
@@ -656,111 +655,130 @@
 								}
 								?>
 							</div>
-							<div class="w-[414px] max-w-[31%]">
-								<h2 class="heading-title mb-10">
-									<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
-								</h2>
-								<div class="space-y-4">
-								<div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
-									<h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
-										Tỷ lệ cơ cấu cổ đông
-									</h4>
-									<div class="relative text-center">
-										<div
-											class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
-											<p class="text-xxs">
-												<?php _e( 'Số lượng cổ phiếu', 'bsc' ) ?>
-											</p>
-											<p class="font-bold">223.060.701</p>
+							<?php $array_data_GetShareholderRelations = array(
+								'lang' => pll_current_language(),
+								'symbol' =>  $symbol
+							);
+							$response_GetShareholderRelations = get_data_with_cache('GetShareholderRelations', $array_data_GetShareholderRelations, $time_cache);
+							if ($response_GetShareholderRelations) { ?>
+								<div class="w-[414px] max-w-[31%]">
+									<h2 class="heading-title mb-10">
+										<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
+									</h2>
+									<div class="space-y-4">
+										<div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
+											<h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+												<?php _e('Tỷ lệ cơ cấu cổ đông', 'bsc') ?>
+											</h4>
+											<div class="relative text-center">
+												<?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
+													<div
+														class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
+														<p class="text-xxs">
+															<?php _e('Số lượng cổ phiếu', 'bsc') ?>
+														</p>
+														<p class="font-bold"><?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?></p>
+													</div>
+												<?php } ?>
+												<svg id="progress-ring" class="mx-auto" width="166"
+													height="166" viewBox="0 0 166 167" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+
+													<circle cx="83.0342" cy="83.6479" r="72.3521"
+														stroke="#295CA9" stroke-width="21"
+														stroke-linecap="round" stroke-linejoin="round" />
+
+													<circle id="progress-circle" cx="83.0342" cy="83.6479"
+														r="72.3521" stroke="#F2B122" stroke-width="21"
+														stroke-linecap="round" stroke-linejoin="round"
+														stroke-dasharray="454" stroke-dashoffset="0"
+														transform="rotate(90 83.0342 83.6479)" />
+												</svg>
+
+											</div>
+											<div class="mt-5 mx-auto max-w-[215px] space-y-2">
+												<?php if ($response_GetShareholderRelations->d[0]->bigholderpct) { ?>
+													<div
+														class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
+														<p>
+															<?php _e('Cổ đông lớn', 'bsc') ?>
+														</p>
+														<p>
+															<?php echo $response_GetShareholderRelations->d[0]->bigholderpct ?>%
+														</p>
+													</div>
+												<?php } ?>
+												<?php if ($response_GetShareholderRelations->d[0]->remainingsharespct) { ?>
+													<div
+														class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
+														<p>
+															<?php _e('Cổ đông khác', 'bsc') ?>
+														</p>
+														<p>
+															<?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>%
+														</p>
+													</div>
+												<?php } ?>
+											</div>
+											<script>
+												function setProgress(percent) {
+													const circle = document.getElementById('progress-circle');
+													const circumference = 454;
+													const offset = circumference - (percent / 100) * circumference;
+													circle.style.strokeDashoffset = offset;
+												}
+												setProgress(<?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>);
+											</script>
 										</div>
-										<svg id="progress-ring" class="mx-auto" width="166"
-											height="166" viewBox="0 0 166 167" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
+										<div
+											class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
+											<ul class="font-Helvetica space-y-4">
 
-											<circle cx="83.0342" cy="83.6479" r="72.3521"
-												stroke="#295CA9" stroke-width="21"
-												stroke-linecap="round" stroke-linejoin="round" />
-
-											<circle id="progress-circle" cx="83.0342" cy="83.6479"
-												r="72.3521" stroke="#F2B122" stroke-width="21"
-												stroke-linecap="round" stroke-linejoin="round"
-												stroke-dasharray="454" stroke-dashoffset="0"
-												transform="rotate(90 83.0342 83.6479)" />
-										</svg>
-
+												<?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
+													<li class="flex items-center justify-between">
+														<p>
+															<?php _e('KLCP Lưu hành', 'bsc') ?>:
+														</p>
+														<strong class="text-primary-300">
+															<?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?>
+														</strong>
+													</li>
+												<?php } ?>
+												<?php if ($response_GetShareholderRelations->d[0]->govheldpct) { ?>
+													<li class="flex items-center justify-between">
+														<p>
+															<?php _e('Tỷ lệ sở hữu nhà nước (%)', 'bsc') ?>
+														</p>
+														<strong>
+															<?php echo $response_GetShareholderRelations->d[0]->govheldpct ?>%
+														</strong>
+													</li>
+												<?php } ?>
+												<?php if ($response_GetShareholderRelations->d[0]->fheldpct) { ?>
+													<li class="flex items-center justify-between">
+														<p>
+															<?php _e('Tỷ lệ sở hữu nước ngoài (%)', 'bsc') ?>
+														</p>
+														<strong>
+															<?php echo $response_GetShareholderRelations->d[0]->fheldpct ?>%
+														</strong>
+													</li>
+												<?php } ?>
+												<?php if ($response_GetShareholderRelations->d[0]->froom) { ?>
+													<li class="flex items-center justify-between">
+														<p>
+															<?php _e('Room nước ngoài', 'bsc') ?>
+														</p>
+														<strong>
+															<?php echo $response_GetShareholderRelations->d[0]->froom ?>%
+														</strong>
+													</li>
+												<?php } ?>
+											</ul>
+										</div>
 									</div>
-									<div class="mt-5 mx-auto max-w-[215px] space-y-2">
-										<div
-											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
-											<p>
-												Cổ đông lớn
-											</p>
-											<p>
-												86,69%
-											</p>
-										</div>
-										<div
-											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
-											<p>
-												Cổ đông khác
-											</p>
-											<p>
-												13,02% 
-											</p>
-										</div>
-									</div>
-									<script>
-
-										function setProgress(percent) {
-											const circle = document.getElementById('progress-circle');
-											const circumference = 454;
-											const offset = circumference - (percent / 100) * circumference;
-											circle.style.strokeDashoffset = offset;
-										}
-
-
-										setProgress(13); // 13% đường tròn là màu vàng
-									</script>
 								</div>
-									<div
-										class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
-										<ul class="font-Helvetica space-y-4">
-											<li class="flex items-center justify-between">
-												<p>
-													KLCP Lưu hành:
-												</p>
-												<strong class="text-primary-300">
-													Trịnh Tuấn Ngọc
-												</strong>
-											</li>
-											<li class="flex items-center justify-between">
-												<p>
-													Tỷ lệ sở hữu nhà nước (%)
-												</p>
-												<strong>
-													0
-												</strong>
-											</li>
-											<li class="flex items-center justify-between">
-												<p>
-													Tỷ lệ sở hữu nước ngoài (%)
-												</p>
-												<strong>
-													22,65%
-												</strong>
-											</li>
-											<li class="flex items-center justify-between">
-												<p>
-													Room nước ngoài
-												</p>
-												<strong>
-													26,35%
-												</strong>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							<?php } ?>
 							<?php
 							$array_data_sameIndustry = json_encode([
 								'lang' => pll_current_language(),
@@ -768,7 +786,6 @@
 							]);
 							$response_sameIndustry = get_data_with_cache('sameIndustry', $array_data_sameIndustry, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
 							if ($response_sameIndustry) {
-								$data = json_decode($response->data, true);
 							?>
 								<div class="flex-1">
 									<h2 class="heading-title mb-10">
@@ -780,46 +797,34 @@
 											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
 											<thead>
 												<tr>
-													<th class="!pl-5 cursor-pointer">Mã CK
+													<th class="!pl-5 cursor-pointer"><?php _e('Mã CK', 'bsc') ?>
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
 
 													<th class="filter-table cursor-pointer filter-table">
-														Vốn hóa
+														<?php _e('Vốn hóa', 'bsc') ?>
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
 
 													<th class="filter-table cursor-pointer filter-table">
-														PE
+														<?php _e('PE', 'bsc') ?>
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
 													<th class="filter-table cursor-pointer filter-table !pl-5">
-														PB
+														<?php _e('PB', 'bsc') ?>
 														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
 													</th>
 												</tr>
 											</thead>
 											<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
 												<?php
-												for ($i = 0; $i < 3; $i++) {
+												foreach ($data as $record) {
 												?>
 													<tr>
 														<td class="!pl-5"><a href="">A32</a></td>
 														<td>36,80</td>
 														<td>301,24</td>
 														<td class="text-center">6,99</td>
-													</tr>
-													<tr>
-														<td class="!pl-5"><a href="">A33</a></td>
-														<td>37,80</td>
-														<td>302,24</td>
-														<td class="text-center">7,99</td>
-													</tr>
-													<tr>
-														<td class="!pl-5"><a href="">A34</a></td>
-														<td>38,80</td>
-														<td>303,24</td>
-														<td class="text-center">8,99</td>
 													</tr>
 												<?php
 												}
