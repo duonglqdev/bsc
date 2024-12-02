@@ -28,9 +28,9 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="lg:mt-[86px] mt-20 lg:mb-[100px] mb-20">
+	<section class="mt-12 lg:mb-[100px] mb-20">
 		<div class="container">
-			<div class="lg:flex gap-5 mb-20 mt-4 items-end">
+			<div class="lg:flex gap-5 mb-12 mt-4 items-end">
 				<div class="lg:w-80 lg:max-w-1/3 flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Mã cổ phiếu
@@ -99,27 +99,27 @@ get_header();
 							?>
 							<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
 								<td>01/01/2024</td>
-								<td>2.06</td>
+								<td class="text-right !pr-8">2.06</td>
 								<td class="text-[#30D158]">0.6 (1.18%)</td>
-								<td>10,000,000</td>
-								<td>22.10</td>
+								<td class="text-right !pr-5">10,000,000</td>
+								<td class="text-right !pr-8">22.10</td>
 								<td>0</td>
-								<td>0</td>
-								<td>45.87</td>
-								<td>87.34</td>
-								<td>9.62</td>
+								<td class="text-right !pr-8">0</td>
+								<td class="text-right">45.87</td>
+								<td class="text-right">87.34</td>
+								<td class="text-right">9.62</td>
 							</tr>
 							<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
 								<td>01/01/2024</td>
-								<td>2.06</td>
+								<td class="text-right !pr-8">2.06</td>
 								<td class="text-[#FF0017]">0.6 (1.18%)</td>
-								<td>10,000,000</td>
-								<td>22.10</td>
+								<td class="text-right !pr-5">10,000,000</td>
+								<td class="text-right !pr-8">22.10</td>
 								<td>0</td>
-								<td>0</td>
-								<td>45.87</td>
-								<td>87.34</td>
-								<td>9.62</td>
+								<td class="text-right !pr-8">0</td>
+								<td class="text-right">45.87</td>
+								<td class="text-right">87.34</td>
+								<td class="text-right">9.62</td>
 							</tr>
 
 						<?php
