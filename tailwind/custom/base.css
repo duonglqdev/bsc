@@ -931,7 +931,7 @@ button#ib-button-messaging {
 }
 
 .shares-result a {
-  @apply transition-all duration-500 hover:bg-primary-200 hover:text-primary-300 rounded;
+  @apply transition-all duration-500 hover:bg-[#E5F5FF] hover:text-primary-300 before:w-0 hover:before:w-2 before:h-2 before:bg-primary-300 before:translate-x-full before:duration-500 before:inline-block before:absolute before:left-0 before:top-5 before:rounded-sm before:opacity-0 hover:before:opacity-100 hover:pl-7 relative;
 }
 
 /*# sourceMappingURL=base.css.map */
