@@ -50,7 +50,7 @@
 			<?php } ?>
 		</div>
 		<div
-			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-10 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
+			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-6 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
 				<?php
@@ -152,7 +152,7 @@
 							endwhile;
 						}
 						?>
-						<div class="flex flex-col gap-4">
+						<div class="flex flex-col gap-4 flex-1">
 							<?php if ( have_rows( 'f2_google_play', 'option' ) )
 							{
 								while ( have_rows( 'f2_google_play', 'option' ) ) :
@@ -160,7 +160,7 @@
 									if ( get_sub_field( 'img' ) )
 									{ ?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											target="_blank" rel="nofollow">
+											target="_blank" rel="nofollow" class="prose-img:w-full">
 											<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
 										</a>
 										<?php
@@ -175,7 +175,7 @@
 									if ( get_sub_field( 'img' ) )
 									{ ?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											target="_blank" rel="nofollow">
+											target="_blank" rel="nofollow" class="prose-img:w-full">
 											<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'full' ) ?>
 										</a>
 										<?php

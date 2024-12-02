@@ -7,7 +7,7 @@ if (get_sub_field('background')) {
         $banner = wp_get_attachment_image_url(get_field('background_banner', get_queried_object()), 'full');
     }
     $style = get_field('background_banner_display', get_queried_object()) ?: 'default';
-} elseif (isset($args['breadcrumb']) && ($args['breadcrumb'] == 'post') || ($args['breadcrumb'] == 'congdong') || ($args['breadcrumb'] == 'kienthuc') || ($args['breadcrumb'] == 'khuyenmai') || ($args['breadcrumb'] == 'baocao') || ($args['breadcrumb'] == 'cophieu')) {
+} elseif (isset($args['breadcrumb']) && ($args['breadcrumb'] == 'post') || ($args['breadcrumb'] == 'congdong') || ($args['breadcrumb'] == 'kienthuc') || ($args['breadcrumb'] == 'khuyenmai') || ($args['breadcrumb'] == 'baocao') || ($args['breadcrumb'] == 'cophieu') || ($args['breadcrumb'] == 'tagbaocao') || ($args['breadcrumb'] == 'lichthitruong')) {
     $banner = $args['banner'] ?:  get_stylesheet_directory_uri() . '/assets/images/about.png';
     $style = $args['style'];
 } elseif (is_singular('tuyen-dung')) {

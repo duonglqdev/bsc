@@ -81,6 +81,18 @@ function slug_co_phieu($title)
     return  $url;
 }
 
+function slug_calendar($postid)
+{
+    if (get_field('cdltt1_slug_lich', 'option')) {
+        $sub_url = get_field('cdltt1_slug_lich', 'option');
+    } else {
+        $sub_url = __('lich-su-kien', 'bsc');
+    }
+    $url = get_home_url() . '/' . $sub_url . '/' . $postid;
+    return  $url;
+}
+
+
 /**
  * News
  */
@@ -119,6 +131,14 @@ function custom_template_redirect()
             "newstype" => "0"
         );
         $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
+        if ($get_news_detail) {
+        } else {
+            $array_data = array(
+                "id" => $news_id,
+                "newstype" => "1"
+            );
+            $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
+        }
         if ($get_news_detail) {
             // Lấy chi tiết tin tức từ API response
             $news = $get_news_detail->d[0];
@@ -211,7 +231,7 @@ function custom_rewrite_rule_for_co_phieu()
     if (get_field('cdttcp1_slug', 'option')) {
         $sub_url = get_field('cdttcp1_slug', 'option');
     } else {
-        $sub_url = __('ma-co-phhieu', 'bsc');
+        $sub_url = __('ma-co-phieu', 'bsc');
     }
     add_rewrite_rule('^' . $sub_url . '/([^/]+)/?', 'index.php?co_phieu_id=$matches[1]', 'top');
 }
@@ -294,6 +314,66 @@ function custom_template_redirect_for_tag_report()
     }
 }
 add_action('template_redirect', 'custom_template_redirect_for_tag_report');
+
+/**
+ *  Lịch thị trường
+ */
+
+// Thêm rewrite rule cho 'lich-su-kien'
+function custom_rewrite_rule_for_calendar()
+{
+    if (get_field('cdltt1_slug_lich', 'option')) {
+        $sub_url = get_field('cdltt1_slug_lich', 'option');
+    } else {
+        $sub_url = __('lich-su-kien', 'bsc');
+    }
+    add_rewrite_rule('^' . $sub_url . '/([^/]+)/?', 'index.php?calendar_slug=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule_for_calendar');
+
+// Thêm query var 'calendar_slug' vào hệ thống query vars của WordPress
+function custom_query_vars_for_calendar($vars)
+{
+    $vars[] = 'calendar_slug';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_for_calendar');
+
+// Xử lý template redirect cho 'calendar_slug'
+function custom_template_redirect_for_calendar()
+{
+    // Lấy giá trị của 'calendar_slug' từ query vars
+    $calendar_slug = get_query_var('calendar_slug');
+
+    // Kiểm tra nếu có 'calendar_slug' trong URL
+    if ($calendar_slug) {
+        $time_cache = 300;
+        $array_data = array(
+            "id" => $calendar_slug,
+        );
+        $get_calendar_detail = get_data_with_cache('GetEventDetail', $array_data, $time_cache);
+        if ($get_calendar_detail) {
+            // Lấy chi tiết báo cáo từ API response
+            $calendar = $get_calendar_detail->d[0];
+            // Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+            global $custom_meta_data;
+            $custom_meta_data = array(
+                'title' => $calendar->title,
+                'description' => $calendar->description,
+                'thumbnail' => $calendar->imagethumbnail
+            );
+            get_template_part('single-lich-thi-truong', null, array(
+                'data' => $calendar,
+            ));
+            exit; // Dừng WordPress để tránh bị 404
+        } else {
+            // Nếu không có dữ liệu từ API
+            wp_redirect(home_url('/404'));
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'custom_template_redirect_for_calendar');
 
 /**
  * Breadcrumb

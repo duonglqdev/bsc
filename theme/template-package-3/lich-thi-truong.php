@@ -82,8 +82,8 @@ get_header();
 				</li>
 			</ul>
 
-            <div class="rounded-lg overflow-hidden mt-5">
-                <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold font-medium prose-a:text-primary-300 prose-a:font-normal prose-th:px-3 prose-th:py-2 prose-th:border prose-th:border-[#C9CCD2] prose-td:px-3 prose-td:py-2 border-collapse prose-td:border prose-td:border-[#C9CCD2] text-center">
+            <div class="mt-5">
+                <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold font-medium prose-a:text-primary-300 prose-a:font-normal prose-th:px-3 prose-th:py-2 prose-th:border prose-th:border-[#C9CCD2] prose-td:px-3 prose-td:py-2 border-collapse prose-td:border prose-td:border-[#C9CCD2] text-center  overflow-hidden border border-[#C9CCD2] rounded-lg shadow-[inset_0px_0px_0px_1px_#ccc]">
                     <thead>
                         <tr>
                             <th>Ngày GD KHQ</th>

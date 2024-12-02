@@ -511,6 +511,10 @@ import { DataTable } from 'simple-datatables';
 					position: 'bottom',
 					horizontalAlign: 'left',
 					offsetY: 10,
+					markers: {
+						width: 8,
+						height: 8
+					}
 				},
 				tooltip: {
 					x: {
@@ -924,6 +928,10 @@ import { DataTable } from 'simple-datatables';
 			$(this).find('svg').toggleClass('rotate-180');
 			$(this).next().slideToggle();
 		});
+		$('.form-search-result button[type="reset"]').on('click', function(e) {
+			e.preventDefault(); 
+			$('.form-search-result .form-search-input').val(''); 
+		});
 	}
 
 	function handlePhoneCf7() {
@@ -1151,6 +1159,7 @@ import { DataTable } from 'simple-datatables';
 			}
 		);
 		$(document).on('click', '#chuyen_gia_submit', function (e) {
+			e.preventDefault();
 			load__chuyen_gia(1);
 		});
 		$(document).on('click', '#chuyen_gia_btn-reload', function (e) {
@@ -1727,7 +1736,7 @@ import { DataTable } from 'simple-datatables';
 			const options = {
 				chart: {
 					type: 'line',
-					height: 364,
+					height: 344,
 					toolbar: { show: false },
 				},
 				title: {
@@ -1737,6 +1746,7 @@ import { DataTable } from 'simple-datatables';
 						fontSize: '18px',
 						fontWeight: 'bold',
 						color: '#235BA8',
+						fontFamily: 'Barow',
 					},
 				},
 				series: [
@@ -3206,6 +3216,65 @@ import { DataTable } from 'simple-datatables';
 				$('.shares-result').removeClass('active');
 			}
 		});
+		$(document).on('click', '#lich-su_kien_submit', function (e) {
+			e.preventDefault();
+			load_lich_su_kien(1);
+		});
+		$(document).on(
+			'change',
+			'#lich-thi-truong_form input[name="sortfield"]',
+			function () {
+				load_lich_su_kien(1);
+			}
+		);
+		$(document).on(
+			'click',
+			'#list-lich-su-kien_pagination button',
+			function (e) {
+				var page = $(this).attr('data-page');
+				load_lich_su_kien(page);
+			}
+		);
+		$(document).on('click', '#lich-su_kien_reset', function (e) {
+			$('#lich-thi-truong_form')[0].reset();
+			load_lich_su_kien(1);
+		});
+
+		function load_lich_su_kien(page = 1) {
+			var eventcode = $('#lich-thi-truong_form .eventcode').val();
+			var mck = $('#lich-thi-truong_form .mck').val();
+			var fromdate = $('#lich-thi-truong_form .fromdate').val();
+			var todate = $('#lich-thi-truong_form .todate').val();
+			var sortfield = $(
+				'#lich-thi-truong_form input[name="sortfield"]:checked'
+			).val();
+			$.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'filter_event_calendar',
+					eventcode: eventcode,
+					mck: mck,
+					fromdate: fromdate,
+					todate: todate,
+					paged: page,
+					sortfield: sortfield,
+					security: ajaxurl.security,
+				},
+				beforeSend: function () {
+					$('#list-lich-su-kien').html('');
+					$('#list-lich-su-kien_pagination').html('');
+					$('#lich-su-kien-loading').removeClass('hidden');
+				},
+				success: function (response) {
+					$('#lich-su-kien-loading').addClass('hidden');
+					$('#list-lich-su-kien_pagination').html(
+						response.data.pagination
+					);
+					$('#list-lich-su-kien').html(response.data.html);
+				},
+			});
+		}
 	}
 	function sameHeight() {
 		if ($('.block_sameheight').length) {

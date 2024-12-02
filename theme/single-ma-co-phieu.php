@@ -23,7 +23,7 @@
 		<section class="xl:my-[100px] my-20">
 			<div class="container">
 				<?php if ($news->FULLNAME) { ?>
-					<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
+					<h2 class="font-bold lg:text-[32px] text-2xl mb-2 leading-normal uppercase">
 						<?php echo $news->FULLNAME ?>
 					</h2>
 				<?php } ?>
@@ -55,7 +55,7 @@
 									</div>
 								</div>
 								<div class="flex items-center gap-7">
-									<div class="lg:w-[172px] lg:max-w-[37%]">
+									<div class="lg:w-[176px] lg:max-w-[37%]">
 										<?php if ($response_value->d[0]->bidPrice1) { ?>
 											<div class="flex-col gap-2">
 												<div class="flex gap-[14px] data_number">
@@ -88,7 +88,7 @@
 												<p class="time-update mt-1">
 													<?php _e('Cập nhật lúc', 'bsc') ?>
 													<?php date_default_timezone_set('Asia/Ho_Chi_Minh');
-													echo date("H:i:s"); ?>
+													echo date("H:i"); ?>
 													UTC_7
 												</p>
 											</div>
@@ -200,7 +200,7 @@
 						?>
 							<div class="lg:w-[433px] max-w-[33%]">
 								<div
-									class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
+									class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
 									<div class="flex items-end justify-between">
 										<div class="lg:w-[120px] space-y-2">
 											<p class="text-paragraph text-opacity-70 text-xs">
@@ -271,7 +271,7 @@
 						?>
 							<div class="flex-1">
 								<div
-									class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+									class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 									<h3 class="font-bold mb-6">
 										<?php _e('KHUYẾN NGHỊ', 'bsc') ?>
 									</h3>
@@ -336,11 +336,11 @@
 		<section class="xl:my-[100px] my-20">
 			<div class="container">
 				<ul
-					class="flex lg:gap-[100px] gap-10 items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav">
+					class="flex lg:gap-[100px] gap-10 items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white">
 					<li
 						class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 						<button data-tabs="#tab-1"
-							class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+							class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 							<?php _e('TỔNG QUAN', 'bsc') ?>
 						</button>
 					</li>
@@ -383,7 +383,7 @@
 							<h2 class="heading-title mb-10">
 								<?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
 							</h2>
-							<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav">
+							<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
 								<li>
 									<button data-tabs="#lichsugiaodich"
 										class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
@@ -399,16 +399,17 @@
 							</ul>
 							<div class="tab-content block" id="lichsugiaodich">
 								<?php
-								$current_date = date('Y-m-d');
-								$last_month_date = date('Y-m-d', strtotime('-1 month', strtotime($current_date)));
+								$current_date_ymd = date('Y-m-d');
+								$last_month_date_ymd = date('Y-m-d', strtotime('-1 month', strtotime($current_date_ymd)));
 								$array_data_secTradingHistory = json_encode([
 									'lang' => pll_current_language(),
 									'secCode' => $symbol,
-									'startDate' => $last_month_date,
-									'endDate' => $current_date
+									'startDate' => $last_month_date_ymd,
+									'endDate' => $current_date_ymd
 								]);
 								$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
 								if ($response_secTradingHistory) {
+									$data = json_decode($response->data, true);
 								?>
 									<div
 										class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
@@ -485,41 +486,17 @@
 											<?php
 											}
 											?>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-														<?php echo svg('up', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
 										</ul>
 
 									</div>
 									<div class="flex items-center justify-between mt-4">
-										<a href=""
-											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-											<?php echo svg('arrow-btn', '20', '20') ?>
-											<?php _e('Xem tất cả', 'bsc') ?>
-										</a>
+										<?php if (get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option')) { ?>
+											<a href="<?php echo get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option') . '?mck=' . $symbol ?>"
+												class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+												<?php _e('Xem tất cả', 'bsc') ?>
+												<?php echo svg('arrow-btn', '20', '20') ?>
+											</a>
+										<?php } ?>
 										<p class="font-medium text-xs font-Helvetica">
 											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
 										</p>
@@ -527,120 +504,121 @@
 								<?php  } ?>
 							</div>
 							<div class="tab-content hidden" id="ndtnn">
-								<div
-									class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
-									<div class="flex bg-primary-300 text-white">
-										<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-											Nhóm
-										</div>
-										<div class="w-[152px] max-w-[30%] px-3 py-2">
-											Thay đổi giá
-										</div>
-										<div class="w-[136px] max-w-[27%] px-3 py-2">
-											KL khớp lệnh
-										</div>
-										<div class="flex-1 px-3 py-2">
-											Tổng GTGD
-										</div>
-									</div>
-									<ul>
-										<?php
-										for ($i = 0; $i < 3; $i++) {
-										?>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-														<?php echo svg('up', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
-											<li
-												class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-												<div
-													class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-													16/09
-												</div>
-												<div
-													class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-													<p>
-														46.7
-													</p>
-													<p
-														class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-														<?php echo svg('downn', '17', '17') ?>
-														+0.98%
-													</p>
-												</div>
-												<div
-													class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-													331,200
-												</div>
-												<div
-													class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-													15,608,000
-												</div>
-											</li>
-										<?php
-										}
-										?>
-										<li
-											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-											<div
-												class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-												16/09
+								<?php
+								$current_date_dmy = date('d/m/Y');
+								$last_month_date_dmy = date('d/m/Y', strtotime('-1 month'));
+								$array_data_GetForeignInvestors = array(
+									'lang' => pll_current_language(),
+									'symbol' => $symbol,
+									'fromdate' => $last_month_date_dmy,
+									'todate' => $current_date_dmy
+								);
+								$response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
+								if ($response_GetForeignInvestors) {
+								?>
+									<div
+										class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+										<div class="flex bg-primary-300 text-white">
+											<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+												<?php _e('Ngày', 'bsc') ?>
 											</div>
-											<div
-												class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-												<p>
-													46.7
-												</p>
-												<p
-													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-													<?php echo svg('up', '17', '17') ?>
-													+0.98%
-												</p>
+											<div class="w-[152px] max-w-[30%] px-3 py-2">
+												<?php _e('Thay đổi giá', 'bsc') ?>
 											</div>
-											<div
-												class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-												331,200
+											<div class="w-[136px] max-w-[27%] px-3 py-2">
+												<?php _e('KL khớp lệnh', 'bsc') ?>
 											</div>
-											<div
-												class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-												15,608,000
+											<div class="flex-1 px-3 py-2">
+												<?php _e('Tổng GTGD', 'bsc') ?>
 											</div>
-										</li>
-									</ul>
+										</div>
+										<ul>
+											<?php
+											$i_GetForeignInvestors = 0;
+											foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
+												$i_GetForeignInvestors++;
+												if ($i_GetForeignInvestors < 8) {
+											?>
+													<li
+														class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+														<div
+															class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+															<?php
+															if ($GetForeignInvestors->tradedate) {
+																$date = new DateTime($GetForeignInvestors->tradedate);
+																echo $date->format('d/m');
+															}
+															?>
+														</div>
+														<?php if ($GetForeignInvestors->closeprice && $GetForeignInvestors->refprice) {
+															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
+																$text_color_class_GetForeignInvestors = 'text-[#EB0]';
+															} else {
+																$text_color_class_GetForeignInvestors = '';
+															}
+															if (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) > 0) {
+																$first_GetForeignInvestors = '+';
+																$icon_GetForeignInvestors = svg('up', '17', '17');
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) == 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															} elseif (($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) < 0) {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = svg('downn', '17', '17');
+															} else {
+																$first_GetForeignInvestors = '';
+																$icon_GetForeignInvestors = '';
+															}
+														}
+														?>
+														<div
+															class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+															<p>
+																<?php
+																if ($GetForeignInvestors->closeprice) {
+																	echo number_format(($GetForeignInvestors->closeprice) / 1000, 2, '.', '');
+																}
+																?>
+															</p>
+															<p
+																class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors	 ?> font-Helvetica">
+																<?php echo $icon_GetForeignInvestors ?>
+																<?php echo number_format((($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) / ($GetForeignInvestors->refprice)) * 100, 2, '.', '') ?>%
+															</p>
+														</div>
+														<div
+															class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+															331,200
+														</div>
+														<div
+															class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+															15,608,000
+														</div>
+													</li>
+											<?php
+												}
+											}
+											?>
+										</ul>
 
-								</div>
-								<div class="flex items-center justify-between mt-4">
-									<a href=""
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
-										<?php echo svg('arrow-btn', '20', '20') ?>
-										Xem tất cả
-									</a>
-									<p class="font-medium text-xs font-Helvetica">
-										Đơn vị GTGD: 1000 VNĐ
-									</p>
-								</div>
+									</div>
+									<div class="flex items-center justify-between mt-4">
+										<?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
+											<a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
+												class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+												<?php echo svg('arrow-btn', '20', '20') ?>
+												<?php _e('Xem tất cả', 'bsc') ?>
+											</a>
+										<?php } ?>
+										<p class="font-medium text-xs font-Helvetica">
+											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
+										</p>
+									</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -683,8 +661,67 @@
 									<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
 								</h2>
 								<div class="space-y-4">
-									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/cctc.svg"
-										alt="" class="w-full h-auto" loading="lazy">
+								<div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
+									<h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+										Tỷ lệ cơ cấu cổ đông
+									</h4>
+									<div class="relative text-center">
+										<div
+											class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
+											<p class="text-xxs">
+												<?php _e( 'Số lượng cổ phiếu', 'bsc' ) ?>
+											</p>
+											<p class="font-bold">223.060.701</p>
+										</div>
+										<svg id="progress-ring" class="mx-auto" width="166"
+											height="166" viewBox="0 0 166 167" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+
+											<circle cx="83.0342" cy="83.6479" r="72.3521"
+												stroke="#295CA9" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round" />
+
+											<circle id="progress-circle" cx="83.0342" cy="83.6479"
+												r="72.3521" stroke="#F2B122" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round"
+												stroke-dasharray="454" stroke-dashoffset="0"
+												transform="rotate(90 83.0342 83.6479)" />
+										</svg>
+
+									</div>
+									<div class="mt-5 mx-auto max-w-[215px] space-y-2">
+										<div
+											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
+											<p>
+												Cổ đông lớn
+											</p>
+											<p>
+												86,69%
+											</p>
+										</div>
+										<div
+											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
+											<p>
+												Cổ đông khác
+											</p>
+											<p>
+												13,02% 
+											</p>
+										</div>
+									</div>
+									<script>
+
+										function setProgress(percent) {
+											const circle = document.getElementById('progress-circle');
+											const circumference = 454;
+											const offset = circumference - (percent / 100) * circumference;
+											circle.style.strokeDashoffset = offset;
+										}
+
+
+										setProgress(13); // 13% đường tròn là màu vàng
+									</script>
+								</div>
 									<div
 										class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
 										<ul class="font-Helvetica space-y-4">
@@ -724,68 +761,78 @@
 									</div>
 								</div>
 							</div>
-							<div class="flex-1">
-								<h2 class="heading-title mb-10">
-									DOANH NGHIỆP CÙNG NGÀNH
-								</h2>
-								<div
-									class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
-									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
-										<thead>
-											<tr>
-												<th class="!pl-5 cursor-pointer">Mã CK
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-
-												<th class="filter-table cursor-pointer filter-table">
-													Vốn hóa
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-
-												<th class="filter-table cursor-pointer filter-table">
-													PE
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-												<th class="filter-table cursor-pointer filter-table">
-													PB
-													<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-												</th>
-											</tr>
-										</thead>
-										<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
-											<?php
-											for ($i = 0; $i < 3; $i++) {
-											?>
+							<?php
+							$array_data_sameIndustry = json_encode([
+								'lang' => pll_current_language(),
+								'secCode' => $symbol,
+							]);
+							$response_sameIndustry = get_data_with_cache('sameIndustry', $array_data_sameIndustry, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
+							if ($response_sameIndustry) {
+								$data = json_decode($response->data, true);
+							?>
+								<div class="flex-1">
+									<h2 class="heading-title mb-10">
+										<?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
+									</h2>
+									<div
+										class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
+										<table
+											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
+											<thead>
 												<tr>
-													<td class="!pl-5"><a href="">A32</a></td>
-													<td>36,80</td>
-													<td>301,24</td>
-													<td>6,99</td>
-												</tr>
-												<tr>
-													<td class="!pl-5"><a href="">A33</a></td>
-													<td>37,80</td>
-													<td>302,24</td>
-													<td>7,99</td>
-												</tr>
-												<tr>
-													<td class="!pl-5"><a href="">A34</a></td>
-													<td>38,80</td>
-													<td>303,24</td>
-													<td>8,99</td>
-												</tr>
-											<?php
-											}
-											?>
+													<th class="!pl-5 cursor-pointer">Mã CK
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
 
-										</tbody>
-									</table>
+													<th class="filter-table cursor-pointer filter-table">
+														Vốn hóa
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+
+													<th class="filter-table cursor-pointer filter-table">
+														PE
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+													<th class="filter-table cursor-pointer filter-table !pl-5">
+														PB
+														<?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
+												<?php
+												for ($i = 0; $i < 3; $i++) {
+												?>
+													<tr>
+														<td class="!pl-5"><a href="">A32</a></td>
+														<td>36,80</td>
+														<td>301,24</td>
+														<td class="text-center">6,99</td>
+													</tr>
+													<tr>
+														<td class="!pl-5"><a href="">A33</a></td>
+														<td>37,80</td>
+														<td>302,24</td>
+														<td class="text-center">7,99</td>
+													</tr>
+													<tr>
+														<td class="!pl-5"><a href="">A34</a></td>
+														<td>38,80</td>
+														<td>303,24</td>
+														<td class="text-center">8,99</td>
+													</tr>
+												<?php
+												}
+												?>
+
+											</tbody>
+										</table>
+									</div>
+									<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
+										<?php _e('Đơn vị Vốn hóa (Triệu đồng)', 'bsc') ?>
+									</p>
 								</div>
-								<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
-									Đơn vị Vốn hóa (Triệu đồng)
-								</p>
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 					<?php $array_data_GetNews = array(
@@ -888,7 +935,7 @@
 								</li>
 							</ul>
 							<a href=""
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 								Xem chi tiết
 								<?php echo svg('arrow-btn', '12', '12') ?>
 							</a>
@@ -1024,7 +1071,7 @@
 								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											BIÊN LỢI NHUẬN GỘP (%)
 										</h4>
 										<div id="profit-chart-1" class="legend-gap">
@@ -1033,7 +1080,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											BIÊN LỢI NHUẬN SAU THUẾ (%)
 										</h4>
 										<div id="profit-chart-2" class="legend-gap">
@@ -1042,7 +1089,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											ROE (%)
 										</h4>
 										<div id="profit-chart-3" class="legend-gap">
@@ -1089,7 +1136,7 @@
 								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
 										</h4>
 										<div id="health-chart-1" class="legend-gap">
@@ -1098,7 +1145,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											NỢ VAY/ TỔNG TÀI SẢN
 										</h4>
 										<div id="health-chart-2" class="legend-gap">
@@ -1107,7 +1154,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											TỶ LỆ THANH TOÁN LÃI VAY
 										</h4>
 										<div id="health-chart-3" class="legend-gap">
@@ -1154,7 +1201,7 @@
 								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											TĂNG TRƯỞNG DOANH THU (%)
 										</h4>
 										<div id="growth-chart-1" class="legend-gap">
@@ -1163,7 +1210,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											TĂNG TRƯỞNG EPS (%)
 										</h4>
 										<div id="growth-chart-2" class="legend-gap">
@@ -1172,7 +1219,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											TĂNG TRƯỞNG LỢI NHUẬN (%)
 										</h4>
 										<div id="growth-chart-3" class="legend-gap">
@@ -1196,7 +1243,7 @@
 								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											VÒNG QUAY KHOẢN PHẢI THU (LẦN)
 										</h4>
 										<div id="effective-chart-1" class="legend-gap">
@@ -1205,7 +1252,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
 										</h4>
 										<div id="effective-chart-2" class="legend-gap">
@@ -1214,7 +1261,7 @@
 									</div>
 									<div class="space-y-6">
 										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 											VÒNG QUAY HÀNG TỒN KHO (LẦN)
 										</h4>
 										<div id="effective-chart-3" class="legend-gap">
@@ -1240,7 +1287,7 @@
 							</span>
 						</div>
 						<a href=""
-							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 							Xem chi tiết
 							<?php echo svg('arrow-btn', '12', '12') ?>
 						</a>

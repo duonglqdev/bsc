@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_674c94d81cabd",
+    "title": "Lịch thị trường",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Lịch thị trường",
+    "menu_slug": "lich-thi-truong",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "dashicons-calendar-alt",
+    "menu_title": "",
+    "position": 20,
+    "redirect": 0,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1733072226
+}

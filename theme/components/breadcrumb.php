@@ -90,6 +90,58 @@ if (is_page() && have_rows('breacrumb')) {
         </nav>
     <?php
     }
+} elseif (($args['custom'] == 'tagbaocao') && get_field('cdbcpt1_breadcrumb_tag', 'option')) {
+    if (have_rows('cdbcpt1_breadcrumb_tag', 'option')) {
+    ?>
+        <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+            <p>
+                <?php
+                $i = 0;
+                while (have_rows('cdbcpt1_breadcrumb_tag', 'option')): the_row();
+                    $i++; ?>
+                    <?php
+                    if ($i != 1) {
+                    ?>
+                        <span class="separator"> / </span>
+                    <?php
+                    }
+                    ?>
+                    <?php if (get_sub_field('link')) { ?>
+                        <a href="<?php the_sub_field('link') ?>"><?php the_sub_field('title') ?></a>
+                    <?php } else { ?>
+                        <span><?php the_sub_field('title') ?></span>
+                    <?php } ?>
+                <?php endwhile; ?>
+            </p>
+        </nav>
+    <?php
+    }
+} elseif (($args['custom'] == 'lichthitruong') && get_field('cdltt1_breadcrumb', 'option')) {
+    if (have_rows('cdltt1_breadcrumb', 'option')) {
+    ?>
+        <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+            <p>
+                <?php
+                $i = 0;
+                while (have_rows('cdltt1_breadcrumb', 'option')): the_row();
+                    $i++; ?>
+                    <?php
+                    if ($i != 1) {
+                    ?>
+                        <span class="separator"> / </span>
+                    <?php
+                    }
+                    ?>
+                    <?php if (get_sub_field('link')) { ?>
+                        <a href="<?php the_sub_field('link') ?>"><?php the_sub_field('title') ?></a>
+                    <?php } else { ?>
+                        <span><?php the_sub_field('title') ?></span>
+                    <?php } ?>
+                <?php endwhile; ?>
+            </p>
+        </nav>
+    <?php
+    }
 } elseif (($args['custom'] == 'baocao') && get_field('cdbcpt1_breadcrumb', 'option')) {
     if (have_rows('cdbcpt1_breadcrumb', 'option')) {
     ?>

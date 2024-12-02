@@ -25,16 +25,23 @@ $type_search =  $_GET['type_search'] ?: 'default';
 				<?php _e('BẠN MUỐN TÌM KIẾM ĐIỀU GÌ?', 'bsc') ?>
 			</h2>
 			<form action="<?php echo get_home_url() ?>"
-				class="w-[660px] max-w-full py-4 px-6 gap-2 flex h-[58px] mx-auto bg-white rounded-lg overflow-hidden shadow-base">
+				class="flex gap-3 justify-center form-search-result">
+				<div class="w-[660px] max-w-[90%] py-4 px-6 gap-2 flex h-[58px] bg-white rounded-lg overflow-hidden shadow-base">
 				<?php echo svgpath('search', '24', '24', 'fill-[#4a556880]') ?>
 				<input type="text" name="s"
-					class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-paragraph placeholder:text-opacity-50"
+					class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-paragraph placeholder:text-opacity-50 form-search-input"
 					placeholder="<?php _e('Bạn muốn tìm kiếm...', 'bsc') ?>" value="<?php echo $search ?>">
 				<?php if ($type_search && $type_search != 'default') {
 				?>
 					<input type="hidden" name="type_search" value="<?php echo $type_search ?>">
 				<?php
 				} ?>
+
+				</div>
+				<button type="reset"
+                    class="w-[58px] h-[58px] rounded-lg flex items-center justify-center p-3 bg-white group">
+                    <?php echo svgClass('reload', '24', '24', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+                </button>
 			</form>
 		</div>
 	</section>
@@ -43,7 +50,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 			<div class="lg:flex gap-[70px] max-w-[1112px] mx-auto">
 				<div class="lg:w-[290px]">
 					<ul
-						class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base">
+						class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base sticky top-5 z-10">
 						<li>
 							<a href="<?php echo $current_url ?>?s=<?php echo $search ?>"
 								class="<?php if ($type_search == 'default') echo 'active' ?> flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left hover:!text-white hover:!bg-primary-400 hover:!rounded-tr-xl hover:!rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-400 [&:not(.active)]:rounded-br-none rounded-br-xl [&:not(.active)]:rounded-tr-none rounded-tr-xl">

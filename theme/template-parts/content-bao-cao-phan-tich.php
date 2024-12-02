@@ -49,9 +49,9 @@
                                 echo number_format($news->pricerecommendation);
                                 ?>
                             <?php } ?>
-                            <?php if ($news->upsite) { ?>
+                            <?php if ($news->upside) { ?>
                                 <span class="text-[#30D158]">
-                                    (<?php echo $news->upsite ?>)
+                                    (<?php echo $news->upside ?>)
                                 </span>
                             <?php } ?>
                         </p>

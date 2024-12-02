@@ -684,6 +684,65 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_674c7026b227c",
+            "label": "Trang hiển thị",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_674c7030b227d",
+            "label": "[Dữ liệu lịch sử] Lịch sử giá",
+            "name": "cdc7_page_lich_su_gia",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
+            "key": "field_674c70bdb227e",
+            "label": "[Dữ liệu lịch sử] Nhà đầu tư nước ngoài",
+            "name": "cdc7_page_nha_dau_tu_nuoc_ngoai",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -704,5 +763,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731004853
+    "modified": 1733063214
 }

@@ -1,9 +1,9 @@
 {
-    "key": "group_672ccd5835607",
-    "title": "[Option] Cài đặt biểu phí giao dịch",
+    "key": "group_674c962aaf046",
+    "title": "[Option] Cài đặt lịch thị trường",
     "fields": [
         {
-            "key": "field_672ccd58a69c3",
+            "key": "field_674c962b0eab8",
             "label": "Banner",
             "name": "",
             "aria-label": "",
@@ -20,9 +20,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_672ccd58aa460",
+            "key": "field_674c962b123fc",
             "label": "Hiển thị background",
-            "name": "cdbdgg1_background_banner_display",
+            "name": "cdltt1_background_banner_display",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -46,9 +46,9 @@
             "placeholder": ""
         },
         {
-            "key": "field_672ccd58adf19",
+            "key": "field_674c962b15e67",
             "label": "Background Banner",
-            "name": "cdbdgg1_background_banner",
+            "name": "cdltt1_background_banner",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -71,7 +71,7 @@
             "preview_size": "thumbnail"
         },
         {
-            "key": "field_672ccd58b1979",
+            "key": "field_674c962b198dc",
             "label": "Breadcrumb",
             "name": "",
             "aria-label": "",
@@ -88,9 +88,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_672ccd58b53e1",
+            "key": "field_674c962b1d586",
             "label": "Tiêu đề",
-            "name": "cdbdgg1_title",
+            "name": "cdltt1_title",
             "aria-label": "",
             "type": "text",
             "instructions": "Sẽ hiển thị ở trang chi tiết làm tiêu đề",
@@ -108,9 +108,9 @@
             "append": ""
         },
         {
-            "key": "field_672ccd58b8e57",
+            "key": "field_674c962b20ff9",
             "label": "Breadcrumb",
-            "name": "cdbdgg1_breadcrumb",
+            "name": "cdltt1_breadcrumb",
             "aria-label": "",
             "type": "repeater",
             "instructions": "Breadcrumb sẽ hiển thị ở trang chi tiết cộng đồng",
@@ -130,7 +130,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_672ccd5957098",
+                    "key": "field_674c962ba89e4",
                     "label": "Đường dẫn",
                     "name": "link",
                     "aria-label": "",
@@ -148,10 +148,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_672ccd58b8e57"
+                    "parent_repeater": "field_674c962b20ff9"
                 },
                 {
-                    "key": "field_672ccd595aaee",
+                    "key": "field_674c962bac44a",
                     "label": "Tiêu đề",
                     "name": "title",
                     "aria-label": "",
@@ -169,13 +169,13 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_672ccd58b8e57"
+                    "parent_repeater": "field_674c962b20ff9"
                 }
             ]
         },
         {
-            "key": "field_672ccd58bc8bd",
-            "label": "Menu điều hướng",
+            "key": "field_674c9675ac5a0",
+            "label": "API",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -191,11 +191,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_672ccd58c0338",
-            "label": "Menu điều hướng",
-            "name": "cdbdgg1_menu_navigation",
+            "key": "field_674c9679ac5a1",
+            "label": "Đường dẫn phụ trợ lịch thị trường",
+            "name": "cdltt1_slug_lich",
             "aria-label": "",
-            "type": "repeater",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -204,78 +204,11 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Thêm Menu Điều Hướng",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_672ccd59c454b",
-                    "label": "Đường dẫn",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_672ccd58c0338"
-                },
-                {
-                    "key": "field_672ccd59c8008",
-                    "label": "Tiêu đề",
-                    "name": "title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_672ccd58c0338"
-                },
-                {
-                    "key": "field_672ccd59cba8f",
-                    "label": "Active",
-                    "name": "active",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": "",
-                    "ui": 1,
-                    "parent_repeater": "field_672ccd58c0338"
-                }
-            ]
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -283,7 +216,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "cai-dat-bieu-phi-giao-dich"
+                "value": "lich-thi-truong"
             }
         ]
     ],
@@ -296,5 +229,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733059916
+    "modified": 1733072546
 }

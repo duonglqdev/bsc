@@ -61,7 +61,7 @@
 									class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 									autocomplete="off">
 								<ul
-									class="shares-result absolute py-2 rounded-md z-30 p-1 w-full h-56 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-gradient-blue text-white prose-a:block prose-a:px-4 prose-a:py-2 prose-a:font-medium prose-a:font-Helvetica">
+									class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
 									<li class="no-results text-center p-4 font-bold hidden">
 										<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
 									</li>
