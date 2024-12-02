@@ -1,4 +1,4 @@
-<section class="about_info 2xl:my-[100px] my-20" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="about_info <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-20':'my-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <h2 class="heading-title text-center mb-4">
@@ -7,15 +7,15 @@
         <?php } ?>
         <?php if (get_sub_field('mota')) { ?>
             <div
-                class="relative max-w-[734px] mx-auto lg:mb-[50px] mb-10 2xl:text-2xl text-xl font-bold text-primary-400 text-center">
-                <div class="absolute lg:-left-10 lg:-top-5 -z-10 top-0 left-0">
-                    <?php echo svg('quote') ?>
+                class="relative font-bold text-primary-400 text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-[50px] 2xl:text-2xl text-xl max-w-[734px] mx-auto':'mb-4' ?>">
+                <div class="absolute pointer-events-none -top-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'-left-10 ':'w-[52px] ' ?>">
+                    <?php echo svgClass('quote','','','max-w-full') ?>
                 </div>
                 <?php the_sub_field('mota') ?>
             </div>
         <?php } ?>
-        <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-20 gap-10 items-center">
-            <div class="the_content text-black font-normal font-Helvetica">
+        <div class="grid items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-20':'grid-cols-1 gap-6' ?>">
+            <div class="the_content text-black font-normal font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                 <?php the_sub_field('content') ?>
             </div>
             <?php if (have_rows('video_youtube')) {
@@ -25,8 +25,8 @@
                             class="rounded-[10px] overflow-hidden pt-[54%] relative block">
                             <?php echo wp_get_attachment_image(get_sub_field('avatar'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
                             <div
-                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110">
-                                <?php echo svg('play') ?>
+                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'max-w-[67px]' ?>">
+                                <?php echo svgClass('play','','','max-w-full') ?>
                             </div>
                         </a>
             <?php

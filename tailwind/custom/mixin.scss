@@ -1,6 +1,6 @@
 @mixin dot-style($color) {
     .flickity-page-dots {
-        .dot {
+        .dot.is-selected {
             @apply opacity-100;
             background-color: $color;
         }
@@ -14,6 +14,9 @@
 
 .dots-white {
     @include dot-style(white);
+    .dot{
+        background-color: white;
+    }
 }
 
 .dots-blue {
@@ -85,4 +88,8 @@
 .btn-base-green {
     @apply bg-green;
     @include btn-base(rgba(0, 158, 135, 0.4));
+}
+
+svg{
+    @apply max-w-full;
 }

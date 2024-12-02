@@ -19,65 +19,67 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
-			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
-					<div class="sticky top-5 z-10">
-						<?php
-						$terms = get_terms(array(
-							'taxonomy' => 'category',
-							'hide_empty' => false,
-							'parent' => 0,
-						));
-						if (! empty($terms) && ! is_wp_error($terms)) :
-						?>
-							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
-								<?php
-								$current_term_id = get_queried_object_id();
-								foreach ($terms as $term) :
-									$active_class = ($current_term_id === $term->term_id) ? 'active' : '';
-								?>
-									<li class="<?php echo esc_attr($active_class); ?>">
-										<a href="<?php echo get_term_link($term); ?>"
-											class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl leading-[1.45]">
-											<?php echo esc_html($term->name); ?>
-										</a>
-										<?php
-										$child_terms = get_terms(array(
-											'taxonomy' => 'category',
-											'parent' => $term->term_id,
-											'hide_empty' => false,
-										));
-
-										if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
-											<ul class="pl-5 hidden sub-menu w-full bg-white">
-												<?php foreach ($child_terms as $child_term) :
-													$child_active_class = ($current_term_id === $child_term->term_id) ? 'active' : '';
-												?>
-													<li class="pl-5">
-														<a href="<?php echo get_term_link($child_term); ?>"
-															class="<?php echo esc_attr($child_active_class); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
-															<?php echo esc_html($child_term->name); ?>
-														</a>
-													</li>
-												<?php endforeach; ?>
-											</ul>
-										<?php endif; ?>
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						<?php endif; ?>
-
-						<?php
-						$hinh_anh_sidebar = get_field('hinh_anh_sidebar', get_queried_object());
-						if ($hinh_anh_sidebar) { ?>
-							<div class="mt-12">
-								<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
-									<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
-								</a>
-							</div>
-						<?php } ?>
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex gap-[70px]':'' ?>">
+				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+					<div class="w-80 max-w-[35%] shrink-0">
+						<div class="sticky top-5 z-10">
+							<?php
+							$terms = get_terms(array(
+								'taxonomy' => 'category',
+								'hide_empty' => false,
+								'parent' => 0,
+							));
+							if (! empty($terms) && ! is_wp_error($terms)) :
+							?>
+								<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
+									<?php
+									$current_term_id = get_queried_object_id();
+									foreach ($terms as $term) :
+										$active_class = ($current_term_id === $term->term_id) ? 'active' : '';
+									?>
+										<li class="<?php echo esc_attr($active_class); ?>">
+											<a href="<?php echo get_term_link($term); ?>"
+												class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl leading-[1.45]">
+												<?php echo esc_html($term->name); ?>
+											</a>
+											<?php
+											$child_terms = get_terms(array(
+												'taxonomy' => 'category',
+												'parent' => $term->term_id,
+												'hide_empty' => false,
+											));
+	
+											if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
+												<ul class="pl-5 hidden sub-menu w-full bg-white">
+													<?php foreach ($child_terms as $child_term) :
+														$child_active_class = ($current_term_id === $child_term->term_id) ? 'active' : '';
+													?>
+														<li class="pl-5">
+															<a href="<?php echo get_term_link($child_term); ?>"
+																class="<?php echo esc_attr($child_active_class); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+																<?php echo esc_html($child_term->name); ?>
+															</a>
+														</li>
+													<?php endforeach; ?>
+												</ul>
+											<?php endif; ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+	
+							<?php
+							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', get_queried_object());
+							if ($hinh_anh_sidebar) { ?>
+								<div class="mt-12">
+									<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
+										<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
+									</a>
+								</div>
+							<?php } ?>
+						</div>
 					</div>
-				</div>
+				<?php } ?>
 				<div class="flex-1">
 					<?php
 					if (isset($_GET['posts_to_show'])) {
@@ -106,9 +108,13 @@ get_header();
 						$total_page = ceil($total_post / $post_per_page);
 					?>
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
-
-							<div class="list__news">
-								<div class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 ">
+							<div
+								class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
+								<?php echo esc_html($term->name); ?>
+								<?php echo svg( 'down-white', '20', '20' ) ?>
+							</div>
+							<div class="list__news <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'hidden' ?>">
+								<div class="grid gap-x-6 gap-y-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2':'md:grid-cols-2 grid-cols-1' ?>">
 									<?php
 									foreach ($response->d as $news) {
 										get_template_part('template-parts/content', null, array(

@@ -103,6 +103,7 @@ module.exports = {
 			boxShadow: {
 				header: '0px 4px 10px 0px #0000000D',
 			},
+			
 		},
 		container: {
 			center: true,
