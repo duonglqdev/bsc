@@ -18,6 +18,9 @@
 .dots-white .slick-dots .dot {
   @apply bg-white;
 }
+.dots-white .dot {
+  background-color: white;
+}
 
 .dots-blue .flickity-page-dots .dot.is-selected {
   @apply opacity-100;
@@ -1007,14 +1010,10 @@ button#ib-button-messaging {
   @apply transition-all duration-500 hover:bg-[#E5F5FF] hover:text-primary-300 before:w-0 hover:before:w-2 before:h-2 before:bg-primary-300 before:translate-x-full before:duration-500 before:inline-block before:absolute before:left-0 before:top-5 before:rounded-sm before:opacity-0 hover:before:opacity-100 hover:pl-7 relative;
 }
 
-.home_news .flickity-page-dots {
-  @apply -bottom-6;
-}
-.home_news .flickity-page-dots .dot {
-  @apply mx-1;
-}
-.home_news .flickity-page-dots .dot.is-selected {
-  @apply bg-primary-300;
+.performance-chart .apexcharts-legend-text {
+  @apply pl-5;
+  font-size: 16px !important;
+  font-family: "Barlow", sans-serif !important;
 }
 
 /*# sourceMappingURL=base.css.map */

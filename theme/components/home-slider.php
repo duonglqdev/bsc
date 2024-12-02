@@ -15,14 +15,14 @@ if ( have_rows( 'slider' ) )
 				?>
 				<div class="w-full relative block_slider-item">
 					<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>">
-						<!-- @todo: Thêm ảnh mobile -->
-						<picture>
-							<source media="(max-width:767px)" srcset="<?php
-							$image_id = get_sub_field( 'image' );
-							echo wp_get_attachment_image_src( $image_id, 'full' )[0];
-							?>">
+						<?php 
+						$image_id = get_sub_field( 'image' );
+						if(!wp_is_mobile() && !bsc_is_mobile()) : ?>
 							<?php echo wp_get_attachment_image( $image_id, 'full', '', array( 'class' => 'w-full h-full object-cover' ) ); ?>
-						</picture>
+						<?php else : ?>
+							<!-- @todo: Thêm ảnh mobile -->
+							<?php echo wp_get_attachment_image( $image_id, 'full', '', array( 'class' => 'w-full h-full object-cover' ) ); ?>
+						<?php endif; ?>
 					</a>
 				</div>
 				<?php
