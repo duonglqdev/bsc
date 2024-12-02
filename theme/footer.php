@@ -126,13 +126,13 @@
 						endwhile;
 					}
 					?>
-					<div class="flex flex-col gap-4">
+					<div class="flex flex-col gap-4 flex-1">
 						<?php if (have_rows('f2_google_play', 'option')) {
 							while (have_rows('f2_google_play', 'option')) :
 								the_row();
 								if (get_sub_field('img')) { ?>
 									<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank"
-										rel="nofollow">
+										rel="nofollow" class="prose-img:w-full">
 										<?php echo wp_get_attachment_image(get_sub_field('img'), 'full') ?>
 									</a>
 						<?php
@@ -145,7 +145,7 @@
 								the_row();
 								if (get_sub_field('img')) { ?>
 									<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank"
-										rel="nofollow">
+										rel="nofollow" class="prose-img:w-full">
 										<?php echo wp_get_attachment_image(get_sub_field('img'), 'full') ?>
 									</a>
 						<?php
