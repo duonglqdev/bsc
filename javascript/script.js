@@ -932,6 +932,11 @@ import { DataTable } from 'simple-datatables';
 			e.preventDefault(); 
 			$('.form-search-result .form-search-input').val(''); 
 		});
+
+		$('.news-collapse').click(function () {
+			$(this).next().slideToggle();
+			$(this).children('svg').toggleClass('rotate-180');
+		})
 	}
 
 	function handlePhoneCf7() {

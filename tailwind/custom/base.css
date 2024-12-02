@@ -288,6 +288,15 @@ svg {
 .style-mb .dot-30 .flickity-page-dots .dot {
   @apply mx-1;
 }
+.style-mb .featured_news-list .flickity-page-dots {
+  @apply -bottom-5;
+}
+.style-mb .featured_news-list .flickity-page-dots .dot {
+  @apply w-1.5 h-1.5 mx-[3px];
+}
+.style-mb .featured_news-list .flickity-page-dots .dot.is-selected {
+  @apply w-8;
+}
 
 @media (max-width: 1700px) and (min-width: 1367px) {
   .container {
