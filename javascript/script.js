@@ -451,7 +451,6 @@ import { DataTable } from 'simple-datatables';
 				tickInterval = 90;
 				dateFormatter = 'MMM yyyy';
 			}
-
 			var options = {
 				chart: {
 					type: 'line',
@@ -478,20 +477,17 @@ import { DataTable } from 'simple-datatables';
 					labels: {
 						formatter: function (val, index) {
 							// Hiển thị nhãn tại các mốc theo quy tắc tickInterval
-							if (index % tickInterval === 0) {
-								return new Date(val).toLocaleDateString(
-									'en-GB',
-									{
-										year: 'numeric',
-										month: 'short',
-										day: dateFormatter.includes('dd')
-											? 'numeric'
-											: undefined,
-									}
-								);
-							} else {
-								return ''; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
-							}
+							// if (index % tickInterval === 0) {
+							return new Date(val).toLocaleDateString('en-GB', {
+								year: 'numeric',
+								month: 'short',
+								day: dateFormatter.includes('dd')
+									? 'numeric'
+									: undefined,
+							});
+							// } else {
+							// 	return ''; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
+							// }
 						},
 						rotate: -45,
 					},
@@ -512,8 +508,8 @@ import { DataTable } from 'simple-datatables';
 					offsetY: 10,
 					markers: {
 						width: 8,
-						height: 8
-					}
+						height: 8,
+					},
 				},
 				tooltip: {
 					x: {
@@ -885,9 +881,9 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent().siblings('.sub-collapse').slideToggle();
 			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
 		});
-		$('.form-search-result button[type="reset"]').on('click', function(e) {
-			e.preventDefault(); 
-			$('.form-search-result .form-search-input').val(''); 
+		$('.form-search-result button[type="reset"]').on('click', function (e) {
+			e.preventDefault();
+			$('.form-search-result .form-search-input').val('');
 		});
 	}
 

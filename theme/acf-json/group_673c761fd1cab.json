@@ -14813,6 +14813,32 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_674dd3ce478d2",
+                            "label": "Hiển thị",
+                            "name": "display",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "history": "Lịch sử giá",
+                                "ndtnn": "Nhà đầu tư nước ngoài"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -15090,5 +15116,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733063115
+    "modified": 1733154233
 }
