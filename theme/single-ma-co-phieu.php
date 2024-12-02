@@ -23,7 +23,7 @@
 		<section class="xl:my-[100px] my-20">
 			<div class="container">
 				<?php if ($news->FULLNAME) { ?>
-					<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
+					<h2 class="font-bold lg:text-[32px] text-2xl mb-2 leading-normal uppercase">
 						<?php echo $news->FULLNAME ?>
 					</h2>
 				<?php } ?>
@@ -55,7 +55,7 @@
 									</div>
 								</div>
 								<div class="flex items-center gap-7">
-									<div class="lg:w-[172px] lg:max-w-[37%]">
+									<div class="lg:w-[176px] lg:max-w-[37%]">
 										<?php if ($response_value->d[0]->bidPrice1) { ?>
 											<div class="flex-col gap-2">
 												<div class="flex gap-[14px] data_number">
@@ -88,7 +88,7 @@
 												<p class="time-update mt-1">
 													<?php _e('Cập nhật lúc', 'bsc') ?>
 													<?php date_default_timezone_set('Asia/Ho_Chi_Minh');
-													echo date("H:i:s"); ?>
+													echo date("H:i"); ?>
 													UTC_7
 												</p>
 											</div>
@@ -200,7 +200,7 @@
 						?>
 							<div class="lg:w-[433px] max-w-[33%]">
 								<div
-									class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
+									class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
 									<div class="flex items-end justify-between">
 										<div class="lg:w-[120px] space-y-2">
 											<p class="text-paragraph text-opacity-70 text-xs">
@@ -271,7 +271,7 @@
 						?>
 							<div class="flex-1">
 								<div
-									class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+									class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 									<h3 class="font-bold mb-6">
 										<?php _e('KHUYẾN NGHỊ', 'bsc') ?>
 									</h3>

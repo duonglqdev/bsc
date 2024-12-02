@@ -896,7 +896,7 @@ button#ib-button-messaging {
 }
 
 .datatable-bottom {
-  @apply mt-10;
+  @apply mt-20;
 }
 .datatable-bottom .datatable-info {
   @apply hidden;
