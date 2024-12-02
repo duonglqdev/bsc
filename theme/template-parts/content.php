@@ -1,7 +1,7 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="post_item font-Helvetica flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'shadow-[0px_4px_6px_0px_rgba(0,0,0,0.07)] rounded-lg overflow-hidden' ?>">
+    <div class="post_item font-Helvetica flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'shadow-[0px_4px_6px_0px_rgba(0,0,0,0.07)] rounded-lg overflow-hidden w-full' ?>">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
             class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4' ?>">
             <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
