@@ -15,7 +15,7 @@ get_header();
 					<div class="sticky top-5 z-10">
 						<div class="rounded-lg px-4 py-6 shadow-base">
 							<ul
-								class="prose-li:flex prose-li:items-center prose-li:justify-between space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
+								class="prose-li:flex prose-li:items-start prose-li:justify-between space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
 								<li>
 									<span>
 										Mã chứng khoán:
@@ -61,7 +61,7 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<h1 class="lg:text-[32px] text-2xl font-bold mb-8 !leading-[1.43]">
+					<h1 class="lg:text-[32px] text-2xl font-bold mb-8 !leading-[1.43] lg:-mt-3">
 						Thông báo ngày đăng ký cuối cùng lập danh sách cổ đông với cổ phiếu BBS của
 						Công ty CP Vicem bao bì Bút Sơn như sau:
 					</h1>
