@@ -2,9 +2,9 @@
 $id_class = get_sub_field('id_class');
 $display = get_sub_field('display');
 ?>
-<section class="lg:mt-[86px] mt-20 lg:mb-[100px] mb-20 data_history_price" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
+<section class="mt-12 lg:mb-[100px] mb-20 data_history_price" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
     <div class="container">
-        <div class="lg:flex gap-5 mb-20 mt-4 items-end">
+        <div class="lg:flex gap-5 mb-12 mt-4 items-end">
             <div class="lg:w-80 lg:max-w-1/3 flex flex-col font-Helvetica">
                 <p class="font-medium mb-2">
                     Mã cổ phiếu

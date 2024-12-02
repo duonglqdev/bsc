@@ -28,9 +28,9 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="lg:mt-[86px] mt-20 lg:mb-[100px] mb-20">
+	<section class="mt-12 lg:mb-[100px] mb-20">
 		<div class="container">
-			<div class="lg:flex gap-5 mb-20 mt-4 items-end">
+			<div class="lg:flex gap-5 mb-12 mt-4 items-end">
 				<div class="lg:w-80 lg:max-w-1/3 flex flex-col font-Helvetica">
 					<p class="font-medium mb-2">
 						Mã cổ phiếu
