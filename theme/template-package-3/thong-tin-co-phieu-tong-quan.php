@@ -441,7 +441,7 @@ get_header();
 						</div>
 						<div class="flex items-center justify-between mt-4">
 							<a href=""
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 								<?php echo svg( 'arrow-btn', '20', '20' ) ?>
 								Xem tất cả
 							</a>
@@ -740,7 +740,7 @@ get_header();
 							</li>
 						</ul>
 						<a href=""
-							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 							Xem chi tiết
 							<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 						</a>
@@ -879,7 +879,7 @@ get_header();
 							<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										BIÊN LỢI NHUẬN GỘP (%)
 									</h4>
 									<div id="profit-chart-1" class="legend-gap">
@@ -888,7 +888,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										BIÊN LỢI NHUẬN SAU THUẾ (%)
 									</h4>
 									<div id="profit-chart-2" class="legend-gap">
@@ -897,7 +897,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										ROE (%)
 									</h4>
 									<div id="profit-chart-3" class="legend-gap">
@@ -944,7 +944,7 @@ get_header();
 							<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
 									</h4>
 									<div id="health-chart-1" class="legend-gap">
@@ -953,7 +953,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										NỢ VAY/ TỔNG TÀI SẢN
 									</h4>
 									<div id="health-chart-2" class="legend-gap">
@@ -962,7 +962,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										TỶ LỆ THANH TOÁN LÃI VAY
 									</h4>
 									<div id="health-chart-3" class="legend-gap">
@@ -1009,7 +1009,7 @@ get_header();
 							<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										TĂNG TRƯỞNG DOANH THU (%)
 									</h4>
 									<div id="growth-chart-1" class="legend-gap">
@@ -1018,7 +1018,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										TĂNG TRƯỞNG EPS (%)
 									</h4>
 									<div id="growth-chart-2" class="legend-gap">
@@ -1027,7 +1027,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										TĂNG TRƯỞNG LỢI NHUẬN (%)
 									</h4>
 									<div id="growth-chart-3" class="legend-gap">
@@ -1051,7 +1051,7 @@ get_header();
 							<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										VÒNG QUAY KHOẢN PHẢI THU (LẦN)
 									</h4>
 									<div id="effective-chart-1" class="legend-gap">
@@ -1060,7 +1060,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
 									</h4>
 									<div id="effective-chart-2" class="legend-gap">
@@ -1069,7 +1069,7 @@ get_header();
 								</div>
 								<div class="space-y-6">
 									<h4
-										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold">
+										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
 										VÒNG QUAY HÀNG TỒN KHO (LẦN)
 									</h4>
 									<div id="effective-chart-3" class="legend-gap">
@@ -1095,7 +1095,7 @@ get_header();
 						</span>
 					</div>
 					<a href=""
-						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
+						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 						Xem chi tiết
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
