@@ -826,15 +826,14 @@
 														$array_data_securityBasicInfo_check = json_encode([
 															'lang' => pll_current_language(),
 															'secList' => $record,
-															'Exchange' => ''
+															"Exchange" => ""
 														]);
-														$response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
+														$response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
 														if ($response_securityBasicInfo_check) {
 												?>
 															<tr>
 																<td class="!pl-5"><a href="<?php echo slug_co_phieu($record) ?>"><?php echo $record ?></a></td>
 																<td><?php
-																	var_dump($response_securityBasicInfo_check);
 																	echo number_format($response_securityBasicInfo_check->data[0]->MarketCapital) ?></td>
 																<td><?php echo number_format($response_securityBasicInfo_check->data[0]->PE, 2, '.', ',') ?></td>
 																<td class="text-center"><?php echo number_format($response_securityBasicInfo_check->data[0]->PB, 2, '.', ',') ?></td>

@@ -25,27 +25,27 @@ function callApi($url, $data = false, $method = "GET")
 function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = 'http://10.21.170.17:86/', $method = "GET")
 {
     if ($method == 'POST') {
-        // $cache_key = $endpoint . '_' . md5($array_data);
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
+        $cache_key = $endpoint . '_' . md5($array_data);
+        $cached_data = wp_cache_get($cache_key);
+        if (false !== $cached_data) {
+            return $cached_data;
+        }
         $url = $url_end . $endpoint;
         $response = callApi($url, $array_data, "POST");
         if ($response) {
-            // wp_cache_set($cache_key, $response, '', $ttl);
+            wp_cache_set($cache_key, $response, '', $ttl);
             return $response;
         }
     } else {
-        // $cache_key = $endpoint . '_' . md5(json_encode($array_data));
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
+        $cache_key = $endpoint . '_' . md5(json_encode($array_data));
+        $cached_data = wp_cache_get($cache_key);
+        if (false !== $cached_data) {
+            return $cached_data;
+        }
         $url = $url_end . $endpoint . '?' . http_build_query($array_data);
         $response = callApi($url);
         if (is_object($response) && $response->s == "ok" && !empty($response->d)) {
-            // wp_cache_set($cache_key, $response, '', $ttl);
+            wp_cache_set($cache_key, $response, '', $ttl);
             return $response;
         }
     }
