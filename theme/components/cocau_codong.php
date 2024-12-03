@@ -1,14 +1,26 @@
-<section class="2xl:my-[100px] my-12 cocau_codong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class=" cocau_codong <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-12':'mt-[46px] mb-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <h2 class="heading-title text-center mb-10">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
-        <div class="md:flex md:gap-8">
-            <div class="flex flex-col gap-8">
-                <?php echo wp_get_attachment_image(get_sub_field('img_1'), 'large', '', array('class' => 'w-full')) ?>
-                <?php echo wp_get_attachment_image(get_sub_field('img_2'), 'large', '', array('class' => 'w-full')) ?>
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'md:flex md:gap-8':'' ?>">
+            <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-8':'gap-4' ?>">
+                <?php if(wp_is_mobile() && bsc_is_mobile()) : ?>
+                    <!-- @todo  : Thêm ảnh mobile -->
+                    <?php echo wp_get_attachment_image(get_sub_field('img_1'), 'large', '', array('class' => 'w-full')) ?>
+                <?php else : ?>
+                    <?php echo wp_get_attachment_image(get_sub_field('img_1'), 'large', '', array('class' => 'w-full')) ?>
+                <?php endif; ?>
+                
+                <?php if(wp_is_mobile() && bsc_is_mobile()) : ?>
+                    <!-- @todo  : Thêm ảnh mobile -->
+                   <?php echo wp_get_attachment_image(get_sub_field('img_2'), 'large', '', array('class' => 'w-full')) ?>
+                <?php else : ?>
+                   <?php echo wp_get_attachment_image(get_sub_field('img_2'), 'large', '', array('class' => 'w-full')) ?>
+                <?php endif; ?>
+                
             </div>
             <div class="flex-1 w-full overflow-x-auto">
                 <?php if (have_rows('table')) { ?>
