@@ -475,7 +475,7 @@
 															<p>
 																<?php
 																if ($record['CLOSE_PRICE']) {
-																	echo number_format(($record['CLOSE_PRICE']) / 1000, 2, '.', '');
+																	echo number_format(($record['CLOSE_PRICE'] - $record['REF_PRICE']) / 1000, 2, '.', '');
 																}
 																?>
 															</p>

@@ -58,7 +58,7 @@
                     class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight min-w-[155px] rounded-xl h-[50px]">
                     <?php _e('Tìm kiếm', 'bsc') ?>
                 </button>
-                <button type="reset" id="lich-su_kien_reset"
+                <button type="button" id="lich-su_kien_reset"
                     class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
                     <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
                 </button>
@@ -82,7 +82,7 @@
             <?php $total_page = 0;
             $post_per_page = 12; ?>
             <div class="mt-5">
-            <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold font-medium prose-a:text-primary-300 prose-a:font-normal prose-th:px-3 prose-th:py-2 prose-th:border prose-th:border-[#C9CCD2] prose-td:px-3 prose-td:py-2 border-collapse prose-td:border prose-td:border-[#C9CCD2] text-center  overflow-hidden border border-[#C9CCD2] rounded-lg shadow-[inset_0px_0px_0px_1px_#ccc]">
+                <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold font-medium prose-a:text-primary-300 prose-a:font-normal prose-th:px-3 prose-th:py-2 prose-th:border prose-th:border-[#C9CCD2] prose-td:px-3 prose-td:py-2 border-collapse prose-td:border prose-td:border-[#C9CCD2] text-center  overflow-hidden border border-[#C9CCD2] rounded-lg shadow-[inset_0px_0px_0px_1px_#ccc]">
                     <thead>
                         <tr>
                             <th><?php _e('Ngày GD KHQ', 'bsc') ?></th>
