@@ -20,7 +20,7 @@ if ($args['data']) {
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
                 <p
-                    class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
+                    class="date text-center bg-primary-300 text-white font-bold  py-[2px] px-1 leading-normal w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs':'text-xxs' ?>">
                     <?php echo $weekday_name ?>
                 </p>
                 <p
@@ -28,15 +28,19 @@ if ($args['data']) {
                     <?php echo $day_of_month ?>
                 </p>
             </div>
-            <div class="md:ml-[30px] ml-5">
+            <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'ml-[30px]':'ml-4' ?>">
                 <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-                    class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300">
-                    <?php echo htmlspecialchars($news->title) ?>
+                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+                    <p class="line-clamp-2">
+                        <?php echo htmlspecialchars($news->title) ?>
+                    </p>
                 </a>
-                <div
-                    class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
-                    <?php echo htmlspecialchars($news->description) ?>
-                </div>
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <div
+                        class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+                        <?php echo htmlspecialchars($news->description) ?>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
