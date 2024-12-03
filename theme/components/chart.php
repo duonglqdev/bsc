@@ -157,7 +157,7 @@
 					</div>
 					<div class="flex-1 chart-info <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 						? 'min-h-0 bg-none rounded-none py-0 px-0'
-						: 'min-h-96 bg-white rounded-[10px] py-4 px-5'; ?>">
+						: 'min-h-96 bg-white rounded-[10px] py-4 px-5 -mx-5'; ?>">
 						<div id="chart" data-time_cache="<?php echo $time_cache ?>"
 							data-maxvalue="<?php echo $maxValue; ?>"
 							data-minvalue="<?php echo $minValue; ?>"

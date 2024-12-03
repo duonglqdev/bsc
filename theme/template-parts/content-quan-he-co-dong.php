@@ -28,7 +28,7 @@
     }
 ?>
     <div
-        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
+        class="news_service-item document_item-popup flex items-center justify-between  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1]  [&:not(:last-child)]:pb-8 md:gap-20':'gap-4' ?>" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
         <div class="flex items-center">
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -52,9 +52,11 @@
                     class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?> line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
-                <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
-                    <?php echo $news->description ?>
-                </div>
+                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                    <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
+                        <?php echo $news->description ?>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 

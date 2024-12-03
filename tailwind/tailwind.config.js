@@ -82,6 +82,8 @@ module.exports = {
 					'linear-gradient(180deg, #ECF5FB 4.67%, #FFF 43.73%)',
 				'gradient-blue-to-bottom-100':
 					'linear-gradient(270deg, #DEF1FF 0%, #DBF5FF 100%)',
+					'gradient-blue-to-bottom-150':
+					'linear-gradient(180deg, #ECF5FB 42.92%, #FFF 94.53%)',
 				'gradient-blue-to-right-50':
 					'linear-gradient(265deg, rgba(27, 70, 141, 0) 4.02%, rgba(37, 45, 105, 0.8) 95.98%)',
 				'gradient-blue-to-right-100':
