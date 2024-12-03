@@ -108,12 +108,14 @@ get_header();
 						$total_page = ceil($total_post / $post_per_page);
 					?>
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
-							<div
-								class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
-								<?php echo esc_html($term->name); ?>
-								<?php echo svg( 'down-white', '20', '20' ) ?>
-							</div>
-							<div class="list__news <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'hidden' ?>">
+							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+								<div
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
+									<?php the_title() ?>
+									<?php echo svg( 'down-white', '20', '20' ) ?>
+								</div>
+							<?php } ?>
+							<div class="list__news">
 								<div class="grid gap-x-6 gap-y-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2':'md:grid-cols-2 grid-cols-1' ?>">
 									<?php
 									foreach ($response->d as $news) {
@@ -156,13 +158,11 @@ get_header();
 							echo '</div>';
 							echo '</div>';
 						} ?>
-						<div class="mt-12">
 							<?php get_template_part('components/pagination', '', array(
 								'get' => 'api',
 								'total_page' => $total_page,
 								'url' => get_term_link(get_queried_object_id()),
 							)) ?>
-						</div>
 					<?php } else {
 						get_template_part('template-parts/content', 'none');
 					} ?>

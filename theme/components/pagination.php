@@ -1,4 +1,4 @@
-<div class="bsc-pagination mt-12">
+<div class="bsc-pagination <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-12':'mt-8' ?>">
 	<nav class="flex items-center gap-8">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
 		?>
