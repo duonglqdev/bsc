@@ -333,23 +333,28 @@ get_header();
 							?>
 						</div>
 					</div>
-					<div id="news_market">
+					<div id="news_market"  class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'[&:not(:last-child)]:pb-6 [&:not(:last-child)]:mb-6 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1]' ?>">
 						<div class="flex justify-between items-center mb-6">
 							<h2 class="heading-title normal-case">Tin thị trường</h2>
-							<a href="" class="inline-block px-5 py-2 btn-base-yellow">
-								<span class="inline-flex items-center gap-2 relative z-10">
-									<?php _e( 'Xem tất cả', 'bsc' ) ?>
-									<?php echo svg( 'arrow-btn-2' ) ?>
-								</span>
-							</a>
+							<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+								<a href="" class="inline-block px-5 py-2 btn-base-yellow">
+									<span class="inline-flex items-center gap-2 relative z-10">
+										<?php _e( 'Xem tất cả', 'bsc' ) ?>
+										<?php echo svg( 'arrow-btn-2' ) ?>
+									</span>
+								</a>
+												
+							<?php } ?>
 						</div>
 						<div
-							class="grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]">
+							class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 mb-10 pb-10 border-b border-[#E1E1E1]':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+												data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+							<?php } ?>>
 							<?php
 							for ( $i = 0; $i < 4; $i++ )
 							{
 								?>
-								<div class="post_item font-Helvetica">
+								<div class="post_item font-Helvetica w-full">
 									<a href=""
 										class="block relative pt-[55.7%] w-full group rounded-[10px] overflow-hidden mb-6">
 										<img loading="lazy"
@@ -387,6 +392,16 @@ get_header();
 							}
 							?>
 						</div>
+						<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							 <div class="mt-12">
+								 <a href="" class="block px-6 py-[12px] btn-base-yellow text-xs font-bold text-center">
+									 <span class="inline-flex items-center gap-2 relative z-10">
+										 <?php _e( 'Xem tất cả', 'bsc' ) ?>
+										 <?php echo svg( 'arrow-btn-2' ) ?>
+									 </span>
+								 </a>
+						 </div>
+						 <?php } ?>
 					</div>
 					<div id="news_activity">
 						<div class="flex justify-between items-center mb-6">
