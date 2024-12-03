@@ -319,13 +319,16 @@
 											</p>
 										</div>
 									</div>
-									<div class="mt-auto">
-										<p
-											class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-											<?php echo svg('gold', '24', '24') ?>
-											<?php _e('Hạng A', 'bsc') ?>
-										</p>
-									</div>
+									<?php
+									if ($response_GetRecommendedInstrument->rank) { ?>
+										<div class="mt-auto">
+											<p
+												class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
+												<?php echo svg('gold', '24', '24') ?>
+												<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetRecommendedInstrument->rank ?>
+											</p>
+										</div>
+									<?php } ?>
 								</div>
 							</div>
 						<?php } ?>
@@ -818,15 +821,27 @@
 											</thead>
 											<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
 												<?php
-												foreach ($data as $record) {
+												foreach ($response_sameIndustry->data as $record) {
+													if ($record) {
+														$array_data_securityBasicInfo_check = json_encode([
+															'lang' => pll_current_language(),
+															'secList' => $record,
+															'Exchange' => ''
+														]);
+														$response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
+														if ($response_securityBasicInfo_check) {
 												?>
-													<tr>
-														<td class="!pl-5"><a href="">A32</a></td>
-														<td>36,80</td>
-														<td>301,24</td>
-														<td class="text-center">6,99</td>
-													</tr>
+															<tr>
+																<td class="!pl-5"><a href="<?php echo slug_co_phieu($record) ?>"><?php echo $record ?></a></td>
+																<td><?php
+																	var_dump($response_securityBasicInfo_check);
+																	echo number_format($response_securityBasicInfo_check->data[0]->MarketCapital) ?></td>
+																<td><?php echo number_format($response_securityBasicInfo_check->data[0]->PE, 2, '.', ',') ?></td>
+																<td class="text-center"><?php echo number_format($response_securityBasicInfo_check->data[0]->PB, 2, '.', ',') ?></td>
+															</tr>
 												<?php
+														}
+													}
 												}
 												?>
 
