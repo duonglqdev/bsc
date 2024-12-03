@@ -510,7 +510,7 @@
 											</a>
 										<?php } ?>
 										<p class="font-medium text-xs font-Helvetica">
-											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
+											<?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
 										</p>
 									</div>
 								<?php  } ?>
@@ -614,7 +614,7 @@
 											</a>
 										<?php } ?>
 										<p class="font-medium text-xs font-Helvetica">
-											<?php _e('Đơn vị GTGD: 1000 VNĐ', 'bsc') ?>
+											<?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
 										</p>
 									</div>
 								<?php } ?>
