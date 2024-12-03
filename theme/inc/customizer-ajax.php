@@ -347,3 +347,75 @@ function filter_event_calendar()
 
     die();
 }
+
+
+/**
+ * Data History
+ */
+add_action('wp_ajax_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
+add_action('wp_ajax_nopriv_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
+
+function filter_du_lieu_lich_su()
+{
+    check_ajax_referer('common_nonce', 'security');
+    $time_cache = 300;
+    $symbol = isset($_POST['mck']) ? $_POST['mck'] : '';
+    $fromdate = isset($_POST['fromdate']) ? $_POST['fromdate'] : '';
+    $todate = isset($_POST['todate']) ? $_POST['todate'] : '';
+    $type_form = isset($_POST['type_form']) ? $_POST['type_form'] : '';
+    if ($type_form == 'history') {
+        $current_date_ymd = date('Y-m-d');
+        $last_month_date_ymd = date('Y-m-d', strtotime('-6 month', strtotime($current_date_ymd)));
+        $array_data_secTradingHistory = [
+            'lang' => pll_current_language(),
+            'secCode' => $symbol,
+        ];
+        if (isset($fromdate) && !empty($fromdate)) {
+            $array_data_secTradingHistory['startDate'] = $fromdate;
+        } else {
+            $array_data_secTradingHistory['startDate'] = $last_month_date_ymd;
+        }
+        if (isset($todate) && !empty($todate)) {
+            $array_data_secTradingHistory['endDate'] = $todate;
+        } else {
+            $array_data_secTradingHistory['endDate'] = $current_date_ymd;
+        }
+        $array_data_secTradingHistory = json_encode($array_data_secTradingHistory);
+
+        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+        if ($response_secTradingHistory) {
+            $data = json_decode($response_secTradingHistory->data, true);
+            foreach ($data as $record) {
+                get_template_part('template-parts/content-data-history', '', array(
+                    'data' => $record,
+                ));
+            }
+        }
+    } else {
+        $current_date_dmy = date('d/m/Y');
+        $last_month_date_dmy = date('d/m/Y', strtotime('-6 month'));
+        $array_data_GetForeignInvestors = array(
+            'lang' => pll_current_language(),
+            'symbol' => $symbol,
+        );
+        if (isset($fromdate) && !empty($fromdate)) {
+            $array_data_GetForeignInvestors['fromdate'] = $fromdate;
+        } else {
+            $array_data_GetForeignInvestors['fromdate'] = $last_month_date_dmy;
+        }
+        if (isset($todate) && !empty($todate)) {
+            $array_data_GetForeignInvestors['todate'] = $todate;
+        } else {
+            $array_data_GetForeignInvestors['todate'] = $current_date_dmy;
+        }
+        $response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
+        if ($response_GetForeignInvestors) {
+            foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
+                get_template_part('template-parts/content-data-history_ndtnn', '', array(
+                    'data' => $GetForeignInvestors,
+                ));
+            }
+        }
+    }
+    die();
+}
