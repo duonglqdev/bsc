@@ -915,9 +915,11 @@ import { DataTable } from 'simple-datatables';
 				$(this).attr('placeholder', $(this).data('placeholder'));
 			});
 
-		$('.collapse-item.has-children > div > h3').click(function name() {
-			$(this).parent().siblings('.sub-collapse').slideToggle();
-			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
+			$('.collapse-item.has-children > div > h3').click(function name() {
+				$(this).parent().siblings('.sub-collapse').slideToggle();
+				$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
+			});
+			
 
 
 		$('.collapse-footer').click(function () {
@@ -927,13 +929,22 @@ import { DataTable } from 'simple-datatables';
 		$('.form-search-result button[type="reset"]').on('click', function(e) {
 			e.preventDefault(); 
 			$('.form-search-result .form-search-input').val(''); 
-
 		});
 
 		$('.news-collapse').click(function () {
 			$(this).next().slideToggle();
 			$(this).children('svg').toggleClass('rotate-180');
-		})
+		});
+		$(".open-search").click(function () {
+			$(".form-search-mb").toggleClass('active');
+		});
+		
+		$(document).click(function (event) {
+			if (!$(event.target).closest('.form-search-mb, .open-search').length) {
+				$(".form-search-mb").removeClass('active');
+			}
+		});
+		
 	}
 
 	function handlePhoneCf7() {

@@ -70,12 +70,17 @@
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8':'mt-[82px]' ?>  relative z-10">
 					<?php if ( get_sub_field( 'icon' ) )
 					{ ?>
-						<div class="absolute <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-auto -top-28 right-0':'w-1/2 -top-4 right-4' ?>    pointer-events-none">
+						<div class="absolute -z-[1] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-auto -top-28 right-0':'w-1/2 -top-4 right-4' ?>  pointer-events-none">
 							<img loading="lazy" src="<?php echo wp_get_attachment_image_url( get_sub_field( 'icon' ), 'large' ) ?>"
 								alt="<?php the_sub_field( 'title' ) ?>">
 						</div>
 					<?php } ?>
-					<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'large', '', array( 'class' => 'm-auto relative z-10' ) ) ?>
+					<?php if(!wp_is_mobile() && !bsc_is_mobile()) : ?>
+						<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'large', '', array( 'class' => 'm-auto relative z-10' ) ) ?>
+					<?php else : ?>
+						<!-- @todo: thêm ảnh mobile -->
+						<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Mask group.png" alt="" class="m-auto relative z-10">
+					<?php endif; ?>
 
 				</div>
 			</div>
