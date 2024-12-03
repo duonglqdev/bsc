@@ -416,12 +416,19 @@ add_filter('rank_math/opengraph/image', function ($image) {
 //Check login
 function bsc_is_user_logged_out()
 {
-    if (1 == 1) {
-        return null;
-    } else {
-        return [
-            'class' => 'blur-sm',
-            'html' => '
+    if (isset($_COOKIE['access_token'])) {
+        $access_token = sanitize_text_field($_COOKIE['access_token']);
+        $user_logged_in_key = 'user_logged_in_' . md5($access_token);
+
+        // Kiểm tra transient
+        if (get_transient($user_logged_in_key)) {
+            // Người dùng đang đăng nhập
+            return null;
+        }
+    }
+    return [
+        'class' => 'blur-sm',
+        'html' => '
             <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
                 <a href="https://<urlSSO>/sso/oauth/authorize?client_id=L2B6V5LX1S&response_type=code&redirect_uri=' . get_home_url() . '/callback&scope=general&ui_locales=' . pll_current_language() . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
                     ' . __('Đăng nhập', 'bsc') . '
@@ -430,8 +437,7 @@ function bsc_is_user_logged_out()
                     ' . __('Để xem chi tiết danh mục', 'bsc') . '
                 </p>
             </div>'
-        ];
-    }
+    ];
 }
 /*
 * Create page callback
@@ -475,6 +481,9 @@ function bsc_handle_sso_callback()
         $data = json_decode($body, true);
 
         if (isset($data['access_token'])) {
+            $access_token = $data['access_token'];
+            $user_logged_in_key = 'user_logged_in_' . md5($access_token);
+            set_transient($user_logged_in_key, true, 30 * MINUTE_IN_SECONDS);
             wp_redirect(home_url());
             exit;
         } else {

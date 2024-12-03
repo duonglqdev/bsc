@@ -2003,210 +2003,115 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function profitChart() {
-		if (document.querySelector('#profit-chart-1')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'Biên LNG',
-						data: [30, 20, 52.24, 40, 45],
-					},
-					{
-						name: 'BLNG TB ngành',
-						data: [25, 24, 24.7, 24.5, 25],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px', // Kích thước font chữ
-							colors: '#4A5568', // Màu chữ
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (val) {
-							return val + '%';
-						},
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'],
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2, // Độ dày của đường
-				},
-				legend: {
-					position: 'top', // Vị trí trên cùng
-					horizontalAlign: 'left', // Căn trái
-					offsetY: 0,
-					labels: {
-						colors: '#4A5568', // Màu chữ của legend
-					},
-				},
-			};
+		if ($('.bsc_chart-display').length) {
+			$('.bsc_chart-display').each(function () {
+				try {
+					// Parse dữ liệu từ HTML attributes
+					const data1 = JSON.parse($(this).attr('data-1') || '[]');
+					const data2 = $(this).attr('data-2')
+						? JSON.parse($(this).attr('data-2'))
+						: null;
+					const title1 = $(this).attr('data-title-1');
+					const title2 = $(this).attr('data-title-2') || null;
+					const color1 = $(this).attr('data-color-1');
+					const color2 = $(this).attr('data-color-2') || null;
 
-			var chart = new ApexCharts(
-				document.querySelector('#profit-chart-1'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#profit-chart-2')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'Biên LNG',
-						data: [30, 20, 52.24, 40, 45],
-					},
-					{
-						name: 'BLNG TB ngành',
-						data: [25, 24, 24.7, 24.5, 25],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px', // Kích thước font chữ
-							colors: '#4A5568', // Màu chữ
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (val) {
-							return val + '%';
-						},
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'],
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2, // Độ dày của đường
-				},
-				legend: {
-					position: 'top', // Vị trí trên cùng
-					horizontalAlign: 'left', // Căn trái
-					offsetY: 0,
-					labels: {
-						colors: '#4A5568', // Màu chữ của legend
-					},
-				},
-			};
+					// Kết hợp ngày và giá trị vào một mảng để sắp xếp
+					const combinedData1 = data1.map((item) => ({
+						date: item.date,
+						value: item.value * 100,
+					}));
+					const combinedData2 = data2
+						? data2.map((item) => ({
+								date: item.date,
+								value: item.value * 100,
+							}))
+						: null;
 
-			var chart = new ApexCharts(
-				document.querySelector('#profit-chart-2'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#profit-chart-3')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'ROE',
-						data: [30, 20, 52.24, 40, 45],
-					},
-					{
-						name: 'ROE TB ngành',
-						data: [25, 24, 24.7, 24.5, 25],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					style: {
-						fontSize: '14px', // Kích thước font chữ
-						colors: '#4A5568', // Màu chữ
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (val) {
-							return val + '%';
-						},
-					},
-				},
-				colors: ['#009E87', '#FFB81C'],
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2, // Độ dày của đường
-				},
-				legend: {
-					position: 'top', // Vị trí trên cùng
-					horizontalAlign: 'left', // Căn trái
-					offsetY: 0,
-					labels: {
-						colors: '#4A5568', // Màu chữ của legend
-					},
-				},
-			};
+					// Sắp xếp mảng theo ngày
+					combinedData1.sort(
+						(a, b) => new Date(a.date) - new Date(b.date)
+					);
+					if (combinedData2) {
+						combinedData2.sort(
+							(a, b) => new Date(a.date) - new Date(b.date)
+						);
+					}
 
-			var chart = new ApexCharts(
-				document.querySelector('#profit-chart-3'),
-				options
-			);
-			chart.render();
+					// Tách lại mảng đã sắp xếp
+					const dates = combinedData1.map((item) => item.date);
+					const values1 = combinedData1.map((item) => item.value);
+					const values2 = combinedData2
+						? combinedData2.map((item) => item.value)
+						: [];
+
+					// Cấu hình series cho ApexCharts
+					const series = [{ name: title1, data: values1 }];
+					if (data2) {
+						series.push({ name: title2, data: values2 });
+					}
+
+					// Cấu hình biểu đồ
+					const chartOptions = {
+						chart: {
+							type: 'line',
+							height: 400,
+							toolbar: { show: false },
+						},
+						series: series,
+						xaxis: {
+							categories: dates, // Sử dụng ngày đã sắp xếp
+							labels: {
+								style: { fontSize: '14px', colors: '#4A5568' },
+								rotate: -45,
+							},
+						},
+						yaxis: {
+							labels: {
+								formatter: function (val) {
+									return val.toFixed(2) + '%';
+								},
+							},
+						},
+						colors: data2 ? [color1, color2] : [color1],
+						markers: {
+							size: 5,
+							hover: { size: 7 },
+						},
+						stroke: {
+							curve: 'smooth',
+							width: 2,
+						},
+						legend: {
+							position: 'top',
+							horizontalAlign: 'left',
+							labels: { colors: '#4A5568' },
+						},
+						tooltip: {
+							shared: true,
+							intersect: false,
+							y: {
+								formatter: function (val) {
+									return val.toFixed(2) + '%';
+								},
+							},
+						},
+					};
+
+					// Render biểu đồ
+					const chartContainer =
+						$('<div>').addClass('chart-container');
+					$(this).append(chartContainer);
+
+					const chart = new ApexCharts(
+						chartContainer[0],
+						chartOptions
+					);
+					chart.render();
+				} catch (error) {
+					console.error('Error parsing JSON data:', error);
+				}
+			});
 		}
 	}
 
