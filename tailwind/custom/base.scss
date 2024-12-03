@@ -168,7 +168,10 @@
 			@apply hidden mt-4 space-y-6;
 			> li {
 				> a {
-					@apply flex items-center gap-[12px] text-black text-opacity-70 uppercase;
+					@apply flex items-center gap-[12px] text-black text-opacity-70 uppercase text-xs;
+					img{
+						@apply w-6 h-6 object-contain;
+					}
 				}
 				.li-plus {
 					@apply -right-7 top-0;

@@ -24,8 +24,10 @@
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </p>
-        <div class="line-clamp-2 text-paragraph  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'text-xs px-[12px] pb-4' ?>">
-            <?php echo htmlspecialchars($news->description) ?>
+        <div class="text-paragraph  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'text-xs px-[12px] pb-4' ?>">
+            <p class="line-clamp-2">
+                <?php echo htmlspecialchars($news->description) ?>
+            </p>
         </div>
        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
         <div class="mt-auto">

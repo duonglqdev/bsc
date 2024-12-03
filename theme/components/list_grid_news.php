@@ -64,17 +64,9 @@ if (!empty($terms) && !is_wp_error($terms)) :
                     <?php
                     foreach ($terms as $term) :
                     ?>
-                        <div id="<?php echo $term->slug ?>">
-                        <?php if ( wp_is_mobile() && bsc_is_mobile() )
-						{ ?>
-							<div
-								class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
-								<?php echo esc_html($term->name); ?>
-								<?php echo svg( 'down-white', '20', '20' ) ?>
-							</div>
-						<?php } ?>
-                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'block':'hidden' ?>">
-                            <div class="flex justify-between items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4 uppercase' ?>">
+                        <div id="<?php echo $term->slug ?>" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'[&:not(:last-child)]:pb-6 [&:not(:last-child)]:mb-6 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1]' ?>">
+                       
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 flex justify-between items-center ':'mb-4 uppercase' ?>">
                                 <h2 class="heading-title normal-case"><?php echo esc_html($term->name); ?></h2>
                                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                                     <a href="<?php echo get_term_link($term) ?>"
@@ -98,7 +90,9 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 if ($response) { ?>
                                     <?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
                                         <div
-                                            class="grid gap-y-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'md:grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1]':'grid-cols-1' ?>">
+                                            class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+												data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+							<?php } ?>>
                                             <?php
                                             foreach ($response->d as $news) {
                                                 get_template_part('template-parts/content', null, array(
@@ -109,7 +103,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                         </div>
                                     <?php } else {
                                     ?>
-                                        <div class="mb-10 pb-10 border-b border-[#E1E1E1] space-y-6">
+                                        <div class=" space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10 pb-10 border-b border-[#E1E1E1]':'' ?>">
                                             <?php
                                             foreach ($response->d as $news) {
                                                 get_template_part('template-parts/content_nothumb', get_post_type(), array(
@@ -122,7 +116,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                     } ?>
                             <?php }
                             } ?>
-                                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
                                     <div class="mt-8">
                                         <a href="<?php echo get_term_link($term) ?>" class="block px-6 py-[12px] btn-base-yellow text-xs font-bold text-center">
                                             <span class="inline-flex items-center gap-2 relative z-10">
@@ -133,7 +127,6 @@ if (!empty($terms) && !is_wp_error($terms)) :
 								</div>
                                    
                                 <?php } ?>
-                        </div>
                         </div>
                     <?php endforeach; ?>
                 </div>

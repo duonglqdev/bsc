@@ -374,7 +374,8 @@ import { DataTable } from 'simple-datatables';
 
 			moveLine($(this));
 		});
-		$('.customtab-nav li button').on('click', function () {
+		$('.customtab-nav li button,.customtab-nav li a').on('click', function (e) {
+			e.preventDefault();
 			var target = $(this).attr('data-tabs');
 			$(this)
 				.closest('.customtab-nav')
@@ -944,6 +945,18 @@ import { DataTable } from 'simple-datatables';
 				$(".form-search-mb").removeClass('active');
 			}
 		});
+
+		$('.news-dropdown').on('click', function(){
+			$(this).next().toggleClass('active');
+		});
+		$('.news-dropdown__list li').on('click', function(){
+			$('.news-dropdown__list li').removeClass('active');
+			$(this).addClass('active');
+			var itemValue = $(this).children().data('value');
+			$('.news-dropdown-selected').text($(this).text()).attr('data-value', itemValue);
+			$(this).parent('.news-dropdown__list').toggleClass('active');
+		});
+		
 		
 	}
 
