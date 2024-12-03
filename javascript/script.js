@@ -939,6 +939,10 @@ import { DataTable } from 'simple-datatables';
 		$(".open-search").click(function () {
 			$(".form-search-mb").toggleClass('active');
 		});
+		$('.toggle-form').click(function () {
+			$(this).find('div').toggle().find('svg');
+			$(this).next().slideToggle();
+		})
 		
 		$(document).click(function (event) {
 			if (!$(event.target).closest('.form-search-mb, .open-search').length) {

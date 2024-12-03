@@ -35,18 +35,18 @@ if ($args['data']) {
                         <?php echo htmlspecialchars($news->title) ?>
                     </p>
                 </a>
-                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                     <div
                         class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
                         <?php echo htmlspecialchars($news->description) ?>
                     </div>
-                <?php } ?>
             </div>
         </div>
-        <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-            class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
-            <?php _e('Xem chi tiết', 'bsc') ?>
-            <?php echo svg('arrow-btn', '12', '12') ?>
-        </a>
+        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+            <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
+                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
+                <?php _e('Xem chi tiết', 'bsc') ?>
+                <?php echo svg('arrow-btn', '12', '12') ?>
+            </a>
+        <?php } ?>
     </div>
 <?php } ?>
