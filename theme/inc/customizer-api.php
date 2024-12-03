@@ -410,7 +410,9 @@ add_filter('rank_math/opengraph/image', function ($image) {
     return $image; // Trả về ảnh mặc định nếu không có ảnh thumbnail từ API
 });
 
-
+/**
+ * Xử lý login  BSC
+ */
 //Check login
 function bsc_is_user_logged_out()
 {
@@ -421,7 +423,7 @@ function bsc_is_user_logged_out()
             'class' => 'blur-sm',
             'html' => '
             <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-                <a href="#" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+                <a href="https://<urlSSO>/sso/oauth/authorize?client_id=L2B6V5LX1S&response_type=code&redirect_uri=' . get_home_url() . '/callback&scope=general&ui_locales=' . pll_current_language() . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
                     ' . __('Đăng nhập', 'bsc') . '
                 </a>
                 <p class="italic mt-4 font-normal">
@@ -431,6 +433,58 @@ function bsc_is_user_logged_out()
         ];
     }
 }
+/*
+* Create page callback
+*/
+add_action('init', function () {
+    if (strpos($_SERVER['REQUEST_URI'], '/callback') !== false) {
+        bsc_handle_sso_callback();
+        exit;
+    }
+});
+
+function bsc_handle_sso_callback()
+{
+    if (isset($_GET['code'])) {
+        $code = sanitize_text_field($_GET['code']);
+        $redirect_uri = get_home_url() . '/callback';
+        $client_id = 'L2B6V5LX1S';
+        $client_secret = 'dn8O1K4LSPUEN1FXFt5EhXrsKZVHZS';
+        $token_url = '<urlApi>/sso/oauth/token';
+
+        // Gửi yêu cầu lấy access_token
+        $response = wp_remote_post($token_url, [
+            'method'      => 'POST',
+            'body'        => [
+                'client_id'     => $client_id,
+                'client_secret' => $client_secret,
+                'grant_type'    => 'authorization_code',
+                'redirect_uri'  => $redirect_uri,
+                'code'          => $code,
+            ],
+            'headers'     => [
+                'Content-Type' => 'application/x-www-form-urlencoded',
+            ],
+        ]);
+
+        if (is_wp_error($response)) {
+            wp_die('Lỗi khi kết nối đến API: ' . $response->get_error_message());
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body, true);
+
+        if (isset($data['access_token'])) {
+            wp_redirect(home_url());
+            exit;
+        } else {
+            // wp_die('Lỗi khi lấy token: ' . $body);
+        }
+    } else {
+        // wp_die('Code không hợp lệ hoặc không tồn tại.');
+    }
+}
+
 
 //Get array id taxonomy
 function get_array_id_taxonomy($tax)
