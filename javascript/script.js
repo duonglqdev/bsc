@@ -308,7 +308,7 @@ import { DataTable } from 'simple-datatables';
 				fade: true,
 				asNavFor: '.community_content-list',
 			});
-		
+
 			$('.community_content-list').slick({
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -329,7 +329,6 @@ import { DataTable } from 'simple-datatables';
 				fade: true,
 			});
 		}
-		
 
 		$('.community_nav-item[data-index="1"]').addClass('active');
 		$('.community_nav-item').on('click mouseenter', function () {
@@ -387,8 +386,9 @@ import { DataTable } from 'simple-datatables';
 
 			moveLine($(this));
 		});
-		$('.customtab-nav li button,.customtab-nav li a').on(
+		$(document).on(
 			'click',
+			'.customtab-nav li button,.customtab-nav li a',
 			function (e) {
 				e.preventDefault();
 				var target = $(this).attr('data-tabs');
@@ -953,8 +953,8 @@ import { DataTable } from 'simple-datatables';
 		$('.toggle-form').click(function () {
 			$(this).find('div').toggle().find('svg');
 			$(this).next().slideToggle();
-		})
-		
+		});
+
 		$(document).click(function (event) {
 			if (
 				!$(event.target).closest('.form-search-mb, .open-search').length
@@ -963,7 +963,6 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		
 		$('.news-dropdown__list li').on('click', function () {
 			$('.news-dropdown__list li').removeClass('active');
 			$(this).addClass('active');
@@ -974,14 +973,14 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent('.news-dropdown__list').toggleClass('active');
 		});
 
-		$(".show-item-btn").click(function () {
-			$(this).prev(".grid").toggleClass("show-4-item");
+		$('.show-item-btn').click(function () {
+			$(this).prev('.grid').toggleClass('show-4-item');
 			$(this).find('span').toggle();
 		});
 		$('.toggle-next').click(function () {
 			$(this).next().toggleClass('active');
 			$(this).find('svg').toggleClass('rotate-180');
-		})
+		});
 	}
 
 	function handlePhoneCf7() {
@@ -3264,6 +3263,37 @@ import { DataTable } from 'simple-datatables';
 					$('#list-du-lieu-lich-su').html(response);
 				},
 			});
+		}
+
+		function filter_details_symbol(type_form) {
+			var symbol = $('.display_data_details_symbol').attr('data-symbol');
+			$.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'filter_details_symbol',
+					symbol: symbol,
+					type_form: type_form,
+					security: ajaxurl.security,
+				},
+				beforeSend: function () {
+					if (type_form == 1) {
+						$('#details_symbol_loading').removeClass('hidden');
+					}
+				},
+				success: function (response) {
+					if (type_form == 1) {
+						$('#details_symbol_loading').addClass('hidden');
+					}
+					$('#details_symbol_tab-' + type_form).html(response);
+				},
+			});
+		}
+		if (document.querySelector('.display_data_details_symbol')) {
+			filter_details_symbol(1);
+			filter_details_symbol(2);
+			filter_details_symbol(3);
+			filter_details_symbol(4);
 		}
 	}
 

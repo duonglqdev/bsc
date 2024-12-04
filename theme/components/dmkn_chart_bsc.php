@@ -114,6 +114,7 @@
 </section>
 <?php
 $check_logout = bsc_is_user_logged_out();
+$class = $check_logout ? $check_logout['class'] : '';
 $response_instruments_array = array();
 $array_data_instruments = array();
 $response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
@@ -133,144 +134,171 @@ if ($data_bsc) {
 					<?php _e('Chi tiết danh mục', 'bsc') ?>
 				</h2>
 				<div class="lg:flex xl:gap-14 gap-10">
-					<?php
-					$array_data_list_bsc = array(
-						'portcode' => $single_bsc
-					);
-					$response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
-					if ($response_list_bsc) {
-					?>
-						<div class="relative lg:w-[887px] max-w-[66%]">
-							<?php $class = $check_logout ? $check_logout['class'] : ''; ?>
+					<div class="relative lg:w-[887px] max-w-[66%]">
+						<div
+							class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 							<div
-								class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
-								<div
-									class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Mã', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Khuyến nghị', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Giá', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Mục tiêu', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Upside', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('Sàn', 'bsc') ?>
-									</div>
-									<div class="flex-1 min-w-[110px] whitespace-nowrap">
-										<?php _e('KL', 'bsc') ?>
-
-									</div>
-
+								class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Mã', 'bsc') ?>
 								</div>
-								<div
-									class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-									<?php
-									$i = 0;
-									foreach ($response_list_bsc->d as $list_bsc) {
-										$i++;
-										$symbol = $list_bsc->symbol;
-										if ($symbol) {
-											$symbols = array_column($response_instruments_array, 'symbol');
-											$index = array_search($symbol, $symbols);
-											if ($index !== false) {
-												$stockData = $response_instruments_array[$index];
-											}
-									?>
-											<div
-												class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-													<?php echo $list_bsc->symbol ?>
-												</div>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
-													<?php
-													$status = $list_bsc->action;
-													$check_status = get_color_by_number_bsc($status);
-													$title_status = $check_status['title_status'];
-													$text_status = $check_status['text_status'];
-													$background_status = $check_status['background_status'];
-													?>
-													<?php if ($list_bsc->action) { ?>
-														<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-															<?php
-															echo  $title_status;
-															?>
-														</span>
-													<?php } ?>
-												</div>
-												<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-													if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
-														$text_color_class = 'text-[#1CCD83]';
-													} elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
-														$text_color_class = 'text-[#FE5353]';
-													} elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
-														$text_color_class = 'text-[#EB0]';
-													} else {
-														$text_color_class = '';
-													}
-												}
-												?>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-													<?php
-													if ($stockData->closePrice) {
-														echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-													}
-													?>
-												</div>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-													<?php
-													if ($list_bsc->expectedprice) {
-														echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
-													}
-													?>
-												</div>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-													<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-														if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
-															$before_text = '+';
-														} else {
-															$before_text = '';
-														}
-														echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
-													}  ?>
-												</div>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-													<?php echo $list_bsc->exchange ?>
-												</div>
-												<div
-													class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class ?>">
-													<?php
-													if ($stockData->closeVol) {
-														echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
-													}
-													?>
-												</div>
-											</div>
-									<?php
-										}
-									}
-									?>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Khuyến nghị', 'bsc') ?>
+								</div>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Giá', 'bsc') ?>
+								</div>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Mục tiêu', 'bsc') ?>
+								</div>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Upside', 'bsc') ?>
+								</div>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('Sàn', 'bsc') ?>
+								</div>
+								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+									<?php _e('KL', 'bsc') ?>
 
 								</div>
 							</div>
-							<?php if ($check_logout) {
-								echo $check_logout['html'];
+							<?php
+							if (!$check_logout) {
+								$array_data_list_bsc = array(
+									'portcode' => $single_bsc
+								);
+								$response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
+								if ($response_list_bsc) {
+							?>
+									<div
+										class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+										<?php
+										$i = 0;
+										foreach ($response_list_bsc->d as $list_bsc) {
+											$i++;
+											$symbol = $list_bsc->symbol;
+											if ($symbol) {
+												$symbols = array_column($response_instruments_array, 'symbol');
+												$index = array_search($symbol, $symbols);
+												if ($index !== false) {
+													$stockData = $response_instruments_array[$index];
+												}
+										?>
+												<div
+													class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+														<?php echo $list_bsc->symbol ?>
+													</div>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+														<?php
+														$status = $list_bsc->action;
+														$check_status = get_color_by_number_bsc($status);
+														$title_status = $check_status['title_status'];
+														$text_status = $check_status['text_status'];
+														$background_status = $check_status['background_status'];
+														?>
+														<?php if ($list_bsc->action) { ?>
+															<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+																<?php
+																echo  $title_status;
+																?>
+															</span>
+														<?php } ?>
+													</div>
+													<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
+														if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+															$text_color_class = 'text-[#1CCD83]';
+														} elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
+															$text_color_class = 'text-[#FE5353]';
+														} elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
+															$text_color_class = 'text-[#EB0]';
+														} else {
+															$text_color_class = '';
+														}
+													}
+													?>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
+														<?php
+														if ($stockData->closePrice) {
+															echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
+														}
+														?>
+													</div>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+														<?php
+														if ($list_bsc->expectedprice) {
+															echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
+														}
+														?>
+													</div>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
+														<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
+															if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+																$before_text = '+';
+															} else {
+																$before_text = '';
+															}
+															echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+														}  ?>
+													</div>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+														<?php echo $list_bsc->exchange ?>
+													</div>
+													<div
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class ?>">
+														<?php
+														if ($stockData->closeVol) {
+															echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
+														}
+														?>
+													</div>
+												</div>
+										<?php
+											}
+										}
+										?>
+
+									</div>
+								<?php }
+							} else {
+								?>
+								<!-- Data Demo -->
+								<div class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+									<?php for ($i = 0; $i < 9; $i++) { ?>
+										<div class="flex items-center bg-[#EBF4FA]">
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+												<?php _e('CTG', 'bsc') ?> </div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+												<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:#D6F6DE; color:#30D158">
+													<?php _e('Mua', 'bsc') ?> </span>
+											</div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+												---- </div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+												---- </div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+												---- </div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+												---- </div>
+											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  text-[#1CCD83]">
+												----
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							<?php
 							} ?>
 						</div>
-					<?php } ?>
+						<?php if ($check_logout) {
+							echo $check_logout['html'];
+						} ?>
+					</div>
 					<?php
 					$array_data_GetResearchPorCurMet = array(
 						'portcode' => $single_bsc

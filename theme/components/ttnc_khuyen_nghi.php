@@ -7,6 +7,7 @@ $response_instruments = get_data_with_cache('instruments', $array_data_instrumen
 if ($response_instruments) {
     $response_instruments_array = $response_instruments->d;
 }
+$class = $check_logout['class'];
 ?>
 <section class="mt-14 xl:mb-pb-[110px] mb-20 ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -42,7 +43,6 @@ if ($response_instruments) {
                         <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                             id="<?php echo $tab ?>-<?php echo $i ?>">
                             <div class="relative 2xl:pt-[76.2416%] pt-[80%] w-full rounded-lg overflow-hidden">
-                                <?php $class = $check_logout['html']; ?>
                                 <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
                                     <ul
                                         class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 2xl:px-[30px] px-5 justify-between">
@@ -53,85 +53,109 @@ if ($response_instruments) {
                                         <li class="whitespace-nowrap w-[16%]"><?php _e('Upside', 'bsc') ?></li>
                                     </ul>
                                     <?php
-                                    $array_data_list_bsc = array(
-                                        'portcode' => $news->name
-                                    );
-                                    $response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
-                                    if ($response_list_bsc) {
+                                    if (!$check_logout) {
+                                        $array_data_list_bsc = array(
+                                            'portcode' => $news->name
+                                        );
+                                        $response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
+                                        if ($response_list_bsc) {
                                     ?>
-                                        <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
-                                            <?php
-                                            foreach ($response_list_bsc->d as $list_bsc) {
-                                                $symbol = $list_bsc->symbol;
-                                                if ($symbol) {
-                                                    $symbols = array_column($response_instruments_array, 'symbol');
-                                                    $index = array_search($symbol, $symbols);
-                                                    if ($index !== false) {
-                                                        $stockData = $response_instruments_array[$index];
-                                                    }
-                                            ?>
-                                                    <ul
-                                                        class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
-                                                        <li class="w-[8%] font-medium"><?php echo $list_bsc->symbol ?></li>
-                                                        <?php
-                                                        $status = $list_bsc->action;
-                                                        $check_status = get_color_by_number_bsc($status);
-                                                        $title_status = $check_status['title_status'];
-                                                        $text_status = $check_status['text_status'];
-                                                        $background_status = $check_status['background_status'];
-                                                        ?>
-                                                        <li class="w-[16%] font-medium">
-                                                            <?php if ($list_bsc->action) { ?>
-                                                                <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-                                                                    <?php
-                                                                    echo  $title_status;
-                                                                    ?>
-                                                                </span>
-                                                            <?php } ?>
-                                                        </li>
-                                                        <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-                                                            if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
-                                                                $text_color_class = 'text-[#1CCD83]';
-                                                            } elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
-                                                                $text_color_class = 'text-[#FE5353]';
-                                                            } elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
-                                                                $text_color_class = 'text-[#EB0]';
-                                                            } else {
-                                                                $text_color_class = '';
-                                                            }
+                                            <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+                                                <?php
+                                                foreach ($response_list_bsc->d as $list_bsc) {
+                                                    $symbol = $list_bsc->symbol;
+                                                    if ($symbol) {
+                                                        $symbols = array_column($response_instruments_array, 'symbol');
+                                                        $index = array_search($symbol, $symbols);
+                                                        if ($index !== false) {
+                                                            $stockData = $response_instruments_array[$index];
                                                         }
-                                                        ?>
-                                                        <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
+                                                ?>
+                                                        <ul
+                                                            class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
+                                                            <li class="w-[8%] font-medium"><?php echo $list_bsc->symbol ?></li>
                                                             <?php
-                                                            if ($stockData->closePrice) {
-                                                                echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-                                                            }
+                                                            $status = $list_bsc->action;
+                                                            $check_status = get_color_by_number_bsc($status);
+                                                            $title_status = $check_status['title_status'];
+                                                            $text_status = $check_status['text_status'];
+                                                            $background_status = $check_status['background_status'];
                                                             ?>
-                                                        </li>
-                                                        <li class="w-[16%] font-medium">
-                                                            <?php
-                                                            if ($list_bsc->expectedprice) {
-                                                                echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
-                                                            }
-                                                            ?>
-                                                        </li>
-                                                        <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
+                                                            <li class="w-[16%] font-medium">
+                                                                <?php if ($list_bsc->action) { ?>
+                                                                    <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                                                        <?php
+                                                                        echo  $title_status;
+                                                                        ?>
+                                                                    </span>
+                                                                <?php } ?>
+                                                            </li>
                                                             <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
                                                                 if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
-                                                                    $before_text = '+';
+                                                                    $text_color_class = 'text-[#1CCD83]';
+                                                                } elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
+                                                                    $text_color_class = 'text-[#FE5353]';
+                                                                } elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
+                                                                    $text_color_class = 'text-[#EB0]';
                                                                 } else {
-                                                                    $before_text = '';
+                                                                    $text_color_class = '';
                                                                 }
-                                                                echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
-                                                            }  ?>
-                                                        </li>
-                                                    </ul>
-                                            <?php
+                                                            }
+                                                            ?>
+                                                            <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
+                                                                <?php
+                                                                if ($stockData->closePrice) {
+                                                                    echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
+                                                                }
+                                                                ?>
+                                                            </li>
+                                                            <li class="w-[16%] font-medium">
+                                                                <?php
+                                                                if ($list_bsc->expectedprice) {
+                                                                    echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
+                                                                }
+                                                                ?>
+                                                            </li>
+                                                            <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
+                                                                <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
+                                                                    if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+                                                                        $before_text = '+';
+                                                                    } else {
+                                                                        $before_text = '';
+                                                                    }
+                                                                    echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                                }  ?>
+                                                            </li>
+                                                        </ul>
+                                                <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
+                                                ?>
+                                            </div>
+                                        <?php }
+                                    } else {
+                                        ?>
+                                        <!-- Data Demo -->
+                                        <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+                                            <?php for ($i = 0; $i < 8; $i++) { ?>
+                                                <ul class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">
+                                                    <li class="w-[8%] font-medium"><?php _e('BSI', 'bsc') ?></li>
+                                                    <li class="w-[16%] font-medium">
+                                                        <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:#D6F6DE; color:#30D158">
+                                                            <?php _e('Mua', 'bsc') ?> </span>
+                                                    </li>
+                                                    <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        ---- </li>
+                                                    <li class="w-[16%] font-medium">
+                                                        ---- </li>
+                                                    <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        ---- </li>
+                                                </ul>
+                                            <?php } ?>
                                         </div>
-                                    <?php } ?>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <?php if ($check_logout) {
                                     echo $check_logout['html'];

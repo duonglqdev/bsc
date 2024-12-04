@@ -248,95 +248,142 @@
                         ?>
                         <?php
                         $check_logout = bsc_is_user_logged_out();
-                        $class = $check_logout['html'];
+                        $class = $check_logout['class'];
                         $type_danh_muc = get_field('type_danh_muc', get_queried_object());
                         if ($type_danh_muc == 'thitruong') {
-                            $array_data_thitruong = array();
-                            $response_thitruong = get_data_with_cache('GetVNIChart', $array_data_thitruong, $time_cache);
-                            if ($response_thitruong) {
-                                $vnIndexData = array_map(function ($item) {
-                                    return [
-                                        'date' => date('Y-m-d', strtotime($item->tradedate)), // Định dạng ngày
-                                        'closeindex' => $item->closeindex,
-                                    ];
-                                }, $response_thitruong->d->VNI[0]);
-
-                                $stocksDataJson = json_encode($vnIndexData);
                         ?>
-                                <div class="mb-[59px]">
-                                    <h3 class="font-bold mb-6 text-2xl"><?php _e('Dự báo thị trường', 'bsc') ?></h3>
-                                    <div class="relative">
-                                        <div class="lg:flex lg:gap-8 <?php echo $class ?>">
+                            <div class="mb-[59px]">
+                                <h3 class="font-bold mb-6 text-2xl"><?php _e('Dự báo thị trường', 'bsc') ?></h3>
+                                <div class="relative">
+                                    <div class="lg:flex lg:gap-8 <?php echo $class ?>">
+                                        <?php if (!$check_logout) {
+                                            $array_data_thitruong = array();
+                                            $response_thitruong = get_data_with_cache('GetVNIChart', $array_data_thitruong, $time_cache);
+                                            if ($response_thitruong) {
+                                                $vnIndexData = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime($item->tradedate)), // Định dạng ngày
+                                                        'closeindex' => $item->closeindex,
+                                                    ];
+                                                }, $response_thitruong->d->VNI[0]);
+
+                                                $stocksDataJson = json_encode($vnIndexData); ?>
+                                                <div class="lg:w-[255px] lg:max-w-[27%]">
+                                                    <div
+                                                        class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+                                                        <h4
+                                                            class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+                                                            <?php _e('Năm', 'bsc') ?> <?php echo date("Y"); ?></h4>
+                                                        <div class="space-y-6">
+                                                            <div class="flex items-end justify-between pb-2">
+                                                                <div class="flex flex-col font-Helvetica">
+                                                                    <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
+                                                                    <h4 class="font-bold text-2xl">
+                                                                        <?php echo $response_thitruong->d->F[0][0]->value; ?>
+                                                                    </h4>
+                                                                </div>
+                                                                <div
+                                                                    class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+                                                                    <?php _e('Tích cực', 'bsc') ?>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="flex items-end justify-between pb-2">
+                                                                <div class="flex flex-col font-Helvetica">
+                                                                    <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                                                    <h4 class="font-bold text-2xl">
+                                                                        <?php echo $response_thitruong->d->F[0][1]->value; ?>
+                                                                    </h4>
+                                                                </div>
+                                                                <div
+                                                                    class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+                                                                    <?php _e('Cơ sở', 'bsc') ?>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex items-end justify-between pb-2">
+                                                                <div class="flex flex-col font-Helvetica">
+                                                                    <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                                                    <h4 class="font-bold text-2xl">
+                                                                        <?php echo $response_thitruong->d->F[0][2]->value; ?>
+                                                                    </h4>
+                                                                </div>
+                                                                <div
+                                                                    class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+                                                                    <?php _e('Tiêu cực', 'bsc') ?>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-1 bg-[#F5FCFF] rounded-lg">
+                                                    <div id="chart-forecast" class="font-body"
+                                                        data-stock='<?php echo $stocksDataJson ?>'
+                                                        data-title="Dự báo VN-Index <?php echo date("Y"); ?>"
+                                                        data-kb1="Dự báo KB1 (Giảm)"
+                                                        data-coso="<?php _e('KB cơ sở') ?>"
+                                                        data-kb-coso="<?php echo $response_thitruong->d->F[0][1]->value; ?>"
+                                                        data-kb1-value="<?php echo $response_thitruong->d->F[0][2]->value; ?>"
+                                                        data-kb2="Dự báo KB2 (Tăng)"
+                                                        data-kb2-value="<?php echo $response_thitruong->d->F[0][0]->value; ?>">
+                                                    </div>
+                                                </div>
+                                            <?php }
+                                        } else {
+                                            ?>
+                                            <!-- Data Demo -->
                                             <div class="lg:w-[255px] lg:max-w-[27%]">
-                                                <div
-                                                    class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
-                                                    <h4
-                                                        class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
-                                                        <?php _e('Năm', 'bsc') ?> <?php echo date("Y"); ?></h4>
+                                                <div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+                                                    <h4 class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+                                                        <?php _e('Demo', 'bsc') ?></h4>
                                                     <div class="space-y-6">
                                                         <div class="flex items-end justify-between pb-2">
                                                             <div class="flex flex-col font-Helvetica">
-                                                                <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
+                                                                <p class="text-paragraph text-xs"><?php _e('Demo', 'bsc') ?></p>
                                                                 <h4 class="font-bold text-2xl">
-                                                                    <?php echo $response_thitruong->d->F[0][0]->value; ?>
-                                                                </h4>
+                                                                    ---- </h4>
                                                             </div>
-                                                            <div
-                                                                class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
-                                                                <?php _e('Tích cực', 'bsc') ?>
-                                                            </div>
+                                                            <div class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+                                                                <?php _e('Tích cực', 'bsc') ?> </div>
                                                         </div>
 
                                                         <div class="flex items-end justify-between pb-2">
                                                             <div class="flex flex-col font-Helvetica">
                                                                 <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
                                                                 <h4 class="font-bold text-2xl">
-                                                                    <?php echo $response_thitruong->d->F[0][1]->value; ?>
-                                                                </h4>
+                                                                    ---- </h4>
                                                             </div>
-                                                            <div
-                                                                class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
-                                                                <?php _e('Cơ sở', 'bsc') ?>
-                                                            </div>
+                                                            <div class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+                                                                <?php _e('Cơ sở', 'bsc') ?> </div>
                                                         </div>
                                                         <div class="flex items-end justify-between pb-2">
                                                             <div class="flex flex-col font-Helvetica">
                                                                 <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
                                                                 <h4 class="font-bold text-2xl">
-                                                                    <?php echo $response_thitruong->d->F[0][2]->value; ?>
-                                                                </h4>
+                                                                    ---- </h4>
                                                             </div>
-                                                            <div
-                                                                class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
-                                                                <?php _e('Tiêu cực', 'bsc') ?>
-                                                            </div>
+                                                            <div class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+                                                                <?php _e('Tiêu cực', 'bsc') ?> </div>
                                                         </div>
 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="flex-1 bg-[#F5FCFF] rounded-lg">
-                                                <div id="chart-forecast" class="font-body"
-                                                    data-stock='<?php echo $stocksDataJson ?>'
-                                                    data-title="Dự báo VN-Index <?php echo date("Y"); ?>"
-                                                    data-kb1="Dự báo KB1 (Giảm)"
-                                                    data-coso="<?php _e('KB cơ sở') ?>"
-                                                    data-kb-coso="<?php echo $response_thitruong->d->F[0][1]->value; ?>"
-                                                    data-kb1-value="<?php echo $response_thitruong->d->F[0][2]->value; ?>"
-                                                    data-kb2="Dự báo KB2 (Tăng)"
-                                                    data-kb2-value="<?php echo $response_thitruong->d->F[0][0]->value; ?>">
-                                                </div>
                                             </div>
-                                        </div>
-                                        <?php if ($check_logout) {
-                                            echo $check_logout['html'];
-                                        } ?>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
+                                    <?php if ($check_logout) {
+                                        echo $check_logout['html'];
+                                    } ?>
                                 </div>
-                            <?php
-                            }
+                            </div>
+                        <?php
+
                         } elseif ($type_danh_muc == 'vimo') {
-                            ?>
+                        ?>
                             <?php
                             $array_data_GetForecastMacro = array();
                             $response_GetForecastMacro = get_data_with_cache('GetForecastMacro', $array_data_GetForecastMacro, $time_cache);
@@ -537,168 +584,232 @@
                         <?php
                         } elseif ($type_danh_muc == 'kqkd') {
                         ?>
-                            <?php
-                            $array_data_GetForecastBussinessResults = array(
-                                'lang' => 'VI',
-                                'forecastperiod' => date('Y')
-                            );
-                            $response_GetForecastBussinessResults = get_data_with_cache('GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache);
-                            if ($response_GetForecastBussinessResults) {
-                            ?>
-                                <div class="mt-10 mb-[82px] relative">
-                                    <h2 class="font-bold text-2xl"><?php _e('Dự báo KQKD', 'bsc') ?></h2>
+                            <div class="mt-10 mb-[82px] relative">
+                                <h2 class="font-bold text-2xl"><?php _e('Dự báo KQKD', 'bsc') ?></h2>
+                                <div
+                                    class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4] <?php echo $class ?>">
                                     <div
-                                        class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4] <?php echo $class ?>">
-                                        <div
-                                            class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
-                                            <div class="w-[15%]">
-                                                <?php _e('Mã CK', 'bsc') ?>
-                                            </div>
-                                            <div class="w-[15%]">
-                                                <?php _e('Ngành', 'bsc') ?>
-                                            </div>
-                                            <div class="w-[15%]">
-                                                <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
-                                                <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
-                                            </div>
-                                            <div class="w-[17%]">
-                                                <?php _e('LNST CĐTS', 'bsc') ?>
-                                            </div>
-                                            <div class="w-[17%]">
-                                                <?php _e('EPS', 'bsc') ?> <br>
-                                                <?php echo date('Y') ?>
-                                            </div>
-                                            <div class="w-[21%]">
-                                                <?php _e('Giá mục tiêu', 'bsc') ?> <br>
-                                                <?php echo date('Y') ?>/<?php echo date('Y') + 1 ?>
-                                            </div>
+                                        class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
+                                        <div class="w-[15%]">
+                                            <?php _e('Mã CK', 'bsc') ?>
                                         </div>
+                                        <div class="w-[15%]">
+                                            <?php _e('Ngành', 'bsc') ?>
+                                        </div>
+                                        <div class="w-[15%]">
+                                            <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
+                                            <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
+                                        </div>
+                                        <div class="w-[17%]">
+                                            <?php _e('LNST CĐTS', 'bsc') ?>
+                                        </div>
+                                        <div class="w-[17%]">
+                                            <?php _e('EPS', 'bsc') ?> <br>
+                                            <?php echo date('Y') ?>
+                                        </div>
+                                        <div class="w-[21%]">
+                                            <?php _e('Giá mục tiêu', 'bsc') ?> <br>
+                                            <?php echo date('Y') ?>/<?php echo date('Y') + 1 ?>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    if (!$check_logout) {
+                                        $array_data_GetForecastBussinessResults = array(
+                                            'lang' => 'VI',
+                                            'forecastperiod' => date('Y')
+                                        );
+                                        $response_GetForecastBussinessResults = get_data_with_cache('GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache);
+                                        if ($response_GetForecastBussinessResults) {
+                                    ?>
+                                            <div
+                                                class="scroll-bar-custom overflow-y-auto max-h-[300px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                                <?php
+                                                foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
+                                                ?>
+                                                    <div class="flex items-center min-h-[30px]">
+                                                        <div class="w-[15%] px-3 py-1">
+                                                            <?php if ($GetForecastBussinessResults->symbol) { ?>
+                                                                <a href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
+                                                            <?php } ?>
+                                                        </div>
+                                                        <div class="w-[15%] px-3 py-1">
+                                                            <?php echo $GetForecastBussinessResults->namevn ?>
+                                                        </div>
+                                                        <div class="w-[15%] px-3 py-1">
+                                                            <?php echo number_format($GetForecastBussinessResults->revenue) ?>
+                                                        </div>
+                                                        <div class="w-[17%] px-3 py-1">
+                                                            <?php if ($GetForecastBussinessResults->npatmi) { ?>
+                                                                <?php echo $GetForecastBussinessResults->npatmi ?>%
+                                                            <?php } ?>
+                                                        </div>
+                                                        <div class="w-[17%] px-3 py-1">
+                                                            <?php echo number_format($GetForecastBussinessResults->eps) ?>
+                                                        </div>
+                                                        <div class="w-[21%] px-3 py-1">
+                                                            <?php echo number_format($GetForecastBussinessResults->pricerecommended) ?>
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        <?php }
+                                    } else {
+                                        ?>
+                                        <!-- Data Demo -->
                                         <div
                                             class="scroll-bar-custom overflow-y-auto max-h-[300px] prose-a:text-primary-300 prose-a:font-bold font-medium">
                                             <?php
-                                            foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
+                                            for ($i = 0; $i < 12; $i++) {
                                             ?>
                                                 <div class="flex items-center min-h-[30px]">
                                                     <div class="w-[15%] px-3 py-1">
-                                                        <?php if ($GetForecastBussinessResults->symbol) { ?>
-                                                            <a href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
-                                                        <?php } ?>
+                                                        <a href=""><?php _e('BID', 'bsc') ?></a>
                                                     </div>
                                                     <div class="w-[15%] px-3 py-1">
-                                                        <?php echo $GetForecastBussinessResults->namevn ?>
+                                                        <?php _e('Ngân hàng', 'bsc') ?>
                                                     </div>
                                                     <div class="w-[15%] px-3 py-1">
-                                                        <?php echo number_format($GetForecastBussinessResults->revenue) ?>
+                                                        ----
                                                     </div>
                                                     <div class="w-[17%] px-3 py-1">
-                                                        <?php if ($GetForecastBussinessResults->npatmi) { ?>
-                                                            <?php echo $GetForecastBussinessResults->npatmi ?>%
-                                                        <?php } ?>
+                                                        ----
                                                     </div>
                                                     <div class="w-[17%] px-3 py-1">
-                                                        <?php echo number_format($GetForecastBussinessResults->eps) ?>
+                                                        ----
                                                     </div>
                                                     <div class="w-[21%] px-3 py-1">
-                                                        <?php echo number_format($GetForecastBussinessResults->pricerecommended) ?>
+                                                        ----
                                                     </div>
                                                 </div>
                                             <?php
                                             }
                                             ?>
                                         </div>
+                                    <?php
+                                    } ?>
+                                </div>
+                                <?php if ($check_logout) {
+                                    echo $check_logout['html'];
+                                } ?>
+                            </div>
+                        <?php
+                        } elseif ($type_danh_muc == 'nganh') {
+                        ?>
+                            <div class="mt-10 mb-[82px]">
+                                <h2 class="font-bold text-2xl"><?php _e('Dự báo triển vọng ngành', 'bsc') ?></h2>
+                                <div class="relative">
+                                    <div
+                                        class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
+                                        <div
+                                            class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
+                                            <div class="w-1/3 py-2 px-3">
+                                                <?php _e('Ngành', 'bsc') ?>
+                                            </div>
+                                            <div class="w-1/3 py-2 px-3">
+                                                <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
+                                            </div>
+                                            <div class="w-1/3 py-2 px-3">
+                                                <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
+                                            </div>
+
+                                        </div>
+                                        <?php
+                                        if (!$check_logout) {
+                                            $array_data_nganh = array();
+                                            $response_nganh = get_data_with_cache('GetForecastProspectBranch', $array_data_nganh, $time_cache);
+                                            if ($response_nganh) { ?>
+                                                <div
+                                                    class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                                                    <?php
+                                                    $i = 0;
+                                                    foreach ($response_nganh->d as $nganh) {
+                                                        $i++;
+                                                        $qd1 = $nganh->forecasT1;
+                                                        if ($qd1 == 0) {
+                                                            $title_qd1 = __('Tích cực', 'bsc');
+                                                            $class_qd1 = 'text-[#30D158]';
+                                                        } elseif ($qd1 == 1) {
+                                                            $title_qd1 = __('Trung lập', 'bsc');
+                                                            $class_qd1 = 'text-black';
+                                                        } elseif ($qd1 == 3) {
+                                                            $title_qd1 = __('Kém tích cực', 'bsc');
+                                                            $class_qd1 = 'text-[#FF0017]';
+                                                        } else {
+                                                            $title_qd1 = '-';
+                                                            $class_qd1 = 'text-black';
+                                                        }
+                                                        $qd2 = $nganh->forecasT2;
+                                                        if ($qd2 == 0) {
+                                                            $title_qd2 = __('Tích cực', 'bsc');
+                                                            $class_qd2 = 'text-[#30D158]';
+                                                        } elseif ($qd2 == 1) {
+                                                            $title_qd2 = __('Trung lập', 'bsc');
+                                                            $class_qd2 = 'text-black';
+                                                        } elseif ($qd2 == 3) {
+                                                            $title_qd2 = __('Kém tích cực', 'bsc');
+                                                            $class_qd2 = 'text-[#FF0017]';
+                                                        } else {
+                                                            $title_qd2 = '-';
+                                                            $class_qd2 = 'text-black';
+                                                        }
+                                                    ?>
+                                                        <div
+                                                            class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+                                                            <div
+                                                                class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+                                                                <?php echo $nganh->name  ?>
+                                                            </div>
+                                                            <div
+                                                                class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
+                                                                <?php echo $title_qd1 ?>
+                                                            </div>
+                                                            <div
+                                                                class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
+                                                                <?php echo $title_qd2 ?>
+                                                            </div>
+                                                        </div>
+
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                            <?php  }
+                                        } else {
+                                            ?>
+                                            <!-- Data Demo -->
+                                            <?php
+                                            for ($i = 0; $i < 9; $i++) {
+                                            ?>
+                                                <div
+                                                    class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+                                                    <div
+                                                        class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+                                                        <?php _e('CNTT - Viễn thông', 'bsc') ?>
+                                                    </div>
+                                                    <div
+                                                        class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+                                                        <?php _e('Tích cực', 'bsc') ?>
+                                                    </div>
+                                                    <div
+                                                        class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
+                                                        <?php _e('Tích cực', 'bsc') ?>
+                                                    </div>
+                                                </div>
+
+                                            <?php
+                                            }
+                                            ?>
+                                        <?php
+                                        } ?>
                                     </div>
                                     <?php if ($check_logout) {
                                         echo $check_logout['html'];
                                     } ?>
                                 </div>
-                            <?php } ?>
-                            <?php
-                        } elseif ($type_danh_muc == 'nganh') {
-                            $array_data_nganh = array();
-                            $response_nganh = get_data_with_cache('GetForecastProspectBranch', $array_data_nganh, $time_cache);
-                            if ($response_nganh) {
-                            ?>
-                                <div class="mt-10 mb-[82px]">
-                                    <h2 class="font-bold text-2xl"><?php _e('Dự báo triển vọng ngành', 'bsc') ?></h2>
-                                    <div class="relative">
-                                        <div
-                                            class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
-                                            <div
-                                                class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-                                                <div class="w-1/3 py-2 px-3">
-                                                    <?php _e('Ngành', 'bsc') ?>
-                                                </div>
-                                                <div class="w-1/3 py-2 px-3">
-                                                    <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
-                                                </div>
-                                                <div class="w-1/3 py-2 px-3">
-                                                    <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
-                                                </div>
-
-                                            </div>
-                                            <div
-                                                class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-                                                <?php
-                                                $i = 0;
-                                                foreach ($response_nganh->d as $nganh) {
-                                                    $i++;
-                                                    $qd1 = $nganh->forecasT1;
-                                                    if ($qd1 == 0) {
-                                                        $title_qd1 = __('Tích cực', 'bsc');
-                                                        $class_qd1 = 'text-[#30D158]';
-                                                    } elseif ($qd1 == 1) {
-                                                        $title_qd1 = __('Trung lập', 'bsc');
-                                                        $class_qd1 = 'text-black';
-                                                    } elseif ($qd1 == 3) {
-                                                        $title_qd1 = __('Kém tích cực', 'bsc');
-                                                        $class_qd1 = 'text-[#FF0017]';
-                                                    } else {
-                                                        $title_qd1 = '-';
-                                                        $class_qd1 = 'text-black';
-                                                    }
-                                                    $qd2 = $nganh->forecasT2;
-                                                    if ($qd2 == 0) {
-                                                        $title_qd2 = __('Tích cực', 'bsc');
-                                                        $class_qd2 = 'text-[#30D158]';
-                                                    } elseif ($qd2 == 1) {
-                                                        $title_qd2 = __('Trung lập', 'bsc');
-                                                        $class_qd2 = 'text-black';
-                                                    } elseif ($qd2 == 3) {
-                                                        $title_qd2 = __('Kém tích cực', 'bsc');
-                                                        $class_qd2 = 'text-[#FF0017]';
-                                                    } else {
-                                                        $title_qd2 = '-';
-                                                        $class_qd2 = 'text-black';
-                                                    }
-                                                ?>
-                                                    <div
-                                                        class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
-                                                        <div
-                                                            class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
-                                                            <?php echo $nganh->name  ?>
-                                                        </div>
-                                                        <div
-                                                            class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
-                                                            <?php echo $title_qd1 ?>
-                                                        </div>
-                                                        <div
-                                                            class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
-                                                            <?php echo $title_qd2 ?>
-                                                        </div>
-                                                    </div>
-
-                                                <?php
-                                                }
-                                                ?>
-                                            </div>
-                                        </div>
-                                        <?php if ($check_logout) {
-                                            echo $check_logout['html'];
-                                        } ?>
-                                    </div>
-                                </div>
+                            </div>
                         <?php
-                            }
                         } ?>
                         <?php
                         if ($response) {
