@@ -1,63 +1,70 @@
-<section class="2xl:my-[100px] my-10 vitri_tuyendung" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="2xl:my-[100px] my-10 vitri_tuyendung" <?php if ( get_sub_field( 'id_class' ) )
+{ ?>
+		id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<?php if (get_sub_field('title')) { ?>
+		<?php if ( get_sub_field( 'title' ) )
+		{ ?>
 			<h2 class="heading-title 2xl:mb-10 mb-8">
-				<?php the_sub_field('title') ?>
+				<?php the_sub_field( 'title' ) ?>
 			</h2>
 		<?php } ?>
-		<form id="search_job" class="grid lg:grid-cols-5 grid-cols-4 gap-5">
+		<form id="search_job"
+			class="grid gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' grid-cols-5 grid-cols-4' : 'grid-cols-1' ?>">
 			<?php
-			$nghiep_vus = get_terms(array(
+			$nghiep_vus = get_terms( array(
 				'taxonomy' => 'nghiep-vu',
 				'hide_empty' => false,
 				'parent' => 0,
-			));
-			if (! empty($nghiep_vus) && ! is_wp_error($nghiep_vus)) :
-			?>
-				<div class="col-span-2">
+			) );
+			if ( ! empty( $nghiep_vus ) && ! is_wp_error( $nghiep_vus ) ) :
+				?>
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-2' : 'col-span-1' ?>">
 					<select id="nghiep_vu"
 						class="h-[50px] rounded-[10px] border border-[#C3C3C3] w-full focus:outline-0 focus:border-primary-300 transition-all duration-500n px-6 select_custom-2 text-gray-100">
-						<option value=""><?php _e('Nghiệp vụ', 'bsc') ?></option>
-						<?php foreach ($nghiep_vus as $nghiep_vu) :
-						?>
+						<option value=""><?php _e( 'Nghiệp vụ', 'bsc' ) ?></option>
+						<?php foreach ( $nghiep_vus as $nghiep_vu ) :
+							?>
 							<option value="<?php echo $nghiep_vu->term_id ?>">
-								<?php echo esc_html($nghiep_vu->name); ?>
+								<?php echo esc_html( $nghiep_vu->name ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
 				</div>
 			<?php endif; ?>
 			<?php
-			$noi_lam_viecs = get_terms(array(
+			$noi_lam_viecs = get_terms( array(
 				'taxonomy' => 'noi-lam-viec',
 				'hide_empty' => false,
 				'parent' => 0,
-			));
-			if (! empty($noi_lam_viecs) && ! is_wp_error($noi_lam_viecs)) :
-			?>
-				<div class="col-span-2">
+			) );
+			if ( ! empty( $noi_lam_viecs ) && ! is_wp_error( $noi_lam_viecs ) ) :
+				?>
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-2' : 'col-span-1' ?>">
 					<select id="noi_lam_viec"
 						class="h-[50px] rounded-[10px] border border-[#C3C3C3] w-full focus:outline-0 focus:border-primary-300 transition-all duration-500n px-6 select_custom-2 text-gray-100">
-						<option value=""><?php _e('Nơi làm việc', 'bsc') ?></option>
-						<?php foreach ($noi_lam_viecs as $noi_lam_viec) :
-						?>
+						<option value=""><?php _e( 'Nơi làm việc', 'bsc' ) ?></option>
+						<?php foreach ( $noi_lam_viecs as $noi_lam_viec ) :
+							?>
 							<option value="<?php echo $noi_lam_viec->term_id ?>">
-								<?php echo esc_html($noi_lam_viec->name); ?>
+								<?php echo esc_html( $noi_lam_viec->name ); ?>
 							</option>
 						<?php endforeach; ?>
 					</select>
 				</div>
 			<?php endif; ?>
-			<div class="lg:col-span-1 col-span-full flex items-center gap-3">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'col-span-full' ?> flex items-center gap-3">
 				<button type="button" id="tuyen-dung-tim-kiem"
 					class="btn-base-yellow w-full h-full rounded-xl">
 					<span class="block relative z-10">
-						<?php _e('Tìm kiếm', 'bsc') ?>
+						<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 					</span>
 				</button>
 				<button type="button" id="tuyen_dung_btn-reload"
 					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group shrink-0">
-					<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 				</button>
 			</div>
 		</form>
@@ -71,19 +78,32 @@
 			'meta_key' => 'deadline',
 			'order' => 'DESC',
 		);
-		$filter_job = new WP_Query($args);
-		if ($filter_job->have_posts()) : ?>
-			<div class="mt-[51px]" id="vi-tri-tuyen-dung" data-nghiep-vu="" data-noi-lam-viec=""
-				data-paged="1">
+		$filter_job = new WP_Query( $args );
+		if ( $filter_job->have_posts() ) : ?>
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[51px]' : 'mt-8' ?>"
+				id="vi-tri-tuyen-dung" data-nghiep-vu="" data-noi-lam-viec="" data-paged="1">
 				<?php
-				while ($filter_job->have_posts()) :
+				while ( $filter_job->have_posts() ) :
 					$filter_job->the_post();
-					get_template_part('template-parts/content', get_post_type());
+					get_template_part( 'template-parts/content', get_post_type() );
 				endwhile;
 				?>
-				<div class="bsc-pagination mt-12 flex justify-center">
-					<?php bsc_pagination_ajax($filter_job, 1) ?>
-				</div>
+				<?php if ( wp_is_mobile() && bsc_is_mobile() )
+				{ ?>
+					<div
+						class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
+						<span>
+							<?php _e( 'Xem tất cả', 'bsc' ) ?>
+						</span>
+						<?php echo svg( 'arrow-btn-2' ) ?>
+					</div>
+
+				<?php } ?>
+				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+					<div class="bsc-pagination mt-12 flex justify-center">
+						<?php bsc_pagination_ajax( $filter_job, 1 ) ?>
+					</div>
+				<?php } ?>
 			</div>
 			<div id="tuyen-dung-loading" class="hidden">
 				<div role="status">
