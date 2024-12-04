@@ -8,19 +8,19 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner') ?>
-	<section class="2xl:my-[100px] my-10">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-10':'my-[50px]' ?>">
 		<div class="container">
-			<div class="grid lg:grid-cols-3">
-				<div class="lg:col-span-2">
-					<h1 class="lg:text-[32px] 2xl:text-2xl text-xl font-bold mb-10 leading-[1.43]">
+			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3':'' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-2':'' ?>">
+					<h1 class="font-bold mb-10 leading-[1.43] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[32px] 2xl:text-2xl text-xl':'text-[22px]' ?>">
 						<?php the_title() ?>
 					</h1>
 				</div>
 			</div>
-			<div class="lg:flex 2xl:gap-[70px] gap-12">
-				<div class="lg:w-[320px]">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex 2xl:gap-[70px] gap-12':'space-y-6' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[320px] max-w-[35%]':'w-full' ?>">
 					<div class="bg-[#F5FCFF] py-5 px-6 rounded-[10px]">
-						<h3 class="text-primary-300 uppercase text-xl font-bold">
+						<h3 class="text-primary-300 uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl':'' ?>">
 							<?php _e('THÔNG TIN CHUNG', 'bsc') ?>
 						</h3>
 						<div class="mt-[12px]">
@@ -31,7 +31,7 @@ get_header();
 							?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Nghiệp vụ', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -42,8 +42,8 @@ get_header();
 							<?php if (get_field('nganh_nghe')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
-										<?php _e('Nghành nghề', 'bsc') ?>
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
+										<?php _e('Ngành nghề', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
 										<?php the_field('nganh_nghe') ?>
@@ -53,7 +53,7 @@ get_header();
 							<?php if (get_field('ma_vi_tri')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Mã vị trí', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -68,7 +68,7 @@ get_header();
 							?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Địa điểm làm việc', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -79,7 +79,7 @@ get_header();
 							<?php if (get_field('cap_bac')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Cấp bậc', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -90,7 +90,7 @@ get_header();
 							<?php if (get_field('muc_luong')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Mức lương', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -101,7 +101,7 @@ get_header();
 							<?php if (get_field('deadline')) { ?>
 								<div
 									class="[&:not(:last-child)]:mb-[12px] [&:not(:last-child)]:pb-[12px] [&:not(:last-child)]:border-b border-[#C6C6C6] font-Helvetica">
-									<p class="text-black mb-2 text-xs">
+									<p class="text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs mb-2':'text-[12px] mb-1.5' ?>">
 										<?php _e('Hạn nộp hồ sơ', 'bsc') ?>
 									</p>
 									<p class="font-bold text-xs">
@@ -115,27 +115,39 @@ get_header();
 								</div>
 							<?php } ?>
 						</div>
-						<?php $current_date = new DateTime(current_time('Y-m-d'));
-						if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
-						} else { ?>
-							<div class="mt-[12px]">
-								<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-									class="btn-base-yellow w-full h-full rounded-xl">
-									<span class="block relative z-10">
-										<?php _e('Ứng tuyển ngay', 'bsc') ?>
-									</span>
-								</button>
-							</div>
+						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+							<?php $current_date = new DateTime(current_time('Y-m-d'));
+							if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
+							} else { ?>
+								<div class="mt-[12px]">
+									<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+										class="btn-base-yellow w-full h-full rounded-xl">
+										<span class="block relative z-10">
+											<?php _e('Ứng tuyển ngay', 'bsc') ?>
+										</span>
+									</button>
+								</div>
+							<?php } ?>
 						<?php } ?>
 					</div>
 				</div>
-				<div class="lg:flex-1 space-y-[30px]">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 space-y-[30px]':'space-y-6' ?>">
 					<div
-						class="font-Helvetica content_item prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8] prose-li:my-[2px] prose-li:marker:text-black prose-ul:mb-0 prose-h2:mt-[30px] first:prose-h2:mt-0 prose-h2:mb-2 text-black">
+						class="font-Helvetica content_item prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8] prose-li:my-[2px] prose-li:marker:text-black prose-ul:mb-0  first:prose-h2:mt-0 prose-h2:mb-2 text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-h2:mt-[30px]':'prose-h2:text-lg text-xs prose-li:pl-0 prose-h2:mt-6' ?>">
 						<?php the_content() ?>
 					</div>
 
 				</div>
+				<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							<?php $current_date = new DateTime(current_time('Y-m-d'));
+							if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
+							} else { ?>
+									<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+										class="btn-base-yellow w-full h-full rounded-lg text-xs text-center">
+											<?php _e('Ứng tuyển ngay', 'bsc') ?>
+									</button>
+							<?php } ?>
+						<?php } ?>
 			</div>
 		</div>
 	</section>
@@ -159,12 +171,12 @@ get_header();
 	);
 	$related_items = new WP_Query($args);
 	if ($related_items->have_posts()) : ?>
-		<section class="2xl:my-[100px] my-10">
+		<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-10':'my-[50px]' ?>">
 			<div class="container">
-				<h3 class="font-bold text-primary-300 lg:text-[32px] text-2xl">
+				<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-primary-300 text-[32px]':'text-[22px]' ?>">
 					<?php _e('CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc') ?>
 				</h3>
-				<div class="mt-10">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
 					<?php
 					while ($related_items->have_posts()) :
 						$related_items->the_post();
@@ -173,6 +185,15 @@ get_header();
 					?>
 
 				</div>
+				<?php if ( wp_is_mobile() && bsc_is_mobile() )
+				{ ?>
+					<div
+						class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
+							<?php echo svg( 'arrow-btn','16','16' ) ?>
+							<?php _e( 'Xem thêm', 'bsc' ) ?>
+					</div>
+
+				<?php } ?>
 			</div>
 		</section>
 	<?php endif;
@@ -180,8 +201,8 @@ get_header();
 </main>
 <div id="popup-modal" tabindex="-1"
 	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">
-	<div class="relative max-w-full w-[600px] max-h-full">
-		<div class="relative bg-white rounded-[15px] shadow 2xl:px-[50px] px-5 2xl:py-10 py-5">
+	<div class="relative max-w-[90%] w-[600px] max-h-full">
+		<div class="relative bg-white rounded-[15px] shadow  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-[50px] px-5 2xl:py-10 py-5':'p-6' ?>">
 			<button type="button"
 				class="absolute top-3 end-2.5 w-9 h-9 rounded-full bg-white shadow-header text-primary-300 flex items-center justify-center"
 				data-modal-hide="popup-modal">
@@ -198,10 +219,10 @@ get_header();
 				<?php _e('GỬI ĐƠN ỨNG TUYỂN', 'bsc') ?>
 			</h2>
 			<?php if (get_field('cdtd_mau_cv', 'option')) { ?>
-				<div class="rounded-lg bg-primary-50 2xl:px-5 px-4 2xl:py-4 py-3 mb-3">
+				<div class="rounded-lg bg-primary-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-5 px-4 2xl:py-4 py-3 mb-3':'p-4 text-xs mb-2' ?>">
 					<a target="_blank" href="<?php the_field('cdtd_mau_cv', 'option') ?>"
 						class="flex items-center justify-between" download>
-						<div class="flex items-center gap-3 font-Helvetica font-medium">
+						<div class="flex items-center font-Helvetica font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-3':'gap-2' ?>">
 							<?php echo svg('docs') ?>
 							<p><?php _e('Mẫu CV BSC. docx', 'bsc') ?></p>
 						</div>
@@ -209,11 +230,11 @@ get_header();
 					</a>
 				</div>
 			<?php } ?>
-			<p class="font-medium">
+			<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 				<?php _e('Vui lòng sử dụng mẫu CV từ BSC ở trên để điền thông tin của bạn, sau đó upload lại
                 file CV để ứng tuyển.', 'bsc') ?>
 			</p>
-			<div class="2xl:mt-[30px] mt-4 form_cv font-Helvetica">
+			<div class="form_cv font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mt-[30px] mt-4':'mt-4' ?>">
 				<?php echo do_shortcode('[contact-form-7 id="b071499" title="Cơ hội việc làm"]') ?>
 			</div>
 		</div>
