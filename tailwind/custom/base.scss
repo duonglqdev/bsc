@@ -241,8 +241,15 @@
 			}
 		}
 	}
+	.show-4-item{
+		> div:nth-child(n+5){
+			@apply hidden;
+		}
+	}
 }
-
+svg{
+    @apply max-w-full;
+}
 @media (max-width: 1700px) and (min-width: 1367px) {
 	.container {
 		max-width: 95% !important;

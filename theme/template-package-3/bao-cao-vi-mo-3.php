@@ -150,7 +150,7 @@ get_header();
 								class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
 								<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
 									<div
-										class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+										class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
 										<div
 											class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
 											<p>TB 8 năm <br>

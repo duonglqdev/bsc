@@ -950,9 +950,7 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.news-dropdown').on('click', function () {
-			$(this).next().toggleClass('active');
-		});
+		
 		$('.news-dropdown__list li').on('click', function () {
 			$('.news-dropdown__list li').removeClass('active');
 			$(this).addClass('active');
@@ -962,6 +960,11 @@ import { DataTable } from 'simple-datatables';
 				.attr('data-value', itemValue);
 			$(this).parent('.news-dropdown__list').toggleClass('active');
 		});
+
+		$(".show-item-btn").click(function () {
+			$(this).prev(".grid").toggleClass("show-4-item");
+			$(this).find('span').toggle();
+		})
 	}
 
 	function handlePhoneCf7() {

@@ -59,7 +59,7 @@
                                             $y++;
                                         ?>
                                             <div class="<?php if ($y == 1) echo  'font-bold' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-7 gap-5':'flex gap-x-10' ?>">
-                                                <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-1 py-4 ':'min-w-14 text-center' ?> ">
+                                                <div class="whitespace-nowrap text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-1 py-4 ':'min-w-14' ?> ">
                                                     <?php the_sub_field('stt') ?>
                                                 </div>
                                                 <div class="whitespace-nowrap  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-2 py-4':'min-w-[110px]' ?>">
