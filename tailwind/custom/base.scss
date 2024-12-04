@@ -142,6 +142,17 @@
 			}
 		}
 	}
+	.form_cv-wrapper{
+		@apply grid grid-cols-2 gap-x-6 gap-y-3;
+	}
+	.form_cv {
+		.form-group {
+			.upload-label {
+				margin-bottom: 15px;
+			}
+		}
+	
+	}
 }
 .style-mb {
 	.container {
@@ -271,6 +282,20 @@
 			&:nth-child(4) {
 				@apply -translate-x-[12%] translate-y-[35%];
 			}
+		}
+	}
+	.form_cv-wrapper{
+		.upload_file{
+			@apply text-center text-xs;
+		}
+		label{
+			@apply text-xxs;
+		}
+		.group-submit{
+			@apply mt-4;
+		}
+		.upload-label{
+			@apply mb-2;
 		}
 	}
 }
@@ -652,9 +677,7 @@ header {
 		input {
 			@apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 		}
-		.upload-label {
-			margin-bottom: 15px;
-		}
+		
 	}
 	.upload_file-wrapper {
 		background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");

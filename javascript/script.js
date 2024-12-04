@@ -417,7 +417,7 @@ import { DataTable } from 'simple-datatables';
 		});
 		$(document).on(
 			'click',
-			'.customtab-nav li button,.customtab-nav li a',
+			'.customtab-nav li button,.customtab-nav li a:not(.none-tab)',
 			function (e) {
 				e.preventDefault();
 				var target = $(this).attr('data-tabs');
