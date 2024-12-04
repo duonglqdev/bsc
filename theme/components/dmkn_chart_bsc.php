@@ -141,7 +141,7 @@ if ($data_bsc) {
 					if ($response_list_bsc) {
 					?>
 						<div class="relative lg:w-[887px] max-w-[66%]">
-							<?php $class = $check_logout ? 'blur-sm' : ''; ?>
+							<?php $class = $check_logout ? $check_logout['class'] : ''; ?>
 							<div
 								class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 								<div
@@ -267,7 +267,7 @@ if ($data_bsc) {
 								</div>
 							</div>
 							<?php if ($check_logout) {
-								echo $result['html'];
+								echo $check_logout['html'];
 							} ?>
 						</div>
 					<?php } ?>

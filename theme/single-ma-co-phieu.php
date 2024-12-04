@@ -320,11 +320,25 @@
 										</div>
 									</div>
 									<?php
-									if ($response_GetRecommendedInstrument->rank) { ?>
+									if ($response_GetRecommendedInstrument->rank) {
+										if ($response_GetRecommendedInstrument->rank == 'A') {
+											$class_rank = 'text-[#F90] bg-gradient-yellow-50';
+											$medal_rank = 'gold';
+										} elseif ($response_GetRecommendedInstrument->rank == 'B') {
+											$class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+											$medal_rank = 'sliver';
+										} elseif ($response_GetRecommendedInstrument->rank == 'C') {
+											$class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+											$medal_rank = 'bronze';
+										} elseif ($response_GetRecommendedInstrument->rank == 'D') {
+											$medal_rank = 'sliver-2';
+											$class_rank = 'text-[#869299] bg-gradient-sliver-100';
+										}
+									?>
 										<div class="mt-auto">
 											<p
-												class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-												<?php echo svg('gold', '24', '24') ?>
+												class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+												<?php echo svg($medal_rank, '24', '24') ?>
 												<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetRecommendedInstrument->rank ?>
 											</p>
 										</div>
@@ -370,17 +384,15 @@
 						</button>
 					</li>
 				</ul>
-				<div class="tab-content block" id="tab-1">
+				<div class="tab-content hidden" id="tab-1">
 					<div class="lg:flex mt-10 lg:gap-[69px]">
 						<div class="lg:w-[744px] lg:max-w-[56%]">
-							<?php if (get_field('cdttcp2_iframe', 'option')) { ?>
-								<h2 class="heading-title mb-10">
-									<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
-								</h2>
-								<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]" style="height:100%">
-									<?php the_field('cdttcp2_iframe', 'option') ?>
-								</div>
-							<?php } ?>
+							<h2 class="heading-title mb-10">
+								<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
+							</h2>
+							<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]" style="height:100%">
+								<iframe width='100%' height='100%' src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light' frameBorder='0' allowFullScreen></iframe>
+							</div>
 						</div>
 						<div class="flex-1">
 							<h2 class="heading-title mb-10">
@@ -1033,263 +1045,395 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-content hidden" id="tab-3">
+				<div class="tab-content block" id="tab-3">
 					<div class="list__content">
 						<div class=" mt-16 mb-10">
-							<ul class="flex items-center gap-5">
+							<ul class="flex items-center gap-5 customtab-nav">
 								<li>
-									<a href=""
+									<button data-tabs="#tab-3-Q"
 										class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										Quý
-									</a>
+										<?php _e('Quý', 'bsc') ?>
+									</button>
 								</li>
 								<li>
-									<a href=""
+									<button data-tabs="#tab-3-Y"
 										class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										Năm
-									</a>
+										<?php _e('Năm', 'bsc') ?>
+									</button>
 								</li>
 							</ul>
 						</div>
-						<div class="space-y-[100px]">
-							<article>
-								<div class="flex items-center gap-6 mb-[30px]">
-									<h2 class="heading-title">
-										LỢI NHUẬN
-									</h2>
-									<p
-										class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-										<?php echo svg('gold', '24', '24') ?>
-										Hạng A
-									</p>
+						<?php
+						$freq_cttc = array('Q', 'Y');
+						if ($freq_cttc) {
+							$i = 0;
+							foreach ($freq_cttc as $freq) {
+								$i++;
+						?>
+								<div class="tab-content <?php if ($i == 1) echo 'block';
+														else echo 'hidden' ?>" id="tab-3-<?php echo $freq ?>">
+									<?php
+									$array_data_GetFinanceDetail = array(
+										'lang' => pll_current_language(),
+										'symbol' => $symbol,
+										'freq' => $freq,
+									);
+									$response_GetFinanceDetail = get_data_with_cache('GetFinanceDetail', $array_data_GetFinanceDetail, $time_cache);
+									if ($response_GetFinanceDetail) {
+										$industryData = $response_GetFinanceDetail->d->Industry[0];
+										$businessData = $response_GetFinanceDetail->d->Bussiness[0];
+									?>
+										<div class="space-y-[100px]">
+											<article>
+												<div class="flex items-center gap-6 mb-[30px]">
+													<h2 class="heading-title">
+														<?php _e('LỢI NHUẬN', 'bsc') ?>
+													</h2>
+													<?php ?>
+													<?php
+													if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN) {
+														if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'A') {
+															$class_rank = 'text-[#F90] bg-gradient-yellow-50';
+															$medal_rank = 'gold';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'B') {
+															$class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+															$medal_rank = 'sliver';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'C') {
+															$class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+															$medal_rank = 'bronze';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'D') {
+															$medal_rank = 'sliver-2';
+															$class_rank = 'text-[#869299] bg-gradient-sliver-100';
+														}
+													?>
+														<p
+															class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+															<?php echo svg($medal_rank, '24', '24') ?>
+															<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN ?>
+														</p>
+													<?php } ?>
+												</div>
+												<div class="rounded-lg overflow-hidden mb-10">
+													<table
+														class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+														<thead>
+															<tr>
+																<th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+																<th><?php _e('Biên LNG', 'bsc') ?></th>
+																<th><?php _e('Biên LNST', 'bsc') ?></th>
+																<th><?php _e('ROE', 'bsc') ?></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+																<td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP) * 100, 2, '.', ''); ?>%</td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE) * 100, 2, '.', ''); ?>%</td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															<?php _e('BIÊN LỢI NHUẬN GỘP (%)', 'bsc') ?>
+														</h4>
+														<?php
+														$business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+															return [
+																'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
+																'value' => $item->BIEN_LOI_NHUAN_GOP, // Không cần trim vì là số
+															];
+														}, $businessData);
+
+														$industry_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+															return [
+																'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
+																'value' => $item->BIEN_LOI_NHUAN_GOP, // Không cần trim vì là số
+															];
+														}, $industryData);
+														?>
+														<div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>" data-title-1="Biên LNG" data-color-1="#235BA8" data-title-2="Biên BLNG TB ngành" data-color-2="#FFB81C">
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															<?php _e('BIÊN LỢI NHUẬN SAU THUẾ (%)', 'bsc') ?>
+														</h4>
+														<?php
+														$business_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
+															return [
+																'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
+																'value' => $item->BIEN_LOI_NHUAN_SAU_THUE, // Không cần trim vì là số
+															];
+														}, $businessData);
+
+														$industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
+															return [
+																'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
+																'value' => $item->BIEN_LOI_NHUAN_SAU_THUE, // Không cần trim vì là số
+															];
+														}, $industryData);
+														?>
+														<div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>" data-title-1="Biên LNST" data-color-1="#235BA8" data-title-2="Biên BLST TB ngành" data-color-2="#FFB81C">
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															<?php _e('ROE (%)', 'bsc') ?>
+														</h4>
+														<?php
+														$business_data_ROE = array_map(function ($item) {
+															return [
+																'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
+																'value' => $item->ROE, // Không cần trim vì là số
+															];
+														}, $businessData);
+
+														$industry_data_ROE = array_map(function ($item) {
+															return [
+																'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
+																'value' => $item->ROE, // Không cần trim vì là số
+															];
+														}, $industryData);
+														?>
+														<div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_ROE)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>" data-title-1="ROE" data-color-1="#009e87" data-title-2="ROE TB ngành" data-color-2="#FFB81C">
+														</div>
+													</div>
+												</div>
+											</article>
+											<article>
+												<div class="flex items-center gap-6 mb-[30px]">
+													<h2 class="heading-title">
+														<?php _e('SỨC KHỎE', 'bsc') ?>
+													</h2>
+													<?php
+													if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE) {
+														if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'A') {
+															$class_rank = 'text-[#F90] bg-gradient-yellow-50';
+															$medal_rank = 'gold';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'B') {
+															$class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+															$medal_rank = 'sliver';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'C') {
+															$class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+															$medal_rank = 'bronze';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'D') {
+															$medal_rank = 'sliver-2';
+															$class_rank = 'text-[#869299] bg-gradient-sliver-100';
+														}
+													?>
+														<p
+															class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+															<?php echo svg($medal_rank, '24', '24') ?>
+															<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE ?>
+														</p>
+													<?php } ?>
+												</div>
+												<div class="rounded-lg overflow-hidden mb-10">
+													<table
+														class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+														<thead>
+															<tr>
+																<th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+																<th><?php _e('CSTT nhanh', 'bsc') ?></th>
+																<th><?php _e('CSTT hiện tại', 'bsc') ?></th>
+																<th><?php _e('CSTT lãi vay', 'bsc') ?></th>
+																<th><?php _e('Nợ vay TTS', 'bsc') ?></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+																<td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH) * 100, 2, '.', ''); ?>%</td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_HIEN_THOI) * 100, 2, '.', ''); ?>%</td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
+																<td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+												<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
+														</h4>
+														<div id="health-chart-1" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															NỢ VAY/ TỔNG TÀI SẢN
+														</h4>
+														<div id="health-chart-2" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															TỶ LỆ THANH TOÁN LÃI VAY
+														</h4>
+														<div id="health-chart-3" class="legend-gap">
+
+														</div>
+													</div>
+												</div>
+											</article>
+											<article>
+												<div class="flex items-center gap-6 mb-[30px]">
+													<h2 class="heading-title">
+														<?php _e('TĂNG TRƯỞNG', 'bsc') ?>
+													</h2>
+													<?php
+													if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG) {
+														if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'A') {
+															$class_rank = 'text-[#F90] bg-gradient-yellow-50';
+															$medal_rank = 'gold';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'B') {
+															$class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+															$medal_rank = 'sliver';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'C') {
+															$class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+															$medal_rank = 'bronze';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'D') {
+															$medal_rank = 'sliver-2';
+															$class_rank = 'text-[#869299] bg-gradient-sliver-100';
+														}
+													?>
+														<p
+															class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+															<?php echo svg($medal_rank, '24', '24') ?>
+															<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG ?>
+														</p>
+													<?php } ?>
+												</div>
+												<div class="rounded-lg overflow-hidden mb-10">
+													<table
+														class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+														<thead>
+															<tr>
+																<th class="!pl-9">Mã CK</th>
+																<th>TT Doanh thu</th>
+																<th>TT LNST</th>
+																<th>TT EPS</th>
+																<th>Xếp hạng TT</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+																<td class="!pl-9"><a href="">BSI</a></td>
+																<td>0.20</td>
+																<td>1.94</td>
+																<td>4.14</td>
+																<td>0.41</td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+												<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															TĂNG TRƯỞNG DOANH THU (%)
+														</h4>
+														<div id="growth-chart-1" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															TĂNG TRƯỞNG EPS (%)
+														</h4>
+														<div id="growth-chart-2" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															TĂNG TRƯỞNG LỢI NHUẬN (%)
+														</h4>
+														<div id="growth-chart-3" class="legend-gap">
+
+														</div>
+													</div>
+												</div>
+											</article>
+											<article>
+												<div class="flex items-center gap-6 mb-[30px]">
+													<h2 class="heading-title">
+														<?php _e('HIỆU QUẢ HOẠT ĐỘNG', 'bsc') ?>
+													</h2>
+													<?php
+													if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG) {
+														if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'A') {
+															$class_rank = 'text-[#F90] bg-gradient-yellow-50';
+															$medal_rank = 'gold';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'B') {
+															$class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+															$medal_rank = 'sliver';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'C') {
+															$class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+															$medal_rank = 'bronze';
+														} elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'D') {
+															$medal_rank = 'sliver-2';
+															$class_rank = 'text-[#869299] bg-gradient-sliver-100';
+														}
+													?>
+														<p
+															class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+															<?php echo svg($medal_rank, '24', '24') ?>
+															<?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG ?>
+														</p>
+													<?php } ?>
+												</div>
+
+												<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															VÒNG QUAY KHOẢN PHẢI THU (LẦN)
+														</h4>
+														<div id="effective-chart-1" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
+														</h4>
+														<div id="effective-chart-2" class="legend-gap">
+
+														</div>
+													</div>
+													<div class="space-y-6">
+														<h4
+															class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+															VÒNG QUAY HÀNG TỒN KHO (LẦN)
+														</h4>
+														<div id="effective-chart-3" class="legend-gap">
+
+														</div>
+													</div>
+												</div>
+											</article>
+										</div>
+									<?php } ?>
 								</div>
-								<div class="rounded-lg overflow-hidden mb-10">
-									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-										<thead>
-											<tr>
-												<th class="!pl-9">Mã CK</th>
-												<th>Biên LNG</th>
-												<th>Biên LNTT</th>
-												<th>Biên LNST</th>
-												<th>ROE</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-												<td class="!pl-9"><a href="">BSI</a></td>
-												<td>46,44%</td>
-												<td>37,80%</td>
-												<td>30,67%</td>
-												<td>9,24%</td>
-											</tr>
-
-										</tbody>
-									</table>
-								</div>
-								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											BIÊN LỢI NHUẬN GỘP (%)
-										</h4>
-										<div id="profit-chart-1" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											BIÊN LỢI NHUẬN SAU THUẾ (%)
-										</h4>
-										<div id="profit-chart-2" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											ROE (%)
-										</h4>
-										<div id="profit-chart-3" class="legend-gap">
-
-										</div>
-									</div>
-								</div>
-							</article>
-							<article>
-								<div class="flex items-center gap-6 mb-[30px]">
-									<h2 class="heading-title">
-										SỨC KHỎE
-									</h2>
-									<p
-										class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#4F4F4F] bg-gradient-sliver-50">
-										<?php echo svg('sliver', '24', '24') ?>
-										Hạng B
-									</p>
-								</div>
-								<div class="rounded-lg overflow-hidden mb-10">
-									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-										<thead>
-											<tr>
-												<th class="!pl-9">Mã CK</th>
-												<th>CSTT nhanh</th>
-												<th>CSTT hiện tại</th>
-												<th>CSTT lãi vay</th>
-												<th>Nợ vay TTS</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-												<td class="!pl-9"><a href="">BSI</a></td>
-												<td>0.20</td>
-												<td>1.94</td>
-												<td>4.14</td>
-												<td>0.41</td>
-											</tr>
-
-										</tbody>
-									</table>
-								</div>
-								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
-										</h4>
-										<div id="health-chart-1" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											NỢ VAY/ TỔNG TÀI SẢN
-										</h4>
-										<div id="health-chart-2" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											TỶ LỆ THANH TOÁN LÃI VAY
-										</h4>
-										<div id="health-chart-3" class="legend-gap">
-
-										</div>
-									</div>
-								</div>
-							</article>
-							<article>
-								<div class="flex items-center gap-6 mb-[30px]">
-									<h2 class="heading-title">
-										TĂNG TRƯỞNG
-									</h2>
-									<p
-										class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#A87E5C] bg-gradient-bronze-50">
-										<?php echo svg('bronze', '24', '24') ?>
-										Hạng C
-									</p>
-								</div>
-								<div class="rounded-lg overflow-hidden mb-10">
-									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-										<thead>
-											<tr>
-												<th class="!pl-9">Mã CK</th>
-												<th>TT Doanh thu</th>
-												<th>TT LNST</th>
-												<th>TT EPS</th>
-												<th>Xếp hạng TT</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-												<td class="!pl-9"><a href="">BSI</a></td>
-												<td>0.20</td>
-												<td>1.94</td>
-												<td>4.14</td>
-												<td>0.41</td>
-											</tr>
-
-										</tbody>
-									</table>
-								</div>
-								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											TĂNG TRƯỞNG DOANH THU (%)
-										</h4>
-										<div id="growth-chart-1" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											TĂNG TRƯỞNG EPS (%)
-										</h4>
-										<div id="growth-chart-2" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											TĂNG TRƯỞNG LỢI NHUẬN (%)
-										</h4>
-										<div id="growth-chart-3" class="legend-gap">
-
-										</div>
-									</div>
-								</div>
-							</article>
-							<article>
-								<div class="flex items-center gap-6 mb-[30px]">
-									<h2 class="heading-title">
-										HIỆU QUẢ HOẠT ĐỘNG
-									</h2>
-									<p
-										class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#869299] bg-gradient-sliver-100">
-										<?php echo svg('sliver-2', '24', '24') ?>
-										Hạng D
-									</p>
-								</div>
-
-								<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											VÒNG QUAY KHOẢN PHẢI THU (LẦN)
-										</h4>
-										<div id="effective-chart-1" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
-										</h4>
-										<div id="effective-chart-2" class="legend-gap">
-
-										</div>
-									</div>
-									<div class="space-y-6">
-										<h4
-											class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-											VÒNG QUAY HÀNG TỒN KHO (LẦN)
-										</h4>
-										<div id="effective-chart-3" class="legend-gap">
-
-										</div>
-									</div>
-								</div>
-							</article>
-						</div>
+						<?php }
+						} ?>
 					</div>
 				</div>
 				<div class="tab-content hidden" id="tab-4">

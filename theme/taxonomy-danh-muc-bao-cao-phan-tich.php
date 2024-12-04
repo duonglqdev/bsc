@@ -248,7 +248,7 @@
                         ?>
                         <?php
                         $check_logout = bsc_is_user_logged_out();
-                        $class = $check_logout ? 'blur-sm' : '';
+                        $class = $check_logout['html'];
                         $type_danh_muc = get_field('type_danh_muc', get_queried_object());
                         if ($type_danh_muc == 'thitruong') {
                             $array_data_thitruong = array();
@@ -329,7 +329,7 @@
                                             </div>
                                         </div>
                                         <?php if ($check_logout) {
-                                            echo $result['html'];
+                                            echo $check_logout['html'];
                                         } ?>
                                     </div>
                                 </div>
@@ -545,10 +545,10 @@
                             $response_GetForecastBussinessResults = get_data_with_cache('GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache);
                             if ($response_GetForecastBussinessResults) {
                             ?>
-                                <div class="mt-10 mb-[82px]">
+                                <div class="mt-10 mb-[82px] relative">
                                     <h2 class="font-bold text-2xl"><?php _e('Dự báo KQKD', 'bsc') ?></h2>
                                     <div
-                                        class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4]">
+                                        class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4] <?php echo $class ?>">
                                         <div
                                             class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
                                             <div class="w-[15%]">
@@ -606,8 +606,10 @@
                                             }
                                             ?>
                                         </div>
-
                                     </div>
+                                    <?php if ($check_logout) {
+                                        echo $check_logout['html'];
+                                    } ?>
                                 </div>
                             <?php } ?>
                             <?php
@@ -691,7 +693,7 @@
                                             </div>
                                         </div>
                                         <?php if ($check_logout) {
-                                            echo $result['html'];
+                                            echo $check_logout['html'];
                                         } ?>
                                     </div>
                                 </div>
