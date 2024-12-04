@@ -1,74 +1,132 @@
+<?php
+$current_date = new DateTime( current_time( 'Y-m-d' ) );
+if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
+{
+	$class = "text-[#F1F1F1] bg-[#CCCCCC]";
+	$label = __( 'Hết hạn', 'bsc' );
+} elseif ( get_field( 'check_tuyen_gap' ) )
+{
+	$class = "text-[#F9162A] bg-[#FFB2B9]";
+	$label = __( 'Tuyển gấp', 'bsc' );
+} else
+{
+	$class = "text-[#30D158] bg-[#B5F8C5]";
+	$label = __( 'Đang tuyển', 'bsc' );
+}
+?>
 <div
-    class="job_item grid lg:grid-cols-9 gap-5 font-Helvetica mb-[30px] pb-[30px] border-b border-[#C3C3C3]">
-    <div class="col-span-3 job_title lg:mr-5">
-        <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Vị trí ứng tuyển', 'bsc') ?></p>
-        <h4
-            class="font-bold text-lg transition-all duration-500 hover:text-primary-300">
-            <a href="<?php the_permalink() ?>" class="line-clamp-3">
-                <?php the_title() ?>
-            </a>
-        </h4>
-    </div>
-    <div class="col-span-1">
-        <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Kinh nghiệm', 'bsc') ?></p>
-        <p class="font-bold text-lg job_exp">
-            <?php the_field('kinh_nghiem_td') ?>
-        </p>
-    </div>
-    <div class="col-span-1 ">
-        <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Nơi làm việc', 'bsc') ?></p>
-        <p class="font-bold text-lg job_location">
-            <?php
-            $post_id = get_the_ID();
-            $noi_lam_viec = get_the_terms($post->ID, 'noi-lam-viec');
-            if ($noi_lam_viec) {
-                echo $noi_lam_viec[0]->name;
-            }
-            ?>
-        </p>
-    </div>
-    <div class="col-span-1">
-        <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Số lượng tuyển', 'bsc') ?></p>
-        <p class="font-bold text-lg job_number">
-            <?php the_field('so_luong') ?>
-        </p>
-    </div>
-    <?php $deadline = get_field('deadline');
-    $deadline_date = DateTime::createFromFormat('Ymd', $deadline); ?>
-    <div class="col-span-1 ">
-        <p class="mb-4 text-gray-100 font-medium text-xs"><?php _e('Hạn nộp hồ sơ', 'bsc') ?></p>
-        <p class="font-bold text-lg job_date">
-            <?php
-            if ($deadline_date) {
-                echo $deadline_date->format('d/m/Y');
-            }
-            ?>
-        </p>
-    </div>
-    <?php
-    $current_date = new DateTime(current_time('Y-m-d'));
-    if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
-        $class = "text-[#F1F1F1] bg-[#CCCCCC]";
-        $label = __('Hết hạn', 'bsc');
-    } elseif (get_field('check_tuyen_gap')) {
-        $class = "text-[#F9162A] bg-[#FFB2B9]";
-        $label = __('Tuyển gấp', 'bsc');
-    } else {
-        $class = "text-[#30D158] bg-[#B5F8C5]";
-        $label = __('Đang tuyển', 'bsc');
-    }
-    ?>
-    <div class="col-span-1 job_status m-auto">
-        <div
-            class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
-            <?php echo  $label ?>
-        </div>
-    </div>
-    <div class="col-span-1 ml-auto my-auto">
-        <a href="<?php the_permalink() ?>"
-            class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
-            <?php _e('Xem chi tiết', 'bsc') ?>
-            <?php echo svg('arrow-btn', '12', '12') ?>
-        </a>
-    </div>
+	class="job_item font-Helvetica  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid grid-cols-9 gap-5 mb-[30px] pb-[30px] border-b border-[#C3C3C3]' :'mb-6 pb-6 border-b border-[#C9CCD2]' ?>">
+	<div
+		class="job_title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3 mr-5' : '' ?>">
+		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+		{ ?>
+			<p
+				class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+				<?php _e( 'Vị trí ứng tuyển', 'bsc' ) ?></p>
+		<?php } ?>
+		<h4
+			class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg transition-all duration-500 hover:text-primary-300' : 'text-base text-primary-400 mb-[12px]' ?>">
+			<a href="<?php the_permalink() ?>" class="line-clamp-3">
+				<?php the_title() ?>
+			</a>
+		</h4>
+	</div>
+	<?php if ( wp_is_mobile() && bsc_is_mobile() )
+	{ ?>
+		<div class="mb-5 job_status ">
+			<div
+				class="urgent inline-block rounded-full px-2 py-1 font-bold min-w-[88px] text-center text-[12px] <?php echo $class ?> ">
+				<?php echo $label ?>
+			</div>
+		</div>
+	<?php } ?>
+	<div
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		<p
+			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+				<?php _e( 'Kinh nghiệm', 'bsc' ) ?>
+			<?php else : ?>
+				<?php _e( 'Kinh nghiệm:', 'bsc' ) ?>
+			<?php endif; ?>
+		</p>
+		<p class="font-bold job_exp <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+			<?php the_field( 'kinh_nghiem_td' ) ?>
+		</p>
+	</div>
+	<div
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		<p
+			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+				<?php _e( 'Nơi làm việc', 'bsc' ) ?>
+			<?php else : ?>
+				<?php _e( 'Nơi làm việc:', 'bsc' ) ?>
+			<?php endif; ?>
+
+		</p>
+		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+			<?php
+			$post_id = get_the_ID();
+			$noi_lam_viec = get_the_terms( $post->ID, 'noi-lam-viec' );
+			if ( $noi_lam_viec )
+			{
+				echo $noi_lam_viec[0]->name;
+			}
+			?>
+		</p>
+	</div>
+	<div
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		<p
+			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+				<?php _e( 'Số lượng tuyển', 'bsc' ) ?>
+			<?php else : ?>
+				<?php _e( 'Số lượng tuyển:', 'bsc' ) ?>
+			<?php endif; ?>
+		</p>
+		<p class="font-bold job_number <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+			<?php the_field( 'so_luong' ) ?>
+		</p>
+	</div>
+	<?php $deadline = get_field( 'deadline' );
+	$deadline_date = DateTime::createFromFormat( 'Ymd', $deadline ); ?>
+	<div
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		<p
+			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+				<?php _e( 'Hạn nộp hồ sơ', 'bsc' ) ?>
+			<?php else : ?>
+				<?php _e( 'Hạn nộp hồ sơ:', 'bsc' ) ?>
+			<?php endif; ?>
+		</p>
+		<p class="font-bold job_date <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+			<?php
+			if ( $deadline_date )
+			{
+				echo $deadline_date->format( 'd/m/Y' );
+			}
+			?>
+		</p>
+	</div>
+
+
+	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+	{ ?>
+		<div class="col-span-1 job_status m-auto">
+			<div
+				class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
+				<?php echo $label ?>
+			</div>
+		</div>
+	<?php } ?>
+	<div class="col-span-1 ml-auto my-auto">
+		<a href="<?php the_permalink() ?>"
+			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
+			<?php _e( 'Xem chi tiết', 'bsc' ) ?>
+			<?php echo svg( 'arrow-btn', '12', '12' ) ?>
+		</a>
+	</div>
 </div>
