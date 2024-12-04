@@ -266,10 +266,10 @@
 				@apply -translate-x-[20px] translate-y-5;
 			}
 			&:nth-child(3) {
-				@apply translate-x-[130px] -translate-y-[60px];
+				@apply translate-x-[63%] -translate-y-[30%];
 			}
 			&:nth-child(4) {
-				@apply -translate-x-1 translate-y-20;
+				@apply -translate-x-[12%] translate-y-[35%];
 			}
 		}
 	}
@@ -472,7 +472,8 @@ header {
 .community_nav {
 	&-item {
 		&.active {
-			> svg {
+			.com-svg {
+				
 				.com-svg-path {
 					fill: url(#gradientFill);
 				}
@@ -487,7 +488,8 @@ header {
 				}
 			}
 		}
-		> svg {
+		.com-svg {
+			@apply absolute w-full h-full inset-0;
 			.com-svg-path {
 				fill: white;
 			}

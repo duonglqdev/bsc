@@ -324,10 +324,10 @@
   @apply -translate-x-[20px] translate-y-5;
 }
 .style-mb .community_nav-item:nth-child(3) {
-  @apply translate-x-[130px] -translate-y-[60px];
+  @apply translate-x-[63%] -translate-y-[30%];
 }
 .style-mb .community_nav-item:nth-child(4) {
-  @apply -translate-x-1 translate-y-20;
+  @apply -translate-x-[12%] translate-y-[35%];
 }
 
 svg {
@@ -517,7 +517,7 @@ header.active {
   background-size: 16px !important;
 }
 
-.community_nav-item.active > svg .com-svg-path {
+.community_nav-item.active .com-svg .com-svg-path {
   fill: url(#gradientFill);
 }
 .community_nav-item.active .icon svg path {
@@ -525,7 +525,10 @@ header.active {
   fill: #fff;
   stroke: #fff;
 }
-.community_nav-item > svg .com-svg-path {
+.community_nav-item .com-svg {
+  @apply absolute w-full h-full inset-0;
+}
+.community_nav-item .com-svg .com-svg-path {
   fill: white;
 }
 

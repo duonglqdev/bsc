@@ -10,7 +10,7 @@
     <main>
         <?php get_template_part('components/page-banner') ?>
         <?php if (have_rows('menu_navigation', get_queried_object())) { ?>
-            <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+            <section class="2xl:py-4 py-3 bg-primary-50 sticky z-50 top-0">
                 <div class="container">
                     <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
                         <?php while (have_rows('menu_navigation', get_queried_object())): the_row(); ?>
