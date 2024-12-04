@@ -11,6 +11,8 @@
 		wp_redirect(home_url('/404'), 301);
 		exit;
 	}
+	$check_logout = bsc_is_user_logged_out();
+	$class = $check_logout['class'];
 	get_header();
 	?>
 	<main>
@@ -1437,67 +1439,223 @@
 					</div>
 				</div>
 				<div class="tab-content hidden" id="tab-4">
-					<div class="flex items-end justify-between mt-16">
-						<div
-							class="flex items-center gap-10 relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
-							<div class="flex flex-col gap-1">
-								<p class="font-Helvetica text-xs">Giá mục tiêu</p>
-								<strong class="lg:text-[32px] text-2xl text-primary-300">50.300</strong>
+					<?php
+					$array_data_GetForecastBussiness = array(
+						'lang' => pll_current_language(),
+						'symbol' => $symbol,
+					);
+					$response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
+					if ($response_GetForecastBussiness) {
+						$response_GetForecastBussiness_d2 = array_reverse($response_GetForecastBussiness->d2, true);
+					?>
+						<div class="relative">
+							<div class="<?php echo $class ?>">
+								<div class="flex items-end justify-between mt-16">
+									<div
+										class="flex items-center gap-10 relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
+										<?php if ($response_GetForecastBussiness->d1[0]->PRICE) { ?>
+											<div class="flex flex-col gap-1">
+												<p class="font-Helvetica text-xs"><?php _e('Giá mục tiêu', 'bsc') ?></p>
+												<strong class="lg:text-[32px] text-2xl text-primary-300"><?php echo number_format($response_GetForecastBussiness->d1[0]->PRICE) ?></strong>
+											</div>
+										<?php } ?>
+										<?php
+										if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) {
+											$status = $response_GetForecastBussiness->d1[0]->RECOMMENDATION;
+											$check_status = get_color_by_number_bsc($status);
+											$title_status = $check_status['title_status'];
+											$text_status = $check_status['text_status'];
+											$background_status = $check_status['background_status'];
+										?>
+											<span
+												class="inline-block min-w-[140px] text-center py-2 px-6 rounded-lg text-xl font-bold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+												<?php echo $title_status; ?>
+											</span>
+										<?php } ?>
+									</div>
+									<a href=""
+										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+										<?php _e('Xem chi tiết', 'bsc') ?>
+										<?php echo svg('arrow-btn', '12', '12') ?>
+									</a>
+								</div>
+								<div class="rounded-lg overflow-hidden relative mt-10">
+									<table
+										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium ">
+										<thead>
+											<tr>
+												<th></th>
+												<?php foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+													$date = new DateTime($GetForecastBussiness->REPORT_DATE);
+												?>
+													<th><?php echo $date->format('Y'); ?></th>
+												<?php } ?>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Doanh thu (tỷ đồng)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->NET_REV) {
+															echo number_format($GetForecastBussiness->NET_REV / 1000000000);
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->TANG_TRUONG_DT) {
+															echo number_format($GetForecastBussiness->TANG_TRUONG_DT / 1000000000);
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->LNST_CONG_TY_ME) {
+															echo number_format($GetForecastBussiness->LNST_CONG_TY_ME / 1000000000);
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->TANG_TRUONG_LS) {
+															echo number_format($GetForecastBussiness->TANG_TRUONG_LS / 1000000000);
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('EPS (VND)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->EPS) {
+															echo number_format($GetForecastBussiness->EPS);
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->TANG_TRUONG_EPS) {
+															echo number_format($GetForecastBussiness->TANG_TRUONG_EPS, '2', '.', ',');
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('ROE (%)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->ROE) {
+															echo number_format($GetForecastBussiness->ROE * 100, '2', '.', ',') . '%';
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('ROA (%)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->ROA) {
+															echo number_format($GetForecastBussiness->ROA * 100, '2', '.', ',') . '%';
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('P/E (x)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->PE) {
+															echo number_format($GetForecastBussiness->PE, '2', '.', ',');
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('P/B (x)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->PB) {
+															echo number_format($GetForecastBussiness->PB, '2', '.', ',');
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+												<td class="font-bold !pl-[30px]"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
+												<?php
+												foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+												?>
+													<td><?php
+														if ($GetForecastBussiness->HS_CO_PHIEU) {
+															echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
+														}
+														?></td>
+												<?php
+												}
+												?>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
-							<span
-								class="inline-block min-w-[140px] text-center py-2 px-6 text-[#30D158] bg-[#D6F6DE] rounded-lg text-xl font-bold">
-								Mua
-							</span>
+							<?php if ($check_logout) {
+								echo $check_logout['html'];
+							} ?>
 						</div>
-						<a href=""
-							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
-							Xem chi tiết
-							<?php echo svg('arrow-btn', '12', '12') ?>
-						</a>
-					</div>
-					<div class="rounded-lg overflow-hidden relative mt-10">
-						<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
-						<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium blur-sm">
-							<thead>
-								<tr>
-									<th></th>
-									<th>2021</th>
-									<th>2022</th>
-									<th>2023</th>
-									<th>2024</th>
-									<th>2025</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-								for ($i = 0; $i < 11; $i++) {
-								?>
-									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-										<td class="font-bold !pl-[30px]">Doanh thu (tỷ đồng)</td>
-										<td>4,380</td>
-										<td>4,899</td>
-										<td>4,495</td>
-										<td>4,893</td>
-										<td>5,277</td>
-									</tr>
-								<?php
-								}
-								?>
-							</tbody>
-						</table>
-						<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-						<div
-							class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-							<a href="#"
-								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
-								Đăng nhập
-							</a>
-							<p class="italic mt-4 font-normal">
-								Để xem chi tiết danh mục
-							</p>
-						</div>
-					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</section>

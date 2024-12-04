@@ -11,15 +11,6 @@
             $khoi_template = get_field('khoi_template', $term);
         }
     }
-    $login_to_view = false;
-    $viewerpermission = $news->viewerpermission;
-    if ($viewerpermission == 'USER_BSC') {
-        $datetimeopen = $news->datetimeopen;
-        if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
-        } else {
-            $login_to_view = true;
-        }
-    }
 ?>
     <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
         <div class="flex items-center justify-between mb-4">
@@ -89,8 +80,20 @@
             <p class="italic text-paragraph text-xs font-Helvetica">
                 <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
-            <?php if ($news->reporturl) { ?>
-                <a href="<?php echo $news->reporturl ?>" target="_blank"
+            <?php if ($news->reporturl) {
+                $url_download = $news->reporturl;
+                $viewerpermission = $news->viewerpermission;
+                if ($viewerpermission == 'USER_BSC') {
+                    $datetimeopen = $news->datetimeopen;
+                    if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
+                    } else {
+                        if (bsc_is_user_logged_out()) {
+                            $url_download = bsc_url_sso();
+                        }
+                    }
+                }
+            ?>
+                <a href="<?php echo $url_download ?>" target="_blank"
                     class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
                     <?php _e('Tải xuống', 'bsc') ?>
                     <?php echo svg('download', '20', '20') ?>

@@ -5,15 +5,6 @@ if ($args['data']) {
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $link = 'javascript:void(0)';
     $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
-    $login_to_view = false;
-    $viewerpermission = $news->viewerpermission;
-    if ($viewerpermission == 'USER_BSC') {
-        $datetimeopen = $news->datetimeopen;
-        if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
-        } else {
-            $login_to_view = true;
-        }
-    }
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
         if ($categoryid == $danh_muc_khuyen_nghi) {
@@ -136,9 +127,21 @@ get_header();
                                 <?php } ?>
                             </div>
                         <?php } ?>
-                        <?php if ($news->reporturl) { ?>
+                        <?php if ($news->reporturl) {
+                            $url_download = $news->reporturl;
+                            $viewerpermission = $news->viewerpermission;
+                            if ($viewerpermission == 'USER_BSC') {
+                                $datetimeopen = $news->datetimeopen;
+                                if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
+                                } else {
+                                    if (bsc_is_user_logged_out()) {
+                                        $url_download = bsc_url_sso();
+                                    }
+                                }
+                            }
+                        ?>
                             <div class="mt-6">
-                                <a href="<?php echo $news->reporturl ?>"
+                                <a href="<?php echo $url_download ?>"
                                     class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
                                     <?php _e('Tải xuống', 'bsc') ?>
                                 </a>

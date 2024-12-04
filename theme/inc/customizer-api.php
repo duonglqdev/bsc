@@ -44,7 +44,7 @@ function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = 'htt
         }
         $url = $url_end . $endpoint . '?' . http_build_query($array_data);
         $response = callApi($url);
-        if (is_object($response) && $response->s == "ok" && !empty($response->d)) {
+        if (is_object($response) && $response->s == "ok") {
             wp_cache_set($cache_key, $response, '', $ttl);
             return $response;
         }
@@ -414,6 +414,14 @@ add_filter('rank_math/opengraph/image', function ($image) {
  * Xử lý login  BSC
  */
 //Check login
+function bsc_url_sso()
+{
+    $redirect_uri = get_home_url() . '/callback';
+    $client_id = 'L2B6V5LX1S';
+    $current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
+    $url = "https://trading-uat.bsjsc.com.vn/sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
+    return $url;
+}
 function bsc_is_user_logged_out()
 {
     if (isset($_COOKIE['access_token'])) {
@@ -427,10 +435,10 @@ function bsc_is_user_logged_out()
         }
     }
     return [
-        'class' => 'blur-sm',
+        'class' => 'blur-lg',
         'html' => '
             <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-                <a href="https://trading-uat.bsjsc.com.vn/sso/oauth/authorize?client_id=L2B6V5LX1S&response_type=code&redirect_uri=' . get_home_url() . '/callback&scope=general&ui_locales=' . pll_current_language() . '&state=' . urlencode(home_url($_SERVER['REQUEST_URI'])) . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+                <a href="' . bsc_url_sso() . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
                     ' . __('Đăng nhập', 'bsc') . '
                 </a>
                 <p class="italic mt-4 font-normal">
@@ -483,9 +491,9 @@ function bsc_handle_sso_callback()
         if (isset($data['access_token'])) {
             $access_token = $data['access_token'];
             $user_logged_in_key = 'user_logged_in_' . md5($access_token);
-            set_transient($user_logged_in_key, true, 30 * MINUTE_IN_SECONDS);
+            set_transient($user_logged_in_key, true, 60 * MINUTE_IN_SECONDS);
             // Lưu vào cookie
-            setcookie('access_token', $access_token, time() + 30 * 60, COOKIEPATH, COOKIE_DOMAIN);
+            setcookie('access_token', $access_token, time() + 60 * 60, COOKIEPATH, COOKIE_DOMAIN);
             $redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
             wp_redirect($redirect_url);
             exit;
