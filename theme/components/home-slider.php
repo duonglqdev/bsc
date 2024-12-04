@@ -4,7 +4,7 @@ if ( have_rows( 'slider' ) )
 {
 	?>
 	<section class="home__banner dots-white block_slider-show-1"
-		data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+		data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":4000,"selectedAttraction": 0.01,"friction": 0.2}'
 		<?php if ( $id_class )
 		{ ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while ( have_rows( 'slider' ) ) :

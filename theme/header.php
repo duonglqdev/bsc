@@ -105,7 +105,7 @@
 								class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
 								<?php echo svg( 'global', '24', '24' ) ?>
 								<?php echo pll_current_language(); ?>
-								<?php echo svg( 'down' ) ?>
+								<?php echo svgpath( 'down','','','fill-white' ) ?>
 							</button>
 						<?php } ?>
 					</div>
