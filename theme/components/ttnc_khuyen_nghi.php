@@ -7,6 +7,7 @@ $response_instruments = get_data_with_cache('instruments', $array_data_instrumen
 if ($response_instruments) {
     $response_instruments_array = $response_instruments->d;
 }
+$class = $check_logout['class'];
 ?>
 <section class="mt-14 xl:mb-pb-[110px] mb-20 ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -42,7 +43,6 @@ if ($response_instruments) {
                         <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                             id="<?php echo $tab ?>-<?php echo $i ?>">
                             <div class="relative 2xl:pt-[76.2416%] pt-[80%] w-full rounded-lg overflow-hidden">
-                                <?php $class = $check_logout['html']; ?>
                                 <div class="absolute w-full h-full inset-0 <?php echo $class ?>">
                                     <ul
                                         class="flex items-center font-bold text-center text-white bg-primary-300 prose-li:p-3 py-[7px] gap-5 2xl:px-[30px] px-5 justify-between">

@@ -5,6 +5,15 @@ if ($args['data']) {
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $link = 'javascript:void(0)';
     $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
+    $login_to_view = false;
+    $viewerpermission = $news->viewerpermission;
+    if ($viewerpermission == 'USER_BSC') {
+        $datetimeopen = $news->datetimeopen;
+        if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
+        } else {
+            $login_to_view = true;
+        }
+    }
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
         if ($categoryid == $danh_muc_khuyen_nghi) {

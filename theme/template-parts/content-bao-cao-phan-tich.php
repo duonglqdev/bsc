@@ -11,6 +11,15 @@
             $khoi_template = get_field('khoi_template', $term);
         }
     }
+    $login_to_view = false;
+    $viewerpermission = $news->viewerpermission;
+    if ($viewerpermission == 'USER_BSC') {
+        $datetimeopen = $news->datetimeopen;
+        if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
+        } else {
+            $login_to_view = true;
+        }
+    }
 ?>
     <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
         <div class="flex items-center justify-between mb-4">

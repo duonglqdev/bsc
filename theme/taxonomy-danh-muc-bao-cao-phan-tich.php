@@ -248,7 +248,7 @@
                         ?>
                         <?php
                         $check_logout = bsc_is_user_logged_out();
-                        $class = $check_logout['html'];
+                        $class = $check_logout['class'];
                         $type_danh_muc = get_field('type_danh_muc', get_queried_object());
                         if ($type_danh_muc == 'thitruong') {
                             $array_data_thitruong = array();

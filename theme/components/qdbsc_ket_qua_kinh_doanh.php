@@ -1,6 +1,6 @@
 <?php
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout['html'];
+$class = $check_logout['class'];
 ?>
 <section class="xl:my-[100px] my-20 qdbsc_ket_qua_kinh_doanh" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
