@@ -1,6 +1,6 @@
 <?php
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout ? 'blur-sm' : '';
+$class = $check_logout['html'];
 ?>
 <section class="mt-[54px] mb-[100px] qdbsc_vi_mo" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
@@ -85,7 +85,7 @@ $class = $check_logout ? 'blur-sm' : '';
                     </div>
                 </div>
                 <?php if ($check_logout) {
-                    echo $result['html'];
+                    echo $check_logout['html'];
                 } ?>
             </div>
         <?php } ?>

@@ -430,7 +430,7 @@ function bsc_is_user_logged_out()
         'class' => 'blur-sm',
         'html' => '
             <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-                <a href="https://<urlSSO>/sso/oauth/authorize?client_id=L2B6V5LX1S&response_type=code&redirect_uri=' . get_home_url() . '/callback&scope=general&ui_locales=' . pll_current_language() . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+                <a href="https://trading-uat.bsjsc.com.vn/sso/oauth/authorize?client_id=L2B6V5LX1S&response_type=code&redirect_uri=' . get_home_url() . '/callback&scope=general&ui_locales=' . pll_current_language() . '&state=' . urlencode(home_url($_SERVER['REQUEST_URI'])) . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
                     ' . __('Đăng nhập', 'bsc') . '
                 </a>
                 <p class="italic mt-4 font-normal">
@@ -456,7 +456,7 @@ function bsc_handle_sso_callback()
         $redirect_uri = get_home_url() . '/callback';
         $client_id = 'L2B6V5LX1S';
         $client_secret = 'dn8O1K4LSPUEN1FXFt5EhXrsKZVHZS';
-        $token_url = '<urlApi>/sso/oauth/token';
+        $token_url = 'https://trading-uat.bsjsc.com.vn/sso/oauth/token';
 
         // Gửi yêu cầu lấy access_token
         $response = wp_remote_post($token_url, [
@@ -484,7 +484,10 @@ function bsc_handle_sso_callback()
             $access_token = $data['access_token'];
             $user_logged_in_key = 'user_logged_in_' . md5($access_token);
             set_transient($user_logged_in_key, true, 30 * MINUTE_IN_SECONDS);
-            wp_redirect(home_url());
+            // Lưu vào cookie
+            setcookie('access_token', $access_token, time() + 30 * 60, COOKIEPATH, COOKIE_DOMAIN);
+            $redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
+            wp_redirect($redirect_url);
             exit;
         } else {
             // wp_die('Lỗi khi lấy token: ' . $body);
