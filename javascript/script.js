@@ -300,32 +300,45 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.community_content-bg').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			arrows: false,
-			fade: true,
-			asNavFor: '.community_content-list',
-		});
-
-		$('.community_content-list').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			dots: true,
-			arrows: false,
-			fade: true,
-			asNavFor: '.community_content-bg',
-
-			customPaging: function (slider, i) {
-				return '<span class="dot"></span>';
-			},
-		});
+		if ($('.community_content-bg').hasClass('pc')) {
+			$('.community_content-bg').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.community_content-list',
+			});
+		
+			$('.community_content-list').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: true,
+				arrows: false,
+				fade: true,
+				asNavFor: '.community_content-bg',
+				customPaging: function (slider, i) {
+					return '<span class="dot"></span>';
+				},
+			});
+		} else {
+			$('.community_content-list').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: false,
+				arrows: false,
+				fade: true,
+			});
+		}
+		
 
 		$('.community_nav-item[data-index="1"]').addClass('active');
 		$('.community_nav-item').on('click mouseenter', function () {
 			var index = $(this).data('index');
 
-			$('.community_content-bg').slick('slickGoTo', index);
+			if ($('.community_content-bg').hasClass('pc')) {
+				$('.community_content-bg').slick('slickGoTo', index);
+			}
+
 			$('.community_content-list').slick('slickGoTo', index);
 
 			$('.community_nav-item').removeClass('active');
