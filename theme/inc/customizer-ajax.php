@@ -433,417 +433,406 @@ function filter_details_symbol()
     $symbol = isset($_POST['symbol']) ? $_POST['symbol'] : '';
     $type_form = isset($_POST['type_form']) ? $_POST['type_form'] : '1';
     $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
-    if ($type_form == '1') {
+    $check_logout = bsc_is_user_logged_out();
+    $class = $check_logout['class'];
+    if ($type_form == 'lichsugiaodich') {
     ?>
-        <div class="lg:flex mt-10 lg:gap-[69px]">
-            <div class="lg:w-[744px] lg:max-w-[56%]">
-                <h2 class="heading-title mb-10">
-                    <?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
-                </h2>
-                <div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]" style="height:100%">
-                    <iframe width='100%' height='100%' src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light' frameBorder='0' allowFullScreen></iframe>
+        <?php
+        $current_date_ymd = date('Y-m-d');
+        $last_month_date_ymd = date('Y-m-d', strtotime('-1 month', strtotime($current_date_ymd)));
+        $array_data_secTradingHistory = json_encode([
+            'lang' => pll_current_language(),
+            'secCode' => $symbol,
+            'startDate' => $last_month_date_ymd,
+            'endDate' => $current_date_ymd
+        ]);
+        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+        if ($response_secTradingHistory) {
+            $data = json_decode($response_secTradingHistory->data, true);
+        ?>
+            <div
+                class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+                <div class="flex bg-primary-300 text-white">
+                    <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+                        <?php _e('Ngày', 'bsc') ?>
+                    </div>
+                    <div class="w-[152px] max-w-[30%] px-3 py-2">
+                        <?php _e('Thay đổi giá', 'bsc') ?>
+                    </div>
+                    <div class="w-[136px] max-w-[27%] px-3 py-2">
+                        <?php _e('KL khớp lệnh', 'bsc') ?>
+                    </div>
+                    <div class="flex-1 px-3 py-2">
+                        <?php _e('Tổng GTGD', 'bsc') ?>
+                    </div>
                 </div>
-            </div>
-            <div class="flex-1">
-                <h2 class="heading-title mb-10">
-                    <?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
-                </h2>
-                <ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
-                    <li>
-                        <button data-tabs="#lichsugiaodich"
-                            class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-                            <?php _e('Lịch sử GD', 'bsc') ?>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-tabs="#ndtnn"
-                            class="inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-                            <?php _e('NĐTNN', 'bsc') ?>
-                        </button>
-                    </li>
-                </ul>
-                <div class="tab-content block" id="lichsugiaodich">
+                <ul>
                     <?php
-                    $current_date_ymd = date('Y-m-d');
-                    $last_month_date_ymd = date('Y-m-d', strtotime('-1 month', strtotime($current_date_ymd)));
-                    $array_data_secTradingHistory = json_encode([
-                        'lang' => pll_current_language(),
-                        'secCode' => $symbol,
-                        'startDate' => $last_month_date_ymd,
-                        'endDate' => $current_date_ymd
-                    ]);
-                    $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
-                    if ($response_secTradingHistory) {
-                        $data = json_decode($response_secTradingHistory->data, true);
+                    $i = 0;
+                    foreach ($data as $record) {
+                        $i++;
+                        if ($i < 8) {
                     ?>
-                        <div
-                            class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
-                            <div class="flex bg-primary-300 text-white">
-                                <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-                                    <?php _e('Ngày', 'bsc') ?>
+                            <li
+                                class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+                                <div
+                                    class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+                                    <?php
+                                    if ($record['TRADE_DATE']) {
+                                        $date = new DateTime($record['TRADE_DATE']);
+                                        echo $date->format('d/m');
+                                    }
+                                    ?>
                                 </div>
-                                <div class="w-[152px] max-w-[30%] px-3 py-2">
-                                    <?php _e('Thay đổi giá', 'bsc') ?>
-                                </div>
-                                <div class="w-[136px] max-w-[27%] px-3 py-2">
-                                    <?php _e('KL khớp lệnh', 'bsc') ?>
-                                </div>
-                                <div class="flex-1 px-3 py-2">
-                                    <?php _e('Tổng GTGD', 'bsc') ?>
-                                </div>
-                            </div>
-                            <ul>
-                                <?php
-                                $i = 0;
-                                foreach ($data as $record) {
-                                    $i++;
-                                    if ($i < 8) {
-                                ?>
-                                        <li
-                                            class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-                                            <div
-                                                class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-                                                <?php
-                                                if ($record['TRADE_DATE']) {
-                                                    $date = new DateTime($record['TRADE_DATE']);
-                                                    echo $date->format('d/m');
-                                                }
-                                                ?>
-                                            </div>
-                                            <?php if ($record['CLOSE_PRICE'] && $record['REF_PRICE']) {
-                                                if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
-                                                    $text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
-                                                } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
-                                                    $text_color_class_GetForeignInvestors = 'text-[#FE5353]';
-                                                } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
-                                                    $text_color_class_GetForeignInvestors = 'text-[#EB0]';
-                                                } else {
-                                                    $text_color_class_GetForeignInvestors = '';
-                                                }
-                                                if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
-                                                    $first_GetForeignInvestors = '+';
-                                                    $icon_GetForeignInvestors = svg('up', '17', '17');
-                                                } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
-                                                    $first_GetForeignInvestors = '';
-                                                    $icon_GetForeignInvestors = '';
-                                                } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
-                                                    $first_GetForeignInvestors = '';
-                                                    $icon_GetForeignInvestors = svg('downn', '17', '17');
-                                                } else {
-                                                    $first_GetForeignInvestors = '';
-                                                    $icon_GetForeignInvestors = '';
-                                                }
-                                            }
-                                            ?>
-                                            <div
-                                                class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-                                                <p>
-                                                    <?php
-                                                    if ($record['CLOSE_PRICE']) {
-                                                        echo number_format(($record['CLOSE_PRICE'] - $record['REF_PRICE']) / 1000, 2, '.', '');
-                                                    }
-                                                    ?>
-                                                </p>
-                                                <p
-                                                    class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors     ?> font-Helvetica">
-                                                    <?php echo $icon_GetForeignInvestors ?>
-                                                    <?php echo number_format((($record['CLOSE_PRICE'] - $record['REF_PRICE']) / ($record['REF_PRICE'])) * 100, 2, '.', '') ?>%
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-                                                <?php echo number_format($record['TOT_VOLUME']) ?>
-                                            </div>
-                                            <div
-                                                class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-                                                <?php echo number_format($record['TOT_VALUE']) ?>
-                                            </div>
-                                        </li>
-                                <?php
+                                <?php if ($record['CLOSE_PRICE'] && $record['REF_PRICE']) {
+                                    if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
+                                        $text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
+                                    } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
+                                        $text_color_class_GetForeignInvestors = 'text-[#FE5353]';
+                                    } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
+                                        $text_color_class_GetForeignInvestors = 'text-[#EB0]';
+                                    } else {
+                                        $text_color_class_GetForeignInvestors = '';
+                                    }
+                                    if (($record['CLOSE_PRICE'] - $record['REF_PRICE']) > 0) {
+                                        $first_GetForeignInvestors = '+';
+                                        $icon_GetForeignInvestors = svg('up', '17', '17');
+                                    } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) == 0) {
+                                        $first_GetForeignInvestors = '';
+                                        $icon_GetForeignInvestors = '';
+                                    } elseif (($record['CLOSE_PRICE'] - $record['REF_PRICE']) < 0) {
+                                        $first_GetForeignInvestors = '';
+                                        $icon_GetForeignInvestors = svg('downn', '17', '17');
+                                    } else {
+                                        $first_GetForeignInvestors = '';
+                                        $icon_GetForeignInvestors = '';
                                     }
                                 }
                                 ?>
-                            </ul>
+                                <div
+                                    class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+                                    <p>
+                                        <?php
+                                        if ($record['CLOSE_PRICE']) {
+                                            echo number_format(($record['CLOSE_PRICE'] - $record['REF_PRICE']) / 1000, 2, '.', '');
+                                        }
+                                        ?>
+                                    </p>
+                                    <p
+                                        class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors     ?> font-Helvetica">
+                                        <?php echo $icon_GetForeignInvestors ?>
+                                        <?php echo number_format((($record['CLOSE_PRICE'] - $record['REF_PRICE']) / ($record['REF_PRICE'])) * 100, 2, '.', '') ?>%
+                                    </p>
+                                </div>
+                                <div
+                                    class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+                                    <?php echo number_format($record['TOT_VOLUME']) ?>
+                                </div>
+                                <div
+                                    class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+                                    <?php echo number_format($record['TOT_VALUE']) ?>
+                                </div>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
+                </ul>
 
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <?php if (get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option')) { ?>
+                    <a href="<?php echo get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option') . '?mck=' . $symbol ?>"
+                        class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+                        <?php _e('Xem tất cả', 'bsc') ?>
+                        <?php echo svg('arrow-btn', '20', '20') ?>
+                    </a>
+                <?php } ?>
+                <p class="font-medium text-xs font-Helvetica">
+                    <?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
+                </p>
+            </div>
+        <?php  } ?>
+    <?php
+    } elseif ($type_form == 'ndtnn') {
+    ?>
+        <?php
+        $current_date_dmy = date('d/m/Y');
+        $last_month_date_dmy = date('d/m/Y', strtotime('-1 month'));
+        $array_data_GetForeignInvestors = array(
+            'lang' => pll_current_language(),
+            'symbol' => $symbol,
+            'fromdate' => $last_month_date_dmy,
+            'todate' => $current_date_dmy
+        );
+        $response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
+        if ($response_GetForeignInvestors) {
+        ?>
+            <div
+                class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
+                <div class="flex bg-primary-300 text-white">
+                    <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+                        <?php _e('Ngày', 'bsc') ?>
+                    </div>
+                    <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+                        <?php _e('KL Mua', 'bsc') ?>
+                    </div>
+                    <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
+                        <?php _e('GT Mua', 'bsc') ?>
+                    </div>
+                    <div class="w-[136px] max-w-[27%] px-3 py-2">
+                        <?php _e('KL bán', 'bsc') ?>
+                    </div>
+                    <div class="flex-1 px-3 py-2">
+                        <?php _e('GT bán', 'bsc') ?>
+                    </div>
+                </div>
+                <ul>
+                    <?php
+                    $i_GetForeignInvestors = 0;
+                    foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
+                        $i_GetForeignInvestors++;
+                        if ($i_GetForeignInvestors < 8) {
+                    ?>
+                            <li
+                                class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+                                <div
+                                    class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+                                    <?php
+                                    if ($GetForeignInvestors->tradedate) {
+                                        $date = new DateTime($GetForeignInvestors->tradedate);
+                                        echo $date->format('d/m');
+                                    }
+                                    ?>
+                                </div>
+                                <div
+                                    class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+                                    <?php
+                                    if ($GetForeignInvestors->f_BUY_VOLUME) {
+                                        echo number_format(($GetForeignInvestors->f_BUY_VOLUME));
+                                    }
+                                    ?>
+                                </div>
+                                <div
+                                    class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+                                    <?php
+                                    if ($GetForeignInvestors->f_BUY_VALUE) {
+                                        echo ($GetForeignInvestors->f_BUY_VALUE);
+                                    }
+                                    ?>
+                                </div>
+                                <div
+                                    class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+                                    <?php
+                                    if ($GetForeignInvestors->f_SELL_VOLUME) {
+                                        echo number_format(($GetForeignInvestors->f_SELL_VOLUME));
+                                    }
+                                    ?>
+                                </div>
+                                <div
+                                    class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+                                    <?php
+                                    if ($GetForeignInvestors->f_SELL_VALUE) {
+                                        echo $GetForeignInvestors->f_SELL_VALUE;
+                                    }
+                                    ?>
+                                </div>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
+                </ul>
+
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
+                    <a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
+                        class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+                        <?php echo svg('arrow-btn', '20', '20') ?>
+                        <?php _e('Xem tất cả', 'bsc') ?>
+                    </a>
+                <?php } ?>
+                <p class="font-medium text-xs font-Helvetica">
+                    <?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
+                </p>
+            </div>
+        <?php } ?>
+    <?php
+    } elseif ($type_form == 'sg_bcpt') {
+    ?>
+        <?php
+        $categoryid_kn = get_field('cddmkn1_id_danh_mục', 'option');
+        if ($categoryid_kn) {
+            $array_data = array(
+                'lang' => pll_current_language(),
+                'categoryid' => $categoryid_kn,
+                'maxitem' => 3,
+                'symbol' =>  $symbol
+            );
+            $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+        ?>
+            <?php
+            if ($response) {
+            ?>
+                <?php
+                foreach ($response->d as $news) {
+                    get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+                        'data' => $news,
+                        'get_array_id_taxonomy' => $get_array_id_taxonomy,
+                    ));
+                }
+                ?>
+        <?php };
+        }
+        ?>
+    <?php
+    } elseif ($type_form == 'sg_cccd') {
+    ?>
+        <?php $array_data_GetShareholderRelations = array(
+            'lang' => pll_current_language(),
+            'symbol' =>  $symbol
+        );
+        $response_GetShareholderRelations = get_data_with_cache('GetShareholderRelations', $array_data_GetShareholderRelations, $time_cache);
+        if ($response_GetShareholderRelations) { ?>
+            <div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
+                <h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+                    <?php _e('Tỷ lệ cơ cấu cổ đông', 'bsc') ?>
+                </h4>
+                <div class="relative text-center">
+                    <?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
+                        <div
+                            class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
+                            <p class="text-xxs">
+                                <?php _e('Số lượng cổ phiếu', 'bsc') ?>
+                            </p>
+                            <p class="font-bold"><?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?></p>
                         </div>
-                        <div class="flex items-center justify-between mt-4">
-                            <?php if (get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option')) { ?>
-                                <a href="<?php echo get_field('cdc7_page_nha_dau_tu_nuoc_ngoai', 'option') . '?mck=' . $symbol ?>"
-                                    class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
-                                    <?php _e('Xem tất cả', 'bsc') ?>
-                                    <?php echo svg('arrow-btn', '20', '20') ?>
-                                </a>
-                            <?php } ?>
-                            <p class="font-medium text-xs font-Helvetica">
-                                <?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
+                    <?php } ?>
+                    <svg id="progress-ring" class="mx-auto" width="166"
+                        height="166" viewBox="0 0 166 167" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+
+                        <circle cx="83.0342" cy="83.6479" r="72.3521"
+                            stroke="#295CA9" stroke-width="21"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <circle id="progress-circle" cx="83.0342" cy="83.6479"
+                            r="72.3521" stroke="#F2B122" stroke-width="21"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-dasharray="454" stroke-dashoffset="0"
+                            transform="rotate(90 83.0342 83.6479)" />
+                    </svg>
+
+                </div>
+                <div class="mt-5 mx-auto max-w-[215px] space-y-2">
+                    <?php if ($response_GetShareholderRelations->d[0]->bigholderpct) { ?>
+                        <div
+                            class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
+                            <p>
+                                <?php _e('Cổ đông lớn', 'bsc') ?>
+                            </p>
+                            <p>
+                                <?php echo $response_GetShareholderRelations->d[0]->bigholderpct ?>%
                             </p>
                         </div>
-                    <?php  } ?>
-                </div>
-                <div class="tab-content hidden" id="ndtnn">
-                    <?php
-                    $current_date_dmy = date('d/m/Y');
-                    $last_month_date_dmy = date('d/m/Y', strtotime('-1 month'));
-                    $array_data_GetForeignInvestors = array(
-                        'lang' => pll_current_language(),
-                        'symbol' => $symbol,
-                        'fromdate' => $last_month_date_dmy,
-                        'todate' => $current_date_dmy
-                    );
-                    $response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
-                    if ($response_GetForeignInvestors) {
-                    ?>
+                    <?php } ?>
+                    <?php if ($response_GetShareholderRelations->d[0]->remainingsharespct) { ?>
                         <div
-                            class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
-                            <div class="flex bg-primary-300 text-white">
-                                <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-                                    <?php _e('Ngày', 'bsc') ?>
-                                </div>
-                                <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-                                    <?php _e('KL Mua', 'bsc') ?>
-                                </div>
-                                <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-                                    <?php _e('GT Mua', 'bsc') ?>
-                                </div>
-                                <div class="w-[136px] max-w-[27%] px-3 py-2">
-                                    <?php _e('KL bán', 'bsc') ?>
-                                </div>
-                                <div class="flex-1 px-3 py-2">
-                                    <?php _e('GT bán', 'bsc') ?>
-                                </div>
-                            </div>
-                            <ul>
-                                <?php
-                                $i_GetForeignInvestors = 0;
-                                foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
-                                    $i_GetForeignInvestors++;
-                                    if ($i_GetForeignInvestors < 8) {
-                                ?>
-                                        <li
-                                            class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-                                            <div
-                                                class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-                                                <?php
-                                                if ($GetForeignInvestors->tradedate) {
-                                                    $date = new DateTime($GetForeignInvestors->tradedate);
-                                                    echo $date->format('d/m');
-                                                }
-                                                ?>
-                                            </div>
-                                            <div
-                                                class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-                                                <?php
-                                                if ($GetForeignInvestors->f_BUY_VOLUME) {
-                                                    echo number_format(($GetForeignInvestors->f_BUY_VOLUME));
-                                                }
-                                                ?>
-                                            </div>
-                                            <div
-                                                class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-                                                <?php
-                                                if ($GetForeignInvestors->f_BUY_VALUE) {
-                                                    echo ($GetForeignInvestors->f_BUY_VALUE);
-                                                }
-                                                ?>
-                                            </div>
-                                            <div
-                                                class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-                                                <?php
-                                                if ($GetForeignInvestors->f_SELL_VOLUME) {
-                                                    echo number_format(($GetForeignInvestors->f_SELL_VOLUME));
-                                                }
-                                                ?>
-                                            </div>
-                                            <div
-                                                class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-                                                <?php
-                                                if ($GetForeignInvestors->f_SELL_VALUE) {
-                                                    echo $GetForeignInvestors->f_SELL_VALUE;
-                                                }
-                                                ?>
-                                            </div>
-                                        </li>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </ul>
-
-                        </div>
-                        <div class="flex items-center justify-between mt-4">
-                            <?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
-                                <a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
-                                    class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
-                                    <?php echo svg('arrow-btn', '20', '20') ?>
-                                    <?php _e('Xem tất cả', 'bsc') ?>
-                                </a>
-                            <?php } ?>
-                            <p class="font-medium text-xs font-Helvetica">
-                                <?php _e('Đơn vị GTGD: triệu VNĐ', 'bsc') ?>
+                            class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
+                            <p>
+                                <?php _e('Cổ đông khác', 'bsc') ?>
+                            </p>
+                            <p>
+                                <?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>%
                             </p>
                         </div>
                     <?php } ?>
                 </div>
-            </div>
-        </div>
-        <div class="xl:my-[100px] my-20">
-            <div class="lg:flex gap-5">
-                <div class="w-[386px] max-w-[29%]">
-                    <h2 class="heading-title mb-10">
-                        <?php _e('BÁO CÁO PHÂN TÍCH', 'bsc') ?>
-                    </h2>
-                    <?php
-                    $categoryid_kn = get_field('cddmkn1_id_danh_mục', 'option');
-                    if ($categoryid_kn) {
-                        $array_data = array(
-                            'lang' => pll_current_language(),
-                            'categoryid' => $categoryid_kn,
-                            'maxitem' => 3,
-                            'symbol' =>  $symbol
-                        );
-                        $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-                    ?>
-                        <?php
-                        if ($response) {
-                        ?>
-                            <div class="space-y-4">
-                                <?php
-                                foreach ($response->d as $news) {
-                                    get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
-                                        'data' => $news,
-                                        'get_array_id_taxonomy' => $get_array_id_taxonomy,
-                                    ));
-                                }
-                                ?>
-                            </div>
-                    <?php };
+                <script>
+                    function setProgress(percent) {
+                        const circle = document.getElementById('progress-circle');
+                        const circumference = 454;
+                        const offset = circumference - (percent / 100) * circumference;
+                        circle.style.strokeDashoffset = offset;
                     }
-                    ?>
-                </div>
-                <?php $array_data_GetShareholderRelations = array(
-                    'lang' => pll_current_language(),
-                    'symbol' =>  $symbol
-                );
-                $response_GetShareholderRelations = get_data_with_cache('GetShareholderRelations', $array_data_GetShareholderRelations, $time_cache);
-                if ($response_GetShareholderRelations) { ?>
-                    <div class="w-[414px] max-w-[31%]">
-                        <h2 class="heading-title mb-10">
-                            <?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
-                        </h2>
-                        <div class="space-y-4">
-                            <div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
-                                <h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
-                                    <?php _e('Tỷ lệ cơ cấu cổ đông', 'bsc') ?>
-                                </h4>
-                                <div class="relative text-center">
-                                    <?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
-                                        <div
-                                            class="absolute w-full h-full flex flex-col justify-center font-Helvetica text-xs">
-                                            <p class="text-xxs">
-                                                <?php _e('Số lượng cổ phiếu', 'bsc') ?>
-                                            </p>
-                                            <p class="font-bold"><?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?></p>
-                                        </div>
-                                    <?php } ?>
-                                    <svg id="progress-ring" class="mx-auto" width="166"
-                                        height="166" viewBox="0 0 166 167" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                    setProgress(<?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>);
+                </script>
+            </div>
+            <div
+                class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
+                <ul class="font-Helvetica space-y-4">
 
-                                        <circle cx="83.0342" cy="83.6479" r="72.3521"
-                                            stroke="#295CA9" stroke-width="21"
-                                            stroke-linecap="round" stroke-linejoin="round" />
+                    <?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
+                        <li class="flex items-center justify-between">
+                            <p>
+                                <?php _e('KLCP Lưu hành', 'bsc') ?>:
+                            </p>
+                            <strong class="text-primary-300">
+                                <?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?>
+                            </strong>
+                        </li>
+                    <?php } ?>
+                    <?php if ($response_GetShareholderRelations->d[0]->govheldpct) { ?>
+                        <li class="flex items-center justify-between">
+                            <p>
+                                <?php _e('Tỷ lệ sở hữu nhà nước (%)', 'bsc') ?>
+                            </p>
+                            <strong>
+                                <?php echo $response_GetShareholderRelations->d[0]->govheldpct ?>%
+                            </strong>
+                        </li>
+                    <?php } ?>
+                    <?php if ($response_GetShareholderRelations->d[0]->fheldpct) { ?>
+                        <li class="flex items-center justify-between">
+                            <p>
+                                <?php _e('Tỷ lệ sở hữu nước ngoài (%)', 'bsc') ?>
+                            </p>
+                            <strong>
+                                <?php echo $response_GetShareholderRelations->d[0]->fheldpct ?>%
+                            </strong>
+                        </li>
+                    <?php } ?>
+                    <?php if ($response_GetShareholderRelations->d[0]->froom) { ?>
+                        <li class="flex items-center justify-between">
+                            <p>
+                                <?php _e('Room nước ngoài', 'bsc') ?>
+                            </p>
+                            <strong>
+                                <?php echo $response_GetShareholderRelations->d[0]->froom ?>%
+                            </strong>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
+    <?php
+    } elseif ($type_form == 'sg_dncn') {
+    ?>
+        <table
+            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
+            <thead>
+                <tr>
+                    <th class="!pl-5 cursor-pointer"><?php _e('Mã CK', 'bsc') ?>
+                        <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+                    </th>
 
-                                        <circle id="progress-circle" cx="83.0342" cy="83.6479"
-                                            r="72.3521" stroke="#F2B122" stroke-width="21"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-dasharray="454" stroke-dashoffset="0"
-                                            transform="rotate(90 83.0342 83.6479)" />
-                                    </svg>
+                    <th class="filter-table cursor-pointer filter-table">
+                        <?php _e('Vốn hóa', 'bsc') ?>
+                        <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+                    </th>
 
-                                </div>
-                                <div class="mt-5 mx-auto max-w-[215px] space-y-2">
-                                    <?php if ($response_GetShareholderRelations->d[0]->bigholderpct) { ?>
-                                        <div
-                                            class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
-                                            <p>
-                                                <?php _e('Cổ đông lớn', 'bsc') ?>
-                                            </p>
-                                            <p>
-                                                <?php echo $response_GetShareholderRelations->d[0]->bigholderpct ?>%
-                                            </p>
-                                        </div>
-                                    <?php } ?>
-                                    <?php if ($response_GetShareholderRelations->d[0]->remainingsharespct) { ?>
-                                        <div
-                                            class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-yellow-100">
-                                            <p>
-                                                <?php _e('Cổ đông khác', 'bsc') ?>
-                                            </p>
-                                            <p>
-                                                <?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>%
-                                            </p>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <script>
-                                    function setProgress(percent) {
-                                        const circle = document.getElementById('progress-circle');
-                                        const circumference = 454;
-                                        const offset = circumference - (percent / 100) * circumference;
-                                        circle.style.strokeDashoffset = offset;
-                                    }
-                                    setProgress(<?php echo $response_GetShareholderRelations->d[0]->remainingsharespct ?>);
-                                </script>
-                            </div>
-                            <div
-                                class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
-                                <ul class="font-Helvetica space-y-4">
-
-                                    <?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
-                                        <li class="flex items-center justify-between">
-                                            <p>
-                                                <?php _e('KLCP Lưu hành', 'bsc') ?>:
-                                            </p>
-                                            <strong class="text-primary-300">
-                                                <?php echo number_format($response_GetShareholderRelations->d[0]->outsshares) ?>
-                                            </strong>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($response_GetShareholderRelations->d[0]->govheldpct) { ?>
-                                        <li class="flex items-center justify-between">
-                                            <p>
-                                                <?php _e('Tỷ lệ sở hữu nhà nước (%)', 'bsc') ?>
-                                            </p>
-                                            <strong>
-                                                <?php echo $response_GetShareholderRelations->d[0]->govheldpct ?>%
-                                            </strong>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($response_GetShareholderRelations->d[0]->fheldpct) { ?>
-                                        <li class="flex items-center justify-between">
-                                            <p>
-                                                <?php _e('Tỷ lệ sở hữu nước ngoài (%)', 'bsc') ?>
-                                            </p>
-                                            <strong>
-                                                <?php echo $response_GetShareholderRelations->d[0]->fheldpct ?>%
-                                            </strong>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($response_GetShareholderRelations->d[0]->froom) { ?>
-                                        <li class="flex items-center justify-between">
-                                            <p>
-                                                <?php _e('Room nước ngoài', 'bsc') ?>
-                                            </p>
-                                            <strong>
-                                                <?php echo $response_GetShareholderRelations->d[0]->froom ?>%
-                                            </strong>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
+                    <th class="filter-table cursor-pointer filter-table">
+                        <?php _e('PE', 'bsc') ?>
+                        <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+                    </th>
+                    <th class="filter-table cursor-pointer filter-table !pl-5">
+                        <?php _e('PB', 'bsc') ?>
+                        <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
                 <?php
                 $array_data_sameIndustry = json_encode([
                     'lang' => pll_current_language(),
@@ -852,70 +841,36 @@ function filter_details_symbol()
                 $response_sameIndustry = get_data_with_cache('sameIndustry', $array_data_sameIndustry, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
                 if ($response_sameIndustry) {
                 ?>
-                    <div class="flex-1">
-                        <h2 class="heading-title mb-10">
-                            <?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
-                        </h2>
-                        <div
-                            class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
-                            <table
-                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
-                                <thead>
-                                    <tr>
-                                        <th class="!pl-5 cursor-pointer"><?php _e('Mã CK', 'bsc') ?>
-                                            <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-                                        </th>
-
-                                        <th class="filter-table cursor-pointer filter-table">
-                                            <?php _e('Vốn hóa', 'bsc') ?>
-                                            <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-                                        </th>
-
-                                        <th class="filter-table cursor-pointer filter-table">
-                                            <?php _e('PE', 'bsc') ?>
-                                            <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-                                        </th>
-                                        <th class="filter-table cursor-pointer filter-table !pl-5">
-                                            <?php _e('PB', 'bsc') ?>
-                                            <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
-                                    <?php
-                                    foreach ($response_sameIndustry->data as $record) {
-                                        if ($record) {
-                                            $array_data_securityBasicInfo_check = json_encode([
-                                                'lang' => pll_current_language(),
-                                                'secList' => $record,
-                                                "Exchange" => ""
-                                            ]);
-                                            $response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
-                                            if ($response_securityBasicInfo_check) {
-                                    ?>
-                                                <tr>
-                                                    <td class="!pl-5"><a href="<?php echo slug_co_phieu($record) ?>"><?php echo $record ?></a></td>
-                                                    <td><?php
-                                                        echo number_format($response_securityBasicInfo_check->data[0]->MarketCapital) ?></td>
-                                                    <td><?php echo number_format($response_securityBasicInfo_check->data[0]->PE, 2, '.', ',') ?></td>
-                                                    <td class="text-center"><?php echo number_format($response_securityBasicInfo_check->data[0]->PB, 2, '.', ',') ?></td>
-                                                </tr>
-                                    <?php
-                                            }
-                                        }
-                                    }
-                                    ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
-                            <?php _e('Đơn vị Vốn hóa (Triệu đồng)', 'bsc') ?>
-                        </p>
-                    </div>
+                    <?php
+                    foreach ($response_sameIndustry->data as $record) {
+                        if ($record) {
+                            $array_data_securityBasicInfo_check = json_encode([
+                                'lang' => pll_current_language(),
+                                'secList' => $record,
+                                "Exchange" => ""
+                            ]);
+                            $response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+                            if ($response_securityBasicInfo_check) {
+                    ?>
+                                <tr>
+                                    <td class="!pl-5"><a href="<?php echo slug_co_phieu($record) ?>"><?php echo $record ?></a></td>
+                                    <td><?php
+                                        echo number_format($response_securityBasicInfo_check->data[0]->MarketCapital) ?></td>
+                                    <td><?php echo number_format($response_securityBasicInfo_check->data[0]->PE, 2, '.', ',') ?></td>
+                                    <td class="text-center"><?php echo number_format($response_securityBasicInfo_check->data[0]->PB, 2, '.', ',') ?></td>
+                                </tr>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 <?php } ?>
-            </div>
-        </div>
+            </tbody>
+        </table>
+    <?php
+    } elseif ($type_form == 'sg_ttvmcp') {
+    ?>
+
         <?php $array_data_GetNews = array(
             'lang' => pll_current_language(),
             'maxitem' => 6,
@@ -924,81 +879,74 @@ function filter_details_symbol()
         );
         $response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
         if ($response_GetNews) { ?>
-            <div class="xl:my-[100px] my-20">
-                <h2 class="heading-title mb-10">
-                    <?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?>
-                </h2>
-                <div class="grid grid-cols-2 gap-x-9 gap-y-[46px]">
-                    <?php
-                    foreach ($response_GetNews->d as $news) {
-                        $date = $news->postdate;
-                        $date_parts = explode('T', $date);
-                        $day = $date_parts[0];
-                        $day_of_month = date('d', strtotime($day));
-                        $day_of_year = date('Y', strtotime($day));
-                        setlocale(LC_TIME, 'vi_VN.UTF-8');
-                        if (get_locale() == 'vi') {
-                            $month_number = date('n', strtotime($day));
-                            $month_names = [
-                                __('Tháng', 'bsc') . ' 1',
-                                __('Tháng', 'bsc') . ' 2',
-                                __('Tháng', 'bsc') . ' 3',
-                                __('Tháng', 'bsc') . ' 4',
-                                __('Tháng', 'bsc') . ' 5',
-                                __('Tháng', 'bsc') . ' 6',
-                                __('Tháng', 'bsc') . ' 7',
-                                __('Tháng', 'bsc') . ' 8',
-                                __('Tháng', 'bsc') . ' 9',
-                                __('Tháng', 'bsc') . ' 10',
-                                __('Tháng', 'bsc') . ' 11',
-                                __('Tháng', 'bsc') . ' 12',
-                            ];
-                            $month_name = $month_names[$month_number - 1];
-                        } else {
-                            $month_name = date('F', strtotime($day));
-                        }
-                    ?>
-                        <div class="news_service-item">
-                            <div class="flex items-center">
-                                <div
-                                    class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
-                                    <p
-                                        class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
-                                        <?php
-                                        echo $day_of_year;
-                                        ?>
-                                    </p>
-                                    <div
-                                        class="flex-1 flex flex-col justify-center items-center text-xl font-bold bg-primary-50 w-full">
-                                        <p> <?php
-                                            echo $day_of_year;
-                                            ?></p>
-                                        <p class="text-primary-300 text-xs font-medium">
-                                            <?php echo $month_name; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="md:ml-[30px] ml-5">
-                                    <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-                                        class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
-                                        <?php echo htmlspecialchars($news->title) ?>
-                                    </a>
-                                    <div
-                                        class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
-                                        <?php echo $news->description ?>
-                                    </div>
-                                </div>
+            <?php
+            foreach ($response_GetNews->d as $news) {
+                $date = $news->postdate;
+                $date_parts = explode('T', $date);
+                $day = $date_parts[0];
+                $day_of_month = date('d', strtotime($day));
+                $day_of_year = date('Y', strtotime($day));
+                setlocale(LC_TIME, 'vi_VN.UTF-8');
+                if (get_locale() == 'vi') {
+                    $month_number = date('n', strtotime($day));
+                    $month_names = [
+                        __('Tháng', 'bsc') . ' 1',
+                        __('Tháng', 'bsc') . ' 2',
+                        __('Tháng', 'bsc') . ' 3',
+                        __('Tháng', 'bsc') . ' 4',
+                        __('Tháng', 'bsc') . ' 5',
+                        __('Tháng', 'bsc') . ' 6',
+                        __('Tháng', 'bsc') . ' 7',
+                        __('Tháng', 'bsc') . ' 8',
+                        __('Tháng', 'bsc') . ' 9',
+                        __('Tháng', 'bsc') . ' 10',
+                        __('Tháng', 'bsc') . ' 11',
+                        __('Tháng', 'bsc') . ' 12',
+                    ];
+                    $month_name = $month_names[$month_number - 1];
+                } else {
+                    $month_name = date('F', strtotime($day));
+                }
+            ?>
+                <div class="news_service-item">
+                    <div class="flex items-center">
+                        <div
+                            class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
+                            <p
+                                class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
+                                <?php
+                                echo $day_of_year;
+                                ?>
+                            </p>
+                            <div
+                                class="flex-1 flex flex-col justify-center items-center text-xl font-bold bg-primary-50 w-full">
+                                <p> <?php
+                                    echo $day_of_year;
+                                    ?></p>
+                                <p class="text-primary-300 text-xs font-medium">
+                                    <?php echo $month_name; ?>
+                                </p>
                             </div>
-
                         </div>
-                    <?php
-                    }
-                    ?>
+                        <div class="md:ml-[30px] ml-5">
+                            <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
+                                class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
+                                <?php echo htmlspecialchars($news->title) ?>
+                            </a>
+                            <div
+                                class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+                                <?php echo $news->description ?>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+            <?php
+            }
+            ?>
         <?php } ?>
     <?php
-    } elseif ($type_form == '2') {
+    } elseif ($type_form == 'details_symbol_tab-2') {
     ?>
         <div class="list__content">
             <div class="flex items-center justify-between mt-16 mb-[30px]">
@@ -1096,7 +1044,7 @@ function filter_details_symbol()
             </div>
         </div>
     <?php
-    } elseif ($type_form == '3') {
+    } elseif ($type_form == 'details_symbol_tab-3') {
     ?>
         <div class="list__content">
             <div class=" mt-16 mb-10">
@@ -1488,8 +1436,7 @@ function filter_details_symbol()
             } ?>
         </div>
     <?php
-    } elseif ($type_form == '4') {
-        $check_logout = bsc_is_user_logged_out();
+    } elseif ($type_form == 'details_symbol_tab-4') {
     ?>
         <?php
         if (!$check_logout) {
@@ -1706,8 +1653,10 @@ function filter_details_symbol()
                     </div>
                 </div>
             <?php } ?>
-<?php
+        <?php
         }
+        ?>
+<?php
     }
     die();
 }

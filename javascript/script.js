@@ -368,6 +368,35 @@ import { DataTable } from 'simple-datatables';
 		$(window).resize(updateBannerHeight);
 	}
 
+	function filter_details_symbol(type_form) {
+		var symbol = $('.display_data_details_symbol').attr('data-symbol');
+		$.ajax({
+			url: ajaxurl.ajaxurl,
+			type: 'POST',
+			data: {
+				action: 'filter_details_symbol',
+				symbol: symbol,
+				type_form: type_form,
+				security: ajaxurl.security,
+			},
+			beforeSend: function () {
+				$('#' + type_form)
+					.find('.hidden')
+					.removeClass('hidden');
+			},
+			success: function (response) {
+				$('#' + type_form).html(response);
+			},
+		});
+	}
+	if (document.querySelector('.display_data_details_symbol')) {
+		filter_details_symbol('lichsugiaodich');
+		filter_details_symbol('sg_bcpt');
+		filter_details_symbol('sg_cccd');
+		filter_details_symbol('sg_dncn');
+		filter_details_symbol('sg_ttvmcp');
+	}
+
 	function customTab() {
 		$('[data-tab-download]').click(function () {
 			if ($(this).hasClass('active')) {
@@ -392,6 +421,7 @@ import { DataTable } from 'simple-datatables';
 			function (e) {
 				e.preventDefault();
 				var target = $(this).attr('data-tabs');
+				var check_ajax = $(this).attr('data-ajax');
 				$(this)
 					.closest('.customtab-nav')
 					.find('button')
@@ -401,6 +431,13 @@ import { DataTable } from 'simple-datatables';
 
 				if ($(this).closest('.customtab-nav').hasClass('has-line')) {
 					moveLine($(this));
+				}
+				if (check_ajax === 'true') {
+					if (target.startsWith('#')) {
+						target = target.substring(1);
+					}
+					filter_details_symbol(target);
+					$(this).removeAttr('data-ajax');
 				}
 				return false;
 			}
@@ -3263,37 +3300,6 @@ import { DataTable } from 'simple-datatables';
 					$('#list-du-lieu-lich-su').html(response);
 				},
 			});
-		}
-
-		function filter_details_symbol(type_form) {
-			var symbol = $('.display_data_details_symbol').attr('data-symbol');
-			$.ajax({
-				url: ajaxurl.ajaxurl,
-				type: 'POST',
-				data: {
-					action: 'filter_details_symbol',
-					symbol: symbol,
-					type_form: type_form,
-					security: ajaxurl.security,
-				},
-				beforeSend: function () {
-					if (type_form == 1) {
-						$('#details_symbol_loading').removeClass('hidden');
-					}
-				},
-				success: function (response) {
-					if (type_form == 1) {
-						$('#details_symbol_loading').addClass('hidden');
-					}
-					$('#details_symbol_tab-' + type_form).html(response);
-				},
-			});
-		}
-		if (document.querySelector('.display_data_details_symbol')) {
-			filter_details_symbol(1);
-			filter_details_symbol(2);
-			filter_details_symbol(3);
-			filter_details_symbol(4);
 		}
 	}
 
