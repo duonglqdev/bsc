@@ -16,40 +16,74 @@ get_header();
 				{ ?>
 					<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
-							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white ">
-								<li>
-									<a href="#"
-										class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Công
-										bố thông tin</a>
+							<ul
+								class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
+								<li class="">
+									<a href="http://website-uat.bsc.com.vn/cong-bo-thong-tin/"
+										class="flex items-center gap-4 md:text-lg font-bold  [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Công bố thông tin </a>
 								</li>
-								<li>
-									<a href="#"
-										class="active flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">
-										Đại hội đồng cổ đông
+								<li class="active has-child group">
+									<a href="http://website-uat.bsc.com.vn/dai-hoi-dong-co-dong/"
+										class="flex items-center gap-4 md:text-lg font-bold active [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Đại hội đồng cổ đông </a>
 
-									</a>
+									<ul class="pl-5 hidden sub-menu w-full bg-white"
+										style="display: none;">
+										<li class="pl-5">
+											<a href="http://website-uat.bsc.com.vn/thong-bao-moi-hop/"
+												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Thông báo mời họp </a>
+										</li>
+										<li class="pl-5">
+											<a href="http://website-uat.bsc.com.vn/tai-lieu-hop/"
+												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Tài liệu họp </a>
+										</li>
+										<li class="pl-5">
+											<a href="http://website-uat.bsc.com.vn/bien-ban-va-nghi-quyet/"
+												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Biên bản và Nghị quyết </a>
+										</li>
+									</ul>
 								</li>
-								<li>
-									<a href="#"
-										class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
-										cáo tài chính</a>
+								<li class="">
+									<a href="http://website-uat.bsc.com.vn/bao-cao-tai-chinh/"
+										class="flex items-center gap-4 md:text-lg font-bold  [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Báo cáo tài chính </a>
 								</li>
-								<li>
-									<a href="#"
-										class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Báo
-										cáo thường niên</a>
+								<li class="">
+									<a href="http://website-uat.bsc.com.vn/bao-cao-thuong-nien/"
+										class="flex items-center gap-4 md:text-lg font-bold  [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Báo cáo thường niên </a>
 								</li>
-								<li>
-									<a href="#"
-										class="flex items-center gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black  text-white transition-all relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white hover:!bg-primary-300 hover:!text-white hover:before:!bg-white hover:before:!bg-opacity-100 rounded-tr-xl rounded-br-xl">Quản
-										trị doanh nghiệp</a>
+								<li class="has-child group">
+									<a href="http://website-uat.bsc.com.vn/quan-tri-doanh-nghiep/"
+										class="flex items-center gap-4 md:text-lg font-bold  [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Quản trị doanh nghiệp </a>
+
+									<ul class="pl-5 hidden sub-menu w-full bg-white">
+										<li class="pl-5">
+											<a href="http://website-uat.bsc.com.vn/bao-cao-quan-tri-cong-ty/"
+												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Báo cáo quản trị công ty </a>
+										</li>
+										<li class="pl-5">
+											<a href="http://website-uat.bsc.com.vn/dieu-le-cong-ty/"
+												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Điều lệ công ty </a>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<div class="mt-12">
-								<img loading="lazy"
-									src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
-									alt=""
-									class="rounded-lg transition-all duration-500 hover:scale-105">
+								<a href="javascript:void(0)">
+									<img width="680" height="1164"
+										src="http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image.png"
+										class="rounded-lg transition-all duration-500 hover:scale-105"
+										alt="" decoding="async" fetchpriority="high"
+										srcset="http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image.png 680w, http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image-300x514.png 300w"
+										sizes="(max-width: 680px) 100vw, 680px" loading="lazy"> </a>
 							</div>
 						</div>
 					</div>
@@ -73,7 +107,7 @@ get_header();
 					<form method="get"
 						action="<?php echo get_term_link( get_queried_object() ); ?>">
 						<div
-							class="flex  mb-12 flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-nowrap gap-5' : '' ?>">
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-nowrap gap-5 mb-12' : 'mb-6 flex-wrap' ?>">
 							<div
 								class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full 2xl:max-w-[50%] lg:max-w-[40%] px-5 gap-4' : 'w-[52%] pl-4 gap-3 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
 								<div
@@ -82,7 +116,7 @@ get_header();
 								</div>
 								<input type="text" name="key" value="<?php if ( isset( $_GET['key'] ) )
 									echo $_GET['key'] ?>" placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>"
-									class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'max-w-[75%]' ?>">
+									class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'max-w-[75%] text-xs' ?>">
 							</div>
 							<?php if ( wp_is_mobile() && bsc_is_mobile() )
 							{ ?>
@@ -92,7 +126,7 @@ get_header();
 										<label for=""
 											class="font-medium text-[12px]"><?php _e( 'Năm:', 'bsc' ) ?></label>
 										<select id="select_year" name="years"
-											class="select_custom py-0 border-0 focus:ring-0 text-[12px] pl-0">
+											class="select_custom py-0 border-0 focus:ring-0 text-[12px] pl-0 !pr-8">
 											<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
 											<?php
 											$currentYear = date( 'Y' );
@@ -145,13 +179,29 @@ get_header();
 					<?php if ( wp_is_mobile() && bsc_is_mobile() )
 					{ ?>
 						<div
-							class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
+							class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6">
 							Công bố thông tin
 							<?php echo svg( 'down-white', '20' ) ?>
 						</div>
-
+						<ul class="flex overflow-x-auto mt-4 gap-1.5">
+							<li class="">
+								<a href=""
+									class="active [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Thông báo mời họp </a>
+							</li>
+							<li class="">
+								<a href=""
+									class=" [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Tài liệu họp </a>
+							</li>
+							<li class="">
+								<a href=""
+									class=" [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Biên bản và Nghị quyết </a>
+							</li>
+						</ul>
 					<?php } ?>
-					<div class="space-y-6">
+					<div class="space-y-6 mt-6">
 						<?php
 						for ( $i = 0; $i < 10; $i++ )
 						{

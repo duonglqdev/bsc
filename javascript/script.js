@@ -300,32 +300,45 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.community_content-bg').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			arrows: false,
-			fade: true,
-			asNavFor: '.community_content-list',
-		});
-
-		$('.community_content-list').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			dots: true,
-			arrows: false,
-			fade: true,
-			asNavFor: '.community_content-bg',
-
-			customPaging: function (slider, i) {
-				return '<span class="dot"></span>';
-			},
-		});
+		if ($('.community_content-bg').hasClass('pc')) {
+			$('.community_content-bg').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.community_content-list',
+			});
+		
+			$('.community_content-list').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: true,
+				arrows: false,
+				fade: true,
+				asNavFor: '.community_content-bg',
+				customPaging: function (slider, i) {
+					return '<span class="dot"></span>';
+				},
+			});
+		} else {
+			$('.community_content-list').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: false,
+				arrows: false,
+				fade: true,
+			});
+		}
+		
 
 		$('.community_nav-item[data-index="1"]').addClass('active');
 		$('.community_nav-item').on('click mouseenter', function () {
 			var index = $(this).data('index');
 
-			$('.community_content-bg').slick('slickGoTo', index);
+			if ($('.community_content-bg').hasClass('pc')) {
+				$('.community_content-bg').slick('slickGoTo', index);
+			}
+
 			$('.community_content-list').slick('slickGoTo', index);
 
 			$('.community_nav-item').removeClass('active');
@@ -950,9 +963,7 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.news-dropdown').on('click', function () {
-			$(this).next().toggleClass('active');
-		});
+		
 		$('.news-dropdown__list li').on('click', function () {
 			$('.news-dropdown__list li').removeClass('active');
 			$(this).addClass('active');
@@ -962,6 +973,11 @@ import { DataTable } from 'simple-datatables';
 				.attr('data-value', itemValue);
 			$(this).parent('.news-dropdown__list').toggleClass('active');
 		});
+
+		$(".show-item-btn").click(function () {
+			$(this).prev(".grid").toggleClass("show-4-item");
+			$(this).find('span').toggle();
+		})
 	}
 
 	function handlePhoneCf7() {

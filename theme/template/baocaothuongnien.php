@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<main>
-		<?php get_template_part('components/page-banner') ?>
+		<?php get_template_part( 'components/page-banner' ) ?>
 		<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-16 pt-10 pb-10">
 			<div class="container">
 				<div class="lg:flex gap-[70px]">
@@ -44,7 +44,8 @@ get_header();
 								</li>
 							</ul>
 							<div class="mt-12">
-								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
+								<img loading="lazy"
+									src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
 									alt=""
 									class="rounded-lg transition-all duration-500 hover:scale-105">
 							</div>
@@ -53,14 +54,17 @@ get_header();
 					<div class="flex-1">
 
 						<div class="space-y-6">
-							<div class="grid grid-cols-4 gap-5">
+							<div
+								class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-4 gap-5' : 'grid-cols-2 gap-y-5 gap-x-4 show-4-item' ?>">
 								<?php
-								for ($i = 0; $i < 8; $i++) {
-								?>
+								for ( $i = 0; $i < 8; $i++ )
+								{
+									?>
 									<div class="flex flex-col">
 										<a href=""
 											class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
-											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
+											<img loading="lazy"
+												src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
 												alt=""
 												class="absolute w-full h-full inset-0 object-cover group-hover:scale-105  transition-all duration-500">
 										</a>
@@ -73,17 +77,31 @@ get_header();
 										<a href="" download=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 											Tải xuống
-											<?php echo svg('download') ?>
+											<?php echo svg( 'download' ) ?>
 										</a>
 									</div>
-								<?php
+									<?php
 								}
 								?>
 
 							</div>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() )
+							{ ?>
+									<div
+										class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
+										<span>
+											<?php _e( 'Xem tất cả', 'bsc' ) ?>
+										</span>
+										<span class="hidden">
+											<?php _e( 'Thu gọn', 'bsc' ) ?>
+										</span>
+										<?php echo svg( 'arrow-btn-2' ) ?>
+									</div>
+
+							<?php } ?>
 						</div>
 						<div class="mt-12">
-							<?php get_template_part('components/pagination') ?>
+							<?php get_template_part( 'components/pagination' ) ?>
 						</div>
 					</div>
 

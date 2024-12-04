@@ -5,7 +5,7 @@ if ($style == 'nhdt') {
     <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 menu_navigation" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php if (have_rows('menu_navigation')) { ?>
             <div class="container">
-                <ul class="customtab-nav flex justify-between bank-nav-tab">
+                <ul class="flex justify-between bank-nav-tab">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
