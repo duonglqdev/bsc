@@ -179,7 +179,7 @@
                                     </div>
                                     <div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
                                         datepicker-autohide datepicker-orientation="bottom right"
-                                        class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
+                                        class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[60%] w-full justify-around">
                                         <p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
                                             <?php _e('Thời gian:', 'gnws') ?>
                                         </p>
