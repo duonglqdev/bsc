@@ -132,7 +132,28 @@ $class = $check_logout['class'];
                                                 }
                                                 ?>
                                             </div>
-                                    <?php }
+                                        <?php }
+                                    } else {
+                                        ?>
+                                        <!-- Data Demo -->
+                                        <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+                                            <?php for ($i = 0; $i < 8; $i++) { ?>
+                                                <ul class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">
+                                                    <li class="w-[8%] font-medium"><?php _e('BSI', 'bsc') ?></li>
+                                                    <li class="w-[16%] font-medium">
+                                                        <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:#D6F6DE; color:#30D158">
+                                                            <?php _e('Mua', 'bsc') ?> </span>
+                                                    </li>
+                                                    <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        ---- </li>
+                                                    <li class="w-[16%] font-medium">
+                                                        ---- </li>
+                                                    <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                        ---- </li>
+                                                </ul>
+                                            <?php } ?>
+                                        </div>
+                                    <?php
                                     }
                                     ?>
                                 </div>
