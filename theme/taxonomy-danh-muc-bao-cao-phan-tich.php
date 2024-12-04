@@ -12,7 +12,7 @@
         <?php if (have_rows('menu_navigation', get_queried_object())) { ?>
             <section class="2xl:py-4 py-3 bg-primary-50 sticky z-50 top-0">
                 <div class="container">
-                    <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
+                    <ul class="flex justify-between 2xl:gap-10 gap-5">
                         <?php while (have_rows('menu_navigation', get_queried_object())): the_row(); ?>
                             <li class="flex-1">
                                 <a href="<?php echo check_link(get_sub_field('link')) ?>"
