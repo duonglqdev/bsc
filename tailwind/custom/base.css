@@ -365,6 +365,12 @@
 .style-mb .form_cv-wrapper .upload-label {
   @apply mb-2;
 }
+@media (max-width: 414px) {
+  .style-mb .datepicker-dropdown {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
 
 svg {
   @apply max-w-full;
@@ -625,7 +631,7 @@ header.active {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black lg:font-normal font-medium flex-1 md:text-base text-xs;
 }
 .subscribe .wpcf7-form-control-wrap {
-  @apply flex-1 2xl:max-w-[64%] lg:max-w-[50%] max-w-[66%] lg:text-base text-xs;
+  @apply flex-1 2xl:max-w-[64%] lg:max-w-[50%] max-w-[calc(100%-120px)] lg:text-base text-xs;
 }
 .subscribe button {
   @apply whitespace-nowrap px-4 md:min-w-[97px] lg:h-[38px] h-[30px] py-1 ml-auto sm:text-base text-xs;

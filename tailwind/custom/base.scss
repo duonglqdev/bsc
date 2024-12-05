@@ -142,7 +142,7 @@
 			}
 		}
 	}
-	.form_cv-wrapper{
+	.form_cv-wrapper {
 		@apply grid grid-cols-2 gap-x-6 gap-y-3;
 	}
 	.form_cv {
@@ -151,7 +151,6 @@
 				margin-bottom: 15px;
 			}
 		}
-	
 	}
 }
 .style-mb {
@@ -261,11 +260,11 @@
 		.flickity-page-dots {
 			@apply bottom-4;
 			.dot {
-				@apply mx-1 h-3 ;
-				&:not(.is-selected){
+				@apply mx-1 h-3;
+				&:not(.is-selected) {
 					@apply w-3;
 				}
-				&.is-selected{
+				&.is-selected {
 					@apply w-[52px];
 				}
 			}
@@ -279,8 +278,8 @@
 			}
 		}
 	}
-	.show-4-item{
-		> div:nth-child(n+5){
+	.show-4-item {
+		> div:nth-child(n + 5) {
 			@apply hidden;
 		}
 	}
@@ -298,23 +297,29 @@
 			}
 		}
 	}
-	.form_cv-wrapper{
-		.upload_file{
+	.form_cv-wrapper {
+		.upload_file {
 			@apply text-center text-xs;
 		}
-		label{
+		label {
 			@apply text-xxs;
 		}
-		.group-submit{
+		.group-submit {
 			@apply mt-4;
 		}
-		.upload-label{
+		.upload-label {
 			@apply mb-2;
 		}
 	}
+	@media (max-width: 414px) {
+		.datepicker-dropdown {
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+		}
+	}
 }
-svg{
-    @apply max-w-full;
+svg {
+	@apply max-w-full;
 }
 @media (max-width: 1700px) and (min-width: 1367px) {
 	.container {
@@ -512,7 +517,6 @@ header {
 	&-item {
 		&.active {
 			.com-svg {
-				
 				.com-svg-path {
 					fill: url(#gradientFill);
 				}
@@ -533,7 +537,6 @@ header {
 				fill: white;
 			}
 		}
-		
 	}
 }
 
@@ -602,7 +605,7 @@ header {
 		@apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black lg:font-normal font-medium flex-1 md:text-base text-xs;
 	}
 	.wpcf7-form-control-wrap {
-		@apply flex-1 2xl:max-w-[64%] lg:max-w-[50%] max-w-[66%] lg:text-base text-xs;
+		@apply flex-1 2xl:max-w-[64%] lg:max-w-[50%] max-w-[calc(100%-120px)] lg:text-base text-xs;
 	}
 	button {
 		@apply whitespace-nowrap px-4 md:min-w-[97px] lg:h-[38px] h-[30px] py-1 ml-auto sm:text-base text-xs;
@@ -691,7 +694,6 @@ header {
 		input {
 			@apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 		}
-		
 	}
 	.upload_file-wrapper {
 		background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");

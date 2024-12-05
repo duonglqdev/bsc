@@ -115,36 +115,38 @@
 						<div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 							? 'gap-6 2xl:gap-6 items-center'
 							: 'gap-4 items-end'; ?>">
-							<div id="date-performance-picker" date-rangepicker
-								datepicker-format="yyyy-mm-dd" datepicker-autohide
-								datepicker-orientation="bottom left" class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+							<div id="date-performance-picker" date-rangepicker datepicker-orientation="bottom"
+								datepicker-format="yyyy-mm-dd" datepicker-autohide>
+									<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 									? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
 									: 'flex-wrap flex-1 justify-between'; ?>">
-								<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-									? 'w-auto mb-0'
-									: 'w-full mb-2'; ?>">
-									<?php _e( 'Thời gian:', 'gnws' ) ?>
-								</p>
-								<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-									? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-									: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
-									<input id="datepicker-performance-start" name="start"
-										type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'max-w-[100px] w-full p-0'
-											: 'max-w-full w-full p-0'; ?>" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>"
-										value="<?php echo $fromdate ?>">
-									<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
-								</div>
-								<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-									? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-									: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
-									<input id="datepicker-performance-end" name="end" type="text"
-										class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'max-w-[100px] w-full p-0'
-											: 'max-w-full w-full p-0'; ?>" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
-										value="<?php echo $todate ?>">
-									<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
-								</div>
+										<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+											? 'w-auto mb-0'
+											: 'w-full mb-2'; ?>">
+											<?php _e( 'Thời gian:', 'gnws' ) ?>
+										</p>
+										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+											<input id="datepicker-performance-start" name="start"
+												type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+													? 'max-w-[100px] w-full p-0'
+													: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>"
+												value="<?php echo $fromdate ?>">
+											<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
+										</div>
+										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+											<input id="datepicker-performance-end" name="end" type="text"
+												class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+													? 'max-w-[100px] w-full p-0'
+													: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
+												value="<?php echo $todate ?>">
+											<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
+										</div>
+
+									</div>
 							</div>
 							<button type="button" data-fromdate="<?php echo $fromdate ?>"
 								data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
