@@ -39,7 +39,7 @@
 												</div>
 											<?php } ?>
 											<ul
-												class="flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4 block':'flex flex-wrap gap-y-3 px-4' ?>">
+												class="flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4 block':'flex flex-wrap gap-y-3 px-4 space-y-0.5' ?>">
 												<?php if ( have_rows( 'mota' ) )
 												{
 													while ( have_rows( 'mota' ) ) :

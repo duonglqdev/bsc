@@ -49,7 +49,7 @@ if ( have_rows( 'slider' ) )
 												while ( have_rows( 'title' ) ) :
 													the_row(); ?>
 													<h2
-														class="uppercase text-white font-extrabold !leading-tight <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:text-[50px] lg:text-4xl mb-6' : 'text-2xl mb-5' ?>">
+														class="uppercase text-white font-extrabold !leading-tight <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:text-[50px] lg:text-4xl mb-6' : 'text-2xl mb-4' ?>">
 														<?php if ( get_sub_field( 'title_1' ) )
 														{ ?>
 															<p>
@@ -68,7 +68,7 @@ if ( have_rows( 'slider' ) )
 											<?php if ( get_sub_field( 'mota' ) )
 											{ ?>
 												<p
-													class="font-bold text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-2xl text-xl mb-8' : 'text-xl mb-4' ?>">
+													class="font-bold text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-2xl text-xl mb-8' : 'text-lg mb-4' ?>">
 													<?php the_sub_field( 'mota' ) ?>
 												</p>
 											<?php } ?>
