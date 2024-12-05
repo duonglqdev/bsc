@@ -33,7 +33,7 @@ $class = $check_logout['class'];
                                     foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                     ?>
                                         <li>
-                                            <?php echo $GetForecastBussinessResults->namevn ?>
+                                            <?php echo $GetForecastBussinessResults->industryname ?>
                                         </li>
                                     <?php
                                     }

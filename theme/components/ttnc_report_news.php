@@ -65,7 +65,14 @@ $time_cache = 300;
                                         <?php echo $news->SYMBOL ?>
                                     </span>
                                     <span>
-                                        +<?php echo $news->UPSIDE ?>%
+                                        +<?php
+                                            $upside = $news->UPSIDE;
+                                            if ($upside >= 1) {
+                                                echo round($upside);
+                                            } else {
+                                                echo number_format($upside, 1);
+                                            }
+                                            ?>%
                                     </span>
                                 </a>
                             <?php

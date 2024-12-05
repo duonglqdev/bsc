@@ -73,7 +73,6 @@ $id_post = get_the_ID();
             </div>
         </div>
     </section>
-    <?php echo get_template_part('components/nhdt_contact') ?>
 </main>
 <?php
 get_footer();

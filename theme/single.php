@@ -8,6 +8,7 @@ if ($args['data']) {
 	$trach_nhiem_cong_dong_id = get_field('cdtnvcd2_id_danh_mục', 'option');
 	$chuong_trinh_khuyen_mai_id = get_field('cdctkm1_id_danh_mục', 'option');
 	$array_id_kien_thuc = array();
+	$id_current_post = $news->newsid;
 	$terms = get_terms(array(
 		'taxonomy' => 'danh-muc-kien-thuc',
 		'hide_empty' => false,
@@ -84,10 +85,10 @@ get_header();
 		'title' => $tax_name,
 		'breadcrumb' => $breadcrumb,
 	)) ?>
-	<section class="bg-gradient-blue-to-bottom-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-12 pb-16':'pt-[50px] mb-12' ?>">
+	<section class="bg-gradient-blue-to-bottom-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-12 pb-16' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[70px]':'' ?>">
-				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<?php if ($groupid != $chuong_trinh_khuyen_mai_id) { ?>
@@ -144,7 +145,7 @@ get_header();
 														'parent' => $term->term_id,
 														'hide_empty' => false,
 													));
-	
+
 													if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
 														<ul class="pl-5 hidden sub-menu w-full bg-white">
 															<?php foreach ($child_terms as $child_term) :
@@ -183,10 +184,10 @@ get_header();
 							?>
 						</div>
 					</div>
-									
+
 				<?php } ?>
 				<div class="flex-1">
-					<h1 class="font-bold mb-6 !leading-snug <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-4xl':'text-[22px]' ?>">
+					<h1 class="font-bold mb-6 !leading-snug <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-4xl' : 'text-[22px]' ?>">
 						<?php echo $title ?>
 					</h1>
 					<?php if ($groupid == $chuong_trinh_khuyen_mai_id) {
@@ -265,21 +266,21 @@ get_header();
 						</div>
 					<?php
 					} else { ?>
-						<div class="flex items-center text-xs  gap-[12px] font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-8':'justify-between mb-[26px]' ?>">
+						<div class="flex items-center text-xs  gap-[12px] font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-8' : 'justify-between mb-[26px]' ?>">
 							<div class="flex gap-[12px] items-center">
 								<?php echo svg('date') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 								-
 								<span class="text-primary-300"><?php echo get_the_author() ?></span>
 							<?php } ?>
 							<div class="share flex items-center gap-[12px] ml-12">
-								<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+								<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 									<strong>
 										<?php _e('Chia sẻ:', 'bsc') ?>
 									</strong>
-													
+
 								<?php } ?>
 								<ul class="flex items-center gap-3">
 									<li>
@@ -322,7 +323,7 @@ get_header();
 	<?php
 	if ($args['data']  && $groupid) {
 		$array_data = array(
-			"maxitem" => "3",
+			"maxitem" => "4",
 			"lang" => pll_current_language(),
 			"groupid" => $groupid,
 			'index' => 1
@@ -337,15 +338,20 @@ get_header();
 					</h2>
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8' : 'block_slider-show-1 dots-blue' ?>"
-				<?php if ( wp_is_mobile() && bsc_is_mobile() )
-				{ ?>
-					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
-				<?php } ?>>
+						<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+						data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+						<?php } ?>>
 						<?php
+						$check_p = 0;
 						foreach ($response->d as $news) {
-							get_template_part('template-parts/content', $template_lienquan, array(
-								'data' => $news,
-							));
+							if ($check_p < 3) {
+								if ($id_current_post != $news->newsid) {
+									$check_p++;
+									get_template_part('template-parts/content', $template_lienquan, array(
+										'data' => $news,
+									));
+								}
+							}
 						}
 						?>
 					</div>

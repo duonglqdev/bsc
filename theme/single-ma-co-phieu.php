@@ -574,7 +574,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab-content hidden" id="details_symbol_tab-3">
+				<div class="tab-content hidden" id="details_symbol_tab-3" data-chart="true">
 					<div class="hidden">
 						<div role="status">
 							<svg aria-hidden="true"

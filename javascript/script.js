@@ -30,9 +30,6 @@ import { DataTable } from 'simple-datatables';
 		candleChart();
 		forecastChart();
 		profitChart();
-		healthChart();
-		growthChart();
-		effectiveChart();
 		collapseChart();
 		//
 		handleDatatables();
@@ -389,6 +386,10 @@ import { DataTable } from 'simple-datatables';
 			},
 			success: function (response) {
 				$('#' + type_form).html(response);
+				var check_chart = $('#' + type_form).attr('data-chart');
+				if (check_chart === 'true') {
+					profitChart();
+				}
 			},
 		});
 	}
@@ -2068,730 +2069,123 @@ import { DataTable } from 'simple-datatables';
 	function profitChart() {
 		if ($('.bsc_chart-display').length) {
 			$('.bsc_chart-display').each(function () {
-				try {
-					// Parse dữ liệu từ HTML attributes
-					const data1 = JSON.parse($(this).attr('data-1') || '[]');
-					const data2 = $(this).attr('data-2')
-						? JSON.parse($(this).attr('data-2'))
-						: null;
-					const title1 = $(this).attr('data-title-1');
-					const title2 = $(this).attr('data-title-2') || null;
-					const color1 = $(this).attr('data-color-1');
-					const color2 = $(this).attr('data-color-2') || null;
+				if ($(this).attr('data-load') == 'false') {
+					try {
+						// Parse dữ liệu từ HTML attributes
+						const data1 = JSON.parse(
+							$(this).attr('data-1') || '[]'
+						);
+						const end_ch = $(this).attr('data-end') || '';
+						const type_chart = $(this).attr('data-type') || 'line';
+						const data2 = $(this).attr('data-2')
+							? JSON.parse($(this).attr('data-2'))
+							: null;
+						const title1 = $(this).attr('data-title-1');
+						const title2 = $(this).attr('data-title-2') || null;
+						const color1 = $(this).attr('data-color-1');
+						const color2 = $(this).attr('data-color-2') || null;
 
-					// Kết hợp ngày và giá trị vào một mảng để sắp xếp
-					const combinedData1 = data1.map((item) => ({
-						date: item.date,
-						value: item.value * 100,
-					}));
-					const combinedData2 = data2
-						? data2.map((item) => ({
-								date: item.date,
-								value: item.value * 100,
-							}))
-						: null;
+						// Kết hợp ngày và giá trị vào một mảng để sắp xếp
+						const combinedData1 = data1.map((item) => ({
+							date: item.date,
+							value: item.value,
+						}));
+						const combinedData2 = data2
+							? data2.map((item) => ({
+									date: item.date,
+									value: item.value,
+								}))
+							: null;
 
-					// Sắp xếp mảng theo ngày
-					combinedData1.sort(
-						(a, b) => new Date(a.date) - new Date(b.date)
-					);
-					if (combinedData2) {
-						combinedData2.sort(
+						// Sắp xếp mảng theo ngày
+						combinedData1.sort(
 							(a, b) => new Date(a.date) - new Date(b.date)
 						);
-					}
+						if (combinedData2) {
+							combinedData2.sort(
+								(a, b) => new Date(a.date) - new Date(b.date)
+							);
+						}
 
-					// Tách lại mảng đã sắp xếp
-					const dates = combinedData1.map((item) => item.date);
-					const values1 = combinedData1.map((item) => item.value);
-					const values2 = combinedData2
-						? combinedData2.map((item) => item.value)
-						: [];
+						// Tách lại mảng đã sắp xếp
+						const dates = combinedData1.map((item) => item.date);
+						const values1 = combinedData1.map((item) => item.value);
+						const values2 = combinedData2
+							? combinedData2.map((item) => item.value)
+							: [];
 
-					// Cấu hình series cho ApexCharts
-					const series = [{ name: title1, data: values1 }];
-					if (data2) {
-						series.push({ name: title2, data: values2 });
-					}
+						// Cấu hình series cho ApexCharts
+						const series = [{ name: title1, data: values1 }];
+						if (data2) {
+							series.push({ name: title2, data: values2 });
+						}
 
-					// Cấu hình biểu đồ
-					const chartOptions = {
-						chart: {
-							type: 'line',
-							height: 400,
-							toolbar: { show: false },
-						},
-						series: series,
-						xaxis: {
-							categories: dates, // Sử dụng ngày đã sắp xếp
-							labels: {
-								style: { fontSize: '14px', colors: '#4A5568' },
-								rotate: -45,
+						// Cấu hình biểu đồ
+						const chartOptions = {
+							chart: {
+								type: type_chart,
+								height: 400,
+								toolbar: { show: false },
 							},
-						},
-						yaxis: {
-							labels: {
-								formatter: function (val) {
-									return val.toFixed(2) + '%';
+							series: series,
+							xaxis: {
+								categories: dates, // Sử dụng ngày đã sắp xếp
+								labels: {
+									style: {
+										fontSize: '14px',
+										colors: '#4A5568',
+									},
+									rotate: -45,
 								},
 							},
-						},
-						colors: data2 ? [color1, color2] : [color1],
-						markers: {
-							size: 5,
-							hover: { size: 7 },
-						},
-						stroke: {
-							curve: 'smooth',
-							width: 2,
-						},
-						legend: {
-							position: 'top',
-							horizontalAlign: 'left',
-							labels: { colors: '#4A5568' },
-						},
-						tooltip: {
-							shared: true,
-							intersect: false,
-							y: {
-								formatter: function (val) {
-									return val.toFixed(2) + '%';
+							yaxis: {
+								labels: {
+									formatter: function (val) {
+										return val + end_ch;
+									},
 								},
 							},
-						},
-					};
+							colors: data2 ? [color1, color2] : [color1],
+							markers: {
+								size: 5,
+								hover: { size: 7 },
+							},
+							stroke: {
+								curve: 'smooth',
+								width: 2,
+							},
+							legend: {
+								position: 'top',
+								horizontalAlign: 'left',
+								labels: { colors: '#4A5568' },
+							},
+							tooltip: {
+								shared: true,
+								intersect: false,
+								y: {
+									formatter: function (val) {
+										return val.toFixed(2) + end_ch;
+									},
+								},
+							},
+						};
 
-					// Render biểu đồ
-					const chartContainer =
-						$('<div>').addClass('chart-container');
-					$(this).append(chartContainer);
+						// Render biểu đồ
+						const chartContainer =
+							$('<div>').addClass('chart-container');
+						$(this).append(chartContainer);
 
-					const chart = new ApexCharts(
-						chartContainer[0],
-						chartOptions
-					);
-					chart.render();
-				} catch (error) {
-					console.error('Error parsing JSON data:', error);
+						const chart = new ApexCharts(
+							chartContainer[0],
+							chartOptions
+						);
+						chart.render();
+					} catch (error) {
+						console.error('Error parsing JSON data:', error);
+					}
+					$(this).attr('data-load', 'true');
 				}
 			});
-		}
-	}
-
-	function healthChart() {
-		if (document.querySelector('#health-chart-1')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'CSTT nhanh',
-						data: [30, 20, 52.24, 40, 45],
-					},
-					{
-						name: 'CSTT hiện  thời',
-						data: [25, 24, 24.7, 24.5, 25],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px', // Kích thước font chữ
-							colors: '#4A5568', // Màu chữ
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (val) {
-							return val + '%';
-						},
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'],
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2, // Độ dày của đường
-				},
-				legend: {
-					position: 'top', // Vị trí trên cùng
-					horizontalAlign: 'left', // Căn trái
-					offsetY: 0,
-					labels: {
-						colors: '#4A5568', // Màu chữ của legend
-					},
-				},
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#health-chart-1'),
-				options
-			);
-			chart.render();
-		}
-
-		if (document.querySelector('#health-chart-2')) {
-			var options = {
-				chart: {
-					type: 'bar',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-
-				series: [
-					{
-						data: [0.31, 0.41, 0.62, 0.17, 0.4],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				dataLabels: {
-					enabled: true,
-					offsetY: -30,
-					style: {
-						fontSize: '14px',
-						colors: ['#4A5568'],
-					},
-					formatter: function (value) {
-						return value.toFixed(2); // Hiển thị giá trị trên cột với 2 chữ số thập phân
-					},
-				},
-				plotOptions: {
-					bar: {
-						borderRadius: 8, // Bo góc cho cột
-						columnWidth: '56px', // Đặt chiều rộng cột chính xác là 56px
-						borderRadiusApplication: 'around',
-						dataLabels: {
-							position: 'top', // top, center, bottom
-						},
-					},
-				},
-				colors: ['#009E87'], // Màu cột (màu xanh lá cây)
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#health-chart-2'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#health-chart-3')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'Tỷ lệ thanh toán',
-						data: [30, 20, 52.24, 40, 45],
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px', // Kích thước font chữ
-							colors: '#4A5568', // Màu chữ
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-				},
-				tooltip: {
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (val) {
-							return val;
-						},
-					},
-				},
-				colors: ['#235BA8'],
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2, // Độ dày của đường
-				},
-				legend: {
-					position: 'top', // Vị trí trên cùng
-					horizontalAlign: 'left', // Căn trái
-					offsetY: 0,
-					labels: {
-						colors: '#4A5568', // Màu chữ của legend
-					},
-				},
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#health-chart-3'),
-				options
-			);
-			chart.render();
-		}
-	}
-
-	function growthChart() {
-		if (document.querySelector('#growth-chart-1')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'TTDT',
-						data: [10, 46.07, 20, 5, 30], // Dữ liệu tương ứng với các năm
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				tooltip: {
-					enabled: true,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(2) + '%';
-						},
-					},
-				},
-				markers: {
-					size: 5,
-					colors: ['#235BA8'],
-					strokeColors: '#ffffff',
-					strokeWidth: 2,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#235BA8'], // Màu của đường biểu đồ
-			};
-			var chart = new ApexCharts(
-				document.querySelector('#growth-chart-1'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#growth-chart-2')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'TT EPS',
-						data: [10, 46.07, 20, 5, 30], // Dữ liệu tương ứng với các năm
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				tooltip: {
-					enabled: true,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(2) + '%';
-						},
-					},
-				},
-				markers: {
-					size: 5,
-					colors: ['#009E87'],
-					strokeColors: '#ffffff',
-					strokeWidth: 2,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#009E87'], // Màu của đường biểu đồ
-			};
-			var chart = new ApexCharts(
-				document.querySelector('#growth-chart-2'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#growth-chart-3')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'TT Lợi nhuận',
-						data: [10, 46.07, 20, 5, 30], // Dữ liệu tương ứng với các năm
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				tooltip: {
-					enabled: true,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(2) + '%';
-						},
-					},
-				},
-				markers: {
-					size: 5,
-					colors: ['#235BA8'],
-					strokeColors: '#ffffff',
-					strokeWidth: 2,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#235BA8'], // Màu của đường biểu đồ
-			};
-			var chart = new ApexCharts(
-				document.querySelector('#growth-chart-3'),
-				options
-			);
-			chart.render();
-		}
-	}
-
-	function effectiveChart() {
-		if (document.querySelector('#effective-chart-1')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'VQKPT',
-						data: [15, 16, 17, 15, 14], // Dữ liệu cho đường màu xanh
-					},
-					{
-						name: 'VQKPT (TB ngành)',
-						data: [7, 8, 8, 7, 6], // Dữ liệu cho đường màu vàng
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						text: '',
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				tooltip: {
-					enabled: true,
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(0); // Hiển thị giá trị số nguyên
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
-
-				legend: {
-					position: 'top',
-					horizontalAlign: 'left',
-				},
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#effective-chart-1'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#effective-chart-2')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'VQKPT',
-						data: [15, 16, 17, 15, 14], // Dữ liệu cho đường màu xanh
-					},
-					{
-						name: 'VQKPT (TB ngành)',
-						data: [7, 8, 8, 7, 6], // Dữ liệu cho đường màu vàng
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						text: '',
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				tooltip: {
-					enabled: true,
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(0); // Hiển thị giá trị số nguyên
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
-
-				legend: {
-					position: 'top',
-					horizontalAlign: 'left',
-				},
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#effective-chart-2'),
-				options
-			);
-			chart.render();
-		}
-		if (document.querySelector('#effective-chart-3')) {
-			var options = {
-				chart: {
-					type: 'line',
-					height: 400,
-					toolbar: {
-						show: false,
-					},
-				},
-				series: [
-					{
-						name: 'VQHTK',
-						data: [15, 16, 17, 15, 14], // Dữ liệu cho đường màu xanh
-					},
-					{
-						name: 'VQHTK (TB ngành)',
-						data: [7, 8, 8, 7, 6], // Dữ liệu cho đường màu vàng
-					},
-				],
-				xaxis: {
-					categories: ['2019', '2020', '2021', '2022', '2023'],
-					labels: {
-						style: {
-							fontSize: '14px',
-							colors: '#4A5568',
-						},
-					},
-				},
-				yaxis: {
-					labels: {
-						show: false, // Ẩn nhãn trên trục Y
-					},
-					title: {
-						text: '',
-						style: {
-							fontSize: '14px',
-							color: '#4A5568',
-						},
-					},
-				},
-				tooltip: {
-					enabled: true,
-					shared: true,
-					intersect: false,
-					y: {
-						formatter: function (value) {
-							return value.toFixed(0); // Hiển thị giá trị số nguyên
-						},
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 2,
-				},
-				markers: {
-					size: 5,
-					hover: {
-						size: 7,
-					},
-				},
-				colors: ['#235BA8', '#FFB81C'], // Màu của hai đường
-
-				legend: {
-					position: 'top',
-					horizontalAlign: 'left',
-				},
-			};
-
-			var chart = new ApexCharts(
-				document.querySelector('#effective-chart-3'),
-				options
-			);
-			chart.render();
 		}
 	}
 
