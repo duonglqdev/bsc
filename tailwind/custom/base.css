@@ -320,17 +320,23 @@
 .style-mb .flickity-page-dots .dot.is-selected {
   @apply w-8;
 }
-.style-mb .home__banner .flickity-page-dots {
+.style-mb .home__banner .flickity-page-dots, .style-mb .home_news .flickity-page-dots {
   @apply bottom-4;
 }
-.style-mb .home__banner .flickity-page-dots .dot {
+.style-mb .home__banner .flickity-page-dots .dot, .style-mb .home_news .flickity-page-dots .dot {
   @apply mx-1 h-3;
 }
-.style-mb .home__banner .flickity-page-dots .dot:not(.is-selected) {
+.style-mb .home__banner .flickity-page-dots .dot:not(.is-selected), .style-mb .home_news .flickity-page-dots .dot:not(.is-selected) {
   @apply w-3;
 }
-.style-mb .home__banner .flickity-page-dots .dot.is-selected {
+.style-mb .home__banner .flickity-page-dots .dot.is-selected, .style-mb .home_news .flickity-page-dots .dot.is-selected {
   @apply w-[52px];
+}
+.style-mb .home_news .flickity-page-dots {
+  @apply -bottom-6;
+}
+.style-mb .home_news .flickity-page-dots .dot.is-selected {
+  @apply bg-primary-300;
 }
 .style-mb .chart-info .subscribe {
   @apply h-[42px] mt-[12px];

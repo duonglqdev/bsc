@@ -256,7 +256,7 @@
 			}
 		}
 	}
-	.home__banner {
+	.home__banner ,.home_news{
 		.flickity-page-dots {
 			@apply bottom-4;
 			.dot {
@@ -266,6 +266,17 @@
 				}
 				&.is-selected {
 					@apply w-[52px];
+				}
+			}
+		}
+	}
+	.home_news{
+		.flickity-page-dots {
+			@apply -bottom-6;
+			.dot {
+				
+				&.is-selected {
+					@apply bg-primary-300;
 				}
 			}
 		}
