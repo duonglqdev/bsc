@@ -1082,6 +1082,7 @@ function filter_details_symbol()
                         if ($response_GetFinanceDetail) {
                             $industryData = $response_GetFinanceDetail->d->Industry[0];
                             $businessData = $response_GetFinanceDetail->d->Bussiness[0];
+                            $check_linh_vuc = $response_GetFinanceDetail->d->Rank[0][0]->INDUSTRY_NAME;
                         ?>
                             <div class="space-y-[100px]">
                                 <article>
@@ -1119,7 +1120,14 @@ function filter_details_symbol()
                                             <thead>
                                                 <tr>
                                                     <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
-                                                    <th><?php _e('Biên LNG', 'bsc') ?></th>
+                                                    <th><?php
+                                                        if ($check_linh_vuc == 'Bank') {
+                                                            _e('NIM', 'bsc');
+                                                        } else {
+                                                            _e('Biên LNG', 'bsc');
+                                                        }
+                                                        ?></th>
+                                                    <th><?php _e('Biên LNTT', 'bsc') ?></th>
                                                     <th><?php _e('Biên LNST', 'bsc') ?></th>
                                                     <th><?php _e('ROE', 'bsc') ?></th>
                                                 </tr>
@@ -1127,9 +1135,17 @@ function filter_details_symbol()
                                             <tbody>
                                                 <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
                                                     <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP) * 100, 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE) * 100, 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP), 2, '.', ''); ?>%</td>
+                                                    <td><?php
+                                                        if ($check_linh_vuc == 'Bank') {
+                                                            echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NIM), 2, '.', '') . '%';
+                                                        } else {
+                                                            echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_TRUOC_THUE), 2, '.', '') . '%';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE), 2, '.', ''); ?>%</td>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE), 2, '.', ''); ?>%</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1138,24 +1154,51 @@ function filter_details_symbol()
                                         <div class="space-y-6">
                                             <h4
                                                 class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                <?php _e('BIÊN LỢI NHUẬN GỘP (%)', 'bsc') ?>
+                                                <?php
+                                                if ($check_linh_vuc == 'Bank') {
+                                                    _e('NIM (%)', 'bsc');
+                                                } else {
+                                                    _e('BIÊN LỢI NHUẬN GỘP (%)', 'bsc');
+                                                }
+                                                ?>
                                             </h4>
                                             <?php
-                                            $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
-                                                    'value' => $item->BIEN_LOI_NHUAN_GOP, // Không cần trim vì là số
-                                                ];
-                                            }, $businessData);
-
+                                            if ($check_linh_vuc == 'Bank') {
+                                                $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->NIM,
+                                                    ];
+                                                }, $businessData);
+                                            } else {
+                                                $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP,
+                                                    ];
+                                                }, $businessData);
+                                            }
                                             $industry_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
                                                 return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
-                                                    'value' => $item->BIEN_LOI_NHUAN_GOP, // Không cần trim vì là số
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->BIEN_LOI_NHUAN_GOP,
                                                 ];
                                             }, $industryData);
                                             ?>
-                                            <div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>" data-title-1="Biên LNG" data-color-1="#235BA8" data-title-2="Biên BLNG TB ngành" data-color-2="#FFB81C">
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                data-title-1="<?php _e('Nim', 'bsc') ?>"
+                                                data-title-2="<?php _e('Nim TB ngành', 'bsc') ?>"
+                                                <?php } else { ?>
+                                                data-title-1="<?php _e('Biên LNG', 'bsc') ?>"
+                                                data-title-2="<?php _e('Biên LNG TB ngành', 'bsc') ?>"
+                                                <?php } ?>
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>"
+                                                data-color-1="#235BA8"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                         <div class="space-y-6">
@@ -1166,19 +1209,27 @@ function filter_details_symbol()
                                             <?php
                                             $business_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
                                                 return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
-                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE, // Không cần trim vì là số
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
                                                 ];
                                             }, $businessData);
 
                                             $industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
                                                 return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
-                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE, // Không cần trim vì là số
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
                                                 ];
                                             }, $industryData);
                                             ?>
-                                            <div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>" data-title-1="Biên LNST" data-color-1="#235BA8" data-title-2="Biên BLST TB ngành" data-color-2="#FFB81C">
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
+                                                data-title-1="<?php _e('Biên LNST', 'bsc') ?>"
+                                                data-color-1="#235BA8"
+                                                data-title-2="<?php _e('Biên BLST TB ngành', 'bsc') ?>"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                         <div class="space-y-6">
@@ -1189,19 +1240,27 @@ function filter_details_symbol()
                                             <?php
                                             $business_data_ROE = array_map(function ($item) {
                                                 return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))), // Trim REPORT_DATE
-                                                    'value' => $item->ROE, // Không cần trim vì là số
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->ROE,
                                                 ];
                                             }, $businessData);
 
                                             $industry_data_ROE = array_map(function ($item) {
                                                 return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)), // Trim YEAR và QUARTER
-                                                    'value' => $item->ROE, // Không cần trim vì là số
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->ROE,
                                                 ];
                                             }, $industryData);
                                             ?>
-                                            <div class="legend-gap bsc_chart-display" data-1="<?php echo htmlspecialchars(json_encode($business_data_ROE)) ?>" data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>" data-title-1="ROE" data-color-1="#009e87" data-title-2="ROE TB ngành" data-color-2="#FFB81C">
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_ROE)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>"
+                                                data-title-1="<?php _e('ROE', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-title-2="<?php _e('ROE TB ngành', 'bsc') ?>"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                     </div>
@@ -1240,52 +1299,371 @@ function filter_details_symbol()
                                             <thead>
                                                 <tr>
                                                     <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
-                                                    <th><?php _e('CSTT nhanh', 'bsc') ?></th>
-                                                    <th><?php _e('CSTT hiện tại', 'bsc') ?></th>
-                                                    <th><?php _e('CSTT lãi vay', 'bsc') ?></th>
-                                                    <th><?php _e('Nợ vay TTS', 'bsc') ?></th>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
+                                                        <th><?php _e('NPL', 'bsc') ?></th>
+                                                        <th><?php _e('LLR', 'bsc') ?></th>
+                                                    <?php } else {
+                                                    ?>
+                                                        <th><?php _e('CSTT hiện tại', 'bsc') ?></th>
+                                                        <th><?php _e('CSTT nhanh', 'bsc') ?></th>
+                                                        <th><?php _e('CSTT lãi vay', 'bsc') ?></th>
+                                                        <?php if ($check_linh_vuc == 'Company') { ?>
+                                                            <th><?php _e('Nợ vay TTS', 'bsc') ?></th>
+                                                        <?php } else { ?>
+                                                            <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
+                                                        <?php } ?>
+                                                    <?php
+                                                    } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
                                                     <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH) * 100, 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_HIEN_THOI) * 100, 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE) * 100, 2, '.', ''); ?>%</td>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_NO_XAU), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DU_PHONG_NO_XAU), 2, '.', ''); ?></td>
+                                                    <?php } else {
+                                                    ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_HIEN_THOI), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_THANH_TOAN_LAI_VAY), 2, '.', ''); ?></td>
+                                                        <?php if ($check_linh_vuc == 'Company') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NO_VAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php } else { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
+                                                        <?php } ?>
+                                                    <?php } ?>
                                                 </tr>
 
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                CHỈ SỐ THANH TOÁN NHANH/ HIỆN THỜI
-                                            </h4>
-                                            <div id="health-chart-1" class="legend-gap">
-
+                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ NỢ XẤU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_NO_XAU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_NO_XAU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_NO_XAU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_NO_XAU)) ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ nợ  xấu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ nợ  xấu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                NỢ VAY/ TỔNG TÀI SẢN
-                                            </h4>
-                                            <div id="health-chart-2" class="legend-gap">
-
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#009e87">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                TỶ LỆ THANH TOÁN LÃI VAY
-                                            </h4>
-                                            <div id="health-chart-3" class="legend-gap">
-
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ DỰ PHÒNG NỢ XẤU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DU_PHONG_NO_XAU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DU_PHONG_NO_XAU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
+                                                    data-title-1="<?php _e('TLDP nợ xấu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLDP nợ xấu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('BIÊN LỢI NHUẬN GỘP BẢO HIỂM') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
+                                                    data-title-1="<?php _e('BLN gộp bảo hiểm', 'bsc') ?>"
+                                                    data-title-2="<?php _e('BLN gộp bảo hiểm TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } else {
+                                        ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('NỢ VAY/Tổng tài sản', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_NO_VAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->NO_VAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-type="bar"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_NO_VAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Nợ vay/Tổng  tài sản', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php
+                                        } ?>
                                     </div>
                                 </article>
                                 <article>
@@ -1321,22 +1699,33 @@ function filter_details_symbol()
                                             class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
                                             <thead>
                                                 <tr>
-                                                    <th class="!pl-9">Mã CK</th>
-                                                    <th>TT Doanh thu</th>
-                                                    <th>TT LNST</th>
-                                                    <th>TT EPS</th>
-                                                    <th>Xếp hạng TT</th>
+                                                    <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <th><?php _e('TT cho vay', 'bsc') ?></th>
+                                                        <th><?php _e('TT tiền gửi', 'bsc') ?></th>
+                                                    <?php } else { ?>
+                                                        <th><?php _e('TT Doanh thu', 'bsc') ?></th>
+                                                        <th><?php _e('TT TNHĐ', 'bsc') ?></th>
+                                                    <?php } ?>
+                                                    <th><?php _e('TT LNST', 'bsc') ?></th>
+                                                    <th><?php _e('TT EPS', 'bsc') ?></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                                    <td class="!pl-9"><a href="">BSI</a></td>
-                                                    <td>0.20</td>
-                                                    <td>1.94</td>
-                                                    <td>4.14</td>
-                                                    <td>0.41</td>
+                                                    <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_CHO_VAY), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_TIEN_GUI), 2, '.', ''); ?></td>
+                                                    <?php } else {
+                                                    ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_DOANH_THU), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TT_TNHĐ), 2, '.', ''); ?></td>
+                                                    <?php
+                                                    } ?>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_LOI_NHUAN), 2, '.', ''); ?></td>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_EPS), 2, '.', ''); ?></td>
                                                 </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -1344,28 +1733,113 @@ function filter_details_symbol()
                                         <div class="space-y-6">
                                             <h4
                                                 class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                TĂNG TRƯỞNG DOANH THU (%)
-                                            </h4>
-                                            <div id="growth-chart-1" class="legend-gap">
+                                                <?php if ($check_linh_vuc == 'Bank') {
+                                                    $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                            'value' => $item->TANG_TRUONG_CHO_VAY,
+                                                        ];
+                                                    }, $businessData);
+                                                    $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                            'value' => $item->TANG_TRUONG_CHO_VAY,
+                                                        ];
+                                                    }, $industryData);
+                                                ?>
+                                                    <?php _e('TĂNG TRƯỞNG CHO VAY (%)', 'bsc') ?>
 
+                                                <?php } else {
+                                                    $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                            'value' => $item->TANG_TRUONG_DOANH_THU,
+                                                        ];
+                                                    }, $businessData);
+                                                    $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                            'value' => $item->TANG_TRUONG_DOANH_THU,
+                                                        ];
+                                                    }, $industryData);
+                                                ?>
+                                                    <?php _e('TĂNG TRƯỞNG DOANH THU (%)', 'bsc') ?>
+                                                <?php } ?>
+                                            </h4>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_CHO_VAY)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_CHO_VAY)) ?>"
+                                                <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                data-title-1="<?php _e('TTCV', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTCV TB ngành', 'bsc') ?>"
+                                                <?php } else { ?>
+                                                data-title-1="<?php _e('TTDTT', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTDTT TB ngành', 'bsc') ?>"
+                                                <?php } ?>
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                         <div class="space-y-6">
                                             <h4
                                                 class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                TĂNG TRƯỞNG EPS (%)
+                                                <?php _e('TĂNG TRƯỞNG EPS (%)', 'bsc') ?>
                                             </h4>
-                                            <div id="growth-chart-2" class="legend-gap">
-
+                                            <?php
+                                            $business_data_TANG_TRUONG_EPS = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->TANG_TRUONG_EPS,
+                                                ];
+                                            }, $businessData);
+                                            $industry_data_TANG_TRUONG_EPS = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->TANG_TRUONG_EPS,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_EPS)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_EPS)) ?>"
+                                                data-title-1="<?php _e('TT EPS', 'bsc') ?>"
+                                                data-title-2="<?php _e('TT EPS TB ngành', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                         <div class="space-y-6">
                                             <h4
                                                 class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                TĂNG TRƯỞNG LỢI NHUẬN (%)
+                                                <?php _e('TĂNG TRƯỞNG LỢI NHUẬN (%)', 'bsc') ?>
                                             </h4>
-                                            <div id="growth-chart-3" class="legend-gap">
-
+                                            <?php
+                                            $business_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->TANG_TRUONG_LOI_NHUAN,
+                                                ];
+                                            }, $businessData);
+                                            $industry_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->TANG_TRUONG_LOI_NHUAN,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_LOI_NHUAN)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_LOI_NHUAN)) ?>"
+                                                data-title-1="<?php _e('TT Lợi nhuận', 'bsc') ?>"
+                                                data-title-2="<?php _e('TT Lợi nhuận TB ngành', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
                                             </div>
                                         </div>
                                     </div>
@@ -1398,35 +1872,425 @@ function filter_details_symbol()
                                             </p>
                                         <?php } ?>
                                     </div>
-
+                                    <div class="rounded-lg overflow-hidden mb-10">
+                                        <table
+                                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+                                            <thead>
+                                                <tr>
+                                                    <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <th><?php _e('Tỉ lệ CIR', 'bsc') ?></th>
+                                                        <th><?php _e('NII/TOI', 'bsc') ?></th>
+                                                        <th><?php _e('Tỉ lệ CASA', 'bsc') ?></th>
+                                                    <?php } else { ?>
+                                                        <?php if ($check_linh_vuc == 'Securities') { ?>
+                                                            <th><?php _e('Tỉ trọng DT môi giới', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
+                                                            <th><?php _e('CP Bảo hiểm/DT', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php } else {
+                                                        ?>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ HTK', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php
+                                                        } ?>
+                                                    <?php } ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                                    <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_TREN_DOANH_THU), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->THU_NHAP_TU_LAI_VAY), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CASA), 2, '.', ''); ?></td>
+                                                    <?php } else { ?>
+                                                        <?php if ($check_linh_vuc == 'Securities') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php } else {
+                                                        ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php
+                                                        } ?>
+                                                    <?php } ?>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                VÒNG QUAY KHOẢN PHẢI THU (LẦN)
-                                            </h4>
-                                            <div id="effective-chart-1" class="legend-gap">
-
+                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ CHI PHÍ TRÊN DOANH THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ chi phí', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ chi phí TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
-                                            </h4>
-                                            <div id="effective-chart-2" class="legend-gap">
-
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->THU_NHAP_TU_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->THU_NHAP_TU_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_THU_NHAP_TU_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_THU_NHAP_TU_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TN từ Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="space-y-6">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
-                                                VÒNG QUAY HÀNG TỒN KHO (LẦN)
-                                            </h4>
-                                            <div id="effective-chart-3" class="legend-gap">
-
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('CASA', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CASA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CASA,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CASA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CASA,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CASA)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CASA)) ?>"
+                                                    data-title-1="<?php _e('CASA', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CASA TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỶ LỆ DOANH THU MÔI GIỚI TRÊN DOANH THU THUẦN', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-title-1="<?php _e('TLDTMGTD', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLDTMGTD TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU 4 QUÝ', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-title-1="<?php _e('TLCP BH trên DT', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLCP BH trên DT TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } else {
+                                        ?>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải trả', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải trả TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="space-y-6">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold text-lg">
+                                                    <?php _e('VÒNG QUAY HÀNG TỒN KHO (LẦN)', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_HANG_TON_KHO,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_HANG_TON_KHO,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_HANG_TON_KHO)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_HANG_TON_KHO)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay hàng tồn kho', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay hàng tồn kho TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php
+                                        } ?>
                                     </div>
                                 </article>
                             </div>

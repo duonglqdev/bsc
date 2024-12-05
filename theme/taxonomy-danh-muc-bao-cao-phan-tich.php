@@ -633,7 +633,7 @@
                                                             <?php } ?>
                                                         </div>
                                                         <div class="w-[15%] px-3 py-1">
-                                                            <?php echo $GetForecastBussinessResults->namevn ?>
+                                                            <?php echo $GetForecastBussinessResults->industryname ?>
                                                         </div>
                                                         <div class="w-[15%] px-3 py-1">
                                                             <?php echo number_format($GetForecastBussinessResults->revenue) ?>
