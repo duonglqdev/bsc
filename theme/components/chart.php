@@ -203,7 +203,7 @@
 					while ( have_rows( 'khuyen_nghi' ) ) :
 						the_row();
 						$time_cache = get_sub_field( 'time_cache' ) ?: 300; ?>
-						<div class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 font-Helvetica">
+						<div class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' font-Helvetica':'' ?>">
 							<?php if ( get_sub_field( 'title' ) )
 							{ ?>
 								<p class="font-bold lg:text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
@@ -330,7 +330,7 @@
 				}
 				?>
 				<?php if ( have_rows( 'nganh_doanh_nghiep' ) ) : ?>
-					<div class="data-slick block_slider-show-1 slick-dots-center font-Helvetica"
+					<div class="data-slick block_slider-show-1 slick-dots-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'font-Helvetica':'' ?>"
 						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
 						<?php
 						$i = 0;
