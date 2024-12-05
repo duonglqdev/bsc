@@ -26,7 +26,7 @@
 <body <?php body_class( 'font-body text-black font-normal' ); ?>>
 
 	<?php wp_body_open(); ?>
-	<header class="transition duration-500 relative z-30">
+	<header class="transition duration-500 z-30 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'relative':'sticky top-0' ?>">
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 		{ ?>
 			<div class="bg-gradient-blue py-2 text-white relative lg:block hidden">
@@ -105,7 +105,7 @@
 								class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
 								<?php echo svg( 'global', '24', '24' ) ?>
 								<?php echo pll_current_language(); ?>
-								<?php echo svgpath( 'down','','','fill-white' ) ?>
+								<?php echo svgpath( 'down', '', '', 'fill-white' ) ?>
 							</button>
 						<?php } ?>
 					</div>
@@ -187,12 +187,13 @@
 					if ( $custom_logo_id )
 					{
 						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
-						printf(
-							'<a class="block" href="%1$s" title="%2$s"><img class="max-w-24" src="%3$s" loading="lazy"></a>',
-							get_bloginfo( 'url' ),
-							get_bloginfo( 'description' ),
-							$image[0],
-						);
+						?>
+						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
+							title="<?php echo get_bloginfo( 'description' ); ?>">
+							<img class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16 ml-5' ?>"
+								src="<?php echo esc_url( $image[0] ); ?>" loading="lazy">
+						</a>
+						<?php
 					}
 					?>
 
@@ -237,7 +238,7 @@
 											<?php echo svg( 'global', '24', '24' ) ?>
 											<?php echo svg( 'down' ) ?>
 										</button>
-										<div id="dropdownLanguage"
+										<div id="dropdownLanguage-bsc"
 											class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 											<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 												aria-labelledby="change_language">
@@ -250,19 +251,21 @@
 											$i = 1;
 											while ( have_rows( 'h1_button', 'option' ) ) :
 												the_row();
-												$i++;
-												if ( get_sub_field( 'title' ) )
+												if ( $i == 2 && get_sub_field( 'title' ) )
 												{
 													?>
-													<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-														class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xs">
-														<span class="block relative z-10 ">
-															<?php the_sub_field( 'title' ) ?>
+													<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
+														class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
+														<span class="block relative z-10">
+															<?php the_sub_field( 'title' ); ?>
 														</span>
 													</a>
 													<?php
+													break;
 												}
-											endwhile; ?>
+												$i++;
+											endwhile;
+											?>
 										<?php } ?>
 
 									</div>
@@ -279,8 +282,7 @@
 							) );
 							?>
 						</ul>
-						<?php if ( have_rows( 'h1_button', 'option' ) )
-						{ ?>
+						<?php if ( have_rows( 'h1_button', 'option' ) && ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 							<div class="flex items-center gap-x-4 2xl:ml-[60px] lg:ml-8">
 								<?php
 								$i = 1;
@@ -291,7 +293,7 @@
 									{
 										?>
 										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
+											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
 											<span class="block relative z-10 ">
 												<?php the_sub_field( 'title' ) ?>
 											</span>
@@ -300,14 +302,35 @@
 									}
 								endwhile; ?>
 							</div>
-						<?php } ?>
+
+						<?php else : ?>
+								<?php
+								$i = 1;
+								while ( have_rows( 'h1_button', 'option' ) ) :
+									the_row();
+									if ( $i == 2 && get_sub_field( 'title' ) )
+									{
+										?>
+										<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
+											class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-4  py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs !leading-[1.667;]">
+												<?php the_sub_field( 'title' ); ?>
+										</a>
+										<?php
+										break;
+									}
+									$i++;
+								endwhile;
+								?>
+
+						<?php endif; ?>
+
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 		{ ?>
-			<div id="dropdownLanguage"
+			<div id="dropdownLanguage-bsc"
 				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 				<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 					aria-labelledby="change_language">

@@ -356,17 +356,20 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function setHeightBanner() {
-		function updateBannerHeight() {
-			var headerHeight = $('header').outerHeight();
-			var bannerHeight = $(window).height() - headerHeight;
-			$('.home__banner,.home__banner .block_slider-item').css(
-				'height',
-				bannerHeight + 'px'
-			);
+		if ($('.home__banner').hasClass('pc')) {
+			function updateBannerHeight() {
+				var headerHeight = $('header').outerHeight();
+				var bannerHeight = $(window).height() - headerHeight;
+				$('.home__banner, .home__banner .block_slider-item').css(
+					'height',
+					bannerHeight + 'px'
+				);
+			}
+			updateBannerHeight();
+			$(window).resize(updateBannerHeight);
 		}
-		updateBannerHeight();
-		$(window).resize(updateBannerHeight);
 	}
+	
 
 	function filter_details_symbol(type_form) {
 		var symbol = $('.display_data_details_symbol').attr('data-symbol');

@@ -11,13 +11,13 @@
  */
 
 ?>
-<footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica">
+<footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica relative">
 	<div class="container">
 		<div
 			class="pb-6 border-b border-[#f3f3f3] border-opacity-50 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center gap-4 mb-10' : 'mb-6' ?>">
 			<?php if ( get_field( 'f1_tongdai', 'option' ) )
 			{ ?>
-				<div class="flex items-center gap-x-4 text-white font-normal hidden-br-pc">
+				<div class="flex items-center gap-x-4 text-white font-normal hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 					{ ?>
 						<?php echo svg( 'phone', '', '' ) ?>
@@ -52,7 +52,7 @@
 		<div
 			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-6 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
 				<?php
 				$custom_logo_id = get_field( 'f1_logo', 'option' );
 				if ( $custom_logo_id )
@@ -74,14 +74,15 @@
 
 			</div>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
 				<ul
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-2 text-xs' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-3 text-xs' ?>">
 					<?php if ( have_rows( 'f1_thongtintruso', 'option' ) )
 					{
 						while ( have_rows( 'f1_thongtintruso', 'option' ) ) :
 							the_row(); ?>
-							<li class="flex gap-x-4 hover:text-yellow-100 transition-all duration-500">
+							<li class="flex gap-x-4 hover:text-yellow-100 transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'items-center' ?>">
+								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-6' ?> shrink-0">
 								<?php
 								$icon_field = get_sub_field( 'icon' );
 								$icon_values = explode( ',', $icon_field );
@@ -94,6 +95,7 @@
 									echo svgClass( $icon_name, $icon_width, $icon_height, $icon_class );
 								}
 								?>
+								</div>
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 									target="_blank" rel="nofollow">
 									<?php if ( get_sub_field( 'bold' ) )
@@ -111,9 +113,9 @@
 							the_row();
 							if ( get_sub_field( 'title' ) )
 							{ ?>
-								<li class="flex text-yellow-100 group">
+								<li class="flex text-yellow-100 group  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'!mt-5' ?>">
 									<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="flex items-center uppercase font-bold font-body gap-x-4 group-hover:scale-105 transition-all duration-500">
+										class="flex items-center uppercase font-bold font-body gap-x-4 group-hover:scale-105 transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-lg' ?>">
 										<?php echo svg( 'map' ) ?>
 										<p class="flex items-center uppercase font-bold font-body gap-x-2">
 											<?php the_sub_field( 'title' ) ?>
@@ -199,7 +201,7 @@
 			<?php if ( wp_is_mobile() && bsc_is_mobile() )
 			{ ?>
 				<div
-					class=" flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer">
+					class="flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer font-body">
 					<span><?php _e( 'Liên kết thêm', 'gnws' ) ?></span>
 					<?php echo svg( 'down-yellow' ) ?>
 				</div>
@@ -234,22 +236,24 @@
 							</div>
 						<?php endwhile;
 					} ?>
-					<div class="space-y-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:max-w-[33%] max-w-[38%]':'max-w-full' ?>">
-						<?php if ( get_field( 'f4_title', 'option' ) )
-						{ ?>
-							<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base':'text-xs' ?>">
-								<?php the_field( 'f4_title', 'option' ) ?>
-							</p>
-						<?php }
-						;
-						if ( get_field( 'f4_mota', 'option' ) )
-						{ ?>
-							<p>
-								<?php the_field( 'f4_mota', 'option' ) ?>
-							</p>
-						<?php } ?>
-						<?php echo do_shortcode( '[contact-form-7 id="972a993" title="Đăng ký nhận tin"]' ) ?>
-					</div>
+					<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+						<div class="space-y-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:max-w-[33%] max-w-[38%]':'max-w-full' ?>">
+							<?php if ( get_field( 'f4_title', 'option' ) )
+							{ ?>
+								<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base':'text-xs' ?>">
+									<?php the_field( 'f4_title', 'option' ) ?>
+								</p>
+							<?php }
+							;
+							if ( get_field( 'f4_mota', 'option' ) )
+							{ ?>
+								<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+									<?php the_field( 'f4_mota', 'option' ) ?>
+								</p>
+							<?php } ?>
+							<?php echo do_shortcode( '[contact-form-7 id="972a993" title="Đăng ký nhận tin"]' ) ?>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 
@@ -298,13 +302,18 @@
 				</div>
 				<?php if ( get_field( 'f1_copyright', 'option' ) )
 				{ ?>
-					<div class="mt-6 flex justify-center gap-1 text-xs">
+					<div class="mt-6 text-center prose-p:inline text-[13px]">
 						<?php the_field( 'f1_copyright', 'option' ) ?>
 					</div>
 				<?php } ?>
 			</div>
 		<?php } ?>
 	</div>
+	<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+				<div class="absolute pointer-events-none bottom-0 left-0">
+					 <?php echo svg('icon-ft') ?>
+				</div>		
+	<?php } ?>
 </footer>
 <?php if ( get_field( 'cdc2_tien_ich_on', 'option' ) && !wp_is_mobile() && !bsc_is_mobile())
 { ?>
@@ -338,8 +347,8 @@
 		</div>
 	<?php } ?>
 <?php } ?>
-<div class="inline-flex flex-col fixed 2xl:bottom-8 bottom-[6px] right-3 2xl:gap-4 gap-2 z-[99]">
-	<?php if ( get_field( 'cdc3_link', 'option' ) )
+<div class="inline-flex flex-col fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:bottom-8 bottom-[6px]':'bottom-14' ?> right-3 2xl:gap-4 gap-2 z-[99]">
+	<?php if ( get_field( 'cdc3_link', 'option' ) && !wp_is_mobile() && !bsc_is_mobile() )
 	{ ?>
 		<a href="<?php echo check_link( get_field( 'cdc3_link', 'option' ) ) ?>"
 			class="relative group block">

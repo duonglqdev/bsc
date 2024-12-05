@@ -10,7 +10,7 @@ if ( $response )
 {
 	?>
 	<section
-		class="home_news bg-white font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'my-[77px]' : 'my-[50px]' ?>"
+		class="home_news bg-white font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'my-[77px]' : 'mt-[50px] mb-[70px]' ?>"
 		<?php if ( get_sub_field( 'id_class' ) )
 		{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>"
 		<?php } ?>>
@@ -85,7 +85,7 @@ if ( $response )
 					</div>
 				</div>
 			<?php else : ?>
-				<div class="block_slider-show-1"
+				<div class="block_slider-show-1 -mx-2"
 					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'>
 					<?php
 					$i = 0;
@@ -93,29 +93,36 @@ if ( $response )
 					{
 						$i++;
 						?>
-						<div class="w-full block_slider-item">
-							<div class="group">
+						<div class="w-full block_slider-item pb-3 px-2">
+							<div class="group shadow-base rounded-bl-[10px] rounded-br-[10px]">
 								<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-									class="block relative w-full pt-[52%] mb-4 overflow-hidden rounded-[10px]">
+									class="block relative w-full pt-[52%] overflow-hidden rounded-[10px]">
 									<img loading="lazy" src="<?php echo bsc_set_thumbnail( $news, 'large' ) ?>"
 										alt="<?php echo htmlspecialchars( $news->title ) ?>"
 										class="absolute w-full h-full inset-0 object-cover  transition-all duration-500 hover:scale-110">
 								</a>
-								<h3
-									class="text-xs font-bold mb-4 transition-all duration-500 group-hover:text-green">
-									<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-										class="line-clamp-3"><?php echo htmlspecialchars( $news->title ) ?></a>
-								</h3>
-								<div class="line-clamp-3">
-									<?php echo htmlspecialchars( $news->description ) ?>
+								<div class="p-4 rounded-bl-[10px] rounded-br-[10px]">
+									<!-- @todo: Thêm ngày cho bài viết -->
+									<div class="flex items-center gap-2 mb-2 text-xs">
+										<?php echo svg( 'date', '18', '18' ) ?>
+										Ngày 26/06/2024
+									</div>
+									<h3
+										class="text-xs font-bold transition-all duration-500 group-hover:text-green">
+										<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
+											class="line-clamp-3"><?php echo htmlspecialchars( $news->title ) ?></a>
+									</h3>
 								</div>
-								
+
+
 							</div>
 						</div>
 						<?php
 					}
 					?>
 				</div>
+
+
 			<?php endif; ?>
 		</div>
 	</section>
