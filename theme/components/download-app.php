@@ -39,13 +39,13 @@
 												</div>
 											<?php } ?>
 											<ul
-												class="flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4 block':'flex flex-wrap gap-y-3 px-4 space-y-0.5' ?>">
+												class="flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4 block':'flex flex-wrap gap-y-3 px-3 -mx-1 space-y-0.5 justify-between' ?>">
 												<?php if ( have_rows( 'mota' ) )
 												{
 													while ( have_rows( 'mota' ) ) :
 														the_row(); ?>
 														<li
-															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-full text-lg':'w-1/2 px-2 text-xs' ?>">
+															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-full text-lg':'px-1 text-xs' ?>">
 															<?php the_sub_field( 'content' ) ?>
 														</li>
 												<?php
@@ -101,7 +101,7 @@
 												$i++;
 												if ( get_sub_field( 'title' ) )
 												{ ?>
-													<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'my-0':'my-4 px-6' ?>">
+													<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'my-0':'my-4 px-3' ?>">
 														<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 															class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php if ( have_rows( 'icon_app' ) )
 																echo 'ml-9' ?>">
@@ -195,7 +195,7 @@
 					?>
 					<div class="text-center">
 						<ul
-							class="inline-flex justify-center pb-2 border-b border-[#D9D9D9] relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-8 mt-[30px]':'gap-14 mt-4' ?>">
+							class="inline-flex justify-center pb-2 border-b border-[#D9D9D9] relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-8 mt-[30px]':'gap-16 mt-4' ?>">
 							<?php
 							$i = 0;
 							while (have_rows('trai_nghiem')) :
