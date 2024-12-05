@@ -15,8 +15,11 @@
   @apply opacity-100;
   background-color: white;
 }
+.dots-white .flickity-page-dots .dot {
+  background-color: white;
+}
 .dots-white .slick-dots .dot {
-  @apply bg-white;
+  background-color: white;
 }
 .dots-white .dot {
   background-color: white;
@@ -26,8 +29,11 @@
   @apply opacity-100;
   background-color: theme("colors.primary.300");
 }
+.dots-blue .flickity-page-dots .dot {
+  background-color: theme("colors.primary.300");
+}
 .dots-blue .slick-dots .dot {
-  @apply bg-white;
+  background-color: theme("colors.primary.300");
 }
 
 .block_slider-show-1:not(.flickity-enabled, .slick-initialized) {
@@ -313,6 +319,18 @@
 }
 .style-mb .flickity-page-dots .dot.is-selected {
   @apply w-8;
+}
+.style-mb .home__banner .flickity-page-dots {
+  @apply bottom-4;
+}
+.style-mb .home__banner .flickity-page-dots .dot {
+  @apply mx-1 h-3;
+}
+.style-mb .home__banner .flickity-page-dots .dot:not(.is-selected) {
+  @apply w-3;
+}
+.style-mb .home__banner .flickity-page-dots .dot.is-selected {
+  @apply w-[52px];
 }
 .style-mb .chart-info .subscribe {
   @apply h-[42px] mt-[12px];

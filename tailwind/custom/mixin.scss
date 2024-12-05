@@ -4,10 +4,13 @@
             @apply opacity-100;
             background-color: $color;
         }
+        .dot {
+            background-color: $color;
+        }
     }
     .slick-dots {
         .dot {
-            @apply bg-white;
+            background-color: $color;
         }
     }
 }

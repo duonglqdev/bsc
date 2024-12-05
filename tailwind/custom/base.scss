@@ -257,6 +257,20 @@
 			}
 		}
 	}
+	.home__banner {
+		.flickity-page-dots {
+			@apply bottom-4;
+			.dot {
+				@apply mx-1 h-3 ;
+				&:not(.is-selected){
+					@apply w-3;
+				}
+				&.is-selected{
+					@apply w-[52px];
+				}
+			}
+		}
+	}
 	.chart-info {
 		.subscribe {
 			@apply h-[42px] mt-[12px];
