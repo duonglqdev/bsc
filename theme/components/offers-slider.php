@@ -86,16 +86,10 @@
 								alt="<?php the_sub_field( 'title' ) ?>">
 						</div>
 					<?php } ?>
-					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'max-w-[80%] mx-auto' ?>">
 						<?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'large', '', array( 'class' => 'm-auto relative z-10' ) ) ?>
-					<?php else : ?>
-						<!-- @todo: thêm ảnh mobile -->
-						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Mask group.png"
-							alt="" class="m-auto relative z-10">
-					<?php endif; ?>
-					<div class="absolute w-full h-full">
-
 					</div>
+					
 				</div>
 			</div>
 			<div
@@ -197,5 +191,11 @@
 		<div class="absolute bottom-0 left-0">
 			<?php echo wp_get_attachment_image( get_sub_field( 'background' ), 'large' ) ?>
 		</div>
+	<?php } ?>
+	<?php if ( wp_is_mobile() && bsc_is_mobile() )
+	{ ?>
+	<div class="relative z-50 -mt-14">
+		 <?php echo svg('wave') ?>
+	</div>
 	<?php } ?>
 </section>

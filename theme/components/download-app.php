@@ -1,4 +1,4 @@
-<section class="download__app <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[75px]':'py-[50px]' ?>" <?php if ( get_sub_field( 'id_class' ) )
+<section class="download__app <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[75px]':'pb-[50px]' ?>" <?php if ( get_sub_field( 'id_class' ) )
 { ?>
 		id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
