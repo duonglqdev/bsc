@@ -11,7 +11,7 @@
  */
 
 ?>
-<footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica">
+<footer class="bg-gradient-blue md:py-9 py-6 text-white font-Helvetica relative">
 	<div class="container">
 		<div
 			class="pb-6 border-b border-[#f3f3f3] border-opacity-50 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center gap-4 mb-10' : 'mb-6' ?>">
@@ -52,7 +52,7 @@
 		<div
 			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-6 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
 				<?php
 				$custom_logo_id = get_field( 'f1_logo', 'option' );
 				if ( $custom_logo_id )
@@ -74,7 +74,7 @@
 
 			</div>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'md:col-span-4 col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
 				<ul
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-3 text-xs' ?>">
 					<?php if ( have_rows( 'f1_thongtintruso', 'option' ) )
@@ -302,13 +302,18 @@
 				</div>
 				<?php if ( get_field( 'f1_copyright', 'option' ) )
 				{ ?>
-					<div class="mt-6 flex justify-center gap-1 text-xs">
+					<div class="mt-6 text-center prose-p:inline text-[13px]">
 						<?php the_field( 'f1_copyright', 'option' ) ?>
 					</div>
 				<?php } ?>
 			</div>
 		<?php } ?>
 	</div>
+	<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+				<div class="absolute pointer-events-none bottom-0 left-0">
+					 <?php echo svg('icon-ft') ?>
+				</div>		
+	<?php } ?>
 </footer>
 <?php if ( get_field( 'cdc2_tien_ich_on', 'option' ) && !wp_is_mobile() && !bsc_is_mobile())
 { ?>
