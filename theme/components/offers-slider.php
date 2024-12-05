@@ -99,18 +99,18 @@
 				$response = get_data_with_cache('GetPromotionNews', $array_data, $time_cache);
 				if ($response) {
 				?>
-					<div class="block_slider block_slider-show-2 no-dots -mx-4">
+					<div class="block_slider block_slider-show-2 no-dots -mx-4 block_sameheight">
 						<?php foreach ($response->d as $news) { ?>
 							<div class="block_slider-item md:w-3/5 w-4/5 px-4">
-								<div class="bg-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-8':'p-5' ?> rounded-lg ">
+								<div class="bg-white sameheight_item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-8':'p-5' ?> rounded-lg ">
 									<div class="max-h-44 overflow-hidden">
 										<p
 											class="relative font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?> after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-											<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-3">
+											<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'line-clamp-3':'line-clamp-2' ?>">
 												<?php echo htmlspecialchars($news->title) ?>
 											</a>
 										</p>
-										<div class="">
+										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs text-paragraph font-Helvetica line-clamp-4' ?>">
 											<?php echo htmlspecialchars($news->description) ?>
 										</div>
 									</div>
@@ -132,9 +132,9 @@
 									<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'large', '', array( 'class' => 'absolute w-full h-full inset-0 object-cover' ) ) ?>
 									<div
 										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-										<?php echo svg( 'play' ) ?>
+										<?php echo svgClass( 'play','','',! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[82px] h-[82px]' : 'w-[67px] h-[67px]' ) ?>
 									</div>
-									<?php if ( get_sub_field( 'title' ) )
+									<?php if ( get_sub_field( 'title' ) && !wp_is_mobile() && !bsc_is_mobile() )
 									{ ?>
 										<div
 											class="absolute w-full bottom-0 left-0 py-4 px-8 flex items-center gap-3 text-white font-bold bg-gradient-blue-to-right-50 z-10 line-clamp-1">
