@@ -201,7 +201,7 @@
 			<?php if ( wp_is_mobile() && bsc_is_mobile() )
 			{ ?>
 				<div
-					class=" flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer">
+					class="flex items-center uppercase text-yellow-100 text-lg font-bold gap-2 collapse-footer font-body">
 					<span><?php _e( 'Liên kết thêm', 'gnws' ) ?></span>
 					<?php echo svg( 'down-yellow' ) ?>
 				</div>
@@ -342,8 +342,8 @@
 		</div>
 	<?php } ?>
 <?php } ?>
-<div class="inline-flex flex-col fixed 2xl:bottom-8 bottom-[6px] right-3 2xl:gap-4 gap-2 z-[99]">
-	<?php if ( get_field( 'cdc3_link', 'option' ) )
+<div class="inline-flex flex-col fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:bottom-8 bottom-[6px]':'bottom-14' ?> right-3 2xl:gap-4 gap-2 z-[99]">
+	<?php if ( get_field( 'cdc3_link', 'option' ) && !wp_is_mobile() && !bsc_is_mobile() )
 	{ ?>
 		<a href="<?php echo check_link( get_field( 'cdc3_link', 'option' ) ) ?>"
 			class="relative group block">
