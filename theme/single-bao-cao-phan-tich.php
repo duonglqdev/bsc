@@ -5,6 +5,7 @@ if ($args['data']) {
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $link = 'javascript:void(0)';
     $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
+    $id_current_post = $news->id;
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
         if ($categoryid == $danh_muc_khuyen_nghi) {
@@ -180,7 +181,7 @@ get_header();
     if ($args['data']  && $categoryid) {
         $array_data = array(
             'lang' => pll_current_language(),
-            'maxitem' => 6,
+            'maxitem' => 7,
             'categoryid' => $categoryid
         );
         $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
@@ -193,11 +194,17 @@ get_header();
                     </h3>
                     <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
                         <?php
+                        $check_p = 0;
                         foreach ($response->d as $news) {
-                            get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
-                                'data' => $news,
-                                'get_array_id_taxonomy' => $get_array_id_taxonomy,
-                            ));
+                            if ($check_p < 6) {
+                                if ($id_current_post != $news->id) {
+                                    $check_p++;
+                                    get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+                                        'data' => $news,
+                                        'get_array_id_taxonomy' => $get_array_id_taxonomy,
+                                    ));
+                                }
+                            }
                         }
                         ?>
                     </div>
