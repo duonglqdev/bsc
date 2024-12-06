@@ -766,7 +766,7 @@ import { DataTable } from 'simple-datatables';
 			loop: true,
 			speed: 1000,
 			autoplay: {
-				delay: 3000,
+				delay: 4000,
 			},
 			effect: 'coverflow',
 			grabCursor: true,
@@ -774,18 +774,17 @@ import { DataTable } from 'simple-datatables';
 			slidesPerView: 2,
 			coverflowEffect: {
 				rotate: 0,
-				stretch: 170,
+				stretch: 167,
 				depth: 300,
 				modifier: 1,
 				slideShadows: false,
 			},
-			nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
+			
 		});
 		document
 			.querySelectorAll('.about_culture-list-pc .swiper-slide')
 			.forEach((slide) => {
-				slide.addEventListener('click', function () {
+				slide.addEventListener('mouseenter', function () {
 					if (!this.classList.contains('swiper-slide-active')) {
 						if (this.classList.contains('swiper-slide-next')) {
 							mySwiper.slideNext();
