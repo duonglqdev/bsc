@@ -112,7 +112,7 @@ get_header();
 				<div class="relative lg:w-[887px] max-w-[66%]">
 					<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 					<div
-						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] blur-sm">
+						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4]">
 						<div
 							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
@@ -153,7 +153,7 @@ get_header();
 									<div
 										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
 										<span
-											class="inline-block px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold rounded-full">Mua</span>
+											class="px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold rounded-full min-w-[78px] min-h-[28px] inline-flex items-center justify-center">Mua</span>
 									</div>
 									<div
 										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
@@ -184,7 +184,7 @@ get_header();
 						</div>
 					</div>
 					<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-					<div
+					<!-- <div
 						class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 						<a href="#"
 							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -193,7 +193,7 @@ get_header();
 						<p class="italic mt-4 font-normal">
 							Để xem chi tiết danh mục
 						</p>
-					</div>
+					</div> -->
 				</div>
 				<div class="flex-1 font-Helvetica">
 					<ul class="space-y-6">
