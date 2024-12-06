@@ -2602,6 +2602,12 @@ import { DataTable } from 'simple-datatables';
 				},
 			});
 		});
+		$('#search-shares').on('input', function() {
+			if ($(this).val()) {
+				$('html').removeClass('scroll-pt-10'); 
+			}
+		});
+		
 
 		$('#search-shares').on('keyup', function () {
 			const searchValue = $(this).val().toLowerCase();
