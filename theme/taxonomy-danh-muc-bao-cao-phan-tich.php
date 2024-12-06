@@ -162,10 +162,24 @@
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                                 </div>
                                 <div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
-                                    
+                                <div
+                                        class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+                                        <p class="mr-2 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
+                                        <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
+                                            <option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
+                                            <?php
+                                            $currentYear = date('Y');
+                                            for ($year = $currentYear; $year >= 2015; $year--):
+                                            ?>
+                                                <option value="<?php echo esc_attr($year); ?>" <?php selected(isset($_GET['years']) && $_GET['years'] == $year); ?>>
+                                                    <?php echo esc_html($year); ?>
+                                                </option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </div>
                                     <div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
                                         datepicker-autohide datepicker-orientation="bottom right"
-                                        class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[60%] w-full justify-around">
+                                        class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[50%] w-full justify-around">
                                         <p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
                                             <?php _e('Thời gian:', 'gnws') ?>
                                         </p>
