@@ -206,7 +206,7 @@
 			@apply hidden mt-4 space-y-6;
 			> li {
 				> a {
-					@apply flex items-center gap-[12px] text-black text-opacity-70 uppercase text-xs;
+					@apply flex items-center gap-[12px] text-black text-opacity-70 text-xs font-medium;
 					img {
 						@apply w-6 h-6 object-contain;
 					}
