@@ -350,6 +350,37 @@ import { DataTable } from 'simple-datatables';
 				).addClass('active');
 			}
 		);
+
+			var $bannerElement = $(".home__banner");
+		
+			if ($bannerElement.length) {
+				var autoPlayIntervals = [];
+				$bannerElement.find(".block_slider-item").each(function () {
+					var playTime = parseInt($(this).data("play")) || 4000;
+					autoPlayIntervals.push(playTime);
+				});
+		
+				var $carousel = $bannerElement.flickity({
+					draggable: true,
+					wrapAround: true,
+					imagesLoaded: true,
+					prevNextButtons: false,
+					pageDots: true,
+					cellAlign: "left",
+					contain: true,
+					autoPlay: autoPlayIntervals[0],
+					selectedAttraction: 0.01,
+					friction: 0.2
+				});
+		
+				var flkty = $carousel.data("flickity");
+		
+				$carousel.on("select.flickity", function () {
+					flkty.options.autoPlay = autoPlayIntervals[flkty.selectedIndex] || 4000;
+					flkty.playPlayer();
+				});
+			}
+		
 	}
 
 	function setHeightBanner() {
