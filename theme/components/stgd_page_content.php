@@ -28,6 +28,7 @@
                 <div
                     class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:inline-block prose-strong:mb-4 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-4 prose-ol:mb-3 prose-table:border-none prose-table:mt-10 prose-p:mb-5">
                     <?php
+                    $button = get_field('content');
                     if (have_rows('content')) {
                         while (have_rows('content')): the_row();
                             if (have_rows('home_components_stgd')) {
