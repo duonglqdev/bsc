@@ -447,12 +447,47 @@ function bsc_is_user_logged_out()
             </div>'
     ];
 }
+
+function detectDevice()
+{
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+    // Kiểm tra thiết bị di động
+    if (preg_match('/iPhone|iPad|iPod|Android|BlackBerry|Windows Phone/', $userAgent)) {
+        return 'Mobile Device';
+    }
+    // Kiểm tra máy tính bảng
+    elseif (preg_match('/Tablet|iPad/', $userAgent)) {
+        return 'Tablet';
+    }
+    // Kiểm tra máy tính để bàn
+    elseif (preg_match('/Windows NT|Macintosh|Linux/', $userAgent)) {
+        return 'Desktop';
+    }
+    return 'Unknown Device';
+}
 /*
 * Create page callback
 */
 add_action('init', function () {
     if (strpos($_SERVER['REQUEST_URI'], '/callback') !== false) {
         bsc_handle_sso_callback();
+        exit;
+    } elseif (strpos($_SERVER['REQUEST_URI'], '/detect') !== false) {
+        echo 'Check bằng Agent:' . detectDevice() . '<br>';
+        if (wp_is_mobile()) {
+            echo 'Check bạn dùng mobile bằng wp_is_mobile' . '<br>';
+        } else {
+            echo 'Check bạn dùng Desktop bằng wp_is_mobile' . '<br>';
+        }
+        $ua = $_SERVER['HTTP_USER_AGENT'];
+
+        if (strpos($ua, 'iPad') !== false || (strpos($ua, 'Macintosh') !== false && isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'touch') !== false)) {
+            echo  'detect được máy tính bảng';
+        } else {
+            echo '1';
+        }
+
         exit;
     }
 });

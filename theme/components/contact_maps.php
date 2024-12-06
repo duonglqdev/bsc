@@ -1182,22 +1182,22 @@ if ($file) {
     }
 ?>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWWgSW8tvSWDFEo_xwAQjQBu6YYkPfVNo"></script>
-    <section class="xl:my[100px] my-20 contact_maps">
+    <section class="xl:my[100px] my-20 contact_maps" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <h2 class="font-bold text-2xl mb-8 text-primary-300">
                 <?php the_sub_field('title'); ?>
             </h2>
             <div class="flex gap-4 items-center mb-6">
                 <div>
-                    <strong>Tỉnh thành:</strong>
+                    <strong><?php _e('Tỉnh thành', 'bsc') ?>:</strong>
                     <select id="city" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
-                        <option value="">Tất cả</option>
+                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                     </select>
                 </div>
                 <div>
-                    <strong>Quận huyện:</strong>
+                    <strong><?php _e('Quận huyện', 'bsc') ?>:</strong>
                     <select id="district" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
-                        <option value="">Tất cả</option>
+                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                     </select>
                 </div>
             </div>
@@ -1254,7 +1254,7 @@ if ($file) {
 
         function updateDistrictFilter() {
             const districtSelect = document.getElementById('district');
-            districtSelect.innerHTML = '<option value="">Tất cả</option>';
+            districtSelect.innerHTML = '<option value=""><?php _e('Tất cả', 'bsc') ?></option>';
 
             const city = document.getElementById('city').value;
             const filteredLocations = locations.filter(loc => loc.city === city || city === '');
