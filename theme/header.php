@@ -14,7 +14,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>
-	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'style-pc' : 'style-mb' ?>">
+	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
