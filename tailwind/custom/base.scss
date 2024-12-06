@@ -12,7 +12,7 @@
  * editor.
 */
 @import "mixin";
-.style-pc {
+.is-desktop {
 	.menu_top {
 		li {
 			@apply [&:not(:last-child)]:mr-6 [&:not(:last-child)]:pr-6 leading-none relative [&:not(:last-child)]:after:absolute after:w-[1px] [&:not(:last-child)]:after:bg-white [&:not(:last-child)]:after:h-[10px] [&:not(:last-child)]:after:top-1/2 [&:not(:last-child)]:after:-translate-y-1/2  [&:not(:last-child)]:after:right-0;
@@ -166,7 +166,7 @@
 		
 	}
 }
-.style-mb {
+.is-mobile {
 	.container {
 		@apply px-5;
 	}
@@ -1032,14 +1032,6 @@ button#ib-button-messaging {
 	}
 }
 
-#expert-modal {
-	.expert-btn {
-		a {
-			@apply text-white;
-		}
-	}
-}
-
 .pagination-center {
 	.bsc-pagination {
 		@apply mt-10;
@@ -1164,4 +1156,8 @@ button#ib-button-messaging {
 		font-size: 16px !important;
 		font-family: "Barlow", sans-serif !important;
 	}
+}
+
+.slick-disabled{
+	@apply opacity-60 pointer-events-none cursor-default;
 }

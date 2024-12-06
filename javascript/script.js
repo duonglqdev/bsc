@@ -350,6 +350,37 @@ import { DataTable } from 'simple-datatables';
 				).addClass('active');
 			}
 		);
+
+			var $bannerElement = $(".home__banner");
+		
+			if ($bannerElement.length) {
+				var autoPlayIntervals = [];
+				$bannerElement.find(".block_slider-item").each(function () {
+					var playTime = parseInt($(this).data("play")) || 4000;
+					autoPlayIntervals.push(playTime);
+				});
+		
+				var $carousel = $bannerElement.flickity({
+					draggable: true,
+					wrapAround: true,
+					imagesLoaded: true,
+					prevNextButtons: false,
+					pageDots: true,
+					cellAlign: "left",
+					contain: true,
+					autoPlay: autoPlayIntervals[0],
+					selectedAttraction: 0.01,
+					friction: 0.2
+				});
+		
+				var flkty = $carousel.data("flickity");
+		
+				$carousel.on("select.flickity", function () {
+					flkty.options.autoPlay = autoPlayIntervals[flkty.selectedIndex] || 4000;
+					flkty.playPlayer();
+				});
+			}
+		
 	}
 
 	function setHeightBanner() {
@@ -735,7 +766,7 @@ import { DataTable } from 'simple-datatables';
 			loop: true,
 			speed: 1000,
 			autoplay: {
-				delay: 3000,
+				delay: 4000,
 			},
 			effect: 'coverflow',
 			grabCursor: true,
@@ -743,18 +774,17 @@ import { DataTable } from 'simple-datatables';
 			slidesPerView: 2,
 			coverflowEffect: {
 				rotate: 0,
-				stretch: 170,
+				stretch: 167,
 				depth: 300,
 				modifier: 1,
 				slideShadows: false,
 			},
-			nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
+			
 		});
 		document
 			.querySelectorAll('.about_culture-list-pc .swiper-slide')
 			.forEach((slide) => {
-				slide.addEventListener('click', function () {
+				slide.addEventListener('mouseenter', function () {
 					if (!this.classList.contains('swiper-slide-active')) {
 						if (this.classList.contains('swiper-slide-next')) {
 							mySwiper.slideNext();

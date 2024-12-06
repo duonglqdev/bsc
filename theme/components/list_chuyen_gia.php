@@ -226,7 +226,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                         </div>
                     </div>
                     <div
-                        class="expert-modal-desc lg:p-8 p-5 rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-[446px] overflow-y-auto scroll-bar-custom expert-desc">
+                        class="expert-modal-desc lg:p-8 p-5 rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-full overflow-y-auto scroll-bar-custom expert-desc">
 
                     </div>
                 </div>

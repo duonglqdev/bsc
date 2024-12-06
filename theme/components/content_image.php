@@ -7,7 +7,7 @@
                         <?php the_sub_field('title') ?>
                     </h2>
                 <?php } ?>
-                <div class="font-Helvetica">
+                <div class="font-Helvetica text-justify">
                     <?php if (get_sub_field('content_tren')) { ?>
                         <div class="mb-4 font-bold">
                             <?php the_sub_field('content_tren') ?>

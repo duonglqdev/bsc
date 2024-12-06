@@ -34,7 +34,7 @@
                                         if (get_sub_field('title')) {
                             ?>
                                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                                class="<?php echo $class ?> inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 xl:min-w-[208px] text-center">
+                                                class="<?php echo $class ?> inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 xl:min-w-[208px] text-center" target="_blank">
                                                 <span class="block relative z-10">
                                                     <?php the_sub_field('title') ?>
                                                 </span>

@@ -10,7 +10,7 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
-			<ul class="customtab-nav flex justify-between gap-10">
+			<ul class="flex justify-between gap-10">
 				<li class="flex-1">
 					<a href="#"
 						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
