@@ -63,7 +63,7 @@
                     if (get_sub_field('title')) {
             ?>
                         <div class="text-center mt-10">
-                            <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                            <a href="<?php echo check_link(get_sub_field('link')) ?>"target="_blank"
                                 class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-lg">
                                 <?php echo svg('arrow-btn', '16', '16') ?>
                                 <?php the_sub_field('title') ?>

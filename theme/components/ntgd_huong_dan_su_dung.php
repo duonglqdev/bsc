@@ -43,7 +43,7 @@
                                     ?>
                                                 <div class="mt-auto">
                                                     <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                                        class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+                                                        class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs" target="_blank">
                                                         <?php echo svg('arrow-btn', '16', '16') ?>
                                                         <?php the_sub_field('title') ?>
                                                     </a>

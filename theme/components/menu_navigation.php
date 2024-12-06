@@ -33,7 +33,7 @@ if ($style == 'nhdt') {
         }
         if ($menu_navigation) { ?>
             <div class="container">
-                <ul class="customtab-nav flex justify-between gap-10">
+                <ul class="flex justify-between gap-10">
                     <?php foreach ($menu_navigation as $row) { ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link($row['link']) ?>"
