@@ -1102,4 +1102,8 @@ button#ib-button-messaging {
   font-family: "Barlow", sans-serif !important;
 }
 
+.slick-disabled {
+  @apply opacity-60 pointer-events-none cursor-default;
+}
+
 /*# sourceMappingURL=base.css.map */

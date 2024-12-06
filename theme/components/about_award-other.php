@@ -8,12 +8,12 @@
         <?php if (have_rows('reward')) { ?>
             <div class="max-w-[764px] mx-auto">
                 <div
-                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2">
+                    class="about_award-nav -mx-4 after:absolute after:border-b after:border-[#384352] after:border-opacity-10 after:h-[1px] after:bottom-2 after:w-4/5 after:left-1/2 after:-translate-x-1/2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'block_slider-show-5':'block_slider-show-3' ?>">
                     <?php
                     while (have_rows('reward')): the_row();
                     ?>
                         <div
-                            class="[&:not(.slick-current)]:text-black [&:not(.slick-current)]:text-opacity-60 text-primary-400 [&:not(.slick-current)]:font-semibold font-bold  pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20  after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_award-item cursor-pointer <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5 [&:not(.slick-current)]:text-base text-lg px-4 [&:not(.slick-current)]:after:bottom-0':'w-1/4 text-xs px-3 [&:not(.slick-current)]:after:bottom-[3px]' ?>">
+                            class="[&:not(.slick-current)]:text-black [&:not(.slick-current)]:text-opacity-60 text-primary-400 [&:not(.slick-current)]:font-semibold font-bold  pb-6 relative after:absolute after:w-3 after:h-3 after:rounded-full after:bg-[#384352] after:bg-opacity-20  after:bottom-1 after:left-1/2 after:-translate-x-1/2 about_award-item cursor-pointer block_slider-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5 [&:not(.slick-current)]:text-base text-lg px-4 [&:not(.slick-current)]:after:bottom-0':'w-1/4 text-xs px-3 [&:not(.slick-current)]:after:bottom-[3px]' ?>">
                             <div class="text-center">
                                 <?php the_sub_field('nam') ?>
                             </div>
