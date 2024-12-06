@@ -70,10 +70,16 @@ get_header();
                                 class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
                                 <?php echo htmlspecialchars($news->categoryname) ?>
                             </a>
-                            <?php if ($news->recommendation) { ?>
+                            <?php if ($news->recommendation) {
+                                $status = $news->recommendation;
+                                $check_status = get_color_by_number_bsc($status);
+                                $title_status = $check_status['title_status'];
+                                $text_status = $check_status['text_status'];
+                                $background_status = $check_status['background_status'];
+                            ?>
                                 <span
-                                    class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">
-                                    <?php echo htmlspecialchars($news->recommendation) ?>
+                                    class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                    <?php echo $title_status ?>
                                 </span>
                             <?php } ?>
                         </div>
