@@ -78,7 +78,7 @@ $generateRandomString = generateRandomString();
                                                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105')) ?>
                                             </div>
                                         </div>
-                                        <div class="flex-1">
+                                        <div class="flex-1 text-justify">
                                             <?php if (get_sub_field('title')) { ?>
                                                 <h3
                                                     class="uppercase font-bold xl:text-2xl text-lg mb-6 text-primary-300">
