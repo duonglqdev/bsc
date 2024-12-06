@@ -285,7 +285,7 @@
   @apply hidden mt-4 space-y-6;
 }
 .is-mobile .main_menu-navbar .sub-menu > li > a {
-  @apply flex items-center gap-[12px] text-black text-opacity-70 uppercase text-xs;
+  @apply flex items-center gap-[12px] text-black text-opacity-70 text-xs font-medium;
 }
 .is-mobile .main_menu-navbar .sub-menu > li > a img {
   @apply w-6 h-6 object-contain;

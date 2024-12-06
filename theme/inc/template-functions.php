@@ -109,24 +109,30 @@ function svgpath($name, $width = false, $height = false, $class = '')
 /**
  * Function help call file SVG from url
  */
-function svg_dir($path, $width = false, $height = false)
+function svg_dir($path, $width = false, $height = false, $class = false)
 {
-	if ($path) {
-		$svg = file_get_contents($path);
-		if ($width) {
-			$size = '<svg';
-			$new_size = '<svg width="' . $width . 'px"';
-			$svg = str_replace($size, $new_size, $svg);
-		}
-		if ($height) {
-			$size = '<svg';
-			$new_size = '<svg height="' . $height . 'px"';
-			$svg = str_replace($size, $new_size, $svg);
-		}
-		return $svg;
-	}
-	return '';
+    if ($path) {
+        $svg = file_get_contents($path);
+        if ($width) {
+            $size = '<svg';
+            $new_size = '<svg width="' . $width . 'px"';
+            $svg = str_replace($size, $new_size, $svg);
+        }
+        if ($height) {
+            $size = '<svg';
+            $new_size = '<svg height="' . $height . 'px"';
+            $svg = str_replace($size, $new_size, $svg);
+        }
+        if ($class) {
+            $size = '<svg';
+            $new_size = '<svg class="' . $class . '"';
+            $svg = str_replace($size, $new_size, $svg);
+        }
+        return $svg;
+    }
+    return '';
 }
+
 
 /**
  * Function help call file SVG from url with class

@@ -194,7 +194,7 @@
 	<?php } ?>
 	<?php if ( wp_is_mobile() && bsc_is_mobile() )
 	{ ?>
-	<div class="relative z-50 -mt-14">
+	<div class="relative z-10 -mt-14">
 		 <?php echo svg('wave') ?>
 	</div>
 	<?php } ?>

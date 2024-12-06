@@ -1,7 +1,7 @@
 <section
 	class="chart relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[77px] bg-primary-200' : 'py-6 bg-gradient-blue-50' ?>"
-	<?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>"
-	<?php } ?>>
+	<?php if ( get_sub_field( 'id_class' ) )
+	{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title_main')) { ?>
 			<h2 class="heading-title 2xl:mb-12 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'mb-6' ?>"
@@ -103,46 +103,49 @@
 
 
 						<div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-												? 'gap-6 2xl:gap-6 items-center'
-												: 'gap-4 items-end'; ?>">
-							<div id="date-performance-picker" date-rangepicker datepicker-orientation="bottom"
-								datepicker-format="yyyy-mm-dd" datepicker-autohide>
+							? 'gap-6 2xl:gap-6 items-center'
+							: 'gap-4 items-end'; ?>">
+							<div id="date-performance-picker" date-rangepicker
+								datepicker-orientation="bottom" datepicker-format="yyyy-mm-dd"
+								datepicker-autohide>
 								<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																			? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
-																			: 'flex-wrap flex-1 justify-between'; ?>">
+									? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
+									: 'flex-wrap flex-1 justify-between'; ?>">
 									<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-															? 'w-auto mb-0'
-															: 'w-full mb-2'; ?>">
-										<?php _e('Thời gian:', 'gnws') ?>
+										? 'w-auto mb-0'
+										: 'w-full mb-2'; ?>">
+										<?php _e( 'Thời gian:', 'gnws' ) ?>
 									</p>
 									<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-																										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
 										<input id="datepicker-performance-start" name="start"
 											type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																																								? 'max-w-[100px] w-full p-0'
-																																								: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e('Từ ngày', 'bsc') ?>"
+												? 'max-w-[100px] w-full p-0'
+												: 'max-w-full w-full p-0 text-xs'; ?>"
+											placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>"
 											value="<?php echo $fromdate ?>">
-										<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
+										<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 									</div>
 									<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-																										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
-										<input id="datepicker-performance-end" name="end" type="text"
-											class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																																				? 'max-w-[100px] w-full p-0'
-																																				: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e('Đến ngày', 'bsc') ?>"
+										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+										<input id="datepicker-performance-end" name="end"
+											type="text" class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+												? 'max-w-[100px] w-full p-0'
+												: 'max-w-full w-full p-0 text-xs'; ?>"
+											placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
 											value="<?php echo $todate ?>">
-										<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
+										<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 									</div>
 
 								</div>
 							</div>
 							<button type="button" data-fromdate="<?php echo $fromdate ?>"
-								data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																																								? 'bg-[#E8F5FF] group'
-																																								: 'bg-white group'; ?>">
-								<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+								data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+								   	? 'bg-[#E8F5FF] group'
+								   	: 'bg-white group'; ?>">
+								<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 							</button>
 						</div>
 
@@ -159,10 +162,12 @@
 
 				</div>
 			</div>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[33.181%]' : '' ?>">
-				<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-7' : 'mb-6' ?>">
-					<?php if (get_sub_field('title_2')) { ?>
-						<h2 class="border-l-2 border-primary-300 font-bold text-primary-300 leading-none wow fadeIn <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pl-6 2xl:text-[28px] text-xl' : 'pl-4 text-lg' ?>"
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[33.181%]' : '' ?>">
+				<div
+					class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-7' : 'mb-6' ?>">
+					<?php if ( get_sub_field( 'title_2' ) )
+					{ ?>
+						<h2 class="border-l-2 border-primary-300 font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pl-6 2xl:text-[28px] text-xl' : 'pl-4 text-lg' ?>"
 							data-wow-duration="2s">
 							<?php the_sub_field('title_2') ?>
 						</h2>
@@ -174,9 +179,10 @@
 					?>
 								<a href="<?php echo check_link(get_sub_field('link')) ?>"
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
-									<?php echo svg('arrow-btn', '20', '20') ?>
-									<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-										<?php the_sub_field('title') ?>
+									<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+									<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+									{ ?>
+										<?php the_sub_field( 'title' ) ?>
 									<?php } ?>
 								</a>
 					<?php
@@ -188,9 +194,11 @@
 				<?php if (have_rows('khuyen_nghi')) {
 					while (have_rows('khuyen_nghi')) :
 						the_row();
-						$time_cache = get_sub_field('time_cache') ?: 300; ?>
-						<div class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' font-Helvetica' : '' ?>">
-							<?php if (get_sub_field('title')) { ?>
+						$time_cache = get_sub_field( 'time_cache' ) ?: 300; ?>
+						<div
+							class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' font-Helvetica' : '' ?>">
+							<?php if ( get_sub_field( 'title' ) )
+							{ ?>
 								<p class="font-bold lg:text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
 									<?php the_sub_field('title') ?>
 								</p>
@@ -224,13 +232,16 @@
 											$check_status = get_color_by_number_bsc($status);
 											$title_status = $check_status['title_status'];
 											$text_status = $check_status['text_status'];
-										?>
-											<li class="flex font-bold gap-[14px] items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-												<a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-1 flex-1">
-													<?php echo htmlspecialchars($news->symbols) ?>
-													<?php if ($news->upside) { ?>
+											?>
+											<li
+												class="flex font-bold gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
+													class="line-clamp-1 flex-1">
+													<?php echo htmlspecialchars( $news->symbols ) ?>
+													<?php if ( $news->upside )
+													{ ?>
 														<span
-															style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars($news->upside) ?>)</span>
+															style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars( $news->upside ) ?>)</span>
 													<?php } ?>
 													<?php if ($title_status != '') { ?>
 														<span
@@ -251,15 +262,20 @@
 											</li>
 											<?php
 										}
-										if ($response_more) {
-											foreach ($response_more->d as $news) {
-											?>
-												<li class="flex font-bold gap-[14px] items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-													<a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-1 flex-1">
-														<?php echo htmlspecialchars($news->symbols) ?>
-														<?php if ($news->upside) { ?>
+										if ( $response_more )
+										{
+											foreach ( $response_more->d as $news )
+											{
+												?>
+												<li
+													class="flex font-bold gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+													<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
+														class="line-clamp-1 flex-1">
+														<?php echo htmlspecialchars( $news->symbols ) ?>
+														<?php if ( $news->upside )
+														{ ?>
 															<span
-																style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars($news->upside) ?>)</span>
+																style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars( $news->upside ) ?>)</span>
 														<?php } ?>
 														<?php if ($title_status != '') { ?>
 															<span
@@ -303,8 +319,8 @@
 					endwhile;
 				}
 				?>
-				<?php if (have_rows('nganh_doanh_nghiep')) : ?>
-					<div class="data-slick block_slider-show-1 slick-dots-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'font-Helvetica' : '' ?>"
+				<?php if ( have_rows( 'nganh_doanh_nghiep' ) ) : ?>
+					<div class="data-slick block_slider-show-1 slick-dots-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'font-Helvetica' : '' ?>"
 						data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
 						<?php
 						$i = 0;
@@ -316,7 +332,8 @@
 								<?php if (get_sub_field('title')) { ?>
 									<div
 										class="lg:flex lg:items-center lg:justify-between lg:gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-										<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+										{ ?>
 											<button
 												class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('prev-slick') ?>
 											</button>
@@ -325,9 +342,10 @@
 										<p class="font-bold lg:text-lg lg:text-center line-clamp-1">
 											<?php the_sub_field('title') ?>
 										</p>
-										<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+										{ ?>
 											<button
-												class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg('next-slick') ?></button>
+												class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg( 'next-slick' ) ?></button>
 
 										<?php } ?>
 									</div>
@@ -346,10 +364,13 @@
 										if ($response) {
 								?>
 											<ul class="space-y-4">
-												<?php foreach ($response->d as $news) { ?>
-													<li class="flex gap-[14px] items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-														<a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-1 flex-1">
-															<?php echo htmlspecialchars($news->title) ?>
+												<?php foreach ( $response->d as $news )
+												{ ?>
+													<li
+														class="flex gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+														<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
+															class="line-clamp-1 flex-1">
+															<?php echo htmlspecialchars( $news->title ) ?>
 														</a>
 														<p
 															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
@@ -389,7 +410,8 @@
 			</div>
 		</div>
 	</div>
-	<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+	{ ?>
 		<div class="absolute bottom-0 right-0 pointer-events-none">
 			<?php echo svg('icon-char') ?>
 		</div>
