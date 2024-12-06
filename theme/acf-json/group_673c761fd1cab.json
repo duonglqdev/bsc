@@ -6284,7 +6284,7 @@
                             "label": "Nội dung",
                             "name": "content",
                             "aria-label": "",
-                            "type": "wysiwyg",
+                            "type": "clone",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -6293,11 +6293,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
+                            "clone": [
+                                "field_672c9c6425dfa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -14738,6 +14740,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6745e579e0c36",
                                     "sub_fields": [
                                         {
                                             "key": "field_6745e568e0c34",
@@ -14779,8 +14782,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6745e579e0c36"
+                                    ]
                                 }
                             ]
                         }
@@ -15116,5 +15118,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733394370
+    "modified": 1733494299
 }
