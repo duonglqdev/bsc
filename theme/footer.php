@@ -378,33 +378,33 @@
 			</div>
 		<?php } ?>
 		<div
-			class="md:w-[432px] w-[80vw] md:py-12 py-5 md:px-8 px-5 rounded-[10px] shadow-base bg-white absolute bottom-0 right-14 hidden open-utilities-box">
+			class="md:w-[432px] w-[85vw] md:py-12 py-6 md:px-8 px-5 rounded-[10px] shadow-base bg-white absolute <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'right-14 bottom-0':'right-4 bottom-11' ?> hidden open-utilities-box">
 			<div
-				class="flex items-center justify-between pb-6 border-b border-black border-opacity-10 text-black">
+				class="flex items-center justify-between  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pb-6':'sm:pb-4 pb-[12px]' ?> border-b border-black border-opacity-10 text-black">
 				<?php if ( get_field( 'cdc4_title_khoi', 'option' ) )
 				{ ?>
-					<div class="inline-flex items-center gap-4 font-bold uppercase text-xl">
-						<?php echo svg( 'keyvisual', '24', '24' ) ?>
+					<div class="inline-flex items-center font-bold uppercase  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl gap-4':'sm:text-lg text-xxs gap-2' ?>">
+						<?php echo svgClass( 'keyvisual', '', '', !wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-4 h-4' ) ?>
 						<?php the_field( 'cdc4_title_khoi', 'option' ) ?>
 					</div>
 				<?php } ?>
 				<div
-					class="inline-flex items-center gap-1 font-bold uppercase text-primary-700 text-xs hidden-utilities">
-					<?php echo svg( 'close-icon', '20', '20' ) ?>
+					class="inline-flex items-center gap-1 font-bold uppercase text-primary-700  hidden-utilities <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs':'md:text-xs text-xxs' ?>">
+					<?php echo svgClass( 'close-icon', '', '',!wp_is_mobile() && !bsc_is_mobile() ?'w-5 h-5':'w-4 h-4' ) ?>
 					<?php _e( 'Ẩn đi', 'gnws' ) ?>
 				</div>
 			</div>
 			<?php if ( have_rows( 'cdc4_menu', 'option' ) )
 			{ ?>
-				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto">
+				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'gap-6 py-6' ?>">
 					<?php while ( have_rows( 'cdc4_menu', 'option' ) ) :
 						the_row(); ?>
 						<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>" target="_blank"
-							class="flex flex-col justify-center items-center gap-4 p-5 text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-							<?php echo svg_dir( get_sub_field( 'icon' ), '40', '40' ) ?>
+							class="flex flex-col justify-center items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 p-5':'gap-1' ?> text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+							<?php echo svg_dir( get_sub_field( 'icon' ), '', '',!wp_is_mobile() && !bsc_is_mobile() ?'w-10 h-10':'w-6 h-6'  ) ?>
 							<?php if ( get_sub_field( 'title' ) )
 							{ ?>
-								<div class="font-bold text-xs">
+								<div class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs':'text-xxs' ?>">
 									<?php the_sub_field( 'title' ) ?>
 								</div>
 							<?php } ?>
@@ -412,44 +412,47 @@
 					<?php endwhile; ?>
 				</div>
 			<?php } ?>
-			<div class="pt-8 border-t border-black border-opacity-10 grid grid-cols-2 gap-3">
+
 				<?php
-				if ( have_rows( 'cdc4_khoi_bsc_live', 'option' ) )
-				{
-					while ( have_rows( 'cdc4_khoi_bsc_live', 'option' ) ) :
-						the_row();
-						if ( get_sub_field( 'title' ) )
-						{
-							?>
-							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-								class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(242,33,33,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#F22121]">
-								<?php echo svg( 'live' ) ?>
-								<?php the_sub_field( 'title' ) ?>
-							</a>
-							<?php
+				if ( have_rows( 'cdc4_khoi_bsc_live', 'option' ) || have_rows( 'cdc4_khoi_chat_support', 'option' ) ) {
+					?>
+					<div class=" border-t border-black border-opacity-10 grid grid-cols-2 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-8':'sm:pt-5 pt-[12px]' ?>">
+						<?php
+						if ( have_rows( 'cdc4_khoi_bsc_live', 'option' ) ) {
+							while ( have_rows( 'cdc4_khoi_bsc_live', 'option' ) ) :
+								the_row();
+								if ( get_sub_field( 'title' ) ) {
+									?>
+									<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
+										class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(242,33,33,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#F22121]">
+										<?php echo svg( 'live' ); ?>
+										<?php the_sub_field( 'title' ); ?>
+									</a>
+									<?php
+								}
+							endwhile;
 						}
-					endwhile;
+
+						if ( have_rows( 'cdc4_khoi_chat_support', 'option' ) ) {
+							while ( have_rows( 'cdc4_khoi_chat_support', 'option' ) ) :
+								the_row();
+								if ( get_sub_field( 'title' ) ) {
+									?>
+									<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
+										class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(0,92,238,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#005DEE]">
+										<?php echo svg( 'chat' ); ?>
+										<?php the_sub_field( 'title' ); ?>
+									</a>
+									<?php
+								}
+							endwhile;
+						}
+						?>
+					</div>
+					<?php
 				}
 				?>
-				<?php
-				if ( have_rows( 'cdc4_khoi_chat_support', 'option' ) )
-				{
-					while ( have_rows( 'cdc4_khoi_chat_support', 'option' ) ) :
-						the_row();
-						if ( get_sub_field( 'title' ) )
-						{
-							?>
-							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-								class="inline-flex transition-all duration-500 hover:opacity-95 hover:shadow-[0px_4px_16px_0px_rgba(0,92,238,0.4)] font-bold py-[12px] px-4 items-center justify-center gap-[6px] text-[12px] rounded-[10px] shadow-[0_4px_10px_0px_rgba(0,0,0,0.2)] text-white bg-[#005DEE]">
-								<?php echo svg( 'chat' ) ?>
-								<?php the_sub_field( 'title' ) ?>
-							</a>
-							<?php
-						}
-					endwhile;
-				}
-				?>
-			</div>
+
 		</div>
 	</div>
 
