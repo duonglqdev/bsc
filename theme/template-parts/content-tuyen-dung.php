@@ -41,7 +41,7 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 		</div>
 	<?php } ?>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
@@ -55,7 +55,7 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 		</p>
 	</div>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
@@ -65,7 +65,7 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 			<?php endif; ?>
 
 		</p>
-		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg ':'text-xs' ?>">
 			<?php
 			$post_id = get_the_ID();
 			$noi_lam_viec = get_the_terms( $post->ID, 'noi-lam-viec' );
@@ -77,7 +77,7 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 		</p>
 	</div>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
@@ -93,7 +93,7 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 	<?php $deadline = get_field( 'deadline' );
 	$deadline_date = DateTime::createFromFormat( 'Ymd', $deadline ); ?>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
