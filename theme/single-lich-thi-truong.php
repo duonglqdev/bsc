@@ -26,7 +26,7 @@ get_header();
                     <div class="sticky top-5 z-10">
                         <div class="rounded-lg px-4 py-6 shadow-base">
                             <ul
-                                class="prose-li:flex prose-li:items-start prose-li:justify-between space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
+                                class="prose-li:flex prose-li:items-start prose-li:justify-between prose-li:gap-4 space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
                                 <li>
                                     <span>
                                         <?php _e('Mã chứng khoán', 'bsc') ?>:
@@ -41,7 +41,7 @@ get_header();
                                     <span class="whitespace-nowrap">
                                         <?php _e('Loại sự kiện', 'bsc') ?>:
                                     </span>
-                                    <p class="text-right">
+                                    <p class="text-right max-w-[70%]">
                                         <?php if ($news->eventtypename) { ?>
                                             <?php echo $news->eventtypename ?>
                                         <?php  } ?>
