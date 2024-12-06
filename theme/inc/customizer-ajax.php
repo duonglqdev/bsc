@@ -543,9 +543,9 @@ function filter_details_symbol()
             <div class="flex items-center justify-between mt-4">
                 <?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
                     <a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
-                        class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+                        class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs font-Helvetica">
                         <?php _e('Xem tất cả', 'bsc') ?>
-                        <?php echo svg('arrow-btn', '20', '20') ?>
+                        <?php echo svg('arrow-btn', '16', '16') ?>
                     </a>
                 <?php } ?>
                 <p class="font-medium text-xs font-Helvetica">

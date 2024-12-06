@@ -402,7 +402,7 @@
 							<h2 class="heading-title mb-10">
 								<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
 							</h2>
-							<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]" style="height:100%">
+							<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF] lg:h-[84%]">
 								<iframe width='100%' height='100%' src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light' frameBorder='0' allowFullScreen></iframe>
 							</div>
 						</div>
