@@ -44,12 +44,12 @@
                             </div>
                             <div class="mt-4">
                                 <?php if (get_sub_field('title')) { ?>
-                                    <h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2">
+                                    <h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
                                         <?php the_sub_field('title') ?>
                                     </h3>
                                 <?php } ?>
                                 <?php if (get_sub_field('content')) { ?>
-                                    <div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs">
+                                    <div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs text-justify">
                                         <?php the_sub_field('content') ?>
                                     </div>
                                 <?php } ?>
