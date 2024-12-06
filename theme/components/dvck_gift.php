@@ -100,7 +100,7 @@
                                                         <?php if ($remainingDays == 0) {
                                                             _e('Chương trình đã kết thúc', 'bsc');
                                                         } else { ?>
-                                                            <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $elapsedDays ?>
+                                                            <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $remainingDays ?>
                                                                 <?php _e('ngày', 'bsc') ?></strong>
                                                         <?php } ?>
                                                     </div>

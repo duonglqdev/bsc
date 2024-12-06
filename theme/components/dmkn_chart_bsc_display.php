@@ -1,7 +1,7 @@
 <section class="xl:my-[100px] my-20 dmkn_chart_bsc_display" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="font-bold text-2xl">
+            <h2 class="font-bold 2xl:text-[32px] text-2xl">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>

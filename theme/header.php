@@ -14,7 +14,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>
-	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'style-pc' : 'style-mb' ?>">
+	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -62,7 +62,7 @@
 									autocomplete="off">
 								<ul
 									class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
-									<li class="no-results text-center p-4 font-bold hidden">
+									<li class="no-results text-center p-4 font-bold hidden text-black">
 										<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
 									</li>
 									<div class="text-center loader hidden w-full h-full">
@@ -154,7 +154,7 @@
 										autocomplete="off">
 									<ul
 										class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
-										<li class="no-results text-center p-4 font-bold hidden">
+										<li class="no-results text-center p-4 font-bold hidden text-black">
 											<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
 										</li>
 										<div class="text-center loader hidden w-full h-full">

@@ -26,7 +26,7 @@ get_header();
                     <div class="sticky top-5 z-10">
                         <div class="rounded-lg px-4 py-6 shadow-base">
                             <ul
-                                class="prose-li:flex prose-li:items-start prose-li:justify-between space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
+                                class="prose-li:flex prose-li:items-start prose-li:justify-between prose-li:gap-4 space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
                                 <li>
                                     <span>
                                         <?php _e('Mã chứng khoán', 'bsc') ?>:
@@ -41,7 +41,7 @@ get_header();
                                     <span class="whitespace-nowrap">
                                         <?php _e('Loại sự kiện', 'bsc') ?>:
                                     </span>
-                                    <p class="text-right">
+                                    <p class="text-right max-w-[70%]">
                                         <?php if ($news->eventtypename) { ?>
                                             <?php echo $news->eventtypename ?>
                                         <?php  } ?>
@@ -120,7 +120,7 @@ get_header();
                             <strong><?php _e('Lý do và mục đích', 'bsc') ?>:</strong>
                         </p>
                         <div
-                            class="prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 marker:text-xs">
+                            class="prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-strong:inline-flex prose-strong:items-center prose-strong:gap-3 prose-strong:mb-2 prose-ul:pl-7 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-5 prose-ol:mb-3 marker:text-xs font-content font-base">
                             <?php echo $news->body ?>
                         </div>
                     </div>

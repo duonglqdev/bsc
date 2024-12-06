@@ -130,13 +130,13 @@ if ($data_bsc) {
 		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details <?php if ($ic == 1) echo 'block';
 																	else echo 'hidden' ?>" data-chart-tab='<?php echo $single_bsc ?>'>
 			<div class="container">
-				<h2 class="font-bold text-2xl">
+				<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 					<?php _e('Chi tiết danh mục', 'bsc') ?>
 				</h2>
 				<div class="lg:flex xl:gap-14 gap-10">
 					<div class="relative lg:w-[887px] max-w-[66%]">
 						<div
-							class="rounded-[10px] mt-6 overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
+							class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
 							<div
 								class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
@@ -200,7 +200,7 @@ if ($data_bsc) {
 														$background_status = $check_status['background_status'];
 														?>
 														<?php if ($list_bsc->action) { ?>
-															<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+															<span class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 																<?php
 																echo  $title_status;
 																?>

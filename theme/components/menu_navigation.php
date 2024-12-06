@@ -33,7 +33,7 @@ if ($style == 'nhdt') {
         }
         if ($menu_navigation) { ?>
             <div class="container">
-                <ul class="customtab-nav flex justify-between gap-10">
+                <ul class="flex justify-between gap-10">
                     <?php foreach ($menu_navigation as $row) { ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link($row['link']) ?>"
@@ -67,7 +67,7 @@ if ($style == 'nhdt') {
     <?php if (have_rows('menu_navigation')) { ?>
         <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
             <div class="container">
-                <ul class="customtab-nav flex justify-between 2xl:gap-10 gap-5">
+                <ul class="flex justify-between 2xl:gap-10 gap-5">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"

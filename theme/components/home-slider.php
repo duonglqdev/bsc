@@ -5,7 +5,6 @@ if ( have_rows( 'slider' ) )
 	?>
 	<section
 		class="home__banner <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pc dots-white' : 'mb dots-blue' ?> block_slider-show-1"
-		data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":4000,"selectedAttraction": 0.01,"friction": 0.2}'
 		<?php if ( $id_class )
 		{ ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while ( have_rows( 'slider' ) ) :
@@ -14,7 +13,7 @@ if ( have_rows( 'slider' ) )
 			if ( $type_slider == 'image' )
 			{
 				?>
-				<div class="w-full relative block_slider-item">
+				<div class="w-full relative block_slider-item" data-play="4000">
 					<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'relative w-full block pt-[110.4%]' ?>">
 						<?php
@@ -33,7 +32,7 @@ if ( have_rows( 'slider' ) )
 				if ( get_sub_field( 'video' ) )
 				{
 					?>
-					<div class="w-full block_slider-item">
+					<div class="w-full block_slider-item" data-play="10000">
 						<div
 							class="w-full relative max-h-full h-full after:absolute lg:after:w-3/4 after:w-full after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'pt-[110.4%]' ?>">
 							<video preload="none" id="video-banner"
