@@ -263,7 +263,7 @@
   @apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-5 before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
 }
 .is-mobile .main_menu-navbar li.active > a, .is-mobile .main_menu-navbar li.current-menu-item > a {
-  @apply text-primary-300;
+  @apply text-primary-300 text-lg;
 }
 .is-mobile .main_menu-navbar > .menu-item-has-children {
   @apply pr-8;
@@ -285,7 +285,7 @@
   @apply hidden mt-4 space-y-6;
 }
 .is-mobile .main_menu-navbar .sub-menu > li > a {
-  @apply flex items-center gap-[12px] text-black text-opacity-70 text-xs font-medium;
+  @apply flex items-center gap-[12px] text-black text-opacity-70 text-xs;
 }
 .is-mobile .main_menu-navbar .sub-menu > li > a img {
   @apply w-6 h-6 object-contain;
@@ -297,7 +297,7 @@
   @apply bg-white py-4 px-6 rounded-tl-lg rounded-bl-lg space-y-4 -mr-16;
 }
 .is-mobile .main_menu-navbar .sub-menu > li .sub-menu a {
-  @apply text-paragraph;
+  @apply text-paragraph font-medium;
 }
 .is-mobile .page__banner::after {
   @apply bg-cover;

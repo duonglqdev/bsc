@@ -34,7 +34,7 @@
                             <div class="relative z-10">
                                 <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-5':'mb-4' ?>">
                                     <?php if (get_sub_field('title')) { ?>
-                                        <h3 class="uppercase 2xl:text-2xl text-xl font-bold group-hover:text-white transition-all duration-500">
+                                        <h3 class="uppercase 2xl:text-2xl text-xl font-bold  transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'group-hover:text-white':'' ?>">
                                             <?php the_sub_field('title') ?>
                                         </h3>
                                     <?php } ?>
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <?php if (get_sub_field('mota')) { ?>
-                                    <div class="text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?> font-bold text-justify group-hover:text-white transition-all duration-500">
+                                    <div class="text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg group-hover:text-white':'' ?> font-bold text-justify transition-all duration-500 wppc">
                                         <?php the_sub_field('mota') ?>
                                     </div>
                                 <?php  } ?>
