@@ -26,15 +26,21 @@
                         $bg_color_class = 'bg-[#1CCD83]';
                         $title_symbol = '';
                         if ($respon_symbol->changePercent != '') {
+                            $upside = $respon_symbol->changePercent;
+                            if ($upside >= 1) {
+                                $upside = round($upside);
+                            } else {
+                                $upside = number_format($upside, 1);
+                            }
                             if (($respon_symbol->changePercent) > 0) {
                                 $bg_color_class = 'bg-[#1CCD83]';
-                                $title_symbol = '+' . round($respon_symbol->changePercent, 2) . '%';
+                                $title_symbol = '+' . $upside . '%';
                             } elseif (($respon_symbol->changePercent) < 0) {
                                 $bg_color_class = 'bg-[#FE5353]';
-                                $title_symbol = round($respon_symbol->changePercent, 2) . '%';
+                                $title_symbol = $upside . '%';
                             } elseif (($respon_symbol->changePercent) == 0) {
                                 $bg_color_class = 'bg-[#EB0]';
-                                $title_symbol = '+' . round($respon_symbol->changePercent, 2) . '%';
+                                $title_symbol = '+' . $upside . '%';
                             }
                         }
                     ?>

@@ -321,6 +321,42 @@ function custom_template_redirect_for_tag_report()
 add_action('template_redirect', 'custom_template_redirect_for_tag_report');
 
 /**
+ * Báo cáo phân tích
+ */
+function custom_rewrite_rule_for_bao_cao_phan_tich()
+{
+    if (get_field('cdttcp1_slug_mck', 'option')) {
+        $sub_url = get_field('cdttcp1_slug_mck', 'option');
+    } else {
+        $sub_url =  __('bao-cao-ma-co-phieu', 'bsc');
+    }
+    add_rewrite_rule('^' . $sub_url . '/([^/]+)/?', 'index.php?bao_cao_phan_tich_slug=$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_rule_for_bao_cao_phan_tich');
+
+function custom_query_vars_for_bao_cao_phan_tich($vars)
+{
+    $vars[] = 'bao_cao_phan_tich_slug';
+    return $vars;
+}
+add_filter('query_vars', 'custom_query_vars_for_bao_cao_phan_tich');
+
+function custom_template_redirect_for_bao_cao_phan_tich()
+{
+    // Lấy giá trị của 'bao_cao_phan_tich_slug' từ query vars
+    $tag_slug = get_query_var('bao_cao_phan_tich_slug');
+
+    // Kiểm tra nếu có 'bao_cao_phan_tich_slug' trong URL
+    if ($tag_slug) {
+        get_template_part('search-bao-cao-phan-tich', null, array(
+            'search' => $tag_slug
+        ));
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_template_redirect_for_bao_cao_phan_tich');
+
+/**
  *  Lịch thị trường
  */
 

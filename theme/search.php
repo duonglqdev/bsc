@@ -27,21 +27,21 @@ $type_search =  $_GET['type_search'] ?: 'default';
 			<form action="<?php echo get_home_url() ?>"
 				class="flex gap-3 justify-center form-search-result">
 				<div class="w-[660px] max-w-[90%] py-4 px-6 gap-2 flex h-[58px] bg-white rounded-lg overflow-hidden shadow-base">
-				<?php echo svgpath('search', '24', '24', 'fill-[#4a556880]') ?>
-				<input type="text" name="s"
-					class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-paragraph placeholder:text-opacity-50 form-search-input"
-					placeholder="<?php _e('Bạn muốn tìm kiếm...', 'bsc') ?>" value="<?php echo $search ?>">
-				<?php if ($type_search && $type_search != 'default') {
-				?>
-					<input type="hidden" name="type_search" value="<?php echo $type_search ?>">
-				<?php
-				} ?>
+					<?php echo svgpath('search', '24', '24', 'fill-[#4a556880]') ?>
+					<input type="text" name="s"
+						class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-paragraph placeholder:text-opacity-50 form-search-input"
+						placeholder="<?php _e('Bạn muốn tìm kiếm...', 'bsc') ?>" value="<?php echo $search ?>">
+					<?php if ($type_search && $type_search != 'default') {
+					?>
+						<input type="hidden" name="type_search" value="<?php echo $type_search ?>">
+					<?php
+					} ?>
 
 				</div>
-				<button type="reset"
-                    class="w-[58px] h-[58px] rounded-lg flex items-center justify-center p-3 bg-white group">
-                    <?php echo svgClass('reload', '24', '24', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
-                </button>
+				<a type="reset" href="<?php echo get_home_url() . '?s=' ?>"
+					class="w-[58px] h-[58px] rounded-lg flex items-center justify-center p-3 bg-white group">
+					<?php echo svgClass('reload', '24', '24', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+				</a>
 			</form>
 		</div>
 	</section>
@@ -179,10 +179,16 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							if ($filter_job->have_posts()) {
 								while ($filter_job->have_posts()) :
 									$filter_job->the_post();
+									if (get_field('introduce')) {
+										$check_body = get_field('introduce');
+									} else {
+										$check_body  = get_the_content();
+									}
 									$all_results[] = array(
 										'type' => 'post',
 										'title' => get_the_title(),
 										'permalink' => get_permalink(),
+										'body' => bsc_get_text_excerpt($check_body, 300),
 									);
 								endwhile;
 							}
@@ -206,6 +212,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 											'type' => 'news',
 											'title' => htmlspecialchars($news->title),
 											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
 										);
 									}
 								}
@@ -288,6 +295,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -318,6 +326,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -348,6 +357,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -400,6 +410,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -431,6 +442,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -462,6 +474,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										'type' => 'news',
 										'title' => htmlspecialchars($news->title),
 										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+										'body' => bsc_get_text_excerpt($news->description, 300),
 									);
 								}
 							}
@@ -491,7 +504,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 					$total_page = ceil($total_post / $post_per_page);
 					?>
 					<p class="mb-10 font-Helvetica">
-						<?php _e('Tìm thấy', 'bsc') ?> <?php echo $total_post ?> <?php _e('kết quả cho từ khóa', 'bsc') ?>: <span
+						<?php _e('Tìm thấy', 'bsc') ?> <?php echo number_format($total_post) ?> <?php _e('kết quả cho từ khóa', 'bsc') ?>: <span
 							class="font-bold text-primary-300"><?php echo  $search ?></span>
 					</p>
 					<?php if (!empty($all_results)) : ?>
@@ -503,17 +516,25 @@ $type_search =  $_GET['type_search'] ?: 'default';
 									<div class="space-y-4">
 										<a href="<?php echo $result['permalink']; ?>" class="text-lg font-bold block">
 											<?php
-											$highlighted_title = preg_replace_callback(
-												'/(^|[^a-zA-Z0-9])' . preg_quote($search, '/') . '($|[^a-zA-Z0-9])/i',
-												function ($matches) {
-													return $matches[1] . '<span class="font-bold text-primary-300">' . $matches[0] . '</span>' . $matches[2];
-												},
-												$result['title']
-											);
-											echo $highlighted_title;
-
+											if ($search == '') {
+												echo $result['title'];
+											} else {
+												$highlighted_title = preg_replace_callback(
+													'/(^|[^a-zA-Z0-9])(' . preg_quote($search, '/') . ')($|[^a-zA-Z0-9])/i',
+													function ($matches) {
+														return $matches[1] . '<span class="font-bold text-primary-300">' . $matches[2] . '</span>' . $matches[3];
+													},
+													$result['title']
+												);
+												echo $highlighted_title;
+											}
 											?>
 										</a>
+										<?php if ($result['body']) { ?>
+											<p class="line-clamp-3 text-xs">
+												<?php echo $result['body'] ?>
+											</p>
+										<?php } ?>
 									</div>
 								</li>
 							<?php endforeach; ?>
