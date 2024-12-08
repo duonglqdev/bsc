@@ -12,7 +12,8 @@
 			</h2>
 		<?php } ?>
 		<div class="flex md:flex-row flex-col md:gap-[38px] gap-8">
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-80 w-full ':'w-full' ?>">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-80 w-full ' : 'w-full' ?>">
 				<div
 					class="bg-gradient-blue-50 shadow-base rounded-2xl h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-6 2xl:space-y-8 space-y-4' : 'p-4' ?>">
 					<?php
@@ -51,7 +52,8 @@
 									<div class="flex gap-[14px] data_number">
 										<?php if ( $response_value->d[0]->bidPrice1 )
 										{ ?>
-											<div class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[40px]' : 'text-2xl' ?>">
+											<div
+												class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[40px]' : 'text-2xl' ?>">
 												<?php echo number_format( ( $response_value->d[0]->bidPrice1 ) / 1000, 2, '.', '' ); ?>
 											</div>
 											<?php if ( $response_value->d[0]->bidPrice1 && $response_value->d[0]->reference )
@@ -70,7 +72,8 @@
 													$text_color_class = '';
 												}
 												?>
-												<div class="flex flex-col <?php echo $text_color_class ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'md:text-xs text-[13px]' ?>">
+												<div
+													class="flex flex-col <?php echo $text_color_class ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'md:text-xs text-[13px]' ?>">
 													<p>
 														<?php
 														echo number_format( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) / 1000, 2, '.', '' );
@@ -83,7 +86,8 @@
 											<?php } ?>
 										<?php } ?>
 									</div>
-									<p class="time-update mt-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'md:text-xs text-[12px]' ?>">
+									<p
+										class="time-update mt-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'md:text-xs text-[12px]' ?>">
 										<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
 										<?php date_default_timezone_set( 'Asia/Ho_Chi_Minh' );
 										echo date( "H:i:s" ); ?>
@@ -93,52 +97,53 @@
 							<?php } ?>
 
 						</div>
-                        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-                            <div class="flex-col gap-2">
-                                <div class="flex gap-[14px] data_number">
-                                    <?php if ( $response_value->d[0]->bidPrice1 )
-                                    { ?>
-                                        <div class="lg:text-[40px] text-4xl font-bold">
-                                            <?php echo number_format( ( $response_value->d[0]->bidPrice1 ) / 1000, 2, '.', '' ); ?>
-                                        </div>
-                                        <?php if ( $response_value->d[0]->bidPrice1 && $response_value->d[0]->reference )
-                                        {
-                                            if ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) > 0 )
-                                            {
-                                                $text_color_class = 'text-[#1CCD83]';
-                                            } elseif ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) < 0 )
-                                            {
-                                                $text_color_class = 'text-[#FE5353]';
-                                            } elseif ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) == 0 )
-                                            {
-                                                $text_color_class = 'text-[#EB0]';
-                                            } else
-                                            {
-                                                $text_color_class = '';
-                                            }
-                                            ?>
-                                            <div class="flex flex-col <?php echo $text_color_class ?>">
-                                                <p>
-                                                    <?php
-                                                    echo number_format( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) / 1000, 2, '.', '' );
-                                                    ?>
-                                                </p>
-                                                <p>
-                                                    <?php echo number_format( ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) / ( $response_value->d[0]->reference ) ) * 100, 2, '.', '' ) ?>%
-                                                </p>
-                                            </div>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </div>
-                                <p class="time-update mt-1">
-                                    <?php _e( 'Cập nhật lúc', 'bsc' ) ?>
-                                    <?php date_default_timezone_set( 'Asia/Ho_Chi_Minh' );
-                                    echo date( "H:i:s" ); ?>
-                                    UTC_7
-                                </p>
-                            </div>
-                                            
-                        <?php } ?>
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						{ ?>
+							<div class="flex-col gap-2">
+								<div class="flex gap-[14px] data_number">
+									<?php if ( $response_value->d[0]->bidPrice1 )
+									{ ?>
+										<div class="lg:text-[40px] text-4xl font-bold">
+											<?php echo number_format( ( $response_value->d[0]->bidPrice1 ) / 1000, 2, '.', '' ); ?>
+										</div>
+										<?php if ( $response_value->d[0]->bidPrice1 && $response_value->d[0]->reference )
+										{
+											if ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) > 0 )
+											{
+												$text_color_class = 'text-[#1CCD83]';
+											} elseif ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) < 0 )
+											{
+												$text_color_class = 'text-[#FE5353]';
+											} elseif ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) == 0 )
+											{
+												$text_color_class = 'text-[#EB0]';
+											} else
+											{
+												$text_color_class = '';
+											}
+											?>
+											<div class="flex flex-col <?php echo $text_color_class ?>">
+												<p>
+													<?php
+													echo number_format( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) / 1000, 2, '.', '' );
+													?>
+												</p>
+												<p>
+													<?php echo number_format( ( ( $response_value->d[0]->bidPrice1 - $response_value->d[0]->reference ) / ( $response_value->d[0]->reference ) ) * 100, 2, '.', '' ) ?>%
+												</p>
+											</div>
+										<?php } ?>
+									<?php } ?>
+								</div>
+								<p class="time-update mt-1">
+									<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
+									<?php date_default_timezone_set( 'Asia/Ho_Chi_Minh' );
+									echo date( "H:i:s" ); ?>
+									UTC_7
+								</p>
+							</div>
+
+						<?php } ?>
 					<?php } ?>
 					<?php
 					$array_data = array(
@@ -148,14 +153,16 @@
 					if ( $response )
 					{
 						?>
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:space-y-4 space-y-3' : 'grid grid-cols-2 mt-6 gap-5 text-xs' ?>">
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:space-y-4 space-y-3' : 'grid grid-cols-2 mt-6 gap-5 text-xs' ?>">
 							<?php if ( isset( $response->d[0]->outsshares ) )
 							{ ?>
 								<div class="font-bold flex flex-col">
-									<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mb-2' ?>">
+									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-2' ?>">
 										<?php _e( 'Số lượng cổ phiếu đang lưu hành', 'bsc' ) ?>
 									</p>
-									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
+									<p
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
 										<?php echo number_format( $response->d[0]->outsshares ); ?>
 									</p>
 								</div>
@@ -163,10 +170,11 @@
 							<?php if ( isset( $response->d[0]->listedshares ) )
 							{ ?>
 								<div class="font-bold flex flex-col">
-									<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mb-2' ?>">
+									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-2' ?>">
 										<?php _e( 'Khối lượng đang niêm yết', 'bsc' ) ?>
 									</p>
-									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
+									<p
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
 										<?php echo number_format( $response->d[0]->listedshares ); ?>
 									</p>
 								</div>
@@ -179,14 +187,18 @@
 			<div class="flex-1 w-full">
 				<?php if ( wp_is_mobile() && bsc_is_mobile() )
 				{ ?>
-					<ul class="space-y-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-4' ?>">
+				<!-- @todo: Thêm tiêu đề và mô tả mobile  -->
+					<h2 class="heading-title">
+						LỊCH SỬ TĂNG VỐN ĐIỀU LỆ
+					</h2>
+					<ul class="space-y-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-4' ?>">
 						<li class="flex items-center gap-2 font-Helvetica font-medium text-xs">
 							<span class="rounded bg-yellow-100 w-[15px] h-[15px] inline-block"></span>
 							<p><?php _e( 'Trước khi chuyển đổi thành CTCP', 'bsc' ) ?></p>
 						</li>
 						<li class="flex items-center gap-2 font-Helvetica font-medium text-xs">
 							<span class="rounded bg-primary-300 w-[15px] h-[15px] inline-block"></span>
-							<p><?php _e( 'TSau khi chuyển đổi thành CTCP', 'bsc' ) ?></p>
+							<p><?php _e( 'Sau khi chuyển đổi thành CTCP', 'bsc' ) ?></p>
 						</li>
 					</ul>
 					<p class="mt-2 font-Helvetica font-medium text-xxs">
