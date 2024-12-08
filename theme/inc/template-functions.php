@@ -599,6 +599,16 @@ function excerpt($limit)
 	return strip_tags($excerpt);
 }
 
+function bsc_get_text_excerpt($html, $max_length)
+{
+	// Loại bỏ tất cả thẻ HTML
+	$plain_text = strip_tags($html);
+	// Cắt chuỗi xuống đúng 100 ký tự
+	if (mb_strlen($plain_text) > $max_length) {
+		$plain_text = mb_substr($plain_text, 0, $max_length) . '...';
+	}
+	return $plain_text;
+}
 /**
  * Check Link
  * If not return javascript:void(0)
@@ -645,9 +655,10 @@ function generateRandomString($length = 10)
 
 	return $randomString;
 }
-function bsc_is_mobile() {
-    if (!wp_is_mobile()) {
-        return false;
-    }
-    return true;
+function bsc_is_mobile()
+{
+	if (!wp_is_mobile()) {
+		return false;
+	}
+	return true;
 }
