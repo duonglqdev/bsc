@@ -110,8 +110,8 @@ get_header();
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
 							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
 								<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6 news-collapse">
-									<?php the_title() ?>
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6">
+									<?php echo get_the_archive_title(); ?>
 									<?php echo svg( 'down-white', '20', '20' ) ?>
 								</div>
 							<?php } ?>

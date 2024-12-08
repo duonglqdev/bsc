@@ -1,5 +1,5 @@
 <div class="bsc-pagination <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-12':'mt-8' ?>">
-	<nav class="flex items-center gap-8">
+	<nav class="flex items-center gap-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'justify-center' ?>">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
 		?>
 			<?php bsc_pagination_api($args['total_page'], $args['url']) ?>
@@ -9,6 +9,7 @@
 				$default_posts_per_page = (int) get_option('posts_per_page');
 				$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 				?>
+				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 				<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
 					<?php
 					$endpoint = '';
@@ -44,6 +45,7 @@
 						}
 					}
 				</script>
+				<?php } ?>
 			<?php } ?>
 		<?php
 		} elseif (isset($args['get']) && $args['get'] == 'ajax_api') {
@@ -55,6 +57,7 @@
 				$default_posts_per_page = (int) get_option('posts_per_page');
 				$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 				?>
+				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 				<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
 					<?php
 					$endpoint = '';
@@ -90,6 +93,8 @@
 						}
 					}
 				</script>
+									
+				<?php } ?>
 			<?php } ?>
 		<?php
 		} elseif (isset($args['get']) && $args['get'] == 'ajax') {
@@ -129,6 +134,7 @@
 			$default_posts_per_page = (int) get_option('posts_per_page');
 			$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 			?>
+			<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 			<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
 				<?php
 				foreach ($posts_to_show as $number) :
@@ -151,6 +157,8 @@
 					}
 				}
 			</script>
+								
+			<?php } ?>
 		<?php } ?>
 	</nav>
 </div>
