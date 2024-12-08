@@ -85,37 +85,53 @@
 </section>
 <div id="leader-modal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[99] justify-center items-center w-full md:inset-0 h-full max-h-full bg-black bg-opacity-20">
-    <div class="relative p-4 w-full max-w-2xl lg:max-w-[1094px] max-h-full">
+    <div class="relative w-full max-h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-4 max-w-2xl lg:max-w-[1094px] max-h-full':'md:max-w-[80%] max-w-[90%]' ?>">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div
-                class="grid md:grid-cols-5 lg:gap-12 gap-10 leader_popup-content lg:p-[50px] p-5">
+                class=" leader_popup-content <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-5 lg:gap-12 p-[50px]':'p-4' ?>">
                 <div class="md:col-span-2">
-                    <div class="leader_img lg:max-w-[349px] w-full">
-                        <div class="relative w-full pt-[122%]">
+                    <div class="leader_img w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[349px]':'' ?>">
+                        <div class="relative w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[122%]':'pt-[75%]' ?>">
                             <img loading="lazy" src="" alt=""
                                 class="absolute w-full h-full object-cover inset-0 rounded-lg">
                         </div>
+                        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                            <button type="button"
+                                class="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white absolute top-3 right-3"
+                                data-modal-hide="leader-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path d="M18 18L6 6" stroke="#4A5568" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 18L18 6" stroke="#4A5568" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span class="sr-only"><?php _e('Đóng', 'bsc') ?></span>
+                            </button>
+                        <?php } ?>
                     </div>
                 </div>
-                <div class="md:col-span-3 relative">
-                    <h4 class="leader_name 2xl:text-2xl text-xl font-bold mb-1 text-primary-400">
+                <div class="md:col-span-3 relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-4' ?>">
+                    <h4 class="leader_name font-bold mb-1 text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl':'text-lg text-center' ?>">
                     </h4>
-                    <p class="leader_role font-medium text-black text-opacity-50">
+                    <p class="leader_role font-medium text-black text-opacity-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs text-center' ?>">
                     </p>
-                    <div class="main__content mt-6 font-Helvetica">
+                    <div class="main__content font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6 prose-p:mb-4':'mt-4 prose-p:mb-2 text-xs' ?>">
                     </div>
-                    <button type="button"
-                        class="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white absolute top-0 -right-2"
-                        data-modal-hide="leader-modal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none">
-                            <path d="M18 18L6 6" stroke="#4A5568" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M6 18L18 6" stroke="#4A5568" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="sr-only"><?php _e('Đóng', 'bsc') ?></span>
-                    </button>
+                    <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                        <button type="button"
+                            class="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white absolute top-0 -right-2"
+                            data-modal-hide="leader-modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none">
+                                <path d="M18 18L6 6" stroke="#4A5568" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6 18L18 6" stroke="#4A5568" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="sr-only"><?php _e('Đóng', 'bsc') ?></span>
+                        </button>
+                    <?php } ?>
                 </div>
             </div>
 

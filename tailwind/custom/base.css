@@ -658,9 +658,6 @@ header.active {
   @apply lg:-mt-10;
 }
 
-#leader-modal .main__content p {
-  @apply mb-4;
-}
 #leader-modal .main__content ul {
   @apply max-h-[270px] overflow-y-auto space-y-[12px] pr-4;
 }
