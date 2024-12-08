@@ -18,7 +18,7 @@
             </span>
 
         </div>
-        <p class="hover:text-green transition-all duration-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-3':'px-[12px] mb-4' ?>">
+        <p class="hover:text-green transition-all duration-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-3':'px-[12px] mb-4 font-body' ?>">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
                 class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>

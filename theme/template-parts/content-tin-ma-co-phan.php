@@ -49,7 +49,7 @@
 
             <div class="md:ml-[30px] ml-5">
                 <p
-                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?>">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 

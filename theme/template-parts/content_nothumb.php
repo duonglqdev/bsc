@@ -30,7 +30,7 @@ if ($args['data']) {
             </div>
             <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'ml-[30px]':'ml-4' ?>">
                 <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?>">
                     <p class="line-clamp-2">
                         <?php echo htmlspecialchars($news->title) ?>
                     </p>
