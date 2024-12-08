@@ -151,22 +151,22 @@
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:space-y-4 space-y-3' : 'grid grid-cols-2 mt-6 gap-5 text-xs' ?>">
 							<?php if ( isset( $response->d[0]->outsshares ) )
 							{ ?>
-								<div class="font-bold space-y-2">
-									<p>
+								<div class="font-bold flex flex-col">
+									<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mb-2' ?>">
 										<?php _e( 'Số lượng cổ phiếu đang lưu hành', 'bsc' ) ?>
 									</p>
-									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
+									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
 										<?php echo number_format( $response->d[0]->outsshares ); ?>
 									</p>
 								</div>
 							<?php } ?>
 							<?php if ( isset( $response->d[0]->listedshares ) )
 							{ ?>
-								<div class="font-bold space-y-2">
-									<p>
+								<div class="font-bold flex flex-col">
+									<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mb-2' ?>">
 										<?php _e( 'Khối lượng đang niêm yết', 'bsc' ) ?>
 									</p>
-									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
+									<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
 										<?php echo number_format( $response->d[0]->listedshares ); ?>
 									</p>
 								</div>

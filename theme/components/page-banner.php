@@ -1,5 +1,6 @@
 <?php
 if (get_sub_field('background')) {
+    // @todo: Thêm ảnh mobile
     $banner = wp_get_attachment_image_url(get_sub_field('background'), 'full');
     $style = get_sub_field('display_background') ?: 'default';
 } elseif (is_tax() || is_category()) {
