@@ -52,7 +52,7 @@
                     class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?> line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
-                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                     <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
                         <?php echo $news->description ?>
                     </div>

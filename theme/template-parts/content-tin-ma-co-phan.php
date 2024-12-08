@@ -33,7 +33,7 @@
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
                 <p
-                    class="date text-center bg-primary-300 text-white font-bold text-xs py-[2px] px-1 leading-normal w-full">
+                    class="date text-center bg-primary-300 text-white font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs':'text-xxs' ?> py-[2px] px-1 leading-normal w-full">
                     <?php
                     echo $day_of_year;
                     ?>
@@ -49,18 +49,23 @@
 
             <div class="md:ml-[30px] ml-5">
                 <p
-                    class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
+                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
-                <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
-                    <?php echo $news->description ?>
-                </div>
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
+                        <?php echo $news->description ?>
+                    </div>
+                <?php } ?>
             </div>
         </div>
-        <p
-            class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
-            <?php _e('Xem nội dung', 'bsc') ?>
-            <?php echo svg('download') ?>
-        </p>
+        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+            <p
+                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
+                <?php _e('Xem nội dung', 'bsc') ?>
+                <?php echo svg('download') ?>
+            </p>
+                            
+        <?php } ?>
     </div>
 <?php } ?>

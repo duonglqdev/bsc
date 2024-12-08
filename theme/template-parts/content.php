@@ -18,17 +18,19 @@
             </span>
 
         </div>
-        <p class="mb-3 hover:text-green transition-all duration-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'px-[12px]' ?>">
+        <p class="hover:text-green transition-all duration-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-3':'px-[12px] mb-4' ?>">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
                 class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </p>
-        <div class="text-paragraph  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'text-xs px-[12px] pb-4' ?>">
-            <p class="line-clamp-2">
-                <?php echo htmlspecialchars($news->description) ?>
-            </p>
-        </div>
+        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+            <div class="text-paragraph <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'text-xs px-[12px] pb-4' ?>">
+                <p class="line-clamp-2">
+                    <?php echo htmlspecialchars($news->description) ?>
+                </p>
+            </div>
+        <?php } ?>
        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
         <div class="mt-auto">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"

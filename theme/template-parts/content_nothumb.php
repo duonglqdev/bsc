@@ -35,10 +35,13 @@ if ($args['data']) {
                         <?php echo htmlspecialchars($news->title) ?>
                     </p>
                 </a>
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                     <div
                         class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
                         <?php echo htmlspecialchars($news->description) ?>
                     </div>
+                                    
+                <?php } ?>
             </div>
         </div>
         <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
