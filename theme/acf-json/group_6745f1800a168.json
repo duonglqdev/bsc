@@ -250,6 +250,26 @@
             "append": ""
         },
         {
+            "key": "field_6755cd1fc13a9",
+            "label": "Đường dẫn báo cáo phân tích của từng MCK",
+            "name": "cdttcp1_slug_mck",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6745f180903e4",
             "label": "Trang thông tin cổ phiếu",
             "name": "cdttcp1_page",
@@ -311,5 +331,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733229767
+    "modified": 1733676333
 }

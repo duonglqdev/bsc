@@ -2337,7 +2337,14 @@ function filter_details_symbol()
                                     </span>
                                 <?php } ?>
                             </div>
-                            <a href=""
+                            <?php
+                            if (get_field('cdttcp1_slug_mck', 'option')) {
+                                $sub_url_bcpt = get_field('cdttcp1_slug_mck', 'option');
+                            } else {
+                                $sub_url_bcpt =  __('bao-cao-ma-co-phieu', 'bsc');
+                            }
+                            ?>
+                            <a href="<?php echo get_home_url() ?>/<?php echo $sub_url_bcpt ?>/<?php echo $symbol ?>"
                                 class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
                                 <?php _e('Xem chi tiết', 'bsc') ?>
                                 <?php echo svg('arrow-btn', '12', '12') ?>
