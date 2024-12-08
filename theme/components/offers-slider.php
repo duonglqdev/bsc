@@ -31,7 +31,7 @@
 							{
 								?>
 								<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="btn-base-yellow inline-flex items-center gap-x-3 md:text-base text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-md' : 'rounded-lg' ?>">
+									class="btn-base-yellow inline-flex items-center gap-x-3 md:text-base text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-md' : 'rounded-lg px-[14px]' ?>">
 									<?php echo svg( 'arrow-btn', '20' ) ?>
 									<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 									{ ?>
