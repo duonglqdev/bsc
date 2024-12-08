@@ -22,7 +22,7 @@
 				<?php } ?>
 				<?php if ( get_sub_field( 'content' ) )
 				{ ?>
-					<div class="font-Helvetica the_content text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'mt-6 text-xs' ?>">
+					<div class="font-Helvetica prose-p:mb-4 text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'mt-6 text-xs' ?>">
 						<?php the_sub_field( 'content' ) ?>
 					</div>
 				<?php } ?>

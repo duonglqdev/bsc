@@ -61,11 +61,13 @@
 									</div>
 								<?php } ?>
 							</div>
+							<div class="swiper-pagination"></div>
 						</div>
 					</div>
 		<?php
 				}
 			}
 		} ?>
+		
 	</div>
 </section>

@@ -117,7 +117,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                             <?php }
                             } ?>
                                 <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
-                                    <div class="mt-8">
+                                    <div class="mt-12">
                                         <a href="<?php echo get_term_link($term) ?>" class="block px-6 py-[12px] btn-base-yellow text-xs font-bold text-center">
                                             <span class="inline-flex items-center gap-2 relative z-10">
                                                 <?php _e( 'Xem tất cả', 'bsc' ) ?>

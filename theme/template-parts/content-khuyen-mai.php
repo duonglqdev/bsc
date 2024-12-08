@@ -1,7 +1,7 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="flex flex-col font-Helvetica">
+    <div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-full' ?>">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
             <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                 alt="<?php echo htmlspecialchars($news->title) ?>"

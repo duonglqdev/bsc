@@ -271,10 +271,7 @@ get_header();
 								<?php echo svg('date') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
-							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-								-
-								<span class="text-primary-300"><?php echo get_the_author() ?></span>
-							<?php } ?>
+							
 							<div class="share flex items-center gap-[12px] ml-12">
 								<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 									<strong>

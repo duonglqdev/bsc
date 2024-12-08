@@ -649,6 +649,7 @@ import { DataTable } from 'simple-datatables';
 			autoplay: false,
 			fade: true,
 			asNavFor: '.about_history-nav',
+			adaptiveHeight: true,
 			infinite: false,
 			initialSlide: 0,
 		});

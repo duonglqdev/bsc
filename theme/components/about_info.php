@@ -15,7 +15,7 @@
             </div>
         <?php } ?>
         <div class="grid items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-20':'grid-cols-1 gap-6' ?>">
-            <div class="the_content text-black font-normal font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+            <div class="prose-p:mb-4 text-justify text-black font-normal font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                 <?php the_sub_field('content') ?>
             </div>
             <?php if (have_rows('video_youtube')) {

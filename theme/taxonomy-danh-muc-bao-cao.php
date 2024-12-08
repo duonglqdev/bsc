@@ -300,7 +300,7 @@ get_header();
 							{ ?>
 								<div
 									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between">
-									<?php get_the_archive_title() ?>
+									<?php echo get_the_archive_title() ?>
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>
 								<?php

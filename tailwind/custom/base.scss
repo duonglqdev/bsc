@@ -181,7 +181,7 @@
 			&.active,
 			&.current-menu-item {
 				> a {
-					@apply text-primary-300;
+					@apply text-primary-300 text-lg;
 				}
 			}
 		}
@@ -206,7 +206,7 @@
 			@apply hidden mt-4 space-y-6;
 			> li {
 				> a {
-					@apply flex items-center gap-[12px] text-black text-opacity-70 text-xs font-medium;
+					@apply flex items-center gap-[12px] text-black text-opacity-70 text-xs;
 					img {
 						@apply w-6 h-6 object-contain;
 					}
@@ -217,7 +217,7 @@
 				.sub-menu {
 					@apply bg-white py-4 px-6 rounded-tl-lg rounded-bl-lg space-y-4 -mr-16;
 					a {
-						@apply text-paragraph;
+						@apply text-paragraph font-medium;
 					}
 				}
 			}
@@ -634,9 +634,7 @@ header {
 	}
 }
 #leader-modal .main__content {
-	p {
-		@apply mb-4;
-	}
+	
 	ul {
 		@apply max-h-[270px] overflow-y-auto space-y-[12px] pr-4;
 		&::-webkit-scrollbar {

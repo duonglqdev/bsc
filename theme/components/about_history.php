@@ -32,7 +32,7 @@
                                     </div>
                                 <?php } ?>
                                 <?php if (get_sub_field('content')) { ?>
-                                    <div class="font-Helvetica text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+                                    <div class="font-Helvetica text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-base' ?>">
                                         <?php the_sub_field('content') ?>
                                     </div>
                                 <?php } ?>
