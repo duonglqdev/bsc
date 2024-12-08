@@ -1,7 +1,7 @@
 <section class=" cocau_codong <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-12':'mt-[46px] mb-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title text-center mb-10">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center mb-10':'text-left mb-6' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
