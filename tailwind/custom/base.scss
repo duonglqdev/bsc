@@ -167,6 +167,15 @@
 	.font-base * {
 		font-size: 16px !important;
 	}
+	.bsc_chart-display{
+		.apexcharts-legend {
+			@apply flex-nowrap;
+			.apexcharts-legend-series{
+				@apply items-start w-1/2;
+				margin: 0 !important;
+			}
+		}
+	}
 }
 .is-mobile {
 	.container {
@@ -880,6 +889,9 @@ button#ib-button-messaging {
 	ul > li > span:nth-child(1) > strong,
 	ul > li > strong:nth-child(1) {
 		@apply mr-3;
+	}
+	ul ul {
+		margin-bottom: 0 !important;
 	}
 }
 .font-content * {

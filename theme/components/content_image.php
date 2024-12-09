@@ -14,7 +14,7 @@
                         </div>
                     <?php } ?>
                     <?php if (have_rows('list_content')) { ?>
-                        <ul class="flex-1 space-y-4 list-icon">
+                        <ul class="flex-1 space-y-3 list-icon">
                             <?php while (have_rows('list_content')): the_row(); ?>
                                 <li class="font-semibold list-icon-item">
                                     <?php the_sub_field('content') ?>
