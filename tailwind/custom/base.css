@@ -252,6 +252,13 @@
 .is-desktop .font-base * {
   font-size: 16px !important;
 }
+.is-desktop .bsc_chart-display .apexcharts-legend {
+  @apply flex-nowrap;
+}
+.is-desktop .bsc_chart-display .apexcharts-legend .apexcharts-legend-series {
+  @apply items-start w-1/2;
+  margin: 0 !important;
+}
 
 .is-mobile .container {
   @apply px-5;

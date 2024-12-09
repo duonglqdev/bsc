@@ -2202,13 +2202,19 @@ import { DataTable } from 'simple-datatables';
 								curve: 'smooth', // Làm các đường mềm mại hơn
 								width: 2, // Độ dày của đường
 							},
+							grid: {
+								show: true, 
+								yaxis: {
+									lines: { show: false }, // Ẩn đường ngang
+								},
+							},
 							legend: {
 								position: 'top',
 								horizontalAlign: 'left',
 								labels: { colors: '#4A5568' },
 								markers: {
-									width: 14,
-									height: 14,
+									width: 12,
+									height: 8,
 									radius: 2, // Góc bo tròn cho marker
 								},
 							},
@@ -2241,6 +2247,7 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 	}
+	
 	
 
 	function collapseChart() {

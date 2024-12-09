@@ -167,6 +167,15 @@
 	.font-base * {
 		font-size: 16px !important;
 	}
+	.bsc_chart-display{
+		.apexcharts-legend {
+			@apply flex-nowrap;
+			.apexcharts-legend-series{
+				@apply items-start w-1/2;
+				margin: 0 !important;
+			}
+		}
+	}
 }
 .is-mobile {
 	.container {
