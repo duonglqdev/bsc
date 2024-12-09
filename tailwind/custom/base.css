@@ -874,6 +874,9 @@ button#ib-button-messaging {
 .content_prose ul > li ol {
   @apply font-normal;
 }
+.content_prose ul, .content_prose ol {
+  list-style-type: revert;
+}
 .content_prose li strong {
   @apply font-medium;
 }
@@ -891,9 +894,6 @@ button#ib-button-messaging {
 .content_prose ul > li > span:nth-child(1) > strong,
 .content_prose ul > li > strong:nth-child(1) {
   @apply mr-3;
-}
-.content_prose ul ul {
-  margin-bottom: 0 !important;
 }
 
 .font-content * {
