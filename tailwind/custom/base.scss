@@ -881,6 +881,9 @@ button#ib-button-messaging {
 	ul > li > strong:nth-child(1) {
 		@apply mr-3;
 	}
+	ul ul {
+		margin-bottom: 0 !important;
+	}
 }
 .font-content * {
 	font-family: "Helvetica Neue", sans-serif !important;
