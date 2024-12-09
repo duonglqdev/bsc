@@ -516,14 +516,14 @@ import { DataTable } from 'simple-datatables';
 		if (chartElement) {
 			var height_chart =
 				chartElement.getAttribute('data-height') || '97%';
-
+	
 			// Chuyển đổi xAxisCategories thành timestamps
 			const timestamps = seriesData[0].data.map((point) => point.x);
-
+	
 			// Xác định khoảng thời gian
 			let tickInterval;
 			let dateFormatter;
-
+	
 			if (timestamps.length <= 7) {
 				// < 7 ngày: Hiển thị mỗi ngày một mốc
 				tickInterval = 1;
@@ -541,6 +541,13 @@ import { DataTable } from 'simple-datatables';
 				tickInterval = 90;
 				dateFormatter = 'MMM yyyy';
 			}
+	
+			// Tạo dữ liệu mặc định ban đầu (null cho hiệu ứng xuất hiện dần dần)
+			const defaultValues = seriesData.map((series) => ({
+				name: series.name,
+				data: new Array(series.data.length).fill(null), // Dữ liệu null ban đầu
+			}));
+	
 			var options = {
 				chart: {
 					type: 'line',
@@ -560,14 +567,13 @@ import { DataTable } from 'simple-datatables';
 						enabled: false, // Tắt tính năng zoom hoàn toàn
 					},
 				},
-				series: seriesData,
+				series: defaultValues, // Bắt đầu với dữ liệu null để thực hiện hiệu ứng
 				xaxis: {
 					type: 'datetime',
 					categories: timestamps,
 					labels: {
 						formatter: function (val, index) {
 							// Hiển thị nhãn tại các mốc theo quy tắc tickInterval
-							// if (index % tickInterval === 0) {
 							return new Date(val).toLocaleDateString('en-GB', {
 								year: 'numeric',
 								month: 'short',
@@ -575,9 +581,6 @@ import { DataTable } from 'simple-datatables';
 									? 'numeric'
 									: undefined,
 							});
-							// } else {
-							// 	return ''; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
-							// }
 						},
 						rotate: -45,
 					},
@@ -612,17 +615,14 @@ import { DataTable } from 'simple-datatables';
 						},
 					},
 					y: {
-						formatter: function (
-							value,
-							{ seriesIndex, dataPointIndex, w }
-						) {
+						formatter: function (value, { seriesIndex, dataPointIndex, w }) {
 							const pointData =
 								w.config.series[seriesIndex].data[
 									dataPointIndex
 								];
 							const percentDiff =
 								pointData && pointData.percentagedifference;
-
+	
 							// Kiểm tra cả `value` và `percentDiff` để tránh lỗi `toFixed`
 							const formattedValue =
 								value != null ? value.toFixed(2) : 'N/A';
@@ -630,14 +630,32 @@ import { DataTable } from 'simple-datatables';
 								percentDiff != null
 									? ` (${percentDiff > 0 ? '+' : ''}${percentDiff.toFixed(2)}%)`
 									: ''; // Nếu không có giá trị, hiển thị chuỗi trống
-
+	
 							return `${formattedValue}${percentText}`;
 						},
 					},
 				},
 			};
+	
 			var chart = new ApexCharts(chartElement, options);
 			chart.render();
+	
+			// Animation logic: hiển thị dữ liệu từng bước
+			let i = 0; // Biến đếm để theo dõi mốc thời gian hiện tại
+			const interval = setInterval(() => {
+				// Cập nhật từng bước dữ liệu cho mỗi series
+				seriesData.forEach((series, seriesIndex) => {
+					options.series[seriesIndex].data[i] = series.data[i]; // Thêm dữ liệu tại mốc thời gian hiện tại
+				});
+	
+				// Cập nhật biểu đồ
+				chart.updateSeries(options.series);
+	
+				i++; // Chuyển sang mốc thời gian tiếp theo
+	
+				// Dừng interval khi đã hiển thị hết dữ liệu
+				if (i === timestamps.length) clearInterval(interval);
+			}, 100); // Thời gian giữa mỗi mốc (1000ms = 1 giây)
 		}
 	}
 
@@ -2756,4 +2774,92 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 	}
+
+	 // Dữ liệu của biểu đồ
+	 var bsc10 = [100, 120, 150, 160, 140];
+	 var vnindex = [40, 50, 60, 74, 80];
+	 var vndiamond = [20, 30, 40, 50, 60];
+	 var xCat = ['19 Sep', '20 Sep', '21 Sep', '22 Sep', '23 Sep'];
+ 
+	 // Tạo các mảng dữ liệu mặc định (ban đầu là null)
+	 var defaultValues = new Array(bsc10.length).fill(null);
+	 var bsc10D = [...defaultValues];
+	 var vnindexD = [...defaultValues];
+	 var vndiamondD = [...defaultValues];
+ 
+	 // Cấu hình biểu đồ ApexCharts
+	 var options = {
+		 series: [{
+			 name: "BSC10",
+			 data: defaultValues
+		 }, {
+			 name: "VNINDEX",
+			 data: defaultValues
+		 }, {
+			 name: "VNDIAMOND",
+			 data: defaultValues
+		 }],
+		 colors: ['#2E93fA', '#F7B924', '#1E7145'],
+		 chart: {
+			 height: 400,
+			 type: 'line',
+			 animations: {
+				 speed: 10000,
+				 easing: 'linear',
+				 dynamicAnimation: {
+					 speed: 1000
+				 }
+			 }
+		 },
+		 xaxis: {
+			 categories: xCat,
+			 tickPlacement: 'between'
+		 },
+		 stroke: {
+			 curve: 'smooth'
+		 },
+		 markers: {
+			 size: 4
+		 },
+		 title: {
+			 text: 'Sequential Animation Line Chart',
+			 align: 'center'
+		 },
+		 yaxis: {
+			 min: 0,
+			 max: 200
+		 }
+	 };
+ 
+	 // Khởi tạo biểu đồ
+	 var chart = new ApexCharts(document.querySelector("#chart-demo"), options);
+	 chart.render();
+ 
+	 // Animation: Cập nhật từng bước qua các mốc thời gian
+	 var i = 0;
+	 var dataInterval = setInterval(function () {
+		 // Cập nhật dữ liệu từng bước
+		 bsc10D[i] = bsc10[i];
+		 vnindexD[i] = vnindex[i];
+		 vndiamondD[i] = vndiamond[i];
+ 
+		 // Cập nhật biểu đồ
+		 chart.updateSeries([{
+			 name: "BSC10",
+			 data: bsc10D
+		 }, {
+			 name: "VNINDEX",
+			 data: vnindexD
+		 }, {
+			 name: "VNDIAMOND",
+			 data: vndiamondD
+		 }]);
+ 
+		 i++; // Tăng chỉ số qua mốc thời gian tiếp theo
+ 
+		 // Dừng animation khi đạt tới mốc cuối cùng
+		 if (i === xCat.length) clearInterval(dataInterval);
+ 
+	 }, 1000); // 1 giây (1000ms) giữa mỗi mốc
+  
 })(jQuery);
