@@ -81,7 +81,7 @@
 					{
 						while ( have_rows( 'f1_thongtintruso', 'option' ) ) :
 							the_row(); ?>
-							<li class="flex gap-x-4 hover:text-yellow-100 transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'items-center' ?>">
+							<li class="flex gap-x-4 transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'items-center' ?>">
 								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-6' ?> shrink-0">
 								<?php
 								$icon_field = get_sub_field( 'icon' );

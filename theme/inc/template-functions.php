@@ -668,3 +668,19 @@ function bsc_is_mobile()
 	}
 	return true;
 }
+function bsc_dot_shortcode($atts) {
+    $atts = shortcode_atts(
+        array(
+            'title' => '',
+        ),
+        $atts,
+        'bsc-dot'
+    );
+    if (!empty($atts['title'])) {
+        return '<p><strong class="has-dot before:w-2 before:h-2 before:inline-block before:bg-primary-300 before:rounded-[2px] inline-flex items-center gap-2">' . esc_html($atts['title']) . '</strong></p>';
+    } else {
+        return '';
+    }
+}
+
+add_shortcode('bsc-dot', 'bsc_dot_shortcode');
