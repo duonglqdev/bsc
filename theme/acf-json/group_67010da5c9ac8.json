@@ -389,7 +389,7 @@
         },
         {
             "key": "field_6701158da6f29",
-            "label": "QR Code",
+            "label": "QR Code Android",
             "name": "f2_qr_code",
             "aria-label": "",
             "type": "group",
@@ -397,7 +397,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -451,6 +451,69 @@
             ]
         },
         {
+            "key": "field_6756c939da762",
+            "label": "QR Code iOS",
+            "name": "f2_qr_code_ios",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_6756c939da763",
+                    "label": "Đường dẫn",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6756c939da764",
+                    "label": "Hình ảnh",
+                    "name": "img",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium"
+                }
+            ]
+        },
+        {
             "key": "field_67011795a6f2d",
             "label": "Google Play",
             "name": "f2_google_play",
@@ -460,7 +523,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -523,7 +586,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -657,6 +720,7 @@
                     "collapsed": "",
                     "button_label": "Thêm  Menu",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_670117f7a6f35",
                     "sub_fields": [
                         {
                             "key": "field_67011970a6f38",
@@ -700,8 +764,7 @@
                             "append": "",
                             "parent_repeater": "field_67011921a6f37"
                         }
-                    ],
-                    "parent_repeater": "field_670117f7a6f35"
+                    ]
                 }
             ]
         },
@@ -781,5 +844,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728199815
+    "modified": 1733741155
 }

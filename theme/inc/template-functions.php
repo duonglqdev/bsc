@@ -111,26 +111,26 @@ function svgpath($name, $width = false, $height = false, $class = '')
  */
 function svg_dir($path, $width = false, $height = false, $class = false)
 {
-    if ($path) {
-        $svg = file_get_contents($path);
-        if ($width) {
-            $size = '<svg';
-            $new_size = '<svg width="' . $width . 'px"';
-            $svg = str_replace($size, $new_size, $svg);
-        }
-        if ($height) {
-            $size = '<svg';
-            $new_size = '<svg height="' . $height . 'px"';
-            $svg = str_replace($size, $new_size, $svg);
-        }
-        if ($class) {
-            $size = '<svg';
-            $new_size = '<svg class="' . $class . '"';
-            $svg = str_replace($size, $new_size, $svg);
-        }
-        return $svg;
-    }
-    return '';
+	if ($path) {
+		$svg = file_get_contents($path);
+		if ($width) {
+			$size = '<svg';
+			$new_size = '<svg width="' . $width . 'px"';
+			$svg = str_replace($size, $new_size, $svg);
+		}
+		if ($height) {
+			$size = '<svg';
+			$new_size = '<svg height="' . $height . 'px"';
+			$svg = str_replace($size, $new_size, $svg);
+		}
+		if ($class) {
+			$size = '<svg';
+			$new_size = '<svg class="' . $class . '"';
+			$svg = str_replace($size, $new_size, $svg);
+		}
+		return $svg;
+	}
+	return '';
 }
 
 
@@ -661,6 +661,10 @@ function generateRandomString($length = 10)
 
 	return $randomString;
 }
+
+/**
+ * Check Mobile
+ */
 function bsc_is_mobile()
 {
 	if (!wp_is_mobile()) {
@@ -668,19 +672,39 @@ function bsc_is_mobile()
 	}
 	return true;
 }
-function bsc_dot_shortcode($atts) {
-    $atts = shortcode_atts(
-        array(
-            'title' => '',
-        ),
-        $atts,
-        'bsc-dot'
-    );
-    if (!empty($atts['title'])) {
-        return '<p><strong class="has-dot before:w-2 before:h-2 before:inline-block before:bg-primary-300 before:rounded-[2px] inline-flex items-center gap-2">' . esc_html($atts['title']) . '</strong></p>';
-    } else {
-        return '';
-    }
+
+/**
+ * Create dots
+ */
+function bsc_dot_shortcode($atts)
+{
+	$atts = shortcode_atts(
+		array(
+			'title' => '',
+		),
+		$atts,
+		'bsc-dot'
+	);
+	if (!empty($atts['title'])) {
+		return '<p><strong class="has-dot before:w-2 before:h-2 before:inline-block before:bg-primary-300 before:rounded-[2px] inline-flex items-center gap-2">' . esc_html($atts['title']) . '</strong></p>';
+	} else {
+		return '';
+	}
 }
 
 add_shortcode('bsc-dot', 'bsc_dot_shortcode');
+
+/**
+ * Check iOS
+ */
+function bsc_is_ios()
+{
+	// Lấy chuỗi User-Agent từ header của request
+	$userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+	// Kiểm tra nếu chuỗi User-Agent chứa iPhone hoặc iPad (thiết bị iOS)
+	if (strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false || strpos($userAgent, 'iPod') !== false || (strpos($userAgent, 'Macintosh') !== false)) {
+		return true; // Là thiết bị iOS
+	}
+	return false; // Không phải thiết bị iOS
+}
