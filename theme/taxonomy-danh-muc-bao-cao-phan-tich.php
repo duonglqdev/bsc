@@ -162,7 +162,7 @@
                                         placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key'])) echo $_GET['key'] ?>">
                                 </div>
                                 <div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
-                                <div
+                                    <div
                                         class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
                                         <p class="mr-2 text-xs font-medium"><?php _e('Năm', 'bsc') ?>: </p>
                                         <select id="select_year" name="years" class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
@@ -774,24 +774,23 @@
                                 <div class="relative">
                                     <div
                                         class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
-                                        <div
-                                            class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-                                            <div class="w-1/3 py-2 px-3">
-                                                <?php _e('Ngành', 'bsc') ?>
-                                            </div>
-                                            <div class="w-1/3 py-2 px-3">
-                                                <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
-                                            </div>
-                                            <div class="w-1/3 py-2 px-3">
-                                                <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
-                                            </div>
-
-                                        </div>
                                         <?php
                                         if (!$check_logout) {
                                             $array_data_nganh = array();
                                             $response_nganh = get_data_with_cache('GetForecastProspectBranch', $array_data_nganh, $time_cache);
                                             if ($response_nganh) { ?>
+                                                <div
+                                                    class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
+                                                    <div class="w-1/3 py-2 px-3">
+                                                        <?php _e('Ngành', 'bsc') ?>
+                                                    </div>
+                                                    <div class="w-1/3 py-2 px-3">
+                                                        <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
+                                                    </div>
+                                                    <div class="w-1/3 py-2 px-3">
+                                                        <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
+                                                    </div>
+                                                </div>
                                                 <div
                                                     class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
                                                     <?php
@@ -851,6 +850,18 @@
                                         } else {
                                             ?>
                                             <!-- Data Demo -->
+                                            <div
+                                                class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Ngành', 'bsc') ?>
+                                                </div>
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Quan điểm', 'bsc') ?>
+                                                </div>
+                                                <div class="w-1/3 py-2 px-3">
+                                                    <?php _e('Quan điểm', 'bsc') ?>
+                                                </div>
+                                            </div>
                                             <?php
                                             for ($i = 0; $i < 9; $i++) {
                                             ?>

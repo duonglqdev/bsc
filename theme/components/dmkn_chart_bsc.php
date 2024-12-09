@@ -123,11 +123,11 @@ if ($response_instruments) {
 }
 $data_bsc = array('BSC10', 'BSC30', 'BSC50');
 if ($data_bsc) {
-	$ic = 0;
+	$ic = 20;
 	foreach ($data_bsc as $single_bsc) {
 		$ic++;
 ?>
-		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details <?php if ($ic == 1) echo 'block';
+		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details <?php if ($ic == 21) echo 'block';
 																	else echo 'hidden' ?>" data-chart-tab='<?php echo $single_bsc ?>'>
 			<div class="container">
 				<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
@@ -164,10 +164,8 @@ if ($data_bsc) {
 							</div>
 							<?php
 							if (!$check_logout) {
-								$array_data_list_bsc = array(
-									'portcode' => $single_bsc
-								);
-								$response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
+								$array_data_list_bsc = array();
+								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/', 'POST');
 								if ($response_list_bsc) {
 							?>
 									<div
@@ -176,7 +174,7 @@ if ($data_bsc) {
 										$i = 0;
 										foreach ($response_list_bsc->d as $list_bsc) {
 											$i++;
-											$symbol = $list_bsc->symbol;
+											$symbol = $list_bsc->machungkhoan;
 											if ($symbol) {
 												$symbols = array_column($response_instruments_array, 'symbol');
 												$index = array_search($symbol, $symbols);
@@ -188,18 +186,18 @@ if ($data_bsc) {
 													class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-														<?php echo $list_bsc->symbol ?>
+														<?php echo $list_bsc->machungkhoan ?>
 													</div>
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
 														<?php
-														$status = $list_bsc->action;
+														$status = $list_bsc->hinhthuc;
 														$check_status = get_color_by_number_bsc($status);
 														$title_status = $check_status['title_status'];
 														$text_status = $check_status['text_status'];
 														$background_status = $check_status['background_status'];
 														?>
-														<?php if ($list_bsc->action) { ?>
+														<?php if ($list_bsc->hinhthuc) { ?>
 															<span class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 																<?php
 																echo  $title_status;
@@ -207,12 +205,12 @@ if ($data_bsc) {
 															</span>
 														<?php } ?>
 													</div>
-													<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-														if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+													<?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
+														if (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) > 0) {
 															$text_color_class = 'text-[#1CCD83]';
-														} elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
+														} elseif (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) < 0) {
 															$text_color_class = 'text-[#FE5353]';
-														} elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
+														} elseif (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) == 0) {
 															$text_color_class = 'text-[#EB0]';
 														} else {
 															$text_color_class = '';
@@ -230,25 +228,25 @@ if ($data_bsc) {
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
 														<?php
-														if ($list_bsc->expectedprice) {
-															echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
+														if ($list_bsc->giakhuyennghi) {
+															echo number_format(($list_bsc->giakhuyennghi), 2, '.', '');
 														}
 														?>
 													</div>
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-														<?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-															if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+														<?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
+															if (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) > 0) {
 																$before_text = '+';
 															} else {
 																$before_text = '';
 															}
-															echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+															echo $before_text . number_format((($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
 														}  ?>
 													</div>
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-														<?php echo $list_bsc->exchange ?>
+														<?php echo $list_bsc->san ?>
 													</div>
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class ?>">
