@@ -516,14 +516,14 @@ import { DataTable } from 'simple-datatables';
 		if (chartElement) {
 			var height_chart =
 				chartElement.getAttribute('data-height') || '97%';
-	
+
 			// Chuyển đổi xAxisCategories thành timestamps
 			const timestamps = seriesData[0].data.map((point) => point.x);
-	
+
 			// Xác định khoảng thời gian
 			let tickInterval;
 			let dateFormatter;
-	
+
 			if (timestamps.length <= 7) {
 				// < 7 ngày: Hiển thị mỗi ngày một mốc
 				tickInterval = 1;
@@ -541,13 +541,6 @@ import { DataTable } from 'simple-datatables';
 				tickInterval = 90;
 				dateFormatter = 'MMM yyyy';
 			}
-	
-			// Tạo dữ liệu mặc định ban đầu (null cho hiệu ứng xuất hiện dần dần)
-			const defaultValues = seriesData.map((series) => ({
-				name: series.name,
-				data: new Array(series.data.length).fill(null), // Dữ liệu null ban đầu
-			}));
-	
 			var options = {
 				chart: {
 					type: 'line',
@@ -567,13 +560,14 @@ import { DataTable } from 'simple-datatables';
 						enabled: false, // Tắt tính năng zoom hoàn toàn
 					},
 				},
-				series: defaultValues, // Bắt đầu với dữ liệu null để thực hiện hiệu ứng
+				series: seriesData,
 				xaxis: {
 					type: 'datetime',
 					categories: timestamps,
 					labels: {
 						formatter: function (val, index) {
 							// Hiển thị nhãn tại các mốc theo quy tắc tickInterval
+							// if (index % tickInterval === 0) {
 							return new Date(val).toLocaleDateString('en-GB', {
 								year: 'numeric',
 								month: 'short',
@@ -581,6 +575,9 @@ import { DataTable } from 'simple-datatables';
 									? 'numeric'
 									: undefined,
 							});
+							// } else {
+							// 	return ''; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
+							// }
 						},
 						rotate: -45,
 					},
@@ -615,14 +612,17 @@ import { DataTable } from 'simple-datatables';
 						},
 					},
 					y: {
-						formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+						formatter: function (
+							value,
+							{ seriesIndex, dataPointIndex, w }
+						) {
 							const pointData =
 								w.config.series[seriesIndex].data[
 									dataPointIndex
 								];
 							const percentDiff =
 								pointData && pointData.percentagedifference;
-	
+
 							// Kiểm tra cả `value` và `percentDiff` để tránh lỗi `toFixed`
 							const formattedValue =
 								value != null ? value.toFixed(2) : 'N/A';
@@ -630,32 +630,14 @@ import { DataTable } from 'simple-datatables';
 								percentDiff != null
 									? ` (${percentDiff > 0 ? '+' : ''}${percentDiff.toFixed(2)}%)`
 									: ''; // Nếu không có giá trị, hiển thị chuỗi trống
-	
+
 							return `${formattedValue}${percentText}`;
 						},
 					},
 				},
 			};
-	
 			var chart = new ApexCharts(chartElement, options);
 			chart.render();
-	
-			// Animation logic: hiển thị dữ liệu từng bước
-			let i = 0; // Biến đếm để theo dõi mốc thời gian hiện tại
-			const interval = setInterval(() => {
-				// Cập nhật từng bước dữ liệu cho mỗi series
-				seriesData.forEach((series, seriesIndex) => {
-					options.series[seriesIndex].data[i] = series.data[i]; // Thêm dữ liệu tại mốc thời gian hiện tại
-				});
-	
-				// Cập nhật biểu đồ
-				chart.updateSeries(options.series);
-	
-				i++; // Chuyển sang mốc thời gian tiếp theo
-	
-				// Dừng interval khi đã hiển thị hết dữ liệu
-				if (i === timestamps.length) clearInterval(interval);
-			}, 100); // Thời gian giữa mỗi mốc (1000ms = 1 giây)
 		}
 	}
 
