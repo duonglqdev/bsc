@@ -2206,6 +2206,11 @@ import { DataTable } from 'simple-datatables';
 								position: 'top',
 								horizontalAlign: 'left',
 								labels: { colors: '#4A5568' },
+								markers: {
+									width: 14,
+									height: 14,
+									radius: 2, // Góc bo tròn cho marker
+								},
 							},
 							tooltip: {
 								shared: true,
