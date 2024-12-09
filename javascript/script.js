@@ -2133,7 +2133,7 @@ import { DataTable } from 'simple-datatables';
 						const title2 = $(this).attr('data-title-2') || null;
 						const color1 = $(this).attr('data-color-1');
 						const color2 = $(this).attr('data-color-2') || null;
-
+	
 						// Kết hợp ngày và giá trị vào một mảng để sắp xếp
 						const combinedData1 = data1.map((item) => ({
 							date: item.date,
@@ -2145,7 +2145,7 @@ import { DataTable } from 'simple-datatables';
 									value: item.value,
 								}))
 							: null;
-
+	
 						// Sắp xếp mảng theo ngày
 						combinedData1.sort(
 							(a, b) => new Date(a.date) - new Date(b.date)
@@ -2155,20 +2155,20 @@ import { DataTable } from 'simple-datatables';
 								(a, b) => new Date(a.date) - new Date(b.date)
 							);
 						}
-
+	
 						// Tách lại mảng đã sắp xếp
 						const dates = combinedData1.map((item) => item.date);
 						const values1 = combinedData1.map((item) => item.value);
 						const values2 = combinedData2
 							? combinedData2.map((item) => item.value)
 							: [];
-
+	
 						// Cấu hình series cho ApexCharts
 						const series = [{ name: title1, data: values1 }];
 						if (data2) {
 							series.push({ name: title2, data: values2 });
 						}
-
+	
 						// Cấu hình biểu đồ
 						const chartOptions = {
 							chart: {
@@ -2196,12 +2196,11 @@ import { DataTable } from 'simple-datatables';
 							},
 							colors: data2 ? [color1, color2] : [color1],
 							markers: {
-								size: 5,
-								hover: { size: 7 },
+								size: 0, // Loại bỏ dấu chấm trên các đường
 							},
 							stroke: {
-								curve: 'smooth',
-								width: 2,
+								curve: 'smooth', // Làm các đường mềm mại hơn
+								width: 2, // Độ dày của đường
 							},
 							legend: {
 								position: 'top',
@@ -2218,12 +2217,12 @@ import { DataTable } from 'simple-datatables';
 								},
 							},
 						};
-
+	
 						// Render biểu đồ
 						const chartContainer =
 							$('<div>').addClass('chart-container');
 						$(this).append(chartContainer);
-
+	
 						const chart = new ApexCharts(
 							chartContainer[0],
 							chartOptions
@@ -2237,6 +2236,7 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 	}
+	
 
 	function collapseChart() {
 		if (document.querySelector('.collapse-item-chart')) {
