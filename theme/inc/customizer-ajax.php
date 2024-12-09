@@ -834,34 +834,24 @@ function filter_details_symbol()
             </thead>
             <tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
                 <?php
-                $array_data_sameIndustry = json_encode([
+                $array_data_sameIndustry = array(
                     'lang' => pll_current_language(),
-                    'secCode' => $symbol,
-                ]);
-                $response_sameIndustry = get_data_with_cache('sameIndustry', $array_data_sameIndustry, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/companies/', 'POST');
+                    'symbol' => $symbol,
+                );
+                $response_sameIndustry = get_data_with_cache('GetInstrumentSameIndustry', $array_data_sameIndustry, $time_cache);
                 if ($response_sameIndustry) {
                 ?>
                     <?php
-                    foreach ($response_sameIndustry->data as $record) {
-                        if ($record) {
-                            $array_data_securityBasicInfo_check = json_encode([
-                                'lang' => pll_current_language(),
-                                'secList' => $record,
-                                "Exchange" => ""
-                            ]);
-                            $response_securityBasicInfo_check = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo_check, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
-                            if ($response_securityBasicInfo_check) {
+                    foreach ($response_sameIndustry->d as $record) {
                     ?>
-                                <tr>
-                                    <td class="!pl-5"><a href="<?php echo slug_co_phieu($record) ?>"><?php echo $record ?></a></td>
-                                    <td><?php
-                                        echo number_format($response_securityBasicInfo_check->data[0]->MarketCapital) ?></td>
-                                    <td><?php echo number_format($response_securityBasicInfo_check->data[0]->PE, 2, '.', ',') ?></td>
-                                    <td class="text-center"><?php echo number_format($response_securityBasicInfo_check->data[0]->PB, 2, '.', ',') ?></td>
-                                </tr>
+                        <tr>
+                            <td class="!pl-5"><a href="<?php echo slug_co_phieu($record->SYMBOL) ?>"><?php echo $record->SYMBOL ?></a></td>
+                            <td><?php
+                                echo number_format($record->MC) ?></td>
+                            <td><?php echo number_format($record->PE, 2, '.', ',') ?></td>
+                            <td class="text-center"><?php echo number_format($record->PB, 2, '.', ',') ?></td>
+                        </tr>
                     <?php
-                            }
-                        }
                     }
                     ?>
                 <?php } ?>

@@ -19,26 +19,26 @@ $class = $check_logout['class'];
                     </h2>
                 <?php } ?>
                 <?php
-                $array_data = array();
-                $response = get_data_with_cache('GetRecommendedCategory', $array_data, $time_cache);
-                if ($response) {
+                $array_data_GetAllDanhMuc = array();
+                $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/');
+                if ($response_GetAllDanhMuc) {
                 ?>
                     <ul class="customtab-nav flex items-center gap-4 mb-6">
                         <?php
                         $i = 0;
-                        foreach ($response->d as $news) {
+                        foreach ($response_GetAllDanhMuc->d as $news) {
                             $i++; ?>
                             <li>
                                 <button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
                                     class="<?php if ($i == 1) echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500">
-                                    <?php echo $news->name ?>
+                                    <?php echo $news->tendanhmuc ?>
                                 </button>
                             </li>
                         <?php } ?>
                     </ul>
                     <?php
                     $i = 0;
-                    foreach ($response->d as $news) {
+                    foreach ($response_GetAllDanhMuc->d as $news) {
                         $i++; ?>
                         <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                             id="<?php echo $tab ?>-<?php echo $i ?>">
@@ -54,16 +54,14 @@ $class = $check_logout['class'];
                                     </ul>
                                     <?php
                                     if (!$check_logout) {
-                                        $array_data_list_bsc = array(
-                                            'portcode' => $news->name
-                                        );
-                                        $response_list_bsc = get_data_with_cache('GetCategoryDetail', $array_data_list_bsc, $time_cache);
+                                        $array_data_list_bsc = array();
+                                        $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/', 'POST');
                                         if ($response_list_bsc) {
                                     ?>
                                             <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
                                                 <?php
                                                 foreach ($response_list_bsc->d as $list_bsc) {
-                                                    $symbol = $list_bsc->symbol;
+                                                    $symbol = $list_bsc->machungkhoan;
                                                     if ($symbol) {
                                                         $symbols = array_column($response_instruments_array, 'symbol');
                                                         $index = array_search($symbol, $symbols);
@@ -73,16 +71,16 @@ $class = $check_logout['class'];
                                                 ?>
                                                         <ul
                                                             class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
-                                                            <li class="w-[8%] font-medium"><?php echo $list_bsc->symbol ?></li>
+                                                            <li class="w-[8%] font-medium"><?php echo $list_bsc->machungkhoan ?></li>
                                                             <?php
-                                                            $status = $list_bsc->action;
+                                                            $status = $list_bsc->hinhthuc;
                                                             $check_status = get_color_by_number_bsc($status);
                                                             $title_status = $check_status['title_status'];
                                                             $text_status = $check_status['text_status'];
                                                             $background_status = $check_status['background_status'];
                                                             ?>
                                                             <li class="w-[16%] font-medium">
-                                                                <?php if ($list_bsc->action) { ?>
+                                                                <?php if ($list_bsc->hinhthuc) { ?>
                                                                     <span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
                                                                         <?php
                                                                         echo  $title_status;
@@ -90,12 +88,12 @@ $class = $check_logout['class'];
                                                                     </span>
                                                                 <?php } ?>
                                                             </li>
-                                                            <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-                                                                if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+                                                            <?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
+                                                                if ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) > 0) {
                                                                     $text_color_class = 'text-[#1CCD83]';
-                                                                } elseif (($list_bsc->expectedprice - $stockData->closePrice) < 0) {
+                                                                } elseif ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) < 0) {
                                                                     $text_color_class = 'text-[#FE5353]';
-                                                                } elseif (($list_bsc->expectedprice - $stockData->closePrice) == 0) {
+                                                                } elseif ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) == 0) {
                                                                     $text_color_class = 'text-[#EB0]';
                                                                 } else {
                                                                     $text_color_class = '';
@@ -111,19 +109,19 @@ $class = $check_logout['class'];
                                                             </li>
                                                             <li class="w-[16%] font-medium">
                                                                 <?php
-                                                                if ($list_bsc->expectedprice) {
-                                                                    echo number_format(($list_bsc->expectedprice) / 1000, 2, '.', '');
+                                                                if ($list_bsc->giakhuyennghi) {
+                                                                    echo number_format(($list_bsc->giakhuyennghi), 2, '.', '');
                                                                 }
                                                                 ?>
                                                             </li>
                                                             <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
-                                                                <?php if ($stockData->closePrice && $list_bsc->expectedprice) {
-                                                                    if (($list_bsc->expectedprice - $stockData->closePrice) > 0) {
+                                                                <?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
+                                                                    if ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) > 0) {
                                                                         $before_text = '+';
                                                                     } else {
                                                                         $before_text = '';
                                                                     }
-                                                                    echo $before_text . number_format((($list_bsc->expectedprice - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                                    echo $before_text . number_format(((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
                                                                 }  ?>
                                                             </li>
                                                         </ul>
