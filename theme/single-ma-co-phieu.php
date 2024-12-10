@@ -377,24 +377,34 @@
 							<?php _e('CHỈ TIÊU TÀI CHÍNH', 'bsc') ?>
 						</button>
 					</li>
-					<li
-						class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
-						<?php if ($check_logout) {
-						?>
-							<a href="<?php echo bsc_url_sso() ?>"
-								class="none-tab has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-								<?php echo svg('star', '24', '24') ?>
-								<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
-							</a>
-						<?php
-						} else { ?>
-							<button data-tabs="#details_symbol_tab-4" data-ajax="true"
-								class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-								<?php echo svg('star', '24', '24') ?>
-								<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
-							</button>
-						<?php } ?>
-					</li>
+					<?php $array_data_GetForecastBussiness = array(
+						'lang' => pll_current_language(),
+						'symbol' => $symbol,
+					);
+					$response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
+					if ($response_GetForecastBussiness) {
+						if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) { ?>
+							<li
+								class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
+								<?php if ($check_logout) {
+								?>
+									<a href="<?php echo bsc_url_sso() ?>"
+										class="none-tab has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+										<?php echo svg('star', '24', '24') ?>
+										<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									</a>
+								<?php
+								} else { ?>
+									<button data-tabs="#details_symbol_tab-4" data-ajax="true"
+										class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
+										<?php echo svg('star', '24', '24') ?>
+										<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									</button>
+								<?php } ?>
+							</li>
+					<?php
+						}
+					} ?>
 				</ul>
 				<div class="tab-content block" id="details_symbol_tab-1">
 					<div class="lg:flex mt-10 lg:gap-[69px]">

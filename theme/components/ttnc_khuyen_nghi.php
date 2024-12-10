@@ -88,19 +88,19 @@ $class = $check_logout['class'];
                                                                     </span>
                                                                 <?php } ?>
                                                             </li>
-                                                            <?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
-                                                                if ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) > 0) {
-                                                                    $text_color_class = 'text-[#1CCD83]';
-                                                                } elseif ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) < 0) {
-                                                                    $text_color_class = 'text-[#FE5353]';
-                                                                } elseif ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) == 0) {
-                                                                    $text_color_class = 'text-[#EB0]';
+                                                            <?php if ($stockData->changePercent) {
+                                                                if (($stockData->changePercent) > 0) {
+                                                                    $text_color_class_price = 'text-[#1CCD83]';
+                                                                } elseif (($stockData->changePercent) < 0) {
+                                                                    $text_color_class_price = 'text-[#FE5353]';
                                                                 } else {
-                                                                    $text_color_class = '';
+                                                                    $text_color_class_price = 'text-[#EB0]';
                                                                 }
+                                                            } else {
+                                                                $text_color_class_price = 'text-[#EB0]';
                                                             }
                                                             ?>
-                                                            <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
+                                                            <li class="w-[16%] font-bold <?php echo $text_color_class_price ?>">
                                                                 <?php
                                                                 if ($stockData->closePrice) {
                                                                     echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
@@ -109,19 +109,32 @@ $class = $check_logout['class'];
                                                             </li>
                                                             <li class="w-[16%] font-medium">
                                                                 <?php
-                                                                if ($list_bsc->giakhuyennghi) {
-                                                                    echo number_format(($list_bsc->giakhuyennghi), 2, '.', '');
+                                                                if ($list_bsc->giakyvong) {
+                                                                    echo number_format(($list_bsc->giakyvong), 2, '.', '');
                                                                 }
                                                                 ?>
                                                             </li>
+                                                            <?php
+                                                            if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                                                if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
+                                                                    $text_color_class = 'text-[#1CCD83]';
+                                                                } elseif ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) < 0) {
+                                                                    $text_color_class = 'text-[#FE5353]';
+                                                                } else {
+                                                                    $text_color_class = 'text-[#EB0]';
+                                                                }
+                                                            } else {
+                                                                $text_color_class = 'text-[#EB0]';
+                                                            }
+                                                            ?>
                                                             <li class="w-[16%] font-bold <?php echo $text_color_class ?>">
-                                                                <?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
-                                                                    if ((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) > 0) {
-                                                                        $before_text = '+';
+                                                                <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                                                    if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
+                                                                        $before_text = '+' . number_format(((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
                                                                     } else {
-                                                                        $before_text = '';
+                                                                        $before_text = '-';
                                                                     }
-                                                                    echo $before_text . number_format(((($list_bsc->giakhuyennghi) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                                    echo $before_text;
                                                                 }  ?>
                                                             </li>
                                                         </ul>

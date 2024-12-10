@@ -1196,14 +1196,13 @@
                                         "id": ""
                                     },
                                     "layout": "block",
-                                    "parent_repeater": "field_67024f64caabb",
                                     "sub_fields": [
                                         {
                                             "key": "field_6702625056bd5",
-                                            "label": "Hình ảnh",
-                                            "name": "img",
+                                            "label": "QR Code Android",
+                                            "name": "qr_code_android",
                                             "aria-label": "",
-                                            "type": "image",
+                                            "type": "group",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -1212,16 +1211,117 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "id",
-                                            "library": "all",
-                                            "min_width": "",
-                                            "min_height": "",
-                                            "min_size": "",
-                                            "max_width": "",
-                                            "max_height": "",
-                                            "max_size": "",
-                                            "mime_types": "",
-                                            "preview_size": "thumbnail"
+                                            "layout": "table",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_6757f9c9df5db",
+                                                    "label": "Đường dẫn",
+                                                    "name": "link",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6757fa12df5dc",
+                                                    "label": "Hình ảnh",
+                                                    "name": "img",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "id",
+                                                    "library": "",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "preview_size": "medium"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "key": "field_6757fa27df5dd",
+                                            "label": "QR Code iOS",
+                                            "name": "qr_code_ios",
+                                            "aria-label": "",
+                                            "type": "group",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "layout": "table",
+                                            "sub_fields": [
+                                                {
+                                                    "key": "field_6757fa27df5de",
+                                                    "label": "Đường dẫn",
+                                                    "name": "link",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6757fa27df5df",
+                                                    "label": "Hình ảnh",
+                                                    "name": "img",
+                                                    "aria-label": "",
+                                                    "type": "image",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "return_format": "id",
+                                                    "library": "all",
+                                                    "min_width": "",
+                                                    "min_height": "",
+                                                    "min_size": "",
+                                                    "max_width": "",
+                                                    "max_height": "",
+                                                    "max_size": "",
+                                                    "mime_types": "",
+                                                    "preview_size": "medium"
+                                                }
+                                            ]
                                         },
                                         {
                                             "key": "field_6702628d56bd6",
@@ -1326,7 +1426,8 @@
                                                 }
                                             ]
                                         }
-                                    ]
+                                    ],
+                                    "parent_repeater": "field_67024f64caabb"
                                 },
                                 {
                                     "key": "field_6702634a56bdc",
@@ -15534,5 +15635,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733741788
+    "modified": 1733819114
 }
