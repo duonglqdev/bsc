@@ -114,7 +114,7 @@
 </section>
 <?php
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout ? $check_logout['class'] : '';
+$class_login = $check_logout ? $check_logout['class'] : '';
 $response_instruments_array = array();
 $array_data_instruments = array();
 $response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
@@ -136,7 +136,7 @@ if ($data_bsc) {
 				<div class="lg:flex xl:gap-14 gap-10">
 					<div class="relative lg:w-[887px] max-w-[66%]">
 						<div
-							class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class ?>">
+							class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4] <?php echo $class_login ?>">
 							<div
 								class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
@@ -205,20 +205,21 @@ if ($data_bsc) {
 															</span>
 														<?php } ?>
 													</div>
-													<?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
-														if (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) > 0) {
-															$text_color_class = 'text-[#1CCD83]';
-														} elseif (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) < 0) {
-															$text_color_class = 'text-[#FE5353]';
-														} elseif (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) == 0) {
-															$text_color_class = 'text-[#EB0]';
+													<?php
+													if ($stockData->changePercent) {
+														if ($stockData->changePercent > 0) {
+															$text_color_class_price = 'text-[#1CCD83]';
+														} elseif ($stockData->changePercent < 0) {
+															$text_color_class_price = 'text-[#FE5353]';
 														} else {
-															$text_color_class = '';
+															$text_color_class_price = 'text-[#EB0]';
 														}
+													} else {
+														$text_color_class_price = 'text-[#EB0]';
 													}
 													?>
 													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class_price ?>">
 														<?php
 														if ($stockData->closePrice) {
 															echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
@@ -228,20 +229,32 @@ if ($data_bsc) {
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
 														<?php
-														if ($list_bsc->giakhuyennghi) {
-															echo number_format(($list_bsc->giakhuyennghi), 2, '.', '');
+														if ($list_bsc->giakyvong) {
+															echo number_format(($list_bsc->giakyvong), 2, '.', '');
 														}
 														?>
 													</div>
+													<?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+														if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
+															$text_color_class = 'text-[#1CCD83]';
+														} elseif (($list_bsc->giakyvong * 1000 - $stockData->closePrice) < 0) {
+															$text_color_class = 'text-[#FE5353]';
+														} else {
+															$text_color_class = 'text-[#EB0]';
+														}
+													} else {
+														$text_color_class = 'text-[#EB0]';
+													}
+													?>
 													<div
 														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-														<?php if ($stockData->closePrice && $list_bsc->giakhuyennghi) {
-															if (($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) > 0) {
-																$before_text = '+';
+														<?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+															if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
+																$before_text = '+' . number_format((($list_bsc->giakyvong * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';;
 															} else {
 																$before_text = '';
 															}
-															echo $before_text . number_format((($list_bsc->giakhuyennghi * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+															echo $before_text;
 														}  ?>
 													</div>
 													<div
@@ -249,7 +262,7 @@ if ($data_bsc) {
 														<?php echo $list_bsc->san ?>
 													</div>
 													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class ?>">
+														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class_price ?>">
 														<?php
 														if ($stockData->closeVol) {
 															echo number_format(($stockData->closeVol) / 1000, 2, '.', '');

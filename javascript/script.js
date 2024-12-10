@@ -351,36 +351,36 @@ import { DataTable } from 'simple-datatables';
 			}
 		);
 
-			var $bannerElement = $(".home__banner");
-		
-			if ($bannerElement.length) {
-				var autoPlayIntervals = [];
-				$bannerElement.find(".block_slider-item").each(function () {
-					var playTime = parseInt($(this).data("play")) || 4000;
-					autoPlayIntervals.push(playTime);
-				});
-		
-				var $carousel = $bannerElement.flickity({
-					draggable: true,
-					wrapAround: true,
-					imagesLoaded: true,
-					prevNextButtons: false,
-					pageDots: true,
-					cellAlign: "left",
-					contain: true,
-					autoPlay: autoPlayIntervals[0],
-					selectedAttraction: 0.01,
-					friction: 0.2
-				});
-		
-				var flkty = $carousel.data("flickity");
-		
-				$carousel.on("select.flickity", function () {
-					flkty.options.autoPlay = autoPlayIntervals[flkty.selectedIndex] || 4000;
-					flkty.playPlayer();
-				});
-			}
-		
+		var $bannerElement = $('.home__banner');
+
+		if ($bannerElement.length) {
+			var autoPlayIntervals = [];
+			$bannerElement.find('.block_slider-item').each(function () {
+				var playTime = parseInt($(this).data('play')) || 4000;
+				autoPlayIntervals.push(playTime);
+			});
+
+			var $carousel = $bannerElement.flickity({
+				draggable: true,
+				wrapAround: true,
+				imagesLoaded: true,
+				prevNextButtons: false,
+				pageDots: true,
+				cellAlign: 'left',
+				contain: true,
+				autoPlay: autoPlayIntervals[0],
+				selectedAttraction: 0.01,
+				friction: 0.2,
+			});
+
+			var flkty = $carousel.data('flickity');
+
+			$carousel.on('select.flickity', function () {
+				flkty.options.autoPlay =
+					autoPlayIntervals[flkty.selectedIndex] || 4000;
+				flkty.playPlayer();
+			});
+		}
 	}
 
 	function setHeightBanner() {
@@ -397,7 +397,6 @@ import { DataTable } from 'simple-datatables';
 			$(window).resize(updateBannerHeight);
 		}
 	}
-	
 
 	function filter_details_symbol(type_form) {
 		var symbol = $('.display_data_details_symbol').attr('data-symbol');
@@ -780,7 +779,6 @@ import { DataTable } from 'simple-datatables';
 				modifier: 1,
 				slideShadows: false,
 			},
-			
 		});
 		document
 			.querySelectorAll('.about_culture-list-pc .swiper-slide')
@@ -2115,7 +2113,7 @@ import { DataTable } from 'simple-datatables';
 						const title2 = $(this).attr('data-title-2') || null;
 						const color1 = $(this).attr('data-color-1');
 						const color2 = $(this).attr('data-color-2') || null;
-	
+
 						// Kết hợp ngày và giá trị vào một mảng để sắp xếp
 						const combinedData1 = data1.map((item) => ({
 							date: item.date,
@@ -2127,7 +2125,7 @@ import { DataTable } from 'simple-datatables';
 									value: item.value,
 								}))
 							: null;
-	
+
 						// Sắp xếp mảng theo ngày
 						combinedData1.sort(
 							(a, b) => new Date(a.date) - new Date(b.date)
@@ -2137,20 +2135,20 @@ import { DataTable } from 'simple-datatables';
 								(a, b) => new Date(a.date) - new Date(b.date)
 							);
 						}
-	
+
 						// Tách lại mảng đã sắp xếp
 						const dates = combinedData1.map((item) => item.date);
 						const values1 = combinedData1.map((item) => item.value);
 						const values2 = combinedData2
 							? combinedData2.map((item) => item.value)
 							: [];
-	
+
 						// Cấu hình series cho ApexCharts
 						const series = [{ name: title1, data: values1 }];
 						if (data2) {
 							series.push({ name: title2, data: values2 });
 						}
-	
+
 						// Cấu hình biểu đồ
 						const chartOptions = {
 							chart: {
@@ -2185,7 +2183,7 @@ import { DataTable } from 'simple-datatables';
 								width: 2, // Độ dày của đường
 							},
 							grid: {
-								show: true, 
+								show: true,
 								yaxis: {
 									lines: { show: false }, // Ẩn đường ngang
 								},
@@ -2210,12 +2208,12 @@ import { DataTable } from 'simple-datatables';
 								},
 							},
 						};
-	
+
 						// Render biểu đồ
 						const chartContainer =
 							$('<div>').addClass('chart-container');
 						$(this).append(chartContainer);
-	
+
 						const chart = new ApexCharts(
 							chartContainer[0],
 							chartOptions
@@ -2229,8 +2227,6 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 	}
-	
-	
 
 	function collapseChart() {
 		if (document.querySelector('.collapse-item-chart')) {
@@ -2615,12 +2611,11 @@ import { DataTable } from 'simple-datatables';
 				},
 			});
 		});
-		$('#search-shares').on('input', function() {
+		$('#search-shares').on('input', function () {
 			if ($(this).val()) {
-				$('html').removeClass('scroll-pt-10'); 
+				$('html').removeClass('scroll-pt-10');
 			}
 		});
-		
 
 		$('#search-shares').on('keyup', function () {
 			const searchValue = $(this).val().toLowerCase();
@@ -2769,91 +2764,97 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-	 // Dữ liệu của biểu đồ
-	 var bsc10 = [100, 120, 150, 160, 140];
-	 var vnindex = [40, 50, 60, 74, 80];
-	 var vndiamond = [20, 30, 40, 50, 60];
-	 var xCat = ['19 Sep', '20 Sep', '21 Sep', '22 Sep', '23 Sep'];
- 
-	 // Tạo các mảng dữ liệu mặc định (ban đầu là null)
-	 var defaultValues = new Array(bsc10.length).fill(null);
-	 var bsc10D = [...defaultValues];
-	 var vnindexD = [...defaultValues];
-	 var vndiamondD = [...defaultValues];
- 
-	 // Cấu hình biểu đồ ApexCharts
-	 var options = {
-		 series: [{
-			 name: "BSC10",
-			 data: defaultValues
-		 }, {
-			 name: "VNINDEX",
-			 data: defaultValues
-		 }, {
-			 name: "VNDIAMOND",
-			 data: defaultValues
-		 }],
-		 colors: ['#2E93fA', '#F7B924', '#1E7145'],
-		 chart: {
-			 height: 400,
-			 type: 'line',
-			 animations: {
-				 speed: 10000,
-				 easing: 'linear',
-				 dynamicAnimation: {
-					 speed: 1000
-				 }
-			 }
-		 },
-		 xaxis: {
-			 categories: xCat,
-			 tickPlacement: 'between'
-		 },
-		 stroke: {
-			 curve: 'smooth'
-		 },
-		 markers: {
-			 size: 4
-		 },
-		 title: {
-			 text: 'Sequential Animation Line Chart',
-			 align: 'center'
-		 },
-		 yaxis: {
-			 min: 0,
-			 max: 200
-		 }
-	 };
- 
-	 // Khởi tạo biểu đồ
-	 var chart = new ApexCharts(document.querySelector("#chart-demo"), options);
-	 chart.render();
- 
-	 // Animation: Cập nhật từng bước qua các mốc thời gian
-	 var i = 0;
-	 var dataInterval = setInterval(function () {
-		 // Cập nhật dữ liệu từng bước
-		 bsc10D[i] = bsc10[i];
-		 vnindexD[i] = vnindex[i];
-		 vndiamondD[i] = vndiamond[i];
- 
-		 // Cập nhật biểu đồ
-		 chart.updateSeries([{
-			 name: "BSC10",
-			 data: bsc10D
-		 }, {
-			 name: "VNINDEX",
-			 data: vnindexD
-		 }, {
-			 name: "VNDIAMOND",
-			 data: vndiamondD
-		 }]);
- 
-		 i++; // Tăng chỉ số qua mốc thời gian tiếp theo
- 
-		 // Dừng animation khi đạt tới mốc cuối cùng
-		 if (i === xCat.length) clearInterval(dataInterval);
- 
-	 }, 1000); // 1 giây (1000ms) giữa mỗi mốc
-  
+	// Dữ liệu của biểu đồ
+	var bsc10 = [100, 120, 150, 160, 140];
+	var vnindex = [40, 50, 60, 74, 80];
+	var vndiamond = [20, 30, 40, 50, 60];
+	var xCat = ['19 Sep', '20 Sep', '21 Sep', '22 Sep', '23 Sep'];
+
+	// Tạo các mảng dữ liệu mặc định (ban đầu là null)
+	var defaultValues = new Array(bsc10.length).fill(null);
+	var bsc10D = [...defaultValues];
+	var vnindexD = [...defaultValues];
+	var vndiamondD = [...defaultValues];
+
+	// Cấu hình biểu đồ ApexCharts
+	var options = {
+		series: [
+			{
+				name: 'BSC10',
+				data: defaultValues,
+			},
+			{
+				name: 'VNINDEX',
+				data: defaultValues,
+			},
+			{
+				name: 'VNDIAMOND',
+				data: defaultValues,
+			},
+		],
+		colors: ['#2E93fA', '#F7B924', '#1E7145'],
+		chart: {
+			height: 400,
+			type: 'line',
+			animations: {
+				speed: 10000,
+				easing: 'linear',
+				dynamicAnimation: {
+					speed: 1000,
+				},
+			},
+		},
+		xaxis: {
+			categories: xCat,
+			tickPlacement: 'between',
+		},
+		stroke: {
+			curve: 'smooth',
+		},
+		markers: {
+			size: 4,
+		},
+		title: {
+			text: 'Sequential Animation Line Chart',
+			align: 'center',
+		},
+		yaxis: {
+			min: 0,
+			max: 200,
+		},
+	};
+
+	// Khởi tạo biểu đồ
+	var chart = new ApexCharts(document.querySelector('#chart-demo'), options);
+	chart.render();
+
+	// Animation: Cập nhật từng bước qua các mốc thời gian
+	var i = 0;
+	var dataInterval = setInterval(function () {
+		// Cập nhật dữ liệu từng bước
+		bsc10D[i] = bsc10[i];
+		vnindexD[i] = vnindex[i];
+		vndiamondD[i] = vndiamond[i];
+
+		// Cập nhật biểu đồ
+		chart.updateSeries([
+			{
+				name: 'BSC10',
+				data: bsc10D,
+			},
+			{
+				name: 'VNINDEX',
+				data: vnindexD,
+			},
+			{
+				name: 'VNDIAMOND',
+				data: vndiamondD,
+			},
+		]);
+
+		i++; // Tăng chỉ số qua mốc thời gian tiếp theo
+
+		// Dừng animation khi đạt tới mốc cuối cùng
+		if (i === xCat.length) clearInterval(dataInterval);
+	}, 1000); // 1 giây (1000ms) giữa mỗi mốc
 })(jQuery);

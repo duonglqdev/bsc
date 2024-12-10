@@ -56,10 +56,21 @@ function svgClass($name, $width = false, $height = false, $class = '')
 	if ($name && file_exists($path)) {
 		$svg = file_get_contents($path);
 		$dom = new DOMDocument();
-		$dom->loadXML($svg);
 
+		// Kiểm tra file SVG có hợp lệ hay không
+		try {
+			$dom->loadXML($svg);
+		} catch (Exception $e) {
+			return ''; // Trả về chuỗi rỗng nếu không hợp lệ
+		}
+
+		// Lấy phần tử <svg>
 		$svgElement = $dom->getElementsByTagName('svg')->item(0);
+		if (!$svgElement) {
+			return ''; // Trả về chuỗi rỗng nếu không tìm thấy <svg>
+		}
 
+		// Thiết lập thuộc tính width, height, class
 		if ($width) {
 			$svgElement->setAttribute('width', $width . 'px');
 		}
@@ -72,8 +83,10 @@ function svgClass($name, $width = false, $height = false, $class = '')
 
 		return $dom->saveXML($svgElement);
 	}
-	return '';
+
+	return ''; // Trả về chuỗi rỗng nếu không tìm thấy file
 }
+
 
 function svgpath($name, $width = false, $height = false, $class = '')
 {
@@ -83,16 +96,29 @@ function svgpath($name, $width = false, $height = false, $class = '')
 	if ($name && file_exists($path)) {
 		$svg = file_get_contents($path);
 		$dom = new DOMDocument();
-		$dom->loadXML($svg);
 
+		// Kiểm tra file SVG có hợp lệ hay không
+		try {
+			$dom->loadXML($svg);
+		} catch (Exception $e) {
+			return ''; // Trả về chuỗi rỗng nếu không hợp lệ
+		}
+
+		// Lấy phần tử <svg>
 		$svgElement = $dom->getElementsByTagName('svg')->item(0);
+		if (!$svgElement) {
+			return ''; // Trả về chuỗi rỗng nếu không tìm thấy <svg>
+		}
 
+		// Thiết lập thuộc tính width, height
 		if ($width) {
 			$svgElement->setAttribute('width', $width . 'px');
 		}
 		if ($height) {
 			$svgElement->setAttribute('height', $height . 'px');
 		}
+
+		// Thêm class vào các thẻ <path>
 		if ($class) {
 			$paths = $dom->getElementsByTagName('path');
 			foreach ($paths as $path) {
@@ -104,8 +130,10 @@ function svgpath($name, $width = false, $height = false, $class = '')
 
 		return $dom->saveXML($svgElement);
 	}
-	return '';
+
+	return ''; // Trả về chuỗi rỗng nếu không tìm thấy file
 }
+
 /**
  * Function help call file SVG from url
  */
@@ -142,22 +170,26 @@ function svgClass_dir($path, $width = false, $height = false, $class = '')
 
 	if ($path) {
 		$svg = file_get_contents($path);
+		if ($svg === false || empty($svg)) {
+			return '';
+		}
+
 		$dom = new DOMDocument();
-		$dom->loadXML($svg);
+		if ($dom->loadXML($svg)) {
+			$svgElement = $dom->getElementsByTagName('svg')->item(0);
 
-		$svgElement = $dom->getElementsByTagName('svg')->item(0);
+			if ($svgElement) {
+				$svgElement->setAttribute('width', $width . 'px');
+			}
+			if ($height) {
+				$svgElement->setAttribute('height', $height . 'px');
+			}
+			if ($class) {
+				$svgElement->setAttribute('class', $class);
+			}
 
-		if ($width) {
-			$svgElement->setAttribute('width', $width . 'px');
+			return $dom->saveXML($svgElement);
 		}
-		if ($height) {
-			$svgElement->setAttribute('height', $height . 'px');
-		}
-		if ($class) {
-			$svgElement->setAttribute('class', $class);
-		}
-
-		return $dom->saveXML($svgElement);
 	}
 	return '';
 }

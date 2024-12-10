@@ -2347,9 +2347,8 @@ function filter_details_symbol()
                                     <tr>
                                         <th></th>
                                         <?php foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                            $date = new DateTime($GetForecastBussiness->REPORT_DATE);
                                         ?>
-                                            <th><?php echo $date->format('Y'); ?></th>
+                                            <th><?php echo $GetForecastBussiness->FORECAST_PERIOD ?></th>
                                         <?php } ?>
                                     </tr>
                                 </thead>
