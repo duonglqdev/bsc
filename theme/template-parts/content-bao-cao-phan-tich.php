@@ -81,6 +81,7 @@
                 <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
             <?php if ($news->reporturl) {
+                $count_download = true;
                 $url_download = $news->reporturl;
                 $viewerpermission = $news->viewerpermission;
                 if ($viewerpermission == 'USER_BSC') {
@@ -88,13 +89,21 @@
                     if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
                     } else {
                         if (bsc_is_user_logged_out()) {
+                            $count_download = false;
                             $url_download = bsc_url_sso();
                         }
                     }
                 }
             ?>
                 <a href="<?php echo $url_download ?>" target="_blank"
-                    class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
+                    class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105
+                     <?php if ($count_download) echo 'bsc_up-download' ?>
+                    "
+                    <?php if ($count_download) { ?>
+                    data-id="<?php echo $news->id; ?>"
+                    <?php
+                    }
+                    ?>>
                     <?php _e('Tải xuống', 'bsc') ?>
                     <?php echo svg('download', '20', '20') ?>
                 </a>

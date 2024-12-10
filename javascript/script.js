@@ -2766,4 +2766,22 @@ import { DataTable } from 'simple-datatables';
 			});
 		}
 	}
+	$(document).ready(function () {
+		$('.bsc_up-download').click(function () {
+			var id_report = $(this).attr('data-id');
+			if (id_report) {
+				$.ajax({
+					url: ajaxurl.ajaxurl,
+					type: 'POST',
+					data: {
+						action: 'bsc_count_download',
+						id_report: id_report,
+						security: ajaxurl.security,
+					},
+					beforeSend: function () {},
+					success: function (response) {},
+				});
+			}
+		});
+	});
 })(jQuery);

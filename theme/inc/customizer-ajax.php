@@ -2520,3 +2520,38 @@ function filter_details_symbol()
     }
     die();
 }
+
+
+/**
+ * Count Download Report
+ */
+add_action('wp_ajax_bsc_count_download', 'bsc_count_download_ajax');
+add_action('wp_ajax_nopriv_bsc_count_download', 'bsc_count_download_ajax');
+
+function bsc_count_download_ajax()
+{
+    check_ajax_referer('common_nonce', 'security');
+    $id_report = isset($_POST['id_report']) ? intval($_POST['id_report']) : '';
+    $url = "http://10.21.170.17:86/IncrementReportDownloads?id=" . $id_report;
+
+    // Khởi tạo cURL
+    $ch = curl_init();
+
+    // Cấu hình cURL
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH"); // Phương thức PATCH
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Trả về dữ liệu thay vì in ra
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json', // Header nếu cần (có thể bỏ nếu API không yêu cầu)
+    ]);
+
+    // Nếu cần gửi dữ liệu trong body (JSON)
+    $data = [
+        "key" => "value"
+    ];
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+    // Thực thi cURL
+    $response = curl_exec($ch);
+    die();
+}
