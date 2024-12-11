@@ -278,48 +278,56 @@
 										<?php _e('KHUYẾN NGHỊ', 'bsc') ?>
 									</h3>
 									<div class="space-y-4 mb-6">
-										<div class="flex items-center justify-between text-xs">
-											<p class="text-xs">
-												<?php _e('Analyst', 'bsc') ?>:
-											</p>
-											<p class="font-bold text-primary-300">
-												<?php echo $response_GetRecommendedInstrument->d[0]->author ?>
-											</p>
-										</div>
-										<div class="flex items-center justify-between text-xs">
-											<p class="text-xs">
-												<?php _e('Khuyến nghị', 'bsc') ?>:
-											</p>
-											<?php
-											$status = $response_GetRecommendedInstrument->d[0]->recommendation;
-											$check_status = get_color_by_number_bsc($status);
-											$title_status = $check_status['title_status'];
-											$text_status = $check_status['text_status'];
-											$background_status = $check_status['background_status'];
-											?>
-											<p
-												class="inline-block rounded-full px-4 py-0.5 font-semibold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-												<?php echo $title_status ?>
-											</p>
-										</div>
-										<div class="flex items-center justify-between text-xs">
-											<p class="text-xs">
-												<?php _e('Danh mục', 'bsc') ?>:
-											</p>
-											<p
-												class="inline-block rounded-full px-4 py-0.5  font-semibold">
-												<?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
-											</p>
-										</div>
-										<div class="flex items-center justify-between text-xs">
-											<p class="text-xs">
-												<?php _e('Ngày cập nhật', 'bsc') ?>
-											</p>
-											<p class="font-bold">
-												<?php $date = new DateTime($news->postdate); ?>
-												<?php echo $date->format('d/m/Y'); ?>
-											</p>
-										</div>
+										<?php if ($response_GetRecommendedInstrument->d[0]->author) { ?>
+											<div class="flex items-center justify-between text-xs">
+												<p class="text-xs">
+													<?php _e('Analyst', 'bsc') ?>:
+												</p>
+												<p class="font-bold text-primary-300">
+													<?php echo $response_GetRecommendedInstrument->d[0]->author ?>
+												</p>
+											</div>
+										<?php } ?>
+										<?php if ($response_GetRecommendedInstrument->d[0]->recommendation) { ?>
+											<div class="flex items-center justify-between text-xs">
+												<p class="text-xs">
+													<?php _e('Khuyến nghị', 'bsc') ?>:
+												</p>
+												<?php
+												$status = $response_GetRecommendedInstrument->d[0]->recommendation;
+												$check_status = get_color_by_number_bsc($status);
+												$title_status = $check_status['title_status'];
+												$text_status = $check_status['text_status'];
+												$background_status = $check_status['background_status'];
+												?>
+												<p
+													class="inline-block rounded-full px-4 py-0.5 font-semibold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+													<?php echo $title_status ?>
+												</p>
+											</div>
+										<?php } ?>
+										<?php if ($response_GetRecommendedInstrument->d[0]->categorY_NAMES) { ?>
+											<div class="flex items-center justify-between text-xs">
+												<p class="text-xs">
+													<?php _e('Danh mục', 'bsc') ?>:
+												</p>
+												<p
+													class="inline-block rounded-full px-4 py-0.5  font-semibold">
+													<?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
+												</p>
+											</div>
+										<?php } ?>
+										<?php if ($news->postdate) { ?>
+											<div class="flex items-center justify-between text-xs">
+												<p class="text-xs">
+													<?php _e('Ngày cập nhật', 'bsc') ?>
+												</p>
+												<p class="font-bold">
+													<?php $date = new DateTime($news->postdate); ?>
+													<?php echo $date->format('d/m/Y'); ?>
+												</p>
+											</div>
+										<?php } ?>
 									</div>
 									<?php
 									if ($response_GetRecommendedInstrument->rank) {
