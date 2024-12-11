@@ -1086,26 +1086,37 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function dynamicPopup() {
-		$('.document_item-popup').on('click', function () {
+		$(document).on('click', '.document_item-popup', function (e) {
+			if ($('#document-modal').hasClass('hidden')) {
+				$('.trigger-button_document').trigger('click');
+			}
 			var documentLink = $(this).data('doccument');
 			var id_post = $(this).data('id');
-			var title = $(this)
-				.closest('.document_item-popup')
-				.find('.main_title')
-				.html();
+			var newstype = $(this).data('newstype');
+			var title = $(this).find('.main_title').html();
 			$.ajax({
 				url: ajaxurl.ajaxurl,
 				type: 'POST',
 				data: {
 					action: 'get_content_qhcd',
 					id_post: id_post,
+					newstype: newstype,
 					security: ajaxurl.security,
 				},
 				beforeSend: function () {
-					$('#document-modal .document-modal-link').attr(
-						'href',
-						documentLink
-					);
+					if (documentLink) {
+						$('#document-modal .document-modal-link').addClass(
+							'show'
+						);
+						$('#document-modal .document-modal-link').attr(
+							'href',
+							documentLink
+						);
+					} else {
+						$('#document-modal .document-modal-link').addClass(
+							'hidden'
+						);
+					}
 					$('#document-modal .document-modal-title').html(title);
 					$('#document-modal .document-modal-content').html();
 					$('.document-popup-loading').removeClass('hidden');

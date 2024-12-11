@@ -223,11 +223,12 @@ function get_content_qhcd_ajax()
 {
     check_ajax_referer('common_nonce', 'security');
     $id_post = isset($_POST['id_post']) ? intval($_POST['id_post']) : '';
+    $newstype = isset($_POST['newstype']) ? intval($_POST['newstype']) : '0';
     if ($id_post) {
         $time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
         $array_data = array(
             "id" => $id_post,
-            "newstype" => "0"
+            "newstype" => $newstype
         );
         $get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
         if ($get_news_detail) {
@@ -860,7 +861,6 @@ function filter_details_symbol()
     <?php
     } elseif ($type_form == 'sg_ttvmcp') {
     ?>
-
         <?php $array_data_GetNews = array(
             'lang' => pll_current_language(),
             'maxitem' => 6,
@@ -898,7 +898,7 @@ function filter_details_symbol()
                     $month_name = date('F', strtotime($day));
                 }
             ?>
-                <div class="news_service-item">
+                <div class="news_service-item document_item-popup" data-newstype="1" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
                     <div class="flex items-center">
                         <div
                             class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -911,7 +911,7 @@ function filter_details_symbol()
                             <div
                                 class="flex-1 flex flex-col justify-center items-center text-xl font-bold bg-primary-50 w-full">
                                 <p> <?php
-                                    echo $day_of_year;
+                                    echo $day_of_month;
                                     ?></p>
                                 <p class="text-primary-300 text-xs font-medium">
                                     <?php echo $month_name; ?>
@@ -919,10 +919,10 @@ function filter_details_symbol()
                             </div>
                         </div>
                         <div class="md:ml-[30px] ml-5">
-                            <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
-                                class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
+                            <p
+                                class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green main_title">
                                 <?php echo htmlspecialchars($news->title) ?>
-                            </a>
+                            </p>
                             <div
                                 class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
                                 <?php echo $news->description ?>
@@ -935,6 +935,7 @@ function filter_details_symbol()
             }
             ?>
         <?php } ?>
+        <div class="trigger-button_document " data-modal-target="document-modal" data-modal-toggle="document-modal"></div>
     <?php
     } elseif ($type_form == 'details_symbol_tab-2') {
     ?>

@@ -20,17 +20,23 @@
                 } else {
                     $post_per_page = get_option('posts_per_page');
                 }
-                if (isset($_GET['page'])) {
-                    $index = ($_GET['page'] - 1) * $post_per_page + 1;
+                if (isset($_GET['post_page'])) {
+                    $index = ($_GET['post_page'] - 1) * $post_per_page + 1;
                 } else {
                     $index = 1;
                 }
+                $newstype = 0;
                 $array_data = array(
                     'lang' => pll_current_language(),
                     'groupid' => $cdtnvcd2_id_danh_mục,
                     'maxitem' => $post_per_page,
                     'index' => $index
                 );
+                if (isset($_GET['mck']) && !empty($_GET['mck'])) {
+                    $array_data['symbol'] = $_GET['mck'];
+                    $array_data['newstype'] = 1;
+                    $newstype = 1;
+                }
                 $response = get_data_with_cache('GetNews', $array_data, $time_cache);
                 if ($response) {
                     if ($response->totalrecord) {
@@ -45,6 +51,7 @@
                         foreach ($response->d as $news) {
                             get_template_part('template-parts/content-tin-ma-co-phan', null, array(
                                 'data' => $news,
+                                'newstype' => $newstype
                             ));
                         }
                         ?>

@@ -1,5 +1,10 @@
 <?php if ($args['data']) {
     $news = $args['data'];
+    if ($args['newstype']) {
+        $newstype = $args['newstype'];
+    } else {
+        $newstype = 0;
+    }
     $date = $news->postdate;
     $date_parts = explode('T', $date);
     $day = $date_parts[0];
@@ -28,12 +33,12 @@
     }
 ?>
     <div
-        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
+        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-newstype="<?php echo $newstype ?>" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
         <div class="flex items-center">
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
                 <p
-                    class="date text-center bg-primary-300 text-white font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xs':'text-xxs' ?> py-[2px] px-1 leading-normal w-full">
+                    class="date text-center bg-primary-300 text-white font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xs' : 'text-xxs' ?> py-[2px] px-1 leading-normal w-full">
                     <?php
                     echo $day_of_year;
                     ?>
@@ -49,23 +54,23 @@
 
             <div class="md:ml-[30px] ml-5">
                 <p
-                    class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?>">
+                    class="main_title block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
-                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
                     <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
                         <?php echo $news->description ?>
                     </div>
                 <?php } ?>
             </div>
         </div>
-        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+        <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
             <p
                 class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
                 <?php _e('Xem nội dung', 'bsc') ?>
                 <?php echo svg('download') ?>
             </p>
-                            
+
         <?php } ?>
     </div>
 <?php } ?>

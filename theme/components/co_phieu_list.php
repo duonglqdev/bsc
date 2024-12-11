@@ -87,16 +87,6 @@ $time_cache  = 3000;
         <div class="flex flex-col">
             <p class="italic mb-4 text-right"><?php _e('Đơn vị Vốn hóa, GTGD: Triệu đồng', 'bsc') ?></p>
             <?php
-            if (isset($_GET['posts_to_show'])) {
-                $post_per_page = $_GET['posts_to_show'];
-            } else {
-                $post_per_page = get_option('posts_per_page');
-            }
-            if (isset($_GET['page'])) {
-                $index = ($_GET['page'] - 1) * $post_per_page + 1;
-            } else {
-                $index = 1;
-            }
             $array_data = array(
                 'lang' => pll_current_language(),
                 'maxitem' => 100000,

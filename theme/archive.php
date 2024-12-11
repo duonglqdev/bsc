@@ -19,8 +19,8 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex gap-[70px]':'' ?>">
-				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
+				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<?php
@@ -48,7 +48,7 @@ get_header();
 												'parent' => $term->term_id,
 												'hide_empty' => false,
 											));
-	
+
 											if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
 												<ul class="pl-5 hidden sub-menu w-full bg-white">
 													<?php foreach ($child_terms as $child_term) :
@@ -67,7 +67,7 @@ get_header();
 									<?php endforeach; ?>
 								</ul>
 							<?php endif; ?>
-	
+
 							<?php
 							$hinh_anh_sidebar = get_field('hinh_anh_sidebar', get_queried_object());
 							if ($hinh_anh_sidebar) { ?>
@@ -87,8 +87,8 @@ get_header();
 					} else {
 						$post_per_page = get_option('posts_per_page');
 					}
-					if (isset($_GET['page'])) {
-						$index = ($_GET['page'] - 1) * $post_per_page + 1;
+					if (isset($_GET['post_page'])) {
+						$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 					} else {
 						$index = 1;
 					}
@@ -108,15 +108,15 @@ get_header();
 						$total_page = ceil($total_post / $post_per_page);
 					?>
 						<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
-							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 								<div
 									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6">
 									<?php echo get_the_archive_title(); ?>
-									<?php echo svg( 'down-white', '20', '20' ) ?>
+									<?php echo svg('down-white', '20', '20') ?>
 								</div>
 							<?php } ?>
 							<div class="list__news">
-								<div class="grid gap-x-6 gap-y-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2':'md:grid-cols-2 grid-cols-1' ?>">
+								<div class="grid gap-x-6 gap-y-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-2' : 'md:grid-cols-2 grid-cols-1' ?>">
 									<?php
 									foreach ($response->d as $news) {
 										get_template_part('template-parts/content', null, array(
@@ -158,11 +158,11 @@ get_header();
 							echo '</div>';
 							echo '</div>';
 						} ?>
-							<?php get_template_part('components/pagination', '', array(
-								'get' => 'api',
-								'total_page' => $total_page,
-								'url' => get_term_link(get_queried_object_id()),
-							)) ?>
+						<?php get_template_part('components/pagination', '', array(
+							'get' => 'api',
+							'total_page' => $total_page,
+							'url' => get_term_link(get_queried_object_id()),
+						)) ?>
 					<?php } else {
 						get_template_part('template-parts/content', 'none');
 					} ?>

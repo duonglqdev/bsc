@@ -7,8 +7,8 @@ if ($cdctkm1_id_danh_mục) {
     } else {
         $post_per_page = get_option('posts_per_page');
     }
-    if (isset($_GET['page'])) {
-        $index = ($_GET['page'] - 1) * $post_per_page + 1;
+    if (isset($_GET['post_page'])) {
+        $index = ($_GET['post_page'] - 1) * $post_per_page + 1;
     } else {
         $index = 1;
     }

@@ -545,9 +545,16 @@
 						</div>
 					</div>
 					<div class="xl:my-[100px] my-20">
-						<h2 class="heading-title mb-10">
-							<?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?>
-						</h2>
+						<div class="flex justify-between items-center mb-10">
+							<h2 class="heading-title"><?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?></h2>
+							<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
+								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+									class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
+									<?php echo svg('arrow-btn', '16', '16') ?>
+									<?php _e('Xem thêm', 'bsc') ?>
+								</a>
+							<?php } ?>
+						</div>
 						<div class="grid grid-cols-2 gap-x-9 gap-y-[46px]" id="sg_ttvmcp">
 							<div class="hidden">
 								<div role="status">

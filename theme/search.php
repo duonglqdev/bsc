@@ -197,7 +197,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 								if ($post_thieu_GetNews != $post_per_page) {
 									$index_GetNews = 1;
 								} else {
-									$index_GetNews =  ($_GET['page'] - 1) * $post_per_page - $total_news + 1;
+									$index_GetNews =  ($_GET['post_page'] - 1) * $post_per_page - $total_news + 1;
 								}
 								$array_data_GetNews = array(
 									'lang' => pll_current_language(),
@@ -226,7 +226,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 									if ($post_thieu_GetReportsBySymbol != $post_per_page) {
 										$index_GetReportsBySymbol = 1;
 									} else {
-										$index_GetReportsBySymbol =  ($_GET['page'] - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
+										$index_GetReportsBySymbol =  ($_GET['post_page'] - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
 									}
 									$array_data_GetReportsBySymbol = array(
 										'lang' => pll_current_language(),
@@ -269,8 +269,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							endwhile;
 						}
 					} elseif ($type_search == 'news') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}
@@ -301,8 +301,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							}
 						}
 					} elseif ($type_search == 'cong_dong') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}
@@ -332,8 +332,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							}
 						}
 					} elseif ($type_search == 'khuyen_mai') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}
@@ -384,8 +384,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							endwhile;
 						}
 					} elseif ($type_search == 'bao_cao') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}
@@ -416,8 +416,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							}
 						}
 					} elseif ($type_search == 'kien_thuc') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}
@@ -448,8 +448,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							}
 						}
 					} elseif ($type_search == 'co_dong') {
-						if (isset($_GET['page'])) {
-							$index = ($_GET['page'] - 1) * $post_per_page + 1;
+						if (isset($_GET['post_page'])) {
+							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
 						} else {
 							$index = 1;
 						}

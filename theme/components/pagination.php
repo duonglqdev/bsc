@@ -1,5 +1,5 @@
-<div class="bsc-pagination <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-12':'mt-8' ?>">
-	<nav class="flex items-center gap-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'justify-center' ?>">
+<div class="bsc-pagination <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-12' : 'mt-8' ?>">
+	<nav class="flex items-center gap-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'justify-center' ?>">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
 		?>
 			<?php bsc_pagination_api($args['total_page'], $args['url']) ?>
@@ -9,42 +9,45 @@
 				$default_posts_per_page = (int) get_option('posts_per_page');
 				$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 				?>
-				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-				<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
-					<?php
-					$endpoint = '';
-					if (isset($_GET['key'])) {
-						$endpoint .= '&key=' . $_GET['key'];
-					}
-					if (isset($_GET['years'])) {
-						$endpoint .= '&years=' . $_GET['years'];
-					}
-					if (isset($_GET['s'])) {
-						$endpoint .= '&s=' . $_GET['s'];
-					}
-					if (isset($_GET['type_search'])) {
-						$endpoint .= '&type_search=' . $_GET['type_search'];
-					}
-					foreach ($posts_to_show as $number) :
-						$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
-					?>
-						<option value="<?php echo $args['url'] . '?posts_to_show=' . $number . $endpoint ?>" <?php echo $selected; ?>>
-							<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
-						</option>
-					<?php endforeach; ?>
-				</select>
-				<script>
-					forcePageReloadOnSelectChange();
-
-					function forcePageReloadOnSelectChange() {
-						const selects = document.querySelectorAll("select.posts-per-page");
-						for (const select of selects) {
-							select.addEventListener("change", function() {
-								location.href = this.value;
-							});
+				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+					<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
+						<?php
+						$endpoint = '';
+						if (isset($_GET['key'])) {
+							$endpoint .= '&key=' . $_GET['key'];
 						}
-					}
-				</script>
+						if (isset($_GET['mck'])) {
+							$endpoint .= '&mck=' . $_GET['mck'];
+						}
+						if (isset($_GET['years'])) {
+							$endpoint .= '&years=' . $_GET['years'];
+						}
+						if (isset($_GET['s'])) {
+							$endpoint .= '&s=' . $_GET['s'];
+						}
+						if (isset($_GET['type_search'])) {
+							$endpoint .= '&type_search=' . $_GET['type_search'];
+						}
+						foreach ($posts_to_show as $number) :
+							$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
+						?>
+							<option value="<?php echo $args['url'] . '?posts_to_show=' . $number . $endpoint ?>" <?php echo $selected; ?>>
+								<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+					<script>
+						forcePageReloadOnSelectChange();
+
+						function forcePageReloadOnSelectChange() {
+							const selects = document.querySelectorAll("select.posts-per-page");
+							for (const select of selects) {
+								select.addEventListener("change", function() {
+									location.href = this.value;
+								});
+							}
+						}
+					</script>
 				<?php } ?>
 			<?php } ?>
 		<?php
@@ -57,43 +60,43 @@
 				$default_posts_per_page = (int) get_option('posts_per_page');
 				$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 				?>
-				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-				<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
-					<?php
-					$endpoint = '';
-					if (isset($_GET['key'])) {
-						$endpoint .= '&key=' . $_GET['key'];
-					}
-					if (isset($_GET['years'])) {
-						$endpoint .= '&years=' . $_GET['years'];
-					}
-					if (isset($_GET['s'])) {
-						$endpoint .= '&s=' . $_GET['s'];
-					}
-					if (isset($_GET['type_search'])) {
-						$endpoint .= '&type_search=' . $_GET['type_search'];
-					}
-					foreach ($posts_to_show as $number) :
-						$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
-					?>
-						<option value="<?php echo $args['url'] . '?posts_to_show=' . $number . $endpoint ?>" <?php echo $selected; ?>>
-							<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
-						</option>
-					<?php endforeach; ?>
-				</select>
-				<script>
-					forcePageReloadOnSelectChange();
-
-					function forcePageReloadOnSelectChange() {
-						const selects = document.querySelectorAll("select.posts-per-page");
-						for (const select of selects) {
-							select.addEventListener("change", function() {
-								location.href = this.value;
-							});
+				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+					<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
+						<?php
+						$endpoint = '';
+						if (isset($_GET['key'])) {
+							$endpoint .= '&key=' . $_GET['key'];
 						}
-					}
-				</script>
-									
+						if (isset($_GET['years'])) {
+							$endpoint .= '&years=' . $_GET['years'];
+						}
+						if (isset($_GET['s'])) {
+							$endpoint .= '&s=' . $_GET['s'];
+						}
+						if (isset($_GET['type_search'])) {
+							$endpoint .= '&type_search=' . $_GET['type_search'];
+						}
+						foreach ($posts_to_show as $number) :
+							$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
+						?>
+							<option value="<?php echo $args['url'] . '?posts_to_show=' . $number . $endpoint ?>" <?php echo $selected; ?>>
+								<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+					<script>
+						forcePageReloadOnSelectChange();
+
+						function forcePageReloadOnSelectChange() {
+							const selects = document.querySelectorAll("select.posts-per-page");
+							for (const select of selects) {
+								select.addEventListener("change", function() {
+									location.href = this.value;
+								});
+							}
+						}
+					</script>
+
 				<?php } ?>
 			<?php } ?>
 		<?php
@@ -134,30 +137,30 @@
 			$default_posts_per_page = (int) get_option('posts_per_page');
 			$posts_to_show          = array($default_posts_per_page, $default_posts_per_page * 2, $default_posts_per_page * 3, $default_posts_per_page * 4);
 			?>
-			<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-			<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
-				<?php
-				foreach ($posts_to_show as $number) :
-					$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
-				?>
-					<option value="<?php echo esc_url(add_query_arg('posts_to_show', $number)); ?>" <?php echo $selected; ?>>
-						<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
-					</option>
-				<?php endforeach; ?>
-			</select>
-			<script>
-				forcePageReloadOnSelectChange();
+			<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+				<select class="posts-per-page border border-[#898A8D] text-xs rounded focus:outline-0 focus:border-primary-300 px-3 inline-block h-9 !py-0 font-medium !pr-8">
+					<?php
+					foreach ($posts_to_show as $number) :
+						$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
+					?>
+						<option value="<?php echo esc_url(add_query_arg('posts_to_show', $number)); ?>" <?php echo $selected; ?>>
+							<?php echo $number; ?>/<?php _e('Trang', 'bsc'); ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+				<script>
+					forcePageReloadOnSelectChange();
 
-				function forcePageReloadOnSelectChange() {
-					const selects = document.querySelectorAll("select.posts-per-page");
-					for (const select of selects) {
-						select.addEventListener("change", function() {
-							location.href = this.value;
-						});
+					function forcePageReloadOnSelectChange() {
+						const selects = document.querySelectorAll("select.posts-per-page");
+						for (const select of selects) {
+							select.addEventListener("change", function() {
+								location.href = this.value;
+							});
+						}
 					}
-				}
-			</script>
-								
+				</script>
+
 			<?php } ?>
 		<?php } ?>
 	</nav>

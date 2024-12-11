@@ -743,6 +743,27 @@
             "allow_archives": 1,
             "multiple": 0,
             "allow_null": 0
+        },
+        {
+            "key": "field_67591d7b90235",
+            "label": "Tin tức mã cổ  phẩn",
+            "name": "cdc7_page_tin_tuc_ma_co_phan",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -763,5 +784,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733063214
+    "modified": 1733893704
 }
