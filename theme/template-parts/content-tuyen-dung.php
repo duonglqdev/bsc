@@ -2,10 +2,11 @@
 $current_date = new DateTime(current_time('Y-m-d'));
 $deadline = get_field('deadline');
 $deadline_date = DateTime::createFromFormat('Ymd', $deadline);
+$check_han = false;
 if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	$class = "text-[#F1F1F1] bg-[#CCCCCC]";
 	$label = __('Hết hạn', 'bsc');
-	$link_details = 'javascript:void(0)';
+	$check_han = true;
 } elseif (get_field('check_tuyen_gap')) {
 	$class = "text-[#F9162A] bg-[#FFB2B9]";
 	$label = __('Tuyển gấp', 'bsc');
@@ -115,7 +116,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 			</div>
 		</div>
 	<?php } ?>
-	<div class="col-span-1 ml-auto my-auto">
+	<div class="col-span-1 ml-auto my-auto <?php if ($check_han) echo 'opacity-50' ?>">
 		<a href="<?php the_permalink() ?>"
 			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 			<?php _e('Xem chi tiết', 'bsc') ?>
