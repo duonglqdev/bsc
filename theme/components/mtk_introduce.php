@@ -33,7 +33,7 @@
                                     while (have_rows('button')): the_row();
                                         if (get_sub_field('title')) {
                             ?>
-                                            <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                                                 class="<?php echo $class ?> inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 xl:min-w-[208px] text-center" target="_blank">
                                                 <span class="block relative z-10">
                                                     <?php the_sub_field('title') ?>
@@ -78,7 +78,7 @@
                         <?php if (have_rows('link_tai')) { ?>
                             <div class="flex flex-col gap-[21px]">
                                 <?php while (have_rows('link_tai')): the_row(); ?>
-                                    <a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank" rel="nofollow">
+                                    <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>">
                                         <?php echo wp_get_attachment_image(get_sub_field('icon'), 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
                                     </a>
                                 <?php endwhile; ?>
@@ -130,7 +130,7 @@
                                 </p>
                             <?php } ?>
                             <?php
-                            $qr_app_mobile = get_sub_field('qr_code_image');
+                            $qr_app_mobile = get_sub_field('qr_code_image_2');
                             if ($qr_app_mobile) { ?>
                                 <div class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
                                     <?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
