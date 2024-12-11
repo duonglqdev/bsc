@@ -241,6 +241,48 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_6707552c45bdf"
+                },
+                {
+                    "key": "field_675984a14347e",
+                    "label": "Open Tab",
+                    "name": "open_tab",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "parent_repeater": "field_6707552c45bdf"
+                },
+                {
+                    "key": "field_675984b54347f",
+                    "label": "Rel",
+                    "name": "rel",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6707552c45bdf"
                 }
             ]
         },
@@ -271,7 +313,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -291,7 +333,47 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6759839e4347c",
+            "label": "Open Tab",
+            "name": "cdc3_open_tab",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_675983b74347d",
+            "label": "Rel",
+            "name": "cdc3_open_tab_rel",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -431,6 +513,48 @@
                     "key": "field_670e3498607c5",
                     "label": "Đường dẫn",
                     "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670e33e7607c1"
+                },
+                {
+                    "key": "field_6759851a43480",
+                    "label": "Open Tab",
+                    "name": "open_tab",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "parent_repeater": "field_670e33e7607c1"
+                },
+                {
+                    "key": "field_6759852543481",
+                    "label": "Rel",
+                    "name": "rel",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -841,5 +965,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733908561
+    "modified": 1733920142
 }

@@ -133,7 +133,7 @@ $time_cache  = 3000;
                                             <?php } ?>
                                         </td>
                                         <td><?php echo $news->FULLNAME ?></td>
-                                        <td data-trading><?php echo $news->EXCHANGE ?></td>
+                                        <td data-trading><?php echo $news->EXCHANGE; ?></td>
                                         <td data-major><?php echo $news->INDUSTRYNAME ?></td>
                                         <td><?php echo $news->MC ?></td>
                                         <td><?php echo $news->TOTALVOLUME ?></td>

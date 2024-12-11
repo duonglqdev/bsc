@@ -19,7 +19,7 @@
                                     while (have_rows('button')): the_row();
                                         if (get_sub_field('title')) {
                         ?>
-                                            <a href="<?php the_sub_field('link') ?>"
+                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php the_sub_field('link') ?>"
                                                 class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                 <?php the_sub_field('title') ?>
                                                 <?php echo svg('arrow-btn', '12', '12') ?>
@@ -40,7 +40,7 @@
                                         while (have_rows('button')): the_row();
                                             if (get_sub_field('title')) {
                             ?>
-                                                <a href="<?php the_sub_field('link') ?>"
+                                                <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php the_sub_field('link') ?>"
                                                     class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
                                                     <?php the_sub_field('title') ?>
                                                     <?php echo svg('arrow-btn', '12', '12') ?>

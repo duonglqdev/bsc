@@ -664,6 +664,48 @@
                             "parent_repeater": "field_67011921a6f37"
                         }
                     ]
+                },
+                {
+                    "key": "field_6759872e762de",
+                    "label": "Open Tab",
+                    "name": "open_tab",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "parent_repeater": "field_670117f7a6f35"
+                },
+                {
+                    "key": "field_67598739762df",
+                    "label": "Rel",
+                    "name": "rel",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_670117f7a6f35"
                 }
             ]
         },
@@ -743,5 +785,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733907772
+    "modified": 1733920670
 }

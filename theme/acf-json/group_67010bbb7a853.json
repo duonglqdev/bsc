@@ -124,6 +124,48 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_67010bd4c2a6c"
+                },
+                {
+                    "key": "field_675960a71253d",
+                    "label": "Mở Tab",
+                    "name": "open_tab",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1,
+                    "parent_repeater": "field_67010bd4c2a6c"
+                },
+                {
+                    "key": "field_675981ac1253e",
+                    "label": "Rel",
+                    "name": "rel",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_67010bd4c2a6c"
                 }
             ]
         }
@@ -146,5 +188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728535752
+    "modified": 1733919369
 }

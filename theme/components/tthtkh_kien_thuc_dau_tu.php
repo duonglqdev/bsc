@@ -7,7 +7,7 @@
             <?php if (have_rows('button')) {
                 while (have_rows('button')): the_row();
                     if (get_sub_field('title')) { ?>
-                        <a href="<?php echo check_link(get_sub_field('link')) ?>" class="inline-block px-5 py-2 btn-base-yellow">
+                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="inline-block px-5 py-2 btn-base-yellow">
                             <span class="inline-flex items-center gap-2 relative z-10">
                                 <?php the_sub_field('title') ?>
                                 <?php echo svg('arrow-btn-2') ?>

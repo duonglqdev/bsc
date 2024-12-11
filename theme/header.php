@@ -17,18 +17,17 @@
 	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'font-body text-black font-normal' ); ?>>
+<body <?php body_class('font-body text-black font-normal'); ?>>
 
 	<?php wp_body_open(); ?>
-	<header class="transition duration-500 z-30 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'relative':'sticky top-0' ?>">
-		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-		{ ?>
+	<header class="transition duration-500 z-30 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'relative' : 'sticky top-0' ?>">
+		<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 			<div class="bg-gradient-blue py-2 text-white relative lg:block hidden">
 				<div
 					class="absolute top-0 left-0 pointer-events-none w-full h-full overflow-hidden lg:after:absolute lg:after:w-40 lg:after:h-[80%] lg:after:top-0 lg:after:-right-5 lg:after:bg-gradient-green lg:after:opacity-20 lg:after:pointer-events-none lg:after:-skew-x-[35deg]">
@@ -43,7 +42,7 @@
 										value="co_phieu">
 									<label for="cp"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
-										<?php _e( 'Cổ phiếu', 'bsc' ) ?>
+										<?php _e('Cổ phiếu', 'bsc') ?>
 									</label>
 								</div>
 								<div class="flex ml-4 md:pr-[22px] pr-5 border-r border-white">
@@ -51,19 +50,19 @@
 										checked>
 									<label for="other"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
-										<?php _e( 'Khác', 'bsc' ) ?>
+										<?php _e('Khác', 'bsc') ?>
 									</label>
 								</div>
 							</div>
 							<div class="relative pl-3 pr-6">
 								<input type="text" name="s" id="search-shares"
-									placeholder="<?php _e( 'Tra cứu', 'bsc' ) ?>..."
+									placeholder="<?php _e('Tra cứu', 'bsc') ?>..."
 									class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 									autocomplete="off">
 								<ul
 									class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
 									<li class="no-results text-center p-4 font-bold hidden text-black">
-										<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
+										<?php _e('Không thấy kết quả!', 'bsc') ?>
 									</li>
 									<div class="text-center loader hidden w-full h-full">
 										<div
@@ -90,22 +89,21 @@
 						<ul
 							class="lg:flex menu_top items-center text-sm font-semibold xl:ml-12 lg:ml-10">
 							<?php
-							wp_nav_menu( array(
+							wp_nav_menu(array(
 								'theme_location' => 'menu-top-header',
 								'container' => '__return_false',
 								'fallback_cb' => '__return_false',
 								'items_wrap' => '%3$s',
 								'depth' => 1,
-							) );
+							));
 							?>
 						</ul>
-						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-						{ ?>
+						<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 							<button data-dropdown-toggle="dropdownLanguage"
 								class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
-								<?php echo svg( 'global', '24', '24' ) ?>
+								<?php echo svg('global', '24', '24') ?>
 								<?php echo pll_current_language(); ?>
-								<?php echo svgpath( 'down', '', '', 'fill-white' ) ?>
+								<?php echo svgpath('down', '', '', 'fill-white') ?>
 							</button>
 						<?php } ?>
 					</div>
@@ -116,14 +114,13 @@
 		<div class="bg-white 2xl:py-[14px] py-3 shadow-base">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
-					<?php if ( wp_is_mobile() && bsc_is_mobile() )
-					{ ?>
+					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 						<div class="flex items-center gap-2 relative">
 							<div class="bar_mobile ">
-								<?php echo svg( 'bar' ) ?>
+								<?php echo svg('bar') ?>
 							</div>
 							<button type="button" class="open-search">
-								<?php echo svgpath( 'search', '24', '24', 'fill-primary-300' ) ?>
+								<?php echo svgpath('search', '24', '24', 'fill-primary-300') ?>
 							</button>
 
 
@@ -135,7 +132,7 @@
 											class="hidden peer">
 										<label for="cp"
 											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1 before:top-1">
-											<?php _e( 'Cổ phiếu', 'bsc' ) ?>
+											<?php _e('Cổ phiếu', 'bsc') ?>
 										</label>
 									</div>
 									<div class="flex items-center">
@@ -143,7 +140,7 @@
 											class="hidden peer" checked>
 										<label for="other"
 											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1 before:top-1">
-											<?php _e( 'Khác', 'bsc' ) ?>
+											<?php _e('Khác', 'bsc') ?>
 										</label>
 									</div>
 								</div>
@@ -155,7 +152,7 @@
 									<ul
 										class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
 										<li class="no-results text-center p-4 font-bold hidden text-black">
-											<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
+											<?php _e('Không thấy kết quả!', 'bsc') ?>
 										</li>
 										<div class="text-center loader hidden w-full h-full">
 											<div
@@ -183,41 +180,38 @@
 
 					<?php } ?>
 					<?php
-					$custom_logo_id = get_field( 'h0_logo', 'option' );
-					if ( $custom_logo_id )
-					{
-						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
-						?>
-						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
-							title="<?php echo get_bloginfo( 'description' ); ?>">
+					$custom_logo_id = get_field('h0_logo', 'option');
+					if ($custom_logo_id) {
+						$image = wp_get_attachment_image_src($custom_logo_id, 'medium');
+					?>
+						<a class="block" href="<?php echo get_bloginfo('url'); ?>"
+							title="<?php echo get_bloginfo('description'); ?>">
 							<img class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16 ml-5' ?>"
-								src="<?php echo esc_url( $image[0] ); ?>" loading="lazy">
+								src="<?php echo esc_url($image[0]); ?>" loading="lazy">
 						</a>
-						<?php
+					<?php
 					}
 					?>
 
-					<div class="<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-					{ ?> relative flex items-center<?php } ?>">
-						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-						{ ?>
+					<div class="<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?> relative flex items-center<?php } ?>">
+						<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 							<div class="main_menu">
 								<ul
 									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-bold text-black">
 									<li class="menu-home">
 										<a href="<?php echo get_home_url() ?>"
 											class="block transition-all duration-500 hover:scale-110">
-											<?php echo svg( 'home', 20 ) ?>
+											<?php echo svg('home', 20) ?>
 										</a>
 									</li>
 									<?php
-									wp_nav_menu( array(
+									wp_nav_menu(array(
 										'theme_location' => 'menu-1',
 										'container' => '__return_false',
 										'fallback_cb' => '__return_false',
 										'items_wrap' => '%3$s',
 										'depth' => 1,
-									) );
+									));
 									?>
 								</ul>
 
@@ -225,42 +219,39 @@
 						<?php } ?>
 						<ul
 							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu lg:top-full 2xl:mt-[22px] lg:mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex">
-							<?php if ( wp_is_mobile() && bsc_is_mobile() )
-							{ ?>
+							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 								<div class="flex items-center justify-between mb-6">
 									<div class="close-mobile">
-										<?php echo svg( 'close', '24', '24' ) ?>
+										<?php echo svg('close', '24', '24') ?>
 									</div>
 									<div class="flex items-center gap-[12px]">
 										<button data-dropdown-toggle="dropdownLanguage"
 											class="text-black flex items-center gap-1.5 uppercase"
 											type="button">
-											<?php echo svg( 'global', '24', '24' ) ?>
-											<?php echo svg( 'down' ) ?>
+											<?php echo svg('global', '24', '24') ?>
+											<?php echo svg('down') ?>
 										</button>
 										<div id="dropdownLanguage-bsc"
 											class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 											<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 												aria-labelledby="change_language">
-												<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
+												<?php add_custom_class_to_current_lang(array('show_flags' => 0, 'show_names' => 1)); ?>
 											</ul>
 										</div>
-										<?php if ( have_rows( 'h1_button', 'option' ) )
-										{ ?>
+										<?php if (have_rows('h1_button', 'option')) { ?>
 											<?php
 											$i = 1;
-											while ( have_rows( 'h1_button', 'option' ) ) :
+											while (have_rows('h1_button', 'option')) :
 												the_row();
-												if ( $i == 2 && get_sub_field( 'title' ) )
-												{
-													?>
-													<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
+												if ($i == 2 && get_sub_field('title')) {
+											?>
+													<a href="<?php echo check_link(get_sub_field('link')); ?>"
 														class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
 														<span class="block relative z-10">
-															<?php the_sub_field( 'title' ); ?>
+															<?php the_sub_field('title'); ?>
 														</span>
 													</a>
-													<?php
+											<?php
 													break;
 												}
 												$i++;
@@ -273,54 +264,52 @@
 
 							<?php } ?>
 							<?php
-							wp_nav_menu( array(
+							wp_nav_menu(array(
 								'theme_location' => 'menu-1',
 								'container' => '__return_false',
 								'fallback_cb' => '__return_false',
 								'items_wrap' => '%3$s',
 								'depth' => 3,
-							) );
+							));
 							?>
 						</ul>
-						<?php if ( have_rows( 'h1_button', 'option' ) && ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+						<?php if (have_rows('h1_button', 'option') && ! wp_is_mobile() && ! bsc_is_mobile()) : ?>
 							<div class="flex items-center gap-x-4 2xl:ml-[60px] lg:ml-8">
 								<?php
 								$i = 1;
-								while ( have_rows( 'h1_button', 'option' ) ) :
+								while (have_rows('h1_button', 'option')) :
 									the_row();
 									$i++;
-									if ( get_sub_field( 'title' ) )
-									{
-										?>
-										<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
+									if (get_sub_field('title')) {
+								?>
+										<a <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> rel="<?php the_sub_field('rel') ?>" href="<?php echo check_link(get_sub_field('link')) ?>"
+											class="<?php echo ($i % 2 == 0) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
 											<span class="block relative z-10 ">
-												<?php the_sub_field( 'title' ) ?>
+												<?php the_sub_field('title') ?>
 											</span>
 										</a>
-										<?php
+								<?php
 									}
 								endwhile; ?>
 							</div>
 
 						<?php else : ?>
-								<?php
-								$i = 1;
-								while ( have_rows( 'h1_button', 'option' ) ) :
-									the_row();
-									if ( $i == 2 && get_sub_field( 'title' ) )
-									{
-										?>
-										<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
-											class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-4  py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs !leading-[1.667;]">
-												<?php the_sub_field( 'title' ); ?>
-										</a>
-										<?php
-										break;
-									}
-									$i++;
-								endwhile;
-								?>
+							<?php
+							$i = 1;
+							while (have_rows('h1_button', 'option')) :
+								the_row();
+								if ($i == 2 && get_sub_field('title')) {
+							?>
+									<a href="<?php echo check_link(get_sub_field('link')); ?>"
+										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-4  py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs !leading-[1.667;]">
+										<?php the_sub_field('title'); ?>
+									</a>
+							<?php
+									break;
+								}
+								$i++;
+							endwhile;
+							?>
 
 						<?php endif; ?>
 
@@ -328,13 +317,12 @@
 				</div>
 			</div>
 		</div>
-		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-		{ ?>
+		<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 			<div id="dropdownLanguage-bsc"
 				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 				<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 					aria-labelledby="change_language">
-					<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
+					<?php add_custom_class_to_current_lang(array('show_flags' => 0, 'show_names' => 1)); ?>
 				</ul>
 			</div>
 

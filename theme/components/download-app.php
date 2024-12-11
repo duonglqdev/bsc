@@ -57,7 +57,7 @@
 														the_row();
 														if (get_sub_field('title')) { ?>
 															<li>
-																<a href="<?php echo check_link(get_sub_field('link')) ?>"
+																<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 																	class="btn-base-yellow text-center">
 																	<span
 																		class="inline-flex items-center gap-x-3 relative z-10"><?php echo svg('arrow-btn', '20') ?><?php the_sub_field('title') ?></span>
@@ -99,7 +99,7 @@
 												$i++;
 												if (get_sub_field('title')) { ?>
 													<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'my-0' : 'my-4 px-3' ?>">
-														<a href="<?php echo check_link(get_sub_field('link')) ?>"
+														<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 															class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php if (have_rows('icon_app'))
 																																												echo 'ml-9' ?>">
 															<?php echo svg('arrow-btn', '20', '20') ?>
@@ -118,7 +118,7 @@
 														the_row();
 														if (get_sub_field('title')) { ?>
 															<li>
-																<a href="<?php echo check_link(get_sub_field('link')) ?>"
+																<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 																	class="btn-base-yellow flex justify-center text-center md:text-base text-xs items-center gap-x-3 h-11">
 																	<?php echo svg('arrow-btn', '16', '16') ?> <?php the_sub_field('title') ?>
 																</a>

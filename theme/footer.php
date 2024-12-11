@@ -198,8 +198,8 @@
 									<ul class=" font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-base space-y-4' : 'text-xs space-y-3' ?>">
 										<?php while (have_rows('menu', 'option')) :
 											the_row(); ?>
-											<li><a
-													href="<?php echo check_link(get_sub_field('link')) ?>"><?php the_sub_field('title') ?></a>
+											<li><a rel="<?php the_sub_field('rel') ?>"
+													href="<?php echo check_link(get_sub_field('link')) ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>><?php the_sub_field('title') ?></a>
 											</li>
 										<?php endwhile; ?>
 									</ul>
@@ -290,7 +290,7 @@
 			class="utilities_button-list transition-all duration-500  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto font-semibold text-white bg-gradient-blue fixed right-0 cursor-pointer rounded-bl-[10px] rounded-tl-[10px] border-2 border-[#FFB81C] border-r-0 text-[12px] z-[99]">
 			<?php while (have_rows('cdc2_tien_ich', 'option')) :
 				the_row(); ?>
-				<a href="<?php echo check_link(get_sub_field('link')) ?>"
+				<a <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> rel="<?php the_sub_field('rel') ?>" href="<?php echo check_link(get_sub_field('link')) ?>"
 					class="utilities_button-item 2xl:leading-normal leading-tight utilities_button-hover transition-all duration-500 w-full text-center flex flex-col justify-center items-center 2xl:py-4 py-2 2xl:px-3 px-1 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
 					<?php if (get_sub_field('icon')) { ?>
 						<?php echo svgClass_dir(get_sub_field('icon'), '', '', 'w-8 h-8') ?>
@@ -308,7 +308,7 @@
 <?php } ?>
 <div class="inline-flex flex-col fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:bottom-8 bottom-[6px]' : 'bottom-14' ?> right-3 2xl:gap-4 gap-2 z-[99]">
 	<?php if (get_field('cdc3_link', 'option') && !wp_is_mobile() && !bsc_is_mobile()) { ?>
-		<a href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
+		<a <?php if (get_field('cdc3_open_tab', 'option')) echo 'target="_blank"' ?> rel="<?php the_field('cdc3_open_tab_rel', 'option') ?>" href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>"
 			class="relative group block">
 			<div
 				class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center open-ytb [&:not(.active)]:pointer-events-auto pointer-events-none">
@@ -353,7 +353,7 @@
 				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'gap-6 py-6' ?>">
 					<?php while (have_rows('cdc4_menu', 'option')) :
 						the_row(); ?>
-						<a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank"
+						<a href="<?php echo check_link(get_sub_field('link')) ?>" rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>
 							class="flex flex-col justify-center items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 p-5' : 'gap-1' ?> text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
 							<?php echo svg_dir(get_sub_field('icon'), '', '', !wp_is_mobile() && !bsc_is_mobile() ? 'w-10 h-10' : 'w-6 h-6') ?>
 							<?php if (get_sub_field('title')) { ?>

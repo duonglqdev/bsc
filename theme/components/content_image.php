@@ -33,7 +33,7 @@
                         if (get_sub_field('title')) {
                 ?>
                             <div class="mt-8">
-                                <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                                     class="btn-base-yellow px-6 py-4 inline-flex items-center gap-x-3">
                                     <?php echo svg('arrow-btn', '16', '16') ?>
                                     <?php the_sub_field('title') ?>
