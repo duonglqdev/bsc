@@ -89,8 +89,9 @@ if ($display == 'history') {
 						]);
 						$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
 						if ($response_secTradingHistory) {
-							$data = json_decode($response_secTradingHistory->data, true);
-							foreach ($data as $record) {
+							$data_response_secTradingHistory = json_decode($response_secTradingHistory->data, true);
+							$data_response_secTradingHistory = array_reverse($data_response_secTradingHistory, true);
+							foreach ($data_response_secTradingHistory as $record) {
 								get_template_part('template-parts/content-data-history', '', array(
 									'data' => $record,
 								));

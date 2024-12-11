@@ -449,7 +449,8 @@ function filter_details_symbol()
         ]);
         $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
         if ($response_secTradingHistory) {
-            $data = json_decode($response_secTradingHistory->data, true);
+            $data_response_secTradingHistory = json_decode($response_secTradingHistory->data, true);
+            $data_response_secTradingHistory = array_reverse($data_response_secTradingHistory, true);
         ?>
             <div
                 class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
@@ -470,7 +471,7 @@ function filter_details_symbol()
                 <ul>
                     <?php
                     $i = 0;
-                    foreach ($data as $record) {
+                    foreach ($data_response_secTradingHistory as $record) {
                         $i++;
                         if ($i < 8) {
                     ?>
@@ -618,7 +619,7 @@ function filter_details_symbol()
                                     class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
                                     <?php
                                     if ($GetForeignInvestors->f_BUY_VALUE) {
-                                        echo ($GetForeignInvestors->f_BUY_VALUE);
+                                        echo number_format($GetForeignInvestors->f_BUY_VALUE, 2, '.', ',');
                                     }
                                     ?>
                                 </div>
@@ -634,7 +635,7 @@ function filter_details_symbol()
                                     class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
                                     <?php
                                     if ($GetForeignInvestors->f_SELL_VALUE) {
-                                        echo $GetForeignInvestors->f_SELL_VALUE;
+                                        echo number_format($GetForeignInvestors->f_SELL_VALUE, 2, '.', ',');
                                     }
                                     ?>
                                 </div>
