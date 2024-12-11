@@ -37,7 +37,7 @@
                                         while (have_rows('button')): the_row();
                                             if (get_sub_field('title')) { ?>
                                                 <p>
-                                                    <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                                    <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                                                         class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 mb-3">
                                                         <?php the_sub_field('title') ?>
                                                         <?php echo svg('arrow-btn', '12', '12') ?>

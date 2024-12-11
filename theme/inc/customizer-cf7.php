@@ -48,3 +48,26 @@ add_filter('wpcf7_form_elements', function ($form) {
 
     return $form;
 });
+
+
+/**
+ * Shortcode Button Submit
+ */
+function create_shortcode_button_submit_cf7()
+{
+    ob_start();
+    if (get_sub_field('button_submit')) {
+        $title = get_sub_field('button_submit');
+    } else {
+        $title = __('Tư vấn ngay', 'bsc');
+    }
+    echo $title;
+    $list_post = ob_get_contents();
+
+
+    ob_end_clean();
+
+
+    return $list_post;
+}
+add_shortcode('button_submit_cf7', 'create_shortcode_button_submit_cf7');

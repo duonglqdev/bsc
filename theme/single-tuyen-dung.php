@@ -217,7 +217,7 @@ get_header();
 						class="flex items-center justify-between" download>
 						<div class="flex items-center font-Helvetica font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-3' : 'gap-2' ?>">
 							<?php echo svg('docs') ?>
-							<p><?php _e('Mẫu CV BSC. docx', 'bsc') ?></p>
+							<p><?php _e('Mẫu CV BSC', 'bsc') ?></p>
 						</div>
 						<?php echo svg('download2', '20') ?>
 					</a>

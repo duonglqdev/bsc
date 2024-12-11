@@ -6422,8 +6422,28 @@
                         },
                         {
                             "key": "field_6727b195d8683",
-                            "label": "Tiêu đề",
+                            "label": "Tiêu đề Form",
                             "name": "title_contact",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6759ac384275f",
+                            "label": "Tiêu đề nút Submit",
+                            "name": "button_submit",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -11488,6 +11508,46 @@
                                                     "key": "field_67358015648fe",
                                                     "label": "Tiêu đề",
                                                     "name": "title",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6759a94939363",
+                                                    "label": "Open Tab",
+                                                    "name": "open_tab",
+                                                    "aria-label": "",
+                                                    "type": "true_false",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "message": "",
+                                                    "default_value": 0,
+                                                    "ui_on_text": "",
+                                                    "ui_off_text": "",
+                                                    "ui": 1
+                                                },
+                                                {
+                                                    "key": "field_6759a95439364",
+                                                    "label": "Rel",
+                                                    "name": "rel",
                                                     "aria-label": "",
                                                     "type": "text",
                                                     "instructions": "",
@@ -16767,5 +16827,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733928950
+    "modified": 1733930058
 }
