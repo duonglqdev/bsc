@@ -1199,10 +1199,10 @@
                                     "sub_fields": [
                                         {
                                             "key": "field_6702625056bd5",
-                                            "label": "QR Code Android",
-                                            "name": "qr_code_android",
+                                            "label": "QR Code",
+                                            "name": "qr_code_image",
                                             "aria-label": "",
-                                            "type": "group",
+                                            "type": "image",
                                             "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
@@ -1211,117 +1211,16 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "layout": "table",
-                                            "sub_fields": [
-                                                {
-                                                    "key": "field_6757f9c9df5db",
-                                                    "label": "Đường dẫn",
-                                                    "name": "link",
-                                                    "aria-label": "",
-                                                    "type": "text",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "default_value": "",
-                                                    "maxlength": "",
-                                                    "placeholder": "",
-                                                    "prepend": "",
-                                                    "append": ""
-                                                },
-                                                {
-                                                    "key": "field_6757fa12df5dc",
-                                                    "label": "Hình ảnh",
-                                                    "name": "img",
-                                                    "aria-label": "",
-                                                    "type": "image",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "return_format": "id",
-                                                    "library": "",
-                                                    "min_width": "",
-                                                    "min_height": "",
-                                                    "min_size": "",
-                                                    "max_width": "",
-                                                    "max_height": "",
-                                                    "max_size": "",
-                                                    "mime_types": "",
-                                                    "preview_size": "medium"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "key": "field_6757fa27df5dd",
-                                            "label": "QR Code iOS",
-                                            "name": "qr_code_ios",
-                                            "aria-label": "",
-                                            "type": "group",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "layout": "table",
-                                            "sub_fields": [
-                                                {
-                                                    "key": "field_6757fa27df5de",
-                                                    "label": "Đường dẫn",
-                                                    "name": "link",
-                                                    "aria-label": "",
-                                                    "type": "text",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "default_value": "",
-                                                    "maxlength": "",
-                                                    "placeholder": "",
-                                                    "prepend": "",
-                                                    "append": ""
-                                                },
-                                                {
-                                                    "key": "field_6757fa27df5df",
-                                                    "label": "Hình ảnh",
-                                                    "name": "img",
-                                                    "aria-label": "",
-                                                    "type": "image",
-                                                    "instructions": "",
-                                                    "required": 0,
-                                                    "conditional_logic": 0,
-                                                    "wrapper": {
-                                                        "width": "",
-                                                        "class": "",
-                                                        "id": ""
-                                                    },
-                                                    "return_format": "id",
-                                                    "library": "all",
-                                                    "min_width": "",
-                                                    "min_height": "",
-                                                    "min_size": "",
-                                                    "max_width": "",
-                                                    "max_height": "",
-                                                    "max_size": "",
-                                                    "mime_types": "",
-                                                    "preview_size": "medium"
-                                                }
-                                            ]
+                                            "return_format": "id",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "preview_size": "medium"
                                         },
                                         {
                                             "key": "field_6702628d56bd6",
@@ -9077,10 +8976,10 @@
                         },
                         {
                             "key": "field_6734df9cc1aee",
-                            "label": "Hình ảnh QR Android",
-                            "name": "qr_android",
+                            "label": "Hình ảnh QR",
+                            "name": "qr_code_image",
                             "aria-label": "",
-                            "type": "group",
+                            "type": "image",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -9089,117 +8988,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6756cc251d81c",
-                                    "label": "Đường dẫn",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                },
-                                {
-                                    "key": "field_6756cc2c1d81d",
-                                    "label": "Hình ảnh",
-                                    "name": "img",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "id",
-                                    "library": "",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
-                                    "preview_size": "medium"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_6756cc381d81e",
-                            "label": "Hình ảnh QR iOS",
-                            "name": "qr_ios",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6756cc381d81f",
-                                    "label": "Đường dẫn",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                },
-                                {
-                                    "key": "field_6756cc381d820",
-                                    "label": "Hình ảnh",
-                                    "name": "img",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "id",
-                                    "library": "",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
-                                    "preview_size": "medium"
-                                }
-                            ]
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
                         },
                         {
                             "key": "field_6734dfa7c1aef",
@@ -10250,9 +10048,9 @@
                         {
                             "key": "field_6756cb781d819",
                             "label": "Hình ảnh QR iOS",
-                            "name": "qr_ios",
+                            "name": "qr_code_image",
                             "aria-label": "",
-                            "type": "group",
+                            "type": "image",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": [
@@ -10269,125 +10067,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6756cb781d81a",
-                                    "label": "Đường dẫn",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                },
-                                {
-                                    "key": "field_6756cb781d81b",
-                                    "label": "Hình ảnh",
-                                    "name": "img",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "id",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
-                                    "preview_size": "medium"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_6734f5c31e617",
-                            "label": "Hình ảnh QR  Android",
-                            "name": "qr_android",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6734f5501e60b",
-                                        "operator": "==",
-                                        "value": "style2"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6756cb591d817",
-                                    "label": "Đường dẫn",
-                                    "name": "link",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                },
-                                {
-                                    "key": "field_6756cb661d818",
-                                    "label": "Hình ảnh",
-                                    "name": "img",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "id",
-                                    "library": "",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
-                                    "preview_size": "medium"
-                                }
-                            ]
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
                         }
                     ],
                     "min": "",
@@ -14917,6 +14606,26 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_675946e00f765",
+                            "label": "Đường dẫn",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -14952,6 +14661,26 @@
                             "key": "field_6744b9f35a5d4",
                             "label": "Tiêu đề",
                             "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_675946e90f766",
+                            "label": "Đường dẫn",
+                            "name": "link",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -15017,6 +14746,26 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_675946f10f767",
+                            "label": "Đường dẫn",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -15052,6 +14801,26 @@
                             "key": "field_6744ba305a5da",
                             "label": "Tiêu đề",
                             "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_675947000f768",
+                            "label": "Đường dẫn",
+                            "name": "link",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -15635,5 +15404,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733819114
+    "modified": 1733908388
 }

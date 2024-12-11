@@ -87,19 +87,12 @@
                                 class="text-primary-300 text-2xl"><?php _e('hoặc', 'bsc') ?></strong>
                         <?php } ?>
                         <?php
-                        if (bsc_is_ios()) {
-                            $qr_app_mobile = get_sub_field('qr_ios');
-                        } else {
-                            $qr_app_mobile = get_sub_field('qr_android');
-                        }
-                        if ($qr_app_mobile) {
-                            if ($qr_app_mobile['img']) { ?>
-                                <a href="<?php echo check_link($qr_app_mobile['link']) ?>" target="_blank"
-                                    rel="nofollow" class="qr p-3 bg-white max-w-[184px] rounded-lg shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
-                                    <?php echo wp_get_attachment_image($qr_app_mobile['img'], 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
-                                </a>
+                        $qr_app_mobile = get_sub_field('qr_code_image');
+                        if ($qr_app_mobile) { ?>
+                            <div class="qr p-3 bg-white max-w-[184px] rounded-lg shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
+                                <?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
+                            </div>
                         <?php
-                            }
                         } ?>
                     </div>
                 </div>
@@ -137,19 +130,12 @@
                                 </p>
                             <?php } ?>
                             <?php
-                            if (bsc_is_ios()) {
-                                $qr_app_mobile = get_sub_field('image_qr_ios');
-                            } else {
-                                $qr_app_mobile = get_sub_field('image_qr_android');
-                            }
-                            if ($qr_app_mobile) {
-                                if ($qr_app_mobile['img']) { ?>
-                                    <a href="<?php echo check_link($qr_app_mobile['link']) ?>" target="_blank"
-                                        rel="nofollow" class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
-                                        <?php echo wp_get_attachment_image($qr_app_mobile['img'], 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
-                                    </a>
+                            $qr_app_mobile = get_sub_field('qr_code_image');
+                            if ($qr_app_mobile) { ?>
+                                <div class="p-1 bg-white max-w-[104px] ml-6 rounded shadow-[0px_4px_30px_0px_rgba(42,92,170,0.1)]">
+                                    <?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
+                                </div>
                             <?php
-                                }
                             } ?>
                         </li>
                     </ul>

@@ -32,19 +32,10 @@
 											<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 												<div class="qr w-52 max-w-[40%]">
 													<?php
-													if (bsc_is_ios()) {
-														$qr_app_mobile = get_sub_field('qr_code_ios');
-													} else {
-														$qr_app_mobile = get_sub_field('qr_code_android');
-													}
-													if ($qr_app_mobile) {
-														if ($qr_app_mobile['img']) { ?>
-															<a href="<?php echo check_link($qr_app_mobile['link']) ?>" target="_blank"
-																rel="nofollow">
-																<?php echo wp_get_attachment_image($qr_app_mobile['img'], 'medium', '', array('class' => '')) ?>
-															</a>
+													$qr_app_mobile = get_sub_field('qr_code_image');
+													if ($qr_app_mobile) { ?>
+														<?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => '')) ?>
 													<?php
-														}
 													} ?>
 												</div>
 											<?php } ?>

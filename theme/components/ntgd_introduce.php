@@ -80,19 +80,12 @@
                                 <strong class="text-primary-300"><?php _e('hoặc', 'bsc') ?></strong>
                             <?php } ?>
                             <?php
-                            if (bsc_is_ios()) {
-                                $qr_app_mobile = get_sub_field('qr_ios');
-                            } else {
-                                $qr_app_mobile = get_sub_field('qr_android');
-                            }
-                            if ($qr_app_mobile) {
-                                if ($qr_app_mobile['img']) { ?>
-                                    <a href="<?php echo check_link($qr_app_mobile['link']) ?>" target="_blank"
-                                        rel="nofollow" class="qr p-3 bg-white max-w-[134px] w-full">
-                                        <?php echo wp_get_attachment_image($qr_app_mobile['img'], 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
-                                    </a>
+                            $qr_app_mobile = get_sub_field('qr_code_image');
+                            if ($qr_app_mobile) { ?>
+                                <div class="qr p-3 bg-white max-w-[134px] w-full">
+                                    <?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
+                                </div>
                             <?php
-                                }
                             } ?>
                         </div>
                     <?php } ?>

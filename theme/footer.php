@@ -126,19 +126,13 @@
 					<?php } ?>
 					<div class="flex gap-6">
 						<?php
-						if (bsc_is_ios()) {
-							$qr_app_mobile = get_field('f2_qr_code_ios', 'option');
-						} else {
-							$qr_app_mobile = get_field('f2_qr_code', 'option');
-						}
+						$qr_app_mobile = get_field('f2_qr_code', 'option');
 						if ($qr_app_mobile) {
-							if ($qr_app_mobile['img']) { ?>
-								<a href="<?php echo check_link($qr_app_mobile['link']) ?>" target="_blank"
-									rel="nofollow" class="md:w-[114px] md:max-w-[40%]">
-									<?php echo wp_get_attachment_image($qr_app_mobile['img'], 'full') ?>
-								</a>
+						?>
+							<div class="md:w-[114px] md:max-w-[40%]">
+								<?php echo wp_get_attachment_image($qr_app_mobile, 'full') ?>
+							</div>
 						<?php
-							}
 						}
 						?>
 						<div class="flex flex-col gap-4 flex-1">

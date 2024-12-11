@@ -5,9 +5,15 @@ $class = $check_logout['class'];
 <section class="xl:my-[100px] my-20 qdbsc_du_bao_nganh" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h3 class="font-bold mb-6 text-2xl">
-                <?php the_sub_field('title') ?>
-            </h3>
+            <?php if (get_sub_field('link')) { ?>
+                <a href="<?php echo check_link(get_sub_field('link')) ?>">
+                    <?php the_sub_field('title') ?>
+                </a>
+            <?php } else { ?>
+                <h3 class="font-bold mb-6 text-2xl">
+                    <?php the_sub_field('title') ?>
+                </h3>
+            <?php } ?>
         <?php } ?>
         <div class="relative">
             <div

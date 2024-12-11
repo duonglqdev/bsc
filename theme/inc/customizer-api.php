@@ -509,21 +509,20 @@ add_action('init', function () {
     if (strpos($_SERVER['REQUEST_URI'], '/callback') !== false) {
         bsc_handle_sso_callback();
         exit;
-    } elseif (strpos($_SERVER['REQUEST_URI'], '/detect') !== false) {
-        echo 'Check bằng Agent:' . detectDevice() . '<br>';
-        if (wp_is_mobile()) {
-            echo 'Check bạn dùng mobile bằng wp_is_mobile' . '<br>';
+    } elseif (strpos($_SERVER['REQUEST_URI'], '/download-app-trading') !== false) {
+        if (bsc_is_ios()) {
+            if (get_field('cdc8_link_download_ios', 'option')) {
+                wp_redirect(get_field('cdc8_link_download_ios', 'option'), '301');
+            } else {
+                wp_redirect(get_home_url(), '301');
+            }
         } else {
-            echo 'Check bạn dùng Desktop bằng wp_is_mobile' . '<br>';
+            if (get_field('cdc8_link_download_android', 'option')) {
+                wp_redirect(get_field('cdc8_link_download_android', 'option'), '301');
+            } else {
+                wp_redirect(get_home_url(), '301');
+            }
         }
-        $ua = $_SERVER['HTTP_USER_AGENT'];
-
-        if (strpos($ua, 'iPad') !== false || (strpos($ua, 'Macintosh') !== false && isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'touch') !== false)) {
-            echo  'detect được máy tính bảng';
-        } else {
-            echo '1';
-        }
-
         exit;
     }
 });
