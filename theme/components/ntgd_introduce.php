@@ -53,7 +53,7 @@
                                 if (get_sub_field('title')) {
                         ?>
                                     <div class="ml-14">
-                                        <a href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6">
+                                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6">
                                             <span
                                                 class="inline-flex items-center gap-x-3 relative z-10 text-xs">
                                                 <?php echo svg('arrow-btn', '16', '16') ?>
@@ -72,7 +72,7 @@
                             <?php if (have_rows('link_tai')) { ?>
                                 <div class="flex flex-col gap-[18px] lg:w-[184px] lg:max-w-[40%]">
                                     <?php while (have_rows('link_tai')): the_row(); ?>
-                                        <a href="<?php echo check_link(get_sub_field('link')) ?>" target="_blank" rel="nofollow">
+                                        <a href="<?php echo check_link(get_sub_field('link')) ?>" rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>>
                                             <?php echo wp_get_attachment_image(get_sub_field('icon'), 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
                                         </a>
                                     <?php endwhile; ?>

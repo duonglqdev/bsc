@@ -13,7 +13,7 @@
                     while (have_rows('button')): the_row();
                         if (get_sub_field('title')) {
                 ?>
-                            <a href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
+                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-xs">
                                 <?php echo svg('arrow-btn', '16', '16') ?>
                                 <?php the_sub_field('title') ?>
                             </a>

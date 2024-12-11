@@ -10525,6 +10525,46 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": ""
+                                },
+                                {
+                                    "key": "field_6759a374f1d36",
+                                    "label": "Open Tab",
+                                    "name": "open_tab",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_6759a381f1d37",
+                                    "label": "Rel",
+                                    "name": "rel",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
                                 }
                             ]
                         },
@@ -10603,12 +10643,54 @@
                                     "mime_types": "",
                                     "preview_size": "thumbnail",
                                     "parent_repeater": "field_6734f5af1e614"
+                                },
+                                {
+                                    "key": "field_6759a3fef1d38",
+                                    "label": "Open Tab",
+                                    "name": "open_tab",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1,
+                                    "parent_repeater": "field_6734f5af1e614"
+                                },
+                                {
+                                    "key": "field_6759a40af1d39",
+                                    "label": "Rel",
+                                    "name": "rel",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6734f5af1e614"
                                 }
                             ]
                         },
                         {
                             "key": "field_6756cb781d819",
-                            "label": "Hình ảnh QR iOS",
+                            "label": "Hình ảnh QR Code",
                             "name": "qr_code_image",
                             "aria-label": "",
                             "type": "image",
@@ -10846,6 +10928,46 @@
                                             "key": "field_6734f8217136a",
                                             "label": "Tiêu đề",
                                             "name": "title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_6759a423f1d3a",
+                                            "label": "Open Tab",
+                                            "name": "open_tab",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "ui": 1
+                                        },
+                                        {
+                                            "key": "field_6759a434f1d3b",
+                                            "label": "Rel",
+                                            "name": "rel",
                                             "aria-label": "",
                                             "type": "text",
                                             "instructions": "",
@@ -11548,6 +11670,46 @@
                                             "placeholder": "",
                                             "prepend": "",
                                             "append": ""
+                                        },
+                                        {
+                                            "key": "field_6759a488f1d3c",
+                                            "label": "Open  Tab",
+                                            "name": "open__tab",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "ui": 1
+                                        },
+                                        {
+                                            "key": "field_6759a493f1d3d",
+                                            "label": "Rel",
+                                            "name": "rel",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
                                         }
                                     ]
                                 }
@@ -11693,6 +11855,46 @@
                                     "key": "field_6735af4cf4975",
                                     "label": "Tiêu đề",
                                     "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6759a4a7f1d3e",
+                                    "label": "Open Tab",
+                                    "name": "open_tab",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_6759a4b3f1d3f",
+                                    "label": "Rel",
+                                    "name": "rel",
                                     "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
@@ -11896,6 +12098,46 @@
                                             "key": "field_6735b00ff4981",
                                             "label": "Tiêu đề",
                                             "name": "title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_6759a4ccf1d40",
+                                            "label": "Open Tab",
+                                            "name": "open_tab",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "ui": 1
+                                        },
+                                        {
+                                            "key": "field_6759a4d8f1d41",
+                                            "label": "Rel",
+                                            "name": "rel",
                                             "aria-label": "",
                                             "type": "text",
                                             "instructions": "",
@@ -12523,6 +12765,46 @@
                                             "placeholder": "",
                                             "prepend": "",
                                             "append": ""
+                                        },
+                                        {
+                                            "key": "field_6759a506f1d42",
+                                            "label": "Open Tab",
+                                            "name": "open_tab",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "ui": 1
+                                        },
+                                        {
+                                            "key": "field_6759a510f1d43",
+                                            "label": "Rel",
+                                            "name": "rel",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
                                         }
                                     ]
                                 }
@@ -12840,6 +13122,46 @@
                                                     "placeholder": "",
                                                     "prepend": "",
                                                     "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6759a54ef1d44",
+                                                    "label": "Open Tab",
+                                                    "name": "open_tab",
+                                                    "aria-label": "",
+                                                    "type": "true_false",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "message": "",
+                                                    "default_value": 0,
+                                                    "ui_on_text": "",
+                                                    "ui_off_text": "",
+                                                    "ui": 1
+                                                },
+                                                {
+                                                    "key": "field_6759a558f1d45",
+                                                    "label": "Rel",
+                                                    "name": "rel",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
                                                 }
                                             ]
                                         }
@@ -12908,6 +13230,46 @@
                                                     "key": "field_6735cc0a49617",
                                                     "label": "Tiêu đề",
                                                     "name": "title",
+                                                    "aria-label": "",
+                                                    "type": "text",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "default_value": "",
+                                                    "maxlength": "",
+                                                    "placeholder": "",
+                                                    "prepend": "",
+                                                    "append": ""
+                                                },
+                                                {
+                                                    "key": "field_6759a560f1d46",
+                                                    "label": "Open  Tab",
+                                                    "name": "open__tab",
+                                                    "aria-label": "",
+                                                    "type": "true_false",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": 0,
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "message": "",
+                                                    "default_value": 0,
+                                                    "ui_on_text": "",
+                                                    "ui_off_text": "",
+                                                    "ui": 1
+                                                },
+                                                {
+                                                    "key": "field_6759a56af1d47",
+                                                    "label": "Rel",
+                                                    "name": "rel",
                                                     "aria-label": "",
                                                     "type": "text",
                                                     "instructions": "",
@@ -13051,6 +13413,46 @@
                                             "placeholder": "",
                                             "prepend": "",
                                             "append": ""
+                                        },
+                                        {
+                                            "key": "field_6759a579f1d48",
+                                            "label": "Open Tab",
+                                            "name": "open_tab",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "ui": 1
+                                        },
+                                        {
+                                            "key": "field_6759a582f1d49",
+                                            "label": "Rel",
+                                            "name": "rel",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
                                         }
                                     ]
                                 }
@@ -13096,6 +13498,46 @@
                                     "key": "field_6735cc9b4961c",
                                     "label": "Tiêu đề",
                                     "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6759a594f1d4a",
+                                    "label": "Open Tab",
+                                    "name": "open_tab",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_6759a5a0f1d4b",
+                                    "label": "Rel",
+                                    "name": "rel",
                                     "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
@@ -15965,5 +16407,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733927423
+    "modified": 1733928381
 }
