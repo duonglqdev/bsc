@@ -52,7 +52,7 @@ $class = $check_logout['class'];
 
                                     <div class="flex items-end justify-between pb-2">
                                         <div class="flex flex-col font-Helvetica">
-                                            <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                            <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
                                             <h4 class="font-bold text-2xl">
                                                 <?php echo $response_thitruong->d->F[0][1]->value; ?>
                                             </h4>
@@ -64,7 +64,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div class="flex items-end justify-between pb-2">
                                         <div class="flex flex-col font-Helvetica">
-                                            <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                            <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
                                             <h4 class="font-bold text-2xl">
                                                 <?php echo $response_thitruong->d->F[0][2]->value; ?>
                                             </h4>
@@ -110,7 +110,7 @@ $class = $check_logout['class'];
 
                                 <div class="flex items-end justify-between pb-2">
                                     <div class="flex flex-col font-Helvetica">
-                                        <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                        <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
                                         <h4 class="font-bold text-2xl">
                                             ---- </h4>
                                     </div>
@@ -119,7 +119,7 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="flex items-end justify-between pb-2">
                                     <div class="flex flex-col font-Helvetica">
-                                        <p class="text-paragraph text-xs"><?php _e('Ngành', 'bsc') ?></p>
+                                        <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
                                         <h4 class="font-bold text-2xl">
                                             ---- </h4>
                                     </div>
