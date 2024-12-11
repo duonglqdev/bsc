@@ -7,7 +7,7 @@
             <?php if (have_rows('button')) {
                 while (have_rows('button')): the_row();
                     if (get_sub_field('title')) { ?>
-                        <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                             class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
                             <?php echo svg('arrow-btn', '16', '16') ?>
                             <?php the_sub_field('title') ?>
@@ -31,7 +31,7 @@
                                 <?php if (have_rows('button')) {
                                     while (have_rows('button')): the_row();
                                         if (get_sub_field('title')) { ?>
-                                            <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                                                 class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs">
                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                                 <?php the_sub_field('title') ?>

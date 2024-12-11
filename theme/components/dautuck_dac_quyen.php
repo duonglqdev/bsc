@@ -41,7 +41,7 @@
                 if (get_sub_field('title')) {
         ?>
                     <div class="mt-10 text-center">
-                        <a href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-4 pl-6 pr-8">
+                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-4 pl-6 pr-8">
                             <span
                                 class="inline-flex items-center gap-x-3 relative z-10 text-lg !leading-[1.445]">
                                 <?php echo svg('arrow-btn', '20', '20') ?>

@@ -327,7 +327,7 @@ $class = $check_logout['class'];
                                 if (get_sub_field('title')) {
                         ?>
                                     <div class="text-right mt-4">
-                                        <a href="<?php echo check_link(get_sub_field('link')) ?>"
+                                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
                                             class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
                                             <?php echo svg('arrow-btn', '20', '20') ?>
                                             <?php the_sub_field('title') ?>
