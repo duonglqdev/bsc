@@ -276,7 +276,7 @@ function custom_template_redirect_for_co_phieu()
             global $custom_meta_data;
             update_co_phieu_view_count_option($co_phieu_id);
             $custom_meta_data = array(
-                'title' => $co_phieu_id,
+                'title' => __('Cổ phiếu', 'bsc') . ' ' . strtoupper($co_phieu_id),
                 'description' => $co_phieu->description,
                 'thumbnail' => $co_phieu->imagethumbnail
             );
