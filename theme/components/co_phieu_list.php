@@ -135,7 +135,7 @@ $time_cache  = 3000;
                                         <td><?php echo $news->FULLNAME ?></td>
                                         <td data-trading><?php echo $news->EXCHANGE; ?></td>
                                         <td data-major><?php echo $news->INDUSTRYNAME ?></td>
-                                        <td><?php echo $news->MC ?></td>
+                                        <td><?php echo rtrim(rtrim(number_format($news->MC, 2, '.', ','), '0'), '.');  ?></td>
                                         <td><?php echo $news->TOTALVOLUME ?></td>
                                         <td><?php echo number_format($news->TOTALVALUE) ?></td>
                                         <td><?php echo $news->PE ?></td>
