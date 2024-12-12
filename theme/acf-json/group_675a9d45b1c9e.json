@@ -1,0 +1,80 @@
+{
+    "key": "group_675a9d45b1c9e",
+    "title": "[Option] Cài đặt API",
+    "fields": [
+        {
+            "key": "field_675a9f1a5491c",
+            "label": "Lưu ý",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Vì mục này dùng chung ở tất cả đa ngôn ngữ, bạn có thể chỉ cần điền ở \"Hiển thị tất cả ngôn ngữ\" là được. LƯU Ý KIỂM TRA LẠI XEM CODE HOẠT ĐỘNG TỐT KHÔNG.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_675a9f115491b",
+            "label": "IP API",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_675a9d454e024",
+            "label": "IP Address Default",
+            "name": "cdapi_ip_address_default",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "http:\/\/10.21.170.17:86\/",
+            "maxlength": "",
+            "placeholder": "http:\/\/10.21.170.17:86\/",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cai-dat-api"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733992713
+}
