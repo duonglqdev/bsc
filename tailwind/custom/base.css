@@ -259,6 +259,36 @@
   @apply items-start w-1/2;
   margin: 0 !important;
 }
+.is-desktop .hidden-br-pc br {
+  @apply hidden;
+}
+.is-desktop .award__item {
+  @apply rounded-2xl;
+}
+.is-desktop .award__item.active {
+  @apply rounded-tr-none rounded-br-none grow-[2.5] last:rounded-tl-none last:rounded-bl-none;
+}
+.is-desktop .award__item.active .award__item-content {
+  @apply w-2/3 h-auto;
+}
+.is-desktop .award__item.active .award__item-nav {
+  @apply w-1/3;
+}
+.is-desktop .award__item:not(:first-child) {
+  @apply -ml-4;
+}
+.is-desktop .award__item .rotate svg {
+  @apply rotate-180;
+}
+.is-desktop .form_support button {
+  @apply block ml-auto -mt-2 font-body min-w-[157px] text-xs;
+}
+.is-desktop .form_support .form-group {
+  @apply mb-8;
+}
+.is-desktop .form_support .form-group-flex {
+  @apply flex gap-[14px];
+}
 
 .is-mobile .container {
   @apply px-5;
@@ -408,6 +438,21 @@
 }
 .is-mobile .font-base * {
   font-size: 14px !important;
+}
+.is-mobile .award__item:not(:first-child) {
+  @apply -mt-4;
+}
+.is-mobile .form_support {
+  @apply text-xs;
+}
+.is-mobile .form_support .form-group {
+  @apply mb-5;
+}
+.is-mobile .form_support .form-group .group-flex-item {
+  @apply w-full mb-5;
+}
+.is-mobile .form_support button {
+  @apply block w-full text-xs mt-6;
 }
 
 svg {
@@ -810,28 +855,15 @@ button#ib-button-messaging {
 .award__item {
   @apply rounded-2xl;
 }
-.award__item.active {
-  @apply rounded-tr-none rounded-br-none grow-[2.5] last:rounded-tl-none last:rounded-bl-none;
-}
 .award__item.active .award__item-content {
-  @apply w-2/3 visible opacity-100 h-auto;
-}
-.award__item.active .award__item-nav {
-  @apply w-1/3;
+  @apply visible opacity-100 w-full;
 }
 .award__item:not(:first-child) {
-  @apply -ml-4;
   box-shadow: -2px 0px 30px 0px rgba(0, 0, 0, 0.08);
-}
-.award__item .rotate svg {
-  @apply rotate-180;
 }
 
 .form_support {
   box-shadow: 0px 4px 30px 0px rgba(43, 94, 170, 0.1);
-}
-.form_support .form-group {
-  @apply mb-8;
 }
 .form_support .form-group input,
 .form_support .form-group textarea {
@@ -843,17 +875,11 @@ button#ib-button-messaging {
 .form_support .form-group textarea {
   @apply h-[133px] pt-4 placeholder:opacity-30;
 }
-.form_support .form-group-flex {
-  @apply flex gap-[14px];
-}
 .form_support .form-group label {
   @apply inline-block bg-white px-3 text-[#4A5568] text-xs absolute z-[2] -top-3 left-2;
 }
 .form_support .wpcf7-spinner {
   @apply bottom-0 right-0 top-[unset];
-}
-.form_support button {
-  @apply block ml-auto -mt-2 font-body min-w-[157px] text-xs;
 }
 
 .flickity-button {
@@ -874,7 +900,8 @@ button#ib-button-messaging {
 .content_prose ul > li ol {
   @apply font-normal;
 }
-.content_prose ul, .content_prose ol {
+.content_prose ul,
+.content_prose ol {
   list-style-type: revert;
 }
 .content_prose li strong {
