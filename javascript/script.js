@@ -2168,7 +2168,7 @@ import { DataTable } from 'simple-datatables';
 						const chartOptions = {
 							chart: {
 								type: type_chart,
-								height: 400,
+								height: 278,
 								toolbar: { show: false },
 							},
 							series: series,
