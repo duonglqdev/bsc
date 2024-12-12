@@ -12,7 +12,7 @@
         }
     }
 ?>
-    <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+    <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
         <div class="flex items-center justify-between mb-4">
             <?php
 

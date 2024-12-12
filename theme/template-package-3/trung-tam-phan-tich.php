@@ -22,7 +22,7 @@ get_header();
 				<?php
 				for ($i = 0; $i < 2; $i++) {
 				?>
-					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+					<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
 						<div class="flex items-center justify-between mb-4">
 							<a href=""
 								class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -30,7 +30,7 @@ get_header();
 							</a>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
+									class="inline-block rounded-[45px] text-[#00ad2b] bg-[#b7f2c6] px-4 py-0.5 text-[12px] font-semibold">Tích
 									cực</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
@@ -90,7 +90,7 @@ get_header();
 							</a>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
+									class="inline-block rounded-[45px] text-[#f5a800] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
 									lập</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
@@ -144,13 +144,13 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
+									class="inline-block rounded-[45px] text-[#00ad2b] bg-[#b7f2c6] px-4 py-0.5 text-[12px] font-semibold">Tích
 									cực</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
@@ -184,7 +184,7 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
@@ -224,13 +224,13 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
+									class="inline-block rounded-[45px] text-[#f5a800] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
 									lập</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
@@ -284,13 +284,13 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
+									class="inline-block rounded-[45px] text-[#00ad2b] bg-[#b7f2c6] px-4 py-0.5 text-[12px] font-semibold">Tích
 									cực</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>
@@ -324,7 +324,7 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
@@ -364,13 +364,13 @@ get_header();
 										Giá mục tiêu
 									</p>
 									<p class="font-medium">
-										89,400 <span class="text-[#30D158]">(+23%)</span>
+										89,400 <span class="text-[#00ad2b]">(+23%)</span>
 									</p>
 								</div>
 							</div>
 							<div class="space-y-1.5 text-right">
 								<span
-									class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
+									class="inline-block rounded-[45px] text-[#f5a800] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
 									lập</span>
 								<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 							</div>

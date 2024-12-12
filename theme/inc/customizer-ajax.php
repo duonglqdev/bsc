@@ -291,7 +291,7 @@ function filter_event_calendar()
     $array_data_GetEvents = array(
         'lang' => pll_current_language(),
         'maxitem' => $post_per_page,
-        'index' => $index
+        'index' => $index,
     );
     if (isset($sortfield) && !empty($sortfield)) {
         $array_data_GetEvents['sortField'] = $sortfield;
@@ -299,52 +299,61 @@ function filter_event_calendar()
     if (isset($eventcode) && !empty($eventcode)) {
         $array_data_GetEvents['eventcode'] = $eventcode;
     }
-    if (isset($mck) && !empty($mck)) {
-        $array_data_GetEvents['symbol'] = $mck;
-    }
     if (isset($fromdate) && !empty($fromdate)) {
-        $fromdate = $fromdate;
         $array_data_GetEvents['fromdate'] = $fromdate;
     }
     if (isset($todate) && !empty($todate)) {
-        $todate = $todate;
         $array_data_GetEvents['todate'] = $todate;
     }
     $response_GetEvents = get_data_with_cache('GetEvents', $array_data_GetEvents, $time_cache);
     if ($response_GetEvents) {
-        if ($response_GetEvents->totalrecord) {
-            $total_post = $response_GetEvents->totalrecord;
+        $filtered_events = [];
+
+        // Lọc dựa trên ký tự bất kỳ trong `mck`
+        if (!empty($mck)) {
+            foreach ($response_GetEvents->d as $event) {
+                if (stripos($event->symbol, $mck) !== false) {
+                    $filtered_events[] = $event;
+                }
+            }
         } else {
-            $total_post = $post_per_page;
+            $filtered_events = $response_GetEvents->d;
         }
+        $total_post = count($filtered_events);
         $total_page = ceil($total_post / $post_per_page);
-    ?>
-        <?php
-        foreach ($response_GetEvents->d as $GetEvents) {
+
+        // Hiển thị dữ liệu đã lọc
+        foreach ($filtered_events as $GetEvents) {
             get_template_part('template-parts/content-lich-thi-truong', '', array(
                 'data' => $GetEvents,
             ));
         }
-        ?>
-    <?php }
+    }
+
     $html = ob_get_contents();
     ob_end_clean();
+
     ob_start();
+
+    // Hiển thị phân trang
     get_template_part('components/pagination', '', array(
         'get' => 'ajax_api',
         'total_page' => $total_page,
         'post_per_page' => 'hide',
-        'paged' => $paged
+        'paged' => $paged,
     ));
+
     $pagination = ob_get_contents();
     ob_end_clean();
+
     wp_send_json_success(array(
         'html' => $html,
-        'pagination' => $pagination
+        'pagination' => $pagination,
     ));
 
     die();
 }
+
 
 
 /**
@@ -812,7 +821,7 @@ function filter_details_symbol()
             class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
             <thead>
                 <tr>
-                    <th class="!pl-5 cursor-pointer"><?php _e('Mã CK', 'bsc') ?>
+                    <th class="!pl-5 cursor-pointer filter-table"><?php _e('Mã CK', 'bsc') ?>
                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                     </th>
 

@@ -36,6 +36,7 @@ import { DataTable } from 'simple-datatables';
 		//
 		handleSearch();
 		sameHeight();
+		resetForm();
 	});
 
 	function menuMobile() {
@@ -2169,7 +2170,7 @@ import { DataTable } from 'simple-datatables';
 						const chartOptions = {
 							chart: {
 								type: type_chart,
-								height: 400,
+								height: 278,
 								toolbar: { show: false },
 							},
 							series: series,
@@ -2569,19 +2570,22 @@ import { DataTable } from 'simple-datatables';
 	let isAjaxInProgress = false;
 
 	function handleSearch() {
+		// Hàm kiểm tra nếu checkbox #cp được chọn
+		function isCheckboxChecked() {
+			return $('#cp').is(':checked');
+		}
+
+		// Khi focus vào #search-shares
 		$('#search-shares').on('focus', function () {
-			if (!$('#cp').is(':checked')) {
-				return;
-			}
+			if (!isCheckboxChecked()) return;
 
 			const sharesResult = $('.shares-result');
 			const loader = sharesResult.find('.loader');
 			sharesResult.addClass('active');
 			loader.removeClass('hidden');
 
-			if (isAjaxInProgress) {
-				return;
-			}
+			if (isAjaxInProgress) return;
+
 			isAjaxInProgress = true;
 
 			$.ajax({
@@ -2608,12 +2612,7 @@ import { DataTable } from 'simple-datatables';
 							hasResults = true;
 						});
 
-						if (hasResults) {
-							noResults.addClass('hidden');
-						} else {
-							noResults.removeClass('hidden');
-						}
-
+						noResults.toggleClass('hidden', hasResults);
 						loader.addClass('hidden');
 					} else {
 						console.error('Error: ', response.data);
@@ -2627,14 +2626,21 @@ import { DataTable } from 'simple-datatables';
 				},
 			});
 		});
+
+		// Khi input thay đổi
 		$('#search-shares').on('input', function () {
+			if (!isCheckboxChecked()) return;
+
 			if ($(this).val()) {
 				$('html').removeClass('scroll-pt-10');
 			}
 		});
 
+		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
-			const searchValue = $(this).val().toLowerCase();
+			if (!isCheckboxChecked()) return;
+
+			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
 			let hasResults = false;
@@ -2643,27 +2649,59 @@ import { DataTable } from 'simple-datatables';
 				.find('li')
 				.not('.no-results')
 				.each(function () {
-					const shareName = $(this).text().toLowerCase();
-					if (shareName.includes(searchValue)) {
-						$(this).show();
-						hasResults = true;
-					} else {
-						$(this).hide();
-					}
+					const shareName = $(this).text().toLowerCase().trim();
+					const match = shareName === searchValue;
+					$(this).toggle(match);
+					hasResults = hasResults || match;
 				});
 
-			if (!hasResults) {
-				noResults.removeClass('hidden');
-			} else {
-				noResults.addClass('hidden');
-			}
+			noResults.toggleClass('hidden', hasResults);
 		});
 
-		$(document).on('click', function (e) {
-			if (!$(e.target).closest('.shares-result, #search-shares').length) {
-				$('.shares-result').removeClass('active');
-			}
+		// Hover trên li của .shares-result
+		$('.shares-result').on('mouseenter', 'li', function () {
+			if (!isCheckboxChecked()) return;
+
+			const value = $(this).find('a').text();
+			$('#search-shares').val(value);
 		});
+
+		// Khi rời chuột khỏi .shares-result
+		$('.shares-result').on('mouseleave', function () {
+			if (!isCheckboxChecked()) return;
+
+			$(this).removeClass('active');
+			$('#search-shares').val('');
+		});
+
+		// Xử lý hover và focusin
+		$(document).on(
+			'mouseenter focusin',
+			'.shares-result, #search-shares',
+			function () {
+				if (!isCheckboxChecked()) return;
+
+				$('.shares-result').addClass('active');
+			}
+		);
+
+		// Xử lý mouseleave và focusout
+		$(document).on(
+			'mouseleave focusout',
+			'.shares-result, #search-shares',
+			function (e) {
+				if (!isCheckboxChecked()) return;
+
+				if (
+					!$(e.relatedTarget).closest(
+						'.shares-result, #search-shares'
+					).length
+				) {
+					$('.shares-result').removeClass('active');
+				}
+			}
+		);
+
 		$(document).on('click', '#lich-su_kien_submit', function (e) {
 			e.preventDefault();
 			load_lich_su_kien(1);
@@ -2797,4 +2835,18 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	});
+
+	function resetForm() {
+		$('#select_year').change(function () {
+			$('#datepicker-range-start').val('');
+			$('#datepicker-range-end').val('');
+		});
+
+		$('#datepicker-range-start, #datepicker-range-end').on(
+			'changeDate',
+			function () {
+				$('#select_year').val('');
+			}
+		);
+	}
 })(jQuery);

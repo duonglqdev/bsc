@@ -119,10 +119,10 @@ get_header();
 			<h3 class="font-bold mb-6 text-2xl">Dự báo vĩ mô</h3>
 			<h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
 				vĩ mô Việt Nam 2024-2025</h4>
-			<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
+			<div class="border border-[#C9CCD2] rounded-lg flex font-medium overflow-hidden">
 				<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
 					<div
-						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
+						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[71px] border-b border-[#C9CCD2] mb-1.5">
 						<div
 							class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
 							<p>TB 8 năm <br>
@@ -314,12 +314,12 @@ get_header();
 			<div class="relative">
 				<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 				<div
-					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium bg-white">
-					<div class="flex rounded-md overflow-hidden">
+					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white">
+					<div class="flex">
 						<div
 							class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
 							<div
-								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
+								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
 								Ngành
 							</div>
 							<ul>
@@ -365,7 +365,7 @@ get_header();
 							class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal">
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 									Mã CK
 								</div>
 								<ul>
@@ -415,7 +415,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 									DTT 2024
 									<p>
 										(tỷ VND)

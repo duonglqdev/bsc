@@ -87,13 +87,13 @@ get_header();
 					</div>
 				</div>
 			</div>
-			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex 2xl:px-[114px] px-12 mt-10 min-h-[350px]"
+			<div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex 2xl:px-24 px-12 mt-10 min-h-[350px] gap-5"
 				style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-blue.png)">
 				<div class="lg:w-1/2 lg:flex flex-col justify-center">
+					<h2 class="heading-title mb-8">
+						TẢI ỨNG DỤNG NGAY HÔM NAY
+					</h2>
 					<div class="2xl:max-w-[480px]">
-						<h2 class="heading-title mb-8">
-							TẢI ỨNG DỤNG NGAY HÔM NAY
-						</h2>
 						<div class="flex gap-[44px] items-center">
 							<div class="flex flex-col gap-[18px] lg:w-[184px] lg:max-w-[40%]">
 								<a href="">

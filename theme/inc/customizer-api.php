@@ -625,41 +625,41 @@ function get_color_by_number_bsc($status)
 {
     if ($status) {
         if ($status == '0') {
-            $text_status = '#30d158';
-            $background_status = '#d6f6de';
+            $text_status = '#00ad2b';
+            $background_status = '#b7f2c6';
             $title_status = __('Tích cực', 'bsc');
         } elseif ($status == '1') {
-            $text_status = '#FFB81C';
-            $background_status = '#FFF1D2';
+            $text_status = '#f5a800';
+            $background_status = '#ffebbe';
             $title_status = __('Trung lập', 'bsc');
         } elseif ($status == '2') {
             $text_status = '#FF0017';
             $background_status = '#FFD9DC';
             $title_status = __('Tiêu cực', 'bsc');
         } elseif ($status == '3') {
-            $text_status = '#30D158';
-            $background_status = '#D6F6DE';
+            $text_status = '#00ad2b';
+            $background_status = '#b7f2c6';
             $title_status = __('Mua mạnh', 'bsc');
         } elseif ($status == '4') {
-            $text_status = '#30D158';
-            $background_status = '#D6F6DE';
+            $text_status = '#00ad2b';
+            $background_status = '#b7f2c6';
             $title_status = __('Mua', 'bsc');
         } elseif ($status == '5') {
-            $text_status = '#3FF0E24';
+            $text_status = '#ff0017';
             $background_status = '#FFD9DC';
             $title_status = __('Bán', 'bsc');
         } elseif ($status == '6') {
-            $text_status = '#FFC64A';
-            $background_status = '#FFF1D2';
+            $text_status = '#f5a800';
+            $background_status = '#ffebbe';
             $title_status = __('Nắm giữ', 'bsc');
         } elseif ($status == '7') {
-            $text_status = '#FFC64A';
-            $background_status = '#FFF1D2';
+            $text_status = '#f5a800';
+            $background_status = '#ffebbe';
             $title_status = __('Không', 'bsc');
         }
     } else {
-        $text_status = '#30d158';
-        $background_status = '#d6f6de';
+        $text_status = '#00ad2b';
+        $background_status = '#b7f2c6';
         $title_status = '';
     }
     return [

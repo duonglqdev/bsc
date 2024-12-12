@@ -459,12 +459,12 @@ get_header();
 						class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
 						Các mã hiệu quả BSC
 					</h2>
-					<div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
+					<div class="grid grid-cols-3 gap-4 mb-10">
 						<?php
 						for ($i = 0; $i < 6; $i++) {
 						?>
 							<a href=""
-								class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
+								class="inline-flex justify-center rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
 								<span>
 									HPG
 								</span>

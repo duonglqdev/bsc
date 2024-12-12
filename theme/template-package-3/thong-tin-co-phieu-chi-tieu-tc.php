@@ -118,27 +118,17 @@ get_header();
 				</div>
 				<div class="lg:w-[433px] max-w-[33%]">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Tham chiếu
-								</p>
-								<p class="font-medium text-lg">
-									133,883,457
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Vốn hóa
-								</p>
-								<p class="font-medium text-lg">
-									1,600
-								</p>
-							</div>
+						class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica">
+						<div class="lg:flex lg:items-center lg:justify-between mb-12">
+							<p class="text-paragraph text-opacity-70 text-xs">
+								Tham chiếu
+							</p>
+							<p class="font-bold text-lg uppercase">
+								HÀNG CÔNG NGHIỆP
+							</p>
 						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
+						<div class="grid grid-cols-3 space-y-6">
+							<div class="space-y-[12px]">
 								<p class="text-paragraph text-opacity-70 text-xs">
 									KLGD trung bình
 									10 ngày
@@ -147,7 +137,23 @@ get_header();
 									6,800
 								</p>
 							</div>
-							<div class="lg:w-[120px]">
+							<div class="space-y-[12px]">
+								<p class="text-paragraph text-opacity-70 text-xs">
+									Tham chiếu
+								</p>
+								<p class="font-medium text-lg">
+									133,883,457
+								</p>
+							</div>
+							<div class="space-y-[12px]">
+								<p class="text-paragraph text-opacity-70 text-xs">
+									Vốn hóa
+								</p>
+								<p class="font-medium text-lg">
+									1,600
+								</p>
+							</div>
+							<div class="space-y-[12px]">
 								<p class="text-paragraph text-opacity-70 text-xs">
 									P/E
 								</p>
@@ -155,9 +161,7 @@ get_header();
 									23.73
 								</p>
 							</div>
-						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
+							<div class="space-y-[12px]">
 								<p class="text-paragraph text-opacity-70 text-xs">
 									P/B
 								</p>
@@ -165,7 +169,7 @@ get_header();
 									24,191
 								</p>
 							</div>
-							<div class="lg:w-[120px]">
+							<div class="space-y-[12px]">
 								<p class="text-paragraph text-opacity-70 text-xs">
 									ROE
 								</p>
@@ -178,11 +182,18 @@ get_header();
 				</div>
 				<div class="flex-1">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
-						<h3 class="font-bold mb-6">
-							KHUYẾN NGHỊ
-						</h3>
-						<div class="space-y-4 mb-6">
+						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+						<div class="flex items-center justify-between mb-6">
+							<h3 class="font-bold">
+								KHUYẾN NGHỊ
+							</h3>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
+								<?php echo svg( 'gold', '24', '24' ) ?>
+								Hạng A
+							</p>
+						</div>
+						<div class="space-y-4">
 							<div class="flex items-center justify-between text-xs">
 								<p class="text-xs">
 									Analyst:
@@ -218,13 +229,7 @@ get_header();
 								</p>
 							</div>
 						</div>
-						<div class="mt-auto">
-							<p
-								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-								<?php echo svg( 'gold', '24', '24' ) ?>
-								Hạng A
-							</p>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -411,10 +416,10 @@ get_header();
 							</div>
 						</div>
 					</article>
-                    <article>
+					<article>
 						<div class="flex items-center gap-6 mb-[30px]">
 							<h2 class="heading-title">
-                            TĂNG TRƯỞNG
+								TĂNG TRƯỞNG
 							</h2>
 							<p
 								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#A87E5C] bg-gradient-bronze-50">
@@ -459,7 +464,7 @@ get_header();
 							<div class="space-y-6">
 								<h4
 									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
-                                    TĂNG TRƯỞNG EPS (%)
+									TĂNG TRƯỞNG EPS (%)
 								</h4>
 								<div id="growth-chart-2" class="legend-gap">
 
@@ -476,10 +481,10 @@ get_header();
 							</div>
 						</div>
 					</article>
-                    <article>
+					<article>
 						<div class="flex items-center gap-6 mb-[30px]">
 							<h2 class="heading-title">
-                            HIỆU QUẢ HOẠT ĐỘNG
+								HIỆU QUẢ HOẠT ĐỘNG
 							</h2>
 							<p
 								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#869299] bg-gradient-sliver-100">
@@ -487,7 +492,7 @@ get_header();
 								Hạng D
 							</p>
 						</div>
-						
+
 						<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 							<div class="space-y-6">
 								<h4
@@ -501,7 +506,7 @@ get_header();
 							<div class="space-y-6">
 								<h4
 									class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold">
-                                    VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
+									VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)
 								</h4>
 								<div id="effective-chart-2" class="legend-gap">
 

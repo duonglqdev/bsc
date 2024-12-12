@@ -39,7 +39,7 @@
 							<div class="py-3 pl-6 flex items-center">
 								<div class="flex">
 									<input type="radio" id="cp" name="investment" class="hidden peer"
-										value="co_phieu">
+										value="co_phieu" checked>
 									<label for="cp"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 										<?php _e('Cổ phiếu', 'bsc') ?>
@@ -47,7 +47,7 @@
 								</div>
 								<div class="flex ml-4 md:pr-[22px] pr-5 border-r border-white">
 									<input type="radio" id="other" name="investment" class="hidden peer"
-										checked>
+										>
 									<label for="other"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 										<?php _e('Khác', 'bsc') ?>
@@ -60,10 +60,11 @@
 									class="bg-transparent py-1 border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-white placeholder:text-white focus:shadow-none focus:border-none placeholder:opacity-60 hover:placeholder:opacity-100 placeholder:transition-all placeholder:duration-700 max-w-[167px]"
 									autocomplete="off">
 								<ul
-									class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-lg prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
+									class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:font-medium prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded-lg">
 									<li class="no-results text-center p-4 font-bold hidden text-black">
 										<?php _e('Không thấy kết quả!', 'bsc') ?>
 									</li>
+								
 									<div class="text-center loader hidden w-full h-full">
 										<div
 											class="h-full w-full flex flex-col justify-center items-center">
@@ -197,7 +198,7 @@
 						<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 							<div class="main_menu">
 								<ul
-									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-bold text-black">
+									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-semibold text-paragraph">
 									<li class="menu-home">
 										<a href="<?php echo get_home_url() ?>"
 											class="block transition-all duration-500 hover:scale-110">
