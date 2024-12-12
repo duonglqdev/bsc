@@ -39,7 +39,7 @@
 					<div class="mt-10 lg:flex lg:gap-5">
 						<div class="lg:w-[547px] max-w-[41%]">
 							<div
-								class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
+								class="bg-gradient-blue-to-bottom-100 rounded-xl 2xl:px-10 px-6 2xl:py-6 py-5 space-y-6 h-full">
 								<div class="flex gap-6 items-center">
 									<div
 										class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
@@ -56,12 +56,12 @@
 
 									</div>
 								</div>
-								<div class="flex items-center gap-7">
+								<div class="flex items-center 2xl:gap-7 gap-5">
 									<div class="lg:w-[176px] lg:max-w-[37%]">
 										<?php if ($response_value->d[0]->bidPrice1) { ?>
 											<div class="flex-col gap-2">
 												<div class="flex gap-[14px] data_number">
-													<div class="lg:text-[40px] text-4xl font-bold">
+													<div class="2xl:text-[40px] text-4xl font-bold">
 														<?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
 													</div>
 													<?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
@@ -96,10 +96,10 @@
 											</div>
 										<?php } ?>
 									</div>
-									<div class="flex-1 grid grid-cols-3 gap-5 font-Helvetica">
+									<div class="flex-1 grid grid-cols-3 2xl:gap-5 gap-4 font-Helvetica">
 										<div class="col-span-1 space-y-5">
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Trần', 'bsc') ?>
 												</p>
 												<p class="font-bold text-[#1CCD83] text-lg">
@@ -113,7 +113,7 @@
 												</p>
 											</div>
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Cao nhất', 'bsc') ?>
 												</p>
 												<p class="font-bold text-black text-lg">
@@ -129,7 +129,7 @@
 										</div>
 										<div class="col-span-1 space-y-5">
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Tham chiếu', 'bsc') ?>
 												</p>
 												<p class="font-bold text-[#FFB81C] text-lg">
@@ -143,7 +143,7 @@
 												</p>
 											</div>
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Thấp nhất', 'bsc') ?>
 												</p>
 												<p class="font-bold text-black text-lg">
@@ -159,7 +159,7 @@
 										</div>
 										<div class="col-span-1 space-y-5">
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Sàn', 'bsc') ?>
 												</p>
 												<p class="font-bold text-[#FE5353] text-lg">
@@ -173,7 +173,7 @@
 												</p>
 											</div>
 											<div class="flex flex-col gap-0.5">
-												<p class="text-paragraph text-opacity-70 text-xs">
+												<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 													<?php _e('Trung bình', 'bsc') ?>
 												</p>
 												<p class="font-bold text-black text-lg">
@@ -205,7 +205,7 @@
 									class="bg-[#E8F5FF] rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
 									<div class="flex items-end justify-between">
 										<div class="lg:w-[120px] space-y-2">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('Ngành', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
@@ -213,7 +213,7 @@
 											</p>
 										</div>
 										<div class="lg:w-[120px]">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('Vốn hóa', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
@@ -227,7 +227,7 @@
 									</div>
 									<div class="flex items-end justify-between">
 										<div class="lg:w-[120px] space-y-2">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
@@ -235,7 +235,7 @@
 											</p>
 										</div>
 										<div class="lg:w-[120px]">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('P/E', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
@@ -245,7 +245,7 @@
 									</div>
 									<div class="flex items-end justify-between">
 										<div class="lg:w-[120px] space-y-2">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('P/B', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
@@ -253,7 +253,7 @@
 											</p>
 										</div>
 										<div class="lg:w-[120px]">
-											<p class="text-paragraph text-opacity-70 text-xs">
+											<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('ROE', 'bsc') ?>
 											</p>
 											<p class="font-medium text-lg">
