@@ -522,7 +522,6 @@ import { DataTable } from 'simple-datatables';
 			// Xác định khoảng thời gian
 			let tickInterval;
 			let dateFormatter;
-
 			if (timestamps.length <= 7) {
 				// < 7 ngày: Hiển thị mỗi ngày một mốc
 				tickInterval = 1;
@@ -1375,7 +1374,6 @@ import { DataTable } from 'simple-datatables';
 				var page = parseInt($('#vi-tri-tuyen-dung').attr('data-paged'));
 				if ($(this).hasClass('item-paged')) {
 					page = parseInt($(this).attr('data-paged'));
-					console.log(page);
 				} else if ($(this).hasClass('prev')) {
 					page = page - 1;
 				} else if ($(this).hasClass('next')) {
@@ -1771,7 +1769,9 @@ import { DataTable } from 'simple-datatables';
 			const stockData = JSON.parse(
 				chartElement.getAttribute('data-stock')
 			);
-			let categories = stockData.map((item) => item.date); // Lấy danh sách ngày từ dữ liệu
+			let categories = stockData.map((item) =>
+				new Date(item.date).getTime()
+			); // Lấy danh sách ngày dưới dạng timestamp
 			const closeIndexes = stockData.map((item) => item.closeindex); // Lấy dữ liệu chỉ số
 
 			// Lấy giá trị KB1 và KB2
@@ -1790,7 +1790,7 @@ import { DataTable } from 'simple-datatables';
 			for (let i = 0; i < 60; i++) {
 				const nextDate = new Date(lastDateVNIndex);
 				nextDate.setDate(nextDate.getDate() + i); // Cộng thêm từng ngày
-				kbDates.push(nextDate.toISOString().split('T')[0]); // Định dạng YYYY-MM-DD
+				kbDates.push(nextDate.getTime()); // Lấy timestamp thay vì định dạng YYYY-MM-DD
 			}
 
 			// Hàm tạo giá trị đường chéo (linear interpolation) từ giá trị bắt đầu đến giá trị kết thúc
@@ -1822,7 +1822,7 @@ import { DataTable } from 'simple-datatables';
 
 			// Cập nhật trục X
 			const extendedCategories = [...categories, ...kbDates];
-
+			console.log(extendedCategories);
 			// Tạo dữ liệu cho KB1 và KB2 (bao gồm điểm đầu VN-Index tại ngày cuối cùng của VN-Index)
 			const kb1Series = [
 				...closeIndexes.map(() => null),
@@ -1845,27 +1845,29 @@ import { DataTable } from 'simple-datatables';
 			// Xử lý hiển thị đẹp trục X
 			let tickInterval;
 			let dateFormatter;
-
 			if (extendedCategories.length <= 7) {
+				// < 7 ngày: Hiển thị mỗi ngày một mốc
 				tickInterval = 1;
 				dateFormatter = 'dd MMM yyyy';
 			} else if (
 				extendedCategories.length > 7 &&
 				extendedCategories.length <= 30
 			) {
+				// > 7 ngày và < 30 ngày: Hiển thị mỗi 5 ngày một mốc
 				tickInterval = 5;
 				dateFormatter = 'dd MMM yyyy';
 			} else if (
 				extendedCategories.length > 30 &&
 				extendedCategories.length <= 365
 			) {
+				// > 30 ngày và < 1 năm: Hiển thị mỗi tháng một mốc
 				tickInterval = 30;
 				dateFormatter = 'MMM yyyy';
 			} else {
+				// > 1 năm: Hiển thị mỗi 3 tháng một mốc
 				tickInterval = 90;
 				dateFormatter = 'MMM yyyy';
 			}
-
 			const options = {
 				chart: {
 					type: 'line',
@@ -1902,24 +1904,24 @@ import { DataTable } from 'simple-datatables';
 					},
 				],
 				xaxis: {
+					type: 'datetime',
 					categories: extendedCategories,
-					tickAmount: Math.floor(
-						extendedCategories.length / tickInterval
-					),
 					labels: {
-						rotate: -45,
-						formatter: function (value) {
-							const date = new Date(value);
-							return !isNaN(date)
-								? date.toLocaleDateString('en-GB', {
-										day: '2-digit',
-										month: 'short',
-										year: dateFormatter.includes('yyyy')
-											? 'numeric'
-											: undefined,
-									})
-								: value;
+						formatter: function (val, index) {
+							// Hiển thị nhãn tại các mốc theo quy tắc tickInterval
+							// if (index % tickInterval === 0) {
+							return new Date(val).toLocaleDateString('en-GB', {
+								year: 'numeric',
+								month: 'short',
+								day: dateFormatter.includes('dd')
+									? 'numeric'
+									: undefined,
+							});
+							// } else {
+							// 	return ''; // Không hiển thị nhãn nếu không thỏa mãn khoảng cách
+							// }
 						},
+						rotate: -45,
 					},
 				},
 				yaxis: {
