@@ -2633,30 +2633,31 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$('#search-shares').on('keyup', function () {
-			const searchValue = $(this).val().toLowerCase();
+			const searchValue = $(this).val().toLowerCase().trim(); 
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
 			let hasResults = false;
-
+		
 			sharesResult
 				.find('li')
 				.not('.no-results')
 				.each(function () {
-					const shareName = $(this).text().toLowerCase();
-					if (shareName.includes(searchValue)) {
+					const shareName = $(this).text().toLowerCase().trim();
+					if (shareName === searchValue) {
 						$(this).show();
 						hasResults = true;
 					} else {
 						$(this).hide();
 					}
 				});
-
+		
 			if (!hasResults) {
 				noResults.removeClass('hidden');
 			} else {
 				noResults.addClass('hidden');
 			}
 		});
+		
 
 		$(document).on('click', function (e) {
 			if (!$(e.target).closest('.shares-result, #search-shares').length) {
