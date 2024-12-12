@@ -314,12 +314,12 @@ get_header();
 			<div class="relative">
 				<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 				<div
-					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium bg-white">
-					<div class="flex rounded-md overflow-hidden">
+					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white">
+					<div class="flex">
 						<div
 							class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
 							<div
-								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
+								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
 								Ngành
 							</div>
 							<ul>
@@ -365,7 +365,7 @@ get_header();
 							class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal">
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 									Mã CK
 								</div>
 								<ul>
@@ -415,7 +415,7 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 									DTT 2024
 									<p>
 										(tỷ VND)
