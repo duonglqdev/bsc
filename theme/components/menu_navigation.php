@@ -2,14 +2,14 @@
 $style = $args['data'] ?? get_sub_field('style') ?: 'nhdt';
 if ($style == 'nhdt') {
 ?>
-    <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 menu_navigation" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php if (have_rows('menu_navigation')) { ?>
             <div class="container">
-                <ul class="flex justify-between bank-nav-tab">
+                <ul class="flex bank-nav-tab hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold xl:text-lg xl:py-4 py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
