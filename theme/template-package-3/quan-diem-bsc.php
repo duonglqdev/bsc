@@ -119,10 +119,10 @@ get_header();
 			<h3 class="font-bold mb-6 text-2xl">Dự báo vĩ mô</h3>
 			<h4 class="text-center font-bold text-primary-300 mb-4">Dự báo kinh tế
 				vĩ mô Việt Nam 2024-2025</h4>
-			<div class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs overflow-hidden">
+			<div class="border border-[#C9CCD2] rounded-lg flex font-medium overflow-hidden">
 				<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
 					<div
-						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
+						class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[71px] border-b border-[#C9CCD2] mb-1.5">
 						<div
 							class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
 							<p>TB 8 năm <br>
