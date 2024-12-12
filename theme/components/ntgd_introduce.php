@@ -36,15 +36,15 @@
         <?php
         $style = get_sub_field('style') ?: 'style1';
         ?>
-        <div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex 2xl:px-[114px] px-12 mt-10 min-h-[350px]"
+        <div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat flex 2xl:px-24 px-12 mt-10 min-h-[350px]"
             style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
             <div class="lg:w-1/2 lg:flex flex-col justify-center">
+                <?php if (get_sub_field('title')) { ?>
+                    <h2 class="heading-title mb-8">
+                        <?php the_sub_field('title') ?>
+                    </h2>
+                <?php } ?>
                 <div class="2xl:max-w-[480px]">
-                    <?php if (get_sub_field('title')) { ?>
-                        <h2 class="heading-title mb-8">
-                            <?php the_sub_field('title') ?>
-                        </h2>
-                    <?php } ?>
                     <?php if ($style == 'style1') {
                     ?>
                         <?php
