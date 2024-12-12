@@ -55,12 +55,12 @@ $time_cache = 300;
                     $GetRecommendedCategory = get_data_with_cache('GetSymbolRecommendedPerformance', $array_data, $time_cache);
                     if ($GetRecommendedCategory) {
                     ?>
-                        <div class="flex-1 flex items-center flex-wrap gap-4 mb-10">
+                        <div class="grid grid-cols-3 gap-4 mb-10">
                             <?php
                             foreach ($GetRecommendedCategory->d as $news) {
                             ?>
                                 <a href="javascript:void(0)"
-                                    class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
+                                    class="inline-flex justify-center rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
                                     <span>
                                         <?php echo $news->SYMBOL ?>
                                     </span>
