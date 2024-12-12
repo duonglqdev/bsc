@@ -821,7 +821,7 @@ function filter_details_symbol()
             class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
             <thead>
                 <tr>
-                    <th class="!pl-5 cursor-pointer"><?php _e('Mã CK', 'bsc') ?>
+                    <th class="!pl-5 cursor-pointer filter-table"><?php _e('Mã CK', 'bsc') ?>
                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                     </th>
 
