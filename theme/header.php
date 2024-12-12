@@ -39,7 +39,7 @@
 							<div class="py-3 pl-6 flex items-center">
 								<div class="flex">
 									<input type="radio" id="cp" name="investment" class="hidden peer"
-										value="co_phieu">
+										value="co_phieu" checked>
 									<label for="cp"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 										<?php _e('Cổ phiếu', 'bsc') ?>
@@ -47,7 +47,7 @@
 								</div>
 								<div class="flex ml-4 md:pr-[22px] pr-5 border-r border-white">
 									<input type="radio" id="other" name="investment" class="hidden peer"
-										checked>
+										>
 									<label for="other"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 										<?php _e('Khác', 'bsc') ?>
