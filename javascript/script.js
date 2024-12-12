@@ -36,6 +36,7 @@ import { DataTable } from 'simple-datatables';
 		//
 		handleSearch();
 		sameHeight();
+		resetForm();
 	});
 
 	function menuMobile() {
@@ -2795,4 +2796,18 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	});
+
+	function resetForm() {
+		$('#select_year').change(function () {
+			$('#datepicker-range-start').val('');
+			$('#datepicker-range-end').val('');
+		});
+
+		$('#datepicker-range-start, #datepicker-range-end').on(
+			'changeDate',
+			function () {
+				$('#select_year').val('');
+			}
+		);
+	}
 })(jQuery);
