@@ -13,7 +13,7 @@ if ($args['data']) {
             $banner = wp_get_attachment_image_url(get_field('cddmkn1_background_banner', 'option'), 'full');
             $style = get_field('cddmkn1_background_banner_display', 'option') ?: 'default';
             $breadcrumb = 'khuyennghi';
-            $title_lienquan = __('khuyến nghị', 'bsc');
+            $title_lienquan = __('báo cáo', 'bsc');
         } else {
             $term = get_name_by_tax_id($categoryid, $get_array_id_taxonomy);
             if ($term) {
@@ -157,17 +157,6 @@ get_header();
                     </div>
                 </div>
                 <div class="flex-1 space-y-8">
-                    <?php if ($news->content) { ?>
-                        <div class="summary">
-                            <h2 class="text-2xl font-bold mb-4">
-                                <?php _e('Tóm tắt báo cáo', 'bsc') ?>
-                            </h2>
-                            <div
-                                class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2">
-                                <?php echo $news->content ?>
-                            </div>
-                        </div>
-                    <?php } ?>
                     <?php if ($news->description) { ?>
                         <div class="detail">
                             <h2 class="text-2xl font-bold mb-4">

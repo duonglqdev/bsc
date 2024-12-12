@@ -22,8 +22,14 @@ function callApi($url, $data = false, $method = "GET")
 }
 
 
-function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = 'http://10.21.170.17:86/', $method = "GET")
+function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = null, $method = "GET")
 {
+    if (empty($url_end)) {
+        $url_end = get_field('cdapi_ip_address_default', 'option');
+        if (empty($url_end)) {
+            return null; // Nếu không có URL, trả về null để tránh lỗi
+        }
+    }
     if ($method == 'POST') {
         // $cache_key = $endpoint . '_' . md5($array_data);    
         // $cached_data = wp_cache_get($cache_key);
@@ -270,7 +276,7 @@ function custom_template_redirect_for_co_phieu()
             global $custom_meta_data;
             update_co_phieu_view_count_option($co_phieu_id);
             $custom_meta_data = array(
-                'title' => $co_phieu_id,
+                'title' => __('Cổ phiếu', 'bsc') . ' ' . strtoupper($co_phieu_id),
                 'description' => $co_phieu->description,
                 'thumbnail' => $co_phieu->imagethumbnail
             );
