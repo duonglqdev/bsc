@@ -138,75 +138,160 @@ $type_search =  $_GET['type_search'] ?: 'default';
 					$post_count = $post_per_page * $paged;
 					$total_post = 0;
 					$time_cache = 300;
-					if ($type_search == 'default') {
-						$args = array(
-							'post_type' => 'any',
-							'post_status' => 'publish',
-							'posts_per_page' => $posts_per_page,
-							's' => $search,
-							'paged' => $paged,
-						);
-						$filter_job = new WP_Query($args);
-						$current_total_post = $filter_job->post_count;
-						$total_news = $filter_job->found_posts ?: 0;
-						$total_post = $total_post + $total_news;
-						$array_data_GetNews = array(
-							'lang' => pll_current_language(),
-							'title' => $search,
-							'maxitem' => 1,
-						);
-						$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-						if ($response_GetNews) {
-							if ($response_GetNews->totalrecord) {
-								$total_GetNews = $response_GetNews->totalrecord;
-								$total_post = $total_post + $total_GetNews;
+					$all_results = array();
+					if (isset($_GET['s']) && trim($_GET['s']) === '') {
+					} else {
+						if ($type_search == 'default') {
+							$args = array(
+								'post_type' => 'any',
+								'post_status' => 'publish',
+								'posts_per_page' => $posts_per_page,
+								's' => $search,
+								'paged' => $paged,
+							);
+							$filter_job = new WP_Query($args);
+							$current_total_post = $filter_job->post_count;
+							$total_news = $filter_job->found_posts ?: 0;
+							$total_post = $total_post + $total_news;
+							$array_data_GetNews = array(
+								'lang' => pll_current_language(),
+								'title' => $search,
+								'maxitem' => 1,
+							);
+							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+							if ($response_GetNews) {
+								if ($response_GetNews->totalrecord) {
+									$total_GetNews = $response_GetNews->totalrecord;
+									$total_post = $total_post + $total_GetNews;
+								}
 							}
-						}
-						$array_data_GetReportsBySymbol = array(
-							'lang' => pll_current_language(),
-							'title' => $search,
-							'maxitem' => 1,
-						);
-						$response_GetReportsBySymbol = get_data_with_cache('GetReportsBySymbol', $array_data_GetReportsBySymbol, $time_cache);
-						if ($response_GetReportsBySymbol) {
-							if ($response_GetReportsBySymbol->totalrecord) {
-								$total_GetReportsBySymbol = $response_GetReportsBySymbol->totalrecord;
-								$total_post = $total_post + $total_GetReportsBySymbol;
+							$array_data_GetReportsBySymbol = array(
+								'lang' => pll_current_language(),
+								'title' => $search,
+								'maxitem' => 1,
+							);
+							$response_GetReportsBySymbol = get_data_with_cache('GetReportsBySymbol', $array_data_GetReportsBySymbol, $time_cache);
+							if ($response_GetReportsBySymbol) {
+								if ($response_GetReportsBySymbol->totalrecord) {
+									$total_GetReportsBySymbol = $response_GetReportsBySymbol->totalrecord;
+									$total_post = $total_post + $total_GetReportsBySymbol;
+								}
 							}
-						}
-						$all_results = array();
-						if ($total_post > 0) {
+							if ($total_post > 0) {
+								if ($filter_job->have_posts()) {
+									while ($filter_job->have_posts()) :
+										$filter_job->the_post();
+										if (get_field('introduce')) {
+											$check_body = get_field('introduce');
+										} else {
+											$check_body  = get_the_content();
+										}
+										$all_results[] = array(
+											'type' => 'post',
+											'title' => get_the_title(),
+											'permalink' => get_permalink(),
+											'body' => bsc_get_text_excerpt($check_body, 300),
+										);
+									endwhile;
+								}
+								if ($current_total_post < $post_per_page) {
+									$post_thieu_GetNews  = $post_per_page - $current_total_post;
+									if ($post_thieu_GetNews != $post_per_page) {
+										$index_GetNews = 1;
+									} else {
+										$index_GetNews =  ($_GET['post_page'] - 1) * $post_per_page - $total_news + 1;
+									}
+									$array_data_GetNews = array(
+										'lang' => pll_current_language(),
+										'title' => $search,
+										'maxitem' => $post_thieu_GetNews,
+										'index' => $index_GetNews
+									);
+									$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+									if ($response_GetNews && $response_GetNews->d) {
+										foreach ($response_GetNews->d as $news) {
+											$all_results[] = array(
+												'type' => 'news',
+												'title' => htmlspecialchars($news->title),
+												'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+												'body' => bsc_get_text_excerpt($news->description, 300),
+											);
+										}
+									}
+									if ($post_count > ($total_GetNews + $total_news)) {
+										if (($post_count - ($total_GetNews + $total_news)) < $post_per_page) {
+											$current_total_post_GetNews = $post_per_page - ($total_GetNews + $total_news) % $post_per_page;
+										} else {
+											$current_total_post_GetNews = 0;
+										}
+										$post_thieu_GetReportsBySymbol  = $post_per_page - $current_total_post_GetNews;
+										if ($post_thieu_GetReportsBySymbol != $post_per_page) {
+											$index_GetReportsBySymbol = 1;
+										} else {
+											$index_GetReportsBySymbol =  ($_GET['post_page'] - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
+										}
+										$array_data_GetReportsBySymbol = array(
+											'lang' => pll_current_language(),
+											'title' => $search,
+											'maxitem' => $post_thieu_GetReportsBySymbol,
+											'index' => $index_GetReportsBySymbol
+										);
+										$response_GetReportsBySymbol = get_data_with_cache('GetReportsBySymbol', $array_data_GetReportsBySymbol, $time_cache);
+										if ($response_GetReportsBySymbol && $response_GetReportsBySymbol->d) {
+											foreach ($response_GetReportsBySymbol->d as $news) {
+												$all_results[] = array(
+													'type' => 'news',
+													'title' => htmlspecialchars($news->title),
+													'permalink' => slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)),
+												);
+											}
+										}
+									}
+								}
+							}
+						} elseif ($type_search == 'page') {
+							$args = array(
+								'post_type' => 'page',
+								'post_status' => 'publish',
+								'posts_per_page' => $posts_per_page,
+								's' => $search,
+								'paged' => $paged,
+							);
+							$filter_job = new WP_Query($args);
+							$total_news = $filter_job->found_posts ?: 0;
+							$total_post = $total_post + $total_news;
 							if ($filter_job->have_posts()) {
 								while ($filter_job->have_posts()) :
 									$filter_job->the_post();
-									if (get_field('introduce')) {
-										$check_body = get_field('introduce');
-									} else {
-										$check_body  = get_the_content();
-									}
 									$all_results[] = array(
 										'type' => 'post',
 										'title' => get_the_title(),
 										'permalink' => get_permalink(),
-										'body' => bsc_get_text_excerpt($check_body, 300),
 									);
 								endwhile;
 							}
-							if ($current_total_post < $post_per_page) {
-								$post_thieu_GetNews  = $post_per_page - $current_total_post;
-								if ($post_thieu_GetNews != $post_per_page) {
-									$index_GetNews = 1;
-								} else {
-									$index_GetNews =  ($_GET['post_page'] - 1) * $post_per_page - $total_news + 1;
-								}
+						} elseif ($type_search == 'news') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
+							}
+							$result = get_array_id_taxonomy('category');
+							if (!empty($result)) {
+								$id_api_list = implode(',', array_column($result, 'id_api'));
 								$array_data_GetNews = array(
 									'lang' => pll_current_language(),
 									'title' => $search,
-									'maxitem' => $post_thieu_GetNews,
-									'index' => $index_GetNews
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
 								);
 								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
 								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
 									foreach ($response_GetNews->d as $news) {
 										$all_results[] = array(
 											'type' => 'news',
@@ -216,289 +301,207 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										);
 									}
 								}
-								if ($post_count > ($total_GetNews + $total_news)) {
-									if (($post_count - ($total_GetNews + $total_news)) < $post_per_page) {
-										$current_total_post_GetNews = $post_per_page - ($total_GetNews + $total_news) % $post_per_page;
-									} else {
-										$current_total_post_GetNews = 0;
-									}
-									$post_thieu_GetReportsBySymbol  = $post_per_page - $current_total_post_GetNews;
-									if ($post_thieu_GetReportsBySymbol != $post_per_page) {
-										$index_GetReportsBySymbol = 1;
-									} else {
-										$index_GetReportsBySymbol =  ($_GET['post_page'] - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
-									}
-									$array_data_GetReportsBySymbol = array(
-										'lang' => pll_current_language(),
-										'title' => $search,
-										'maxitem' => $post_thieu_GetReportsBySymbol,
-										'index' => $index_GetReportsBySymbol
-									);
-									$response_GetReportsBySymbol = get_data_with_cache('GetReportsBySymbol', $array_data_GetReportsBySymbol, $time_cache);
-									if ($response_GetReportsBySymbol && $response_GetReportsBySymbol->d) {
-										foreach ($response_GetReportsBySymbol->d as $news) {
-											$all_results[] = array(
-												'type' => 'news',
-												'title' => htmlspecialchars($news->title),
-												'permalink' => slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)),
-											);
-										}
-									}
-								}
 							}
-						}
-					} elseif ($type_search == 'page') {
-						$args = array(
-							'post_type' => 'page',
-							'post_status' => 'publish',
-							'posts_per_page' => $posts_per_page,
-							's' => $search,
-							'paged' => $paged,
-						);
-						$filter_job = new WP_Query($args);
-						$total_news = $filter_job->found_posts ?: 0;
-						$total_post = $total_post + $total_news;
-						if ($filter_job->have_posts()) {
-							while ($filter_job->have_posts()) :
-								$filter_job->the_post();
-								$all_results[] = array(
-									'type' => 'post',
-									'title' => get_the_title(),
-									'permalink' => get_permalink(),
+						} elseif ($type_search == 'cong_dong') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
+							}
+							if (get_field('cdtnvcd2_id_danh_mục', 'option')) {
+								$id_api_list = get_field('cdtnvcd2_id_danh_mục', 'option');
+								$array_data_GetNews = array(
+									'lang' => pll_current_language(),
+									'title' => $search,
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
 								);
-							endwhile;
-						}
-					} elseif ($type_search == 'news') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						$result = get_array_id_taxonomy('category');
-						if (!empty($result)) {
-							$id_api_list = implode(',', array_column($result, 'id_api'));
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
-							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
-									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
-									);
+								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
+									foreach ($response_GetNews->d as $news) {
+										$all_results[] = array(
+											'type' => 'news',
+											'title' => htmlspecialchars($news->title),
+											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
+										);
+									}
 								}
 							}
-						}
-					} elseif ($type_search == 'cong_dong') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						if (get_field('cdtnvcd2_id_danh_mục', 'option')) {
-							$id_api_list = get_field('cdtnvcd2_id_danh_mục', 'option');
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
-							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
-									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
-									);
-								}
+						} elseif ($type_search == 'khuyen_mai') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
 							}
-						}
-					} elseif ($type_search == 'khuyen_mai') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						if (get_field('cdctkm1_id_danh_mục', 'option')) {
-							$id_api_list = get_field('cdctkm1_id_danh_mục', 'option');
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
-							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
-									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
-									);
-								}
-							}
-						}
-					} elseif ($type_search == 'giao_dich') {
-						$args = array(
-							'post_type' => 'bieu-phi-giao-dich',
-							'post_status' => 'publish',
-							'posts_per_page' => $posts_per_page,
-							's' => $search,
-							'paged' => $paged,
-						);
-						$filter_job = new WP_Query($args);
-						$total_news = $filter_job->found_posts ?: 0;
-						$total_post = $total_post + $total_news;
-						if ($filter_job->have_posts()) {
-							while ($filter_job->have_posts()) :
-								$filter_job->the_post();
-								$all_results[] = array(
-									'type' => 'post',
-									'title' => get_the_title(),
-									'permalink' => get_permalink(),
+							if (get_field('cdctkm1_id_danh_mục', 'option')) {
+								$id_api_list = get_field('cdctkm1_id_danh_mục', 'option');
+								$array_data_GetNews = array(
+									'lang' => pll_current_language(),
+									'title' => $search,
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
 								);
-							endwhile;
-						}
-					} elseif ($type_search == 'bao_cao') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						$result = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
-						if (!empty($result)) {
-							$id_api_list = implode(',', array_column($result, 'id_api'));
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
-							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
-									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
-									);
+								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
+									foreach ($response_GetNews->d as $news) {
+										$all_results[] = array(
+											'type' => 'news',
+											'title' => htmlspecialchars($news->title),
+											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
+										);
+									}
 								}
 							}
-						}
-					} elseif ($type_search == 'kien_thuc') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						$result = get_array_id_taxonomy('danh-muc-kien-thuc');
-						if (!empty($result)) {
-							$id_api_list = implode(',', array_column($result, 'id_api'));
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
+						} elseif ($type_search == 'giao_dich') {
+							$args = array(
+								'post_type' => 'bieu-phi-giao-dich',
+								'post_status' => 'publish',
+								'posts_per_page' => $posts_per_page,
+								's' => $search,
+								'paged' => $paged,
 							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
+							$filter_job = new WP_Query($args);
+							$total_news = $filter_job->found_posts ?: 0;
+							$total_post = $total_post + $total_news;
+							if ($filter_job->have_posts()) {
+								while ($filter_job->have_posts()) :
+									$filter_job->the_post();
 									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
+										'type' => 'post',
+										'title' => get_the_title(),
+										'permalink' => get_permalink(),
 									);
-								}
+								endwhile;
 							}
-						}
-					} elseif ($type_search == 'co_dong') {
-						if (isset($_GET['post_page'])) {
-							$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
-						} else {
-							$index = 1;
-						}
-						$result = get_array_id_taxonomy('danh-muc-bao-cao');
-						if (!empty($result)) {
-							$id_api_list = implode(',', array_column($result, 'id_api'));
-							$array_data_GetNews = array(
-								'lang' => pll_current_language(),
-								'title' => $search,
-								'groupid' => $id_api_list,
-								'maxitem' => $post_per_page,
-								'index' => $index
-							);
-							$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
-							if ($response_GetNews && $response_GetNews->d) {
-								if ($response_GetNews->totalrecord) {
-									$total_GetNews = $response_GetNews->totalrecord;
-									$total_post = $total_post + $total_GetNews;
-								}
-								foreach ($response_GetNews->d as $news) {
-									$all_results[] = array(
-										'type' => 'news',
-										'title' => htmlspecialchars($news->title),
-										'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
-										'body' => bsc_get_text_excerpt($news->description, 300),
-									);
-								}
+						} elseif ($type_search == 'bao_cao') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
 							}
-						}
-					} elseif ($type_search == 'so_tay') {
-						$args = array(
-							'post_type' => 'so-tay-giao-dich',
-							'post_status' => 'publish',
-							'posts_per_page' => $posts_per_page,
-							's' => $search,
-							'paged' => $paged,
-						);
-						$filter_job = new WP_Query($args);
-						$total_news = $filter_job->found_posts ?: 0;
-						$total_post = $total_post + $total_news;
-						if ($filter_job->have_posts()) {
-							while ($filter_job->have_posts()) :
-								$filter_job->the_post();
-								$all_results[] = array(
-									'type' => 'post',
-									'title' => get_the_title(),
-									'permalink' => get_permalink(),
+							$result = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
+							if (!empty($result)) {
+								$id_api_list = implode(',', array_column($result, 'id_api'));
+								$array_data_GetNews = array(
+									'lang' => pll_current_language(),
+									'title' => $search,
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
 								);
-							endwhile;
+								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
+									foreach ($response_GetNews->d as $news) {
+										$all_results[] = array(
+											'type' => 'news',
+											'title' => htmlspecialchars($news->title),
+											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
+										);
+									}
+								}
+							}
+						} elseif ($type_search == 'kien_thuc') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
+							}
+							$result = get_array_id_taxonomy('danh-muc-kien-thuc');
+							if (!empty($result)) {
+								$id_api_list = implode(',', array_column($result, 'id_api'));
+								$array_data_GetNews = array(
+									'lang' => pll_current_language(),
+									'title' => $search,
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
+								);
+								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
+									foreach ($response_GetNews->d as $news) {
+										$all_results[] = array(
+											'type' => 'news',
+											'title' => htmlspecialchars($news->title),
+											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
+										);
+									}
+								}
+							}
+						} elseif ($type_search == 'co_dong') {
+							if (isset($_GET['post_page'])) {
+								$index = ($_GET['post_page'] - 1) * $post_per_page + 1;
+							} else {
+								$index = 1;
+							}
+							$result = get_array_id_taxonomy('danh-muc-bao-cao');
+							if (!empty($result)) {
+								$id_api_list = implode(',', array_column($result, 'id_api'));
+								$array_data_GetNews = array(
+									'lang' => pll_current_language(),
+									'title' => $search,
+									'groupid' => $id_api_list,
+									'maxitem' => $post_per_page,
+									'index' => $index
+								);
+								$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews, $time_cache);
+								if ($response_GetNews && $response_GetNews->d) {
+									if ($response_GetNews->totalrecord) {
+										$total_GetNews = $response_GetNews->totalrecord;
+										$total_post = $total_post + $total_GetNews;
+									}
+									foreach ($response_GetNews->d as $news) {
+										$all_results[] = array(
+											'type' => 'news',
+											'title' => htmlspecialchars($news->title),
+											'permalink' => slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)),
+											'body' => bsc_get_text_excerpt($news->description, 300),
+										);
+									}
+								}
+							}
+						} elseif ($type_search == 'so_tay') {
+							$args = array(
+								'post_type' => 'so-tay-giao-dich',
+								'post_status' => 'publish',
+								'posts_per_page' => $posts_per_page,
+								's' => $search,
+								'paged' => $paged,
+							);
+							$filter_job = new WP_Query($args);
+							$total_news = $filter_job->found_posts ?: 0;
+							$total_post = $total_post + $total_news;
+							if ($filter_job->have_posts()) {
+								while ($filter_job->have_posts()) :
+									$filter_job->the_post();
+									$all_results[] = array(
+										'type' => 'post',
+										'title' => get_the_title(),
+										'permalink' => get_permalink(),
+									);
+								endwhile;
+							}
 						}
 					}
 					$total_page = ceil($total_post / $post_per_page);
