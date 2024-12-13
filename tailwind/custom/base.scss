@@ -213,8 +213,48 @@
 			}
 		}
 	}
+	.custom-table {
+		thead {
+			> tr:first-child {
+				th {
+					&:first-child {
+						@apply px-[18px] py-5;
+					}
+				}
+			}
+		
+		}
+		// tr:nth-child(odd) td {
+		// 	@apply bg-[#EBF4FA];
+		// }
+		// tr:nth-child(even) td {
+		// 	@apply bg-[#DFF2FF];
+		// }
+		table {
+			tbody {
+				tr {
+					td {
+						&:first-child {
+							@apply px-[18px] py-5;
+						}
+					}
+				}
+			}
+			ul {
+				@apply text-base mb-0;
+			}
+		}
+	}
 }
+.custom-table {
+	thead {
+		th {
+			@apply bg-[#DFF2FF] text-primary-400;
+		}
+	}
 
+
+}
 .is-mobile {
 	.container {
 		@apply px-5;
@@ -951,40 +991,7 @@ button#ib-button-messaging {
 	}
 }
 
-.custom-table {
-	thead {
-		> tr:first-child {
-			th {
-				&:first-child {
-					@apply px-[18px] py-5;
-				}
-			}
-		}
-		th {
-			@apply bg-[#DFF2FF] text-primary-400;
-		}
-	}
-	// tr:nth-child(odd) td {
-	// 	@apply bg-[#EBF4FA];
-	// }
-	// tr:nth-child(even) td {
-	// 	@apply bg-[#DFF2FF];
-	// }
-	table {
-		tbody {
-			tr {
-				td {
-					&:first-child {
-						@apply px-[18px] py-5;
-					}
-				}
-			}
-		}
-		ul {
-			@apply text-base mb-0;
-		}
-	}
-}
+
 
 .content-contact {
 	p:has(+ ul) {
