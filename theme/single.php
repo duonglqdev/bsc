@@ -1,4 +1,10 @@
 <?php
+$banner = wp_get_attachment_image_url(
+	wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+		? get_field('cdc1_background_banner_mobile', 'option')
+		: get_field('cdc1_background_banner', 'option'),
+	'full'
+);
 if ($args['data']) {
 	$news = $args['data'];
 	$title = $news->title;
@@ -26,7 +32,14 @@ if ($args['data']) {
 		$tax_name = get_field('cdtnvcd1_title', 'option');
 		$breadcrumb = 'congdong';
 		$time_cache = get_field('cdtnvcd2_time_cache', 'option') ?: 300;
-		$banner = wp_get_attachment_image_url(get_field('cdtnvcd1_background_banner', 'option'), 'full');
+		if (get_field('cdtnvcd1_background_banner', 'option') || get_field('cdtnvcd1_background_banner_mobile', 'option')) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					? get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					: get_field('cdtnvcd1_background_banner ', 'option'),
+				'full'
+			);
+		}
 		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
 	} elseif ($groupid == $chuong_trinh_khuyen_mai_id) {
 		$title_lienquan = __('Khuyến mãi', 'bsc');
@@ -34,7 +47,14 @@ if ($args['data']) {
 		$tax_name = get_field('cdctkm1_title', 'option');
 		$breadcrumb = 'khuyenmai';
 		$time_cache = get_field('cdctkm1_time_cache', 'option') ?: 300;
-		$banner = wp_get_attachment_image_url(get_field('cdctkm1_background_banner', 'option'), 'full');
+		if (get_field('cdctkm1_background_banner', 'option') || get_field('cdctkm1_background_banner_mobile', 'option')) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdctkm1_background_banner_mobile ', 'option')
+					? get_field('cdctkm1_background_banner_mobile ', 'option')
+					: get_field('cdctkm1_background_banner ', 'option'),
+				'full'
+			);
+		}
 		$style = get_field('cdctkm1_background_banner_display', 'option') ?: 'default';
 	} else {
 		$template_lienquan = 'khuyen-mai';
@@ -69,7 +89,14 @@ if ($args['data']) {
 		}
 		$tax_name = $tax->name;
 		$tax_id = $tax->term_id;
-		$banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+		if (get_field('background_banner', $tax) || get_field('background_banner_mobile', $tax)) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('background_banner_mobile', $tax)
+					? get_field('background_banner_mobile', $tax)
+					: get_field('background_banner', $tax),
+				'full'
+			);
+		}
 		$style = get_field('background_banner_display', $tax) ?: 'default';
 	}
 } else {
@@ -271,7 +298,7 @@ get_header();
 								<?php echo svg('date') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
-							
+
 							<div class="share flex items-center gap-[12px] ml-12">
 								<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 									<strong>

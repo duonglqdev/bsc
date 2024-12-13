@@ -47,7 +47,7 @@
         },
         {
             "key": "field_674870e6d3a25",
-            "label": "Background Banner",
+            "label": "Background Banner Desktop",
             "name": "cddmkn1_background_banner",
             "aria-label": "",
             "type": "image",
@@ -55,7 +55,32 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_675bf9e0857a5",
+            "label": "Background Banner Mobile",
+            "name": "cddmkn1_background_banner_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -333,5 +358,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732801969
+    "modified": 1734081130
 }
