@@ -299,10 +299,6 @@
   @apply text-base mb-0;
 }
 
-.custom-table thead th {
-  @apply bg-[#DFF2FF] text-primary-400;
-}
-
 .is-mobile .container {
   @apply px-5;
 }
@@ -466,6 +462,14 @@
 }
 .is-mobile .form_support button {
   @apply block w-full text-xs mt-6;
+}
+
+.chat-bar-heading {
+  @apply hidden;
+}
+
+.custom-table thead th {
+  @apply bg-[#DFF2FF] text-primary-400;
 }
 
 svg {
