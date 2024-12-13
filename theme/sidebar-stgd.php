@@ -6,7 +6,7 @@ $categories = get_terms( [
 $current_post_id = get_the_ID();
 ?>
 <div
-	class="sticky top-5 z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : '' ?>">
+	class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
 	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 		<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
 			<?php foreach ( $categories as $category ) : ?>

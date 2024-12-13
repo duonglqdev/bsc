@@ -289,6 +289,19 @@
 .is-desktop .form_support .form-group-flex {
   @apply flex gap-[14px];
 }
+.is-desktop .custom-table thead > tr:first-child th:first-child {
+  @apply px-[18px] py-5;
+}
+.is-desktop .custom-table table tbody tr td:first-child {
+  @apply px-[18px] py-5;
+}
+.is-desktop .custom-table table ul {
+  @apply text-base mb-0;
+}
+
+.custom-table thead th {
+  @apply bg-[#DFF2FF] text-primary-400;
+}
 
 .is-mobile .container {
   @apply px-5;
@@ -935,19 +948,6 @@ button#ib-button-messaging {
 }
 .sidebar-base li.active .li-plus.active {
   @apply rotate-0;
-}
-
-.custom-table thead > tr:first-child th:first-child {
-  @apply px-[18px] py-5;
-}
-.custom-table thead th {
-  @apply bg-[#DFF2FF] text-primary-400;
-}
-.custom-table table tbody tr td:first-child {
-  @apply px-[18px] py-5;
-}
-.custom-table table ul {
-  @apply text-base mb-0;
 }
 
 .content-contact p:has(+ ul) {

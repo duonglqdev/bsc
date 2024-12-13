@@ -1,6 +1,6 @@
 <div class="table__item mb-10 table_2">
     <?php if (get_sub_field('title')) { ?>
-        <ul class="pl-5 list-disc mb-6 font-bold lg:text-xl">
+        <ul class="pl-5 list-disc font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-6':'mb-4' ?>">
             <li>
                 <?php the_sub_field('title') ?>
             </li>
@@ -11,11 +11,11 @@
             while (have_rows('table_title')): the_row(); ?>
                 <thead>
                     <tr>
-                        <th rowspan="2" class="w-[7.313%] px-0">
+                        <th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[7.313%] px-0':'w-[50px] whitespace-nowrap' ?>">
                             <?php _e('STT', 'bsc') ?>
                         </th>
-                        <th rowspan="2" class="w-[36.72%]"><?php the_sub_field('cot_1') ?></th>
-                        <th rowspan="2" class="w-[55.93%] !py-2"><?php the_sub_field('cot_2') ?></th>
+                        <th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[36.72%]':'w-1/2' ?>"><?php the_sub_field('cot_1') ?></th>
+                        <th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[55.93%]':'w-1/2' ?> !py-2"><?php the_sub_field('cot_2') ?></th>
                     </tr>
                 </thead>
         <?php
@@ -112,7 +112,7 @@
         <?php } ?>
     </table>
     <?php if (get_sub_field('content')) { ?>
-        <div class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc prose-ul:!text-base">
+        <div class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:!text-base':'' ?>">
             <?php the_sub_field('content') ?>
         </div>
     <?php } ?>
