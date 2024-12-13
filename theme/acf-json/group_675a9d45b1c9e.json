@@ -214,7 +214,7 @@
             "name": "cdapi_ip_address_url_call_back",
             "aria-label": "",
             "type": "text",
-            "instructions": "Domain sẽ lấy mặc định theo ngôn ngữ, nên chỉ cần điền hậu tố đằng sau",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -224,7 +224,7 @@
             },
             "default_value": "",
             "maxlength": "",
-            "placeholder": "callback",
+            "placeholder": "https:\/\/abc.com\/callback",
             "prepend": "",
             "append": ""
         },
@@ -267,5 +267,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734064561
+    "modified": 1734077397
 }

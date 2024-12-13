@@ -458,7 +458,7 @@ add_filter('rank_math/opengraph/image', function ($image) {
 //Check login
 function bsc_url_sso()
 {
-    $redirect_uri = get_home_url() . '/' . get_field('cdapi_ip_address_url_call_back', 'option');
+    $redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
     $client_id = get_field('cdapi_ip_address_clientid', 'option');
     $current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
     $url = get_field('cdapi_ip_address_apilogin', 'option') . "sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
@@ -512,7 +512,9 @@ function detectDevice()
 * Create page callback
 */
 add_action('init', function () {
-    if (strpos($_SERVER['REQUEST_URI'], '/' . get_field('cdapi_ip_address_url_call_back', 'option')) !== false) {
+    $callback_url = get_field('cdapi_ip_address_url_call_back', 'option');
+    $parsed_url = parse_url($callback_url, PHP_URL_PATH);
+    if (strpos($_SERVER['REQUEST_URI'], $parsed_url) !== false) {
         bsc_handle_sso_callback();
         exit;
     } elseif (strpos($_SERVER['REQUEST_URI'], '/download-app-trading') !== false) {
@@ -537,7 +539,7 @@ function bsc_handle_sso_callback()
 {
     if (isset($_GET['code'])) {
         $code = sanitize_text_field($_GET['code']);
-        $redirect_uri = get_home_url() . '/' . get_field('cdapi_ip_address_url_call_back', 'option');
+        $redirect_uri =  get_field('cdapi_ip_address_url_call_back', 'option');
         $client_id = get_field('cdapi_ip_address_clientid', 'option');
         $client_secret = get_field('cdapi_ip_address_clientsecret', 'option');
         $token_url = get_field('cdapi_ip_address_apiurl', 'option') . 'sso/oauth/token';
