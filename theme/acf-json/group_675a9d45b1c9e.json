@@ -22,7 +22,7 @@
         },
         {
             "key": "field_675a9f115491b",
-            "label": "IP API",
+            "label": "API nội bộ",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -51,9 +51,200 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "http:\/\/10.21.170.17:86\/",
+            "default_value": "",
             "maxlength": "",
             "placeholder": "http:\/\/10.21.170.17:86\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb43891d7b",
+            "label": "API Algo",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_675bb44891d7d",
+            "label": "Url API Algo",
+            "name": "cdapi_ip_address_url_api_algo",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/api-uat-algo.bsc.com.vn\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb48f91d7e",
+            "label": "ApiPrice",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_675bb49991d7f",
+            "label": "URL API Price",
+            "name": "cdapi_ip_address_url_api_price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/priceapi.bsc.com.vn\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb75491d80",
+            "label": "API SSO",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_675bb75f91d81",
+            "label": "ApiLogin",
+            "name": "cdapi_ip_address_apilogin",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/trading-uat.bsjsc.com.vn\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb79e91d82",
+            "label": "ClientId",
+            "name": "cdapi_ip_address_clientid",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "L2B6V5LX1S",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb81e91d83",
+            "label": "ClientSecret",
+            "name": "cdapi_ip_address_clientsecret",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "dn8O1K4LSPUEN1FXFt5EhXrsKZVHZS",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb86291d84",
+            "label": "Url call back",
+            "name": "cdapi_ip_address_url_call_back",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/abc.com\/callback",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_675bb90b91d85",
+            "label": "ApiUrl",
+            "name": "cdapi_ip_address_apiurl",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "https:\/\/tradeapi-uat.bsjsc.com.vn\/",
             "prepend": "",
             "append": ""
         }
@@ -76,5 +267,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733992713
+    "modified": 1734077397
 }

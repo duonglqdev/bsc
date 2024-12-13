@@ -3,7 +3,7 @@ $check_logout = bsc_is_user_logged_out();
 $time_cache = 300;
 $response_instruments_array = array();
 $array_data_instruments = array();
-$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
+$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
 if ($response_instruments) {
     $response_instruments_array = $response_instruments->d;
 }
@@ -20,7 +20,7 @@ $class = $check_logout['class'];
                 <?php } ?>
                 <?php
                 $array_data_GetAllDanhMuc = array();
-                $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/');
+                $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/');
                 if ($response_GetAllDanhMuc) {
                 ?>
                     <ul class="customtab-nav flex items-center gap-4 mb-6">
@@ -55,7 +55,7 @@ $class = $check_logout['class'];
                                     <?php
                                     if (!$check_logout) {
                                         $array_data_list_bsc = array();
-                                        $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/', 'POST');
+                                        $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/', 'POST');
                                         if ($response_list_bsc) {
                                     ?>
                                             <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
@@ -71,7 +71,7 @@ $class = $check_logout['class'];
                                                 ?>
                                                         <ul
                                                             class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
-                                                            <li class="w-[8%] font-medium"><?php echo $list_bsc->machungkhoan ?></li>
+                                                            <li class="w-[8%] font-medium"><a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a></li>
                                                             <?php
                                                             $status = $list_bsc->hinhthuc;
                                                             $check_status = get_color_by_number_bsc($status);
@@ -90,9 +90,17 @@ $class = $check_logout['class'];
                                                             </li>
                                                             <?php if ($stockData->changePercent) {
                                                                 if (($stockData->changePercent) > 0) {
-                                                                    $text_color_class_price = 'text-[#1CCD83]';
+                                                                    if ($stockData->closeprice == $stockData->ceiling) {
+                                                                        $text_color_class_price = 'text-[#7F1CCD]';
+                                                                    } else {
+                                                                        $text_color_class_price = 'text-[#1CCD83]';
+                                                                    }
                                                                 } elseif (($stockData->changePercent) < 0) {
-                                                                    $text_color_class_price = 'text-[#FE5353]';
+                                                                    if ($stockData->closeprice  == $stockData->ceiling) {
+                                                                        $text_color_class_price = 'text-[#1ABAFE]';
+                                                                    } else {
+                                                                        $text_color_class_price = 'text-[#FE5353]';
+                                                                    }
                                                                 } else {
                                                                     $text_color_class_price = 'text-[#EB0]';
                                                                 }

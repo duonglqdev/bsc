@@ -6,11 +6,24 @@ if ($args['data']) {
     $link = 'javascript:void(0)';
     $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
     $id_current_post = $news->id;
+    $banner = wp_get_attachment_image_url(
+        wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+            ? get_field('cdc1_background_banner_mobile', 'option')
+            : get_field('cdc1_background_banner', 'option'),
+        'full'
+    );
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
         if ($categoryid == $danh_muc_khuyen_nghi) {
             $tax_name = get_field('cddmkn1_title', 'option');
-            $banner = wp_get_attachment_image_url(get_field('cddmkn1_background_banner', 'option'), 'full');
+            if (get_field('cddmkn1_background_banner', 'option') || get_field('cddmkn1_background_banner_mobile', 'option')) {
+                $banner = wp_get_attachment_image_url(
+                    wp_is_mobile() && bsc_is_mobile() && get_field('cddmkn1_background_banner_mobile ', 'option')
+                        ? get_field('cddmkn1_background_banner_mobile ', 'option')
+                        : get_field('cddmkn1_background_banner ', 'option'),
+                    'full'
+                );
+            }
             $style = get_field('cddmkn1_background_banner_display', 'option') ?: 'default';
             $breadcrumb = 'khuyennghi';
             $title_lienquan = __('báo cáo', 'bsc');
@@ -38,7 +51,14 @@ if ($args['data']) {
                 $tax = $taxonomy[0];
             }
             $tax_name = $tax->name;
-            $banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+            if (get_field('background_banner',  $tax) || get_field('background_banner_mobile',  $tax)) {
+                $banner = wp_get_attachment_image_url(
+                    wp_is_mobile() && bsc_is_mobile() && get_field('background_banner_mobile',  $tax)
+                        ? get_field('background_banner_mobile',  $tax)
+                        : get_field('background_banner',  $tax),
+                    'full'
+                );
+            }
             $style = get_field('background_banner_display', $tax) ?: 'default';
             $breadcrumb = 'baocao';
             $title_lienquan = __('báo cáo', 'bsc');

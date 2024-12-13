@@ -3,7 +3,20 @@ if ($args['search']) {
     $search = $args['search'];
     $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
-    $banner = wp_get_attachment_image_url(get_field('cdbcpt1_background_banner_tag', 'option'), 'full');
+    $banner = wp_get_attachment_image_url(
+        wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+            ? get_field('cdc1_background_banner_mobile', 'option')
+            : get_field('cdc1_background_banner', 'option'),
+        'full'
+    );
+    if (get_field('cdbcpt1_background_banner_tag', 'option') || get_field('cdbcpt1_background_banner_tag_mobile', 'option')) {
+        $banner = wp_get_attachment_image_url(
+            wp_is_mobile() && bsc_is_mobile() && get_field('cdbcpt1_background_banner_tag_mobile ', 'option')
+                ? get_field('cdbcpt1_background_banner_tag_mobile ', 'option')
+                : get_field('cdbcpt1_background_banner_tag ', 'option'),
+            'full'
+        );
+    }
     $style = get_field('cdbcpt1_background_banner_display_tag', 'option') ?: 'default';
     $title = get_field('cdbcpt1_title_tag', 'option');
     $breadcrumb = 'tagbaocao';

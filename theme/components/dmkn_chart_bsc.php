@@ -117,7 +117,7 @@ $check_logout = bsc_is_user_logged_out();
 $class_login = $check_logout ? $check_logout['class'] : '';
 $response_instruments_array = array();
 $array_data_instruments = array();
-$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
+$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
 if ($response_instruments) {
 	$response_instruments_array = $response_instruments->d;
 }
@@ -165,7 +165,7 @@ if ($data_bsc) {
 							<?php
 							if (!$check_logout) {
 								$array_data_list_bsc = array();
-								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/', 'POST');
+								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/', 'POST');
 								if ($response_list_bsc) {
 							?>
 									<div
@@ -207,10 +207,18 @@ if ($data_bsc) {
 													</div>
 													<?php
 													if ($stockData->changePercent) {
-														if ($stockData->changePercent > 0) {
-															$text_color_class_price = 'text-[#1CCD83]';
-														} elseif ($stockData->changePercent < 0) {
-															$text_color_class_price = 'text-[#FE5353]';
+														if (($stockData->changePercent) > 0) {
+															if ($stockData->closeprice == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#7F1CCD]';
+															} else {
+																$text_color_class_price = 'text-[#1CCD83]';
+															}
+														} elseif (($stockData->changePercent) < 0) {
+															if ($stockData->closeprice  == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#1ABAFE]';
+															} else {
+																$text_color_class_price = 'text-[#FE5353]';
+															}
 														} else {
 															$text_color_class_price = 'text-[#EB0]';
 														}
