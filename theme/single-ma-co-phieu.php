@@ -116,7 +116,7 @@ get_header();
 												class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('Trần', 'bsc') ?>
 											</p>
-											<p class="font-bold text-[#1CCD83] text-lg">
+											<p class="font-bold text-[#7F1CCD] text-lg">
 												<?php
 												if ($response_value->d[0]->ceiling) {
 													echo number_format(($response_value->d[0]->ceiling) / 1000, 2, '.', '');
@@ -180,7 +180,7 @@ get_header();
 												class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 												<?php _e('Sàn', 'bsc') ?>
 											</p>
-											<p class="font-bold text-[#FE5353] text-lg">
+											<p class="font-bold text-[#1ABAFE] text-lg">
 												<?php
 												if ($response_value->d[0]->floor) {
 													echo number_format(($response_value->d[0]->floor) / 1000, 2, '.', '');

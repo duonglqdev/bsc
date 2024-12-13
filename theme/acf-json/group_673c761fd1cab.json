@@ -334,7 +334,7 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "26",
                                         "class": "",
                                         "id": ""
                                     },
@@ -347,7 +347,7 @@
                                 },
                                 {
                                     "key": "field_670245d579144",
-                                    "label": "Hình ảnh",
+                                    "label": "Hình ảnh Desktop",
                                     "name": "image",
                                     "aria-label": "",
                                     "type": "image",
@@ -363,7 +363,41 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_6702453279141"
+                                },
+                                {
+                                    "key": "field_675c3dca30b1f",
+                                    "label": "Hình ảnh Mobile",
+                                    "name": "image_mobile",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6702454779142",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "20",
                                         "class": "",
                                         "id": ""
                                     },
@@ -7504,8 +7538,33 @@
                         },
                         {
                             "key": "field_6732341775116",
-                            "label": "Background",
+                            "label": "Background Desktop",
                             "name": "background",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675c38cac7d82",
+                            "label": "Background Mobile",
+                            "name": "background_mb",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
@@ -7537,7 +7596,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "100",
                                 "class": "",
                                 "id": ""
                             },
@@ -15756,8 +15815,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "table",
-                                    "parent_repeater": "field_673e34f6ae252",
+                                    "layout": "block",
                                     "sub_fields": [
                                         {
                                             "key": "field_673e3586ae257",
@@ -15839,7 +15897,8 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ]
+                                    ],
+                                    "parent_repeater": "field_673e34f6ae252"
                                 }
                             ]
                         }
@@ -16852,5 +16911,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734078796
+    "modified": 1734098393
 }
