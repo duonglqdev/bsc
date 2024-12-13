@@ -334,7 +334,7 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "26",
                                         "class": "",
                                         "id": ""
                                     },
@@ -347,7 +347,7 @@
                                 },
                                 {
                                     "key": "field_670245d579144",
-                                    "label": "Hình ảnh",
+                                    "label": "Hình ảnh Desktop",
                                     "name": "image",
                                     "aria-label": "",
                                     "type": "image",
@@ -363,7 +363,41 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_6702453279141"
+                                },
+                                {
+                                    "key": "field_675c3dca30b1f",
+                                    "label": "Hình ảnh Mobile",
+                                    "name": "image_mobile",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6702454779142",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "20",
                                         "class": "",
                                         "id": ""
                                     },
@@ -16877,5 +16911,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734097610
+    "modified": 1734098393
 }
