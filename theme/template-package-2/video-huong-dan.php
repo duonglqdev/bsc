@@ -33,7 +33,7 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="mt-12 xl:mb-[100px] mb-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-12 xl:mb-[100px] mb-20':'my-[50px]' ?>">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
 				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
@@ -102,22 +102,22 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<div class="grid md:grid-cols-2 grid-cols-1 gap-5 gap-x-6 gap-y-8">
+					<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-5 gap-x-6 gap-y-8':'gap-y-4' ?>">
 						<?php
 						for ($i = 0; $i < 10; $i++) {
 						?>
-							<div class="flex flex-col">
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex flex-col':'grid grid-cols-2 gap-4 items-center' ?>">
 								<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 									class="rounded-md overflow-hidden pt-[55.724%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
 									<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image-video.png"
 										alt="" class="absolute w-full h-full inset-0 object-cover">
 									<div
-										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-										<?php echo svg('play', '62', '62') ?>
+										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1] transition-all duration-500 hover:scale-110">
+										<?php echo svgClass('play', '', '','w-[62px] h-[62px] w-[21px] h-[21px]') ?>
 									</div>
 								</a>
 								<h4
-									class="font-Helvetica line-clamp-2 font-bold mt-5 transition-all duration-500 hover:text-green">
+									class="font-Helvetica line-clamp-2 font-bold transition-all duration-500 hover:text-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'text-xs' ?>">
 									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox>
 										Hướng dẫn nộp tiền vào tài khoản chứng khoán
 									</a>
