@@ -20,7 +20,7 @@ if ($style == 'nhdt') {
     </section>
 <?php } elseif (($style == 'stgd') || ($style == 'bpgd')) {
 ?>
-    <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3 top-0':'py-[12px] top-[60px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php
         if (get_sub_field('menu_navigation')) {
             $menu_navigation = get_sub_field('menu_navigation');
@@ -33,11 +33,11 @@ if ($style == 'nhdt') {
         }
         if ($menu_navigation) { ?>
             <div class="container">
-                <ul class="flex justify-between gap-10">
+                <ul class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between gap-10':'overflow-x-auto gap-4' ?>">
                     <?php foreach ($menu_navigation as $row) { ?>
-                        <li class="flex-1">
+                        <li class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap' ?>">
                             <a href="<?php echo check_link($row['link']) ?>"
-                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'py-3 px-4 text-xs' ?>">
                                 <?php echo $row['title'] ?>
                             </a>
                         </li>

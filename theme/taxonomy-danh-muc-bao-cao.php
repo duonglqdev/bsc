@@ -300,15 +300,7 @@ get_header();
 											</li>
 										<?php endforeach; ?>
 									</ul>
-								<?php else : ?>
-									<ul class="flex overflow-x-auto mt-4 gap-1.5 category-child">
-										<li>
-											<a href="#"
-												class="text-gray-500 font-bold transition-all relative py-2 px-[12px] bg-gray-100 block whitespace-nowrap rounded-md text-xs border border-gray-300">
-												Không có danh mục con
-											</a>
-										</li>
-									</ul>
+								
 								<?php endif; ?>
 
 							<?php } ?>

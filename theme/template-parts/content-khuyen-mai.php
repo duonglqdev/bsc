@@ -1,14 +1,14 @@
 <?php if ($args['data']) {
     $news = $args['data'];
 ?>
-    <div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-full' ?>">
+    <div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-full block_slider-item' ?>">
         <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
             <img loading="lazy" src="<?php echo bsc_set_thumbnail($news, 'thumbnail') ?>"
                 alt="<?php echo htmlspecialchars($news->title) ?>"
                 class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
         </a>
         <h3
-            class="mt-8 font-bold lg:text-lg transition-all duration-500 hover:text-green">
+            class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-lg transition-all duration-500 hover:text-green mt-8':'mt-4' ?>">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
@@ -36,10 +36,12 @@
                 $formattedStartDate = 'N/A';
             }
         ?>
-            <div class="mt-6 flex items-center gap-4">
+            <div class="mt-6 flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':'text-xs gap-2' ?>">
                 <div class="inline-flex items-center gap-2">
                     <?php echo svg('time') ?>
-                    <?php _e('Thời gian', 'bsc') ?>:
+                    <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                        <?php _e('Thời gian', 'bsc') ?>:
+                    <?php } ?>
                 </div>
                 <div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
             </div>

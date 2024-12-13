@@ -7,25 +7,30 @@ Template Name: [Package-2] Sổ tay giao dịch
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<?php get_template_part( 'components/page-banner' ) ?>
+	<section
+		class="bg-primary-50 sticky z-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-4 py-3 top-0' : 'py-[12px] top-[60px]' ?>">
 		<div class="container">
-			<ul class="flex justify-between gap-10">
-				<li class="flex-1">
+			<ul
+				class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10' : 'overflow-x-auto gap-4' ?>">
+				<li
+					class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap' ?>">
 					<a href="#"
-						class="active block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+						class="active block text-center font-bold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] px-10' : 'py-3 px-4 text-xs' ?>">
 						Sổ tay giao dịch
 					</a>
 				</li>
-				<li class="flex-1">
+				<li
+					class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap' ?>">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+						class="block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] px-10' : 'py-3 px-4 text-xs' ?>">
 						Biểu phí giao dịch
 					</a>
 				</li>
-				<li class="flex-1">
+				<li
+					class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap' ?>">
 					<a href="#"
-						class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+						class="block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] px-10' : 'py-3 px-4 text-xs' ?>">
 						Điều khoản chung
 					</a>
 				</li>
@@ -33,74 +38,133 @@ get_header();
 			</ul>
 		</div>
 	</section>
-	<section class="mt-12 xl:mb-[100px] mb-20">
+	<section
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-12 xl:mb-[100px] mb-20' : 'my-[50px]' ?>">
 		<div class="container">
-			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
-					<div class="sticky lg:top-28 top-5 z-[9]">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 max-w-[35%] shrink-0' : 'relative' ?>">
+					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
+						<div
+							class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : '' ?>">
+							<ul
+								class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
+								<li class="active">
+									<a href="#"
+										class="active flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Mở
+										tài khoản giao dịch</a>
+									<ul class="pl-5 sub-menu w-full bg-white py-2">
+										<li class="pl-5">
+											<a href="#"
+												class="active [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Mở tài khoản chứng khoán
+											</a>
+										</li>
+										<li class="pl-5">
+											<a href="#"
+												class=" [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Bộ điều khoản và điều kiện
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+										Lưu ký chứng khoán
+									</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hướng
+										dẫn giao dịch
+										chứng khoán</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hướng
+										dẫn giao dịch tiền</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Dịch
+										vụ tài chính</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hệ
+										thống giao dịch</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hệ
+										thống bảo mật</a>
+								</li>
+								<li>
+									<a href="#"
+										class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Video
+										hướng dẫn</a>
+								</li>
+							</ul>
+
+						</div>
+					<?php else : ?>
+						<div
+							class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
+							Công bố thông tin
+							<?php echo svg( 'down-white', '20' ) ?>
+						</div>
+
 						<ul
-							class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
-							<li class="active">
+							class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs">
+							<li>
 								<a href="#"
-									class="active flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Mở
+									class="active text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">Mở
 									tài khoản giao dịch</a>
-								<ul class="pl-5 sub-menu w-full bg-white py-2">
-									<li class="pl-5">
-										<a href="#"
-											class="active [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
-											Mở tài khoản chứng khoán
-										</a>
-									</li>
-									<li class="pl-5">
-										<a href="#"
-											class=" [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
-											Bộ điều khoản và điều kiện
-										</a>
-									</li>
-								</ul>
+								
 							</li>
 							<li>
 								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+									class="text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 									Lưu ký chứng khoán
 								</a>
 							</li>
 							<li>
 								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hướng
+									class="text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">Hướng
 									dẫn giao dịch
 									chứng khoán</a>
 							</li>
 							<li>
 								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hướng
+									class="text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">Hướng
 									dẫn giao dịch tiền</a>
 							</li>
-							<li>
-								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Dịch
-									vụ tài chính</a>
+							
+						</ul>
+						<ul class="flex overflow-x-auto mt-6 gap-1.5">
+							<li class="">
+								<a href=""
+									class="active [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Thông báo mời họp </a>
 							</li>
-							<li>
-								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hệ
-									thống giao dịch</a>
+							<li class="">
+								<a href=""
+									class=" [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Tài liệu họp </a>
 							</li>
-							<li>
-								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Hệ
-									thống bảo mật</a>
-							</li>
-							<li>
-								<a href="#"
-									class="flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:shrink-0 before:-translate-y-[3px] before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">Video
-									hướng dẫn</a>
+							<li class="">
+								<a href=""
+									class=" [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+									Biên bản và Nghị quyết </a>
 							</li>
 						</ul>
-
-					</div>
+					<?php endif; ?>
 				</div>
-				<div class="flex-1 space-y-[80px]">
+
+				<div
+					class="flex-1 space-y-[80px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-6' ?>">
 					<div class="item">
 						<h2
 							class="px-6 py-2 bg-[#E5F5FF] xl:text-2xl text-xl text-primary-300 mb-4 font-bold">
@@ -336,15 +400,18 @@ get_header();
 								<tbody>
 									<tr>
 										<td style="width: 33.3333%;">
-											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step1.png"
+											<img loading="lazy"
+												src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step1.png"
 												alt="">
 										</td>
 										<td style="width: 33.3333%;">
-											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step2.png"
+											<img loading="lazy"
+												src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step2.png"
 												alt="">
 										</td>
 										<td style="width: 33.3333%;">
-											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step3.png"
+											<img loading="lazy"
+												src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/step3.png"
 												alt="">
 										</td>
 									</tr>
@@ -357,37 +424,43 @@ get_header();
 		</div>
 	</section>
 
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-[50px] mb-20' ?>">
 		<div class="container">
-			<div class="flex items-center justify-between mb-10">
+			<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 				<h2 class="heading-title">Ưu đãi từ BSC</h2>
-				<a href="" class="inline-block px-5 py-2 btn-base-yellow">
-					<span class="inline-flex items-center gap-2 relative z-10">
-						<?php _e('Xem tất cả', 'bsc') ?>
-						<?php echo svg('arrow-btn-2') ?>
-					</span>
-				</a>
+				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+					<a href="" class="inline-block px-5 py-2 btn-base-yellow">
+						<span class="inline-flex items-center gap-2 relative z-10">
+							<?php _e( 'Xem tất cả', 'bsc' ) ?>
+							<?php echo svg( 'arrow-btn-2' ) ?>
+						</span>
+					</a>
+				<?php } ?>
 			</div>
-			<div class="grid lg:grid-cols-3 grid-cols-1 gap-[21px]">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-3 grid-cols-1 gap-[21px]':'block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
 				<?php
-				for ($i = 0; $i < 3; $i++) {
-				?>
-					<div class="flex flex-col font-Helvetica">
+				for ( $i = 0; $i < 3; $i++ )
+				{
+					?>
+					<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item w-full' ?>">
 						<a href="" class="block w-full pt-[64.66%] overflow-hidden rounded-xl relative">
-							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
+							<img loading="lazy"
+								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image2.png"
 								alt=""
 								class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
 						</a>
 						<h3
-							class="mt-8 font-bold lg:text-lg transition-all duration-500 hover:text-green">
+							class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-lg transition-all duration-500 hover:text-green mt-8':'mt-4' ?>">
 							<a href="" class="line-clamp-2">
 								“Giao dịch ngay - Quay là trúng” cùng BSC WebTrading
 							</a>
 						</h3>
-						<div class="mt-6 flex items-center gap-4">
+						<div class="mt-6 flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':'text-xs font-Helvetica gap-2' ?>">
 							<div class="inline-flex items-center gap-2">
-								<?php echo svg('time') ?>
-								Thời gian chương trình:
+								<?php echo svg( 'time' ) ?>
+								<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+									Thời gian chương trình:
+								<?php } ?>
 							</div>
 							<div class="font-medium">22/08/2024 - 22/10/2024</div>
 						</div>
@@ -397,11 +470,12 @@ get_header();
 									style="width:60%"></p>
 							</div>
 							<div class="mt-2 text-xs">
-								Thời gian khuyến mãi còn <strong class="text-primary-300">20 ngày</strong>
+								Thời gian khuyến mãi còn <strong class="text-primary-300">20
+									ngày</strong>
 							</div>
 						</div>
 					</div>
-				<?php
+					<?php
 				}
 				?>
 			</div>
