@@ -458,10 +458,10 @@ add_filter('rank_math/opengraph/image', function ($image) {
 //Check login
 function bsc_url_sso()
 {
-    $redirect_uri = get_home_url() . '/callback';
-    $client_id = 'L2B6V5LX1S';
+    $redirect_uri = get_home_url() . '/' . get_field('cdapi_ip_address_url_call_back', 'option');
+    $client_id = get_field('cdapi_ip_address_clientid', 'option');
     $current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
-    $url = "https://trading-uat.bsjsc.com.vn/sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
+    $url = get_field('cdapi_ip_address_apilogin', 'option') . "sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
     return $url;
 }
 function bsc_is_user_logged_out()
@@ -512,7 +512,7 @@ function detectDevice()
 * Create page callback
 */
 add_action('init', function () {
-    if (strpos($_SERVER['REQUEST_URI'], '/callback') !== false) {
+    if (strpos($_SERVER['REQUEST_URI'], '/' . get_field('cdapi_ip_address_url_call_back', 'option')) !== false) {
         bsc_handle_sso_callback();
         exit;
     } elseif (strpos($_SERVER['REQUEST_URI'], '/download-app-trading') !== false) {
@@ -537,10 +537,10 @@ function bsc_handle_sso_callback()
 {
     if (isset($_GET['code'])) {
         $code = sanitize_text_field($_GET['code']);
-        $redirect_uri = get_home_url() . '/callback';
-        $client_id = 'L2B6V5LX1S';
-        $client_secret = 'dn8O1K4LSPUEN1FXFt5EhXrsKZVHZS';
-        $token_url = 'https://trading-uat.bsjsc.com.vn/sso/oauth/token';
+        $redirect_uri = get_home_url() . '/' . get_field('cdapi_ip_address_url_call_back', 'option');
+        $client_id = get_field('cdapi_ip_address_clientid', 'option');
+        $client_secret = get_field('cdapi_ip_address_clientsecret', 'option');
+        $token_url = get_field('cdapi_ip_address_apiurl', 'option') . 'sso/oauth/token';
 
         // Gửi yêu cầu lấy access_token
         $response = wp_remote_post($token_url, [
