@@ -222,7 +222,6 @@
 					}
 				}
 			}
-		
 		}
 		// tr:nth-child(odd) td {
 		// 	@apply bg-[#EBF4FA];
@@ -446,8 +445,8 @@
 		}
 	}
 }
-.chat-bar-heading{
-	@apply hidden;
+#custom-chatroom-widget-wrapper.collapsed .chat-bar-heading {
+	display: none !important;
 }
 .custom-table {
 	thead {
@@ -992,8 +991,6 @@ button#ib-button-messaging {
 		}
 	}
 }
-
-
 
 .content-contact {
 	p:has(+ ul) {

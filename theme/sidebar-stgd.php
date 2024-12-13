@@ -125,16 +125,16 @@ $current_post_id = get_the_ID();
 			<?php endforeach;
 			wp_reset_postdata() ?>
 
-			<ul class="flex overflow-x-auto mt-6 gap-1.5">
-				<?php foreach ( $posts_in_category as $post ) : ?>
-					<li>
-						<a href="<?php echo get_permalink( $post->ID ); ?>"
-							class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
-							<?php echo get_the_title( $post->ID ); ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+		</ul>
+		<ul class="flex overflow-x-auto mt-6 gap-1.5">
+			<?php foreach ( $posts_in_category as $post ) : ?>
+				<li>
+					<a href="<?php echo get_permalink( $post->ID ); ?>"
+						class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+						<?php echo get_the_title( $post->ID ); ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
 		</ul>
 	<?php endif; ?>
 </div>
