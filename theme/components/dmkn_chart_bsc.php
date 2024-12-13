@@ -207,10 +207,18 @@ if ($data_bsc) {
 													</div>
 													<?php
 													if ($stockData->changePercent) {
-														if ($stockData->changePercent > 0) {
-															$text_color_class_price = 'text-[#1CCD83]';
-														} elseif ($stockData->changePercent < 0) {
-															$text_color_class_price = 'text-[#FE5353]';
+														if (($stockData->changePercent) > 0) {
+															if ($stockData->closeprice == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#7F1CCD]';
+															} else {
+																$text_color_class_price = 'text-[#1CCD83]';
+															}
+														} elseif (($stockData->changePercent) < 0) {
+															if ($stockData->closeprice  == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#1ABAFE]';
+															} else {
+																$text_color_class_price = 'text-[#FE5353]';
+															}
 														} else {
 															$text_color_class_price = 'text-[#EB0]';
 														}

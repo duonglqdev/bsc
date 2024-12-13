@@ -71,7 +71,7 @@ $class = $check_logout['class'];
                                                 ?>
                                                         <ul
                                                             class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50">
-                                                            <li class="w-[8%] font-medium"><?php echo $list_bsc->machungkhoan ?></li>
+                                                            <li class="w-[8%] font-medium"><a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a></li>
                                                             <?php
                                                             $status = $list_bsc->hinhthuc;
                                                             $check_status = get_color_by_number_bsc($status);
@@ -90,9 +90,17 @@ $class = $check_logout['class'];
                                                             </li>
                                                             <?php if ($stockData->changePercent) {
                                                                 if (($stockData->changePercent) > 0) {
-                                                                    $text_color_class_price = 'text-[#1CCD83]';
+                                                                    if ($stockData->closeprice == $stockData->ceiling) {
+                                                                        $text_color_class_price = 'text-[#7F1CCD]';
+                                                                    } else {
+                                                                        $text_color_class_price = 'text-[#1CCD83]';
+                                                                    }
                                                                 } elseif (($stockData->changePercent) < 0) {
-                                                                    $text_color_class_price = 'text-[#FE5353]';
+                                                                    if ($stockData->closeprice  == $stockData->ceiling) {
+                                                                        $text_color_class_price = 'text-[#1ABAFE]';
+                                                                    } else {
+                                                                        $text_color_class_price = 'text-[#FE5353]';
+                                                                    }
                                                                 } else {
                                                                     $text_color_class_price = 'text-[#EB0]';
                                                                 }
