@@ -9,7 +9,7 @@ if ($style == 'nhdt') {
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3' ?>">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>

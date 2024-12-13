@@ -85,7 +85,7 @@ if ( $response )
 					</div>
 				</div>
 			<?php else : ?>
-				<div class="block_slider-show-1 -mx-2"
+				<div class="block_slider-show-1 -mx-2 block_sameheight"
 					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'>
 					<?php
 					$i = 0;
@@ -93,7 +93,7 @@ if ( $response )
 					{
 						$i++;
 						?>
-						<div class="w-full block_slider-item pb-3 px-2">
+						<div class="w-full block_slider-item pb-3 px-2 sameheight_item">
 							<div class="group shadow-base rounded-bl-[10px] rounded-br-[10px]">
 								<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 									class="block relative w-full pt-[52%] overflow-hidden rounded-[10px]">
@@ -110,7 +110,7 @@ if ( $response )
 									<h3
 										class="text-xs font-bold transition-all duration-500 group-hover:text-green">
 										<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-											class="line-clamp-3"><?php echo htmlspecialchars( $news->title ) ?></a>
+											class="line-clamp-2"><?php echo htmlspecialchars( $news->title ) ?></a>
 									</h3>
 								</div>
 
@@ -121,8 +121,6 @@ if ( $response )
 					}
 					?>
 				</div>
-
-
 			<?php endif; ?>
 		</div>
 	</section>
