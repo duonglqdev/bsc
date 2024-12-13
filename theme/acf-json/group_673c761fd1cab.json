@@ -15781,8 +15781,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "table",
-                                    "parent_repeater": "field_673e34f6ae252",
+                                    "layout": "block",
                                     "sub_fields": [
                                         {
                                             "key": "field_673e3586ae257",
@@ -15864,7 +15863,8 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ]
+                                    ],
+                                    "parent_repeater": "field_673e34f6ae252"
                                 }
                             ]
                         }
@@ -16877,5 +16877,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734097135
+    "modified": 1734097610
 }
