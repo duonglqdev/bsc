@@ -4,7 +4,7 @@
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-80 max-w-[35%] shrink-0':'relative' ?>">
                 <?php echo get_sidebar('stgd') ?>
             </div>
-            <div class="flex-1">
+            <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-6' ?>">
                 <?php
                 if (isset($_GET['posts_to_show']) && $_GET['posts_to_show'] != '') {
                     $post_per_page = $_GET['posts_to_show'];
