@@ -2088,6 +2088,31 @@ import { DataTable } from 'simple-datatables';
         }
     }
 
+    function formatDateToQuarterOrYear(dates) {
+        const formattedDates = dates.map((date) => {
+            const [year, month] = date.split('-').map(Number);
+
+            if (month === 3 || month === 6 || month === 9 || month === 12) {
+                const quarter = Math.ceil(month / 3);
+                return `Q${quarter}.${year}`;
+            }
+
+            if (month === 12 && date.endsWith('-12-31')) {
+                return year.toString();
+            }
+
+            return date;
+        });
+
+        // Kiểm tra nếu tất cả các ngày là Q4.xxxx
+        const allAreQ4 = formattedDates.every((item) => item.startsWith('Q4.'));
+        if (allAreQ4) {
+            return formattedDates.map((item) => item.replace('Q4.', '')); // Loại bỏ Q4 nếu tất cả đều là Q4
+        }
+
+        return formattedDates;
+    }
+
     function profitChart() {
         if ($('.bsc_chart-display').length) {
             $('.bsc_chart-display').each(function() {
@@ -2097,17 +2122,17 @@ import { DataTable } from 'simple-datatables';
                         const data1 = JSON.parse(
                             $(this).attr('data-1') || '[]'
                         );
-                        const end_ch = $(this).attr('data-end') || '';
-                        const type_chart = $(this).attr('data-type') || 'line';
                         const data2 = $(this).attr('data-2') ?
                             JSON.parse($(this).attr('data-2')) :
                             null;
+                        const end_ch = $(this).attr('data-end') || '';
+                        const type_chart = $(this).attr('data-type') || 'line';
                         const title1 = $(this).attr('data-title-1');
                         const title2 = $(this).attr('data-title-2') || null;
                         const color1 = $(this).attr('data-color-1');
                         const color2 = $(this).attr('data-color-2') || null;
 
-                        // Kết hợp ngày và giá trị vào một mảng để sắp xếp
+                        // Kết hợp ngày và giá trị
                         const combinedData1 = data1.map((item) => ({
                             date: item.date,
                             value: item.value,
@@ -2119,7 +2144,7 @@ import { DataTable } from 'simple-datatables';
                             })) :
                             null;
 
-                        // Sắp xếp mảng theo ngày
+                        // Sắp xếp dữ liệu
                         combinedData1.sort(
                             (a, b) => new Date(a.date) - new Date(b.date)
                         );
@@ -2129,14 +2154,15 @@ import { DataTable } from 'simple-datatables';
                             );
                         }
 
-                        // Tách lại mảng đã sắp xếp
+                        // Tách ngày và giá trị
                         const dates = combinedData1.map((item) => item.date);
+                        const formattedDates = formatDateToQuarterOrYear(dates); // Chuyển đổi ngày
                         const values1 = combinedData1.map((item) => item.value);
                         const values2 = combinedData2 ?
                             combinedData2.map((item) => item.value) :
                             [];
 
-                        // Cấu hình series cho ApexCharts
+                        // Cấu hình series
                         const series = [{ name: title1, data: values1 }];
                         if (data2) {
                             series.push({ name: title2, data: values2 });
@@ -2151,7 +2177,7 @@ import { DataTable } from 'simple-datatables';
                             },
                             series: series,
                             xaxis: {
-                                categories: dates, // Sử dụng ngày đã sắp xếp
+                                categories: formattedDates, // Sử dụng ngày đã chuyển đổi
                                 labels: {
                                     style: {
                                         fontSize: '14px',
@@ -2169,17 +2195,15 @@ import { DataTable } from 'simple-datatables';
                             },
                             colors: data2 ? [color1, color2] : [color1],
                             markers: {
-                                size: 0, // Loại bỏ dấu chấm trên các đường
+                                size: 0,
                             },
                             stroke: {
-                                curve: 'smooth', // Làm các đường mềm mại hơn
-                                width: 2, // Độ dày của đường
+                                curve: 'smooth',
+                                width: 2,
                             },
                             grid: {
                                 show: true,
-                                yaxis: {
-                                    lines: { show: false }, // Ẩn đường ngang
-                                },
+                                yaxis: { lines: { show: false } },
                             },
                             legend: {
                                 position: 'top',
@@ -2188,7 +2212,7 @@ import { DataTable } from 'simple-datatables';
                                 markers: {
                                     width: 12,
                                     height: 8,
-                                    radius: 2, // Góc bo tròn cho marker
+                                    radius: 2,
                                 },
                             },
                             tooltip: {
