@@ -83,8 +83,8 @@ $id_post = get_the_ID();
                         ?>
                     </div>
                     <?php if (get_field('duong_dan_tai_file')) { ?>
-                        <div class="mt-10 text-right">
-                            <a href="<?php the_field('duong_dan_tai_file') ?>" class="inline-block px-6 py-3 btn-base-yellow" target="_blank">
+                        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 text-right':'mt-6' ?>">
+                            <a href="<?php the_field('duong_dan_tai_file') ?>" class=" px-6 py-3 btn-base-yellow <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'block text-xs' ?>" target="_blank">
                                 <span class="inline-flex items-center gap-2 relative z-10">
                                     <?php _e('Tải xuống tài liệu', 'bsc') ?>
                                     <?php echo svgpath('download', '', '', 'fill-black') ?>
