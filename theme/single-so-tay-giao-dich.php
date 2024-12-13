@@ -9,8 +9,8 @@ get_header();
     <h1 class="hidden"><?php the_title() ?></h1>
     <section class="mt-12 xl:mb-[100px] mb-20">
         <div class="container">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[70px]':'' ?>">
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-80 max-w-[35%] shrink-0':'relative' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-80 max-w-[35%] shrink-0' : 'relative' ?>">
                     <?php echo get_sidebar('stgd') ?>
                 </div>
                 <div class="flex-1 ">
@@ -42,11 +42,11 @@ get_header();
     $response = get_data_with_cache('GetNews', $array_data, $time_cache);
     if ($response) {
     ?>
-        <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-[50px] mb-20' ?>">
+        <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-[50px] mb-20' ?>">
             <div class="container">
-                <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
+                <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
                     <h2 class="heading-title"><?php _e('Ưu đãi từ BSC', 'bsc') ?></h2>
-                    <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
                         <a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?><?php if ($class = get_field('cdctkm1_pageid_class', 'option')):  echo $class;
                                                                                                 endif; ?>" class="inline-block px-5 py-2 btn-base-yellow">
                             <span class="inline-flex items-center gap-2 relative z-10">
@@ -54,10 +54,10 @@ get_header();
                                 <?php echo svg('arrow-btn-2') ?>
                             </span>
                         </a>
-                                        
+
                     <?php } ?>
                 </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-3 grid-cols-1 gap-[21px]':'block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid lg:grid-cols-3 grid-cols-1 gap-[21px]' : 'block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
                     <?php
                     foreach ($response->d as $news) {
                         get_template_part('template-parts/content', 'khuyen-mai', array(

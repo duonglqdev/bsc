@@ -1,9 +1,5 @@
 <?php
 
-/**
-Template Name: Chi tiết tuyển dụng
- */
-
 get_header();
 ?>
 <main>
