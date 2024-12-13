@@ -346,6 +346,9 @@ get_header();
 	</section>
 	<?php
 	if ($args['data']  && $groupid) {
+		if (in_array($groupid, [1, 2, 4, 5, 6])) {
+			$groupid = 3;
+		}
 		$array_data = array(
 			"maxitem" => "4",
 			"lang" => pll_current_language(),
