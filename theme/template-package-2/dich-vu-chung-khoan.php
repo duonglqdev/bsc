@@ -9,12 +9,12 @@ get_header();
 <main>
 	<?php get_template_part('components/page-banner') ?>
 	<section class="bg-gradient-blue-300">
-		<div class="xl:py-[100px] py-20">
+		<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[100px] py-20':'py-[50px]' ?>">
 			<div class="container overflow-hidden">
-				<h2 class="heading-title text-center mb-10">
+				<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 					BẮT ĐẦU HÀNH TRÌNH ĐẦU TƯ CÙNG BSC
 				</h2>
-				<div class="grid grid-cols-4 lg:translate-x-[120px]">
+				<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'translate-x-[120px] grid-cols-4':'grid-cols-2 bg-white p-5 rounded-xl' ?>">
 					<div
 						class="col-span-1 min-h-[187px] step-item transition-all duration-500 relative bg-no-repeat bg-full">
 						<div
