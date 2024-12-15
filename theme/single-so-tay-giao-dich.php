@@ -13,7 +13,7 @@ get_header();
                 <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-80 max-w-[35%] shrink-0' : 'relative' ?>">
                     <?php echo get_sidebar('stgd') ?>
                 </div>
-                <div class="flex-1 ">
+                <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-6' ?>">
                     <?php
                     $page_id = get_the_ID();
                     if (have_rows('home_components_stgd', $page_id)) {
