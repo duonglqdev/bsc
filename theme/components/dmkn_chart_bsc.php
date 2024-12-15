@@ -82,7 +82,7 @@ if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
 			</li>
 			<li>
 				<button data-chart="BSC50"
-					class="<?php if ($current_bsc == 'BSC50') echo 'active' ?>inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+					class="<?php if ($current_bsc == 'BSC50') echo 'active' ?> inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 					<?php _e('BSC50', 'bsc') ?>
 				</button>
 			</li>
