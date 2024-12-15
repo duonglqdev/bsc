@@ -166,10 +166,11 @@
 
 			<div class="flex-1 w-full">
 				<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-					<!-- @todo: Thêm tiêu đề và mô tả mobile  -->
-					<h2 class="heading-title">
-						LỊCH SỬ TĂNG VỐN ĐIỀU LỆ
-					</h2>
+					<?php if (get_sub_field('title_mobile')) { ?>
+						<h2 class="heading-title">
+							<?php the_sub_field('title_mobile') ?>
+						</h2>
+					<?php } ?>
 					<ul class="space-y-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-4' ?>">
 						<li class="flex items-center gap-2 font-Helvetica font-medium text-xs">
 							<span class="rounded bg-yellow-100 w-[15px] h-[15px] inline-block"></span>

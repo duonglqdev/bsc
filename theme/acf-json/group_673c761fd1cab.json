@@ -4154,6 +4154,26 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_675f2128476d8",
+                            "label": "Tiêu đề Mobile",
+                            "name": "title_mobile",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_67040bca06bc2",
                             "label": "Hình ảnh Mobile",
                             "name": "image_mb",
@@ -4272,7 +4292,7 @@
                         },
                         {
                             "key": "field_67040c6a06bc6",
-                            "label": "Hình ảnh",
+                            "label": "Hình ảnh Desktop",
                             "name": "img_1",
                             "aria-label": "",
                             "type": "image",
@@ -4280,7 +4300,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675f20077937d",
+                            "label": "Hình ảnh Mobile",
+                            "name": "img_1_mobile",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4314,7 +4359,7 @@
                         },
                         {
                             "key": "field_67040ca606bc8",
-                            "label": "Hình ảnh",
+                            "label": "Hình ảnh Desktop",
                             "name": "img_2",
                             "aria-label": "",
                             "type": "image",
@@ -4322,7 +4367,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675f201f7937e",
+                            "label": "Hình ảnh Mobile",
+                            "name": "img_2_mobile",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -16911,5 +16981,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734098393
+    "modified": 1734287677
 }
