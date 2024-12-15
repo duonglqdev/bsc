@@ -76,7 +76,7 @@ $current_post_id = get_the_ID();
 	<?php else : ?>
 		<div
 			class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
-			<?php echo get_the_archive_title() ?>
+			<?php single_term_title(); ?>
 			<?php echo svg( 'down-white', '20' ) ?>
 		</div>
 
