@@ -12,7 +12,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
         <div class="container">
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-                    <div class="w-80 lg:max-w-[35%] shrink-0">
+                    <div class="w-80 max-w-[35%] shrink-0">
                         <div class="sticky top-5 z-10 ">
                             <ul class="shadow-base py-6 pr-4 rounded-lg bg-white scroll_nav space-y-2">
                                 <?php
@@ -90,7 +90,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 if ($response) { ?>
                                     <?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
                                         <div
-                                            class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
 												data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
 							<?php } ?>>
                                             <?php
@@ -103,7 +103,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                         </div>
                                     <?php } else {
                                     ?>
-                                        <div class=" space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10 pb-10 border-b border-[#E1E1E1]':'' ?>">
+                                        <div class="space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10 pb-10 border-b border-[#E1E1E1]':'' ?>">
                                             <?php
                                             foreach ($response->d as $news) {
                                                 get_template_part('template-parts/content_nothumb', get_post_type(), array(

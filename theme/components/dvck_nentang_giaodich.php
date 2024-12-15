@@ -1,10 +1,10 @@
 <?php
 $generateRandomString = generateRandomString();
 ?>
-<section class="xl:my-[100px] my-20 dvck_nentang_giaodich" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> dvck_nentang_giaodich" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title text-center mb-10">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center mb-10':'mb-[26px]' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
@@ -15,19 +15,21 @@ $generateRandomString = generateRandomString();
                 $i++;
             ?>
                 <div class="tab-content <?php echo ($i == 1) ? 'block' : 'hidden'; ?>" id="<?php echo $generateRandomString ?>-<?php echo $i ?>">
-                    <div class="lg:grid lg:grid-cols-2 lg:gap-[84px] items-end">
-                        <div class="col-span-1">
-                            <div class="relative w-full pt-[76%]">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-contain m-auto')) ?>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-[84px] items-end':'' ?>">
+                    <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                            <div class="col-span-1">
+                                <div class="relative w-full pt-[76%]">
+                                    <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-contain m-auto')) ?>
+                                </div>
                             </div>
-                        </div>
+                    <?php } ?>    
                         <div class="col-span-1">
-                            <h3 class="flex items-center gap-4 2xl:mb-8 mb-5 font-bold 2xl:text-2xl text-xl">
-                                <?php echo svgClass_dir(get_sub_field('icon'), '', '', '2xl:max-w-10 max-w-8') ?>
+                            <h3 class="flex items-center font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' 2xl:text-2xl text-xl 2xl:mb-8 mb-5 gap-4':'mb-4 gap-2' ?>">
+                                <?php echo svgClass_dir(get_sub_field('icon'), '', '', '2xl:w-10 lg:w-8 w-[30px]') ?>
                                 <?php the_sub_field('title') ?>
                             </h3>
                             <?php if (get_sub_field('mota')) { ?>
-                                <p class="font-bold mb-6 text-lg">
+                                <p class="font-bold text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg mb-6':'mb-4' ?>">
                                     <?php the_sub_field('mota') ?>
                                 </p>
                             <?php } ?>
@@ -46,7 +48,7 @@ $generateRandomString = generateRandomString();
                                     if (get_sub_field('title')) {
                             ?>
                                         <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                            class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+                                            class="btn-base-yellow text-xs font-bold  items-center gap-x-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[12px] pl-4 pr-6 inline-flex':'flex justify-center' ?>">
                                             <?php echo svg('arrow-btn', '20') ?>
                                             <?php the_sub_field('title') ?>
                                         </a>
