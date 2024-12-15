@@ -1,10 +1,10 @@
 <section class="home_news bg-white  tthtkh_kien_thuc_dau_tu <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:my-[100px] my-20':'my-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="flex items-center justify-between mb-12">
+        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-12':'mb-6' ?>">
             <?php if (get_sub_field('title')) { ?>
                 <h2 class="heading-title"><?php the_sub_field('title') ?></h2>
             <?php } ?>
-            <?php if (have_rows('button')) {
+            <?php if (have_rows('button') &&!wp_is_mobile() && !bsc_is_mobile() ) {
                 while (have_rows('button')): the_row();
                     if (get_sub_field('title')) { ?>
                         <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="inline-block px-5 py-2 btn-base-yellow">
@@ -109,7 +109,7 @@
 						$i++;
 						?>
 						<div class="w-full block_slider-item pb-3 px-2 sameheight_item">
-							<div class="group shadow-base rounded-bl-[10px] rounded-br-[10px]">
+							<div class="group rounded-bl-[10px] rounded-br-[10px]">
 								<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 									class="block relative w-full pt-[52%] overflow-hidden rounded-[10px]">
 									<img loading="lazy" src="<?php echo bsc_set_thumbnail( $news, 'large' ) ?>"
