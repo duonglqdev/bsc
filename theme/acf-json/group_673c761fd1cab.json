@@ -415,8 +415,37 @@
                                 },
                                 {
                                     "key": "field_6702460781032",
-                                    "label": "Video",
+                                    "label": "Video Desktop",
                                     "name": "video",
+                                    "aria-label": "",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6702454779142",
+                                                "operator": "==",
+                                                "value": "video"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "parent_repeater": "field_6702453279141"
+                                },
+                                {
+                                    "key": "field_6760023e96f3d",
+                                    "label": "Video Mobile",
+                                    "name": "video_mobile",
                                     "aria-label": "",
                                     "type": "file",
                                     "instructions": "",
@@ -16981,5 +17010,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734287677
+    "modified": 1734345611
 }

@@ -29,7 +29,10 @@ if (have_rows('slider')) {
 				</div>
 				<?php
 			} elseif ($type_slider == 'video') {
-				if (get_sub_field('video')) {
+				if (get_sub_field('video') || get_sub_field('video_mobile')) {
+					$video_play = (bsc_is_mobile() && wp_is_mobile() && get_sub_field('video_mobile'))
+						? get_sub_field('video_mobile')
+						: get_sub_field('video');
 				?>
 					<div class="w-full block_slider-item" data-play="10000">
 						<div
@@ -37,7 +40,7 @@ if (have_rows('slider')) {
 							<video preload="none" id="video-banner"
 								class="object-cover w-full max-w-full h-full max-h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'absolute inset-0' ?>"
 								autoplay="" muted="" playsinline="" loop=""
-								src="<?php the_sub_field('video') ?>"></video>
+								src="<?php echo $video_play ?>"></video>
 							<div class="absolute w-full h-full inset-0">
 								<div class="container relative z-10 h-full">
 									<div class="flex flex-col h-full justify-center">
