@@ -47,7 +47,7 @@ if ($style == 'nhdt') {
         <?php } ?>
     </section>
 <?php  } elseif ($style == 'ntgd') { ?>
-    <section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-[#EBF4FA] sticky top-0 z-[20] sticky-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-4':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <?php
             if (isset($_GET['mck'])) {
@@ -56,11 +56,11 @@ if ($style == 'nhdt') {
                 $endpoint = '';
             };
             if (have_rows('menu_navigation')) { ?>
-                <ul class="flex justify-center gap-10">
+                <ul class="flex justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-4' ?>">
                     <?php while (have_rows('menu_navigation')) : the_row() ?>
-                        <li>
+                        <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) . $endpoint ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'text-xs py-3 px-5' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
