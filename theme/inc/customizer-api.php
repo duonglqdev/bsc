@@ -16,10 +16,27 @@ function callApi($url, $data = false, $method = "GET")
     //         'Content-Type: application/json'
     //     ),
     // ));
+
     // $response = curl_exec($curl);
+    // $error = curl_error($curl); // Lấy lỗi nếu có
+    // $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
     // curl_close($curl);
+
+    // if ($error) {
+    //     // Ghi log lỗi
+    //     error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
+    //     return null;
+    // }
+
+    // // Nếu mã HTTP không phải 2xx, ghi log lỗi
+    // if ($http_code < 200 || $http_code >= 300) {
+    //     error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
+    //     return null;
+    // }
+
     // return json_decode($response);
 }
+
 
 
 function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = null, $method = "GET")
@@ -27,37 +44,31 @@ function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = null
     if (empty($url_end)) {
         $url_end = get_field('cdapi_ip_address_default', 'option');
         if (empty($url_end)) {
-            return null; // Nếu không có URL, trả về null để tránh lỗi
+            error_log("API Error: Missing API base URL.");
+            return null;
         }
     }
+
     if ($method == 'POST') {
-        // $cache_key = $endpoint . '_' . md5($array_data);    
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
         $url = $url_end . $endpoint;
         $response = callApi($url, $array_data, "POST");
-        if ($response) {
-            // wp_cache_set($cache_key, $response, '', $ttl);
-            return $response;
+        if (!$response) {
+            error_log("Failed POST request to: " . $url . " | Data: " . json_encode($array_data));
+            return null;
         }
+        return $response;
     } else {
-        // $cache_key = $endpoint . '_' . md5(json_encode($array_data));
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
         $url = $url_end . $endpoint . '?' . http_build_query($array_data);
         $response = callApi($url);
         if (is_object($response) && $response->s == "ok") {
-            // wp_cache_set($cache_key, $response, '', $ttl);
             return $response;
         }
+        error_log("Failed GET request to: " . $url . " | Query Params: " . json_encode($array_data));
     }
 
     return null;
 }
+
 
 function slug_news($postid, $title)
 {
