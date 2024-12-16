@@ -2,6 +2,7 @@
 if ($args['data']) {
 	$news = $args['data'];
 	$symbol = strtoupper($args['symbol']);
+	$first_symbol = strtoupper($args['symbol'])[0];
 	$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
 	$banner = wp_get_attachment_image_url(
 		wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
@@ -56,7 +57,7 @@ get_header();
 							<div class="flex gap-6 items-center">
 								<div
 									class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-									<?php echo svgClass('icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9') ?>
+									<?php echo $first_symbol ?>
 								</div>
 								<div class="flex flex-col">
 									<h4
