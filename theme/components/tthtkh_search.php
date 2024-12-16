@@ -23,7 +23,7 @@
                 </h2>
             <?php } ?>
             <?php if (have_rows('category_navigation')) { ?>
-                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-3 grid-cols-2 lg:gap-12 gap-10':'gap-6' ?>">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3 grid-cols-2 gap-12 gap-10':'gap-6' ?>">
                     <?php
                     while (have_rows('category_navigation')): the_row();
                     ?>
@@ -32,16 +32,16 @@
                                 <h4 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:text-2xl text-xl':'flex items-center justify-between text-lg' ?>">
                                     <?php the_sub_field('title_cat') ?>
                                     <?php
-                            if (have_rows('button') && wp_is_mobile() && bsc_is_mobile()) {
-                                while (have_rows('button')): the_row();
-                                    if (get_sub_field('title')) {
-                            ?>
-                                        <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                            class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
-                                            <?php the_sub_field('title') ?>
-                                            <?php echo svg('arrow-btn', '12', '12') ?>
-                                        </a>
-                            <?php
+                                        if (have_rows('button') && wp_is_mobile() && bsc_is_mobile()) {
+                                            while (have_rows('button')): the_row();
+                                                if (get_sub_field('title')) {
+                                        ?>
+                                                    <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
+                                                        class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 text-xs">
+                                                        <?php the_sub_field('title') ?>
+                                                        <?php echo svg('arrow-btn', '12', '12') ?>
+                                                    </a>
+                                        <?php
                                     };
                                 endwhile;
                             } ?>

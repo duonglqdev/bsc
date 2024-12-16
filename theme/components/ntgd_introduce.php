@@ -50,8 +50,7 @@
                         <?php
                         if (have_rows('button') && !wp_is_mobile() && !bsc_is_mobile() ) {
                             while (have_rows('button')): the_row();
-                                if (get_sub_field('title')) {
-                        ?>
+                                if (get_sub_field('title')) {?>
                                     <div class="ml-14">
                                         <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6">
                                             <span
@@ -66,6 +65,7 @@
                             endwhile;
                         }
                         ?>
+                        <!-- @todo: ở style 1 thêm các nút tải app giống style2 cho mobile -->
                     <?php
                     } else { ?>
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[44px] items-center ':'' ?>">
