@@ -1,12 +1,12 @@
-<section class="xl:my-[100px] my-20 mgck_benefit" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> mgck_benefit" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title text-center mb-10">
+            <h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider-show-1 block_slider fli-dots-blue dot-bottom-40' ?>">
                 <?php
                 $i = 3;
                 while (have_rows('benefit')): the_row();
@@ -21,7 +21,7 @@
                         $style = 'linear-gradient(226deg, #E5F4FF 26.88%, #FAFAFA 107.34%)';
                     }
                 ?>
-                    <div class="rounded-2xl xl:p-[34px] xl:pt-[43px] p-6 lg:min-h-[414px] shadow-base"
+                    <div class="rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:p-[34px] xl:pt-[43px] p-6 min-h-[414px] shadow-base':'min-h-[461px] py-10 px-7 w-full block_slider-item' ?>"
                         style="background: <?php echo $style ?>">
                         <div class="max-w-[155px] w-full mx-auto">
                             <div class="relative w-full pt-[100%]">
@@ -35,7 +35,7 @@
                                 </h3>
                             <?php } ?>
                             <?php if (get_sub_field('mota')) { ?>
-                                <div class="font-Helvetica text-justify">
+                                <div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                     <?php the_sub_field('mota') ?>
                                 </div>
                             <?php } ?>

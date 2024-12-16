@@ -8,7 +8,7 @@
 
 		<?php } ?>
 		<?php if (get_sub_field('mota')) { ?>
-			<p class="uppercase text-primary-300 2xl:text-2xl font-semibold wow fadeIn <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'text-base' ?>"
+			<p class="uppercase text-primary-300 2xl:text-2xl font-bold wow fadeIn <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'text-base' ?>"
 				data-wow-duration="2s">
 				<?php the_sub_field('mota') ?>
 			</p>

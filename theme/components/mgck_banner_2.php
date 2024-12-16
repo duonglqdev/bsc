@@ -1,10 +1,15 @@
-<section class="xl:my-[100px] my-10 mgck_banner_2" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-10 ' : 'my-[50px]' ?> mgck_banner_2" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover py-7 2xl:px-[75px] px-10 grid lg:grid-cols-2 grid-cols-1 gap-10 items-center min-h-80"
-            style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
+    <?php
+        $bg_pc = get_sub_field('background');
+        // @todo: Thêm ảnh nền mobile
+        $bg_mb = get_sub_field('background_mb');
+        ?>
+        <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-7 2xl:px-[75px] px-10 min-h-80 lg:grid-cols-2 grid-cols-1 gap-10 items-center' : 'gap-6 pt-9 pl-6' ?>"
+        style="background-image:url(<?php echo wp_get_attachment_image_url(!wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb, 'full') ?>)">
             <div class="col">
                 <?php if (get_sub_field('title')) { ?>
-                    <h2 class="heading-title mb-6">
+                    <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
                 <?php } ?>
@@ -23,7 +28,7 @@
                 }
                 ?>
             </div>
-            <div class="col">
+            <div class="col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'max-w-[65%] ml-auto' ?>">
                 <?php echo wp_get_attachment_image(get_sub_field('image'), 'large', '', array('class' => 'mx-auto max-w-[480px]')) ?>
             </div>
         </div>

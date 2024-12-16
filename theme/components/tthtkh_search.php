@@ -23,13 +23,14 @@
                 </h2>
             <?php } ?>
             <?php if (have_rows('category_navigation')) { ?>
-                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-3 grid-cols-2 lg:gap-12 gap-10' : 'gap-6' ?>">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3 grid-cols-2 gap-12 gap-10':'gap-6' ?>">
                     <?php
                     while (have_rows('category_navigation')): the_row();
                     ?>
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4' : 'space-y-3' ?> font-Helvetica">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex items-center justify-between' ?>">
                             <?php if (get_sub_field('title_cat')) { ?>
-                                <h4 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-xl' : 'flex items-center justify-between text-lg' ?>">
+                                <h4 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-xl' : ' text-lg' ?>">
                                     <?php the_sub_field('title_cat') ?>
                                 </h4>
                             <?php } ?>
@@ -49,6 +50,8 @@
                                     endwhile;
                                 }
                             } ?>
+
+                            </div>
                             <?php if (have_rows('post')) { ?>
                                 <ul class="pl-5 list-disc text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
                                     <?php while (have_rows('post')): the_row(); ?>

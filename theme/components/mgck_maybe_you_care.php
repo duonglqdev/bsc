@@ -1,20 +1,20 @@
-<section class="xl:my-[100px] my-10 mgck_maybe_you_care" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-10':'my-[50px]' ?> mgck_maybe_you_care" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title mb-10">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
         <?php if (have_rows('content')) { ?>
-            <div class="grid grid-cols-2 gap-5">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-5':'space-y-5' ?>">
                 <?php while (have_rows('content')): the_row(); ?>
-                    <div class="rounded-xl overflow-hidden bg-no-repeat bg-cover lg:flex lg:px-11 px-8 min-h-[228px]"
+                    <div class="rounded-xl overflow-hidden bg-no-repeat bg-cover flex  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[228px] px-11 py-5':'min-h-[184px] pl-5 py-3' ?>"
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
-                        <div class="w-1/2 h-full">
+                        <div class="w-1/2 h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-auto pb-5' ?>">
                             <div
-                                class="flex flex-col justify-end h-full ml-10 font-Helvetica pb-[43px]">
+                                class="h-full font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pb-[43px] ml-10 flex flex-col justify-end':'' ?>">
                                 <?php if (get_sub_field('title')) { ?>
-                                    <p class="font-bold mb-2 text-2xl">
+                                    <p class="font-bold mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
                                         <?php the_sub_field('title') ?>
                                     </p>
                                 <?php } ?>
@@ -35,7 +35,7 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="w-1/2 h-full flex items-center justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'m-auto' ?>">
                             <?php echo wp_get_attachment_image(get_sub_field('img'), 'large') ?>
                         </div>
                     </div>
