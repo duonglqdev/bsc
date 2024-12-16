@@ -387,6 +387,9 @@
 .is-mobile .fli-dots-blue .flickity-page-dots .dot.is-selected {
   @apply w-8 bg-opacity-100;
 }
+.is-mobile .dqgd .flickity-page-dots {
+  @apply bottom-6;
+}
 .is-mobile .about_culture-list-mb .swiper-pagination-bullet-active {
   @apply bg-primary-300;
 }
@@ -497,7 +500,7 @@
 }
 
 svg {
-  @apply max-w-full;
+  @apply max-w-full max-h-full;
 }
 
 @media (max-width: 1700px) and (min-width: 1367px) {

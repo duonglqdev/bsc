@@ -1,17 +1,17 @@
 <section class="bg-gradient-blue-400 mtk_how_to_use" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
-    <div class="pt-16 pb-[50px]">
+    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-16 pb-[50px]':'py-[50px]' ?>">
         <div class="container">
             <?php if (get_sub_field('title')) { ?>
-                <h2 class="heading-title text-center mb-10">
+                <h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                     <?php the_sub_field('title') ?>
                 </h2>
             <?php } ?>
             <?php if (have_rows('how_to_use')) { ?>
-                <div class="grid grid-cols-3 gap-10">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3 gap-10':'gap-8' ?>">
                     <?php while (have_rows('how_to_use')): the_row(); ?>
                         <div class="col-span-1">
                             <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'm-auto transition-all duration-500 hover:scale-105')) ?>
-                            <div class="text-lg mt-6 text-center font-Helvetica">
+                            <div class="text-center font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg mt-6':'mt-4' ?>">
                                 <?php if (get_sub_field('dau_muc')) { ?>
                                     <strong><?php the_sub_field('dau_muc') ?> </strong>
                                 <?php } ?>
@@ -23,19 +23,19 @@
             <?php } ?>
         </div>
     </div>
-    <div class="pt-[50px] pb-14">
+    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[50px] pb-14':'pb-[50px] dqgd fli-dots-blue' ?>">
         <div class="container">
             <?php if (get_sub_field('title_2')) { ?>
-                <h2 class="heading-title text-center mb-10">
+                <h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                     <?php
                     the_sub_field('title_2');
                     ?>
                 </h2>
             <?php } ?>
             <?php if (have_rows('uudai')) { ?>
-                <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider-show-1 block_slider' ?>">
                     <?php while (have_rows('uudai')): the_row(); ?>
-                        <div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+                        <div class="rounded-2xl min-h-[414px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 shadow-base':'block_slider-item p-10 w-full' ?>"
                             style="background-color:<?php echo get_sub_field('color') ?>;">
                             <div class="max-w-[155px] w-full mx-auto">
                                 <div class="relative w-full pt-[100%]">
@@ -62,9 +62,9 @@
                 while (have_rows('button')): the_row();
                     if (get_sub_field('title')) {
             ?>
-                        <div class="text-center mt-10">
+                        <div class="text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
                             <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 text-lg">
+                                class="btn-base-yellow items-center gap-x-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[12px] pl-4 pr-6 inline-flex text-lg':'flex justify-center text-xs py-3 px-5' ?>">
                                 <?php echo svg('arrow-btn', '16', '16') ?>
                                 <?php the_sub_field('title') ?>
                             </a>
