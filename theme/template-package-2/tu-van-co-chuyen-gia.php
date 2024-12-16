@@ -50,134 +50,66 @@ get_header();
 			<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
-	<section class="py-16 bg-gradient-blue-250 xl:space-y-[100px] space-y-20">
+	<section class="bg-gradient-blue-250 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:space-y-[100px] space-y-20 py-16':'py-[50px] space-y-[50px]' ?>">
 		<div class="container">
-			<h2 class="heading-title mb-10 text-center">
+			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 				ĐẶC QUYỀN CỦA TƯ VẤN ĐẦU TƯ CÙNG CHUYÊN GIA
 			</h2>
-			<div class="grid grid-cols-4 gap-5">
-				<div class="rounded-2xl overflow-hidden group expert-item">
-					<div class="relative pt-[121.25%]">
-						<div class="absolute w-full h-full inset-0 flex flex-col">
-							<div
-								class="h-[78%] transition-all duration-300 group-hover:h-[53%] overflow-hidden">
-								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (1).png"
-									alt=""
-									class="w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105">
-							</div>
-							<div
-								class="h-[12%] transition-all duration-300 group-hover:h-[47%] flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10">
-								<h3
-									class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
-									Đồng hành bởi đội ngũ tư vấn chuyên nghiệp
-								</h3>
-								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
-									Được tư vấn & đồng hành bởi đội ngũ chuyên gia chuyên nghiệp,
-									chuyên môn cao, giàu kinh nghiệm với nhiều phương pháp và chiến
-									lược đầu tư hiệu quả.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="rounded-2xl overflow-hidden group expert-item">
-					<div class="relative pt-[121.25%]">
-						<div class="absolute w-full h-full inset-0 flex flex-col">
-							<div
-								class="h-[78%] transition-all duration-300 group-hover:h-[53%] overflow-hidden">
-								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (2).png"
-									alt=""
-									class="w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105">
-							</div>
-							<div
-								class="h-[12%] transition-all duration-300 group-hover:h-[47%] flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10">
-								<h3
-									class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
-									Tư vấn và giải đáp trực tiếp 1:1
-								</h3>
-								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
-									Được tư vấn trực tiếp dựa trên khẩu vị rủi ro và trạng thái danh
-									mục đầu tư, được sàng lọc & phân tích các thông tin thị trường,
-									hỗ trợ tốt nhất trong quá trình
-									giao dịch.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="rounded-2xl overflow-hidden group expert-item">
-					<div class="relative pt-[121.25%]">
-						<div class="absolute w-full h-full inset-0 flex flex-col">
-							<div
-								class="h-[78%] transition-all duration-300 group-hover:h-[53%] overflow-hidden">
-								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (3).png"
-									alt=""
-									class="w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105">
-							</div>
-							<div
-								class="h-[12%] transition-all duration-300 group-hover:h-[47%] flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10">
-								<h3
-									class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
-									Cập nhật thông tin thị trường nhanh chóng
-								</h3>
-								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
-									Được quyền yêu cầu Chuyên gia cung cấp các thông tin tư vấn phù
-									hợp với nhu cầu tư vấn của cá nhân.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="rounded-2xl overflow-hidden group expert-item">
-					<div class="relative pt-[121.25%]">
-						<div class="absolute w-full h-full inset-0 flex flex-col">
-							<div
-								class="h-[78%] transition-all duration-300 group-hover:h-[53%] overflow-hidden">
-								<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (4).png"
-									alt=""
-									class="w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105">
-							</div>
-							<div
-								class="h-[12%] transition-all duration-300 group-hover:h-[47%] flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10">
-								<h3
-									class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
-									Chủ động chọn Chuyên gia đồng hành theo ý
-								</h3>
-								<div
-									class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
-									Được lựa chọn Chuyên gia đồng hành theo ý muốn. 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
+				<?php 
+				 for ($i = 0; $i < 4; $i++) {
+				 ?>
+				 <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item w-full' ?>">
+					 <div class="relative pt-[121.25%]">
+						 <div class="absolute w-full h-full inset-0 flex flex-col">
+							 <div
+								 class=" transition-all duration-300  overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[78%] group-hover:h-[53%]':'h-[70%] group-hover:h-[50%]' ?>">
+								 <img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image (1).png"
+									 alt=""
+									 class="w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105">
+							 </div>
+							 <div
+								 class=" transition-all duration-300  flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[12%] group-hover:h-[47%]':'h-[20%] group-hover:h-[50%]' ?>">
+								 <h3
+									 class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
+									 Đồng hành bởi đội ngũ tư vấn chuyên nghiệp
+								 </h3>
+								 <div
+									 class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
+									 Được tư vấn & đồng hành bởi đội ngũ chuyên gia chuyên nghiệp,
+									 chuyên môn cao, giàu kinh nghiệm với nhiều phương pháp và chiến
+									 lược đầu tư hiệu quả.
+								 </div>
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+				  <?php 
+				 } 
+				?>
+				
 			</div>
-			<div class="mt-10 text-center">
-				<a href="#" class="btn-base-yellow py-4 pl-6 pr-8">
-					<span
-						class="inline-flex items-center gap-x-3 relative z-10 text-lg !leading-[1.445]">
+			<div class="text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
+				<a href="#" class="btn-base-yellow items-center gap-x-3  !leading-[1.445] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-flex py-4 pl-6 pr-8 text-lg':'flex justify-center py-3 px-5 block text-xs' ?>">
+					
 						<?php echo svg('arrow-btn', '20', '20') ?>
 						Chọn chuyên gia tư vấn
-					</span>
 				</a>
 			</div>
 		</div>
 		<div class="container">
-			<h2 class="heading-title mb-10">
+			<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 				Phù hợp với nhà đầu tư
 			</h2>
-			<div class="grid grid-cols-2 gap-5">
-				<div class="lg:max-w-[660px] w-full">
-					<div class="rounded-2xl overflow-hidden relative pt-[87.8787%] group block">
+			<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-5':'' ?>">
+				<div class="w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[660px]':'' ?>">
+					<div class="overflow-hidden relative group block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[87.8787%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
 						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame 1000009436.png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute z-10 w-full text-primary-300 font-bold xl:py-[66px] py-10 px-10 text-2xl  top-0 left-0">
-							<p class="lg:w-[412px] xl:max-w-[72%]">
+							class="absolute z-10 w-full text-primary-300 font-bold top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl xl:py-[66px] py-10 px-10':'text-lg px-5 py-6' ?>">
+							<p class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[412px] xl:max-w-[72%]':'' ?>">
 								Muốn tham khảo nhận định và chiến lược đầu tư từ các chuyên gia hàng
 								đầu
 								của BSC
@@ -185,25 +117,25 @@ get_header();
 						</h4>
 					</div>
 				</div>
-				<div class="flex flex-col gap-[18px]">
-					<div class="relative block pt-[42.8%] w-full overflow-hidden rounded-2xl group">
+				<div class="flex flex-col  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-[18px]':'gap-4 mt-4' ?>">
+					<div class="relative block w-full overflow-hidden  group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[42.8%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
 						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame 1000009436 (1).png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute z-10 w-full text-primary-300 font-bold xl:py-[66px] py-10 px-10 text-2xl  top-0 left-0">
-							<p class="lg:w-[270px] lg:max-w-[67%] relative z-10 line-clamp-2">
+							class="absolute z-10 w-full text-primary-300 font-bold  top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[66px] py-10 px-10 text-2xl':'text-lg px-5 py-6' ?>">
+							<p class="relative z-10 line-clamp-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[270px] max-w-[67%]':'' ?>">
 								Nhà đầu tư mới chưa có kinh nghiệm
 							</p>
 						</h4>
 					</div>
-					<div class="relative block pt-[42.8%] w-full overflow-hidden rounded-2xl group">
+					<div class="relative block w-full overflow-hidden  group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[42.8%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
 						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Frame 1000009436 (2).png"
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute z-10 w-full text-primary-300 font-bold xl:py-[66px] py-10 px-10 text-2xl  top-0 left-0">
-							<p class="lg:w-[270px] lg:max-w-[67%] relative z-10 line-clamp-2">
+							class="absolute z-10 w-full text-primary-300 font-bold  top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[66px] py-10 px-10 text-2xl':'text-lg px-5 py-6' ?>">
+							<p class="relative z-10 line-clamp-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[270px] max-w-[67%]':'' ?>">
 								Bận rộn, ít thời gian theo dõi diễn biến thị trường
 							</p>
 						</h4>
@@ -212,36 +144,36 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="xl:my-[100px] my-20 relative">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
 		<div class="container">
-			<div class="grid grid-cols-2 items-center">
+			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 items-center':'' ?>">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
+						class="bg-gradient-blue-550 rounded-2xl shadow-base  relative z-10  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-10 py-5 2xl:px-[50px] px-10 min-h-[402px] flex flex-col justify-center':'px-6 pt-6 pb-[72px]' ?>">
 						<h2 class="heading-title mb-6">
 							ĐĂNG KÝ SỬ DỤNG DỊCH VỤ
 						</h2>
 						<div class="2xl:space-y-6 space-y-4 font-Helvetica">
 							<div class="item">
-								<p class="text-primary-300 text-xl font-bold mb-3">
+								<p class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-3':'mb-[12px]' ?>">
 									Bạn chưa có tài khoản tại BSC?
 								</p>
 								<div
-									class="flex items-center before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3">
+									class="mt-1 mb-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center before:shrink0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px]':'space-y-2' ?>">
 									<a href=""
-										class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+										class="leading-tight text-green font-bold gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' inline-flex [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green':'flex before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block text-xs' ?>">
 										Mở tài khoản
 										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 									<a href=""
-										class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+										class="leading-tight text-green font-bold gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-flex [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green':'flex before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block text-xs' ?>">
 										Lựa chọn chuyên gia tư vấn
 										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 								</div>
 							</div>
 							<div class="item">
-								<p class="text-primary-300 text-xl font-bold mb-3">
+								<p class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-3':'mb-[12px]' ?>">
 									Bạn đã có tài khoản tại BSC?
 								</p>
 								<div

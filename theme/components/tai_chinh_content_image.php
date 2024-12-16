@@ -14,7 +14,7 @@
                             <?php while (have_rows('ask_ans')): the_row(); ?>
                                 <div class="item">
                                     <?php if (get_sub_field('ask')) { ?>
-                                        <p class="text-primary-300 text-xl font-bold mb-3">
+                                        <p class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-3':'mb-[12px]' ?>">
                                             <?php the_sub_field('ask') ?>
                                         </p>
                                     <?php } ?>
@@ -45,12 +45,12 @@
                                         </div>
                                     <?php  } ?>
                                     <?php if (have_rows('danh_sach_nut_ngang')) { ?>
-                                        <div class="flex items-center before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3">
+                                        <div class="mt-1 mb-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px]':'space-y-2' ?>">
                                             <?php while (have_rows('danh_sach_nut_ngang')): the_row();
                                                 if (have_rows('button')) {
                                                     while (have_rows('button')): the_row();
                                                         if (get_sub_field('title')) { ?>
-                                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+                                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' inline-flex [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green':'flex before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block text-xs' ?>">
                                                                 <?php the_sub_field('title') ?>
                                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                                             </a>
@@ -64,7 +64,7 @@
                                     <?php  } ?>
                                     <?php if (have_rows('danh_sach_content')) {
                                         while (have_rows('danh_sach_content')): the_row(); ?>
-                                            <div class="flex items-center before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3 font-medium">
+                                            <div class="flex items-center before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3 font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                                 <?php the_sub_field('info') ?>
                                             </div>
                                     <?php
