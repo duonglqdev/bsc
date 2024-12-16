@@ -84,7 +84,7 @@ get_header();
             </h1>
             <div class="lg:flex 2xl:gap-[70px] gap-10">
                 <div class="lg:w-80 lg:max-w-[35%] shrink-0">
-                    <div class="rounded-lg px-4 py-6 bg-white shadow-base">
+                    <div class="content-bao-cao-phan-tich rounded-lg px-4 py-6 bg-white shadow-base">
                         <div class="flex items-center justify-between mb-6">
                             <a href="<?php echo $link ?>"
                                 class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -135,7 +135,7 @@ get_header();
                                 <p>
                                     <?php _e('Lượt tải về', 'bsc') ?>
                                 </p>
-                                <p class="font-medium">
+                                <p class="font-medium content-bao-cao-phan-tich_download_count">
                                     <?php echo htmlspecialchars($news->downloads) ?>
                                 </p>
                             </li>
@@ -155,6 +155,7 @@ get_header();
                             </div>
                         <?php } ?>
                         <?php if ($news->reporturl) {
+                            $count_download = true;
                             $url_download = $news->reporturl;
                             $viewerpermission = $news->viewerpermission;
                             if ($viewerpermission == 'USER_BSC') {
@@ -162,14 +163,19 @@ get_header();
                                 if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
                                 } else {
                                     if (bsc_is_user_logged_out()) {
+                                        $count_download = false;
                                         $url_download = bsc_url_sso();
                                     }
                                 }
                             }
                         ?>
                             <div class="mt-6">
-                                <a href="<?php echo $url_download ?>"
-                                    class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
+                                <a <?php if ($count_download) { ?>
+                                    data-id="<?php echo $news->id; ?>"
+                                    <?php
+                                    }
+                                    ?> href="<?php echo $url_download ?>"
+                                    class=" <?php if ($count_download) echo 'bsc_up-download' ?> bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
                                     <?php _e('Tải xuống', 'bsc') ?>
                                 </a>
                             </div>
