@@ -357,12 +357,23 @@
 			@apply bg-primary-300;
 		}
 	}
+	.mgck_support_trader{
+		.flickity-page-dots{
+			@apply text-left pl-7 bottom-6;
+		}
+	}
 	.dot-30 {
 		.flickity-page-dots {
 			@apply -bottom-[30px];
 			.dot {
 				@apply mx-1;
 			}
+		}
+	}
+	.dot-bottom-40{
+		.flickity-page-dots {
+			@apply bottom-10;
+			
 		}
 	}
 	.flickity-page-dots {

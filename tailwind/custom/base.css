@@ -393,11 +393,17 @@
 .is-mobile .about_culture-list-mb .swiper-pagination-bullet-active {
   @apply bg-primary-300;
 }
+.is-mobile .mgck_support_trader .flickity-page-dots {
+  @apply text-left pl-7 bottom-6;
+}
 .is-mobile .dot-30 .flickity-page-dots {
   @apply -bottom-[30px];
 }
 .is-mobile .dot-30 .flickity-page-dots .dot {
   @apply mx-1;
+}
+.is-mobile .dot-bottom-40 .flickity-page-dots {
+  @apply bottom-10;
 }
 .is-mobile .flickity-page-dots {
   @apply -bottom-5;
