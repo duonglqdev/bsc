@@ -6,9 +6,9 @@ $thanh_phos = get_terms(array(
 ));
 if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
 ?>
-    <section class="bg-[#EBF4FA] py-4 list_chuyen_gia" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-[#EBF4FA]  list_chuyen_gia <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-4':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
-            <ul class="flex justify-center gap-10">
+            <ul class="flex justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-4' ?>">
                 <?php
                 $i = 0;
                 foreach ($thanh_phos as $thanh_pho) :
@@ -17,103 +17,105 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                         $custom_taxterms = $thanh_pho->term_id;
                     }
                 ?>
-                    <li class="cursor-pointer">
+                    <li class="cursor-pointer <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                         <input type="radio" name="thanh_pho" class="hidden peer" value="<?php echo $thanh_pho->term_id ?>" id="chuyen_gia<?php echo $thanh_pho->term_id ?>" <?php if ($i == 1) echo 'checked' ?>>
-                        <label class="block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 text-black peer-checked:text-white bg-transparent peer-checked:bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]" for="chuyen_gia<?php echo $thanh_pho->term_id ?>"><?php echo $thanh_pho->name ?></label>
+                        <label class="block text-center font-bold  text-black peer-checked:text-white bg-transparent peer-checked:bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'text-xs py-3 px-4' ?>" for="chuyen_gia<?php echo $thanh_pho->term_id ?>"><?php echo $thanh_pho->name ?></label>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </div>
     </section>
 <?php endif; ?>
-<section class="xl:mt-[62px] mt-14 xl:mb-[100px] mb-14">
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14':'my-[50px]' ?>">
     <div class="container">
-        <form class="flex gap-6 items-end mb-10" id="form-search-expert" data-paged="1">
-            <?php
-            $kinh_nghiems = get_terms(array(
-                'taxonomy' => 'kinh-nghiem',
-                'hide_empty' => false,
-                'parent' => 0,
-            ));
-            if (! empty($kinh_nghiems) && ! is_wp_error($kinh_nghiems)) :
-            ?>
+        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+            <form class="flex gap-6 items-end mb-10" id="form-search-expert" data-paged="1">
+                <?php
+                $kinh_nghiems = get_terms(array(
+                    'taxonomy' => 'kinh-nghiem',
+                    'hide_empty' => false,
+                    'parent' => 0,
+                ));
+                if (! empty($kinh_nghiems) && ! is_wp_error($kinh_nghiems)) :
+                ?>
+                    <div class="flex flex-col font-Helvetica">
+                        <p class="font-semibold mb-2">
+                            <?php _e('Kinh nghiệm', 'bsc') ?>
+                        </p>
+                        <select id="kinh_nghiem"
+                            class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+                            <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+                            <?php foreach ($kinh_nghiems as $kinh_nghiem) :
+                            ?>
+                                <option value="<?php echo $kinh_nghiem->term_id ?>">
+                                    <?php echo esc_html($kinh_nghiem->name); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
+                <?php
+                $menhs = get_terms(array(
+                    'taxonomy' => 'menh',
+                    'hide_empty' => false,
+                    'parent' => 0,
+                ));
+                if (! empty($menhs) && ! is_wp_error($menhs)) :
+                ?>
+                    <div class="flex flex-col font-Helvetica">
+                        <p class="font-semibold mb-2">
+                            <?php _e('Mệnh', 'bsc') ?>
+                        </p>
+                        <select id="menh"
+                            class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+                            <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+                            <?php foreach ($menhs as $menh) :
+                            ?>
+                                <option value="<?php echo $menh->term_id ?>">
+                                    <?php echo esc_html($menh->name); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
+                <?php
+                $trinh_do_hoc_vans = get_terms(array(
+                    'taxonomy' => 'trinh-do-hoc-van',
+                    'hide_empty' => false,
+                    'parent' => 0,
+                ));
+                if (! empty($trinh_do_hoc_vans) && ! is_wp_error($trinh_do_hoc_vans)) :
+                ?>
+                    <div class="flex flex-col font-Helvetica">
+                        <p class="font-semibold mb-2">
+                            <?php _e('Trình độ học vấn', 'bsc') ?>
+                        </p>
+                        <select id="trinh_do_hoc_van"
+                            class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+                            <option value=""><?php _e('Tất cả', 'bsc') ?></option>
+                            <?php foreach ($trinh_do_hoc_vans as $trinh_do_hoc_van) :
+                            ?>
+                                <option value="<?php echo $trinh_do_hoc_van->term_id ?>">
+                                    <?php echo esc_html($trinh_do_hoc_van->name); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                <?php endif; ?>
                 <div class="flex flex-col font-Helvetica">
                     <p class="font-semibold mb-2">
-                        <?php _e('Kinh nghiệm', 'bsc') ?>
+                        <?php _e('Tên chuyên gia', 'bsc') ?>
                     </p>
-                    <select id="kinh_nghiem"
-                        class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
-                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                        <?php foreach ($kinh_nghiems as $kinh_nghiem) :
-                        ?>
-                            <option value="<?php echo $kinh_nghiem->term_id ?>">
-                                <?php echo esc_html($kinh_nghiem->name); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+                    <input id="name_chuyen_gia" type="text" placeholder="<?php _e('Nhập họ tên chuyên gia', 'bsc') ?>"
+                        class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
                 </div>
-            <?php endif; ?>
-            <?php
-            $menhs = get_terms(array(
-                'taxonomy' => 'menh',
-                'hide_empty' => false,
-                'parent' => 0,
-            ));
-            if (! empty($menhs) && ! is_wp_error($menhs)) :
-            ?>
-                <div class="flex flex-col font-Helvetica">
-                    <p class="font-semibold mb-2">
-                        <?php _e('Mệnh', 'bsc') ?>
-                    </p>
-                    <select id="menh"
-                        class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
-                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                        <?php foreach ($menhs as $menh) :
-                        ?>
-                            <option value="<?php echo $menh->term_id ?>">
-                                <?php echo esc_html($menh->name); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            <?php endif; ?>
-            <?php
-            $trinh_do_hoc_vans = get_terms(array(
-                'taxonomy' => 'trinh-do-hoc-van',
-                'hide_empty' => false,
-                'parent' => 0,
-            ));
-            if (! empty($trinh_do_hoc_vans) && ! is_wp_error($trinh_do_hoc_vans)) :
-            ?>
-                <div class="flex flex-col font-Helvetica">
-                    <p class="font-semibold mb-2">
-                        <?php _e('Trình độ học vấn', 'bsc') ?>
-                    </p>
-                    <select id="trinh_do_hoc_van"
-                        class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
-                        <option value=""><?php _e('Tất cả', 'bsc') ?></option>
-                        <?php foreach ($trinh_do_hoc_vans as $trinh_do_hoc_van) :
-                        ?>
-                            <option value="<?php echo $trinh_do_hoc_van->term_id ?>">
-                                <?php echo esc_html($trinh_do_hoc_van->name); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            <?php endif; ?>
-            <div class="flex flex-col font-Helvetica">
-                <p class="font-semibold mb-2">
-                    <?php _e('Tên chuyên gia', 'bsc') ?>
-                </p>
-                <input id="name_chuyen_gia" type="text" placeholder="<?php _e('Nhập họ tên chuyên gia', 'bsc') ?>"
-                    class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
-            </div>
-            <button type="submit" id="chuyen_gia_submit" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e('Tìm kiếm', 'bsc') ?></button>
-            <button type="button" id="chuyen_gia_btn-reload"
-                class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-                <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
-            </button>
-        </form>
+                <button type="submit" id="chuyen_gia_submit" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e('Tìm kiếm', 'bsc') ?></button>
+                <button type="button" id="chuyen_gia_btn-reload"
+                    class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                    <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+                </button>
+            </form>
+        <?php } ?>
         <?php
         $args = array(
             'post_type' => 'chuyen-gia',
@@ -135,7 +137,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         ?>
         <div id="list-chuyen-gia">
             <?php if ($filter_job->have_posts()) :  ?>
-                <div class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:grid-cols-4 grid-cols-3  gap-x-5 gap-y-6':'grid-cols-2 gap-4' ?>">
                     <?php
                     while ($filter_job->have_posts()) :
                         $filter_job->the_post();
@@ -180,8 +182,8 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
 
         <div class="relative bg-white rounded-2xl shadow overflow-hidden">
 
-            <div class="flex items-center justify-between bg-primary-50 px-6 py-[18px]">
-                <h3 class="text-2xl font-bold text-primary-300">
+            <div class="flex items-center justify-between bg-primary-50  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-[18px]':'p-4' ?>">
+                <h3 class=" font-bold text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
                     <?php _e('CHI TIẾT CHUYÊN GIA TƯ VẤN', 'bsc') ?>
                 </h3>
                 <button type="button"
@@ -195,18 +197,18 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <div class="p-6">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-6':'p-4' ?>">
                 <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                     <div
-                        class="expert-modal-info lg:p-8 p-5 rounded-2xl bg-gradient-blue-50 font-Helvetica space-y-6">
+                        class="expert-modal-info bg-gradient-blue-50 font-Helvetica space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-8 rounded-2xl':'p-[12px] rounded-[10px]' ?>">
                         <div class="flex items-center">
-                            <div class="w-[100px] rounded-full overflow-hidden mr-4">
+                            <div class="rounded-full overflow-hidden mr-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[100px]':'w-[92px]' ?>">
                                 <div class="relative w-full pt-[100%] group expert-img">
 
                                 </div>
                             </div>
                             <div class="space-y-2 mr-2">
-                                <h4 class="font-bold text-xl mt-1 expert-name">
+                                <h4 class="font-bold mt-1 expert-name <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl':'text-base' ?>">
 
                                 </h4>
                                 <div class="expert-destiny">
@@ -214,9 +216,11 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
 
                                 </div>
                             </div>
-                            <div class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
-
-                            </div>
+                            <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                                <div class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
+    
+                                </div>
+                            <?php } ?>
                         </div>
                         <ul class="space-y-2 text-xs expert-info">
 

@@ -22,7 +22,7 @@
                 <?php } ?>
             </div>
             <div class="col-span-1 relative z-[1]">
-                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'transition-all duration-500 hover:scale-105 z-10')) ?>
+                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'transition-all duration-500 hover:scale-105 z-10 relative')) ?>
                 <?php if ( wp_is_mobile() && bsc_is_mobile() )
 					{ ?>
 						<div class="absolute top-0 -right-10 pointer-events-none w-3/4 h-full">

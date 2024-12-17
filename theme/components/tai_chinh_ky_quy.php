@@ -38,28 +38,30 @@
 			<?php } ?>
 		<?php } else { ?>
 			<?php if (have_rows('ung_tien')) { ?>
-				<div class="grid lg:grid-cols-2 gap-5">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
 					<?php while (have_rows('ung_tien')) :
 						the_row(); ?>
 						<div
-							class="rounded-2xl h-full bg-[#D4EDFF] lg:pt-[46px] pt-8 lg:pl-10 pl-8 pb-[19px] flex flex-col overflow-hidden group">
+							class="rounded-2xl h-full bg-[#D4EDFF]  flex flex-col overflow-hidden group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[46px] pl-10 pb-[19px]':'min-h-[376px] px-5 pt-[30px] pb-14 block_slider-item w-full' ?>">
 							<?php if (get_sub_field('title')) { ?>
-								<h4 class="mb-6 text-primary-300 font-bold xl:text-2xl text-xl ">
+								<h4 class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 xl:text-2xl text-xl':'text-lg mb-4' ?>">
 									<?php the_sub_field('title') ?>
 								</h4>
 							<?php } ?>
 							<?php if (have_rows('mota')) { ?>
-								<ul class="list-icon space-y-4 font-Helvetica mb-[15px] lg:w-[520px] max-w-full">
+								<ul class="list-icon font-Helvetica max-w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' space-y-4 w-[520px] mb-[15px]':'mb-8 space-y-2  text-xs' ?>">
 									<?php while (have_rows('mota')) :
 										the_row(); ?>
-										<li class="list-icon-item">
+										<li class="list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'!items-center' ?>">
 											<?php the_sub_field('info') ?>
 										</li>
 									<?php endwhile; ?>
 								</ul>
 							<?php } ?>
 							<div class="mt-auto">
-								<?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'ml-auto transition-all duration-500 group-hover:scale-105')) ?>
+								<?php 
+								$class =!wp_is_mobile() && !bsc_is_mobile() ?'ml-auto transition-all duration-500 group-hover:scale-105':'max-w-[61%] mx-auto';
+								echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => $class)) ?>
 							</div>
 						</div>
 					<?php endwhile; ?>
