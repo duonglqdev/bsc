@@ -27,9 +27,9 @@ if ($cdctkm1_id_danh_mục) {
         }
         $total_page = ceil($total_post / $post_per_page);
 ?>
-        <section class="xl:my-[100px] my-20 list_khuyen_mai" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+        <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> list_khuyen_mai" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
             <div class="container">
-                <div class="grid lg:grid-cols-3 grid-cols-1 gap-x-[21px] gap-y-[30px]">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-3 md:grid-cols-2 gap-x-[21px] gap-y-[30px]':'md:grid-cols-2 grid-cols-1 gap-6' ?>">
                     <?php
                     foreach ($response->d as $news) {
                         get_template_part('template-parts/content', 'khuyen-mai', array(
