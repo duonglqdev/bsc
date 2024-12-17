@@ -63,7 +63,7 @@ $fullname = get_the_title();
 				</a>
 			<?php } ?>
 		</div>
-		<?php if ( get_field( 'ma_qr' ) )
+		<?php if ( get_field( 'ma_qr' ) && !wp_is_mobile() && ! bsc_is_mobile() )
 		{ ?>
 			<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
 				<?php echo wp_get_attachment_image( get_field( 'ma_qr' ), 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) ) ?>
@@ -185,7 +185,7 @@ $fullname = get_the_title();
 		</div>
 	</div>
 	<div class="hidden expert-desc">
-		<div class="space-y-6">
+		<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-6':'space-y-4' ?>">
 			<?php if ( get_field( 'introduce' ) )
 			{ ?>
 				<div class="intro">

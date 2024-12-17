@@ -163,7 +163,7 @@ $generateRandomString = generateRandomString();
 												endwhile;
 											}
 											?>
-                                             <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                                             <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
                                                 <div class="relative w-full pt-[115.5%] rounded-2xl overflow-hidden mt-6">
                                                     <?php echo wp_get_attachment_image( get_sub_field( 'img' ), 'large', '', array( 'class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105' ) ) ?>
                                                 </div>
