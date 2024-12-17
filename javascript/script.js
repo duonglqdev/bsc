@@ -2474,7 +2474,7 @@ import { DataTable } from 'simple-datatables';
 		const dataTable = new DataTable('#ttcp-table', {
 			searchable: true,
 			fixedHeight: true,
-			perPage: 12,
+			perPage: 10,
 			perPageSelect: [12, 24, 36, 48],
 		});
 
@@ -2688,22 +2688,37 @@ import { DataTable } from 'simple-datatables';
 		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
 			if (!isCheckboxChecked()) return;
-
+		
 			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
+			const listItems = sharesResult.find('li').not('.no-results');
 			let hasResults = false;
-
-			sharesResult
-				.find('li')
-				.not('.no-results')
-				.each(function () {
-					const shareName = $(this).text().toLowerCase().trim();
-					const match = shareName === searchValue;
-					$(this).toggle(match);
-					hasResults = hasResults || match;
-				});
-
+		
+			// Tạo hai mảng: bắt đầu bằng searchValue và chứa searchValue
+			const startsWith = [];
+			const includes = [];
+		
+			listItems.each(function () {
+				const shareName = $(this).text().toLowerCase().trim();
+		
+				// Phân loại kết quả
+				if (shareName.startsWith(searchValue)) {
+					startsWith.push($(this));
+				} else if (shareName.includes(searchValue)) {
+					includes.push($(this));
+				}
+			});
+		
+			// Gộp mảng và hiển thị kết quả theo đúng thứ tự
+			const sortedResults = startsWith.concat(includes);
+			listItems.hide(); // Ẩn toàn bộ kết quả trước
+			sortedResults.forEach(item => {
+				item.show(); // Hiển thị các kết quả phù hợp
+				hasResults = true;
+			});
+		
+			// Hiển thị hoặc ẩn thông báo "không có kết quả"
 			noResults.toggleClass('hidden', hasResults);
 		});
 
