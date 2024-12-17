@@ -36,7 +36,7 @@
                 $formattedStartDate = 'N/A';
             }
         ?>
-            <div class="mt-6 flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':'text-xs gap-2' ?>">
+            <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 mt-6 ':'mt-2 text-xs gap-2' ?>">
                 <div class="inline-flex items-center gap-2">
                     <?php echo svg('time') ?>
                     <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
