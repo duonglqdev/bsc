@@ -318,7 +318,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="flex-1 bg-[#F5FCFF] rounded-lg">
+                                                <div class="flex-1 bg-white rounded-lg shadow-base">
                                                     <div id="chart-forecast" class="font-body"
                                                         data-stock='<?php echo $stocksDataJson ?>'
                                                         data-title="Dự báo VN-Index <?php echo date("Y"); ?>"

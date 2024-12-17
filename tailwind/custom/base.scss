@@ -39,7 +39,7 @@
 		> .submenu-wrapper {
 			@apply w-[30%];
 			> li {
-				@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-paragraph text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
+				@apply transition-all duration-500 pl-5 text-lg [&:not(:last-child)]:mb-5 relative before:absolute before:w-2 before:h-2 before:bg-primary-700 before:left-0 before:top-3 before:transition-all before:duration-500 hover:text-primary-700 hover:before:opacity-100 hover:font-bold [&:not(.active)]:text-[#6B6F78] text-primary-700 [&:not(.active)]:before:opacity-0 before:opacity-100 [&:not(.active)]:font-semibold font-bold;
 				a {
 					@apply inline-block;
 				}
@@ -72,7 +72,7 @@
 			.sub-menu {
 				@apply grid grid-cols-3 gap-3 pl-9 pt-4 mt-1 border-t border-[#E1E1E1];
 				a {
-					@apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px];
+					@apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px] text-[#6B6F78];
 					img {
 						@apply w-6 h-6;
 					}

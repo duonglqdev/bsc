@@ -5,7 +5,7 @@ if ($style == 'nhdt') {
     <section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php if (have_rows('menu_navigation')) { ?>
             <div class="container">
-                <ul class="flex bank-nav-tab hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
+                <ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"

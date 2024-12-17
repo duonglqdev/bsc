@@ -37,6 +37,7 @@ import { DataTable } from 'simple-datatables';
 		handleSearch();
 		sameHeight();
 		resetForm();
+		centerActiveMenu();
 	});
 
 	function menuMobile() {
@@ -2474,7 +2475,7 @@ import { DataTable } from 'simple-datatables';
 		const dataTable = new DataTable('#ttcp-table', {
 			searchable: true,
 			fixedHeight: true,
-			perPage: 12,
+			perPage: 10,
 			perPageSelect: [12, 24, 36, 48],
 		});
 
@@ -2688,22 +2689,37 @@ import { DataTable } from 'simple-datatables';
 		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
 			if (!isCheckboxChecked()) return;
-
+		
 			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
+			const listItems = sharesResult.find('li').not('.no-results');
 			let hasResults = false;
-
-			sharesResult
-				.find('li')
-				.not('.no-results')
-				.each(function () {
-					const shareName = $(this).text().toLowerCase().trim();
-					const match = shareName === searchValue;
-					$(this).toggle(match);
-					hasResults = hasResults || match;
-				});
-
+		
+			// Tạo hai mảng: bắt đầu bằng searchValue và chứa searchValue
+			const startsWith = [];
+			const includes = [];
+		
+			listItems.each(function () {
+				const shareName = $(this).text().toLowerCase().trim();
+		
+				// Phân loại kết quả
+				if (shareName.startsWith(searchValue)) {
+					startsWith.push($(this));
+				} else if (shareName.includes(searchValue)) {
+					includes.push($(this));
+				}
+			});
+		
+			// Gộp mảng và hiển thị kết quả theo đúng thứ tự
+			const sortedResults = startsWith.concat(includes);
+			listItems.hide(); // Ẩn toàn bộ kết quả trước
+			sortedResults.forEach(item => {
+				item.show(); // Hiển thị các kết quả phù hợp
+				hasResults = true;
+			});
+		
+			// Hiển thị hoặc ẩn thông báo "không có kết quả"
 			noResults.toggleClass('hidden', hasResults);
 		});
 
@@ -2725,8 +2741,8 @@ import { DataTable } from 'simple-datatables';
 
 		// Xử lý hover và focusin
 		$(document).on(
-			'mouseenter focusin',
-			'.shares-result, #search-shares',
+			'focus',
+			'#search-shares',
 			function () {
 				if (!isCheckboxChecked()) return;
 
@@ -2904,5 +2920,24 @@ import { DataTable } from 'simple-datatables';
 				$('#select_year').val('');
 			}
 		);
+	}
+	function centerActiveMenu() {
+		if ($('.nav-scroll-mb').length) {
+			var $activeItem = $('.nav-scroll-mb a.active');
+
+			if ($activeItem.length) {
+				// Tính toán khoảng cách cần scroll
+				var $menuContainer = $('.nav-scroll-mb');
+				var activeItemOffset = $activeItem.position().left; // Vị trí của thẻ a active
+				var containerWidth = $menuContainer.width(); // Chiều rộng của menu container
+				var activeItemWidth = $activeItem.outerWidth(); // Chiều rộng của phần tử active
+		
+				// Tính khoảng cách cần scroll để thẻ active ra giữa màn hình
+				var scrollLeftPosition = activeItemOffset - (containerWidth / 2) + (activeItemWidth / 2);
+		
+				// Thực hiện scroll tới vị trí đó với hiệu ứng mượt
+				$menuContainer.animate({ scrollLeft: scrollLeftPosition }, 500);
+			}
+		}
 	}
 })(jQuery);

@@ -78,7 +78,7 @@ $class = $check_logout['class'];
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 bg-[#F5FCFF] rounded-lg px-5 pt-5">
+                        <div class="flex-1 bg-white rounded-lg px-5 pt-5 shadow-base">
                             <div id="chart-forecast" class="font-body"
                                 data-stock='<?php echo $stocksDataJson ?>'
                                 data-title="Dự báo VN-Index <?php echo date("Y"); ?>"
