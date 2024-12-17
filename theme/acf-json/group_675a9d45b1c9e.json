@@ -39,8 +39,28 @@
         },
         {
             "key": "field_675a9d454e024",
-            "label": "IP Address Default",
+            "label": "IP Address Default News",
             "name": "cdapi_ip_address_default",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "http:\/\/10.21.170.17:86\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67610643098c1",
+            "label": "IP Address Default Quanlydanhmuc",
+            "name": "cdapi_ip_address_quanlydanhmuc",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -267,5 +287,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734077397
+    "modified": 1734411875
 }

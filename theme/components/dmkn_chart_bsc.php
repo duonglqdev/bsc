@@ -179,7 +179,7 @@ if ($data_bsc) {
 							<?php
 							if (!$check_logout) {
 								$array_data_list_bsc = array();
-								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/', 'POST');
+								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
 								if ($response_list_bsc) {
 							?>
 									<div
