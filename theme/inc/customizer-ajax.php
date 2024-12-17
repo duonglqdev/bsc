@@ -66,7 +66,11 @@ function filter_chuyengia_ajax()
 {
     check_ajax_referer('common_nonce', 'security');
     $thanh_pho = isset($_POST['thanh_pho']) ? intval($_POST['thanh_pho']) : '';
-    $kinh_nghiem = isset($_POST['kinh_nghiem']) ? intval($_POST['kinh_nghiem']) : '';
+    $kinh_nghiem = isset($_POST['kinh_nghiem'])
+        ? (is_array($_POST['kinh_nghiem'])
+            ? array_map('intval', $_POST['kinh_nghiem'])
+            : intval($_POST['kinh_nghiem']))
+        : '';
     $menh = isset($_POST['menh']) ? intval($_POST['menh']) : '';
     $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van']) ? intval($_POST['trinh_do_hoc_van']) : '';
     $name_chuyen_gia = isset($_POST['name_chuyen_gia']) ? $_POST['name_chuyen_gia'] : '';
