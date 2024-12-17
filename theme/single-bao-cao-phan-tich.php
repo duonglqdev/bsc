@@ -160,7 +160,7 @@ get_header();
                             $viewerpermission = $news->viewerpermission;
                             if ($viewerpermission == 'USER_BSC') {
                                 $datetimeopen = $news->datetimeopen;
-                                if (is_null($datetimeopen) || strtotime($datetimeopen) < time()) {
+                                if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
                                     if (bsc_is_user_logged_out()) {
                                         $count_download = false;
                                         $url_download = bsc_url_sso();
