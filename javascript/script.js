@@ -1240,11 +1240,33 @@ import { DataTable } from 'simple-datatables';
 			var thanh_pho = $(
 				'.list_chuyen_gia input[name="thanh_pho"]:checked'
 			).val();
-			var kinh_nghiem = $('#form-search-expert #kinh_nghiem').val();
-			var menh = $('#form-search-expert #menh').val();
-			var trinh_do_hoc_van = $(
-				'#form-search-expert #trinh_do_hoc_van'
-			).val();
+			if ($('#form-search-expert').attr('data-scale') == 'pc') {
+				var kinh_nghiem = $('#form-search-expert #kinh_nghiem').val();
+				var menh = $('#form-search-expert #menh').val();
+				var trinh_do_hoc_van = $(
+					'#form-search-expert #trinh_do_hoc_van'
+				).val();
+				var name_chuyen_gia = $(
+					'#form-search-expert #name_chuyen_gia'
+				).val();
+			} else {
+				var kinh_nghiem = [];
+				$('#form-search-expert #kinh_nghiem input:checked').each(
+					function () {
+						kinh_nghiem.push($(this).val());
+					}
+				);
+				var menh = [];
+				$('#form-search-expert #menh input:checked').each(function () {
+					menh.push($(this).val());
+				});
+				var trinh_do_hoc_van = [];
+				$('#form-search-expert #trinh_do_hoc_van input:checked').each(
+					function () {
+						trinh_do_hoc_van.push($(this).val());
+					}
+				);
+			}
 			var name_chuyen_gia = $(
 				'#form-search-expert #name_chuyen_gia'
 			).val();
