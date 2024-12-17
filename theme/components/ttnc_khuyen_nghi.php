@@ -20,7 +20,7 @@ $class = $check_logout['class'];
                 <?php } ?>
                 <?php
                 $array_data_GetAllDanhMuc = array();
-                $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/');
+                $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'));
                 if ($response_GetAllDanhMuc) {
                 ?>
                     <ul class="customtab-nav flex items-center gap-4 mb-6">
@@ -55,7 +55,7 @@ $class = $check_logout['class'];
                                     <?php
                                     if (!$check_logout) {
                                         $array_data_list_bsc = array();
-                                        $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_default', 'option') . 'api/Quanlydanhmuc/', 'POST');
+                                        $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
                                         if ($response_list_bsc) {
                                     ?>
                                             <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
