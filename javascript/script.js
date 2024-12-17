@@ -2740,8 +2740,8 @@ import { DataTable } from 'simple-datatables';
 
 		// Xử lý hover và focusin
 		$(document).on(
-			'mouseenter focusin',
-			'.shares-result, #search-shares',
+			'focus',
+			'#search-shares',
 			function () {
 				if (!isCheckboxChecked()) return;
 
