@@ -18,19 +18,21 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<h1 class="xl:text-4xl text-3xl mb-8 font-bold">
+					<h1 class="font-bold mb-6 !leading-snug <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-4xl' : 'text-[22px]' ?>">
 						Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
 					</h1>
-					<div class="lg:flex items-center justify-between mb-8">
-						<div class="">
-							<div class="mt-4 flex items-center gap-2 font-Helvetica">
+					<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' mb-8':'mb-6' ?>">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-[65%]' ?>">
+							<div class="flex items-center gap-2 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'text-xs' ?>">
 								<div class="inline-flex items-center gap-2">
 									<?php echo svg('time') ?>
-									Thời gian chương trình:
+									<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+										Thời gian chương trình:
+									<?php } ?>
 								</div>
-								<div class="font-medium">22/08/2024 - 22/10/2024</div>
+								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'font-medium ':'text-normal' ?>">22/08/2024 - 22/10/2024</div>
 							</div>
-							<div class="mt-[14px] font-Helvetica xl:max-w-[433px]">
+							<div class="font-Helvetica xl:max-w-[433px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-[14px]':'mt-2' ?>">
 								<div
 									class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
 									<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
@@ -42,24 +44,26 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="share flex items-center gap-[12px] ml-12">
-							<strong>
-								<?php _e('Chia sẻ:', 'bsc') ?>
-							</strong>
-							<ul class="flex items-center gap-3">
+						<div class="share flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-[12px] ml-12':'flex-1 justify-end' ?>">
+							<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+								<strong>
+									<?php _e('Chia sẻ:', 'bsc') ?>
+								</strong>
+							<?php } ?>
+							<ul class="flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-3':'gap-1.5' ?>">
 								<li>
 									<a href="">
-										<?php echo svg('ins') ?>
+										<?php echo svgClass('ins','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg('linkedin') ?>
+										<?php echo svgClass('linkedin','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 									</a>
 								</li>
 								<li>
 									<a href="">
-										<?php echo svg('fb') ?>
+										<?php echo svgClass('fb','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 									</a>
 								</li>
 							</ul>

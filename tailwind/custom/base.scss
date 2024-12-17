@@ -181,6 +181,9 @@
 			@apply hidden;
 		}
 	}
+	.the_content p {
+		@apply text-base;
+	}
 	.award__item {
 		@apply rounded-2xl;
 		&.active {

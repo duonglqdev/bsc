@@ -262,6 +262,9 @@
 .is-desktop .hidden-br-pc br {
   @apply hidden;
 }
+.is-desktop .the_content p {
+  @apply text-base;
+}
 .is-desktop .award__item {
   @apply rounded-2xl;
 }
