@@ -620,6 +620,30 @@ function get_array_id_taxonomy($tax)
         return null;
     }
 }
+
+//Get array id taxonomy
+function get_array_id_taxonomy_hide($tax)
+{
+    if ($tax) {
+        $array_id_tax = array();
+        $terms = get_terms(array(
+            'taxonomy' => $tax,
+            'hide_empty' => false,
+        ));
+        if (! empty($terms) && ! is_wp_error($terms)) {
+            foreach ($terms as $term) :
+                $hide_category = get_field('hide_category', $term);
+                if ($hide_category) {
+                    $array_id_tax[] = $term->term_id;
+                }
+            endforeach;
+        }
+        return $array_id_tax;
+    } else {
+        return null;
+    }
+}
+
 function get_name_by_tax_id($taxid, $array_id_tax)
 {
     foreach ($array_id_tax as $item) {
