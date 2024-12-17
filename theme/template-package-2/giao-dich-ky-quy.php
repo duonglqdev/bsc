@@ -61,119 +61,68 @@ get_header();
 			<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/before.png" alt="">
 		</div>
 	</section>
-	<section class="xl:py-[97px] py-20 bg-gradient-blue-250">
+	<section class=" bg-gradient-blue-250 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[97px] py-20':'py-[50px]' ?>">
 		<div class="container">
-			<h2 class="heading-title text-center mb-10">
+			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 				giao dịch ký quỹ tại BSC
 			</h2>
-			<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
-					style="background-color:#E5F5FF;">
-					<div class="max-w-[155px] w-full mx-auto">
-						<div class="relative w-full pt-[100%]">
-							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
-								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
-								alt="">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
-							Lãi suất hấp dẫn
-						</h3>
-						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
-							<p>
-								Lãi suất cho vay chỉ từ 8.5% năm, miễn lãi 02 ngày đầu 
-							</p>
-
-						</div>
-					</div>
-				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
-					style="background-color:#009e871a;">
-					<div class="max-w-[155px] w-full mx-auto">
-						<div class="relative w-full pt-[100%]">
-							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr2.png"
-								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
-								alt="">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
-							Hạn mức cao, thời gian vay linh hoạt 
-						</h3>
-						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
-							<p>
-								Nguồn vốn dồi dào, thời gian vay tới 90 ngày (có thể gia hạn thêm) 
-							</p>
-
-						</div>
-					</div>
-				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
-					style="background-color:#FFB81C1a;">
-					<div class="max-w-[155px] w-full mx-auto">
-						<div class="relative w-full pt-[100%]">
-							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr3.png"
-								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
-								alt="">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
-							Danh mục đa dạng, tỷ lệ cho vay cao 
-						</h3>
-						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
-							<p>Danh mục cho vay được cập nhật nhanh chóng, kịp thời, tỷ lệ cho vay
-								tới 50% </p>
-						</div>
-
-					</div>
-				</div>
-				<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
-					style="background-color:#EBF4FA;">
-					<div class="max-w-[155px] w-full mx-auto">
-						<div class="relative w-full pt-[100%]">
-							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr4.png"
-								class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
-								alt="">
-						</div>
-					</div>
-					<div class="mt-4">
-						<h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
-							Giải ngân tự động 
-						</h3>
-						<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
-							<p>
-								Tự động thực hiện giải ngân và thu hồi nợ 
-							</p>
-						</div>
-
-					</div>
-				</div>
+			<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':' block_slider block_slider-show-1 fli-dots-blue' ?>">
+			<?php 
+			 for ($i = 0; $i < 4; $i++) {
+			 ?>
+			 <div class="rounded-2xl  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 min-h-[414px] shadow-base':'min-h-[388px] pt-9 px-11 pb-14 block_slider-item w-full' ?>"
+					 style="background-color:#E5F5FF;">
+					 <div class="max-w-[155px] w-full mx-auto">
+						 <div class="relative w-full pt-[100%]">
+							 <img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/gr1.png"
+								 class="absolute w-full h-full inset-0 mx-auto object-contain transition-all duration-500 hover:scale-105"
+								 alt="">
+						 </div>
+					 </div>
+					 <div class="mt-4">
+						 <h3 class="font-bold text-primary-300 2xl:text-2xl text-xl mb-2 text-center">
+							 Lãi suất hấp dẫn
+						 </h3>
+						 <div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+							 <p>
+								 Lãi suất cho vay chỉ từ 8.5% năm, miễn lãi 02 ngày đầu 
+							 </p>
+ 
+						 </div>
+					 </div>
+				 </div>
+			  <?php 
+			 } 
+			?>	
+				
 			</div>
 
-			<div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
-				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8 grid grid-cols-2 gap-5':'mt-6 space-y-[12px]' ?>">
+				<div class="rounded-xl flex items-center justify-between bg-[#D8F1F3] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:p-8 p-5 ':'p-4' ?>">
 					<div
-						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
+						class="flex items-center  font-bold text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl gap-4':'text-lg gap-2' ?>">
 						<?php echo svg('app', '30') ?>
 						Danh mục Margin hiện hành
 					</div>
 					<a href=""
 						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
-						Xem chi tiết
+						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+							Xem chi tiết
+						<?php } ?>
 						<?php echo svg('arrow-btn', '12', '12') ?>
 					</a>
 				</div>
-				<div class="2xl:p-8 p-5 rounded-xl flex items-center justify-between bg-[#D8F1F3]">
+				<div class="rounded-xl flex items-center justify-between bg-[#D8F1F3] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:p-8 p-5 ':'p-4' ?>">
 					<div
-						class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300">
+					class="flex items-center  font-bold text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl gap-4':'text-lg gap-2' ?>">
 						<?php echo svg('note', '30') ?>
 						Biểu lãi suất
 					</div>
 					<a href=""
 						class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica">
-						Xem chi tiết
+						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+							Xem chi tiết
+						<?php } ?>
 						<?php echo svg('arrow-btn', '12', '12') ?>
 					</a>
 				</div>
@@ -182,33 +131,35 @@ get_header();
 	</section>
 	<section class="xl:my-[100px] my-20 relative">
 		<div class="container">
-			<div class="grid grid-cols-2 items-center">
+			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 items-center':'' ?>">
 				<div class="col-span-1 xl:-mr-[17px]">
 					<div
-						class="bg-gradient-blue-550 rounded-2xl shadow-base 2xl:py-10 py-5 2xl:px-[50px] px-10 relative z-10 lg:min-h-[402px] flex flex-col justify-center">
-						<h2 class="heading-title 2xl:mb-6 mb-4">
-							ĐĂNG KÝ DỊCH VỤ GIAO DỊCH KÝ QUỸ TẠI BSC
+						class="bg-gradient-blue-550 rounded-2xl shadow-base  relative z-10  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-10 py-5 2xl:px-[50px] px-10 min-h-[402px] flex flex-col justify-center':'px-6 pt-6 pb-[72px]' ?>">
+						<h2 class="heading-title mb-6">
+						ĐĂNG KÝ DỊCH VỤ GIAO DỊCH KÝ QUỸ TẠI BSC
 						</h2>
+							
+						
 						<div class="2xl:space-y-6 space-y-4 font-Helvetica">
 							<div class="item">
-								<p class="text-primary-300 text-xl font-bold mb-3">
+								<p class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-3':'mb-[12px]' ?>">
 									Bạn chưa có tài khoản tại BSC?
 								</p>
-								<p class="mb-2">
+								<p class="mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 									Đăng ký mở tài khoản thường và tài khoản ký quỹ khi mở tài khoản
 									tại BSC.
 								</p>
 								<a href=""
-									class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+									class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 									Mở tài khoản
 									<?php echo svg('arrow-btn', '12', '12') ?>
 								</a>
 							</div>
 							<div class="item">
-								<p class="text-primary-300 text-xl font-bold mb-3">
+								<p class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl mb-3':'mb-[12px]' ?>">
 									Bạn đã có tài khoản tại BSC?
 								</p>
-								<p class="mb-2">
+								<p class="mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 									Đăng ký mở tài khoản ký quỹ tại các Chi nhánh/Điểm giao dịch của
 									BSC hoặc liên hệ với nhân viên Môi giới quản lý tài khoản để
 									được hỗ trợ.
@@ -219,7 +170,7 @@ get_header();
 						</div>
 						<div class="mt-4 pt-4 border-t border-[#CFCFCF]">
 							<a href="#"
-								class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 z-10 text-xs font-bold">
+								class="btn-base-yellow py-[12px] pl-4 pr-6  items-center gap-x-3 z-10 text-xs font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-flex':'flex justify-center' ?>">
 								<?php echo svg('arrow-btn', '16', '16') ?>
 								Hướng dẫn giao dịch ký quỹ
 							</a>

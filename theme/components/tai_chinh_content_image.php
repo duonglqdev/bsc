@@ -19,7 +19,7 @@
                                         </p>
                                     <?php } ?>
                                     <?php if (get_sub_field('answ')) { ?>
-                                        <p class="mb-2">
+                                        <p class="mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                             <?php the_sub_field('answ'); ?>
                                         </p>
                                     <?php } ?>
@@ -31,7 +31,7 @@
                                                         if (get_sub_field('title')) { ?>
                                                             <p>
                                                                 <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                                                    class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green">
+                                                                    class="leading-tight text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                                                     <?php the_sub_field('title') ?>
                                                                     <?php echo svg('arrow-btn', '12', '12') ?>
                                                                 </a>
@@ -109,7 +109,7 @@
                     ?>
                                 <div class="mt-4 pt-4 border-t border-[#CFCFCF]">
                                     <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                        class="btn-base-yellow py-[12px] pl-4 pr-6 inline-flex items-center gap-x-3 z-10 text-xs font-bold">
+                                        class="btn-base-yellow py-[12px] pl-4 pr-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-flex':'flex justify-center' ?> items-center gap-x-3 z-10 text-xs font-bold">
                                         <?php echo svg('arrow-btn', '16', '16') ?>
                                         <?php the_sub_field('title') ?>
                                     </a>
@@ -125,7 +125,7 @@
                 <?php if (get_sub_field('link_youtube')) { ?>
                     <a href="<?php the_sub_field('link_youtube') ?>" data-fancybox
                         class="relative block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl pt-[59.64%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
-                        <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
+                        <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
 
                         <div
                             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
@@ -134,7 +134,7 @@
                     </a>
                 <?php } else { ?>
                     <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl pt-[59.64%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
-                        <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
+                        <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
                     </div>
                 <?php } ?>
             </div>
