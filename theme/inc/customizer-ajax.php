@@ -71,8 +71,16 @@ function filter_chuyengia_ajax()
             ? array_map('intval', $_POST['kinh_nghiem'])
             : intval($_POST['kinh_nghiem']))
         : '';
-    $menh = isset($_POST['menh']) ? intval($_POST['menh']) : '';
-    $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van']) ? intval($_POST['trinh_do_hoc_van']) : '';
+    $menh = isset($_POST['menh'])
+        ? (is_array($_POST['menh'])
+            ? array_map('intval', $_POST['menh'])
+            : intval($_POST['menh']))
+        : '';
+    $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van'])
+        ? (is_array($_POST['trinh_do_hoc_van'])
+            ? array_map('intval', $_POST['trinh_do_hoc_van'])
+            : intval($_POST['trinh_do_hoc_van']))
+        : '';
     $name_chuyen_gia = isset($_POST['name_chuyen_gia']) ? $_POST['name_chuyen_gia'] : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 12;
