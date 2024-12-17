@@ -357,3 +357,45 @@ add_action('template_redirect', function () {
         exit;
     }
 });
+
+/**
+ * Auto exclude terms with ACF field 'hide_category' set to true
+ */
+function bsc_auto_exclude_hidden_categories($args, $taxonomies)
+{
+    // Các taxonomy cần áp dụng
+    $target_taxonomies = array('category', 'danh-muc-bao-cao', 'danh-muc-bao-cao-phan-tich');
+
+    // Chỉ áp dụng cho các taxonomy mục tiêu
+    if (array_intersect($target_taxonomies, (array) $taxonomies)) {
+        $excluded_ids = array();
+
+        // Lấy tất cả terms trong các taxonomy mục tiêu
+        $terms = get_terms(array(
+            'taxonomy'   => $taxonomies,
+            'hide_empty' => false,
+        ));
+
+        // Kiểm tra từng term xem field ACF 'hide_category' có được tích true không
+        if (!is_wp_error($terms) && !empty($terms)) {
+            foreach ($terms as $term) {
+                $hide_category = get_field('hide_category', $term); // Lấy field ACF
+                if ($hide_category === true) {
+                    $excluded_ids[] = $term->term_id; // Thêm ID vào danh sách loại trừ
+                }
+            }
+        }
+
+        // Nếu đã có danh sách exclude thì hợp nhất lại, nếu không thì khởi tạo
+        if (!empty($excluded_ids)) {
+            if (isset($args['exclude'])) {
+                $args['exclude'] = array_merge((array) $args['exclude'], $excluded_ids);
+            } else {
+                $args['exclude'] = $excluded_ids;
+            }
+        }
+    }
+
+    return $args;
+}
+add_filter('get_terms_args', 'bsc_auto_exclude_hidden_categories', 10, 2);
