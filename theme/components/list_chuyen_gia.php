@@ -26,9 +26,9 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         </div>
     </section>
 <?php endif; ?>
-<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14':'my-[50px]' ?>">
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14':'my-[30px]' ?>">
     <div class="container">
-        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+        <?php if( !wp_is_mobile() && !bsc_is_mobile()) : ?>
             <form class="flex gap-6 items-end mb-10" id="form-search-expert" data-paged="1">
                 <?php
                 $kinh_nghiems = get_terms(array(
@@ -115,7 +115,19 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                     <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
                 </button>
             </form>
-        <?php } ?>
+        <?php else : ?>
+           <div class="flex gap-2 items-center mb-4 text-xs font-bold font-Helvetica">
+            <button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2]" data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
+                 <?php echo svgClass('filter-icon', '','','shrink-0') ?>
+                 <?php _e('Bộ lọc', 'bsc') ?>
+            </button>
+            <button type="button" id="chuyen_gia_btn-reload"
+                    class="w-[38px] h-[38px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
+                    <?php echo svgClass('reload', '18', '18', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+                </button>
+           </div>
+        <?php endif; ?>
+   
         <?php
         $args = array(
             'post_type' => 'chuyen-gia',
@@ -137,7 +149,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         ?>
         <div id="list-chuyen-gia">
             <?php if ($filter_job->have_posts()) :  ?>
-                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:grid-cols-4 grid-cols-3  gap-x-5 gap-y-6':'grid-cols-2 gap-4' ?>">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:grid-cols-4 grid-cols-3 gap-x-5 gap-y-6':'grid-cols-2 gap-4' ?>">
                     <?php
                     while ($filter_job->have_posts()) :
                         $filter_job->the_post();
@@ -187,9 +199,9 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                     <?php _e('CHI TIẾT CHUYÊN GIA TƯ VẤN', 'bsc') ?>
                 </h3>
                 <button type="button"
-                    class="text-primary-300 w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-base"
+                    class="text-primary-300  flex items-center justify-center rounded-full bg-white shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-9 h-9':'w-8 h-8' ?>"
                     data-modal-toggle="expert-modal">
-                    <svg class="w-[14px] h-[14px]" aria-hidden="true"
+                    <svg class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[14px] h-[14px]':'w-[12px] h-[12px]' ?>" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
@@ -225,16 +237,147 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                         <ul class="space-y-2 text-xs expert-info">
 
                         </ul>
-                        <div class="expert-btn">
-
-                        </div>
+                        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                            <div class="expert-btn">
+    
+                            </div>
+                        <?php } ?>
                     </div>
                     <div
-                        class="expert-modal-desc lg:p-8 p-5 rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-full overflow-y-auto scroll-bar-custom expert-desc">
+                        class="expert-modal-desc rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-full overflow-y-auto scroll-bar-custom expert-desc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-8':'text-xs p-[12px]' ?>">
 
                     </div>
+                    <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                            <div class="expert-btn prose-a:py-3">
+    
+                            </div>
+                        <?php } ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- @todo: Làm bộ lọc cho mobile -->
+<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+    <div id="expert-modal-filter" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-70">
+    <div class="relative w-full max-w-[946px] max-h-full">
+        <div class="relative bg-white shadow overflow-hidden p-5">
+            <div class="flex items-center justify-between mb-4 pb-5 border-b border-[#C9CCD2]">
+                <button type="button" class="inline-flex gap-3 items-center font-Helvetica font-bold text-xs">
+                    <?php echo svgClass('filter-icon', '','','shrink-0') ?>
+                    <?php _e('Bộ lọc', 'bsc') ?>
+                </button>
+                <button type="button"
+                    class="text-black w-8 h-8"
+                    data-modal-toggle="expert-modal-filter">
+                    <svg class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[14px] h-[14px]':'w-[12px] h-[12px]' ?>" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+           
+            <form id="form-search-expert" data-paged="1">
+                <div class="h-12 py-[12px] px-6 border border-[#DADADA] rounded-lg flex items-center gap-[12px] mb-4">
+                   <div class="flex-shrink-0">
+                     <?php echo svgpath('search', '24','24',' fill-[#B2B2B2]') ?>
+                   </div>
+                    <input id="name_chuyen_gia" type="text" placeholder="<?php _e('Tìm theo tên chuyên gia', 'bsc') ?>"
+                        class="focus:outline-0 focus:ring-0 flex-1 border-0 font-Helvetica p-0 placeholder:text-[#B2B2B2]">
+                </div>
+
+                <?php
+                $kinh_nghiems = get_terms(array(
+                    'taxonomy' => 'kinh-nghiem',
+                    'hide_empty' => false,
+                    'parent' => 0,
+                ));
+                if (! empty($kinh_nghiems) && ! is_wp_error($kinh_nghiems)) :
+                ?>
+                    <div class="flex flex-col font-Helvetica">
+                        <p class="font-bold mb-4 text-lg">
+                            <?php _e('Kinh nghiệm', 'bsc') ?>
+                        </p>
+                        <div id="kinh_nghiem" class="space-y-2 mb-6 pb-6 border-b border-[#C9CCD2]">
+                            <?php foreach ($kinh_nghiems as $kinh_nghiem) :?>
+                                <div class="form-group flex items-center gap-4 font-Helvetica font-medium">
+                                    <input type="checkbox" value="<?php echo $kinh_nghiem->term_id ?>" id="<?php echo $kinh_nghiem->term_id ?>" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-0 focus:outline-0 focus:shadow-none ">
+                                    <label for="<?php echo $kinh_nghiem->term_id ?>"><?php echo esc_html($kinh_nghiem->name); ?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php
+                    $menhs = get_terms(array(
+                        'taxonomy' => 'menh',
+                        'hide_empty' => false,
+                        'parent' => 0,
+                    ));
+
+                    if (!empty($menhs) && !is_wp_error($menhs)) :
+                    ?>
+                        <div class="flex flex-col font-Helvetica">
+                            <p class="font-bold mb-4 text-lg">
+                                <?php _e('Mệnh', 'bsc') ?>
+                            </p>
+                            <div id="menh" class="border-b border-[#C9CCD2] flex flex-wrap gap-[12px] mb-6 pb-6">
+                                <?php foreach ($menhs as $menh) :
+                                    $icon = get_field('icon', $menh); 
+                                    $background = get_field('background', $menh); 
+                                    $color = get_field('color', $menh); 
+                                ?>
+                                    <div class="form-group flex items-center gap-4 font-Helvetica font-medium">
+                                        <input type="checkbox" value="<?php echo $menh->term_id; ?>" id="<?php echo $menh->term_id; ?>" class="hidden peer">
+                                        <label for="<?php echo $menh->term_id; ?>" 
+                                            class="rounded-[45px] py-1 inline-flex gap-[6px] items-center font-semibold relative text-xs px-2 border-2 border-transparent peer-checked:border-black peer-checked:shadow-lg"
+                                            style="background-color: <?php echo esc_attr($background); ?>; color: <?php echo esc_attr($color); ?>;">
+                                            <div class="bg-white rounded-full flex items-center justify-center w-4 h-4">
+                                                <?php if ($icon): ?>
+                                                     <?php echo wp_get_attachment_image($icon, 'full') ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php echo esc_html($menh->name); ?>
+                                        </label>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                <?php
+                $trinh_do_hoc_vans = get_terms(array(
+                    'taxonomy' => 'trinh-do-hoc-van',
+                    'hide_empty' => false,
+                    'parent' => 0,
+                ));
+                if (! empty($trinh_do_hoc_vans) && ! is_wp_error($trinh_do_hoc_vans)) :
+                ?>
+                    <div class="flex flex-col font-Helvetica">
+                        <p class="font-bold mb-4 text-lg">
+                        <?php _e('Trình độ học vấn', 'bsc') ?>
+                        </p>
+                        <div id="trinh_do_hoc_van" class="space-y-2 pb-6 border-b border-[#C9CCD2]">
+                        <?php foreach ($trinh_do_hoc_vans as $trinh_do_hoc_van) :?>
+                                <div class="form-group flex items-center gap-4 font-Helvetica font-medium">
+                                    <input type="checkbox" value="<?php echo $trinh_do_hoc_van->term_id ?>" id="<?php echo $trinh_do_hoc_van->term_id ?>" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-0 focus:outline-0 focus:shadow-none ">
+                                    <label for="<?php echo $trinh_do_hoc_van->term_id ?>"><?php echo esc_html($trinh_do_hoc_van->name); ?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+               
+                <button type="submit" id="chuyen_gia_submit" class="cursor-pointer btn-base-yellow h-[50px] rounded-xl w-full mt-8"><?php _e('Tìm kiếm', 'bsc') ?></button>
+               
+            </form>
+
+        </div>
+    </div>
+</div>       
+<?php } ?>
