@@ -37,6 +37,7 @@ import { DataTable } from 'simple-datatables';
 		handleSearch();
 		sameHeight();
 		resetForm();
+		centerActiveMenu();
 	});
 
 	function menuMobile() {
@@ -2919,5 +2920,24 @@ import { DataTable } from 'simple-datatables';
 				$('#select_year').val('');
 			}
 		);
+	}
+	function centerActiveMenu() {
+		if ($('.nav-scroll-mb').length) {
+			var $activeItem = $('.nav-scroll-mb a.active');
+
+			if ($activeItem.length) {
+				// Tính toán khoảng cách cần scroll
+				var $menuContainer = $('.nav-scroll-mb');
+				var activeItemOffset = $activeItem.position().left; // Vị trí của thẻ a active
+				var containerWidth = $menuContainer.width(); // Chiều rộng của menu container
+				var activeItemWidth = $activeItem.outerWidth(); // Chiều rộng của phần tử active
+		
+				// Tính khoảng cách cần scroll để thẻ active ra giữa màn hình
+				var scrollLeftPosition = activeItemOffset - (containerWidth / 2) + (activeItemWidth / 2);
+		
+				// Thực hiện scroll tới vị trí đó với hiệu ứng mượt
+				$menuContainer.animate({ scrollLeft: scrollLeftPosition }, 500);
+			}
+		}
 	}
 })(jQuery);

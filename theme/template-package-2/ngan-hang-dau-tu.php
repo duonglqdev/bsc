@@ -11,30 +11,30 @@ get_header();
 	<!-- Tab nav -->
 	<section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>">
 		<div class="container">
-			<ul class="flex bank-nav-tab hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
+			<ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
 				<li>
-					<button data-tabs="#bank-tab-1"
-						class="active inline-block font-bold xl:text-lg  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
+					<a href=""
+						class=" inline-block font-bold xl:text-lg  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
 						Dịch vụ <br> thị trường vốn (ECM)
-					</button>
+					</a>
 				</li>
 				<li>
-					<button data-tabs="#bank-tab-2"
+					<a href=""
 						class="inline-block font-bold xl:text-lg [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
 						Dịch vụ <br> thị trường nợ (DCM)
-					</button>
+					</a>
 				</li>
 				<li>
-					<button data-tabs="#bank-tab-3"
-						class="inline-block font-bold xl:text-lg [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
+					<a href=""
+						class="active inline-block font-bold xl:text-lg [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
 						Tư vấn <br> tài chính doanh nghiệp
-					</button>
+					</a>
 				</li>
 				<li>
-					<button data-tabs="#bank-tab-4"
+					<a href=""
 						class="inline-block font-bold xl:text-lg [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
 						Tư vấn <br> mua bán sát nhập M&A
-					</button>
+					</a>
 				</li>
 			</ul>
 		</div>
