@@ -1,17 +1,17 @@
-<section class="xl:py-[97px] py-20 bg-gradient-blue-250 tai_chinh_ky_quy" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="bg-gradient-blue-250 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[97px] py-20':'py-[50px]' ?> tai_chinh_ky_quy" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<?php if (get_sub_field('title')) { ?>
-			<h2 class="heading-title 2xl:mb-6 mb-4">
+			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-6 mb-4':'mb-6' ?>">
 				<?php the_sub_field('title') ?>
 			</h2>
 		<?php } ?>
 		<?php $display = get_sub_field('display') ?: 'kyquy';
 		if ($display == 'kyquy') { ?>
 			<?php if (have_rows('benefit')) { ?>
-				<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':' block_slider block_slider-show-1 fli-dots-blue' ?>">
 					<?php while (have_rows('benefit')) :
 						the_row(); ?>
-						<div class="rounded-2xl xl:p-[34px] xl:pt-14 p-6 lg:min-h-[414px] shadow-base"
+						<div class="rounded-2xl<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 min-h-[414px] shadow-base':'min-h-[388px] pt-9 px-11 pb-14 block_slider-item w-full' ?>"
 							style="background-color:<?php the_sub_field('color') ?>;">
 							<div class="max-w-[155px] w-full mx-auto">
 								<div class="relative w-full pt-[100%]">
@@ -25,7 +25,7 @@
 									</h3>
 								<?php } ?>
 								<?php if (get_sub_field('mota')) { ?>
-									<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica">
+									<div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 										<p>
 											<?php the_sub_field('mota') ?>
 										</p>
@@ -67,13 +67,13 @@
 			<?php } ?>
 		<?php } ?>
 		<?php if (have_rows('menu_dieu_huong')) { ?>
-			<div class="mt-8 lg:grid lg:grid-cols-2 gap-5">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8 grid grid-cols-2 gap-5':'mt-6 space-y-[12px]' ?>">
 				<?php while (have_rows('menu_dieu_huong')) :
 					the_row(); ?>
 					<div
-						class="2xl:p-8 p-5 rounded-xl flex items-center justify-between relative group bg-[#D8F1F3] overflow-hidden">
+						class="rounded-xl flex items-center justify-between relative group bg-[#D8F1F3] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:p-8 p-5':'p-4' ?>">
 						<div
-							class="flex items-center gap-4 2xl:text-2xl text-xl font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500">
+							class="flex items-center  font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 2xl:text-2xl text-xl':'text-lg gap-2' ?>">
 							<div class="text-green group-hover:text-white">
 								<?php echo svg_dir(get_sub_field('icon'), '30') ?>
 							</div>
@@ -85,7 +85,9 @@
 								if (get_sub_field('title')) { ?>
 									<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 										class="text-green font-bold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica relative z-[2] group-hover:text-white">
-										<?php the_sub_field('title') ?>
+										<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+											<?php the_sub_field('title') ?>
+										<?php } ?>
 										<?php echo svg('arrow-btn', '12', '12') ?>
 									</a>
 						<?php
