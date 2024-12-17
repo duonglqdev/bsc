@@ -8851,7 +8851,7 @@
                                     "sub_fields": [
                                         {
                                             "key": "field_67337f40ad27a",
-                                            "label": "Hình ảnh",
+                                            "label": "Hình ảnh Desktop",
                                             "name": "img",
                                             "aria-label": "",
                                             "type": "image",
@@ -8864,7 +8864,33 @@
                                                 "id": ""
                                             },
                                             "return_format": "id",
-                                            "library": "",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "preview_size": "thumbnail",
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        },
+                                        {
+                                            "key": "field_676139956706c",
+                                            "label": "Hình ảnh Mobile",
+                                            "name": "img_mobile",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "15",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
                                             "min_width": "",
                                             "min_height": "",
                                             "min_size": "",
@@ -8927,18 +8953,16 @@
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
-                                                "width": "50",
+                                                "width": "",
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "layout": "",
-                                            "pagination": 0,
+                                            "layout": "table",
                                             "min": 0,
                                             "max": 0,
                                             "collapsed": "",
                                             "button_label": "Thêm danh sách",
                                             "rows_per_page": 20,
-                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337f84ad27d",
@@ -8961,7 +8985,8 @@
                                                     "new_lines": "",
                                                     "parent_repeater": "field_67337f6bad27c"
                                                 }
-                                            ]
+                                            ],
+                                            "parent_repeater": "field_67337ed4ad279"
                                         },
                                         {
                                             "key": "field_67337fa2ad27f",
@@ -9584,6 +9609,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6734deb3c1add",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734de9ac1adb",
@@ -9665,8 +9691,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734deb3c1add"
+                                    ]
                                 }
                             ]
                         },
@@ -15915,6 +15940,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_673e34f6ae252",
                                     "sub_fields": [
                                         {
                                             "key": "field_673e3586ae257",
@@ -15996,8 +16022,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_673e34f6ae252"
+                                    ]
                                 }
                             ]
                         }
@@ -17010,5 +17035,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734345611
+    "modified": 1734425002
 }
