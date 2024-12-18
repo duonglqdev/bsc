@@ -1750,44 +1750,34 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function filterTable() {
-		$(document).ready(function () {
-			$('.filter-table').on('click', function () {
-				var $header = $(this);
-				var $table = $header.closest('table');
-				var $tbody = $table.find('tbody');
-				var $rows = $tbody.find('tr');
-				var headerIndex = $header.index();
-				var isAscending = $header.hasClass('ascending');
+		$(document).on('click', '.filter-table', function () {
+			var $header = $(this);
+			var $table = $header.closest('table');
+			var $tbody = $table.find('tbody');
+			var $rows = $tbody.find('tr');
+			var headerIndex = $header.index();
+			var isAscending = $header.hasClass('ascending');
 
-				// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
-				$table.find('th').removeClass('ascending descending');
-				$header.toggleClass('ascending', !isAscending);
-				$header.toggleClass('descending', isAscending);
+			// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
+			$table.find('th').removeClass('ascending descending');
+			$header.toggleClass('ascending', !isAscending);
+			$header.toggleClass('descending', isAscending);
 
-				$rows.sort(function (rowA, rowB) {
-					var cellA = $(rowA)
-						.children()
-						.eq(headerIndex)
-						.text()
-						.trim();
-					var cellB = $(rowB)
-						.children()
-						.eq(headerIndex)
-						.text()
-						.trim();
+			$rows.sort(function (rowA, rowB) {
+				var cellA = $(rowA).children().eq(headerIndex).text().trim();
+				var cellB = $(rowB).children().eq(headerIndex).text().trim();
 
-					// Kiểm tra xem nội dung cột là số hay chữ
-					var a = $.isNumeric(cellA) ? parseFloat(cellA) : cellA;
-					var b = $.isNumeric(cellB) ? parseFloat(cellB) : cellB;
+				// Kiểm tra xem nội dung cột là số hay chữ
+				var a = $.isNumeric(cellA) ? parseFloat(cellA) : cellA;
+				var b = $.isNumeric(cellB) ? parseFloat(cellB) : cellB;
 
-					if (a < b) return isAscending ? 1 : -1;
-					if (a > b) return isAscending ? -1 : 1;
-					return 0;
-				});
-
-				// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
-				$tbody.empty().append($rows);
+				if (a < b) return isAscending ? 1 : -1;
+				if (a > b) return isAscending ? -1 : 1;
+				return 0;
 			});
+
+			// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
+			$tbody.empty().append($rows);
 		});
 	}
 
@@ -2261,7 +2251,7 @@ import { DataTable } from 'simple-datatables';
 								horizontalAlign: 'left',
 								labels: { colors: '#4A5568' },
 								markers: {
-									width: 12,
+									width: 8,
 									height: 8,
 									radius: 2,
 								},
@@ -2481,7 +2471,6 @@ import { DataTable } from 'simple-datatables';
 			sortable: false,
 		});
 
-
 		// Ẩn input mặc định của searchable bằng CSS
 		const searchableInput = document.querySelector('.datatable-input');
 		if (searchableInput) {
@@ -2692,20 +2681,20 @@ import { DataTable } from 'simple-datatables';
 		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
 			if (!isCheckboxChecked()) return;
-		
+
 			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
 			const listItems = sharesResult.find('li').not('.no-results');
 			let hasResults = false;
-		
+
 			// Tạo hai mảng: bắt đầu bằng searchValue và chứa searchValue
 			const startsWith = [];
 			const includes = [];
-		
+
 			listItems.each(function () {
 				const shareName = $(this).text().toLowerCase().trim();
-		
+
 				// Phân loại kết quả
 				if (shareName.startsWith(searchValue)) {
 					startsWith.push($(this));
@@ -2713,15 +2702,15 @@ import { DataTable } from 'simple-datatables';
 					includes.push($(this));
 				}
 			});
-		
+
 			// Gộp mảng và hiển thị kết quả theo đúng thứ tự
 			const sortedResults = startsWith.concat(includes);
 			listItems.hide(); // Ẩn toàn bộ kết quả trước
-			sortedResults.forEach(item => {
+			sortedResults.forEach((item) => {
 				item.show(); // Hiển thị các kết quả phù hợp
 				hasResults = true;
 			});
-		
+
 			// Hiển thị hoặc ẩn thông báo "không có kết quả"
 			noResults.toggleClass('hidden', hasResults);
 		});
@@ -2743,15 +2732,11 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		// Xử lý hover và focusin
-		$(document).on(
-			'focus',
-			'#search-shares',
-			function () {
-				if (!isCheckboxChecked()) return;
+		$(document).on('focus', '#search-shares', function () {
+			if (!isCheckboxChecked()) return;
 
-				$('.shares-result').addClass('active');
-			}
-		);
+			$('.shares-result').addClass('active');
+		});
 
 		// Xử lý mouseleave và focusout
 		$(document).on(
@@ -2838,7 +2823,11 @@ import { DataTable } from 'simple-datatables';
 			load_du_lieu_lich_su();
 		});
 
-		function load_du_lieu_lich_su() {
+		let currentPage = 1;
+		const itemsPerPage = 20;
+
+		function load_du_lieu_lich_su(page = 1) {
+			currentPage = page;
 			var mck = $('#du-lieu-lich-su_form .mck').val();
 			var fromdate = $('#du-lieu-lich-su_form .fromdate').val();
 			var todate = $('#du-lieu-lich-su_form .todate').val();
@@ -2853,6 +2842,8 @@ import { DataTable } from 'simple-datatables';
 					todate: todate,
 					type_form: type_form,
 					security: ajaxurl.security,
+					page: page,
+					items_per_page: itemsPerPage,
 				},
 				beforeSend: function () {
 					$('#list-du-lieu-lich-su').html('');
@@ -2860,8 +2851,60 @@ import { DataTable } from 'simple-datatables';
 				},
 				success: function (response) {
 					$('#du-lieu-lich-su-loading').addClass('hidden');
-					$('#list-du-lieu-lich-su').html(response);
+					$('#list-du-lieu-lich-su').html(response.data.html);
+					console.log(response.html);
+
+					updatePagination(response.data.total_pages);
 				},
+			});
+		}
+		function updatePagination(totalPages) {
+			const paginationContainer = $('.dlls-pagination ul');
+			paginationContainer.html('');
+
+			// Nút Prev
+			if (currentPage > 1) {
+				paginationContainer.append(`
+					<li>
+						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPage - 1}">
+							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"></path>
+								</svg>
+						</a>
+					</li>
+				`);
+			}
+
+			// Các số trang
+			for (let i = 1; i <= totalPages; i++) {
+				const activeClass = i === currentPage ? 'active' : '';
+				paginationContainer.append(`
+					<li>
+						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500 ${activeClass}" data-page="${i}">
+							${i}
+						</a>
+					</li>
+				`);
+			}
+
+			// Nút Next
+			if (currentPage < totalPages) {
+				paginationContainer.append(`
+					<li>
+						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPage + 1}">
+							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+								</svg>
+						</a>
+					</li>
+				`);
+			}
+
+			// Gắn sự kiện click
+			paginationContainer.find('a').on('click', function (e) {
+				e.preventDefault();
+				const page = $(this).data('page');
+				load_du_lieu_lich_su(page);
 			});
 		}
 	}
@@ -2934,16 +2977,17 @@ import { DataTable } from 'simple-datatables';
 				var activeItemOffset = $activeItem.position().left; // Vị trí của thẻ a active
 				var containerWidth = $menuContainer.width(); // Chiều rộng của menu container
 				var activeItemWidth = $activeItem.outerWidth(); // Chiều rộng của phần tử active
-		
+
 				// Tính khoảng cách cần scroll để thẻ active ra giữa màn hình
-				var scrollLeftPosition = activeItemOffset - (containerWidth / 2) + (activeItemWidth / 2);
-		
+				var scrollLeftPosition =
+					activeItemOffset - containerWidth / 2 + activeItemWidth / 2;
+
 				// Thực hiện scroll tới vị trí đó với hiệu ứng mượt
 				$menuContainer.animate({ scrollLeft: scrollLeftPosition }, 500);
 			}
 		}
 	}
 	function handleLoading() {
-		$(".block-loading").addClass('active');
+		$('.block-loading').addClass('active');
 	}
 })(jQuery);
