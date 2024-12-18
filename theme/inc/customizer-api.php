@@ -16,10 +16,27 @@ function callApi($url, $data = false, $method = "GET")
     //         'Content-Type: application/json'
     //     ),
     // ));
+
     // $response = curl_exec($curl);
+    // $error = curl_error($curl); // Lấy lỗi nếu có
+    // $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
     // curl_close($curl);
+
+    // if ($error) {
+    //     // Ghi log lỗi
+    //     error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
+    //     return null;
+    // }
+
+    // // Nếu mã HTTP không phải 2xx, ghi log lỗi
+    // if ($http_code < 200 || $http_code >= 300) {
+    //     error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
+    //     return null;
+    // }
+
     // return json_decode($response);
 }
+
 
 
 function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = null, $method = "GET")
@@ -27,37 +44,31 @@ function get_data_with_cache($endpoint, $array_data, $ttl = 300, $url_end = null
     if (empty($url_end)) {
         $url_end = get_field('cdapi_ip_address_default', 'option');
         if (empty($url_end)) {
-            return null; // Nếu không có URL, trả về null để tránh lỗi
+            error_log("API Error: Missing API base URL.");
+            return null;
         }
     }
+
     if ($method == 'POST') {
-        // $cache_key = $endpoint . '_' . md5($array_data);    
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
         $url = $url_end . $endpoint;
         $response = callApi($url, $array_data, "POST");
-        if ($response) {
-            // wp_cache_set($cache_key, $response, '', $ttl);
-            return $response;
+        if (!$response) {
+            error_log("Failed POST request to: " . $url . " | Data: " . json_encode($array_data));
+            return null;
         }
+        return $response;
     } else {
-        // $cache_key = $endpoint . '_' . md5(json_encode($array_data));
-        // $cached_data = wp_cache_get($cache_key);
-        // if (false !== $cached_data) {
-        //     return $cached_data;
-        // }
         $url = $url_end . $endpoint . '?' . http_build_query($array_data);
         $response = callApi($url);
         if (is_object($response) && $response->s == "ok") {
-            // wp_cache_set($cache_key, $response, '', $ttl);
             return $response;
         }
+        error_log("Failed GET request to: " . $url . " | Query Params: " . json_encode($array_data));
     }
 
     return null;
 }
+
 
 function slug_news($postid, $title)
 {
@@ -458,10 +469,10 @@ add_filter('rank_math/opengraph/image', function ($image) {
 //Check login
 function bsc_url_sso()
 {
-    $redirect_uri = get_home_url() . '/callback';
-    $client_id = 'L2B6V5LX1S';
+    $redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
+    $client_id = get_field('cdapi_ip_address_clientid', 'option');
     $current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
-    $url = "https://trading-uat.bsjsc.com.vn/sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
+    $url = get_field('cdapi_ip_address_apilogin', 'option') . "sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
     return $url;
 }
 function bsc_is_user_logged_out()
@@ -512,7 +523,9 @@ function detectDevice()
 * Create page callback
 */
 add_action('init', function () {
-    if (strpos($_SERVER['REQUEST_URI'], '/callback') !== false) {
+    $callback_url = get_field('cdapi_ip_address_url_call_back', 'option');
+    $parsed_url = parse_url($callback_url, PHP_URL_PATH);
+    if ($callback_url && strpos($_SERVER['REQUEST_URI'], $parsed_url) !== false) {
         bsc_handle_sso_callback();
         exit;
     } elseif (strpos($_SERVER['REQUEST_URI'], '/download-app-trading') !== false) {
@@ -537,10 +550,10 @@ function bsc_handle_sso_callback()
 {
     if (isset($_GET['code'])) {
         $code = sanitize_text_field($_GET['code']);
-        $redirect_uri = get_home_url() . '/callback';
-        $client_id = 'L2B6V5LX1S';
-        $client_secret = 'dn8O1K4LSPUEN1FXFt5EhXrsKZVHZS';
-        $token_url = 'https://trading-uat.bsjsc.com.vn/sso/oauth/token';
+        $redirect_uri =  get_field('cdapi_ip_address_url_call_back', 'option');
+        $client_id = get_field('cdapi_ip_address_clientid', 'option');
+        $client_secret = get_field('cdapi_ip_address_clientsecret', 'option');
+        $token_url = get_field('cdapi_ip_address_apiurl', 'option') . 'sso/oauth/token';
 
         // Gửi yêu cầu lấy access_token
         $response = wp_remote_post($token_url, [
@@ -607,6 +620,30 @@ function get_array_id_taxonomy($tax)
         return null;
     }
 }
+
+//Get array id taxonomy
+function get_array_id_taxonomy_hide($tax)
+{
+    if ($tax) {
+        $array_id_tax = array();
+        $terms = get_terms(array(
+            'taxonomy' => $tax,
+            'hide_empty' => false,
+        ));
+        if (! empty($terms) && ! is_wp_error($terms)) {
+            foreach ($terms as $term) :
+                $hide_category = get_field('hide_category', $term);
+                if ($hide_category) {
+                    $array_id_tax[] = $term->term_id;
+                }
+            endforeach;
+        }
+        return $array_id_tax;
+    } else {
+        return null;
+    }
+}
+
 function get_name_by_tax_id($taxid, $array_id_tax)
 {
     foreach ($array_id_tax as $item) {

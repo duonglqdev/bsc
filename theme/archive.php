@@ -24,10 +24,12 @@ get_header();
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<?php
+							$excluded_category_id = get_array_id_taxonomy_hide('category');
 							$terms = get_terms(array(
 								'taxonomy' => 'category',
 								'hide_empty' => false,
 								'parent' => 0,
+								'exclude'    => $excluded_category_id,
 							));
 							if (! empty($terms) && ! is_wp_error($terms)) :
 							?>
@@ -47,6 +49,7 @@ get_header();
 												'taxonomy' => 'category',
 												'parent' => $term->term_id,
 												'hide_empty' => false,
+												'exclude'    => $excluded_category_id,
 											));
 
 											if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>

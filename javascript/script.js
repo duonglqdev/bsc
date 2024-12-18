@@ -37,6 +37,7 @@ import { DataTable } from 'simple-datatables';
 		handleSearch();
 		sameHeight();
 		resetForm();
+		centerActiveMenu();
 	});
 
 	function menuMobile() {
@@ -1164,15 +1165,19 @@ import { DataTable } from 'simple-datatables';
 	function livechat() {
 		jQuery(document).ready(function () {
 			jQuery("a[href='#livechat']").click(function () {
-				liveChat('show');
-				jQuery('#ib-button-messaging').show();
+				if ($('#ib-button-messaging').length) {
+					liveChat('show');
+					jQuery('#ib-button-messaging').show();
+				} else if ($('#custom-chatroom-widget-wrapper').length) {
+					chatroom_widget_toggle();
+				}
 			});
-		});
-		jQuery(document).on('click', '#ib-button-messaging', function () {
-			jQuery('#ib-button-messaging').css('display', 'none');
 		});
 		if ($('#ib-button-messaging').length) {
 			liveChat('hide');
+			jQuery(document).on('click', '#ib-button-messaging', function () {
+				jQuery('#ib-button-messaging').css('display', 'none');
+			});
 		}
 	}
 
@@ -1236,11 +1241,33 @@ import { DataTable } from 'simple-datatables';
 			var thanh_pho = $(
 				'.list_chuyen_gia input[name="thanh_pho"]:checked'
 			).val();
-			var kinh_nghiem = $('#form-search-expert #kinh_nghiem').val();
-			var menh = $('#form-search-expert #menh').val();
-			var trinh_do_hoc_van = $(
-				'#form-search-expert #trinh_do_hoc_van'
-			).val();
+			if ($('#form-search-expert').attr('data-scale') == 'pc') {
+				var kinh_nghiem = $('#form-search-expert #kinh_nghiem').val();
+				var menh = $('#form-search-expert #menh').val();
+				var trinh_do_hoc_van = $(
+					'#form-search-expert #trinh_do_hoc_van'
+				).val();
+				var name_chuyen_gia = $(
+					'#form-search-expert #name_chuyen_gia'
+				).val();
+			} else {
+				var kinh_nghiem = [];
+				$('#form-search-expert #kinh_nghiem input:checked').each(
+					function () {
+						kinh_nghiem.push($(this).val());
+					}
+				);
+				var menh = [];
+				$('#form-search-expert #menh input:checked').each(function () {
+					menh.push($(this).val());
+				});
+				var trinh_do_hoc_van = [];
+				$('#form-search-expert #trinh_do_hoc_van input:checked').each(
+					function () {
+						trinh_do_hoc_van.push($(this).val());
+					}
+				);
+			}
 			var name_chuyen_gia = $(
 				'#form-search-expert #name_chuyen_gia'
 			).val();
@@ -1823,7 +1850,6 @@ import { DataTable } from 'simple-datatables';
 
 			// Cập nhật trục X
 			const extendedCategories = [...categories, ...kbDates];
-			console.log(extendedCategories);
 			// Tạo dữ liệu cho KB1 và KB2 (bao gồm điểm đầu VN-Index tại ngày cuối cùng của VN-Index)
 			const kb1Series = [
 				...closeIndexes.map(() => null),
@@ -2112,6 +2138,31 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
+	function formatDateToQuarterOrYear(dates) {
+		const formattedDates = dates.map((date) => {
+			const [year, month] = date.split('-').map(Number);
+
+			if (month === 3 || month === 6 || month === 9 || month === 12) {
+				const quarter = Math.ceil(month / 3);
+				return `Q${quarter}.${year}`;
+			}
+
+			if (month === 12 && date.endsWith('-12-31')) {
+				return year.toString();
+			}
+
+			return date;
+		});
+
+		// Kiểm tra nếu tất cả các ngày là Q4.xxxx
+		const allAreQ4 = formattedDates.every((item) => item.startsWith('Q4.'));
+		if (allAreQ4) {
+			return formattedDates.map((item) => item.replace('Q4.', '')); // Loại bỏ Q4 nếu tất cả đều là Q4
+		}
+
+		return formattedDates;
+	}
+
 	function profitChart() {
 		if ($('.bsc_chart-display').length) {
 			$('.bsc_chart-display').each(function () {
@@ -2121,17 +2172,17 @@ import { DataTable } from 'simple-datatables';
 						const data1 = JSON.parse(
 							$(this).attr('data-1') || '[]'
 						);
-						const end_ch = $(this).attr('data-end') || '';
-						const type_chart = $(this).attr('data-type') || 'line';
 						const data2 = $(this).attr('data-2')
 							? JSON.parse($(this).attr('data-2'))
 							: null;
+						const end_ch = $(this).attr('data-end') || '';
+						const type_chart = $(this).attr('data-type') || 'line';
 						const title1 = $(this).attr('data-title-1');
 						const title2 = $(this).attr('data-title-2') || null;
 						const color1 = $(this).attr('data-color-1');
 						const color2 = $(this).attr('data-color-2') || null;
 
-						// Kết hợp ngày và giá trị vào một mảng để sắp xếp
+						// Kết hợp ngày và giá trị
 						const combinedData1 = data1.map((item) => ({
 							date: item.date,
 							value: item.value,
@@ -2143,7 +2194,7 @@ import { DataTable } from 'simple-datatables';
 								}))
 							: null;
 
-						// Sắp xếp mảng theo ngày
+						// Sắp xếp dữ liệu
 						combinedData1.sort(
 							(a, b) => new Date(a.date) - new Date(b.date)
 						);
@@ -2153,14 +2204,15 @@ import { DataTable } from 'simple-datatables';
 							);
 						}
 
-						// Tách lại mảng đã sắp xếp
+						// Tách ngày và giá trị
 						const dates = combinedData1.map((item) => item.date);
+						const formattedDates = formatDateToQuarterOrYear(dates); // Chuyển đổi ngày
 						const values1 = combinedData1.map((item) => item.value);
 						const values2 = combinedData2
 							? combinedData2.map((item) => item.value)
 							: [];
 
-						// Cấu hình series cho ApexCharts
+						// Cấu hình series
 						const series = [{ name: title1, data: values1 }];
 						if (data2) {
 							series.push({ name: title2, data: values2 });
@@ -2175,7 +2227,7 @@ import { DataTable } from 'simple-datatables';
 							},
 							series: series,
 							xaxis: {
-								categories: dates, // Sử dụng ngày đã sắp xếp
+								categories: formattedDates, // Sử dụng ngày đã chuyển đổi
 								labels: {
 									style: {
 										fontSize: '14px',
@@ -2193,17 +2245,15 @@ import { DataTable } from 'simple-datatables';
 							},
 							colors: data2 ? [color1, color2] : [color1],
 							markers: {
-								size: 0, // Loại bỏ dấu chấm trên các đường
+								size: 0,
 							},
 							stroke: {
-								curve: 'smooth', // Làm các đường mềm mại hơn
-								width: 2, // Độ dày của đường
+								curve: 'smooth',
+								width: 2,
 							},
 							grid: {
 								show: true,
-								yaxis: {
-									lines: { show: false }, // Ẩn đường ngang
-								},
+								yaxis: { lines: { show: false } },
 							},
 							legend: {
 								position: 'top',
@@ -2212,7 +2262,7 @@ import { DataTable } from 'simple-datatables';
 								markers: {
 									width: 12,
 									height: 8,
-									radius: 2, // Góc bo tròn cho marker
+									radius: 2,
 								},
 							},
 							tooltip: {
@@ -2425,7 +2475,7 @@ import { DataTable } from 'simple-datatables';
 		const dataTable = new DataTable('#ttcp-table', {
 			searchable: true,
 			fixedHeight: true,
-			perPage: 12,
+			perPage: 10,
 			perPageSelect: [12, 24, 36, 48],
 		});
 
@@ -2639,22 +2689,37 @@ import { DataTable } from 'simple-datatables';
 		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
 			if (!isCheckboxChecked()) return;
-
+		
 			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
+			const listItems = sharesResult.find('li').not('.no-results');
 			let hasResults = false;
-
-			sharesResult
-				.find('li')
-				.not('.no-results')
-				.each(function () {
-					const shareName = $(this).text().toLowerCase().trim();
-					const match = shareName === searchValue;
-					$(this).toggle(match);
-					hasResults = hasResults || match;
-				});
-
+		
+			// Tạo hai mảng: bắt đầu bằng searchValue và chứa searchValue
+			const startsWith = [];
+			const includes = [];
+		
+			listItems.each(function () {
+				const shareName = $(this).text().toLowerCase().trim();
+		
+				// Phân loại kết quả
+				if (shareName.startsWith(searchValue)) {
+					startsWith.push($(this));
+				} else if (shareName.includes(searchValue)) {
+					includes.push($(this));
+				}
+			});
+		
+			// Gộp mảng và hiển thị kết quả theo đúng thứ tự
+			const sortedResults = startsWith.concat(includes);
+			listItems.hide(); // Ẩn toàn bộ kết quả trước
+			sortedResults.forEach(item => {
+				item.show(); // Hiển thị các kết quả phù hợp
+				hasResults = true;
+			});
+		
+			// Hiển thị hoặc ẩn thông báo "không có kết quả"
 			noResults.toggleClass('hidden', hasResults);
 		});
 
@@ -2676,8 +2741,8 @@ import { DataTable } from 'simple-datatables';
 
 		// Xử lý hover và focusin
 		$(document).on(
-			'mouseenter focusin',
-			'.shares-result, #search-shares',
+			'focus',
+			'#search-shares',
 			function () {
 				if (!isCheckboxChecked()) return;
 
@@ -2821,6 +2886,11 @@ import { DataTable } from 'simple-datatables';
 		$('.bsc_up-download').click(function () {
 			var id_report = $(this).attr('data-id');
 			if (id_report) {
+				var count_download_display = $(this)
+					.closest('.content-bao-cao-phan-tich')
+					.find('.content-bao-cao-phan-tich_download_count');
+				var number_count = parseInt(count_download_display.html()) || 0;
+				number_count++;
 				$.ajax({
 					url: ajaxurl.ajaxurl,
 					type: 'POST',
@@ -2830,7 +2900,9 @@ import { DataTable } from 'simple-datatables';
 						security: ajaxurl.security,
 					},
 					beforeSend: function () {},
-					success: function (response) {},
+					success: function (response) {
+						count_download_display.html(number_count);
+					},
 				});
 			}
 		});
@@ -2848,5 +2920,24 @@ import { DataTable } from 'simple-datatables';
 				$('#select_year').val('');
 			}
 		);
+	}
+	function centerActiveMenu() {
+		if ($('.nav-scroll-mb').length) {
+			var $activeItem = $('.nav-scroll-mb a.active');
+
+			if ($activeItem.length) {
+				// Tính toán khoảng cách cần scroll
+				var $menuContainer = $('.nav-scroll-mb');
+				var activeItemOffset = $activeItem.position().left; // Vị trí của thẻ a active
+				var containerWidth = $menuContainer.width(); // Chiều rộng của menu container
+				var activeItemWidth = $activeItem.outerWidth(); // Chiều rộng của phần tử active
+		
+				// Tính khoảng cách cần scroll để thẻ active ra giữa màn hình
+				var scrollLeftPosition = activeItemOffset - (containerWidth / 2) + (activeItemWidth / 2);
+		
+				// Thực hiện scroll tới vị trí đó với hiệu ứng mượt
+				$menuContainer.animate({ scrollLeft: scrollLeftPosition }, 500);
+			}
+		}
 	}
 })(jQuery);

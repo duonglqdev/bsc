@@ -12,7 +12,7 @@
         }
     }
 ?>
-    <div class="relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
+    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
         <div class="flex items-center justify-between mb-4">
             <?php
 
@@ -77,8 +77,8 @@
             </a>
         </h3>
         <div class="flex items-center justify-between mt-auto">
-            <p class="italic text-paragraph text-xs font-Helvetica">
-                <?php echo htmlspecialchars($news->downloads) ?> <?php _e('Lượt tải xuống', 'bsc') ?>
+            <p class="italic text-paragraph text-xs font-Helvetica ">
+                <span class="content-bao-cao-phan-tich_download_count"><?php echo htmlspecialchars($news->downloads) ?></span> <?php _e('Lượt tải xuống', 'bsc') ?>
             </p>
             <?php if ($news->reporturl) {
                 $count_download = true;
@@ -86,8 +86,7 @@
                 $viewerpermission = $news->viewerpermission;
                 if ($viewerpermission == 'USER_BSC') {
                     $datetimeopen = $news->datetimeopen;
-                    if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
-                    } else {
+                    if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
                         if (bsc_is_user_logged_out()) {
                             $count_download = false;
                             $url_download = bsc_url_sso();

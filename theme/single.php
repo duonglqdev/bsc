@@ -1,4 +1,10 @@
 <?php
+$banner = wp_get_attachment_image_url(
+	wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+		? get_field('cdc1_background_banner_mobile', 'option')
+		: get_field('cdc1_background_banner', 'option'),
+	'full'
+);
 if ($args['data']) {
 	$news = $args['data'];
 	$title = $news->title;
@@ -26,7 +32,14 @@ if ($args['data']) {
 		$tax_name = get_field('cdtnvcd1_title', 'option');
 		$breadcrumb = 'congdong';
 		$time_cache = get_field('cdtnvcd2_time_cache', 'option') ?: 300;
-		$banner = wp_get_attachment_image_url(get_field('cdtnvcd1_background_banner', 'option'), 'full');
+		if (get_field('cdtnvcd1_background_banner', 'option') || get_field('cdtnvcd1_background_banner_mobile', 'option')) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					? get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					: get_field('cdtnvcd1_background_banner ', 'option'),
+				'full'
+			);
+		}
 		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
 	} elseif ($groupid == $chuong_trinh_khuyen_mai_id) {
 		$title_lienquan = __('Khuyến mãi', 'bsc');
@@ -34,7 +47,14 @@ if ($args['data']) {
 		$tax_name = get_field('cdctkm1_title', 'option');
 		$breadcrumb = 'khuyenmai';
 		$time_cache = get_field('cdctkm1_time_cache', 'option') ?: 300;
-		$banner = wp_get_attachment_image_url(get_field('cdctkm1_background_banner', 'option'), 'full');
+		if (get_field('cdctkm1_background_banner', 'option') || get_field('cdctkm1_background_banner_mobile', 'option')) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdctkm1_background_banner_mobile ', 'option')
+					? get_field('cdctkm1_background_banner_mobile ', 'option')
+					: get_field('cdctkm1_background_banner ', 'option'),
+				'full'
+			);
+		}
 		$style = get_field('cdctkm1_background_banner_display', 'option') ?: 'default';
 	} else {
 		$template_lienquan = 'khuyen-mai';
@@ -69,7 +89,14 @@ if ($args['data']) {
 		}
 		$tax_name = $tax->name;
 		$tax_id = $tax->term_id;
-		$banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+		if (get_field('background_banner', $tax) || get_field('background_banner_mobile', $tax)) {
+			$banner = wp_get_attachment_image_url(
+				wp_is_mobile() && bsc_is_mobile() && get_field('background_banner_mobile', $tax)
+					? get_field('background_banner_mobile', $tax)
+					: get_field('background_banner', $tax),
+				'full'
+			);
+		}
 		$style = get_field('background_banner_display', $tax) ?: 'default';
 	}
 } else {
@@ -85,7 +112,7 @@ get_header();
 		'title' => $tax_name,
 		'breadcrumb' => $breadcrumb,
 	)) ?>
-	<section class="bg-gradient-blue-to-bottom-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-12 pb-16' : 'pt-[50px] mb-12' ?>">
+	<section class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-12 pb-16 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
 				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
@@ -192,7 +219,7 @@ get_header();
 					</h1>
 					<?php if ($groupid == $chuong_trinh_khuyen_mai_id) {
 					?>
-						<div class="lg:flex items-center justify-between mb-8">
+						<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' mb-8':'mb-6' ?>">
 							<?php if ($news->promotionended) {
 								$remainingDays = 0;
 								$completionPercentage = 0;
@@ -216,15 +243,17 @@ get_header();
 									$formattedStartDate = 'N/A';
 								}
 							?>
-								<div class="">
-									<div class="mt-4 flex items-center gap-2 font-Helvetica">
+								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-[65%]' ?>">
+									<div class="flex items-center gap-2 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'text-xs' ?>">
 										<div class="inline-flex items-center gap-2">
 											<?php echo svg('time') ?>
-											<?php _e('Thời gian chương trình', 'bsc') ?>:
+											<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+												<?php _e('Thời gian chương trình', 'bsc') ?>:
+											<?php } ?>
 										</div>
-										<div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
+										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'font-medium ':'text-normal' ?>"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
 									</div>
-									<div class="mt-[14px] font-Helvetica xl:max-w-[433px]">
+									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-[14px]':'mt-2' ?> font-Helvetica xl:max-w-[433px]">
 										<div
 											class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
 											<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
@@ -241,24 +270,26 @@ get_header();
 									</div>
 								</div>
 							<?php } ?>
-							<div class="share flex items-center gap-[12px] ml-12">
+							<div class="share flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-[12px] ml-12':'flex-1 justify-end' ?>">
+							<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 								<strong>
 									<?php _e('Chia sẻ:', 'bsc') ?>
 								</strong>
-								<ul class="flex items-center gap-3">
+							<?php } ?>
+								<ul class="flex items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-3':'gap-1.5' ?>">
 									<li>
 										<a href="" target="_blank">
-											<?php echo svg('ins') ?>
+										<?php echo svgClass('ins','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 										</a>
 									</li>
 									<li>
 										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>" target="_blank">
-											<?php echo svg('linkedin') ?>
+										<?php echo svgClass('linkedin','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 										</a>
 									</li>
 									<li>
 										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank">
-											<?php echo svg('fb') ?>
+										<?php echo svgClass('fb','','',!wp_is_mobile() && !bsc_is_mobile() ?'':'w-6 h-6') ?>
 										</a>
 									</li>
 								</ul>
@@ -271,7 +302,7 @@ get_header();
 								<?php echo svg('date') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
-							
+
 							<div class="share flex items-center gap-[12px] ml-12">
 								<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 									<strong>
@@ -299,7 +330,7 @@ get_header();
 							</div>
 						</div>
 					<?php } ?>
-					<div class="the_content font-Helvetica font-content text-justify <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+					<div class="the_content font-Helvetica font-content text-justify prose-img:object-cover <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : '!text-xs' ?>">
 						<?php echo $body ?>
 						<?php
 						if ($news->attachedfileurl) {
@@ -319,6 +350,9 @@ get_header();
 	</section>
 	<?php
 	if ($args['data']  && $groupid) {
+		if (in_array($groupid, [1, 2, 4, 5, 6])) {
+			$groupid = 3;
+		}
 		$array_data = array(
 			"maxitem" => "4",
 			"lang" => pll_current_language(),

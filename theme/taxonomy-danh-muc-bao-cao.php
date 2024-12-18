@@ -26,10 +26,12 @@ get_header();
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<?php
+							$excluded_category_id = get_array_id_taxonomy_hide('danh-muc-bao-cao');
 							$terms = get_terms(array(
 								'taxonomy' => 'danh-muc-bao-cao',
 								'hide_empty' => false,
 								'parent' => 0,
+								'exclude'    => $excluded_category_id,
 							));
 							if (! empty($terms) && ! is_wp_error($terms)) :
 							?>
@@ -48,6 +50,7 @@ get_header();
 												'taxonomy' => 'danh-muc-bao-cao',
 												'parent' => $term->term_id,
 												'hide_empty' => false,
+												'exclude'    => $excluded_category_id,
 											));
 
 											if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
@@ -300,15 +303,7 @@ get_header();
 											</li>
 										<?php endforeach; ?>
 									</ul>
-								<?php else : ?>
-									<ul class="flex overflow-x-auto mt-4 gap-1.5 category-child">
-										<li>
-											<a href="#"
-												class="text-gray-500 font-bold transition-all relative py-2 px-[12px] bg-gray-100 block whitespace-nowrap rounded-md text-xs border border-gray-300">
-												Không có danh mục con
-											</a>
-										</li>
-									</ul>
+
 								<?php endif; ?>
 
 							<?php } ?>

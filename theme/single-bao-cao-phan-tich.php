@@ -6,11 +6,24 @@ if ($args['data']) {
     $link = 'javascript:void(0)';
     $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
     $id_current_post = $news->id;
+    $banner = wp_get_attachment_image_url(
+        wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+            ? get_field('cdc1_background_banner_mobile', 'option')
+            : get_field('cdc1_background_banner', 'option'),
+        'full'
+    );
     if ($news->categoryid) {
         $categoryid = $news->categoryid;
         if ($categoryid == $danh_muc_khuyen_nghi) {
             $tax_name = get_field('cddmkn1_title', 'option');
-            $banner = wp_get_attachment_image_url(get_field('cddmkn1_background_banner', 'option'), 'full');
+            if (get_field('cddmkn1_background_banner', 'option') || get_field('cddmkn1_background_banner_mobile', 'option')) {
+                $banner = wp_get_attachment_image_url(
+                    wp_is_mobile() && bsc_is_mobile() && get_field('cddmkn1_background_banner_mobile ', 'option')
+                        ? get_field('cddmkn1_background_banner_mobile ', 'option')
+                        : get_field('cddmkn1_background_banner ', 'option'),
+                    'full'
+                );
+            }
             $style = get_field('cddmkn1_background_banner_display', 'option') ?: 'default';
             $breadcrumb = 'khuyennghi';
             $title_lienquan = __('báo cáo', 'bsc');
@@ -38,7 +51,14 @@ if ($args['data']) {
                 $tax = $taxonomy[0];
             }
             $tax_name = $tax->name;
-            $banner = wp_get_attachment_image_url(get_field('background_banner', $tax), 'full');
+            if (get_field('background_banner',  $tax) || get_field('background_banner_mobile',  $tax)) {
+                $banner = wp_get_attachment_image_url(
+                    wp_is_mobile() && bsc_is_mobile() && get_field('background_banner_mobile',  $tax)
+                        ? get_field('background_banner_mobile',  $tax)
+                        : get_field('background_banner',  $tax),
+                    'full'
+                );
+            }
             $style = get_field('background_banner_display', $tax) ?: 'default';
             $breadcrumb = 'baocao';
             $title_lienquan = __('báo cáo', 'bsc');
@@ -64,7 +84,7 @@ get_header();
             </h1>
             <div class="lg:flex 2xl:gap-[70px] gap-10">
                 <div class="lg:w-80 lg:max-w-[35%] shrink-0">
-                    <div class="rounded-lg px-4 py-6 bg-white shadow-base">
+                    <div class="content-bao-cao-phan-tich rounded-lg px-4 py-6 bg-white shadow-base">
                         <div class="flex items-center justify-between mb-6">
                             <a href="<?php echo $link ?>"
                                 class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
@@ -115,7 +135,7 @@ get_header();
                                 <p>
                                     <?php _e('Lượt tải về', 'bsc') ?>
                                 </p>
-                                <p class="font-medium">
+                                <p class="font-medium content-bao-cao-phan-tich_download_count">
                                     <?php echo htmlspecialchars($news->downloads) ?>
                                 </p>
                             </li>
@@ -135,21 +155,26 @@ get_header();
                             </div>
                         <?php } ?>
                         <?php if ($news->reporturl) {
+                            $count_download = true;
                             $url_download = $news->reporturl;
                             $viewerpermission = $news->viewerpermission;
                             if ($viewerpermission == 'USER_BSC') {
                                 $datetimeopen = $news->datetimeopen;
-                                if (is_null($datetimeopen) || strtotime($datetimeopen) <= time()) {
-                                } else {
+                                if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
                                     if (bsc_is_user_logged_out()) {
+                                        $count_download = false;
                                         $url_download = bsc_url_sso();
                                     }
                                 }
                             }
                         ?>
                             <div class="mt-6">
-                                <a href="<?php echo $url_download ?>"
-                                    class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
+                                <a <?php if ($count_download) { ?>
+                                    data-id="<?php echo $news->id; ?>"
+                                    <?php
+                                    }
+                                    ?> href="<?php echo $url_download ?>"
+                                    class=" <?php if ($count_download) echo 'bsc_up-download' ?> bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-lg w-full h-10 text-center text-xs">
                                     <?php _e('Tải xuống', 'bsc') ?>
                                 </a>
                             </div>

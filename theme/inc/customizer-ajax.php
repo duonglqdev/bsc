@@ -66,9 +66,21 @@ function filter_chuyengia_ajax()
 {
     check_ajax_referer('common_nonce', 'security');
     $thanh_pho = isset($_POST['thanh_pho']) ? intval($_POST['thanh_pho']) : '';
-    $kinh_nghiem = isset($_POST['kinh_nghiem']) ? intval($_POST['kinh_nghiem']) : '';
-    $menh = isset($_POST['menh']) ? intval($_POST['menh']) : '';
-    $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van']) ? intval($_POST['trinh_do_hoc_van']) : '';
+    $kinh_nghiem = isset($_POST['kinh_nghiem'])
+        ? (is_array($_POST['kinh_nghiem'])
+            ? array_map('intval', $_POST['kinh_nghiem'])
+            : intval($_POST['kinh_nghiem']))
+        : '';
+    $menh = isset($_POST['menh'])
+        ? (is_array($_POST['menh'])
+            ? array_map('intval', $_POST['menh'])
+            : intval($_POST['menh']))
+        : '';
+    $trinh_do_hoc_van = isset($_POST['trinh_do_hoc_van'])
+        ? (is_array($_POST['trinh_do_hoc_van'])
+            ? array_map('intval', $_POST['trinh_do_hoc_van'])
+            : intval($_POST['trinh_do_hoc_van']))
+        : '';
     $name_chuyen_gia = isset($_POST['name_chuyen_gia']) ? $_POST['name_chuyen_gia'] : '';
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $posts_per_page = isset($_POST['posts_per_page']) ? intval($_POST['posts_per_page']) : 12;
@@ -251,6 +263,7 @@ function get_shares_data()
     $time_cache = 300;
     $array_data = array(
         'lang' => pll_current_language(),
+        'maxitem' => '2200'
     );
     $response = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
     if ($response) {
@@ -389,7 +402,7 @@ function filter_du_lieu_lich_su()
         }
         $array_data_secTradingHistory = json_encode($array_data_secTradingHistory);
 
-        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
         if ($response_secTradingHistory) {
             $data = json_decode($response_secTradingHistory->data, true);
             foreach ($data as $record) {
@@ -453,7 +466,7 @@ function filter_details_symbol()
             'startDate' => $last_month_date_ymd,
             'endDate' => $current_date_ymd
         ]);
-        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+        $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
         if ($response_secTradingHistory) {
             $data_response_secTradingHistory = json_decode($response_secTradingHistory->data, true);
             $data_response_secTradingHistory = array_reverse($data_response_secTradingHistory, true);
@@ -2540,7 +2553,7 @@ function bsc_count_download_ajax()
 {
     check_ajax_referer('common_nonce', 'security');
     $id_report = isset($_POST['id_report']) ? intval($_POST['id_report']) : '';
-    $url = "http://10.21.170.17:86/IncrementReportDownloads?id=" . $id_report;
+    $url = get_field('cdapi_ip_address_default', 'option') . "IncrementReportDownloads?id=" . $id_report;
 
     // Khởi tạo cURL
     $ch = curl_init();

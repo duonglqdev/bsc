@@ -88,7 +88,7 @@
                         },
                         {
                             "key": "field_6702aa55b9574",
-                            "label": "Background",
+                            "label": "Background Desktop",
                             "name": "background",
                             "aria-label": "",
                             "type": "image",
@@ -96,7 +96,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_675bf13cf4049",
+                            "label": "Background Mobile",
+                            "name": "background_mobile",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -309,7 +334,7 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "26",
                                         "class": "",
                                         "id": ""
                                     },
@@ -322,7 +347,7 @@
                                 },
                                 {
                                     "key": "field_670245d579144",
-                                    "label": "Hình ảnh",
+                                    "label": "Hình ảnh Desktop",
                                     "name": "image",
                                     "aria-label": "",
                                     "type": "image",
@@ -338,7 +363,41 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "33",
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_6702453279141"
+                                },
+                                {
+                                    "key": "field_675c3dca30b1f",
+                                    "label": "Hình ảnh Mobile",
+                                    "name": "image_mobile",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6702454779142",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "20",
                                         "class": "",
                                         "id": ""
                                     },
@@ -356,8 +415,37 @@
                                 },
                                 {
                                     "key": "field_6702460781032",
-                                    "label": "Video",
+                                    "label": "Video Desktop",
                                     "name": "video",
+                                    "aria-label": "",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6702454779142",
+                                                "operator": "==",
+                                                "value": "video"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "parent_repeater": "field_6702453279141"
+                                },
+                                {
+                                    "key": "field_6760023e96f3d",
+                                    "label": "Video Mobile",
+                                    "name": "video_mobile",
                                     "aria-label": "",
                                     "type": "file",
                                     "instructions": "",
@@ -4095,6 +4183,26 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_675f2128476d8",
+                            "label": "Tiêu đề Mobile",
+                            "name": "title_mobile",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_67040bca06bc2",
                             "label": "Hình ảnh Mobile",
                             "name": "image_mb",
@@ -4213,7 +4321,7 @@
                         },
                         {
                             "key": "field_67040c6a06bc6",
-                            "label": "Hình ảnh",
+                            "label": "Hình ảnh Desktop",
                             "name": "img_1",
                             "aria-label": "",
                             "type": "image",
@@ -4221,7 +4329,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675f20077937d",
+                            "label": "Hình ảnh Mobile",
+                            "name": "img_1_mobile",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4255,7 +4388,7 @@
                         },
                         {
                             "key": "field_67040ca606bc8",
-                            "label": "Hình ảnh",
+                            "label": "Hình ảnh Desktop",
                             "name": "img_2",
                             "aria-label": "",
                             "type": "image",
@@ -4263,7 +4396,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675f201f7937e",
+                            "label": "Hình ảnh Mobile",
+                            "name": "img_2_mobile",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -7479,8 +7637,33 @@
                         },
                         {
                             "key": "field_6732341775116",
-                            "label": "Background",
+                            "label": "Background Desktop",
                             "name": "background",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_675c38cac7d82",
+                            "label": "Background Mobile",
+                            "name": "background_mb",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
@@ -7512,7 +7695,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "100",
                                 "class": "",
                                 "id": ""
                             },
@@ -8668,7 +8851,7 @@
                                     "sub_fields": [
                                         {
                                             "key": "field_67337f40ad27a",
-                                            "label": "Hình ảnh",
+                                            "label": "Hình ảnh Desktop",
                                             "name": "img",
                                             "aria-label": "",
                                             "type": "image",
@@ -8681,7 +8864,33 @@
                                                 "id": ""
                                             },
                                             "return_format": "id",
-                                            "library": "",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "preview_size": "thumbnail",
+                                            "parent_repeater": "field_67337ed4ad279"
+                                        },
+                                        {
+                                            "key": "field_676139956706c",
+                                            "label": "Hình ảnh Mobile",
+                                            "name": "img_mobile",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "15",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "library": "all",
                                             "min_width": "",
                                             "min_height": "",
                                             "min_size": "",
@@ -8744,18 +8953,16 @@
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
-                                                "width": "50",
+                                                "width": "",
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "layout": "",
-                                            "pagination": 0,
+                                            "layout": "table",
                                             "min": 0,
                                             "max": 0,
                                             "collapsed": "",
                                             "button_label": "Thêm danh sách",
                                             "rows_per_page": 20,
-                                            "parent_repeater": "field_67337ed4ad279",
                                             "sub_fields": [
                                                 {
                                                     "key": "field_67337f84ad27d",
@@ -8778,7 +8985,8 @@
                                                     "new_lines": "",
                                                     "parent_repeater": "field_67337f6bad27c"
                                                 }
-                                            ]
+                                            ],
+                                            "parent_repeater": "field_67337ed4ad279"
                                         },
                                         {
                                             "key": "field_67337fa2ad27f",
@@ -9401,6 +9609,7 @@
                                         "id": ""
                                     },
                                     "layout": "block",
+                                    "parent_repeater": "field_6734deb3c1add",
                                     "sub_fields": [
                                         {
                                             "key": "field_6734de9ac1adb",
@@ -9482,8 +9691,7 @@
                                             "prepend": "",
                                             "append": ""
                                         }
-                                    ],
-                                    "parent_repeater": "field_6734deb3c1add"
+                                    ]
                                 }
                             ]
                         },
@@ -10634,17 +10842,9 @@
                             "name": "link_tai",
                             "aria-label": "",
                             "type": "repeater",
-                            "instructions": "",
+                            "instructions": "Giao diện \"Tải APP\" sẽ có ở Desktop, Giao diện \"Nút\" sẽ hiện ở Mobile",
                             "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6734f5501e60b",
-                                        "operator": "==",
-                                        "value": "style2"
-                                    }
-                                ]
-                            ],
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -10881,8 +11081,34 @@
                                 },
                                 {
                                     "key": "field_6734f7641e61e",
-                                    "label": "Background",
+                                    "label": "Background Desktop",
                                     "name": "background",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail",
+                                    "parent_repeater": "field_6734f6e31e61c"
+                                },
+                                {
+                                    "key": "field_67613cc2fbd74",
+                                    "label": "Background Mobile",
+                                    "name": "background_mobile",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
@@ -11221,7 +11447,7 @@
                         },
                         {
                             "key": "field_67357c24648ef",
-                            "label": "Background",
+                            "label": "Background Desktop",
                             "name": "background",
                             "aria-label": "",
                             "type": "image",
@@ -11229,7 +11455,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_67613c3afbd73",
+                            "label": "Background Mobile",
+                            "name": "background_mb",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -11847,8 +12098,33 @@
                         },
                         {
                             "key": "field_6735aef1f4970",
-                            "label": "Background",
+                            "label": "Background Desktop",
                             "name": "background",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_67613c05fbd72",
+                            "label": "Background Mobile",
+                            "name": "background_mb",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
@@ -15731,7 +16007,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "table",
+                                    "layout": "block",
                                     "parent_repeater": "field_673e34f6ae252",
                                     "sub_fields": [
                                         {
@@ -16827,5 +17103,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733930058
+    "modified": 1734426107
 }

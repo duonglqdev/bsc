@@ -15,7 +15,7 @@ $time_cache  = 3000;
             $array_data = json_encode([
                 'lang' => pll_current_language(),
             ]);
-            $response = get_data_with_cache('secListAll', $array_data, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+            $response = get_data_with_cache('secListAll', $array_data, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
             $data = json_decode($response->data, true);
             if (isset($data['dict'])) {
                 $codes = array_keys($data['dict']);

@@ -36,12 +36,13 @@
                             <?php
                             $current_term_id = get_queried_object_id();
                             $current_term = get_term($current_term_id, 'danh-muc-bao-cao-phan-tich');
-
+                            $excluded_category_id = get_array_id_taxonomy_hide('danh-muc-bao-cao-phan-tich');
                             if ($current_term && !is_wp_error($current_term)) {
                                 $child_terms = get_terms(array(
                                     'taxonomy' => 'danh-muc-bao-cao-phan-tich',
                                     'parent' => $current_term_id,
                                     'hide_empty' => false,
+                                    'exclude'    => $excluded_category_id,
                                 ));
 
                                 if (!empty($child_terms)) {
@@ -69,6 +70,7 @@
                                             'taxonomy' => 'danh-muc-bao-cao-phan-tich',
                                             'parent' => $parent_term_id,
                                             'hide_empty' => false,
+                                            'exclude'    => $excluded_category_id,
                                         ));
 
                                         if (!empty($siblings)) {
@@ -316,7 +318,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="flex-1 bg-[#F5FCFF] rounded-lg">
+                                                <div class="flex-1 bg-white rounded-lg shadow-base">
                                                     <div id="chart-forecast" class="font-body"
                                                         data-stock='<?php echo $stocksDataJson ?>'
                                                         data-title="Dự báo VN-Index <?php echo date("Y"); ?>"

@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
+	$current_bsc = 'BSC' . $_GET['bsc'];
+} else {
+	$current_bsc = 'BSC10';
+}
+?>
 <section class="chart mt-[54px] mb-[100px] dmkn_chart_bsc" <?php if (get_sub_field('id_class')) { ?>
 	id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
@@ -63,19 +70,19 @@
 		<ul class="flex items-center flex-wrap mt-6 mb-10 gap-6 btn-chart">
 			<li>
 				<button data-chart="BSC10"
-					class="active inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+					class="<?php if ($current_bsc == 'BSC10') echo 'active' ?> inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 					<?php _e('BSC10', 'bsc') ?>
 				</button>
 			</li>
 			<li>
 				<button data-chart="BSC30"
-					class="inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+					class="<?php if ($current_bsc == 'BSC30') echo 'active' ?> inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 					<?php _e('BSC30', 'bsc') ?>
 				</button>
 			</li>
 			<li>
 				<button data-chart="BSC50"
-					class="inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+					class="<?php if ($current_bsc == 'BSC50') echo 'active' ?> inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 					<?php _e('BSC50', 'bsc') ?>
 				</button>
 			</li>
@@ -117,7 +124,7 @@ $check_logout = bsc_is_user_logged_out();
 $class_login = $check_logout ? $check_logout['class'] : '';
 $response_instruments_array = array();
 $array_data_instruments = array();
-$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, 'https://priceapi.bsc.com.vn/datafeed/');
+$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
 if ($response_instruments) {
 	$response_instruments_array = $response_instruments->d;
 }
@@ -127,8 +134,15 @@ if ($data_bsc) {
 	foreach ($data_bsc as $single_bsc) {
 		$ic++;
 ?>
-		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details <?php if ($ic == 21) echo 'block';
-																	else echo 'hidden' ?>" data-chart-tab='<?php echo $single_bsc ?>'>
+		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details 
+		<?php
+		if ((($current_bsc == 'BSC10') && $ic == 21) || (($current_bsc == 'BSC30') && $ic == 22) || ($current_bsc == 'BSC50') && $ic == 23) {
+			echo 'block';
+		} else {
+			echo 'hidden';
+		}
+		?>"
+			data-chart-tab='<?php echo $single_bsc ?>'>
 			<div class="container">
 				<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
 					<?php _e('Chi tiết danh mục', 'bsc') ?>
@@ -165,7 +179,7 @@ if ($data_bsc) {
 							<?php
 							if (!$check_logout) {
 								$array_data_list_bsc = array();
-								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, 'http://10.21.170.17:86/api/Quanlydanhmuc/', 'POST');
+								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
 								if ($response_list_bsc) {
 							?>
 									<div
@@ -207,10 +221,18 @@ if ($data_bsc) {
 													</div>
 													<?php
 													if ($stockData->changePercent) {
-														if ($stockData->changePercent > 0) {
-															$text_color_class_price = 'text-[#1CCD83]';
-														} elseif ($stockData->changePercent < 0) {
-															$text_color_class_price = 'text-[#FE5353]';
+														if (($stockData->changePercent) > 0) {
+															if ($stockData->closeprice == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#7F1CCD]';
+															} else {
+																$text_color_class_price = 'text-[#1CCD83]';
+															}
+														} elseif (($stockData->changePercent) < 0) {
+															if ($stockData->closeprice  == $stockData->ceiling) {
+																$text_color_class_price = 'text-[#1ABAFE]';
+															} else {
+																$text_color_class_price = 'text-[#FE5353]';
+															}
 														} else {
 															$text_color_class_price = 'text-[#EB0]';
 														}

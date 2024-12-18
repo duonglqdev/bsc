@@ -87,7 +87,7 @@ if ($display == 'history') {
 							'startDate' => $last_month_date_ymd,
 							'endDate' => $current_date_ymd
 						]);
-						$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, 'https://api-uat-algo.bsc.com.vn/pbapi/api/', 'POST');
+						$response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
 						if ($response_secTradingHistory) {
 							$data_response_secTradingHistory = json_decode($response_secTradingHistory->data, true);
 							$data_response_secTradingHistory = array_reverse($data_response_secTradingHistory, true);

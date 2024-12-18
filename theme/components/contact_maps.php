@@ -1182,12 +1182,12 @@ if ($file) {
     }
 ?>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWWgSW8tvSWDFEo_xwAQjQBu6YYkPfVNo"></script>
-    <section class="xl:my[100px] my-20 contact_maps" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my[100px] my-20' : 'my-[50px]' ?> contact_maps" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
-            <h2 class="font-bold text-2xl mb-8 text-primary-300">
+            <h2 class="font-bold text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-8' : 'text-lg mb-5' ?>">
                 <?php the_sub_field('title'); ?>
             </h2>
-            <div class="flex gap-4 items-center mb-6">
+            <div class="flex gap-4 items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
                 <div>
                     <strong><?php _e('Tỉnh thành', 'bsc') ?>:</strong>
                     <select id="city" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
@@ -1201,21 +1201,40 @@ if ($file) {
                     </select>
                 </div>
             </div>
-            <div class="lg:flex md:gap-12">
-                <div class="lg:w-[460px] md:max-w-[35%]">
-                    <div class="w-full rounded-[10px] shadow-base py-2">
-                        <div
-                            class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
-                            <?php echo svg('search', '24', '24') ?>
-                            <input type="text" id="search-contact"
-                                class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]">
-                        </div>
-                        <div class="scroll-bar-custom overflow-y-auto max-h-[566px]" id="branch-list">
+            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-12' : '' ?>">
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <div class="lg:w-[460px] md:max-w-[35%]">
+                        <div class="w-full rounded-[10px] shadow-base py-2">
+                            <div
+                                class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
+                                <?php echo svg('search', '24', '24') ?>
+                                <input type="text" id="search-contact"
+                                    class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]">
+                            </div>
+                            <div class="scroll-bar-custom overflow-y-auto max-h-[566px]" id="branch-list">
+                            </div>
                         </div>
                     </div>
-                </div>
+                                    
+                <?php } ?>
                 <div class="flex-1">
-                    <div class="map-item relative w-full pt-[76.4424%]" id="map"></div>
+                    <div class="map-item relative w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[76.4424%]' : 'pt-[150%]' ?>" id="map">
+
+                    <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                        <div class="absolute z-[2] w-[90%] left-1/2 -translate-x-1/2 bottom-4">
+                        <div class="w-full rounded-[10px] shadow-base py-2 bg-white">
+                            <div
+                                class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
+                                <?php echo svgClass('search', '','',!wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-5 h-5 shrink-0') ?>
+                                <input type="text" id="search-contact"
+                                    class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] p-0">
+                            </div>
+                            <div class="scroll-bar-custom overflow-y-auto max-h-[140px]" id="branch-list">
+                            </div>
+                        </div>
+                        </div>     
+                    <?php } ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1291,7 +1310,7 @@ if ($file) {
 
             filteredLocations.forEach((loc, index) => {
                 const branchItem = document.createElement('div');
-                branchItem.className = 'map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] [&.active]:bg-[#EAF8FE] relative group hover:pb-9  [&.active]hover:pb-9';
+                branchItem.className = 'map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] [&.active]:bg-[#EAF8FE] relative group hover:pb-9 [&.active]hover:pb-9 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>';
                 branchItem.dataset.index = index;
 
                 branchItem.innerHTML = `

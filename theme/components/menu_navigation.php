@@ -2,14 +2,14 @@
 $style = $args['data'] ?? get_sub_field('style') ?: 'nhdt';
 if ($style == 'nhdt') {
 ?>
-    <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 menu_navigation" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php if (have_rows('menu_navigation')) { ?>
             <div class="container">
-                <ul class="flex justify-between bank-nav-tab">
+                <ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold xl:text-lg xl:py-4 py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
@@ -20,7 +20,7 @@ if ($style == 'nhdt') {
     </section>
 <?php } elseif (($style == 'stgd') || ($style == 'bpgd')) {
 ?>
-    <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3 top-0':'py-[12px] top-[60px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php
         if (get_sub_field('menu_navigation')) {
             $menu_navigation = get_sub_field('menu_navigation');
@@ -33,11 +33,11 @@ if ($style == 'nhdt') {
         }
         if ($menu_navigation) { ?>
             <div class="container">
-                <ul class="flex justify-between gap-10">
+                <ul class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between gap-10':'overflow-x-auto gap-4' ?>">
                     <?php foreach ($menu_navigation as $row) { ?>
-                        <li class="flex-1">
+                        <li class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap' ?>">
                             <a href="<?php echo check_link($row['link']) ?>"
-                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg">
+                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'py-3 px-4 text-xs' ?>">
                                 <?php echo $row['title'] ?>
                             </a>
                         </li>
@@ -47,7 +47,7 @@ if ($style == 'nhdt') {
         <?php } ?>
     </section>
 <?php  } elseif ($style == 'ntgd') { ?>
-    <section class="bg-[#EBF4FA] py-4 sticky top-0 z-[20] sticky-nav" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-[#EBF4FA] sticky top-0 z-[20] sticky-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-4':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <?php
             if (isset($_GET['mck'])) {
@@ -56,11 +56,11 @@ if ($style == 'nhdt') {
                 $endpoint = '';
             };
             if (have_rows('menu_navigation')) { ?>
-                <ul class="flex justify-center gap-10">
+                <ul class="flex justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-4' ?>">
                     <?php while (have_rows('menu_navigation')) : the_row() ?>
-                        <li>
+                        <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) . $endpoint ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px]">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'text-xs py-3 px-5' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>

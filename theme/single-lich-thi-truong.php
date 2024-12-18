@@ -2,7 +2,20 @@
 if ($args['data']) {
     $news = $args['data'];
     $time_cache =  300;
-    $banner = wp_get_attachment_image_url(get_field('cdltt1_background_banner', 'option'), 'full');
+    $banner = wp_get_attachment_image_url(
+        wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+            ? get_field('cdc1_background_banner_mobile', 'option')
+            : get_field('cdc1_background_banner', 'option'),
+        'full'
+    );
+    if (get_field('cdltt1_background_banner', 'option') || get_field('cdltt1_background_banner_mobile', 'option')) {
+        $banner = wp_get_attachment_image_url(
+            wp_is_mobile() && bsc_is_mobile() && get_field('cdltt1_background_banner_mobile ', 'option')
+                ? get_field('cdltt1_background_banner_mobile ', 'option')
+                : get_field('cdltt1_background_banner ', 'option'),
+            'full'
+        );
+    }
     $style = get_field('cdltt1_background_banner_display', 'option') ?: 'default';
     $title_breadcrumb = get_field('cdltt1_title', 'option');
     $breadcrumb = 'lichthitruong';

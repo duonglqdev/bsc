@@ -1,8 +1,8 @@
 <?php
-$sapce_image = get_sub_field('sapce_image') ?: 'default';
+$sapce_image = get_sub_field('sapce_image') ?: 'gap-5';
 $images = get_sub_field('gallery');
 if ($images): ?>
-    <div class="flex mt-10 <?php the_sub_field('style_image') ?> <?php echo $sapce_image ?>">
+    <div class="flex mt-10 <?php the_sub_field('style_image') ?> <?php echo $sapce_image ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-col gap-5' ?>">
         <?php foreach ($images as $image): ?>
             <a href="<?php echo esc_url($image['url']); ?>" data-fancybox>
                 <img loading="lazy" src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />

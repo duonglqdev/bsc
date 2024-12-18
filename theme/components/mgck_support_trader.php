@@ -1,19 +1,19 @@
-<section class="xl:my-[100px] my-20 mgck_support_trader" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> mgck_support_trader" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title mb-10">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
         <?php if (have_rows('support')) { ?>
-            <div class="lg:grid lg:grid-cols-3 lg:gap-5">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-3 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
                 <?php while (have_rows('support')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover min-h-[230px]"
+                    <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[230px]':'min-h-[192px] w-full block_slider-item' ?>"
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
                         <div class="flex h-full">
-                            <div class="w-1/2 h-full">
+                            <div class="w-1/2 h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-auto pl-7 pb-10' ?>">
                                 <div
-                                    class="flex flex-col justify-end h-full 2xl:ml-10 ml-6 font-Helvetica pb-[43px]">
+                                    class="flex flex-col justify-end h-full font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:ml-10 ml-6 pb-[43px]':'' ?>">
                                     <?php if (get_sub_field('title')) { ?>
                                         <p class="font-bold mb-1 2xl:text-xl text-lg">
                                             <?php the_sub_field('title') ?>
