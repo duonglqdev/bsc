@@ -109,15 +109,15 @@ $time_cache  = 3000;
                                     <th class="w-1/5"><?php _e('Tên công ty', 'bsc') ?></th>
                                     <th><?php _e('Sàn', 'bsc') ?></th>
                                     <th><?php _e('Ngành', 'bsc') ?></th>
-                                    <th class=" cursor-pointer"><?php _e('Vốn hóa', 'bsc') ?>
+                                    <th class="cursor-pointer text-right"><?php _e('Vốn hóa', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
-                                    <th><?php _e('KLGD', 'bsc') ?></th>
-                                    <th><?php _e('GTGD', 'bsc') ?></th>
-                                    <th class=" cursor-pointer filter-table"><?php _e('PE', 'bsc') ?>
+                                    <th class="text-right"><?php _e('KLGD', 'bsc') ?></th>
+                                    <th class="text-right"><?php _e('GTGD', 'bsc') ?></th>
+                                    <th class=" cursor-pointer filter-table text-right"><?php _e('PE', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
-                                    <th class="cursor-pointer filter-table"><?php _e('PB', 'bsc') ?>
+                                    <th class="cursor-pointer filter-table text-right"><?php _e('PB', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
                                 </tr>
@@ -133,13 +133,13 @@ $time_cache  = 3000;
                                             <?php } ?>
                                         </td>
                                         <td><?php echo $news->FULLNAME ?></td>
-                                        <td data-trading><?php echo $news->EXCHANGE; ?></td>
-                                        <td data-major><?php echo $news->INDUSTRYNAME ?></td>
-                                        <td><?php echo rtrim(rtrim(number_format($news->MC, 2, '.', ','), '0'), '.');  ?></td>
-                                        <td><?php echo $news->TOTALVOLUME ?></td>
-                                        <td><?php echo number_format($news->TOTALVALUE) ?></td>
-                                        <td><?php echo $news->PE ?></td>
-                                        <td><?php echo $news->PB ?></td>
+                                        <td><?php echo $news->EXCHANGE; ?></td>
+                                        <td><?php echo $news->INDUSTRYNAME ?></td>
+                                        <td class="text-right"><?php echo rtrim(rtrim(number_format($news->MC, 2, '.', ','), '0'), '.');  ?></td>
+                                        <td class="text-right"><?php echo $news->TOTALVOLUME ?></td>
+                                        <td class="text-right"><?php echo number_format($news->TOTALVALUE) ?></td>
+                                        <td class="text-right"><?php echo $news->PE ?></td>
+                                        <td class="text-right"><?php echo $news->PB ?></td>
                                     </tr>
                                 <?php
                                 }
