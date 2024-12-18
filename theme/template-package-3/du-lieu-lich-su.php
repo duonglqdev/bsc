@@ -171,7 +171,6 @@ get_header();
 					</ul>
 	
 				</nav>
-
 			</div>
 		</div>
 	</section>

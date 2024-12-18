@@ -375,14 +375,16 @@ function filter_event_calendar()
 add_action('wp_ajax_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
 add_action('wp_ajax_nopriv_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
 
-function filter_du_lieu_lich_su()
-{
+function filter_du_lieu_lich_su() {
     check_ajax_referer('common_nonce', 'security');
     $time_cache = 300;
     $symbol = isset($_POST['mck']) ? $_POST['mck'] : '';
     $fromdate = isset($_POST['fromdate']) ? $_POST['fromdate'] : '';
     $todate = isset($_POST['todate']) ? $_POST['todate'] : '';
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $items_per_page = isset($_POST['items_per_page']) ? intval($_POST['items_per_page']) : 20;
     $type_form = isset($_POST['type_form']) ? $_POST['type_form'] : '';
+
     if ($type_form == 'history') {
         $current_date_ymd = date('Y-m-d');
         $last_month_date_ymd = date('Y-m-d', strtotime('-6 month', strtotime($current_date_ymd)));
@@ -390,55 +392,36 @@ function filter_du_lieu_lich_su()
             'lang' => pll_current_language(),
             'secCode' => $symbol,
         ];
-        if (isset($fromdate) && !empty($fromdate)) {
-            $array_data_secTradingHistory['startDate'] = $fromdate;
-        } else {
-            $array_data_secTradingHistory['startDate'] = $last_month_date_ymd;
-        }
-        if (isset($todate) && !empty($todate)) {
-            $array_data_secTradingHistory['endDate'] = $todate;
-        } else {
-            $array_data_secTradingHistory['endDate'] = $current_date_ymd;
-        }
-        $array_data_secTradingHistory = json_encode($array_data_secTradingHistory);
+        $array_data_secTradingHistory['startDate'] = !empty($fromdate) ? $fromdate : $last_month_date_ymd;
+        $array_data_secTradingHistory['endDate'] = !empty($todate) ? $todate : $current_date_ymd;
 
+        $array_data_secTradingHistory = json_encode($array_data_secTradingHistory);
         $response_secTradingHistory = get_data_with_cache('secTradingHistory', $array_data_secTradingHistory, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
         if ($response_secTradingHistory) {
             $data = json_decode($response_secTradingHistory->data, true);
-            foreach ($data as $record) {
-                get_template_part('template-parts/content-data-history', '', array(
-                    'data' => $record,
-                ));
+
+            // Phân trang dữ liệu
+            $total_items = count($data);
+            $total_pages = ceil($total_items / $items_per_page);
+            $offset = ($page - 1) * $items_per_page;
+            $paged_data = array_slice($data, $offset, $items_per_page);
+
+            ob_start();
+            foreach ($paged_data as $record) {
+                get_template_part('template-parts/content-data-history', '', array('data' => $record));
             }
-        }
-    } else {
-        $current_date_dmy = date('d/m/Y');
-        $last_month_date_dmy = date('d/m/Y', strtotime('-6 month'));
-        $array_data_GetForeignInvestors = array(
-            'lang' => pll_current_language(),
-            'symbol' => $symbol,
-        );
-        if (isset($fromdate) && !empty($fromdate)) {
-            $array_data_GetForeignInvestors['fromdate'] = $fromdate;
-        } else {
-            $array_data_GetForeignInvestors['fromdate'] = $last_month_date_dmy;
-        }
-        if (isset($todate) && !empty($todate)) {
-            $array_data_GetForeignInvestors['todate'] = $todate;
-        } else {
-            $array_data_GetForeignInvestors['todate'] = $current_date_dmy;
-        }
-        $response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
-        if ($response_GetForeignInvestors) {
-            foreach ($response_GetForeignInvestors->d as $GetForeignInvestors) {
-                get_template_part('template-parts/content-data-history_ndtnn', '', array(
-                    'data' => $GetForeignInvestors,
-                ));
-            }
+            $html = ob_get_clean();
+
+            wp_send_json_success([
+                'html' => $html,
+                'total_pages' => $total_pages
+            ]);
         }
     }
-    die();
+
+    wp_send_json_error(['message' => 'No data found']);
 }
+
 
 /**
  * Filter Data Details SYMBOL
