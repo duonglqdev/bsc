@@ -12,25 +12,25 @@ get_header();
 		<div class="container">
 			<ul class="flex items-center justify-between gap-5">
 				<li><a href="#about_info"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giới
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giới
 						thiệu BSC</a></li>
 				<li><a href="#about_mission"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Tầm
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Tầm
 						nhìn & Sứ mệnh</a></li>
 				<li><a href="#about_history"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Lịch
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Lịch
 						sử hình thành</a></li>
 				<li><a href="#about_leadership"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đội
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đội
 						ngũ lãnh đạo</a></li>
 				<li><a href="#strategic__partner"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đối
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Đối
 						tác chiến lược</a></li>
 				<li><a href="#about_culture"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Văn
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Văn
 						hóa BSC</a></li>
 				<li><a href="#about_award"
-						class="[&:not(.active)]:text-black text-primary-400 font-bold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giải
+						class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-all duration-500 hover:!text-primary-400 block py-6 relative after:absolute after:w-full after:h-[2px] after:left-0 after:bottom-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 opacity-100">Giải
 						thưởng nổi bật</a></li>
 			</ul>
 		</div>

@@ -267,6 +267,9 @@
 	
 		@apply hover:text-white;
 	}
+	.block-loading{
+		@apply [&:not(.active)]:h-[40rem] ;
+	}
 }
 
 .is-mobile {
@@ -502,6 +505,18 @@
 		}
 		.show-gap-2{
 			@apply gap-2;
+		}
+	}
+	.block-loading{
+		@apply [&:not(.active)]:h-80;
+		
+	}
+}
+.block-loading{
+	@apply [&:not(.active)]:overflow-hidden;
+	&.active{
+		[role="status"]{
+			@apply hidden;
 		}
 	}
 }
@@ -1254,3 +1269,4 @@ button#ib-button-messaging {
 .slick-disabled {
 	@apply opacity-60 pointer-events-none cursor-default;
 }
+

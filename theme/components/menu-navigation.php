@@ -7,7 +7,7 @@ if (have_rows('menu_navigation') && !wp_is_mobile() && !bsc_is_mobile()) {
             <ul class="flex items-center justify-between gap-5 scroll_nav">
                 <?php while (have_rows('menu_navigation')): the_row(); ?>
                     <li><a href="<?php echo check_link(get_sub_field('link')) ?>"
-                            class="[&:not(.active)]:text-black text-primary-400 font-bold transition-colors hover:!text-primary-400 block py-6 relative [&:not(.active)]:border-0 border-b-2 border-primary-400 "><?php the_sub_field('title') ?></a></li>
+                            class="[&:not(.active)]:text-paragraph text-primary-400 font-semibold transition-colors hover:!text-primary-400 block py-6 relative [&:not(.active)]:border-0 border-b-2 border-primary-400 "><?php the_sub_field('title') ?></a></li>
                 <?php endwhile; ?>
             </ul>
         </div>
