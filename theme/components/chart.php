@@ -83,7 +83,7 @@
 										: 'space-x-4 px-[13px] py-[7px] bg-white flex mb-4'; ?> rounded-xl btn-chart">
 							<button data-chart="BSC10"
 								class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-													? '2xl:px-4 2xl:py-2 py-1 2xl:text-base font-normal'
+													? 'px-4 2xl:py-2 py-1 2xl:text-base font-normal'
 													: 'px-2 py-3 md:text-sm text-xs flex-1 font-semibold'; ?> bg-primary-700 text-white rounded-[10px] [&:not(.active)]:bg-transparent [&:not(.active)]:text-black">
 								BSC10
 							</button>
