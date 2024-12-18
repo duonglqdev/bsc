@@ -38,6 +38,7 @@ import { DataTable } from 'simple-datatables';
 		sameHeight();
 		resetForm();
 		centerActiveMenu();
+		handleLoading();
 	});
 
 	function menuMobile() {
@@ -2476,8 +2477,10 @@ import { DataTable } from 'simple-datatables';
 			searchable: true,
 			fixedHeight: true,
 			perPage: 10,
-			perPageSelect: [12, 24, 36, 48],
+			perPageSelect: [10, 20, 30, 40],
+			sortable: false,
 		});
+
 
 		// Ẩn input mặc định của searchable bằng CSS
 		const searchableInput = document.querySelector('.datatable-input');
@@ -2939,5 +2942,8 @@ import { DataTable } from 'simple-datatables';
 				$menuContainer.animate({ scrollLeft: scrollLeftPosition }, 500);
 			}
 		}
+	}
+	function handleLoading() {
+		$(".block-loading").addClass('active');
 	}
 })(jQuery);
