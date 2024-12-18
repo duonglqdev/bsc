@@ -9,7 +9,7 @@ if ($style == 'nhdt') {
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li>
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> inline-block font-semibold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
@@ -37,7 +37,7 @@ if ($style == 'nhdt') {
                     <?php foreach ($menu_navigation as $row) { ?>
                         <li class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap' ?>">
                             <a href="<?php echo check_link($row['link']) ?>"
-                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'py-3 px-4 text-xs' ?>">
+                                class="<?php if ($row['active']) echo 'active' ?> block text-center font-semibold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'py-3 px-4 text-xs' ?>">
                                 <?php echo $row['title'] ?>
                             </a>
                         </li>
@@ -60,7 +60,7 @@ if ($style == 'nhdt') {
                     <?php while (have_rows('menu_navigation')) : the_row() ?>
                         <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) . $endpoint ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'text-xs py-3 px-5' ?>">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-semibold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg py-[12px] px-10':'text-xs py-3 px-5' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
@@ -77,7 +77,7 @@ if ($style == 'nhdt') {
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
                         <li class="flex-1">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-semibold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
