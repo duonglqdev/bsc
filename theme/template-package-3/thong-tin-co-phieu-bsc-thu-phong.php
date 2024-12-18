@@ -116,58 +116,67 @@ get_header();
 						</div>
 					</div>
 				</div>
+
 				<div class="lg:w-[433px] max-w-[33%]">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Tham chiếu
-								</p>
-								<p class="font-medium text-lg">
-									133,883,457
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Vốn hóa
-								</p>
-								<p class="font-medium text-lg">
-									1,600
-								</p>
-							</div>
+						class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-6 lg:py-6 py-5 h-full font-Helvetica">
+						<div
+							class="lg:flex lg:items-center lg:justify-between mb-6 pb-6 border-b border-[#C9CCD2]">
+							<p class="text-paragraph text-opacity-70 text-xs">
+								<?php _e( 'Ngành', 'bsc' ) ?>
+							</p>
+							<p class="font-bold 2xl:text-lg uppercase">
+								HÀNG CÔNG NGHIỆP & XUẤT KHẨU
+							</p>
 						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									KLGD trung bình
-									10 ngày
-								</p>
-								<p class="font-medium text-lg">
-									6,800
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/E
+						<div class="flex gap-[12px] items-center mb-4">
+							<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+								<?php _e( 'KLGD trung bình 10 ngày', 'bsc' ) ?>
+							</p>
+							<p class="font-medium text-lg">
+								6,800
+							</p>
+						</div>
+						<div class="grid grid-cols-3 gap-4">
+
+							<div class="space-y-2">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'P/E', 'bsc' ) ?>
 								</p>
 								<p class="font-medium text-lg">
 									23.73
 								</p>
 							</div>
-						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/B
+							<div class="space-y-2">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'Vốn hóa (tỷ đồng)', 'bsc' ) ?>
+								</p>
+								<p class="font-medium text-lg">
+									1,600
+								</p>
+							</div>
+							<div class="space-y-2">
+								
+							</div>
+							<div class="space-y-2">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'P/B', 'bsc' ) ?>
 								</p>
 								<p class="font-medium text-lg">
 									24,191
 								</p>
 							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									ROE
+							<div class="space-y-2">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'ROE', 'bsc' ) ?>
+								</p>
+								<p class="font-medium text-lg">
+									2.12
+								</p>
+							</div>
+							<div class="space-y-2">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'ROE', 'bsc' ) ?>
 								</p>
 								<p class="font-medium text-lg">
 									2.12
@@ -282,8 +291,9 @@ get_header();
 				</a>
 			</div>
 			<div class="rounded-lg overflow-hidden relative mt-10">
-                <!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
-				<table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium blur-sm">
+				<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
+				<table
+					class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium blur-sm">
 					<thead>
 						<tr>
 							<th></th>
@@ -307,22 +317,22 @@ get_header();
 								<td>4,893</td>
 								<td>5,277</td>
 							</tr>
-						<?php
+							<?php
 						}
 						?>
 					</tbody>
 				</table>
-                <!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-							<div
-								class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-								<a href="#"
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
-									Đăng nhập
-								</a>
-								<p class="italic mt-4 font-normal">
-									Để xem chi tiết danh mục
-								</p>
-							</div>
+				<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
+				<div
+					class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
+					<a href="#"
+						class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
+						Đăng nhập
+					</a>
+					<p class="italic mt-4 font-normal">
+						Để xem chi tiết danh mục
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
