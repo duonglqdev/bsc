@@ -328,7 +328,7 @@ get_header();
 						?>
 						<div class="flex-1">
 							<div
-								class="bg-[#E8F5FF] rounded-xl lg:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+								class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 								<div class="flex items-center justify-between mb-6">
 									<h3 class="font-bold">
 										<?php _e( 'KHUYẾN NGHỊ', 'bsc' ) ?>
