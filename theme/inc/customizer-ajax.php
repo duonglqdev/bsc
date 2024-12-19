@@ -2559,3 +2559,27 @@ function bsc_count_download_ajax()
     $response = curl_exec($ch);
     die();
 }
+
+
+// add_action('wp_ajax_save_screen_info', 'save_screen_info');
+// add_action('wp_ajax_nopriv_save_screen_info', 'save_screen_info');
+
+// function save_screen_info() {
+//     if (isset($_POST['is_desktop'])) {
+//         $is_desktop = $_POST['is_desktop'] === 'true' ? 'true' : 'false';
+//         setcookie('is_desktop', $is_desktop, time() + 3600, "/"); // set cookie 1h
+//         wp_send_json_success(['message' => 'Screen info saved in cookie.']);
+//     } else {
+//         wp_send_json_error(['message' => 'Missing parameter.']);
+//     }
+// }
+// // Hàm kiểm tra mobile theo cookie
+// function bsc_is_mobile() {
+//     if (isset($_COOKIE['is_desktop'])) {
+//         $is_desktop = filter_var($_COOKIE['is_desktop'], FILTER_VALIDATE_BOOLEAN);
+//         // Nếu is_desktop = true => Desktop => mobile = false
+//         return !$is_desktop;
+//     }
+//     // Nếu chưa có cookie, dùng wp_is_mobile() mặc định
+//     return wp_is_mobile();
+// }

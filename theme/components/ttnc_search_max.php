@@ -1,10 +1,10 @@
-<section class="xl:my-[100px] my-20 ttnc_search_max" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> ttnc_search_max" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div
-            class="rounded-[10px] bg-gradient-blue-to-right-100 px-6 py-12 lg:flex items-center gap-4">
+            class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center gap-4 px-6 py-12':'p-6' ?>">
             <?php if (get_sub_field('title')) { ?>
-                <div class="lg:w-[345px] max-w-[33.333%]">
-                    <h2 class="uppercase lg:text-[28px] text-2xl font-bold !leading-[1.57]">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[345px] max-w-[33.333%]':'mb-6' ?>">
+                    <h2 class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-[28px] !leading-[1.57]':'text-[22px]' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
                 </div>
@@ -21,7 +21,7 @@
             if ($response_value) {
 
             ?>
-                <div class="flex-1 flex justify-end items-center flex-wrap gap-6">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 flex justify-end items-center flex-wrap gap-6':'grid grid-cols-3 gap-[12px]' ?>">
                     <?php foreach ($response_value->d as $respon_symbol) {
                         $bg_color_class = 'bg-[#1CCD83]';
                         $title_symbol = '';
@@ -45,7 +45,7 @@
                         }
                     ?>
                         <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
-                            class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center gap-4 py-3 px-[12px]">
+                            class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 py-3 px-[12px]':'gap-3 py-2 px-3 text-xs justify-center' ?>">
                             <span>
                                 <?php echo $respon_symbol->symbol  ?>
                             </span>

@@ -12,8 +12,8 @@
         }
     }
 ?>
-    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
-        <div class="flex items-center justify-between mb-4">
+    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-4':'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
+        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'mb-[12px]' ?>">
             <?php
 
             if ($news->recommendation) {
@@ -71,42 +71,44 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+        <h3 class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'' ?>">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </h3>
-        <div class="flex items-center justify-between mt-auto">
-            <p class="italic text-paragraph text-xs font-Helvetica ">
-                <span class="content-bao-cao-phan-tich_download_count"><?php echo htmlspecialchars($news->downloads) ?></span> <?php _e('Lượt tải xuống', 'bsc') ?>
-            </p>
-            <?php if ($news->reporturl) {
-                $count_download = true;
-                $url_download = $news->reporturl;
-                $viewerpermission = $news->viewerpermission;
-                if ($viewerpermission == 'USER_BSC') {
-                    $datetimeopen = $news->datetimeopen;
-                    if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
-                        if (bsc_is_user_logged_out()) {
-                            $count_download = false;
-                            $url_download = bsc_url_sso();
+        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+            <div class="flex items-center justify-between mt-auto">
+                <p class="italic text-paragraph text-xs font-Helvetica ">
+                    <span class="content-bao-cao-phan-tich_download_count"><?php echo htmlspecialchars($news->downloads) ?></span> <?php _e('Lượt tải xuống', 'bsc') ?>
+                </p>
+                <?php if ($news->reporturl) {
+                    $count_download = true;
+                    $url_download = $news->reporturl;
+                    $viewerpermission = $news->viewerpermission;
+                    if ($viewerpermission == 'USER_BSC') {
+                        $datetimeopen = $news->datetimeopen;
+                        if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
+                            if (bsc_is_user_logged_out()) {
+                                $count_download = false;
+                                $url_download = bsc_url_sso();
+                            }
                         }
                     }
-                }
-            ?>
-                <a href="<?php echo $url_download ?>" target="_blank"
-                    class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105
-                     <?php if ($count_download) echo 'bsc_up-download' ?>
-                    "
-                    <?php if ($count_download) { ?>
-                    data-id="<?php echo $news->id; ?>"
-                    <?php
-                    }
-                    ?>>
-                    <?php _e('Tải xuống', 'bsc') ?>
-                    <?php echo svg('download', '20', '20') ?>
-                </a>
-            <?php } ?>
-        </div>
+                ?>
+                    <a href="<?php echo $url_download ?>" target="_blank"
+                        class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105
+                         <?php if ($count_download) echo 'bsc_up-download' ?>
+                        "
+                        <?php if ($count_download) { ?>
+                        data-id="<?php echo $news->id; ?>"
+                        <?php
+                        }
+                        ?>>
+                        <?php _e('Tải xuống', 'bsc') ?>
+                        <?php echo svg('download', '20', '20') ?>
+                    </a>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 <?php } ?>
