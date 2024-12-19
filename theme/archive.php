@@ -16,7 +16,7 @@ if (get_field('api_id_danh_muc', get_queried_object())) {
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
+	<!-- <?php get_template_part('components/page-banner') ?> -->
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
