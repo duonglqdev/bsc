@@ -14,7 +14,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>
-	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
+	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() || ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
@@ -187,7 +187,7 @@
 					?>
 						<a class="block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>" href="<?php echo get_bloginfo('url'); ?>"
 							title="<?php echo get_bloginfo('description'); ?>">
-							<img class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16' ?>"
+							<img class="object-contain <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16 max-h-12' ?>"
 								src="<?php echo esc_url($image[0]); ?>" loading="lazy">
 						</a>
 					<?php

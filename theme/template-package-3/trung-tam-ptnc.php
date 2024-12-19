@@ -53,21 +53,21 @@ get_header();
 								<div
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
 									<ul
-										class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
+										class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] sm:w-full w-max' ?>">
 										<li
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'min-w-[60px]' ?>">
+											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
 											Mã</li>
 										<li
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
+											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[96px]' ?>">
 											Khuyến nghị</li>
 										<li
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
+											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[70px]' ?>">
 											Giá</li>
 										<li
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
+											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[70px]' ?>">
 											Mục tiêu</li>
 										<li
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
+											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[96px]' ?>">
 											Upside</li>
 									</ul>
 									<div
@@ -77,23 +77,23 @@ get_header();
 										{
 											?>
 											<ul
-												class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?>">
+												class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] sm:w-full w-max' ?>">
 												<li
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px]' ?> font-medium">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px] w-[8%]' ?> font-medium">
 													CTG</li>
 												<li
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-medium">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px] w-[16%]' ?> font-medium">
 													<span
 														class="inline-block bg-[#D6F6DE] rounded-[45px] px-4 py-0.5 text-[#30D158] p-3 min-w-[78px]">Mua</span>
 												</li>
 												<li
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-bold text-[#1CCD83]">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px] w-[16%]' ?> font-bold text-[#1CCD83]">
 													35.05</li>
 												<li
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-medium">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px] w-[16%]' ?> font-medium">
 													43.65</li>
 												<li
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-bold text-[#1CCD83]">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px] w-[16%]' ?> font-bold text-[#1CCD83]">
 													+24.45%</li>
 											</ul>
 											<?php
@@ -392,19 +392,22 @@ get_header();
 					</a>
 				<?php } ?>
 			</div>
-			<div
+
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-				{ ?>
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-[70px] gap-10' : '' ?>">
+			{ ?>
+				<div class="flex 2xl:gap-[70px] gap-10">
 					<div class="lg:w-[843px] lg:max-w-[66%]">
 					<?php } ?>
-					<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-[23px] gap-y-6':'sm:grid-cols-2 grid-cols-1 gap-4' ?>">
+					<div
+						class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2 gap-x-[23px] gap-y-6' : 'sm:grid-cols-2 grid-cols-1 gap-4' ?>">
 						<?php
-						for ( $i = 0; $i < 2; $i++ )
+						for ( $i = 0; $i < 6; $i++ )
 						{
 							?>
-							<div class="rounded-[10px] bg-white shadow-base-sm flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-4':'px-4 py-[12px]' ?>">
-								<div class="flex items-center justify-between mb-4">
+							<div
+								class="rounded-[10px] bg-white shadow-base-sm flex flex-col shadow-base-sm <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?>">
+								<div
+									class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : 'mb-[12px]' ?>">
 									<a href=""
 										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
 										Báo cáo vĩ mô tuần
@@ -417,170 +420,116 @@ get_header();
 									</div>
 								</div>
 								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+									class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : '' ?>">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
 									</a>
 								</h3>
-								<div class="flex items-center justify-between mt-auto">
-									<p class="italic text-paragraph text-xs font-Helvetica">
-										68 Lượt tải xuống
-									</p>
-									<a href=""
-										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
-									</a>
-								</div>
-							</div>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo ngành
-									</a>
-									<div class="space-y-1.5 text-right">
-										<span
-											class="inline-block rounded-[45px] text-[#FF0017] bg-[#FFD9DC] px-4 py-0.5 text-[12px] font-semibold">Tiêu
-											cực</span>
-										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
+								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+								{ ?>
+									<div class="flex items-center justify-between mt-auto">
+										<p class="italic text-paragraph text-xs font-Helvetica">
+											68 Lượt tải xuống
+										</p>
+										<a href=""
+											class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
+											<?php _e( 'Tải xuống', 'bsc' ) ?>
+											<?php echo svg( 'download', '20', '20' ) ?>
+										</a>
 									</div>
-								</div>
-								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
-									<a href="" class="line-clamp-2">
-										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-										quỹ_20240808
-									</a>
-								</h3>
-								<div class="flex items-center justify-between mt-auto">
-									<p class="italic text-paragraph text-xs font-Helvetica">
-										68 Lượt tải xuống
-									</p>
-									<a href=""
-										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
-									</a>
-								</div>
-							</div>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo ngành
-									</a>
-									<div class="space-y-1.5 text-right">
-										<span
-											class="inline-block rounded-[45px] text-[#FFB81C] bg-[#FFF1D2] px-4 py-0.5 text-[12px] font-semibold">Trung
-											lập</span>
-										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-									</div>
-								</div>
-								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
-									<a href="" class="line-clamp-2">
-										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-										quỹ_20240808
-									</a>
-								</h3>
-								<div class="flex items-center justify-between mt-auto">
-									<p class="italic text-paragraph text-xs font-Helvetica">
-										68 Lượt tải xuống
-									</p>
-									<a href=""
-										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
-									</a>
-								</div>
+								<?php } ?>
 							</div>
 							<?php
 						}
 						?>
-						<?php
-						for ( $i = 0; $i < 2; $i++ )
-						{
-							?>
-							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
-								<div class="flex items-center justify-between mb-4">
-									<a href=""
-										class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-										Báo cáo ngành
-									</a>
-									<div class="space-y-1.5 text-right">
-										<span
-											class="inline-block rounded-[45px] text-[#FF0017] bg-[#FFD9DC] px-4 py-0.5 text-[12px] font-semibold">Tiêu
-											cực</span>
-										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
-									</div>
-								</div>
-								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
-									<a href="" class="line-clamp-2">
-										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
-										quỹ_20240808
-									</a>
-								</h3>
-								<div class="flex items-center justify-between mt-auto">
-									<p class="italic text-paragraph text-xs font-Helvetica">
-										68 Lượt tải xuống
-									</p>
-									<a href=""
-										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e( 'Tải xuống', 'bsc' ) ?>
-										<?php echo svg( 'download', '20', '20' ) ?>
-									</a>
-								</div>
-							</div>
-							<?php
-						}
-						?>
+
 
 					</div>
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 					{ ?>
 					</div>
 				<?php } ?>
-				<div class="flex-1">
-					<h2
-						class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
-						Các mã hiệu quả BSC
-					</h2>
-					<div class="grid grid-cols-3 gap-4 mb-10">
-						<?php
-						for ( $i = 0; $i < 6; $i++ )
-						{
-							?>
-							<a href=""
-								class="inline-flex justify-center rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
-								<span>
-									HPG
-								</span>
-								<span>
-									+11%
-								</span>
-							</a>
+				<?php if ( wp_is_mobile() && bsc_is_mobile() )
+				{ ?>
+					<a href=""
+						class="flex items-center justify-center gap-3 py-3 px-5 btn-base-yellow text-xs font-bold min-h-[38px] mt-8 rounded-md">
+						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+						<?php _e( 'Xem tất cả', 'bsc' ) ?>
+					</a>
+				<?php } ?>
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px] overflow-hidden' ?>">
+					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+					{ ?>
+						<h2
+							class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-8 !leading-tight">
+							Các mã hiệu quả BSC
+						</h2>
+					<?php } ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
+						<ul class="customtab-nav flex flex-nowrap gap-8 overflow-x-auto border-b border-[#C9CCD2] mb-6">
+							<li>
+								<button type="button" data-tabs="#tab-11"
+									class="active font-bold text-lg [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:text-opacity-70 whitespace-nowrap border-b-2 [&:not(.active)]:border-transparent border-primary-300 pb-4 border-opacity-100">
+									Các mã hiệu quả BSC
+								</button>
+							</li>
+							<li>
+								<button type="button" data-tabs="#tab-22"
+									class="font-bold text-lg [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:text-opacity-70 whitespace-nowrap border-b-2 [&:not(.active)]:border-transparent border-primary-300 pb-4 border-opacity-100">
+									Tiện ích cho khách hàng
+								</button>
+							</li>
+						</ul>
+
+					<?php } ?>
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'tab-content block' ?>"
+						<?php if ( wp_is_mobile() && bsc_is_mobile() )
+						{ ?> id="tab-11" <?php } ?>>
+						<div class="grid grid-cols-3 gap-4 mb-10 ">
 							<?php
-						}
-						?>
+							for ( $i = 0; $i < 6; $i++ )
+							{
+								?>
+								<a href=""
+									class="inline-flex justify-center rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
+									<span>
+										HPG
+									</span>
+									<span>
+										+11%
+									</span>
+								</a>
+								<?php
+							}
+							?>
 
 
-					</div>
-					<div class="p-6 bg-gradient-blue-50 mb-8">
-						<h3 class="text-primary-300 font-bold text-2xl mb-4">
-							Đăng ký nhận báo cáo từ BSC
-						</h3>
-						<div class="form_report">
-							<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
 						</div>
 					</div>
-					<h3
-						class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
-						Tiện ích cho khách hàng
-					</h3>
-					<div class="space-y-[14px]">
+					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+					{ ?>
+						<div class="p-6 bg-gradient-blue-50 mb-8">
+							<h3 class="text-primary-300 font-bold text-2xl mb-4">
+								Đăng ký nhận báo cáo từ BSC
+							</h3>
+							<div class="form_report">
+								<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
+							</div>
+						</div>
+					<?php } ?>
+					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+					{ ?>
+						<h3
+							class="text-primary-300 font-bold 2xl:text-[28px] text-2xl pl-6 relative before:absolute before:w-[3px] before:top-1/2 before:-translate-y-1/2 before:left-0 before:h-7 before:bg-primary-300 mb-7 !leading-tight">
+							Tiện ích cho khách hàng
+						</h3>
+					<?php } ?>
+					<div class="space-y-[14px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'hidden tab-content' ?>"
+						<?php if ( wp_is_mobile() && bsc_is_mobile() )
+						{ ?> id="tab-22" <?php } ?>>
 						<div
 							class="rounded-lg overflow-hidden min-h-[161px] lg:px-9 px-5 py-5 flex flex-col justify-center relative text-white group">
 							<img loading="lazy"
@@ -625,17 +574,28 @@ get_header();
 						</div>
 
 					</div>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
+						<div class="p-4 bg-gradient-blue-50 rounded-[10px]">
+							<h3 class="text-primary-300 font-bold text-lg mb-4">
+								Đăng ký nhận báo cáo từ BSC
+							</h3>
+							<div class="form_report">
+								<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-					{ ?>
-					</div>
-				<?php } ?>
+				{ ?>
+				</div>
+			<?php } ?>
 		</div>
 	</section>
-	<section class="py-[77px] bg-no-repeat bg-cover bg-center"
+	<section class=" bg-no-repeat bg-cover bg-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[77px]':'py-5' ?>"
 		style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-report.png)">
 		<div class="container">
-			<div class="lg:w-[602px] lg:max-w-[60%] bg-white p-10 rounded-2xl">
+			<div class="bg-white p-10 rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[602px] max-w-[60%]':'' ?>">
 				<h2 class="heading-title text-center mb-6 !leading-none">
 					Báo cáo phân tích Từ bsc
 				</h2>
