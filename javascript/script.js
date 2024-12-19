@@ -39,7 +39,7 @@ import { DataTable } from 'simple-datatables';
 		resetForm();
 		centerActiveMenu();
 		handleLoading();
-		checkScreen();
+		// checkScreen();
 	});
 
 	function menuMobile() {
@@ -2992,34 +2992,9 @@ import { DataTable } from 'simple-datatables';
 		$('.block-loading').addClass('active');
 	}
 	function checkScreen() {
-			// Kiểm tra và gửi thông tin màn hình qua AJAX nếu chưa lưu
-			// if (!localStorage.getItem('screen_checked')) {
-			// 	const screenWidth = $(window).width();
-			// 	const isDesktop = screenWidth > 1024 ? 'true' : 'false';
-		
-			// 	// Gửi thông tin về server
-			// 	$.ajax({
-			// 		url: ajaxurl.ajaxurl,
-			// 		type: 'POST',
-			// 		data: {
-			// 			action: 'save_screen_info',
-			// 			is_desktop: isDesktop,
-			// 		},
-			// 		success: function (response) {
-			// 			console.log('Screen info saved:', response);
-			// 		},
-			// 	});
-		
-			// 	// Lưu trạng thái vào localStorage
-			// 	localStorage.setItem('screen_checked', 'true');
-			// 	localStorage.setItem('is_desktop', isDesktop);
-			// }
-
-			 // Hàm gửi AJAX để lưu thông tin màn hình
 			 function sendScreenInfo(screenWidth) {
 				const isDesktop = screenWidth > 1024 ? 'true' : 'false';
 		
-				// Gửi thông tin qua AJAX
 				$.ajax({
 					url: ajaxurl.ajaxurl,
 					type: 'POST',
@@ -3028,11 +3003,10 @@ import { DataTable } from 'simple-datatables';
 						is_desktop: isDesktop,
 					},
 					success: function (response) {
-						console.log('Screen info updated:', response);
+						location.reload();
 					},
 				});
 		
-				// Cập nhật localStorage
 				localStorage.setItem('screen_checked', 'true');
 				localStorage.setItem('is_desktop', isDesktop);
 				localStorage.setItem('initial_screen_width', screenWidth);
