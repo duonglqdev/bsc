@@ -190,7 +190,7 @@ get_header();
 											<label for=""
 												class="font-medium text-[12px]"><?php _e('Năm:', 'bsc') ?></label>
 											<select id="select_year" name="years"
-												class="select_custom py-0 border-0 focus:ring-0 text-[12px] pl-0 !pr-8">
+												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-0 !pr-8">
 												<option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
 												<?php
 												$currentYear = date('Y');
