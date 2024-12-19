@@ -945,18 +945,18 @@ function filter_details_symbol()
     ?>
         <div class="list__content">
             <div class="flex items-center justify-between mt-16 mb-[30px]">
-                <ul class="flex items-center gap-5">
+                <ul class="flex items-center gap-5 customtab-nav">
                     <li>
-                        <a href=""
+                        <button data-tabs="#tab-2-Q"
                             class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                            Quý
-                        </a>
+                            <?php _e('Quý', 'bsc') ?>
+                        </button>
                     </li>
                     <li>
-                        <a href=""
+                        <button data-tabs="#tab-2-Y"
                             class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                            Năm
-                        </a>
+                            <?php _e('Năm', 'bsc') ?>
+                        </button>
                     </li>
                 </ul>
                 <a href=""
@@ -965,78 +965,235 @@ function filter_details_symbol()
                     <?php echo svg('arrow-btn', '12', '12') ?>
                 </a>
             </div>
-            <ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
-                <?php
-                for ($i = 18; $i < 24; $i++) {
-                ?>
-                    <li class="lg:min-w-[140px] font-bold">
-                        <p>
-                            Năm 20<?= $i ?>
-                        </p>
-                        <p class="text-[#1CCD83]">
-                            (Đã kiểm toán)
-                        </p>
-                    </li>
-                <?php
+            <?php
+            $freq_cttc = array('Q', 'Y');
+            if ($freq_cttc) {
+                $i = 0;
+                foreach ($freq_cttc as $freq) {
+                    $i++;
+            ?>
+                    <div class="tab-content <?php if ($i == 1) echo 'block';
+                                            else echo 'hidden' ?>" id="tab-2-<?php echo $freq ?>">
+                        <?php
+                        $array_data_GetSummaryFinanceReportBySymbol = array(
+                            'lang' => pll_current_language(),
+                            'symbol' => $symbol,
+                            'freq' => $freq,
+                        );
+                        $response_GetSummaryFinanceReportBySymbol = get_data_with_cache('GetSummaryFinanceReportBySymbol', $array_data_GetSummaryFinanceReportBySymbol, $time_cache);
+                        if ($response_GetSummaryFinanceReportBySymbol) {
+                            $industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
+                        ?>
+                            <ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
+                                <?php
+                                $yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
+                                $kiemToanData = $response_GetSummaryFinanceReportBySymbol->d1[2];
+                                $check_year = 0;
+                                foreach ($yearData as $key => $year) {
+                                    $check_year++;
+                                    if ($check_year != 1) {
+                                        $kiem_toan = isset($kiemToanData->{$key}) ? $kiemToanData->{$key} : '';
+                                ?>
+                                        <li class="lg:min-w-[140px] font-bold">
+                                            <p><?php echo $year; ?></p>
+                                            <p class="text-[#1CCD83]">
+                                                <?php
+                                                if ($kiem_toan == 'N') {
+                                                    echo __('(Chưa kiểm toán)', 'bsc');
+                                                } else {
+                                                    echo __('(Đã kiếm toán)', 'bsc');
+                                                }
+                                                ?>
+                                            </p>
+                                        </li>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </ul>
+                            <?php $total_colspan = $check_year + 1; ?>
+                            <div class="space-y-16">
+                                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+                                    <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
+								prose-td:p-4 font-medium">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="<?php echo $total_colspan ?>"><?php _e('Kết quả kinh doanh', 'bsc') ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $check_kqkd = 0;
+                                            foreach ($response_GetSummaryFinanceReportBySymbol->d2 as $data) {
+                                                $check_kqkd++;
+                                                if ($check_kqkd > 4) {
+                                                    if ($industryname == 'Security') {
+                                                        $data_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Doanh thu hoạt động', 'bsc'),
+                                                            __('Tổng lợi nhuận KT trước thuế', 'bsc'),
+                                                            __('Lợi nhuận KT sau thuế TNDN', 'bsc'),
+                                                            __('Lợi nhuận sau thuế của công ty mẹ', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Bank') {
+                                                        $data_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Thu nhập lãi thuần', 'bsc'),
+                                                            __('Tổng lợi nhuận KT trước thuế', 'bsc'),
+                                                            __('Lợi nhuận KT sau thuế TNDN', 'bsc'),
+                                                            __('Lợi nhuận sau thuế của công ty mẹ', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Insurance') {
+                                                        $data_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Doanh thu thuần hoạt động kinh doanh BH', 'bsc'),
+                                                            __('Tổng lợi nhuận KT trước thuế', 'bsc'),
+                                                            __('Lợi nhuận KT sau thuế TNDN', 'bsc'),
+                                                            __('Lợi nhuận sau thuế của công ty mẹ', 'bsc')
+                                                        );
+                                                    } else {
+                                                        $data_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Doanh thu bán hàng và CCDV', 'bsc'),
+                                                            __('Tổng lợi nhuận KT trước thuế', 'bsc'),
+                                                            __('Lợi nhuận KT sau thuế TNDN', 'bsc'),
+                                                            __('Lợi nhuận sau thuế của công ty mẹ', 'bsc')
+                                                        );
+                                                    }
+                                            ?>
+                                                    <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+                                                        <td class="lg:min-w-[231px]"><?php echo $data_title[$check_kqkd] ?></td>
+                                                        <?php
+                                                        $check_dat = 0;
+                                                        foreach ($data as $key => $dat) {
+                                                            $check_dat++;
+                                                            if ($check_dat > 1) { ?>
+                                                                <td><?php
+                                                                    if (is_numeric($dat)) {
+                                                                        echo number_format($dat, 2, '.', ',');
+                                                                    }
+                                                                    ?></td>
+                                                        <?php }
+                                                        } ?>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+                                    <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
+								prose-td:p-4 font-medium">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="<?php echo $total_colspan ?>"><?php _e('Cân đối kế toán', 'bsc') ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $check_ts = 0;
+                                            foreach ($response_GetSummaryFinanceReportBySymbol->d1 as $data_ts) {
+                                                $check_ts++;
+                                                if ($check_ts > 3) {
+                                                    if ($industryname == 'Security') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Bank') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Cho vay khách hàng', 'bsc'),
+                                                            __('Tiền gửi khách hàng', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Insurance') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } else {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    }
+                                            ?>
+                                                    <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+                                                        <td class="lg:min-w-[231px]"><?php echo $data_ts_title[$check_ts] ?></td>
+                                                        <?php
+                                                        $check_dat_ts = 0;
+                                                        foreach ($data_ts as $key => $dat_ts) {
+                                                            $check_dat_ts++;
+                                                            if ($check_dat_ts > 1) { ?>
+                                                                <td><?php
+                                                                    if (is_numeric($dat_ts)) {
+                                                                        echo number_format($dat_ts, 2, '.', ',');
+                                                                    }
+                                                                    ?></td>
+                                                        <?php }
+                                                        } ?>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+            <?php
                 }
-                ?>
-            </ul>
-            <div class="space-y-16">
-                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                    <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
-								prose-td:p-4 font-medium">
-                        <thead>
-                            <tr>
-                                <th colspan="7">Kết quả kinh doanh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < 4; $i++) {
-                            ?>
-                                <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-                                    <td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV</td>
-                                    <td>911,959,220</td>
-                                    <td>608,349,810</td>
-                                    <td>912,577,380</td>
-                                    <td>1,333,024,980</td>
-                                    <td>1,089,005,390</td>
-                                    <td>1,258,998,059</td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                    <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
-								prose-td:p-4 font-medium">
-                        <thead>
-                            <tr>
-                                <th colspan="7">Cân đối kế toán</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for ($i = 0; $i < 4; $i++) {
-                            ?>
-                                <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-                                    <td class="lg:min-w-[231px]">Tổng tài sản</td>
-                                    <td>911,959,220</td>
-                                    <td>608,349,810</td>
-                                    <td>912,577,380</td>
-                                    <td>1,333,024,980</td>
-                                    <td>1,089,005,390</td>
-                                    <td>1,258,998,059</td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            }
+            ?>
         </div>
     <?php
     } elseif ($type_form == 'details_symbol_tab-3') {
