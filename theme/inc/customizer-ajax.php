@@ -2521,20 +2521,20 @@ function filter_details_symbol()
         <?php
         }
         ?>
-        <?php
+    <?php
     } elseif ($type_form == 'instruments-symbol') {
         $first_symbol = strtoupper($symbol)[0];
         $array_data_value = array(
             'symbols' => $symbol
         );
         $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-        if ($response_value) {
-        ?>
-            <div class="flex gap-6 items-center">
-                <div
-                    class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-                    <?php echo $first_symbol ?>
-                </div>
+    ?>
+        <div class="flex gap-6 items-center">
+            <div
+                class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
+                <?php echo $first_symbol ?>
+            </div>
+            <?php if ($response_value) { ?>
                 <div class="flex flex-col">
                     <h4
                         class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
@@ -2543,9 +2543,10 @@ function filter_details_symbol()
                     <p class="uppercase text-lg text-paragraph">
                         <?php echo $response_value->d[0]->exchange; ?>
                     </p>
-
                 </div>
-            </div>
+            <?php   } ?>
+        </div>
+        <?php if ($response_value) { ?>
             <div class="flex items-center 2xl:gap-7 gap-5">
                 <div class="lg:w-[176px] lg:max-w-[37%]">
                     <?php if ($response_value->d[0]->bidPrice1) { ?>
@@ -2685,10 +2686,10 @@ function filter_details_symbol()
                     </div>
                 </div>
             </div>
-        <?php
-        }
+        <?php   } ?>
+    <?php
     } elseif ($type_form == 'securityBasicInfo-symbol') {
-        ?>
+    ?>
         <?php
         $array_data_securityBasicInfo = json_encode([
             'lang' => pll_current_language(),
@@ -2855,7 +2856,8 @@ function filter_details_symbol()
                     $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
                     if ($get_co_phieu_detail) {
                         $news = $get_co_phieu_detail->d[0];
-                        if ($news->postdate) { ?>
+                        if ($news->postdate) {
+                    ?>
                             <div class="flex items-center justify-between text-xs">
                                 <p class="text-xs">
                                     <?php _e('Ngày cập nhật', 'bsc') ?>
@@ -2868,7 +2870,6 @@ function filter_details_symbol()
                     <?php }
                     } ?>
                 </div>
-
             </div>
 <?php
         }
