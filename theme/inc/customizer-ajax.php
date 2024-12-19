@@ -375,7 +375,8 @@ function filter_event_calendar()
 add_action('wp_ajax_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
 add_action('wp_ajax_nopriv_filter_du_lieu_lich_su', 'filter_du_lieu_lich_su');
 
-function filter_du_lieu_lich_su() {
+function filter_du_lieu_lich_su()
+{
     check_ajax_referer('common_nonce', 'security');
     $time_cache = 300;
     $symbol = isset($_POST['mck']) ? $_POST['mck'] : '';
@@ -2520,7 +2521,357 @@ function filter_details_symbol()
         <?php
         }
         ?>
+        <?php
+    } elseif ($type_form == 'instruments-symbol') {
+        $first_symbol = strtoupper($symbol)[0];
+        $array_data_value = array(
+            'symbols' => $symbol
+        );
+        $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
+        if ($response_value) {
+        ?>
+            <div class="flex gap-6 items-center">
+                <div
+                    class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
+                    <?php echo $first_symbol ?>
+                </div>
+                <div class="flex flex-col">
+                    <h4
+                        class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+                        <?php echo $response_value->d[0]->symbol; ?>
+                    </h4>
+                    <p class="uppercase text-lg text-paragraph">
+                        <?php echo $response_value->d[0]->exchange; ?>
+                    </p>
+
+                </div>
+            </div>
+            <div class="flex items-center 2xl:gap-7 gap-5">
+                <div class="lg:w-[176px] lg:max-w-[37%]">
+                    <?php if ($response_value->d[0]->bidPrice1) { ?>
+                        <div class="flex-col gap-2">
+                            <div class="flex gap-[14px] data_number">
+                                <div class="2xl:text-[40px] text-4xl font-bold">
+                                    <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
+                                </div>
+                                <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
+                                    if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
+                                        $text_color_class = 'text-[#1CCD83]';
+                                    } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
+                                        $text_color_class = 'text-[#FE5353]';
+                                    } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
+                                        $text_color_class = 'text-[#EB0]';
+                                    } else {
+                                        $text_color_class = '';
+                                    }
+                                ?>
+                                    <div class="flex flex-col <?php echo $text_color_class ?>">
+                                        <p>
+                                            <?php
+                                            echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
+                                            ?>
+                                        </p>
+                                        <p>
+                                            <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
+                                        </p>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <p class="time-update mt-1">
+                                <?php _e('Cập nhật lúc', 'bsc') ?>
+                                <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                echo date("H:i"); ?>
+                                UTC_7
+                            </p>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="flex-1 grid grid-cols-3 2xl:gap-5 gap-4 font-Helvetica">
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Trần', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#7F1CCD] text-lg">
+                                <?php
+                                if ($response_value->d[0]->ceiling) {
+                                    echo number_format(($response_value->d[0]->ceiling) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Cao nhất', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black text-lg">
+                                <?php
+                                if ($response_value->d[0]->high) {
+                                    echo number_format(($response_value->d[0]->high) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Tham chiếu', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#FFB81C] text-lg">
+                                <?php
+                                if ($response_value->d[0]->reference) {
+                                    echo number_format(($response_value->d[0]->reference) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Thấp nhất', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black text-lg">
+                                <?php
+                                if ($response_value->d[0]->low) {
+                                    echo number_format(($response_value->d[0]->low) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Sàn', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#1ABAFE] text-lg">
+                                <?php
+                                if ($response_value->d[0]->floor) {
+                                    echo number_format(($response_value->d[0]->floor) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Trung bình', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black text-lg">
+                                <?php
+                                if ($response_value->d[0]->averagePrice) {
+                                    echo number_format(($response_value->d[0]->averagePrice) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+    } elseif ($type_form == 'securityBasicInfo-symbol') {
+        ?>
+        <?php
+        $array_data_securityBasicInfo = json_encode([
+            'lang' => pll_current_language(),
+            'secList' => $symbol,
+            "Exchange" => ""
+        ]);
+        $response_securityBasicInfo = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
+        if ($response_securityBasicInfo) {
+        ?>
+            <div
+                class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-6 lg:py-6 py-5 h-full font-Helvetica">
+                <div
+                    class="lg:flex lg:items-center lg:justify-between mb-6 pb-6 border-b border-[#C9CCD2]">
+                    <p class="text-paragraph text-opacity-70 text-xs">
+                        <?php _e('Ngành', 'bsc') ?>
+                    </p>
+                    <p class="font-bold 2xl:text-lg uppercase">
+                        <?php echo $response_securityBasicInfo->data[0]->Industry ?>
+                    </p>
+                </div>
+                <div class="flex gap-[12px] items-center mb-4">
+                    <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                        <?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
+                    </p>
+                    <p class="font-medium text-lg">
+                        <?php echo $response_securityBasicInfo->data[0]->VolPerAVG10d ?>
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+
+                    <div class="space-y-2">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('P/E', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->PE ?>
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('Vốn hóa (tỷ đồng)', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php
+                            if ($response_securityBasicInfo->data[0]->MarketCapital) {
+                                echo number_format($response_securityBasicInfo->data[0]->MarketCapital);
+                            }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('P/B', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->PB ?>
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('ROE', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->ROE ?>
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('ROE', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->ROE ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <?php
+    } elseif ($type_form == 'GetRecommendedInstrument-symbol') {
+        $array_data_GetRecommendedInstrument = array(
+            'symbol' => $symbol
+        );
+        $response_GetRecommendedInstrument = get_data_with_cache('GetRecommendedInstrument', $array_data_GetRecommendedInstrument, $time_cache);
+        if ($response_GetRecommendedInstrument) {
+        ?>
+            <div
+                class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-bold">
+                        <?php _e('KHUYẾN NGHỊ', 'bsc') ?>
+                    </h3>
+                    <?php
+                    if ($response_GetRecommendedInstrument->rank) {
+                        if ($response_GetRecommendedInstrument->rank == 'A') {
+                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                            $medal_rank = 'gold';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'B') {
+                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                            $medal_rank = 'sliver';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'C') {
+                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                            $medal_rank = 'bronze';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'D') {
+                            $medal_rank = 'sliver-2';
+                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                        }
+                    ?>
+                        <p
+                            class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                            <?php echo svg($medal_rank, '24', '24') ?>
+                            <?php _e('Hạng', 'bsc') ?>
+                            <?php echo $response_GetRecommendedInstrument->rank ?>
+                        </p>
+                    <?php } ?>
+                </div>
+
+                <div class="space-y-4">
+                    <?php if ($response_GetRecommendedInstrument->d[0]->author) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Analyst', 'bsc') ?>:
+                            </p>
+                            <p class="font-bold text-primary-300">
+                                <?php echo $response_GetRecommendedInstrument->d[0]->author ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->recommendation) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Khuyến nghị', 'bsc') ?>:
+                            </p>
+                            <?php
+                            $status = $response_GetRecommendedInstrument->d[0]->recommendation;
+                            $check_status = get_color_by_number_bsc($status);
+                            $title_status = $check_status['title_status'];
+                            $text_status = $check_status['text_status'];
+                            $background_status = $check_status['background_status'];
+                            ?>
+                            <p class="inline-block rounded-full px-4 py-0.5 font-semibold"
+                                style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                <?php echo $title_status ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->categorY_NAMES) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Danh mục', 'bsc') ?>:
+                            </p>
+                            <p class="inline-block rounded-full px-4 py-0.5  font-semibold">
+                                <?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <?php
+                    $time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
+                    $array_data = array(
+                        "symbol" => $symbol,
+                    );
+                    $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
+                    if ($get_co_phieu_detail) {
+                        $news = $get_co_phieu_detail->d[0];
+                        if ($news->postdate) { ?>
+                            <div class="flex items-center justify-between text-xs">
+                                <p class="text-xs">
+                                    <?php _e('Ngày cập nhật', 'bsc') ?>
+                                </p>
+                                <p class="font-bold">
+                                    <?php $date = new DateTime($news->postdate); ?>
+                                    <?php echo $date->format('d/m/Y'); ?>
+                                </p>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
+
+            </div>
 <?php
+        }
     }
     die();
 }

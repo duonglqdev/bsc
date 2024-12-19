@@ -401,8 +401,7 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-	function filter_details_symbol(type_form) {
-		var symbol = $('.display_data_details_symbol').attr('data-symbol');
+	function filter_details_symbol(section_api, type_form, symbol) {
 		$.ajax({
 			url: ajaxurl.ajaxurl,
 			type: 'POST',
@@ -413,25 +412,31 @@ import { DataTable } from 'simple-datatables';
 				security: ajaxurl.security,
 			},
 			beforeSend: function () {
-				$('#' + type_form)
-					.find('.hidden')
-					.removeClass('hidden');
+				$(section_api).find('.hidden').removeClass('hidden');
 			},
 			success: function (response) {
-				$('#' + type_form).html(response);
-				var check_chart = $('#' + type_form).attr('data-chart');
-				if (check_chart === 'true') {
-					profitChart();
+				$(section_api).html(response);
+				var check_chart = $(section_api).attr('data-chart');
+				if (check_chart && typeof window[check_chart] === 'function') {
+					// Nếu là chuỗi không rỗng và tương ứng với một hàm đã định nghĩa
+					window[check_chart]();
 				}
 			},
 		});
 	}
-	if (document.querySelector('.display_data_details_symbol')) {
-		filter_details_symbol('lichsugiaodich');
-		filter_details_symbol('sg_bcpt');
-		filter_details_symbol('sg_cccd');
-		filter_details_symbol('sg_dncn');
-		filter_details_symbol('sg_ttvmcp');
+	if (document.querySelector('.bsc-ajax-api')) {
+		// Lấy tất cả các div có class "bsc-ajax-api"
+		var apiElements = document.querySelectorAll('.bsc-ajax-api');
+
+		// Lặp qua từng phần tử và gọi hàm filter_details_symbol với data-api tương ứng
+		apiElements.forEach(function (element) {
+			var type_form = element.getAttribute('data-api');
+			var symbol = element.getAttribute('data-symbol');
+			// Thay if (dataApi) bằng if (type_form) hoặc kiểm tra biến bạn muốn
+			if (type_form) {
+				filter_details_symbol($(element), type_form, symbol);
+			}
+		});
 	}
 
 	function customTab() {
@@ -459,6 +464,8 @@ import { DataTable } from 'simple-datatables';
 				e.preventDefault();
 				var target = $(this).attr('data-tabs');
 				var check_ajax = $(this).attr('data-ajax');
+				var check_api = $(this).attr('data-api');
+				var symbol = $(this).attr('data-symbol');
 				$(this)
 					.closest('.customtab-nav')
 					.find('button')
@@ -470,10 +477,7 @@ import { DataTable } from 'simple-datatables';
 					moveLine($(this));
 				}
 				if (check_ajax === 'true') {
-					if (target.startsWith('#')) {
-						target = target.substring(1);
-					}
-					filter_details_symbol(target);
+					filter_details_symbol(target, check_api, symbol);
 					$(this).removeAttr('data-ajax');
 				}
 				return false;
@@ -2858,6 +2862,7 @@ import { DataTable } from 'simple-datatables';
 				},
 			});
 		}
+
 		function updatePagination(totalPages) {
 			const paginationContainer = $('.dlls-pagination ul');
 			paginationContainer.html('');
@@ -2967,6 +2972,7 @@ import { DataTable } from 'simple-datatables';
 			}
 		);
 	}
+
 	function centerActiveMenu() {
 		if ($('.nav-scroll-mb').length) {
 			var $activeItem = $('.nav-scroll-mb a.active');
@@ -2987,6 +2993,7 @@ import { DataTable } from 'simple-datatables';
 			}
 		}
 	}
+
 	function handleLoading() {
 		$('.block-loading').addClass('active');
 	}
