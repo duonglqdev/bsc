@@ -46,7 +46,7 @@ $class = $check_logout['class'];
                                         </div>
                                         <div
                                             class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
-                                            <?php _e('Khả quan', 'bsc') ?>
+                                            <?php _e('Tích cực', 'bsc') ?>
                                         </div>
                                     </div>
 
@@ -71,7 +71,7 @@ $class = $check_logout['class'];
                                         </div>
                                         <div
                                             class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
-                                            <?php _e('Kém khả quan', 'bsc') ?>
+                                            <?php _e('Tiêu cực', 'bsc') ?>
                                         </div>
                                     </div>
 
@@ -105,7 +105,7 @@ $class = $check_logout['class'];
                                             ---- </h4>
                                     </div>
                                     <div class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
-                                        <?php _e('Khả quan', 'bsc') ?> </div>
+                                        <?php _e('Tích cực', 'bsc') ?> </div>
                                 </div>
 
                                 <div class="flex items-end justify-between pb-2">
@@ -124,7 +124,7 @@ $class = $check_logout['class'];
                                             ---- </h4>
                                     </div>
                                     <div class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
-                                        <?php _e('Kém khả quan', 'bsc') ?> </div>
+                                        <?php _e('Tiêu cực', 'bsc') ?> </div>
                                 </div>
                             </div>
                         </div>

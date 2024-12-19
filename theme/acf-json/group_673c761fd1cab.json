@@ -14716,6 +14716,26 @@
                             "append": ""
                         },
                         {
+                            "key": "field_676463afc06f5",
+                            "label": "Tiêu đề bảng",
+                            "name": "title_table",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_673c4bd961f65",
                             "label": "Đường dẫn Youtube",
                             "name": "link_youtube",
@@ -15405,7 +15425,7 @@
                         },
                         {
                             "key": "field_673c77b82f0f3",
-                            "label": "Background",
+                            "label": "Background  Desktop",
                             "name": "background",
                             "aria-label": "",
                             "type": "image",
@@ -15413,7 +15433,32 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_676464c7c06f6",
+                            "label": "Background Mobile",
+                            "name": "background_mb",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -17103,5 +17148,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734631343
+    "modified": 1734634126
 }
