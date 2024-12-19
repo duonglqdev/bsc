@@ -2559,3 +2559,35 @@ function bsc_count_download_ajax()
     $response = curl_exec($ch);
     die();
 }
+
+add_action('wp_ajax_save_screen_info', 'save_screen_info');
+add_action('wp_ajax_nopriv_save_screen_info', 'save_screen_info');
+
+function save_screen_info() {
+    if (!session_id()) {
+        session_start();
+    }
+   
+    if (isset($_POST['is_desktop'])) {
+        $_SESSION['is_desktop'] = ($_POST['is_desktop'] === 'true');
+        wp_send_json_success(['message' => 'Screen info saved in session.']);
+    } else {
+        wp_send_json_error(['message' => 'Missing parameter.']);
+    }
+}
+
+function custom_wp_is_mobile() {
+    if (!headers_sent() && session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+    if (isset($_SESSION['is_desktop'])) {
+        return !$_SESSION['is_desktop'];
+    }
+    return wp_is_mobile();
+}
+
+function override_wp_is_mobile() {
+    add_filter('wp_is_mobile', 'custom_wp_is_mobile');
+}
+add_action('init', 'override_wp_is_mobile');
+
