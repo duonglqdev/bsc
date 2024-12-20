@@ -421,26 +421,33 @@ import { DataTable } from 'simple-datatables';
 			complete: function () {
 				var check_chart = $(section_api).attr('data-chart');
 				if (check_chart && typeof window[check_chart] === 'function') {
-					// Nếu là chuỗi không rỗng và tương ứng với một hàm đã định nghĩa
 					window[check_chart]();
+					if (check_chart == 'running_chart') {
+						setTimeout(function () {
+							running_chart();
+						}, 1000);
+					}
 				}
 			},
 		});
 	}
-	if (document.querySelector('.bsc-ajax-api')) {
-		// Lấy tất cả các div có class "bsc-ajax-api"
-		var apiElements = document.querySelectorAll('.bsc-ajax-api');
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('run');
+		if (document.querySelector('.bsc-ajax-api')) {
+			// Lấy tất cả các div có class "bsc-ajax-api"
+			var apiElements = document.querySelectorAll('.bsc-ajax-api');
 
-		// Lặp qua từng phần tử và gọi hàm filter_details_symbol với data-api tương ứng
-		apiElements.forEach(function (element) {
-			var type_form = element.getAttribute('data-api');
-			var symbol = element.getAttribute('data-symbol');
-			// Thay if (dataApi) bằng if (type_form) hoặc kiểm tra biến bạn muốn
-			if (type_form) {
-				filter_details_symbol($(element), type_form, symbol);
-			}
-		});
-	}
+			// Lặp qua từng phần tử và gọi hàm filter_details_symbol với data-api tương ứng
+			apiElements.forEach(function (element) {
+				var type_form = element.getAttribute('data-api');
+				var symbol = element.getAttribute('data-symbol');
+				// Thay if (dataApi) bằng if (type_form) hoặc kiểm tra biến bạn muốn
+				if (type_form) {
+					filter_details_symbol($(element), type_form, symbol);
+				}
+			});
+		}
+	});
 
 	function customTab() {
 		$('[data-tab-download]').click(function () {
@@ -523,6 +530,7 @@ import { DataTable } from 'simple-datatables';
 	function handleChart(seriesData, yAxisOptions) {
 		var chartElement = document.querySelector('#chart');
 		if (chartElement) {
+			console.log(seriesData);
 			var height_chart =
 				chartElement.getAttribute('data-height') || '97%';
 
@@ -1564,6 +1572,7 @@ import { DataTable } from 'simple-datatables';
 			];
 
 			jQuery('#chart').empty();
+			console.log('2' + chartData);
 			handleChart(chartData, newYAxisOptions);
 		}
 
@@ -1620,7 +1629,6 @@ import { DataTable } from 'simple-datatables';
 				);
 			}
 		};
-		running_chart();
 		$(document).on(
 			'click',
 			'section.chart .btn-chart button',
