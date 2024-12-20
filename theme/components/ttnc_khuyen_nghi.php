@@ -1,14 +1,3 @@
-<?php $tab = generateRandomString();
-$check_logout = bsc_is_user_logged_out();
-$time_cache = 300;
-$response_instruments_array = array();
-$array_data_instruments = array();
-$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-if ($response_instruments) {
-	$response_instruments_array = $response_instruments->d;
-}
-$class = $check_logout['class'];
-?>
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-14 xl:mb-pb-[110px] mb-20' : 'mt-8 mb-[50px]' ?> ttnc_khuyen_nghi" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
 		<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex 2xl:gap-12 gap-10' : '' ?>">
@@ -18,189 +7,24 @@ $class = $check_logout['class'];
 						<?php the_sub_field('title') ?>
 					</h2>
 				<?php } ?>
-				<?php
-				$array_data_GetAllDanhMuc = array();
-				$response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'));
-				if ($response_GetAllDanhMuc) {
-				?>
-					<ul class="customtab-nav flex items-center flex-wrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 mb-6' : 'gap-2 mb-4' ?>">
-						<?php
-						$i = 0;
-						foreach ($response_GetAllDanhMuc->d as $news) {
-							$i++; ?>
-							<li>
-								<button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
-									class="<?php if ($i == 1)
-												echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-									<?php echo $news->tendanhmuc ?>
-								</button>
-							</li>
-						<?php } ?>
-					</ul>
-					<?php
-					$i = 0;
-					foreach ($response_GetAllDanhMuc->d as $news) {
-						$i++; ?>
-						<div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
-							id="<?php echo $tab ?>-<?php echo $i ?>">
-							<div
-								class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' relative 2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
-								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
-									<ul
-										class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
-										<li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'min-w-[60px]' ?>"><?php _e('Mã', 'bsc') ?></li>
-										<li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
-											<?php _e('Khuyến nghị', 'bsc') ?>
-										</li>
-										<li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>"><?php _e('Giá', 'bsc') ?>
-										</li>
-										<li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
-											<?php _e('Mục tiêu', 'bsc') ?>
-										</li>
-										<li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>"><?php _e('Upside', 'bsc') ?>
-										</li>
-									</ul>
-									<?php
-									if (! $check_logout) {
-										$array_data_list_bsc = array();
-										$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
-										if ($response_list_bsc) {
-									?>
-											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'overflow-y-auto scroll-bar-custom max-h-[90%]' : '' ?>">
-												<?php
-												foreach ($response_list_bsc->d as $list_bsc) {
-													$symbol = $list_bsc->machungkhoan;
-													if ($symbol) {
-														$symbols = array_column($response_instruments_array, 'symbol');
-														$index = array_search($symbol, $symbols);
-														if ($index !== false) {
-															$stockData = $response_instruments_array[$index];
-														}
-												?>
-														<ul
-															class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?>">
-															<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px]' ?> font-medium"><a
-																	href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
-															</li>
-															<?php
-															$status = $list_bsc->hinhthuc;
-															$check_status = get_color_by_number_bsc($status);
-															$title_status = $check_status['title_status'];
-															$text_status = $check_status['text_status'];
-															$background_status = $check_status['background_status'];
-															?>
-															<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-medium">
-																<?php if ($list_bsc->hinhthuc) { ?>
-																	<span
-																		class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
-																		style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-																		<?php
-																		echo $title_status;
-																		?>
-																	</span>
-																<?php } ?>
-															</li>
-															<?php if ($stockData->changePercent) {
-																if (($stockData->changePercent) > 0) {
-																	if ($stockData->closeprice == $stockData->ceiling) {
-																		$text_color_class_price = 'text-[#7F1CCD]';
-																	} else {
-																		$text_color_class_price = 'text-[#1CCD83]';
-																	}
-																} elseif (($stockData->changePercent) < 0) {
-																	if ($stockData->closeprice == $stockData->ceiling) {
-																		$text_color_class_price = 'text-[#1ABAFE]';
-																	} else {
-																		$text_color_class_price = 'text-[#FE5353]';
-																	}
-																} else {
-																	$text_color_class_price = 'text-[#EB0]';
-																}
-															} else {
-																$text_color_class_price = 'text-[#EB0]';
-															}
-															?>
-															<li
-																class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-bold <?php echo $text_color_class_price ?>">
-																<?php
-																if ($stockData->closePrice) {
-																	echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-																}
-																?>
-															</li>
-															<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-medium">
-																<?php
-																if ($list_bsc->giakyvong) {
-																	echo number_format(($list_bsc->giakyvong), 2, '.', '');
-																}
-																?>
-															</li>
-															<?php
-															if ($stockData->closePrice && $list_bsc->giakyvong) {
-																if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
-																	$text_color_class = 'text-[#1CCD83]';
-																} elseif ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) < 0) {
-																	$text_color_class = 'text-[#FE5353]';
-																} else {
-																	$text_color_class = 'text-[#EB0]';
-																}
-															} else {
-																$text_color_class = 'text-[#EB0]';
-															}
-															?>
-															<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-bold <?php echo $text_color_class ?>">
-																<?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-																	if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
-																		$before_text = '+' . number_format(((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
-																	} else {
-																		$before_text = '-';
-																	}
-																	echo $before_text;
-																} ?>
-															</li>
-														</ul>
-												<?php
-													}
-												}
-												?>
-											</div>
-										<?php }
-									} else {
-										?>
-										<!-- Data Demo -->
-										<div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
-											<?php for ($i = 0; $i < 8; $i++) { ?>
-												<ul
-													class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">
-													<li class="w-[8%] font-medium"><?php _e('BSI', 'bsc') ?></li>
-													<li class="w-[16%] font-medium">
-														<span
-															class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
-															style="background-color:#D6F6DE; color:#30D158">
-															<?php _e('Mua', 'bsc') ?> </span>
-													</li>
-													<li class="w-[16%] font-bold text-[#1CCD83]">
-														---- </li>
-													<li class="w-[16%] font-medium">
-														---- </li>
-													<li class="w-[16%] font-bold text-[#1CCD83]">
-														---- </li>
-												</ul>
-											<?php } ?>
-										</div>
-									<?php
-									}
-									?>
-								</div>
-								<?php if ($check_logout) {
-									echo $check_logout['html'];
-								} ?>
-							</div>
+				<div class="bsc-ajax-api" data-api="ttnc_khuyen_nghi">
+					<div class="hidden">
+						<div role="status">
+							<svg aria-hidden="true"
+								class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+								viewBox="0 0 100 101" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+									fill="currentColor" />
+								<path
+									d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+									fill="currentFill" />
+							</svg>
+							<span class="sr-only">Loading...</span>
 						</div>
-					<?php
-					}
-					?>
-				<?php } ?>
+					</div>
+				</div>
 			</div>
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 				<?php if (get_sub_field('title_phan_tich')) { ?>
@@ -221,7 +45,7 @@ $class = $check_logout['class'];
 							if (get_sub_field('title')) {
 					?>
 								<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab'))
-																				echo 'target="_blank"' ?>
+																			echo 'target="_blank"' ?>
 									href="<?php echo check_link(get_sub_field('link')) ?>"
 									class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105">
 									<?php echo svg('arrow-btn', '20', '20') ?>

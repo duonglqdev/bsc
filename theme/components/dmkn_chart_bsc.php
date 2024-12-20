@@ -1,72 +1,17 @@
-<?php
-if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
-	$current_bsc = 'BSC' . $_GET['bsc'];
-} else {
-	$current_bsc = 'BSC10';
-}
-?>
 <section class="chart mt-[54px] mb-[100px] dmkn_chart_bsc" <?php if (get_sub_field('id_class')) { ?>
 	id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
-		<?php if (get_sub_field('title')) { ?>
+		<?php
+		if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
+			$current_bsc = 'BSC' . $_GET['bsc'];
+		} else {
+			$current_bsc = 'BSC10';
+		}
+		if (get_sub_field('title')) { ?>
 			<h2 class="font-bold 2xl:text-[32px] text-2xl">
 				<?php the_sub_field('title') ?>
 			</h2>
 		<?php } ?>
-		<?php
-		$time_cache = 300;
-		date_default_timezone_set('Asia/Bangkok');
-		$todate = date('Y-m-d');
-		$array_data = array(
-			'portcode' => 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND'
-		);
-		$data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
-
-		$maxValue = 0;
-		$minValue = PHP_INT_MAX;
-		if ($data) {
-			$stocksData = [
-				'BSC10' => [],
-				'BSC30' => [],
-				'BSC50' => [],
-				'HOSE' => [],
-				'VNDIAMOND' => []
-			];
-
-			$earliestDate = null;
-
-			foreach ($data->d as $dataset) {
-				foreach ($dataset as $stockCode => $entries) {
-					foreach ($entries as $entry) {
-						$date = date("Y-m-d", strtotime($entry->tradedate));
-						$portclose = $entry->portclose;
-						$percentagedifference = $entry->percentagedifference;
-
-						$stocksData[$stockCode][$date] = [
-							'portclose' => $portclose,
-							'percentagedifference' => $percentagedifference
-						];
-
-						if ($portclose > $maxValue) {
-							$maxValue = $portclose;
-						}
-						if ($portclose < $minValue) {
-							$minValue = $portclose;
-						}
-
-						if (! $earliestDate || $date < $earliestDate) {
-							$earliestDate = $date;
-						}
-					}
-				}
-			}
-
-			$fromdate = $earliestDate;
-			$stocksDataJson = json_encode($stocksData);
-			$maxValue = ceil($maxValue / 10) * 10;
-			$minValue = floor($minValue / 10) * 10;
-		}
-		?>
 		<ul class="flex items-center flex-wrap mt-6 mb-10 gap-6 btn-chart">
 			<li>
 				<button data-chart="BSC10"
@@ -101,9 +46,10 @@ if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
 					class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-12 px-4 py-[12px]">
 					<input id="datepicker-performance-start" name="start" type="text"
 						class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
-						placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php echo $fromdate ?>">
+						placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="">
 					<?php echo svg('date-blue') ?>
 				</div>
+				<?php $todate = date('Y-m-d'); ?>
 				<div
 					class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-12 px-4 py-[12px]">
 					<input id="datepicker-performance-end" name="end" type="text"
@@ -112,9 +58,24 @@ if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
 					<?php echo svg('date-blue') ?>
 				</div>
 			</div>
-			<div id="chart" data-height="514" data-time_cache="<?php echo $time_cache ?>"
-				data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>"
-				data-stock='<?php echo $stocksDataJson ?>'></div>
+			<div class="bsc-ajax-api" data-api="dmkn_chart_bsc" data-chart="running_chart">
+				<div class="hidden">
+					<div role="status">
+						<svg aria-hidden="true"
+							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+							viewBox="0 0 100 101" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+								fill="currentColor" />
+							<path
+								d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+								fill="currentFill" />
+						</svg>
+						<span class="sr-only">Loading...</span>
+					</div>
+				</div>
+			</div>
 			<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 		</div>
 	</div>
@@ -122,12 +83,6 @@ if (isset($_GET['bsc']) && trim($_GET['bsc']) !== '') {
 <?php
 $check_logout = bsc_is_user_logged_out();
 $class_login = $check_logout ? $check_logout['class'] : '';
-$response_instruments_array = array();
-$array_data_instruments = array();
-$response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-if ($response_instruments) {
-	$response_instruments_array = $response_instruments->d;
-}
 $data_bsc = array('BSC10', 'BSC30', 'BSC50');
 if ($data_bsc) {
 	$ic = 20;
@@ -135,13 +90,13 @@ if ($data_bsc) {
 		$ic++;
 ?>
 		<section class="xl:my-[100px] my-20 dmkn_chart_bsc_details 
-		<?php
+	<?php
 		if ((($current_bsc == 'BSC10') && $ic == 21) || (($current_bsc == 'BSC30') && $ic == 22) || ($current_bsc == 'BSC50') && $ic == 23) {
 			echo 'block';
 		} else {
 			echo 'hidden';
 		}
-		?>"
+	?>"
 			data-chart-tab='<?php echo $single_bsc ?>'>
 			<div class="container">
 				<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
@@ -176,302 +131,47 @@ if ($data_bsc) {
 
 								</div>
 							</div>
-							<?php
-							if (!$check_logout) {
-								$array_data_list_bsc = array();
-								$response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $ic, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
-								if ($response_list_bsc) {
-							?>
-									<div
-										class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-										<?php
-										$i = 0;
-										foreach ($response_list_bsc->d as $list_bsc) {
-											$i++;
-											$symbol = $list_bsc->machungkhoan;
-											if ($symbol) {
-												$symbols = array_column($response_instruments_array, 'symbol');
-												$index = array_search($symbol, $symbols);
-												if ($index !== false) {
-													$stockData = $response_instruments_array[$index];
-												}
-										?>
-												<div
-													class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-														<a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
-													</div>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
-														<?php
-														$status = $list_bsc->hinhthuc;
-														$check_status = get_color_by_number_bsc($status);
-														$title_status = $check_status['title_status'];
-														$text_status = $check_status['text_status'];
-														$background_status = $check_status['background_status'];
-														?>
-														<?php if ($list_bsc->hinhthuc) { ?>
-															<span class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-																<?php
-																echo  $title_status;
-																?>
-															</span>
-														<?php } ?>
-													</div>
-													<?php
-													if ($stockData->changePercent) {
-														if (($stockData->changePercent) > 0) {
-															if ($stockData->closeprice == $stockData->ceiling) {
-																$text_color_class_price = 'text-[#7F1CCD]';
-															} else {
-																$text_color_class_price = 'text-[#1CCD83]';
-															}
-														} elseif (($stockData->changePercent) < 0) {
-															if ($stockData->closeprice  == $stockData->ceiling) {
-																$text_color_class_price = 'text-[#1ABAFE]';
-															} else {
-																$text_color_class_price = 'text-[#FE5353]';
-															}
-														} else {
-															$text_color_class_price = 'text-[#EB0]';
-														}
-													} else {
-														$text_color_class_price = 'text-[#EB0]';
-													}
-													?>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class_price ?>">
-														<?php
-														if ($stockData->closePrice) {
-															echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-														}
-														?>
-													</div>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-														<?php
-														if ($list_bsc->giakyvong) {
-															echo number_format(($list_bsc->giakyvong), 2, '.', '');
-														}
-														?>
-													</div>
-													<?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-														if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
-															$text_color_class = 'text-[#1CCD83]';
-														} elseif (($list_bsc->giakyvong * 1000 - $stockData->closePrice) < 0) {
-															$text_color_class = 'text-[#FE5353]';
-														} else {
-															$text_color_class = 'text-[#EB0]';
-														}
-													} else {
-														$text_color_class = 'text-[#EB0]';
-													}
-													?>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-														<?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-															if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
-																$before_text = '+' . number_format((($list_bsc->giakyvong * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';;
-															} else {
-																$before_text = '';
-															}
-															echo $before_text;
-														}  ?>
-													</div>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-														<?php echo $list_bsc->san ?>
-													</div>
-													<div
-														class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class_price ?>">
-														<?php
-														if ($stockData->closeVol) {
-															echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
-														}
-														?>
-													</div>
-												</div>
-										<?php
-											}
-										}
-										?>
-
+							<div class="bsc-ajax-api" data-api="dmkn_chart_bsc_details-left" data-symbol="<?php echo $ic ?>">
+								<div class="hidden">
+									<div role="status">
+										<svg aria-hidden="true"
+											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+											viewBox="0 0 100 101" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+												fill="currentColor" />
+											<path
+												d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+												fill="currentFill" />
+										</svg>
+										<span class="sr-only">Loading...</span>
 									</div>
-								<?php }
-							} else {
-								?>
-								<!-- Data Demo -->
-								<div class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-									<?php for ($i = 0; $i < 9; $i++) { ?>
-										<div class="flex items-center bg-[#EBF4FA]">
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-												<?php _e('CTG', 'bsc') ?> </div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
-												<span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:#D6F6DE; color:#30D158">
-													<?php _e('Mua', 'bsc') ?> </span>
-											</div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
-												---- </div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-												---- </div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
-												---- </div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-												---- </div>
-											<div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  text-[#1CCD83]">
-												----
-											</div>
-										</div>
-									<?php } ?>
 								</div>
-							<?php
-							} ?>
+							</div>
 						</div>
 						<?php if ($check_logout) {
 							echo $check_logout['html'];
 						} ?>
 					</div>
-					<?php
-					$array_data_GetResearchPorCurMet = array(
-						'portcode' => $single_bsc
-					);
-					$response_GetResearchPorCurMet = get_data_with_cache('GetResearchPorCurMet', $array_data_GetResearchPorCurMet, $time_cache);
-					if ($response_GetResearchPorCurMet) {
-					?>
-						<div class="flex-1 font-Helvetica">
-							<ul class="space-y-6">
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('Ngày điều chỉnh danh mục', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo $response_GetResearchPorCurMet->d[0]->value; ?>
-										</p>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('Ngành chủ đạo', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo $response_GetResearchPorCurMet->d[6]->value; ?>
-										</p>
-									</div>
-								</li>
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
-										<?php if ($response_GetResearchPorCurMet->d[1]->value) {
-											if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
-												$class = "text-[#FE5353]";
-												$class_svg = 'down';
-											} else {
-												$class = "text-[#1CCD83]";
-												$class_svg = 'up';
-											}
-										?>
-											<p class="font-medium <?php echo $class ?> flex items-center gap-1">
-												<?php echo svg($class_svg, '16', '16') ?>
-												<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
-											</p>
-										<?php } ?>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-										<?php if ($response_GetResearchPorCurMet->d[7]->value) {
-											if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
-												$class = "text-[#FE5353]";
-												$class_svg = 'down';
-											} else {
-												$class = "text-[#1CCD83]";
-												$class_svg = 'up';
-											}
-										?>
-											<p class="font-medium <?php echo $class ?> flex items-center gap-1">
-												<?php echo svg($class_svg, '16', '16') ?>
-												<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
-											</p>
-										<?php } ?>
-									</div>
-								</li>
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
-										<?php if ($response_GetResearchPorCurMet->d[2]->value) {
-											if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
-												$class = "text-[#FE5353]";
-												$class_svg = 'down';
-											} else {
-												$class = "text-[#1CCD83]";
-												$class_svg = 'up';
-											}
-										?>
-											<p class="font-medium <?php echo $class ?> flex items-center gap-1">
-												<?php echo svg($class_svg, '16', '16') ?>
-												<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
-											</p>
-										<?php } ?>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-										<?php if ($response_GetResearchPorCurMet->d[8]->value) {
-											if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
-												$class = "text-[#FE5353]";
-												$class_svg = 'down';
-											} else {
-												$class = "text-[#1CCD83]";
-												$class_svg = 'up';
-											}
-										?>
-											<p class="font-medium <?php echo $class ?> flex items-center gap-1">
-												<?php echo svg($class_svg, '16', '16') ?>
-												<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
-											</p>
-										<?php } ?>
-									</div>
-								</li>
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('Beta danh mục', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[3]->value; ?>
-										</p>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('Trung vị thị giá vốn', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[9]->value; ?>
-										</p>
-									</div>
-								</li>
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('P/E trung vị', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[4]->value; ?>
-										</p>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('P/E thị trường', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[10]->value; ?>
-										</p>
-									</div>
-								</li>
-								<li class="flex xl:gap-20 gap-10">
-									<div class="w-[62%] space-y-1">
-										<p class="text-xs"><?php _e('P/B trung vị', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[5]->value; ?>
-										</p>
-									</div>
-									<div class="w-[38%] space-y-1">
-										<p class="text-xs"><?php _e('P/B thị trường', 'bsc') ?></p>
-										<p class="font-medium">
-											<?php echo  $response_GetResearchPorCurMet->d[11]->value; ?>
-										</p>
-									</div>
-								</li>
-							</ul>
+					<div class="flex-1 font-Helvetica bsc-ajax-api" data-api="dmkn_chart_bsc_details-right" data-symbol="<?php echo $single_bsc ?>">
+						<div class="hidden">
+							<div role="status">
+								<svg aria-hidden="true"
+									class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+									viewBox="0 0 100 101" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+										fill="currentColor" />
+									<path
+										d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+										fill="currentFill" />
+								</svg>
+								<span class="sr-only">Loading...</span>
+							</div>
 						</div>
-					<?php } ?>
+					</div>
 				</div>
 			</div>
 		</section>
