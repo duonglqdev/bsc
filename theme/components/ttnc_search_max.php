@@ -1,63 +1,32 @@
-<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> ttnc_search_max" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> ttnc_search_max" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div
-            class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center gap-4 px-6 py-12':'p-6' ?>">
+            class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center gap-4 px-6 py-12' : 'p-6' ?>">
             <?php if (get_sub_field('title')) { ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[345px] max-w-[33.333%]':'mb-6' ?>">
-                    <h2 class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-[28px] !leading-[1.57]':'text-[22px]' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[345px] max-w-[33.333%]' : 'mb-6' ?>">
+                    <h2 class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-[28px] !leading-[1.57]' : 'text-[22px]' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
                 </div>
             <?php } ?>
-            <?php
-            $top_co_phieu = get_top_viewed_co_phieu_option(6);
-            $symbols = array_keys($top_co_phieu);
-            $symbol  = implode(",", $symbols);
-            $symbol = strtoupper($symbol);
-            $array_data_value = array(
-                'symbols' => $symbol
-            );
-            $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-            if ($response_value) {
-
-            ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 flex justify-end items-center flex-wrap gap-6':'grid grid-cols-3 gap-[12px]' ?>">
-                    <?php foreach ($response_value->d as $respon_symbol) {
-                        $bg_color_class = 'bg-[#1CCD83]';
-                        $title_symbol = '';
-                        if ($respon_symbol->changePercent != '') {
-                            $upside = $respon_symbol->changePercent;
-                            if ($upside >= 1) {
-                                $upside = round($upside);
-                            } else {
-                                $upside = number_format($upside, 1);
-                            }
-                            if (($respon_symbol->changePercent) > 0) {
-                                $bg_color_class = 'bg-[#1CCD83]';
-                                $title_symbol = '+' . $upside . '%';
-                            } elseif (($respon_symbol->changePercent) < 0) {
-                                $bg_color_class = 'bg-[#FE5353]';
-                                $title_symbol = $upside . '%';
-                            } elseif (($respon_symbol->changePercent) == 0) {
-                                $bg_color_class = 'bg-[#EB0]';
-                                $title_symbol = '+' . $upside . '%';
-                            }
-                        }
-                    ?>
-                        <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
-                            class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 py-3 px-[12px]':'gap-3 py-2 px-3 text-xs justify-center' ?>">
-                            <span>
-                                <?php echo $respon_symbol->symbol  ?>
-                            </span>
-                            <?php if ($title_symbol != '') { ?>
-                                <span>
-                                    <?php echo  $title_symbol ?>
-                                </span>
-                            <?php  } ?>
-                        </a>
-                    <?php } ?>
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex justify-end items-center flex-wrap gap-6' : 'grid grid-cols-3 gap-[12px]' ?> bsc-ajax-api" data-api="ttnc_search_max">
+                <div class="hidden">
+                    <div role="status">
+                        <svg aria-hidden="true"
+                            class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+                            viewBox="0 0 100 101" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                fill="currentColor" />
+                            <path
+                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                fill="currentFill" />
+                        </svg>
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
-            <?php } ?>
+            </div>
         </div>
     </div>
 </section>
