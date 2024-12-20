@@ -116,7 +116,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 			</div>
 		</div>
 	<?php } ?>
-	<div class="col-span-1 ml-auto my-auto <?php if ($check_han) echo 'opacity-50' ?>">
+	<div class="col-span-1 ml-auto my-auto">
 		<a href="<?php the_permalink() ?>"
 			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 			<?php _e('Xem chi tiết', 'bsc') ?>

@@ -664,7 +664,7 @@ function get_color_by_number_bsc($status)
         if ($status == '0') {
             $text_status = '#00ad2b';
             $background_status = '#b7f2c6';
-            $title_status = __('Tích cực', 'bsc');
+            $title_status = __('Khả quan', 'bsc');
         } elseif ($status == '1') {
             $text_status = '#f5a800';
             $background_status = '#ffebbe';
@@ -672,7 +672,7 @@ function get_color_by_number_bsc($status)
         } elseif ($status == '2') {
             $text_status = '#FF0017';
             $background_status = '#FFD9DC';
-            $title_status = __('Tiêu cực', 'bsc');
+            $title_status = __('Kém khả quan', 'bsc');
         } elseif ($status == '3') {
             $text_status = '#00ad2b';
             $background_status = '#b7f2c6';
