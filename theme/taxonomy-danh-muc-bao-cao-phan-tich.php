@@ -325,12 +325,12 @@ get_header();
 					if ( $type_danh_muc == 'thitruong' )
 					{
 						?>
-						<div class="mb-[59px]">
-							<h3 class="font-bold mb-6 text-2xl">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-[59px]':'mb-[50px]' ?>">
+							<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 text-2xl':'mb-4 text-lg' ?>">
 								<?php _e( 'Dự báo thị trường', 'bsc' ) ?>
 							</h3>
 							<div class="relative">
-								<div class="lg:flex lg:gap-8 <?php echo $class ?>">
+								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex lg:gap-8':'grid gap-4' ?> <?php echo $class ?>">
 									<?php if ( ! $check_logout )
 									{
 										$array_data_thitruong = array();
@@ -345,20 +345,20 @@ get_header();
 											}, $response_thitruong->d->VNI[0] );
 
 											$stocksDataJson = json_encode( $vnIndexData ); ?>
-											<div class="lg:w-[255px] lg:max-w-[27%]">
+											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[255px] max-w-[27%]':'w-full' ?>">
 												<div
-													class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+													class="bg-white shadow-base rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-8':'p-4' ?>">
 													<h4
-														class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+														class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl pb-6 mb-6':'text-lg pb-[12px] mb-[12px]' ?>">
 														<?php _e( 'Năm', 'bsc' ) ?> 			<?php echo date( "Y" ); ?>
 													</h4>
-													<div class="space-y-6">
-														<div class="flex items-end justify-between pb-2">
+													<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-6':'grid grid-cols-3 gap-4' ?>">
+														<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'items-end justify-between pb-2':'flex-col gap-4 text-center' ?>">
 															<div class="flex flex-col font-Helvetica">
 																<p class="text-paragraph text-xs">
 																	<?php _e( 'VN-index', 'bsc' ) ?>
 																</p>
-																<h4 class="font-bold text-2xl">
+																<h4 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
 																	<?php echo $response_thitruong->d->F[0][0]->value; ?>
 																</h4>
 															</div>
