@@ -402,26 +402,68 @@ function filter_du_lieu_lich_su()
             $data = json_decode($response_secTradingHistory->data, true);
 
             // Phân trang dữ liệu
-            $total_items = count($data);
-            $total_pages = ceil($total_items / $items_per_page);
-            $offset = ($page - 1) * $items_per_page;
-            $paged_data = array_slice($data, $offset, $items_per_page);
+            if (is_array($data) && !empty($data)) {
+                $total_items = count($data);
+                $total_pages = ceil($total_items / $items_per_page);
+                $offset = ($page - 1) * $items_per_page;
+                $paged_data = array_slice($data, $offset, $items_per_page);
 
-            ob_start();
-            foreach ($paged_data as $record) {
-                get_template_part('template-parts/content-data-history', '', array('data' => $record));
+                ob_start();
+                foreach ($paged_data as $record) {
+                    get_template_part('template-parts/content-data-history', '', ['data' => $record]);
+                }
+                $html = ob_get_clean();
+
+                wp_send_json_success([
+                    'html' => $html,
+                    'total_pages' => $total_pages,
+                    'current_page' => $page,
+                ]);
+            } else {
+                wp_send_json_error(['message' => 'No data found']);
             }
-            $html = ob_get_clean();
+        }
+    } else {
+        $current_date_dmy = date('d/m/Y');
+        $last_month_date_dmy = date('d/m/Y', strtotime('-6 month'));
+        $array_data_GetForeignInvestors = [
+            'lang' => pll_current_language(),
+            'symbol' => $symbol,
+        ];
+        $array_data_GetForeignInvestors['fromdate'] = !empty($fromdate) ? $fromdate : $last_month_date_dmy;
+        $array_data_GetForeignInvestors['todate'] = !empty($todate) ? $todate : $current_date_dmy;
 
-            wp_send_json_success([
-                'html' => $html,
-                'total_pages' => $total_pages
-            ]);
+        $response_GetForeignInvestors = get_data_with_cache('GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache);
+        if ($response_GetForeignInvestors) {
+            $data = $response_GetForeignInvestors->d;
+
+            // Phân trang dữ liệu
+            if (is_array($data) && !empty($data)) {
+                $total_items = count($data);
+                $total_pages = ceil($total_items / $items_per_page);
+                $offset = ($page - 1) * $items_per_page;
+                $paged_data = array_slice($data, $offset, $items_per_page);
+
+                ob_start();
+                foreach ($paged_data as $record) {
+                    get_template_part('template-parts/content-data-history_ndtnn', '', ['data' => $record]);
+                }
+                $html = ob_get_clean();
+
+                wp_send_json_success([
+                    'html' => $html,
+                    'total_pages' => $total_pages,
+                    'current_page' => $page,
+                ]);
+            } else {
+                wp_send_json_error(['message' => 'No data found']);
+            }
         }
     }
 
     wp_send_json_error(['message' => 'No data found']);
 }
+
 
 
 /**
