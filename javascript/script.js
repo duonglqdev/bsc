@@ -417,6 +417,8 @@ import { DataTable } from 'simple-datatables';
 			},
 			success: function (response) {
 				$(section_api).html(response);
+			},
+			complete: function () {
 				var check_chart = $(section_api).attr('data-chart');
 				if (check_chart && typeof window[check_chart] === 'function') {
 					// Nếu là chuỗi không rỗng và tương ứng với một hàm đã định nghĩa
@@ -1588,10 +1590,14 @@ import { DataTable } from 'simple-datatables';
 			return dateRange;
 		}
 
-		function running_chart() {
+		window.running_chart = function () {
 			if ($('#chart').length) {
 				const initialDateRange = get_current_date_chart();
 				var stocksData = $('#chart').attr('data-stock');
+				var fromdate = $('#chart').attr('data-fromdate');
+				if (fromdate) {
+					jQuery('#datepicker-performance-start').val(fromdate);
+				}
 				if (typeof stocksData === 'string') {
 					stocksData = JSON.parse(stocksData);
 				} else {
@@ -1613,49 +1619,57 @@ import { DataTable } from 'simple-datatables';
 					minYAxisValue
 				);
 			}
-		}
+		};
 		running_chart();
-
-		jQuery('section.chart .btn-chart button').click(function () {
-			const chart_name = jQuery(this).attr('data-chart');
-			if (chart_name) {
-				jQuery('section.chart .btn-chart button').removeClass('active');
-				jQuery(this).addClass('active');
-				var stocksData = $('#chart').attr('data-stock');
-				if (typeof stocksData === 'string') {
-					stocksData = JSON.parse(stocksData);
-				} else {
-					stocksData = stocksData;
+		$(document).on(
+			'click',
+			'section.chart .btn-chart button',
+			function (e) {
+				const chart_name = jQuery(this).attr('data-chart');
+				if (chart_name) {
+					jQuery('section.chart .btn-chart button').removeClass(
+						'active'
+					);
+					jQuery(this).addClass('active');
+					var stocksData = $('#chart').attr('data-stock');
+					if (typeof stocksData === 'string') {
+						stocksData = JSON.parse(stocksData);
+					} else {
+						stocksData = stocksData;
+					}
+					var maxYAxisValue = parseInt(
+						$('#chart').attr('data-maxvalue'),
+						10
+					);
+					var minYAxisValue = parseInt(
+						$('#chart').attr('data-minvalue'),
+						10
+					);
+					updateChart(
+						chart_name,
+						get_current_date_chart(),
+						stocksData,
+						maxYAxisValue,
+						minYAxisValue
+					);
 				}
-				var maxYAxisValue = parseInt(
-					$('#chart').attr('data-maxvalue'),
-					10
-				);
-				var minYAxisValue = parseInt(
-					$('#chart').attr('data-minvalue'),
-					10
-				);
-				updateChart(
-					chart_name,
-					get_current_date_chart(),
-					stocksData,
-					maxYAxisValue,
-					minYAxisValue
+			}
+		);
+		$(document).on(
+			'click',
+			'section.chart #chart_btn-reload',
+			function (e) {
+				var fromdate = jQuery('#chart').attr('data-fromdate');
+				var todate = jQuery(this).attr('data-todate');
+				jQuery('section.chart .fromdate').val(fromdate);
+				jQuery('section.chart .todate').val(todate);
+				jQuery('section.chart .btn-chart button:first-child()').trigger(
+					'click'
 				);
 			}
-		});
-		jQuery('section.chart #chart_btn-reload').click(function () {
-			var fromdate = jQuery(this).attr('data-fromdate');
-			var todate = jQuery(this).attr('data-todate');
-			jQuery('section.chart .fromdate').val(fromdate);
-			jQuery('section.chart .todate').val(todate);
-			jQuery('section.chart .btn-chart button:first-child()').trigger(
-				'click'
-			);
-		});
+		);
 		let debounceTimer;
 		const debounceDelay = 1000;
-
 		jQuery('section.chart .fromdate,section.chart  .todate').on(
 			'changeDate',
 			function () {
