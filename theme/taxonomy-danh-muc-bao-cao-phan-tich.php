@@ -208,21 +208,39 @@ get_header();
 						</form>
 					<?php } else
 					{ ?>
-						<form method="get"
-							action="<?php echo get_term_link( get_queried_object() ); ?>">
+						<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>"
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'grid gap-[12px] grid-cols-5 mb-6' ?>">
 							<div
-								class="h-[50px] rounded-[10px] border border-[#EAEEF4] 2xl:px-[26px] px-5 flex items-center gap-2">
-								<?php echo svgClass( 'search', '24', '24', 'shrink-0' ) ?>
-								<input type="text" name="key"
-									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]"
-									placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-											 echo $_GET['key'] ?>">
-								</div>
-								<div class="flex 2xl:gap-5 gap-4 mb-10 mt-4">
+								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] 2xl:px-[26px] px-5 ' : 'w-full p-[12px] h-[46px] col-span-3' ?> shrink-0">
+								<?php echo svgClass( 'search', '', '',! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0') ?>
+							<input type="text" name="key"
+								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs p-0 w-[calc(100%-50px)]' ?>"
+								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
+										 echo $_GET['key'] ?>">
+							</div>
+							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+								<div
+									class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
+									<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
+								<select id="select_year" name="years"
+									class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-[26px] pl-0 sm:text-xs text-[13px]">
+									<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
+									<?php
+									$currentYear = date( 'Y' );
+									for ( $year = $currentYear; $year >= 2015; $year-- ) :
+										?>
+										<option value="<?php echo esc_attr( $year ); ?>" <?php selected( isset( $_GET['years'] ) && $_GET['years'] == $year ); ?>>
+											<?php echo esc_html( $year ); ?>
+										</option>
+									<?php endfor; ?>
+								</select>
+							</div>	
+							<?php } ?>
+							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:gap-5 gap-4 mb-10 mt-4':'col-span-5 flex-wrap' ?>">
+								<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 									<div
 										class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
-										<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:
-									</p>
+										<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
 									<select id="select_year" name="years"
 										class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
 										<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
@@ -236,39 +254,41 @@ get_header();
 										<?php endfor; ?>
 									</select>
 								</div>
-								<div id="date-range-picker" date-rangepicker
-									datepicker-format="dd/mm/yyyy" datepicker-autohide
-									datepicker-orientation="bottom right"
-									class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[50%] w-full justify-around">
-									<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
-										<?php _e( 'Thời gian:', 'gnws' ) ?>
-									</p>
-									<div class="flex items-center 2xl:gap-5 gap-3">
-										<input id="datepicker-range-start" name="fromdate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
-											placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-													 echo $_GET['fromdate'] ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
-									</div>
-									<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
-									<div class="flex items-center 2xl:gap-5 gap-3">
-										<input id="datepicker-range-end" name="todate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
-											placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-													 echo $_GET['todate'] ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
-									</div>
+													
+								<?php } ?>
+							<div id="date-range-picker" date-rangepicker
+								datepicker-format="dd/mm/yyyy" datepicker-autohide
+								datepicker-orientation="bottom right"
+								class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[50%] px-5 h-[50px]':'w-full h-[46px] px-[12px] mb-[12px]' ?>">
+								<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
+									<?php _e( 'Thời gian:', 'gnws' ) ?>
+								</p>
+								<div class="flex items-center 2xl:gap-5 gap-3">
+									<input id="datepicker-range-start" name="fromdate" type="text"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
+												 echo $_GET['fromdate'] ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
-								<button type="submit"
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
-									<?php _e( 'Tìm kiếm', 'bsc' ) ?>
-								</button>
-								<a href="<?php echo get_term_link( get_queried_object() ) ?>"
-									class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
-									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
-								</a>
+								<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
+								<div class="flex items-center 2xl:gap-5 gap-3">
+									<input id="datepicker-range-end" name="todate" type="text"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
+												 echo $_GET['todate'] ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
+								</div>
 							</div>
-						</form>
+							<button type="submit"
+								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-xl h-[50px]':'rounded-lg h-10 mr-[12px]' ?>">
+								<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+							</button>
+							<a href="<?php echo get_term_link( get_queried_object() ) ?>"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
+								<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+							</a>
+						</div>
+					</form>
 					<?php } ?>
 					<?php
 					if ( isset( $_GET['posts_to_show'] ) )
@@ -486,8 +506,8 @@ get_header();
 					} elseif ( $type_danh_muc == 'vimo' )
 					{
 						?>
-						<div class="mb-[60px]">
-							<h3 class="font-bold text-2xl"><?php _e( 'Dự báo vĩ mô', 'bsc' ) ?></h3>
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-[60px]':'mt-6 mb-16' ?>">
+							<h3 class="font-bold t<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>"><?php _e( 'Dự báo vĩ mô', 'bsc' ) ?></h3>
 							<div class="relative">
 								<?php
 								$array_data_GetForecastMacro = array();
@@ -495,89 +515,89 @@ get_header();
 								if ( $response_GetForecastMacro )
 								{
 									?>
-									<div class="mt-4 <?php echo $class ?>">
+									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-6' ?> <?php echo $class ?>">
 										<h4 class="text-center font-bold text-primary-300 mb-4"><?php _e( 'Dự báo kinh tế
                                             vĩ mô Việt Nam', 'bsc' ) ?>
 											<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
 										</h4>
 										<div
-											class="border border-[#C9CCD2] rounded-lg flex font-medium text-xs">
-											<div class="w-1/3 text-primary-300 border-r border-[#C9CCD2]">
+											class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex':'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+											<div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-r-[4px] border-white w-1/3':'w-full block_slider-item' ?>">
 												<div
-													class="flex justify-end items-center pt-[13px] pb-[9px] min-h-[65px] border-b border-[#C9CCD2] mb-1.5">
+													class="flex justify-end items-center bg-[#EBF4FA] border-b-[4px] border-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[13px] pb-[9px] min-h-[68px]':'min-h-[38px]' ?>">
 													<div
-														class="w-[44%] grid grid-cols-2 gap-2 font-semibold text-center items-center">
+														class="min-w-[60px]">
 														<p>
 															<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'GDP (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 text-center">
 														<p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 items-center">
 														<p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 items-center">
 														<p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 items-center">
 														<p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 items-center">
 														<p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px] font-bold">
-													<div class="w-[56%] px-2 py-1">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-bold">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'USD/VND LNH trung bình', 'bsc' ) ?>
 													</div>
 													<div
-														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
+														class="flex-1 items-center">
 														<p><?php echo number_format( $response_GetForecastMacro->d->A[0][5]->value ); ?>
 														</p>
 													</div>
 												</div>
 											</div>
 											<div
-												class="w-[27%] grid grid-cols-2 text-center bg-[#F5FCFF] border-r border-[#C9CCD2]">
+												class="grid grid-cols-2 text-center bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[27%] border-r-[4px] border-white':'w-full block_slider-item' ?>">
 												<div class="text-[#FF0017]">
 													<div
-														class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
 														<p class="font-semibold mb-1">
 															<?php _e( 'BSC kịch bản 1', 'bsc' ) ?>
 														</p>
@@ -593,7 +613,7 @@ get_header();
 													{
 														?>
 														<div
-															class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
 															<p><?php echo $response_GetForecastMacro->d->F[1][ $i ]->value; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[3][ $i ]->value; ?>
@@ -603,7 +623,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[1][5]->value ) ?>
 														</p>
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[3][5]->value ) ?>
@@ -612,7 +632,7 @@ get_header();
 												</div>
 												<div class="text-[#30D158]">
 													<div
-														class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
 														<p class="font-semibold mb-1">
 															<?php _e( 'BSC kịch bản 2', 'bsc' ) ?>
 														</p>
@@ -628,7 +648,7 @@ get_header();
 													{
 														?>
 														<div
-															class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px]">
+															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
 															<p><?php echo $response_GetForecastMacro->d->F[0][ $i ]->value; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[2][ $i ]->value; ?>
@@ -638,7 +658,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold">
+														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[0][5]->value ); ?>
 														</p>
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[2][5]->value ); ?>
@@ -647,9 +667,9 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF] border-r border-[#C9CCD2]">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5 border-r-[4px] border-white':'w-full block_slider-item' ?>">
 												<div
-													class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
 													<p class="font-semibold mb-1">
 														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
@@ -682,9 +702,9 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="w-1/5 text-primary-300 text-center flex flex-col bg-[#F5FCFF]">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5':'w-full block_slider-item' ?>">
 												<div
-													class="pt-[12px] pb-[6px] min-h-[58px] border-b border-[#C9CCD2] mb-1.5">
+													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
 													<p class="font-semibold mb-1">
 														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
@@ -739,7 +759,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'GDP (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
@@ -748,7 +768,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
@@ -757,7 +777,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
@@ -766,7 +786,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
@@ -775,7 +795,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
 													</div>
 													<div
@@ -784,7 +804,7 @@ get_header();
 													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] font-bold">
-													<div class="w-[56%] px-2 py-1">
+													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'USD/VND LNH trung bình', 'bsc' ) ?>
 													</div>
 													<div
