@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner') ?>
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<!-- <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="flex justify-between gap-10">
 				<li class="flex-1">
@@ -44,7 +44,7 @@ get_header();
 
 			</ul>
 		</div>
-	</section>
+	</section> -->
 	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="heading-title mb-[26px]">
@@ -133,42 +133,42 @@ get_header();
 						</button>
 					</div>
 
-					<div class="mt-10 mb-[82px]">
-						<h2 class="font-bold text-2xl">Dự báo triển vọng ngành</h2>
-						<div class="relative">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 mb-[82px]':'mt-6 mb-[50px]' ?>">
+						<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">Dự báo triển vọng ngành</h2>
+						<div class="relative rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
 							<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 							<div
-								class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] blur-sm">
+								class="text-center border border-[#EAEEF4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?>">
 								<div
-									class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-									<div class="w-1/3 py-2 px-3">
+									class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
+									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Ngành
 									</div>
-									<div class="w-1/3 py-2 px-3">
+									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Quan điểm Q1/224
 									</div>
-									<div class="w-1/3 py-2 px-3">
+									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Quan điểm Q2/224
 									</div>
 
 								</div>
 								<div
-									class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+									class=" prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[340px]':'sm:w-full w-max' ?>">
 									<?php
 									for ($i = 0; $i < 9; $i++) {
 									?>
 										<div
 											class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 											<div
-												class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+												class=" min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												CNTT - Viễn thông
 											</div>
 											<div
-												class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												Tích cực
 											</div>
 											<div
-												class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
+												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												Tích cực
 											</div>
 										</div>
@@ -179,22 +179,22 @@ get_header();
 									<div
 										class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 										<div
-											class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 											Vận tải & Cảng biển
 										</div>
 										<div
-											class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 											Tích cực
 										</div>
 										<div
-											class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
+											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
 											Trung lập
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-							<div
+							<!-- <div
 								class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 								<a href="#"
 									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -203,7 +203,7 @@ get_header();
 								<p class="italic mt-4 font-normal">
 									Để xem chi tiết danh mục
 								</p>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="grid lg:grid-cols-2 gap-6">

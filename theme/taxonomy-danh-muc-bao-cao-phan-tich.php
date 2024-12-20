@@ -965,13 +965,13 @@ get_header();
 					} elseif ( $type_danh_muc == 'nganh' )
 					{
 						?>
-						<div class="mt-10 mb-[82px]">
-							<h2 class="font-bold text-2xl">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 mb-[82px]':'mt-6 mb-[50px]' ?>">
+							<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
 								<?php _e( 'Dự báo triển vọng ngành', 'bsc' ) ?>
 							</h2>
-							<div class="relative">
+							<div class="relative rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
 								<div
-									class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
+									class="text-center border border-[#EAEEF4] <?php echo $class ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?>">
 									<?php
 									if ( ! $check_logout )
 									{
@@ -980,21 +980,21 @@ get_header();
 										if ( $response_nganh )
 										{ ?>
 											<div
-												class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-												<div class="w-1/3 py-2 px-3">
+												class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?></div>">
+												<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 													<?php _e( 'Ngành', 'bsc' ) ?>
 												</div>
-												<div class="w-1/3 py-2 px-3">
+												<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 													<?php _e( 'Quan điểm', 'bsc' ) ?>
 													<?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
 												</div>
-												<div class="w-1/3 py-2 px-3">
+												<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 													<?php _e( 'Quan điểm', 'bsc' ) ?>
 													<?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
 												</div>
 											</div>
 											<div
-												class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+												class="prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[340px]':'sm:w-full w-max' ?>">
 												<?php
 												$i = 0;
 												foreach ( $response_nganh->d as $nganh )
@@ -1040,15 +1040,15 @@ get_header();
 													<div
 														class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 														<div
-															class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+															class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 															<?php echo $nganh->name ?>
 														</div>
 														<div
-															class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
+															class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
 															<?php echo $title_qd1 ?>
 														</div>
 														<div
-															class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
+															class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
 															<?php echo $title_qd2 ?>
 														</div>
 													</div>
@@ -1064,13 +1064,13 @@ get_header();
 										<!-- Data Demo -->
 										<div
 											class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-											<div class="w-1/3 py-2 px-3">
+											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> py-2 px-3">
 												<?php _e( 'Ngành', 'bsc' ) ?>
 											</div>
-											<div class="w-1/3 py-2 px-3">
+											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> py-2 px-3">
 												<?php _e( 'Quan điểm', 'bsc' ) ?>
 											</div>
-											<div class="w-1/3 py-2 px-3">
+											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> py-2 px-3">
 												<?php _e( 'Quan điểm', 'bsc' ) ?>
 											</div>
 										</div>
@@ -1081,15 +1081,15 @@ get_header();
 											<div
 												class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 												<div
-													class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 													<?php _e( 'CNTT - Viễn thông', 'bsc' ) ?>
 												</div>
 												<div
-													class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 													<?php _e( 'Tích cực', 'bsc' ) ?>
 												</div>
 												<div
-													class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
+													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158]">
 													<?php _e( 'Tích cực', 'bsc' ) ?>
 												</div>
 											</div>
