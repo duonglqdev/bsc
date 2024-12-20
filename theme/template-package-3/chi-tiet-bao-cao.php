@@ -8,15 +8,15 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner') ?>
-	<section class="mt-14 xl:mb-[100px] mb-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-14 xl:mb-[100px] mb-20':'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<h1 class="lg:text-[32px] text-2xl font-bold mb-8">
+			<h1 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[32px] text-2xl mb-8':'text-xl mb-6' ?>">
 				Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu quỹ_20240808
 			</h1>
-			<div class="lg:flex 2xl:gap-[70px] gap-10">
-				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+			<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex 2xl:gap-[70px] gap-10':'' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-80 lg:max-w-[35%] shrink-0':'' ?>">
 					<div class="rounded-lg px-4 py-6 bg-white shadow-base">
-						<div class="flex items-center justify-between mb-6">
+						<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4' ?>">
 							<a href=""
 								class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
 								Báo cáo vĩ mô tuần
@@ -25,7 +25,7 @@ get_header();
 								class="inline-block rounded-[45px] text-[#30D158] bg-[#D6F6DE] px-4 py-0.5 text-[12px] font-semibold">Tích
 								cực</span>
 						</div>
-						<ul class="space-y-3 text-xs font-Helvetica">
+						<ul class="text-xs font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-3':'space-y-2' ?>">
 							<li class="flex items-center justify-between">
 								<p>
 									Ngày đăng
@@ -59,7 +59,7 @@ get_header();
 								</p>
 							</li>
 						</ul>
-						<div class="mt-4 space-x-2 space-y-2">
+						<div class="space-x-2 space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-[12px]' ?>">
 							<a href=""
 								class="inline-block rounded-full transition-all duration-500 hover:bg-[#f1c2c6] text-[#FF0017] bg-[#FFD9DC] text-[12px] px-2 py-0.5">
 								#tin tức trong ngày
@@ -73,21 +73,21 @@ get_header();
 								#Muaban
 							</a>
 						</div>
-						<div class="mt-6">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
 							<a href=""
-								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl w-full h-10 text-center text-xs">
+								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-lg w-full h-10 text-center text-xs">
 								<?php _e('Tải xuống', 'bsc') ?>
 							</a>
 						</div>
 					</div>
 				</div>
-				<div class="flex-1 space-y-8">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 space-y-8':'mt-6' ?>">
 					<div class="summary">
 						<h2 class="text-2xl font-bold mb-4">
 							Tóm tắt báo cáo
 						</h2>
 						<div
-							class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2">
+							class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 							Bản báo cáo này của Công ty Cổ phần Chứng khoán BIDV (BSC), chỉ cung cấp
 							những thông tin chung và phân tích về tình hình kinh tế vĩ mô cũng như
 							diễn biến thị trường chứng khoán. Báo cáo này không được xây dựng để
@@ -117,7 +117,7 @@ get_header();
 							Tóm tắt báo cáo
 						</h2>
 						<div
-							class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000]">
+							class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 							<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/image 109 (1).png"
 								alt="">
 							<ul>
@@ -158,12 +158,12 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="xl:my-[100px] my-20">
+	<section class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
 		<div class="container">
-			<h3 class="text-center font-bold lg:text-[32px] text-2xl mb-8">
+			<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center text-[32px] md:text-2xl mb-8':' text-xl mb-6' ?>">
 				Các báo cáo liên quan
 			</h3>
-			<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-3 md:grid-cols-2 gap-6':' md:grid-cols-2 grid-cols-1 gap-4' ?>">
 				<?php
 				for ($i = 0; $i < 2; $i++) {
 				?>
