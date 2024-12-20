@@ -232,7 +232,7 @@ get_header();
 												class="block relative z-10"><?php _e('Tìm kiếm', 'bsc') ?></span>
 										</button>
 										<a href="<?php echo get_term_link(get_queried_object()) ?>"
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3  group shrink-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white' : 'bg-[#E8F5FF]' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3  group shrink-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white' : 'bg-white' ?>">
 											<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 										</a>
 									</div>
