@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part('components/page-banner') ?>
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<!-- <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="flex justify-between gap-10">
 				<li class="flex-1">
@@ -44,7 +44,7 @@ get_header();
 
 			</ul>
 		</div>
-	</section>
+	</section> -->
 	<section class="mt-[54px] mb-[100px]">
 		<div class="container">
 			<h2 class="heading-title mb-[26px]">
@@ -133,62 +133,65 @@ get_header();
 						</button>
 					</div>
 
-					<div class="mt-10 mb-[82px]">
-						<h2 class="font-bold text-2xl">Dự báo KQKD</h2>
-						<div
-							class="relative rounded-[10px] overflow-hidden mt-6 text-xs text-center border border-[#EAEEF4]">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 mb-[82px]':'mt-6 mb-[50px]' ?>">
+						<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">Dự báo KQKD</h2>
+						<div class="rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
 							<div
-								class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2">
-								<div class="w-[15%]">
-									Mã CK
-								</div>
-								<div class="w-[15%]">
-									Ngành
-								</div>
-								<div class="w-[15%]">
-									DTT 2024
-									<p>(tỷ VND)</p>
-								</div>
-								<div class="w-[17%]">
-									LNST CĐTS
-								</div>
-								<div class="w-[17%]">
-									EPS <br>
-									2024
-								</div>
-								<div class="w-[21%]">
-									Giá mục tiêu <br>
-									2024/2025
-								</div>
-							</div>
-							<div
-								class="scroll-bar-custom overflow-y-auto max-h-[300px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-								<?php
-								for ($i = 0; $i < 12; $i++) {
-								?>
-									<div class="flex items-center min-h-[30px]">
-										<div class="w-[15%] px-3 py-1">
-											<a href="">BID</a>
-										</div>
-										<div class="w-[15%] px-3 py-1">
-											Ngân hàng
-										</div>
-										<div class="w-[15%] px-3 py-1">
-											81,424
-										</div>
-										<div class="w-[17%] px-3 py-1">
-											45%
-										</div>
-										<div class="w-[17%] px-3 py-1">
-											24,796
-										</div>
-										<div class="w-[21%] px-3 py-1">
-											18,900
-										</div>
+								class="relative text-xs text-center border border-[#EAEEF4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':' overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
+								<div
+									class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
+									<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[64px]' ?>">
+										Mã CK
 									</div>
-								<?php
-								}
-								?>
+									<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[96px]' ?>">
+										Ngành
+									</div>
+									<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[90px]' ?>">
+										DTT 2024
+										<p>(tỷ VND)</p>
+									</div>
+									<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
+										LNST CĐTS
+									</div>
+									<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
+										EPS <br>
+										2024
+									</div>
+									<div class="w-[21%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[120px]' ?>">
+										Giá mục tiêu <br>
+										2024/2025
+									</div>
+								</div>
+								<div
+									class=" prose-a:text-primary-300 prose-a:font-bold font-medium whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[300px] ':'sm:w-full w-max' ?>">
+									<?php
+									for ($i = 0; $i < 12; $i++) {
+									?>
+										<div class="flex items-center min-h-[30px]">
+											<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[64px]' ?>">
+												<a href="">BID</a>
+											</div>
+											<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[96px]' ?>">
+												Ngân hàng
+											</div>
+											<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[90px]' ?>">
+												81,424
+											</div>
+											<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
+												45%
+											</div>
+											<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
+												24,796
+											</div>
+											<div class="w-[21%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[120px]' ?>">
+												18,900
+											</div>
+										</div>
+									<?php
+									}
+									?>
+								</div>
+	
 							</div>
 
 						</div>
