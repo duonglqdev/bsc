@@ -3385,8 +3385,6 @@ function filter_details_symbol()
         <?php }
     } elseif ($type_form == 'ttnc_khuyen_nghi') {
         $tab = generateRandomString();
-        $check_logout = bsc_is_user_logged_out();
-        $class = $check_logout['class'];
         $array_data_GetAllDanhMuc = array();
         $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'));
         if ($response_GetAllDanhMuc) {
@@ -3575,7 +3573,258 @@ function filter_details_symbol()
             <?php
             }
             ?>
-<?php }
+            <?php }
+    } elseif ($type_form == 'ttnc_search_max') {
+        $top_co_phieu = get_top_viewed_co_phieu_option(6);
+        $symbols = array_keys($top_co_phieu);
+        $symbol  = implode(",", $symbols);
+        $symbol = strtoupper($symbol);
+        $array_data_value = array(
+            'symbols' => $symbol
+        );
+        $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
+        if ($response_value) {
+            foreach ($response_value->d as $respon_symbol) {
+                $bg_color_class = 'bg-[#1CCD83]';
+                $title_symbol = '';
+                if ($respon_symbol->changePercent != '') {
+                    $upside = $respon_symbol->changePercent;
+                    if ($upside >= 1) {
+                        $upside = round($upside);
+                    } else {
+                        $upside = number_format($upside, 1);
+                    }
+                    if (($respon_symbol->changePercent) > 0) {
+                        $bg_color_class = 'bg-[#1CCD83]';
+                        $title_symbol = '+' . $upside . '%';
+                    } elseif (($respon_symbol->changePercent) < 0) {
+                        $bg_color_class = 'bg-[#FE5353]';
+                        $title_symbol = $upside . '%';
+                    } elseif (($respon_symbol->changePercent) == 0) {
+                        $bg_color_class = 'bg-[#EB0]';
+                        $title_symbol = '+' . $upside . '%';
+                    }
+                }
+            ?>
+                <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
+                    class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 py-3 px-[12px]' : 'gap-3 py-2 px-3 text-xs justify-center' ?>">
+                    <span>
+                        <?php echo $respon_symbol->symbol  ?>
+                    </span>
+                    <?php if ($title_symbol != '') { ?>
+                        <span>
+                            <?php echo  $title_symbol ?>
+                        </span>
+                    <?php  } ?>
+                </a>
+            <?php }
+        }
+    } elseif ($type_form == 'ttnc_khuyen_nghi_GetForecastMacro') {
+        $array_data_GetForecastMacro = array();
+        $response_GetForecastMacro = get_data_with_cache('GetForecastMacro', $array_data_GetForecastMacro, $time_cache);
+        if ($response_GetForecastMacro) {
+            ?>
+            <div
+                class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
+                <div
+                    class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
+                    <div
+                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[30px] pb-[13px] min-h-[58px] mb-1.5' : 'py-1.5 px-5' ?>">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[60px]' : '' ?>">
+                            <p>
+                                <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('GDP (YoY%)', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('LSĐH (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-bold">
+                            <?php _e('USD/VND LNH trung bình', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 text-center font-semibold">
+                            <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
+                    <div class="grid grid-cols-2 text-center">
+                        <div class="text-[#FF0017]">
+                            <div
+                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                <p class="font-semibold mb-1">
+                                    <?php _e('BSC kịch bản 1', 'bsc') ?>
+                                </p>
+                                <div class="grid grid-cols-2 font-semibold">
+                                    <p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php
+                            for ($i = 0; $i < 5; $i++) {
+                            ?>
+                                <div
+                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
+                                    </p>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div
+                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
+                                </p>
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-[#30D158]">
+                            <div
+                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                <p class="font-semibold mb-1">
+                                    <?php _e('BSC kịch bản 2', 'bsc') ?>
+                                </p>
+                                <div class="grid grid-cols-2 font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php
+                            for ($i = 0; $i < 5; $i++) {
+                            ?>
+                                <div
+                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
+                                    </p>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div
+                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
+                                </p>
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php }
+    } elseif ($type_form == 'chart') {
+        $time_cache = get_sub_field('time_cache_1') ?: 300;
+        date_default_timezone_set('Asia/Bangkok');
+
+        $array_data = array(
+            'portcode' => 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND'
+        );
+        $data = get_data_with_cache('GetPortfolioPerformance', $array_data, $time_cache);
+
+        $maxValue = 0;
+        $minValue = PHP_INT_MAX;
+
+        if ($data) {
+            $stocksData = [
+                'BSC10' => [],
+                'BSC30' => [],
+                'BSC50' => [],
+                'HOSE' => [],
+                'VNDIAMOND' => []
+            ];
+
+            $earliestDate = null;
+
+            foreach ($data->d as $dataset) {
+                foreach ($dataset as $stockCode => $entries) {
+                    foreach ($entries as $entry) {
+                        $date = date("Y-m-d", strtotime($entry->tradedate));
+                        $portclose = $entry->portclose;
+                        $percentagedifference = $entry->percentagedifference;
+
+                        $stocksData[$stockCode][$date] = [
+                            'portclose' => $portclose,
+                            'percentagedifference' => $percentagedifference
+                        ];
+
+                        if ($portclose > $maxValue) {
+                            $maxValue = $portclose;
+                        }
+                        if ($portclose < $minValue) {
+                            $minValue = $portclose;
+                        }
+
+                        if (! $earliestDate || $date < $earliestDate) {
+                            $earliestDate = $date;
+                        }
+                    }
+                }
+            }
+
+            $fromdate = $earliestDate;
+            $stocksDataJson = json_encode($stocksData);
+            $maxValue = ceil($maxValue / 10) * 10;
+            $minValue = floor($minValue / 10) * 10;
+        }
+        ?>
+        <div id="chart" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
+            data-maxvalue="<?php echo $maxValue; ?>"
+            data-minvalue="<?php echo $minValue; ?>"
+            data-stock='<?php echo $stocksDataJson ?>'></div>
+<?php
     }
     die();
 }

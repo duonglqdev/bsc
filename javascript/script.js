@@ -1659,7 +1659,7 @@ import { DataTable } from 'simple-datatables';
 			'click',
 			'section.chart #chart_btn-reload',
 			function (e) {
-				var fromdate = jQuery(this).attr('data-fromdate');
+				var fromdate = jQuery('#chart').attr('data-fromdate');
 				var todate = jQuery(this).attr('data-todate');
 				jQuery('section.chart .fromdate').val(fromdate);
 				jQuery('section.chart .todate').val(todate);
