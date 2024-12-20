@@ -73,9 +73,9 @@ if ($style == 'nhdt') {
     <?php if (have_rows('menu_navigation')) { ?>
         <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
             <div class="container">
-                <ul class="flex justify-between 2xl:gap-10 gap-5">
+                <ul class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between gap-10 gap-5':'overflow-x-auto gap-4  nav-scroll-mb' ?></ul>">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
-                        <li class="flex-1">
+                        <li class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
                                 class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-semibold lg:text-lg lg:py-[12px] py-3 2xl:px-10 px-5 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
                                 <?php the_sub_field('title') ?>
