@@ -2842,11 +2842,11 @@ import { DataTable } from 'simple-datatables';
 			load_du_lieu_lich_su();
 		});
 
-		let currentPage = 1;
+		let currentPageDlls = 1;
 		const itemsPerPage = 20;
 
 		function load_du_lieu_lich_su(page = 1) {
-			currentPage = page;
+			currentPageDlls = page;
 			var mck = $('#du-lieu-lich-su_form .mck').val();
 			var fromdate = $('#du-lieu-lich-su_form .fromdate').val();
 			var todate = $('#du-lieu-lich-su_form .todate').val();
