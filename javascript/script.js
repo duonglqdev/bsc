@@ -2881,10 +2881,10 @@ import { DataTable } from 'simple-datatables';
 			paginationContainer.html('');
 
 			// Nút Prev
-			if (currentPage > 1) {
+			if (currentPageDlls > 1) {
 				paginationContainer.append(`
 					<li>
-						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPage - 1}">
+						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPageDlls - 1}">
 							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
 									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"></path>
 								</svg>
@@ -2895,7 +2895,7 @@ import { DataTable } from 'simple-datatables';
 
 			// Các số trang
 			for (let i = 1; i <= totalPages; i++) {
-				const activeClass = i === currentPage ? 'active' : '';
+				const activeClass = i === currentPageDlls ? 'active' : '';
 				paginationContainer.append(`
 					<li>
 						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight  [&:not(.active)]:border border-transparent [&:not(.active)]:border-[#898A8D] [&:not(.active)]:bg-white bg-primary-300 [&:not(.active)]:text-black text-white hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500 ${activeClass}" data-page="${i}">
@@ -2906,10 +2906,10 @@ import { DataTable } from 'simple-datatables';
 			}
 
 			// Nút Next
-			if (currentPage < totalPages) {
+			if (currentPageDlls < totalPages) {
 				paginationContainer.append(`
 					<li>
-						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPage + 1}">
+						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPageDlls + 1}">
 							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
 									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
 								</svg>
