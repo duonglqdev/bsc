@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<!-- <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="flex justify-between gap-10">
 				<li class="flex-1">
@@ -44,22 +44,30 @@ get_header();
 
 			</ul>
 		</div>
-	</section>
-	<section class="mt-[54px] mb-[100px]">
+	</section> -->
+	<section
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<h3 class="font-bold mb-6 text-2xl">Dự báo vĩ mô</h3>
+			<h3
+				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-6' : 'text-lg mb-4' ?>">
+				Dự báo vĩ mô</h3>
 			<div class="relative">
-				<div class="lg:flex lg:gap-8 blur-sm">
-					<div class="lg:w-[255px] lg:max-w-[27%]">
-						<div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?>">
+					<div
+						class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
+						<div
+							class=" bg-white shadow-base rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?>">
 							<h4
-								class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+								class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
 								Năm 2024</h4>
-							<div class="space-y-6">
-								<div class="flex items-end justify-between pb-2">
+							<div
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'grid grid-cols-3 gap-4' ?>">
+								<div
+									class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
 									<div class="flex flex-col font-Helvetica">
 										<p class="text-paragraph text-xs">VN-index</p>
-										<h4 class="font-bold text-2xl">
+										<h4
+											class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
 											1500
 										</h4>
 									</div>
@@ -69,10 +77,12 @@ get_header();
 									</div>
 								</div>
 
-								<div class="flex items-end justify-between pb-2">
+								<div
+									class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
 									<div class="flex flex-col font-Helvetica">
 										<p class="text-paragraph text-xs">Ngành</p>
-										<h4 class="font-bold text-2xl">
+										<h4
+											class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
 											1298
 										</h4>
 									</div>
@@ -81,10 +91,12 @@ get_header();
 										Cơ sở
 									</div>
 								</div>
-								<div class="flex items-end justify-between pb-2">
+								<div
+									class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
 									<div class="flex flex-col font-Helvetica">
 										<p class="text-paragraph text-xs">Ngành</p>
-										<h4 class="font-bold text-2xl">
+										<h4
+											class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
 											1200
 										</h4>
 									</div>
@@ -101,7 +113,7 @@ get_header();
 						<div id="chart-forecast"></div>
 					</div>
 				</div>
-				<div
+				<!-- <div
 					class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 					<a href="#"
 						class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -110,7 +122,7 @@ get_header();
 					<p class="italic mt-4 font-normal">
 						Để xem chi tiết danh mục
 					</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
