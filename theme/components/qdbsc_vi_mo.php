@@ -2,21 +2,21 @@
 $check_logout = bsc_is_user_logged_out();
 $class = $check_logout['class'];
 ?>
-<section class="mt-[54px] mb-[100px] qdbsc_vi_mo" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?> qdbsc_vi_mo" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <?php if (get_sub_field('link')) { ?>
-                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold mb-6 text-2xl">
+                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-6' : 'text-lg mb-4' ?>">
                     <?php the_sub_field('title') ?>
                 </a>
             <?php } else { ?>
-                <h3 class="font-bold mb-6 text-2xl">
+                <h3 class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-6' : 'text-lg mb-4' ?>">
                     <?php the_sub_field('title') ?>
                 </h3>
             <?php } ?>
         <?php } ?>
         <div class="relative">
-            <div class="lg:flex lg:gap-8 <?php echo $class ?>">
+            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?> <?php echo $class ?>">
                 <?php
                 if (!$check_logout) {
                     $array_data_thitruong = array();
@@ -31,16 +31,16 @@ $class = $check_logout['class'];
 
                         $stocksDataJson = json_encode($vnIndexData);
                 ?>
-                        <div class="lg:w-[255px] lg:max-w-[27%] shrink-0">
-                            <div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
+                        <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
+                            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?> bg-white shadow-base rounded-2xl">
                                 <h4
-                                    class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+                                    class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
                                     <?php _e('Năm', 'bsc') ?> <?php echo date("Y"); ?></h4>
-                                <div class="space-y-6">
-                                    <div class="flex items-end justify-between pb-2">
+                                <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'grid grid-cols-3 gap-4' ?>">
+                                    <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                         <div class="flex flex-col font-Helvetica">
                                             <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                            <h4 class="font-bold text-2xl">
+                                            <h4 class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                                 <?php echo $response_thitruong->d->F[0][0]->value; ?>
                                             </h4>
                                         </div>
@@ -50,10 +50,10 @@ $class = $check_logout['class'];
                                         </div>
                                     </div>
 
-                                    <div class="flex items-end justify-between pb-2">
+                                    <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                         <div class="flex flex-col font-Helvetica">
                                             <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                            <h4 class="font-bold text-2xl">
+                                            <h4 class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                                 <?php echo $response_thitruong->d->F[0][1]->value; ?>
                                             </h4>
                                         </div>
@@ -62,10 +62,10 @@ $class = $check_logout['class'];
                                             <?php _e('Cơ sở', 'bsc') ?>
                                         </div>
                                     </div>
-                                    <div class="flex items-end justify-between pb-2">
+                                    <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                         <div class="flex flex-col font-Helvetica">
                                             <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                            <h4 class="font-bold text-2xl">
+                                            <h4 class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                                 <?php echo $response_thitruong->d->F[0][2]->value; ?>
                                             </h4>
                                         </div>
@@ -78,7 +78,7 @@ $class = $check_logout['class'];
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 bg-white rounded-lg px-5 pt-5 shadow-base">
+                        <div class="flex-1 bg-white rounded-lg px-5 pt-5 shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'' ?>">
                             <div id="chart-forecast" class="font-body"
                                 data-stock='<?php echo $stocksDataJson ?>'
                                 data-title="Dự báo VN-Index <?php echo date("Y"); ?>"
@@ -93,34 +93,34 @@ $class = $check_logout['class'];
                     <?php }
                 } else {
                     ?>
-                    <div class="lg:w-[255px] lg:max-w-[27%] shrink-0">
-                        <div class="lg:px-10 px-5 lg:py-8 py-5 bg-white shadow-base rounded-2xl">
-                            <h4 class="font-bold text-primary-300 text-2xl pb-6 mb-6 border-b border-[#C9CCD2]">
+                    <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?> shrink-0">
+                        <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?> bg-white shadow-base rounded-2xl">
+                            <h4 class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
                                 <?php _e('Năm 0000', 'bsc') ?></h4>
-                            <div class="space-y-6">
-                                <div class="flex items-end justify-between pb-2">
+                            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'grid grid-cols-3 gap-4' ?>">
+                                <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                     <div class="flex flex-col font-Helvetica">
                                         <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                        <h4 class="font-bold text-2xl">
+                                        <h4 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                             ---- </h4>
                                     </div>
                                     <div class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
                                         <?php _e('Tích cực', 'bsc') ?> </div>
                                 </div>
 
-                                <div class="flex items-end justify-between pb-2">
+                                <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                     <div class="flex flex-col font-Helvetica">
                                         <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                        <h4 class="font-bold text-2xl">
+                                        <h4 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                             ---- </h4>
                                     </div>
                                     <div class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
                                         <?php _e('Cơ sở', 'bsc') ?> </div>
                                 </div>
-                                <div class="flex items-end justify-between pb-2">
+                                <div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
                                     <div class="flex flex-col font-Helvetica">
                                         <p class="text-paragraph text-xs"><?php _e('VN-index', 'bsc') ?></p>
-                                        <h4 class="font-bold text-2xl">
+                                        <h4 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                             ---- </h4>
                                     </div>
                                     <div class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">

@@ -6,7 +6,7 @@ $class = $check_logout['class'];
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <?php if (get_sub_field('link')) { ?>
-                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold mb-6 text-2xl">
+                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold mb-6 text-2xl block">
                     <?php the_sub_field('title') ?>
                 </a>
             <?php } else { ?>

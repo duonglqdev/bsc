@@ -1143,9 +1143,7 @@ get_header();
 											echo __( 'Tất cả', 'bsc' );
 										}
 									}
-									{
-										echo __( 'Tất cả', 'bsc' );
-									}
+									
 									?>
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>

@@ -301,6 +301,9 @@
 			@apply rounded-[20px] overflow-hidden;
 		}
 	}
+	.datatable-bottom{
+		@apply mt-20;
+	}
 }
 .form_report {
 	input {
@@ -562,7 +565,15 @@
 			@apply mt-4;
 		}
 	}
-	
+	.datatable-container{
+		@apply overflow-x-auto;
+	}
+	.datatable-bottom{
+		@apply mt-10;
+		.datatable-dropdown{
+			@apply hidden;
+		}
+	}
 }
 .block-loading{
 	@apply [&:not(.active)]:overflow-hidden;
@@ -1241,7 +1252,6 @@ button#ib-button-messaging {
 }
 
 .datatable-bottom {
-	@apply mt-20;
 	.datatable-info {
 		@apply hidden;
 	}
