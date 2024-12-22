@@ -355,6 +355,9 @@
 .is-desktop .slider-tutorial .flickity-viewport {
   @apply rounded-[20px] overflow-hidden;
 }
+.is-desktop .datatable-bottom {
+  @apply mt-20;
+}
 
 .form_report input {
   @apply w-full px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
@@ -562,6 +565,15 @@
 }
 .is-mobile .form_report button {
   @apply mt-4;
+}
+.is-mobile .datatable-container {
+  @apply overflow-x-auto;
+}
+.is-mobile .datatable-bottom {
+  @apply mt-10;
+}
+.is-mobile .datatable-bottom .datatable-dropdown {
+  @apply hidden;
 }
 
 .block-loading {
@@ -1149,9 +1161,6 @@ button#ib-button-messaging {
   @apply text-yellow-100 after:bg-yellow-100;
 }
 
-.datatable-bottom {
-  @apply mt-20;
-}
 .datatable-bottom .datatable-info {
   @apply hidden;
 }
