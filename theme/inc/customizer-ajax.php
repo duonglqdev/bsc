@@ -3452,7 +3452,7 @@ function filter_details_symbol()
                 <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                     id="<?php echo $tab ?>-<?php echo $i ?>">
                     <div
-                        class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' relative 2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
+                        class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
                             <ul
                                 class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
@@ -3671,7 +3671,7 @@ function filter_details_symbol()
                 <div
                     class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
                     <div
-                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[30px] pb-[13px] min-h-[58px] mb-1.5' : 'py-1.5 px-5' ?>">
+                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[60px]' : '' ?>">
                             <p>
                                 <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
@@ -3682,7 +3682,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('GDP (YoY%)', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
                             </p>
                         </div>
@@ -3691,7 +3691,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
                             </p>
                         </div>
@@ -3700,7 +3700,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
                             </p>
                         </div>
@@ -3709,7 +3709,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
                             </p>
                         </div>
@@ -3718,7 +3718,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('LSĐH (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
                             </p>
                         </div>
@@ -3727,7 +3727,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-bold">
                             <?php _e('USD/VND LNH trung bình', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center font-semibold">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?> font-semibold">
                             <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
                             </p>
                         </div>
@@ -3737,7 +3737,7 @@ function filter_details_symbol()
                     <div class="grid grid-cols-2 text-center">
                         <div class="text-[#FF0017]">
                             <div
-                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
                                 <p class="font-semibold mb-1">
                                     <?php _e('BSC kịch bản 1', 'bsc') ?>
                                 </p>
@@ -3752,7 +3752,7 @@ function filter_details_symbol()
                             for ($i = 0; $i < 5; $i++) {
                             ?>
                                 <div
-                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
                                     </p>
                                     <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
@@ -3762,7 +3762,7 @@ function filter_details_symbol()
                             }
                             ?>
                             <div
-                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
                                 </p>
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
@@ -3771,7 +3771,7 @@ function filter_details_symbol()
                         </div>
                         <div class="text-[#30D158]">
                             <div
-                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
                                 <p class="font-semibold mb-1">
                                     <?php _e('BSC kịch bản 2', 'bsc') ?>
                                 </p>
@@ -3786,7 +3786,7 @@ function filter_details_symbol()
                             for ($i = 0; $i < 5; $i++) {
                             ?>
                                 <div
-                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
                                     </p>
                                     <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
@@ -3796,7 +3796,7 @@ function filter_details_symbol()
                             }
                             ?>
                             <div
-                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
                                 </p>
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?>
