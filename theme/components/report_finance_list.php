@@ -29,7 +29,7 @@ $tab = generateRandomString();
     while (have_rows('data')): the_row();
         $i++;
     ?>
-        <section class="tab-content mt-[54px] mb-[100px] <?php if ($i % 2 == 1) echo 'block';
+        <section class="tab-content mt-[54px] mb-[100px] <?php if ($i == 1) echo 'block';
                                                             else echo 'hidden' ?>" id="<?php echo $tab . $i ?>">
             <div class="container">
                 <div class="mb-10">

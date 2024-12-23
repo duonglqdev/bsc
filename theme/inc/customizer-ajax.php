@@ -1001,11 +1001,13 @@ function filter_details_symbol()
                         </button>
                     </li>
                 </ul>
-                <a href=""
-                    class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
-                    Xem chi tiết
-                    <?php echo svg('arrow-btn', '12', '12') ?>
-                </a>
+                <?php if (get_field('cdc7_page_bao_cao_tai_chinh', 'option')) { ?>
+                    <a href="<?php the_field('cdc7_page_bao_cao_tai_chinh', 'option') ?>?mck=<?php echo $symbol ?>"
+                        class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+                        <?php _e('Xem chi tiết', 'bsc') ?>
+                        <?php echo svg('arrow-btn', '12', '12') ?>
+                    </a>
+                <?php } ?>
             </div>
             <?php
             $freq_cttc = array('Q', 'Y');
@@ -1028,39 +1030,53 @@ function filter_details_symbol()
                         ?>
                             <ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
                                 <?php
+                                // Lấy dữ liệu từ đối tượng phản hồi
                                 $yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
                                 $kiemToanData = $response_GetSummaryFinanceReportBySymbol->d1[2];
+
+                                // Chuyển đổi đối tượng thành mảng kết hợp
+                                $yearDataArray = (array) $yearData;
+                                $kiemToanDataArray = (array) $kiemToanData;
+
+                                // Loại bỏ phần tử đầu tiên (TITLE)
+                                $yearDataValues = array_slice($yearDataArray, 1, null, true);
+                                $kiemToanDataValues = array_slice($kiemToanDataArray, 1, null, true);
+
+                                // Đảo ngược thứ tự của mảng
+                                $yearDataValues = array_reverse($yearDataValues, true);
+                                $kiemToanDataValues = array_reverse($kiemToanDataValues, true);
+
+                                // Vòng lặp qua các phần tử đã đảo ngược
                                 $check_year = 0;
-                                foreach ($yearData as $key => $year) {
+                                foreach ($yearDataValues as $key => $year) {
                                     $check_year++;
-                                    if ($check_year != 1) {
-                                        $kiem_toan = isset($kiemToanData->{$key}) ? $kiemToanData->{$key} : '';
+                                    // Lấy giá trị kiểm toán tương ứng
+                                    $kiem_toan = isset($kiemToanDataValues[$key]) ? $kiemToanDataValues[$key] : '';
                                 ?>
-                                        <li class="lg:min-w-[140px] font-bold">
-                                            <p><?php echo $year; ?></p>
-                                            <p class="text-[#1CCD83]">
-                                                <?php
-                                                if ($kiem_toan == 'N') {
-                                                    echo __('(Chưa kiểm toán)', 'bsc');
-                                                } else {
-                                                    echo __('(Đã kiếm toán)', 'bsc');
-                                                }
-                                                ?>
-                                            </p>
-                                        </li>
+                                    <li class="lg:min-w-[140px] font-bold">
+                                        <p><?php echo htmlspecialchars($year); ?></p>
+                                        <p class="text-[#1CCD83]">
+                                            <?php
+                                            if ($kiem_toan === 'N') {
+                                                echo __('(Chưa kiểm toán)', 'bsc');
+                                            } else {
+                                                echo __('(Đã kiểm toán)', 'bsc');
+                                            }
+                                            ?>
+                                        </p>
+                                    </li>
                                 <?php
-                                    }
                                 }
                                 ?>
                             </ul>
-                            <?php $total_colspan = $check_year + 1; ?>
+                            <?php $total_colspan = $check_year + 2; ?>
                             <div class="space-y-16">
                                 <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
                                     <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
 								prose-td:p-4 font-medium">
                                         <thead>
                                             <tr>
-                                                <th colspan="<?php echo $total_colspan ?>"><?php _e('Kết quả kinh doanh', 'bsc') ?></th>
+                                                <th colspan="<?php echo $total_colspan ?>"><?php _e('Kết quả kinh doanh', 'bsc'); ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1122,16 +1138,20 @@ function filter_details_symbol()
                                                     <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
                                                         <td class="lg:min-w-[231px]"><?php echo $data_title[$check_kqkd] ?></td>
                                                         <?php
+                                                        $dataArray = (array) $data;
+                                                        // Loại bỏ phần tử đầu tiên (TITLE)
+                                                        $dataValues = array_slice($dataArray, 1, null, true);
+                                                        // Đảo ngược thứ tự của mảng
+                                                        $dataValues = array_reverse($dataValues, true);
                                                         $check_dat = 0;
-                                                        foreach ($data as $key => $dat) {
-                                                            $check_dat++;
-                                                            if ($check_dat > 1) { ?>
-                                                                <td><?php
-                                                                    if (is_numeric($dat)) {
-                                                                        echo number_format($dat, 2, '.', ',');
-                                                                    }
-                                                                    ?></td>
-                                                        <?php }
+                                                        foreach ($dataValues as $key => $dat) {
+                                                            $check_dat++; ?>
+                                                            <td><?php
+                                                                if (is_numeric($dat)) {
+                                                                    echo number_format($dat, 2, '.', ',');
+                                                                }
+                                                                ?></td>
+                                                        <?php
                                                         } ?>
                                                     </tr>
                                             <?php
@@ -1208,16 +1228,20 @@ function filter_details_symbol()
                                                     <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
                                                         <td class="lg:min-w-[231px]"><?php echo $data_ts_title[$check_ts] ?></td>
                                                         <?php
+                                                        $data_tsArray = (array) $data_ts;
+                                                        // Loại bỏ phần tử đầu tiên (TITLE)
+                                                        $data_tsValues = array_slice($data_tsArray, 1, null, true);
+                                                        // Đảo ngược thứ tự của mảng
+                                                        $data_tsValues = array_reverse($data_tsValues, true);
                                                         $check_dat_ts = 0;
-                                                        foreach ($data_ts as $key => $dat_ts) {
-                                                            $check_dat_ts++;
-                                                            if ($check_dat_ts > 1) { ?>
-                                                                <td><?php
-                                                                    if (is_numeric($dat_ts)) {
-                                                                        echo number_format($dat_ts, 2, '.', ',');
-                                                                    }
-                                                                    ?></td>
-                                                        <?php }
+                                                        foreach ($data_tsValues as $key => $dat_ts) {
+                                                            $check_dat_ts++; ?>
+                                                            <td><?php
+                                                                if (is_numeric($dat_ts)) {
+                                                                    echo number_format($dat_ts, 2, '.', ',');
+                                                                }
+                                                                ?></td>
+                                                        <?php
                                                         } ?>
                                                     </tr>
                                             <?php
