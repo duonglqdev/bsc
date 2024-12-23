@@ -139,6 +139,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 					$total_post = 0;
 					$time_cache = 300;
 					$all_results = array();
+					$current_total_post = 0;
 					if (isset($_GET['s']) && trim($_GET['s']) === '') {
 					} else {
 						if ($type_search == 'default') {
@@ -196,7 +197,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 								}
 								if ($current_total_post < $post_per_page) {
 									$post_thieu_GetNews  = $post_per_page - $current_total_post;
-									if ($post_thieu_GetNews != $post_per_page) {
+									if (($post_thieu_GetNews != $post_per_page) || ($current_total_post == 0)) {
 										$index_GetNews = 1;
 									} else {
 										$index_GetNews =  ($_GET['post_page'] - 1) * $post_per_page - $total_news + 1;
