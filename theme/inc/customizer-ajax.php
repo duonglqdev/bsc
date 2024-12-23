@@ -499,18 +499,20 @@ function filter_details_symbol()
         ?>
             <div
                 class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center ">
-                <div class="flex bg-primary-300 text-white">
-                    <div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-                        <?php _e('Ngày', 'bsc') ?>
-                    </div>
-                    <div class="w-[152px] max-w-[30%] px-3 py-2">
-                        <?php _e('Thay đổi giá', 'bsc') ?>
-                    </div>
-                    <div class="w-[136px] max-w-[27%] px-3 py-2">
-                        <?php _e('KL khớp lệnh', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 px-3 py-2">
-                        <?php _e('Tổng GTGD', 'bsc') ?>
+                <div class="overflow-x-auto scroll-bar-custom scroll-bar-x">
+                    <div class="flex bg-primary-300 text-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:w-full w-max' ?>">
+                        <div class="min-w-[90px] pl-4 pr-3 py-2 text-left sm:max-w-[19%]">
+                            <?php _e('Ngày', 'bsc') ?>
+                        </div>
+                        <div class="min-w-[152px] px-3 py-2 sm:max-w-[30%]">
+                            <?php _e('Thay đổi giá', 'bsc') ?>
+                        </div>
+                        <div class="min-w-[136px] sm:max-w-[27%] px-3 py-2">
+                            <?php _e('KL khớp lệnh', 'bsc') ?>
+                        </div>
+                        <div class="px-3 py-2 sm:flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[136px]' ?>">
+                            <?php _e('Tổng GTGD', 'bsc') ?>
+                        </div>
                     </div>
                 </div>
                 <ul>
@@ -521,9 +523,9 @@ function filter_details_symbol()
                         if ($i < 8) {
                     ?>
                             <li
-                                class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
+                                class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:w-full w-max' ?>">
                                 <div
-                                    class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+                                    class="min-w-[90px] sm:max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
                                     <?php
                                     if ($record['TRADE_DATE']) {
                                         $date = new DateTime($record['TRADE_DATE']);
@@ -557,7 +559,7 @@ function filter_details_symbol()
                                 }
                                 ?>
                                 <div
-                                    class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+                                    class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
                                     <p>
                                         <?php
                                         if ($record['CLOSE_PRICE']) {
@@ -572,11 +574,11 @@ function filter_details_symbol()
                                     </p>
                                 </div>
                                 <div
-                                    class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+                                    class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
                                     <?php echo number_format($record['TOT_VOLUME']) ?>
                                 </div>
                                 <div
-                                    class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
+                                    class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[136px]' ?>">
                                     <?php echo number_format($record['TOT_VALUE']) ?>
                                 </div>
                             </li>
@@ -587,7 +589,7 @@ function filter_details_symbol()
                 </ul>
 
             </div>
-            <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-[12px]' ?>">
                 <?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
                     <a href="<?php echo get_field('cdc7_page_lich_su_gia', 'option') . '?mck=' . $symbol ?>"
                         class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-xs font-Helvetica">
@@ -742,8 +744,8 @@ function filter_details_symbol()
         );
         $response_GetShareholderRelations = get_data_with_cache('GetShareholderRelations', $array_data_GetShareholderRelations, $time_cache);
         if ($response_GetShareholderRelations) { ?>
-            <div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
-                <h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+            <div class="rounded-xl bg-gradient-blue-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-8':'p-4' ?>">
+                <h4 class="text-center mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl':'text-lg' ?> font-bold font-Helvetica">
                     <?php _e('Tỷ lệ cơ cấu cổ đông', 'bsc') ?>
                 </h4>
                 <div class="relative text-center">
@@ -772,7 +774,7 @@ function filter_details_symbol()
                     </svg>
 
                 </div>
-                <div class="mt-5 mx-auto max-w-[215px] space-y-2">
+                <div class="mt-5 mx-auto max-w-[215px] space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                     <?php if ($response_GetShareholderRelations->d[0]->bigholderpct) { ?>
                         <div
                             class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
@@ -807,7 +809,7 @@ function filter_details_symbol()
                 </script>
             </div>
             <div
-                class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
+                class="rounded-xl bg-gradient-blue-50 w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-6 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center':'p-4' ?>">
                 <ul class="font-Helvetica space-y-4">
 
                     <?php if ($response_GetShareholderRelations->d[0]->outsshares) { ?>
@@ -857,7 +859,7 @@ function filter_details_symbol()
     } elseif ($type_form == 'sg_dncn') {
     ?>
         <table
-            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
+            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
             <thead>
                 <tr>
                     <th class="!pl-5 cursor-pointer filter-table"><?php _e('Mã CK', 'bsc') ?>
@@ -964,15 +966,17 @@ function filter_details_symbol()
                                 </p>
                             </div>
                         </div>
-                        <div class="md:ml-[30px] ml-5">
+                        <div class="md:ml-[30px] ml-4">
                             <p
-                                class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green main_title">
+                                class="font-bold leading-normal text-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg line-clamp-2 mb-2':'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
                                 <?php echo htmlspecialchars($news->title) ?>
                             </p>
-                            <div
-                                class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
-                                <?php echo $news->description ?>
-                            </div>
+                            <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                                <div
+                                    class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+                                    <?php echo $news->description ?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
 
@@ -2752,9 +2756,10 @@ function filter_details_symbol()
         );
         $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
     ?>
-        <div class="flex gap-6 items-center">
+    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex items-center justify-between' ?>">
+        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-6':'gap-4' ?> items-center">
             <div
-                class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
+                class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[90px] [90px] p-5':'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
                 <?php echo $first_symbol ?>
             </div>
             <?php if ($response_value) { ?>
@@ -2763,19 +2768,19 @@ function filter_details_symbol()
                         class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
                         <?php echo $response_value->d[0]->symbol; ?>
                     </h4>
-                    <p class="uppercase text-lg text-paragraph">
+                    <p class="uppercase <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?> text-paragraph">
                         <?php echo $response_value->d[0]->exchange; ?>
                     </p>
                 </div>
             <?php   } ?>
         </div>
-        <?php if ($response_value) { ?>
-            <div class="flex items-center 2xl:gap-7 gap-5">
-                <div class="lg:w-[176px] lg:max-w-[37%]">
-                    <?php if ($response_value->d[0]->bidPrice1) { ?>
+
+        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+            <?php if ($response_value) { ?>
+                <?php if ($response_value->d[0]->bidPrice1) { ?>
                         <div class="flex-col gap-2">
-                            <div class="flex gap-[14px] data_number">
-                                <div class="2xl:text-[40px] text-4xl font-bold">
+                            <div class="flex gap-[12px] data_number">
+                                <div class="text-2xl font-bold text-[#FE5353]">
                                     <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
                                 </div>
                                 <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
@@ -2789,7 +2794,7 @@ function filter_details_symbol()
                                         $text_color_class = '';
                                     }
                                 ?>
-                                    <div class="flex flex-col <?php echo $text_color_class ?>">
+                                    <div class="flex flex-col <?php echo $text_color_class ?> text-xs">
                                         <p>
                                             <?php
                                             echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
@@ -2801,7 +2806,7 @@ function filter_details_symbol()
                                     </div>
                                 <?php } ?>
                             </div>
-                            <p class="time-update mt-1">
+                            <p class="time-update mt-1 sm:text-xs text-xxs">
                                 <?php _e('Cập nhật lúc', 'bsc') ?>
                                 <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
                                 echo date("H:i"); ?>
@@ -2809,15 +2814,62 @@ function filter_details_symbol()
                             </p>
                         </div>
                     <?php } ?>
-                </div>
-                <div class="flex-1 grid grid-cols-3 2xl:gap-5 gap-4 font-Helvetica">
+                <?php   } ?>
+        <?php } ?>
+
+
+    </div>
+        <?php if ($response_value) { ?>
+            <div class="flex items-center 2xl:gap-7 gap-5">
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <div class="lg:w-[176px] lg:max-w-[37%]">
+                        <?php if ($response_value->d[0]->bidPrice1) { ?>
+                            <div class="flex-col gap-2">
+                                <div class="flex gap-[14px] data_number">
+                                    <div class="2xl:text-[40px] text-4xl font-bold">
+                                        <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
+                                    </div>
+                                    <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
+                                        if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
+                                            $text_color_class = 'text-[#1CCD83]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
+                                            $text_color_class = 'text-[#FE5353]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
+                                            $text_color_class = 'text-[#EB0]';
+                                        } else {
+                                            $text_color_class = '';
+                                        }
+                                    ?>
+                                        <div class="flex flex-col <?php echo $text_color_class ?>">
+                                            <p>
+                                                <?php
+                                                echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
+                                                ?>
+                                            </p>
+                                            <p>
+                                                <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
+                                            </p>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <p class="time-update mt-1">
+                                    <?php _e('Cập nhật lúc', 'bsc') ?>
+                                    <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                    echo date("H:i"); ?>
+                                    UTC_7
+                                </p>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                <div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:gap-5 gap-4':'gap-6' ?>">
                     <div class="col-span-1 space-y-5">
                         <div class="flex flex-col gap-0.5">
                             <p
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Trần', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-[#7F1CCD] text-lg">
+                            <p class="font-bold text-[#7F1CCD] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->ceiling) {
                                     echo number_format(($response_value->d[0]->ceiling) / 1000, 2, '.', '');
@@ -2832,7 +2884,7 @@ function filter_details_symbol()
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Cao nhất', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-black text-lg">
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->high) {
                                     echo number_format(($response_value->d[0]->high) / 1000, 2, '.', '');
@@ -2849,7 +2901,7 @@ function filter_details_symbol()
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Tham chiếu', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-[#FFB81C] text-lg">
+                            <p class="font-bold text-[#FFB81C] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->reference) {
                                     echo number_format(($response_value->d[0]->reference) / 1000, 2, '.', '');
@@ -2864,7 +2916,7 @@ function filter_details_symbol()
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Thấp nhất', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-black text-lg">
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->low) {
                                     echo number_format(($response_value->d[0]->low) / 1000, 2, '.', '');
@@ -2881,7 +2933,7 @@ function filter_details_symbol()
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Sàn', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-[#1ABAFE] text-lg">
+                            <p class="font-bold text-[#1ABAFE] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->floor) {
                                     echo number_format(($response_value->d[0]->floor) / 1000, 2, '.', '');
@@ -2896,7 +2948,7 @@ function filter_details_symbol()
                                 class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                                 <?php _e('Trung bình', 'bsc') ?>
                             </p>
-                            <p class="font-bold text-black text-lg">
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' text-lg':'' ?>">
                                 <?php
                                 if ($response_value->d[0]->averagePrice) {
                                     echo number_format(($response_value->d[0]->averagePrice) / 1000, 2, '.', '');
@@ -2923,9 +2975,9 @@ function filter_details_symbol()
         if ($response_securityBasicInfo) {
         ?>
             <div
-                class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-6 lg:py-6 py-5 h-full font-Helvetica">
+                class="bg-[#E8F5FF] rounded-xl  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-8 px-6 lg:py-6 py-5':'p-4' ?> h-full font-Helvetica">
                 <div
-                    class="lg:flex lg:items-center lg:justify-between mb-6 pb-6 border-b border-[#C9CCD2]">
+                    class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center justify-between mb-6 pb-6':'mb-3 pb-3' ?> border-b border-[#C9CCD2]">
                     <p class="text-paragraph text-opacity-70 text-xs">
                         <?php _e('Ngành', 'bsc') ?>
                     </p>
@@ -2933,29 +2985,29 @@ function filter_details_symbol()
                         <?php echo $response_securityBasicInfo->data[0]->Industry ?>
                     </p>
                 </div>
-                <div class="flex gap-[12px] items-center mb-4">
+                <div class="flex gap-[12px] items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'mb-3' ?>">
                     <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                         <?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
                     </p>
-                    <p class="font-medium text-lg">
+                    <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
                         <?php echo $response_securityBasicInfo->data[0]->VolPerAVG10d ?>
                     </p>
                 </div>
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':'gap-3' ?>">
 
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                             <?php _e('P/E', 'bsc') ?>
                         </p>
-                        <p class="font-medium text-lg">
+                        <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
                             <?php echo $response_securityBasicInfo->data[0]->PE ?>
                         </p>
                     </div>
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                             <?php _e('Vốn hóa (tỷ đồng)', 'bsc') ?>
                         </p>
-                        <p class="font-medium text-lg">
+                        <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
                             <?php
                             if ($response_securityBasicInfo->data[0]->MarketCapital) {
                                 echo number_format($response_securityBasicInfo->data[0]->MarketCapital);
@@ -2963,10 +3015,10 @@ function filter_details_symbol()
                             ?>
                         </p>
                     </div>
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
 
                     </div>
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                             <?php _e('P/B', 'bsc') ?>
                         </p>
@@ -2974,7 +3026,7 @@ function filter_details_symbol()
                             <?php echo $response_securityBasicInfo->data[0]->PB ?>
                         </p>
                     </div>
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                             <?php _e('ROE', 'bsc') ?>
                         </p>
@@ -2982,7 +3034,7 @@ function filter_details_symbol()
                             <?php echo $response_securityBasicInfo->data[0]->ROE ?>
                         </p>
                     </div>
-                    <div class="space-y-2">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
                             <?php _e('ROE', 'bsc') ?>
                         </p>
@@ -3032,7 +3084,7 @@ function filter_details_symbol()
                     <?php } ?>
                 </div>
 
-                <div class="space-y-4">
+                <div class="mt-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4':'space-y-5' ?>">
                     <?php if ($response_GetRecommendedInstrument->d[0]->author) { ?>
                         <div class="flex items-center justify-between text-xs">
                             <p class="text-xs">
@@ -3476,7 +3528,7 @@ function filter_details_symbol()
                 <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                     id="<?php echo $tab ?>-<?php echo $i ?>">
                     <div
-                        class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' relative 2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
+                        class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
                             <ul
                                 class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
@@ -3695,7 +3747,7 @@ function filter_details_symbol()
                 <div
                     class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
                     <div
-                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[30px] pb-[13px] min-h-[58px] mb-1.5' : 'py-1.5 px-5' ?>">
+                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[60px]' : '' ?>">
                             <p>
                                 <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
@@ -3706,7 +3758,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('GDP (YoY%)', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
                             </p>
                         </div>
@@ -3715,7 +3767,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
                             </p>
                         </div>
@@ -3724,7 +3776,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
                             </p>
                         </div>
@@ -3733,7 +3785,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
                             </p>
                         </div>
@@ -3742,7 +3794,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
                             <?php _e('LSĐH (YoY%)*', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?>">
                             <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
                             </p>
                         </div>
@@ -3751,7 +3803,7 @@ function filter_details_symbol()
                         <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-bold">
                             <?php _e('USD/VND LNH trung bình', 'bsc') ?>
                         </div>
-                        <div class="flex-1 text-center font-semibold">
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'text-right px-5' ?> font-semibold">
                             <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
                             </p>
                         </div>
@@ -3761,7 +3813,7 @@ function filter_details_symbol()
                     <div class="grid grid-cols-2 text-center">
                         <div class="text-[#FF0017]">
                             <div
-                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
                                 <p class="font-semibold mb-1">
                                     <?php _e('BSC kịch bản 1', 'bsc') ?>
                                 </p>
@@ -3776,7 +3828,7 @@ function filter_details_symbol()
                             for ($i = 0; $i < 5; $i++) {
                             ?>
                                 <div
-                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
                                     </p>
                                     <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
@@ -3786,7 +3838,7 @@ function filter_details_symbol()
                             }
                             ?>
                             <div
-                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
                                 </p>
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
@@ -3795,7 +3847,7 @@ function filter_details_symbol()
                         </div>
                         <div class="text-[#30D158]">
                             <div
-                                class="pt-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?> min-h-[58px] mb-1.5 bg-[#EBF4FA]">
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
                                 <p class="font-semibold mb-1">
                                     <?php _e('BSC kịch bản 2', 'bsc') ?>
                                 </p>
@@ -3810,7 +3862,7 @@ function filter_details_symbol()
                             for ($i = 0; $i < 5; $i++) {
                             ?>
                                 <div
-                                    class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
                                     </p>
                                     <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
@@ -3820,7 +3872,7 @@ function filter_details_symbol()
                             }
                             ?>
                             <div
-                                class="grid grid-cols-2 gap-2 text-center items-center py-0.5 min-h-[30px] font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
                                 </p>
                                 <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?>

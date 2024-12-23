@@ -28,7 +28,7 @@
 			</div>
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 				<?php if (get_sub_field('title_phan_tich')) { ?>
-					<h2 class="heading-title heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-14' : 'mb-6' ?>">
+					<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-14' : 'mb-6' ?>">
 						<?php the_sub_field('title_phan_tich') ?>
 					</h2>
 				<?php } ?>
