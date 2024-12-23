@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
+	<!-- <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="flex justify-between gap-10">
 				<li class="flex-1">
@@ -44,56 +44,58 @@ get_header();
 
 			</ul>
 		</div>
-	</section>
-	<section class="mt-[54px] mb-[100px]">
+	</section> -->
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-[54px] mb-[100px]':'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<h2 class="font-bold 2xl:text-[32px] text-2xl">
+			<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl':'text-[22px]' ?>">
 				Danh mục
 			</h2>
-			<ul class="flex items-center flex-wrap mt-6 mb-10 gap-6">
-				<li>
+			<ul class="flex items-center flex-wrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6 mb-10 gap-6':'mt-4 mb-6 gap-2' ?>">
+				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="active inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+						class="active lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?>">
 						BSC 10
 					</a>
 				</li>
-				<li>
+				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 						BSC 30
 					</a>
 				</li>
-				<li>
+				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="inline-block lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg font-bold [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 						BSC 50
 					</a>
 				</li>
 			</ul>
-			<h2 class="font-bold 2xl:text-[32px] text-2xl">
+			<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl':'text-[22px]' ?>">
 				Hiệu suất danh mục
 			</h2>
-			<div class="mt-12 rounded-2xl py-6 px-7 shadow-base performance-chart">
+			<div class="rounded-2xl shadow-base performance-chart  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-6 px-7 mt-12':'px-5 py-4 mt-4 -mx-5' ?>">
 				<div id="date-performance-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 					datepicker-autohide datepicker-orientation="bottom left"
-					class="flex items-center text-xs gap-4">
-					<p class="font-semibold mr-6">
-						<?php _e( 'Thời gian:', 'gnws' ) ?>
-					</p>
+					class="flex items-center text-xs gap-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mb-6' ?>">
+					<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+						<p class="font-semibold mr-6">
+							<?php _e( 'Thời gian:', 'gnws' ) ?>
+						</p>
+					<?php } ?>
 					<div
-						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-12 px-4 py-[12px]">
+						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-12':'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-start" name="start" type="text"
-							class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
+							class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
 							placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
-						<?php echo svg( 'date-blue' ) ?>
+						<?php echo svgClass( 'date-blue','','','shrink-0' ) ?>
 					</div>
 
 					<div
-						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] h-12 px-4 py-[12px]">
+						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px] px-4 py-[12px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-12':'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-end" name="end" type="text"
-							class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black"
+							class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
 							placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
-						<?php echo svg( 'date-blue' ) ?>
+							<?php echo svgClass( 'date-blue','','','shrink-0' ) ?>
 					</div>
 				</div>
 				<div id="performance-chart">
@@ -103,18 +105,18 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
 		<div class="container">
-			<h2 class="font-bold 2xl:text-[32px] text-2xl mb-6">
+			<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl':'text-[22px]' ?> mb-6">
 				Chi tiết danh mục
 			</h2>
-			<div class="lg:flex xl:gap-14 gap-10">
-				<div class="relative lg:w-[887px] max-w-[66%]">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex xl:gap-14 gap-10':'space-y-8' ?>">
+				<div class="relative rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[887px] max-w-[66%]':'' ?>">
 					<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 					<div
-						class="rounded-[10px] overflow-x-auto scroll-bar-custom text-center border border-[#EAEEF4]">
+						class=" overflow-x-auto scroll-bar-custom scroll-bar-x text-center border border-[#EAEEF4]">
 						<div
-							class="flex text-white bg-primary-300 font-semibold items-center min-h-[58px] leading-[1.125] gap-4">
+							class="flex text-white bg-primary-300 font-semibold items-center leading-[1.125] gap-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[58px]':'w-max min-h-[46px]' ?>">
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
 								Mã
 							</div>
@@ -139,40 +141,40 @@ get_header();
 
 						</div>
 						<div
-							class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+							class=" prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[600px]':'' ?>">
 							<?php
 							for ( $i = 0; $i < 9; $i++ )
 							{
 								?>
 								<div
-									class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
+									class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'gap-4' ?>">
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+										class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
 										CTG
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
 										<span
 											class="px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold rounded-full min-w-[78px] min-h-[28px] inline-flex items-center justify-center">Mua</span>
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
 										35.05
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
 										43.65
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
 										+24.45%
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
 										HOSE
 									</div>
 									<div
-										class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
 										345.6
 									</div>
 								</div>
@@ -195,7 +197,7 @@ get_header();
 						</p>
 					</div> -->
 				</div>
-				<div class="flex-1 font-Helvetica">
+				<div class="flex-1 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 					<ul class="space-y-6">
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
@@ -290,12 +292,12 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
 		<div class="container">
-			<h2 class="font-bold 2xl:text-[32px] text-2xl">
+			<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl':'text-[22px]' ?>">
 				Báo cáo danh mục
 			</h2>
-			<div class="mt-6 grid lg:grid-cols-3 gap-6">
+			<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-6 mt-6':'gap-4 mt-4' ?>">
 				<?php
 				for ( $i = 0; $i < 3; $i++ )
 				{

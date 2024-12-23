@@ -147,7 +147,7 @@ get_header();
 							<div
 								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 								<div
-									class="flex justify-end items-center font-semibold bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] min-h-[58px] mb-1.5' : 'py-1.5 px-5' ?>">
+									class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
 									<div
 										class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[60px]' : '' ?>">
 										<p>
@@ -227,7 +227,7 @@ get_header();
 								<div class="grid grid-cols-2 text-center">
 									<div class="text-[#FF0017]">
 										<div
-											class="pt-[12px] min-h-[58px] mb-1.5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?>">
+											class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
 											<p class="font-semibold mb-1">
 												BSC kịch bản 1
 											</p>
@@ -241,7 +241,7 @@ get_header();
 										{
 											?>
 											<div
-												class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-1' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+												class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
@@ -249,14 +249,14 @@ get_header();
 										}
 										?>
 										<div
-											class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-1' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
+											class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
 											<p>22,842</p>
 											<p>23,839</p>
 										</div>
 									</div>
 									<div class="text-[#30D158]">
 										<div
-											class="pt-[12px] min-h-[58px] mb-1.5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px]' : 'pb-3' ?>">
+											class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
 											<p class="font-semibold mb-1">
 												BSC kịch bản 2
 											</p>
@@ -270,7 +270,7 @@ get_header();
 										{
 											?>
 											<div
-												class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-1' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+												class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
@@ -278,7 +278,7 @@ get_header();
 										}
 										?>
 										<div
-											class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-1' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
+											class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
 											<p>22,842</p>
 											<p>23,839</p>
 										</div>

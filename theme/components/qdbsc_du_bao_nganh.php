@@ -2,22 +2,22 @@
 $check_logout = bsc_is_user_logged_out();
 $class = $check_logout['class'];
 ?>
-<section class="xl:my-[100px] my-20 qdbsc_du_bao_nganh" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> qdbsc_du_bao_nganh" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <?php if (get_sub_field('link')) { ?>
-                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold mb-6 text-2xl">
+                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 text-2xl':'mb-4 text-[22px]' ?>">
                     <?php the_sub_field('title') ?>
                 </a>
             <?php } else { ?>
-                <h3 class="font-bold mb-6 text-2xl">
+                <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 text-2xl':'mb-4 text-[22px]' ?>">
                     <?php the_sub_field('title') ?>
                 </h3>
             <?php } ?>
         <?php } ?>
-        <div class="relative">
+        <div class="relative rounded-[10px] overflow-hidden">
             <div
-                class="rounded-[10px] overflow-hidden mt-6 text-center border border-[#EAEEF4] <?php echo $class ?>">
+                class="text-center border border-[#EAEEF4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?> <?php echo $class ?>">
                 <?php
                 if (!$check_logout) {
                     $array_data_nganh = array();
@@ -25,19 +25,19 @@ $class = $check_logout['class'];
                     if ($response_nganh) {
                 ?>
                         <div
-                            class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125]">
-                            <div class="w-1/3 py-2 px-3">
+                            class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.5] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max whitespace-nowrap' ?>">
+                            <div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'min-w-[163px]' ?>">
                                 <?php _e('Ngành', 'bsc') ?>
                             </div>
-                            <div class="w-1/3 py-2 px-3">
+                            <div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'min-w-[163px]' ?>">
                                 <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE1 ?>/<?php echo $response_nganh->d[0]->forecastyeaR1 ?>
                             </div>
-                            <div class="w-1/3 py-2 px-3">
+                            <div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'min-w-[163px]' ?>">
                                 <?php _e('Quan điểm', 'bsc') ?> <?php echo $response_nganh->d[0]->colnamE2 ?>/<?php echo $response_nganh->d[0]->forecastyeaR2 ?>
                             </div>
                         </div>
                         <div
-                            class="scroll-bar-custom overflow-y-auto max-h-[340px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                            class="prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[340px]':'w-max' ?>">
                             <?php
                             $i = 0;
                             foreach ($response_nganh->d as $nganh) {
@@ -74,15 +74,15 @@ $class = $check_logout['class'];
                                 <div
                                     class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
                                     <div
-                                        class="w-1/3 min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
                                         <?php echo $nganh->name  ?>
                                     </div>
                                     <div
-                                        class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
                                         <?php echo $title_qd1 ?>
                                     </div>
                                     <div
-                                        class="w-1/3 min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
                                         <?php echo $title_qd2 ?>
                                     </div>
                                 </div>

@@ -8,17 +8,17 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<h2 class="font-bold lg:text-[32px] text-2xl mb-2">
+			<h2 class="font-bold mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:text-[32px] text-2xl':'md:text-xl text-lg' ?>">
 				CÔNG TY CỔ PHẦN CHỨNG KHOÁN BIDV
 			</h2>
-			<p class="font-bold text-lg text-opacity-50 text-black">BIDV Securities Joint Stock
+			<p class="font-bold text-opacity-50 text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">BIDV Securities Joint Stock
 				Company</p>
-			<div class="mt-10 lg:flex lg:gap-5">
-				<div class="lg:w-[547px] max-w-[41%]">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 flex gap-5':'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[547px] max-w-[41%]':'w-full block_slider-item' ?>">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
+						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-6':'' ?>">
 						<div class="flex gap-6 items-center">
 							<div
 								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
@@ -116,7 +116,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="lg:w-[433px] max-w-[33%]">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[433px] max-w-[33%]':'w-full block_slider-item' ?>">
 					<div
 						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
 						<div class="flex items-end justify-between">
@@ -176,7 +176,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="flex-1">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'w-full block_slider-item' ?>">
 					<div
 						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 						<h3 class="font-bold mb-6">

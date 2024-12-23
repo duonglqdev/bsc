@@ -33,7 +33,7 @@
     }
 ?>
     <div
-        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8" data-newstype="<?php echo $newstype ?>" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
+        class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-8':'' ?>" data-newstype="<?php echo $newstype ?>" data-modal-target="document-modal" data-modal-toggle="document-modal" data-doccument="<?php echo $news->attachedfileurl ?>" data-id="<?php echo $news->newsid ?>">
         <div class="flex items-center">
             <div
                 class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -52,9 +52,9 @@
                 </p>
             </div>
 
-            <div class="md:ml-[30px] ml-5">
+            <div class="md:ml-[30px] ml-4">
                 <p
-                    class="main_title block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
+                    class="main_title font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
@@ -64,7 +64,7 @@
                 <?php } ?>
             </div>
         </div>
-        <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+        <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
             <p
                 class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
                 <?php _e('Xem nội dung', 'bsc') ?>
