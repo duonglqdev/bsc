@@ -1,16 +1,18 @@
-<section class="my-[68px] dmkn_chart_bsc_display_pagination" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'my-[68px]':'mt-8 mb-[50px]' ?> dmkn_chart_bsc_display_pagination" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="lg:flex gap-[70px]">
-            <div class="lg:w-80 lg:max-w-[35%] shrink-0">
-                <?php $hinh_anh_sidebar = get_sub_field('hinh_anh_sidebar');
-                if ($hinh_anh_sidebar) { ?>
-                    <div class="sticky top-5 z-10">
-                        <a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
-                            <?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
-                        </a>
-                    </div>
-                <?php } ?>
-            </div>
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[70px]':'' ?>">
+            <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                <div class="lg:w-80 lg:max-w-[35%] shrink-0">
+                    <?php $hinh_anh_sidebar = get_sub_field('hinh_anh_sidebar');
+                    if ($hinh_anh_sidebar) { ?>
+                        <div class="sticky top-5 z-10">
+                            <a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
+                                <?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
             <?php
             $cdtnvcd2_id_danh_mục = get_sub_field('id_api');
             if ($cdtnvcd2_id_danh_mục) {
@@ -46,7 +48,7 @@
                     }
                     $total_page = ceil($total_post / $post_per_page);
             ?>
-                    <div class="flex-1 space-y-11">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 space-y-11':'space-y-6' ?>">
                         <?php
                         foreach ($response->d as $news) {
                             get_template_part('template-parts/content-tin-ma-co-phan', null, array(
