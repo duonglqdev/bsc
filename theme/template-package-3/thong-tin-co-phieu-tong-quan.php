@@ -15,55 +15,80 @@ get_header();
 			</h2>
 			<p class="font-bold text-opacity-50 text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">BIDV Securities Joint Stock
 				Company</p>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 flex gap-5':'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[547px] max-w-[41%]':'w-full block_slider-item' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 flex gap-5':'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[547px] max-w-[41%]':'w-full block_slider-item sameheight_item' ?>">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-6':'' ?>">
-						<div class="flex gap-6 items-center">
-							<div
-								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-								<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
-							</div>
-							<div class="flex flex-col">
-								<h4
-									class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
-									BSI
-								</h4>
-								<p class="uppercase text-lg text-paragraph">
-									HOSE
-								</p>
-
-							</div>
-						</div>
-						<div class="flex items-center gap-7">
-							<div class="lg:w-[172px] lg:max-w-[37%]">
-								<div class="flex-col gap-2">
-									<div class="flex gap-[14px] data_number">
-										<div class="lg:text-[40px] text-4xl font-bold">
-											43.30
-										</div>
-										<div class="flex flex-col text-[#FE5353]">
-											<p>
-												-0.20%
-											</p>
-											<p>
-												-0.46%
-											</p>
-										</div>
-									</div>
-									<p class="time-update mt-1">
-										Cập nhật lúc 14:45 UTC_7
+						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-6':'p-6' ?>">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex items-center justify-between' ?>">
+							<div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-6':'gap-4' ?>">
+								<div
+									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[90px] [90px] p-5':'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
+									<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
+								</div>
+								<div class="flex flex-col">
+									<h4
+										class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+										BSI
+									</h4>
+									<p class="uppercase text-paragraph <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
+										HOSE
 									</p>
-
+	
 								</div>
 							</div>
-							<div class="flex-1 grid grid-cols-3 gap-5 font-Helvetica">
+							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+									<div class="flex-col gap-2">
+										<div class="flex gap-[12px] data_number">
+											<div class="text-2xl font-bold text-[#FE5353]">
+												43.30
+											</div>
+											<div class="flex flex-col text-[#FE5353] text-xs">
+												<p>
+													-0.20%
+												</p>
+												<p>
+													-0.46%
+												</p>
+											</div>
+										</div>
+										<p class="time-update mt-1 sm:text-xs text-xxs">
+											Cập nhật lúc 14:45 UTC_7
+										</p>
+	
+									</div>
+							<?php } ?>
+						</div>
+						<div class="flex items-center gap-7">
+							<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+								<div class="lg:w-[172px] lg:max-w-[37%]">
+									<div class="flex-col gap-2">
+										<div class="flex gap-[14px] data_number">
+											<div class="lg:text-[40px] text-4xl font-bold">
+												43.30
+											</div>
+											<div class="flex flex-col text-[#FE5353]">
+												<p>
+													-0.20%
+												</p>
+												<p>
+													-0.46%
+												</p>
+											</div>
+										</div>
+										<p class="time-update mt-1">
+											Cập nhật lúc 14:45 UTC_7
+										</p>
+	
+									</div>
+								</div>
+							<?php } ?>
+							<div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-5':'gap-6' ?>">
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 text-xs">
 											Trần
 										</p>
-										<p class="font-bold text-[#1CCD83] text-lg">
+										<p class="font-bold text-[#7F1CCD]">
 											49.95
 										</p>
 									</div>
@@ -71,7 +96,7 @@ get_header();
 										<p class="text-paragraph text-opacity-70 text-xs">
 											Cao nhất
 										</p>
-										<p class="font-bold text-black text-lg">
+										<p class="font-bold text-black">
 											47.70
 										</p>
 									</div>
@@ -81,7 +106,7 @@ get_header();
 										<p class="text-paragraph text-opacity-70 text-xs">
 											Tham chiếu
 										</p>
-										<p class="font-bold text-[#FFB81C] text-lg">
+										<p class="font-bold text-[#FFB81C]">
 											49.95
 										</p>
 									</div>
@@ -89,7 +114,7 @@ get_header();
 										<p class="text-paragraph text-opacity-70 text-xs">
 											Thấp nhất
 										</p>
-										<p class="font-bold text-black text-lg">
+										<p class="font-bold text-black">
 											46.65
 										</p>
 									</div>
@@ -99,7 +124,7 @@ get_header();
 										<p class="text-paragraph text-opacity-70 text-xs">
 											Sàn
 										</p>
-										<p class="font-bold text-[#FE5353] text-lg">
+										<p class="font-bold text-[#1ABAFE]">
 											43.45
 										</p>
 									</div>
@@ -116,73 +141,88 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[433px] max-w-[33%]':'w-full block_slider-item' ?>">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full flex flex-col justify-between gap-5 font-Helvetica">
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Tham chiếu
-								</p>
-								<p class="font-medium text-lg">
-									133,883,457
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									Vốn hóa
-								</p>
-								<p class="font-medium text-lg">
-									1,600
-								</p>
-							</div>
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[433px] max-w-[33%]':'w-full block_slider-item sameheight_item' ?>">
+				<div
+						class="bg-[#E8F5FF] rounded-xl h-full font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-8 px-6 lg:py-6 py-5':'p-4' ?>">
+						<div
+							class="border-b border-[#C9CCD2] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center justify-between mb-6 pb-6':'mb-3 pb-3' ?>">
+							<p class="text-paragraph text-opacity-70 text-xs">
+								<?php _e( 'Ngành', 'bsc' ) ?>
+							</p>
+							<p class="font-bold 2xl:text-lg uppercase">
+								HÀNG CÔNG NGHIỆP & XUẤT KHẨU
+							</p>
 						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									KLGD trung bình
-									10 ngày
+						<div class="flex gap-[12px] items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'mb-3' ?>">
+							<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+								<?php _e( 'KLGD trung bình 10 ngày', 'bsc' ) ?>
+							</p>
+							<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
+								6,800
+							</p>
+						</div>
+						<div class="grid grid-cols-3  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':'gap-3' ?>">
+
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'P/E', 'bsc' ) ?>
 								</p>
-								<p class="font-medium text-lg">
-									6,800
-								</p>
-							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/E
-								</p>
-								<p class="font-medium text-lg">
+								<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
 									23.73
 								</p>
 							</div>
-						</div>
-						<div class="flex items-end justify-between">
-							<div class="lg:w-[120px] space-y-2">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									P/B
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'Vốn hóa (tỷ đồng)', 'bsc' ) ?>
 								</p>
-								<p class="font-medium text-lg">
+								<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
+									1,600
+								</p>
+							</div>
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								
+							</div>
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'P/B', 'bsc' ) ?>
+								</p>
+								<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
 									24,191
 								</p>
 							</div>
-							<div class="lg:w-[120px]">
-								<p class="text-paragraph text-opacity-70 text-xs">
-									ROE
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'ROE', 'bsc' ) ?>
 								</p>
-								<p class="font-medium text-lg">
+								<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
+									2.12
+								</p>
+							</div>
+							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-2':'space-y-1' ?>">
+								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+									<?php _e( 'ROE', 'bsc' ) ?>
+								</p>
+								<p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'' ?>">
 									2.12
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'w-full block_slider-item' ?>">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
-						<h3 class="font-bold mb-6">
-							KHUYẾN NGHỊ
-						</h3>
-						<div class="space-y-4 mb-6">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'w-full block_slider-item sameheight_item' ?>">
+				<div
+						class="bg-[#E8F5FF] rounded-xl lg:px-8 px-5 lg:py-6 py-5 font-Helvetica flex flex-col h-full">
+						<div class="flex items-center justify-between mb-6">
+							<h3 class="font-bold">
+								KHUYẾN NGHỊ
+							</h3>
+							<p
+								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
+								<?php echo svg( 'gold', '24', '24' ) ?>
+								Hạng A
+							</p>
+						</div>
+						<div class="mt-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4':'space-y-5' ?>">
 							<div class="flex items-center justify-between text-xs">
 								<p class="text-xs">
 									Analyst:
@@ -218,22 +258,16 @@ get_header();
 								</p>
 							</div>
 						</div>
-						<div class="mt-auto">
-							<p
-								class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50">
-								<?php echo svg( 'gold', '24', '24' ) ?>
-								Hạng A
-							</p>
-						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-16 mb-[50px]' ?>">
 		<div class="container">
 			<ul
-				class="flex lg:gap-[100px] gap-10 items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white">
+				class="flex items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white whitespace-nowrap overflow-x-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:gap-[100px] gap-10':'gap-8' ?>">
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-1"
@@ -259,18 +293,18 @@ get_header();
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-4"
 						class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php echo svg( 'star', '24', '24' ) ?>
+						<?php echo svgClass( 'star', '', '','w-6 h-6 shrink-0' ) ?>
 						BSC DỰ PHÓNG
 					</button>
 				</li>
 			</ul>
 			<div class="tab-content block" id="tab-1">
-				<div class="lg:flex mt-10 lg:gap-[69px]">
-					<div class="lg:w-[744px] lg:max-w-[56%]">
-						<h2 class="heading-title mb-10">
+				<div class="mt-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[69px]':'' ?>">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[744px] max-w-[56%]':'w-full' ?>">
+						<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-4' ?>">
 							BIỂU ĐỒ GIÁ
 						</h2>
-						<div class="rounded-2xl lg:py-8 lg:px-6 p-5 bg-[#F5FCFF]">
+						<div class="rounded-2xl bg-[#F5FCFF] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:py-8 lg:px-6 p-5':'p-4 -mx-5' ?>">
 							<ul
 								class="flex items-center justify-between font-Helvetica font-medium mb-6 px-4">
 								<li>
@@ -315,8 +349,8 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="flex-1">
-						<h2 class="heading-title mb-10">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'mt-[50px]' ?>">
+						<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 							LỊCH SỬ GIAO DỊCH
 						</h2>
 						<ul
@@ -336,112 +370,65 @@ get_header();
 						</ul>
 						<div
 							class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center">
-							<div class="flex bg-primary-300 text-white">
-								<div class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left">
-									Nhóm
+							<div class="overflow-x-auto scroll-bar-custom scroll-bar-x">
+								<div class="flex bg-primary-300 text-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:w-full w-max' ?>">
+									<div class="min-w-[90px] pl-4 pr-3 py-2 text-left sm:max-w-[19%]">
+										Nhóm
+									</div>
+									<div class="min-w-[152px] px-3 py-2 sm:max-w-[30%]">
+										Thay đổi giá
+									</div>
+									<div class="min-w-[136px] sm:max-w-[27%] px-3 py-2">
+										KL khớp lệnh
+									</div>
+									<div class="px-3 py-2 sm:flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[136px]' ?>">
+										Tổng GTGD
+									</div>
 								</div>
-								<div class="w-[152px] max-w-[30%] px-3 py-2">
-									Thay đổi giá
-								</div>
-								<div class="w-[136px] max-w-[27%] px-3 py-2">
-									KL khớp lệnh
-								</div>
-								<div class="flex-1 px-3 py-2">
-									Tổng GTGD
-								</div>
-							</div>
-							<ul>
-								<?php
-								for ( $i = 0; $i < 3; $i++ )
-								{
-									?>
-									<li
-										class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-										<div
-											class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-											16/09
-										</div>
-										<div
-											class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-											<p>
-												46.7
-											</p>
-											<p
-												class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-												<?php echo svg( 'up', '17', '17' ) ?>
-												+0.98%
-											</p>
-										</div>
-										<div
-											class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-											331,200
-										</div>
-										<div
-											class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-											15,608,000
-										</div>
-									</li>
-									<li
-										class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-										<div
-											class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-											16/09
-										</div>
-										<div
-											class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-											<p>
-												46.7
-											</p>
-											<p
-												class="flex items-center gap-1 text-[#FE5353] font-Helvetica">
-												<?php echo svg( 'downn', '17', '17' ) ?>
-												+0.98%
-											</p>
-										</div>
-										<div
-											class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-											331,200
-										</div>
-										<div
-											class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-											15,608,000
-										</div>
-									</li>
+								<ul>
 									<?php
-								}
-								?>
-								<li
-									class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA]">
-									<div
-										class="w-[90px] max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-										16/09
-									</div>
-									<div
-										class="w-[152px] max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-										<p>
-											46.7
-										</p>
-										<p
-											class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
-											<?php echo svg( 'up', '17', '17' ) ?>
-											+0.98%
-										</p>
-									</div>
-									<div
-										class="w-[136px] max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
-										331,200
-									</div>
-									<div
-										class="flex-1 px-3 py-2 min-h-10 flex items-center justify-center">
-										15,608,000
-									</div>
-								</li>
-							</ul>
+									for ( $i = 0; $i < 7; $i++ )
+									{
+										?>
+										<li
+											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:w-full w-max' ?>">
+											<div
+												class="min-w-[90px] sm:max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
+												16/09
+											</div>
+											<div
+												class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+												<p>
+													46.7
+												</p>
+												<p
+													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
+													<?php echo svg( 'up', '17', '17' ) ?>
+													+0.98%
+												</p>
+											</div>
+											<div
+												class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												331,200
+											</div>
+											<div
+												class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[136px]' ?>">
+												15,608,000
+											</div>
+										</li>
+									
+										<?php
+									}
+									?>
+									
+								</ul>
+
+							</div>
 
 						</div>
-						<div class="flex items-center justify-between mt-4">
+						<div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-[12px]' ?>">
 							<a href=""
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-xs' ?>">
 								<?php echo svg( 'arrow-btn', '20', '20' ) ?>
 								Xem tất cả
 							</a>
@@ -451,10 +438,10 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="xl:my-[100px] my-20">
-					<div class="lg:flex gap-5">
-						<div class="w-[386px] max-w-[29%]">
-							<h2 class="heading-title mb-10">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-5':'' ?>">
+						<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[386px] max-w-[29%]':'w-full' ?>">
+							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' mb-10':'mb-6' ?>">
 								BÁO CÁO PHÂN TÍCH
 							</h2>
 							<div class="space-y-4">
@@ -502,13 +489,13 @@ get_header();
 								?>
 							</div>
 						</div>
-						<div class="w-[414px] max-w-[31%]">
-							<h2 class="heading-title mb-10">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[414px] max-w-[31%]':'mt-[50px]' ?>">
+							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 								CƠ CẤU CỔ ĐÔNG
 							</h2>
 							<div class="space-y-4">
-								<div class="rounded-xl bg-gradient-blue-50 px-6 py-8">
-									<h4 class="text-center mb-4 text-xl font-bold font-Helvetica">
+								<div class="rounded-xl bg-gradient-blue-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-8':'p-4' ?>">
+									<h4 class="text-center mb-4 font-bold font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl':'text-lg' ?>">
 										Tỷ lệ cơ cấu cổ đông
 									</h4>
 									<div class="relative text-center">
@@ -535,7 +522,7 @@ get_header();
 										</svg>
 
 									</div>
-									<div class="mt-5 mx-auto max-w-[215px] space-y-2">
+									<div class="mt-5 mx-auto max-w-[215px] space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 										<div
 											class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
 											<p>
@@ -569,7 +556,7 @@ get_header();
 									</script>
 								</div>
 								<div
-									class="rounded-xl p-6 bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full">
+									class="rounded-xl bg-gradient-blue-50 lg:min-h-[234px] lg:flex lg:flex-col lg:justify-center w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-6':'p-4' ?>">
 									<ul class="font-Helvetica space-y-4">
 										<li class="flex items-center justify-between">
 											<p>
@@ -607,14 +594,14 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="flex-1">
-							<h2 class="heading-title mb-10">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'mt-[50px]' ?>">
+							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-4' ?>">
 								CƠ CẤU CỔ ĐÔNG
 							</h2>
 							<div
 								class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative">
 								<table
-									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0">
+									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:px-3 prose-th:py-4 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:py-4 prose-td:px-3 prose-thead:sticky prose-thead:top-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 									<thead>
 										<tr>
 											<th class="!pl-5 cursor-pointer">Mã CK
@@ -673,11 +660,11 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="xl:my-[100px] my-20">
-					<h2 class="heading-title mb-10">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
+					<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 						TIN TỨC VỀ MÃ CỔ PHIẾU
 					</h2>
-					<div class="grid grid-cols-2 gap-x-9 gap-y-[46px]">
+					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-x-9 gap-y-[46px]':'gap-4' ?>">
 						<?php
 						for ( $i = 0; $i < 6; $i++ )
 						{
@@ -698,20 +685,22 @@ get_header();
 											</p>
 										</div>
 									</div>
-									<div class="md:ml-[30px] ml-5">
+									<div class="md:ml-[30px] ml-4">
 										<a href=""
-											class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-green">
+											class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg line-clamp-2':'line-clamp-3' ?>">
 											Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
 											trả lãi, gốc trái phiếu mã BSI32301
 										</a>
-										<div
-											class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
-											BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
-											trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
-											thế Top 10 công ty chứng khoán có thị phần môi giới cổ
-											phiếu, chứng chỉ quỹ và chứng quyền có đảm bảo lớn nhất
-											tại HoSE
-										</div>
+										<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+											<div
+												class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+												BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
+												trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
+												thế Top 10 công ty chứng khoán có thị phần môi giới cổ
+												phiếu, chứng chỉ quỹ và chứng quyền có đảm bảo lớn nhất
+												tại HoSE
+											</div>
+										<?php } ?>
 									</div>
 								</div>
 
