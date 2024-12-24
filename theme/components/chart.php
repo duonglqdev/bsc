@@ -158,7 +158,7 @@
 								</p>
 							<?php } ?>
 							<?php
-							$categoryid_kn = get_field('cddmkn1_id_danh_mục', 'option');
+							$categoryid_kn = get_field('cddmkn1_id_danh_muc', 'option');
 							if ($categoryid_kn) {
 								$array_data = array(
 									'lang' => pll_current_language(),

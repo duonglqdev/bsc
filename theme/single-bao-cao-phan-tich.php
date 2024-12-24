@@ -4,7 +4,7 @@ if ($args['data']) {
     $get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
     $time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
     $link = 'javascript:void(0)';
-    $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_mục', 'option');
+    $danh_muc_khuyen_nghi = get_field('cddmkn1_id_danh_muc', 'option');
     $id_current_post = $news->id;
     $banner = wp_get_attachment_image_url(
         wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
@@ -77,15 +77,15 @@ get_header();
         'title' => $tax_name,
         'breadcrumb' => $breadcrumb,
     )) ?>
-    <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-14 xl:mb-[100px] mb-20':'mt-8 mb-[50px]' ?>">
+    <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-14 xl:mb-[100px] mb-20' : 'mt-8 mb-[50px]' ?>">
         <div class="container">
-            <h1 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[32px] text-2xl mb-8':'text-xl mb-6' ?>">
+            <h1 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:text-[32px] text-2xl mb-8' : 'text-xl mb-6' ?>">
                 <?php echo $title ?>
             </h1>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex 2xl:gap-[70px] gap-10':'' ?>">
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-80 lg:max-w-[35%] shrink-0':'' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex 2xl:gap-[70px] gap-10' : '' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-80 lg:max-w-[35%] shrink-0' : '' ?>">
                     <div class="content-bao-cao-phan-tich rounded-lg px-4 py-6 bg-white shadow-base">
-                        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4' ?>">
+                        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
                             <a href="<?php echo $link ?>"
                                 class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
                                 <?php echo htmlspecialchars($news->categoryname) ?>
@@ -103,7 +103,7 @@ get_header();
                                 </span>
                             <?php } ?>
                         </div>
-                        <ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-3':'space-y-2' ?> text-xs font-Helvetica">
+                        <ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-3' : 'space-y-2' ?> text-xs font-Helvetica">
                             <?php $date = new DateTime($news->datetimepublished); ?>
                             <li class="flex items-center justify-between">
                                 <p>
@@ -145,7 +145,7 @@ get_header();
                         if ($tags) {
                             $tags = explode(", ", $tags);
                         ?>
-                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-[12px]' ?> space-x-2 space-y-2">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-4' : 'mt-[12px]' ?> space-x-2 space-y-2">
                                 <?php foreach ($tags as $tag) { ?>
                                     <a href="<?php echo get_home_url() ?>/tag-report/<?php echo $tag ?>"
                                         class="inline-block rounded-full transition-all duration-500 hover:bg-[#f1c2c6] text-[#FF0017] bg-[#FFD9DC] text-[12px] px-2 py-0.5">
@@ -168,7 +168,7 @@ get_header();
                                 }
                             }
                         ?>
-                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
                                 <a <?php if ($count_download) { ?>
                                     data-id="<?php echo $news->id; ?>"
                                     <?php
@@ -181,14 +181,14 @@ get_header();
                         <?php } ?>
                     </div>
                 </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1 space-y-8':'mt-6' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 space-y-8' : 'mt-6' ?>">
                     <?php if ($news->description) { ?>
                         <div class="detail">
-                            <h2 class="font-bold mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
+                            <h2 class="font-bold mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
                                 <?php _e('Báo cáo chi tiết', 'bsc') ?>
                             </h2>
                             <div
-                                class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+                                class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
                                 <?php echo $news->description ?>
                             </div>
                         </div>
@@ -207,12 +207,12 @@ get_header();
         $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
         if ($response) {
     ?>
-            <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>">
+            <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
                 <div class="container">
-                    <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center text-[32px] md:text-2xl mb-8':' text-xl mb-6' ?>">
+                    <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center text-[32px] md:text-2xl mb-8' : ' text-xl mb-6' ?>">
                         <?php echo __('Các', 'bsc') . ' ' . $title_lienquan . ' ' .  __('liên quan', 'bsc') ?>
                     </h3>
-                    <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-3 md:grid-cols-2 gap-6':' md:grid-cols-2 grid-cols-1 gap-4' ?>">
+                    <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-3 md:grid-cols-2 gap-6' : ' md:grid-cols-2 grid-cols-1 gap-4' ?>">
                         <?php
                         $check_p = 0;
                         foreach ($response->d as $news) {

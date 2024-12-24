@@ -711,25 +711,46 @@ function filter_details_symbol()
     } elseif ($type_form == 'sg_bcpt') {
     ?>
         <?php
-        $categoryid_kn = get_field('cddmkn1_id_danh_mục', 'option');
+        $categoryid_kn = get_field('cddmkn1_id_danh_muc', 'option');
+        $categoryid_bcn = get_field('cdttcp1_api_id_bao_cao_nganh', 'option');
         if ($categoryid_kn) {
+            $currentDate = new DateTime();
+            $fromDate = clone $currentDate;
+            $fromDate->modify('-1 year');
+            $fromdate = $fromDate->format('d/m/Y');
+            $todate = $currentDate->format('d/m/Y');
             $array_data = array(
                 'lang' => pll_current_language(),
                 'categoryid' => $categoryid_kn,
                 'maxitem' => 3,
-                'symbol' =>  $symbol
+                'symbol' =>  $symbol,
+                'fromdate' => $fromdate,
+                'todate' => $todate
             );
             $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
         ?>
             <?php
             if ($response) {
+                $total_post = $response->totalrecord;
+                if ($total_post == 0) {
+                    $array_data = array(
+                        'lang' => pll_current_language(),
+                        'categoryid' => $categoryid_bcn,
+                        'maxitem' => 3,
+                        'fromdate' => $fromdate,
+                        'todate' => $todate
+                    );
+                    $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+                }
             ?>
                 <?php
-                foreach ($response->d as $news) {
-                    get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
-                        'data' => $news,
-                        'get_array_id_taxonomy' => $get_array_id_taxonomy,
-                    ));
+                if ($response) {
+                    foreach ($response->d as $news) {
+                        get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+                            'data' => $news,
+                            'get_array_id_taxonomy' => $get_array_id_taxonomy,
+                        ));
+                    }
                 }
                 ?>
         <?php };
@@ -2606,7 +2627,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu (%YoY)', 'bsc') ?></td>
+                                            <td class="font-bold italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -2634,7 +2655,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ (%YoY)', 'bsc') ?></td>
+                                            <td class="font-bold italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -2662,7 +2683,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS (%YoY)', 'bsc') ?></td>
+                                            <td class="font-bold italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -2733,6 +2754,20 @@ function filter_details_symbol()
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
                                             <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->HS_CO_PHIEU) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Giá trị sổ sách (VND)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>

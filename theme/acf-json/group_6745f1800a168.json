@@ -216,6 +216,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_676adcdb94cd9",
+            "label": "ID báo cáo ngành",
+            "name": "cdttcp1_api_id_bao_cao_nganh",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Sẽ hiển thị \"báo cáo ngành\" trong trường hợp không có data từ báo cáo phân tích",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "maxlength": "",
+            "placeholder": 3,
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6745f18088f14",
             "label": "Time Cache",
             "name": "cdttcp1_time_cache",
@@ -356,5 +376,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734080861
+    "modified": 1735057113
 }

@@ -17018,7 +17018,7 @@
                         {
                             "key": "field_6749993d72131",
                             "label": "Tiêu đề cân đối kế toán",
-                            "name": "title",
+                            "name": "title_1",
                             "aria-label": "",
                             "type": "textarea",
                             "instructions": "",
@@ -17040,7 +17040,7 @@
                             "label": "Tiêu đề kết quả hoạt động kinh doanh",
                             "name": "title_2",
                             "aria-label": "",
-                            "type": "text",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -17051,16 +17051,16 @@
                             },
                             "default_value": "",
                             "maxlength": "",
+                            "rows": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "new_lines": ""
                         },
                         {
                             "key": "field_67692f1e2dbf7",
                             "label": "Tiêu đề lưu chuyển tiền tệ gián tiếp",
                             "name": "title_3",
                             "aria-label": "",
-                            "type": "text",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -17071,9 +17071,9 @@
                             },
                             "default_value": "",
                             "maxlength": "",
+                            "rows": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "new_lines": ""
                         },
                         {
                             "key": "field_67692f352dbf8",
@@ -17155,5 +17155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734946627
+    "modified": 1735056378
 }
