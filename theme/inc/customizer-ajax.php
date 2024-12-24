@@ -990,22 +990,22 @@ function filter_details_symbol()
     } elseif ($type_form == 'details_symbol_tab-2') {
     ?>
         <div class="list__content">
-            <div class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-[30px]' : 'mt-[38px] mb-6' ?>">
-                <ul class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
+            <div class="flex items-center justify-between mt-16 mb-[30px]">
+                <ul class="flex items-center gap-5 customtab-nav">
                     <li>
                         <button data-tabs="#tab-2-Q"
-                            class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Quý', 'bsc') ?>
                         </button>
                     </li>
                     <li>
                         <button data-tabs="#tab-2-Y"
-                            class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Năm', 'bsc') ?>
                         </button>
                     </li>
                 </ul>
-                <?php if (get_field('cdc7_page_bao_cao_tai_chinh', 'option') && !wp_is_mobile() && !bsc_is_mobile()) { ?>
+                <?php if (get_field('cdc7_page_bao_cao_tai_chinh', 'option')) { ?>
                     <a href="<?php the_field('cdc7_page_bao_cao_tai_chinh', 'option') ?>?mck=<?php echo $symbol ?>"
                         class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
                         <?php _e('Xem chi tiết', 'bsc') ?>
@@ -1032,7 +1032,7 @@ function filter_details_symbol()
                         if ($response_GetSummaryFinanceReportBySymbol) {
                             $industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
                         ?>
-                            <ul class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] flex-wrap mr-6 mb-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+                            <ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
                                 <?php
                                 // Lấy dữ liệu từ đối tượng phản hồi
                                 $yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
@@ -1158,17 +1158,16 @@ function filter_details_symbol()
                                                         <?php
                                                         } ?>
                                                     </tr>
-                                                <?php
+                                            <?php
                                                 }
-                                                ?>
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                                <div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
+                                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
                                     <table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
-                                    prose-td:p-4 font-medium">
+								prose-td:p-4 font-medium">
                                         <thead>
                                             <tr>
                                                 <th colspan="<?php echo $total_colspan ?>"><?php _e('Cân đối kế toán', 'bsc') ?></th>
@@ -1176,1382 +1175,1362 @@ function filter_details_symbol()
                                         </thead>
                                         <tbody>
                                             <?php
-                                                $check_ts = 0;
-                                                foreach ($response_GetSummaryFinanceReportBySymbol->d1 as $data_ts) {
-                                                    $check_ts++;
-                                                    if ($check_ts > 3) {
-                                                        if ($industryname == 'Security') {
-                                                            $data_ts_title = array(
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                __('Tổng tài sản', 'bsc'),
-                                                                __('Tài sản ngắn hạn', 'bsc'),
-                                                                __('Nợ ngắn hạn', 'bsc'),
-                                                                __('Tổng nợ', 'bsc'),
-                                                                __('Vốn chủ sở hữu', 'bsc')
-                                                            );
-                                                        } elseif ($industryname == 'Bank') {
-                                                            $data_ts_title = array(
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                __('Tổng tài sản', 'bsc'),
-                                                                __('Cho vay khách hàng', 'bsc'),
-                                                                __('Tiền gửi khách hàng', 'bsc'),
-                                                                __('Tổng nợ', 'bsc'),
-                                                                __('Vốn chủ sở hữu', 'bsc')
-                                                            );
-                                                        } elseif ($industryname == 'Insurance') {
-                                                            $data_ts_title = array(
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                __('Tổng tài sản', 'bsc'),
-                                                                __('Tài sản ngắn hạn', 'bsc'),
-                                                                __('Nợ ngắn hạn', 'bsc'),
-                                                                __('Tổng nợ', 'bsc'),
-                                                                __('Vốn chủ sở hữu', 'bsc')
-                                                            );
-                                                        } else {
-                                                            $data_ts_title = array(
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                '',
-                                                                __('Tổng tài sản', 'bsc'),
-                                                                __('Tài sản ngắn hạn', 'bsc'),
-                                                                __('Nợ ngắn hạn', 'bsc'),
-                                                                __('Tổng nợ', 'bsc'),
-                                                                __('Vốn chủ sở hữu', 'bsc')
-                                                            );
-                                                        }
+                                            $check_ts = 0;
+                                            foreach ($response_GetSummaryFinanceReportBySymbol->d1 as $data_ts) {
+                                                $check_ts++;
+                                                if ($check_ts > 3) {
+                                                    if ($industryname == 'Security') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Bank') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Cho vay khách hàng', 'bsc'),
+                                                            __('Tiền gửi khách hàng', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } elseif ($industryname == 'Insurance') {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    } else {
+                                                        $data_ts_title = array(
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            '',
+                                                            __('Tổng tài sản', 'bsc'),
+                                                            __('Tài sản ngắn hạn', 'bsc'),
+                                                            __('Nợ ngắn hạn', 'bsc'),
+                                                            __('Tổng nợ', 'bsc'),
+                                                            __('Vốn chủ sở hữu', 'bsc')
+                                                        );
+                                                    }
                                             ?>
                                                     <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
                                                         <td class="lg:min-w-[231px]"><?php echo $data_ts_title[$check_ts] ?></td>
                                                         <?php
+                                                        $data_tsArray = (array) $data_ts;
+                                                        // Loại bỏ phần tử đầu tiên (TITLE)
+                                                        $data_tsValues = array_slice($data_tsArray, 1, null, true);
+                                                        // Đảo ngược thứ tự của mảng
+                                                        $data_tsValues = array_reverse($data_tsValues, true);
                                                         $check_dat_ts = 0;
-                                                        foreach ($data_ts as $key => $dat_ts) {
-                                                            $check_dat_ts++;
-                                                            if ($check_dat_ts > 1) { ?>
-                                                                <td><?php
-                                                                    if (is_numeric($dat_ts)) {
-                                                                        echo number_format($dat_ts, 2, '.', ',');
-                                                                    }
-                                                                    ?></td>
-                                                        <?php }
+                                                        foreach ($data_tsValues as $key => $dat_ts) {
+                                                            $check_dat_ts++; ?>
+                                                            <td><?php
+                                                                if (is_numeric($dat_ts)) {
+                                                                    echo number_format($dat_ts, 2, '.', ',');
+                                                                }
+                                                                ?></td>
+                                                        <?php
                                                         } ?>
                                                     </tr>
-                                                <?php
-                                                    }
-                                                ?>
-                                                <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-                                                    <td class="lg:min-w-[231px]"><?php echo $data_ts_title[$check_ts] ?></td>
-                                                    <?php
-                                                    $data_tsArray = (array) $data_ts;
-                                                    // Loại bỏ phần tử đầu tiên (TITLE)
-                                                    $data_tsValues = array_slice($data_tsArray, 1, null, true);
-                                                    // Đảo ngược thứ tự của mảng
-                                                    $data_tsValues = array_reverse($data_tsValues, true);
-                                                    $check_dat_ts = 0;
-                                                    foreach ($data_tsValues as $key => $dat_ts) {
-                                                        $check_dat_ts++; ?>
-                                                        <td><?php
-                                                            if (is_numeric($dat_ts)) {
-                                                                echo number_format($dat_ts, 2, '.', ',');
-                                                            }
-                                                            ?></td>
-                                                    <?php
-                                                    } ?>
-                                                </tr>
                                             <?php
                                                 }
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
-
                                 </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
+    <?php
+    } elseif ($type_form == 'details_symbol_tab-3') {
+    ?>
+        <div class="list__content">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
+                <ul class="flex items-center sm:gap-5 gap-2 customtab-nav">
+                    <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+                        <button data-tabs="#tab-3-Q"
+                            class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            <?php _e('Quý', 'bsc') ?>
+                        </button>
+                    </li>
+                    <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+                        <button data-tabs="#tab-3-Y"
+                            class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            <?php _e('Năm', 'bsc') ?>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <?php
+            $freq_cttc = array('Q', 'Y');
+            if ($freq_cttc) {
+                $i = 0;
+                foreach ($freq_cttc as $freq) {
+                    $i++;
+            ?>
+                    <div class="tab-content <?php if ($i == 1) echo 'block';
+                                            else echo 'hidden' ?>" id="tab-3-<?php echo $freq ?>">
+                        <?php
+                        $array_data_GetFinanceDetail = array(
+                            'lang' => pll_current_language(),
+                            'symbol' => $symbol,
+                            'freq' => $freq,
+                        );
+                        $response_GetFinanceDetail = get_data_with_cache('GetFinanceDetail', $array_data_GetFinanceDetail, $time_cache);
+                        if ($response_GetFinanceDetail) {
+                            $industryData = $response_GetFinanceDetail->d->Industry[0];
+                            $businessData = $response_GetFinanceDetail->d->Bussiness[0];
+                            $check_linh_vuc = $response_GetFinanceDetail->d->Rank[0][0]->INDUSTRY_NAME;
+                        ?>
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:space-y-[100px] space-y-14' : 'space-y-14' ?>">
+                                <article>
+                                    <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
+                                        <h2 class="heading-title">
+                                            <?php _e('LỢI NHUẬN', 'bsc') ?>
+                                        </h2>
+                                        <?php ?>
+                                        <?php
+                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN) {
+                                            if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'A') {
+                                                $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                                                $medal_rank = 'gold';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'B') {
+                                                $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                                                $medal_rank = 'sliver';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'C') {
+                                                $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                                                $medal_rank = 'bronze';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'D') {
+                                                $medal_rank = 'sliver-2';
+                                                $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                                            }
+                                        ?>
+                                            <p
+                                                class="inline-flex items-center px-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                                                <?php echo svgClass($medal_rank, '', '', 'sm:w-6 sm:h-6 w-5 h-5') ?>
+                                                <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN ?>
+                                            </p>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
+                                        <div class="overflow-x-auto whitespace-nowrap">
+                                            <table
+                                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e('Mã CK', 'bsc') ?></th>
+                                                        <th><?php
+                                                            if ($check_linh_vuc == 'Bank') {
+                                                                _e('NIM', 'bsc');
+                                                            } else {
+                                                                _e('Biên LNG', 'bsc');
+                                                            }
+                                                            ?></th>
+                                                        <th><?php _e('Biên LNTT', 'bsc') ?></th>
+                                                        <th><?php _e('Biên LNST', 'bsc') ?></th>
+                                                        <th><?php _e('ROE', 'bsc') ?></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                                        <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP), 2, '.', ''); ?>%</td>
+                                                        <td><?php
+                                                            if ($check_linh_vuc == 'Bank') {
+                                                                echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NIM), 2, '.', '') . '%';
+                                                            } else {
+                                                                echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_TRUOC_THUE), 2, '.', '') . '%';
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE), 2, '.', ''); ?>%</td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE), 2, '.', ''); ?>%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div class="grid font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php
+                                                if ($check_linh_vuc == 'Bank') {
+                                                    _e('NIM (%)', 'bsc');
+                                                } else {
+                                                    _e('BIÊN LỢI NHUẬN GỘP (%)', 'bsc');
+                                                }
+                                                ?>
+                                            </h4>
+                                            <?php
+                                            if ($check_linh_vuc == 'Bank') {
+                                                $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->NIM,
+                                                    ];
+                                                }, $businessData);
+                                            } else {
+                                                $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP,
+                                                    ];
+                                                }, $businessData);
+                                            }
+                                            $industry_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->BIEN_LOI_NHUAN_GOP,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                data-title-1="<?php _e('Nim', 'bsc') ?>"
+                                                data-title-2="<?php _e('Nim TB ngành', 'bsc') ?>"
+                                                <?php } else { ?>
+                                                data-title-1="<?php _e('Biên LNG', 'bsc') ?>"
+                                                data-title-2="<?php _e('Biên LNG TB ngành', 'bsc') ?>"
+                                                <?php } ?>
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>"
+                                                data-color-1="#235BA8"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php _e('BIÊN LỢI NHUẬN SAU THUẾ (%)', 'bsc') ?>
+                                            </h4>
+                                            <?php
+                                            $business_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
+                                                ];
+                                            }, $businessData);
+
+                                            $industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
+                                                data-title-1="<?php _e('Biên LNST', 'bsc') ?>"
+                                                data-color-1="#235BA8"
+                                                data-title-2="<?php _e('Biên BLST TB ngành', 'bsc') ?>"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php _e('ROE (%)', 'bsc') ?>
+                                            </h4>
+                                            <?php
+                                            $business_data_ROE = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->ROE,
+                                                ];
+                                            }, $businessData);
+
+                                            $industry_data_ROE = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->ROE,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_ROE)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>"
+                                                data-title-1="<?php _e('ROE', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-title-2="<?php _e('ROE TB ngành', 'bsc') ?>"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
+                                        <h2 class="heading-title">
+                                            <?php _e('SỨC KHỎE', 'bsc') ?>
+                                        </h2>
+                                        <?php
+                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE) {
+                                            if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'A') {
+                                                $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                                                $medal_rank = 'gold';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'B') {
+                                                $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                                                $medal_rank = 'sliver';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'C') {
+                                                $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                                                $medal_rank = 'bronze';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'D') {
+                                                $medal_rank = 'sliver-2';
+                                                $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                                            }
+                                        ?>
+                                            <p
+                                                class="inline-flex items-center px-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                                                <?php echo svgClass($medal_rank, '', '', 'sm:w-6 sm:h-6 w-5 h-5') ?>
+                                                <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE ?>
+                                            </p>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
+                                        <div class="overflow-x-auto whitespace-nowrap">
+                                            <table
+                                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e('Mã CK', 'bsc') ?></th>
+                                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                            <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
+                                                            <th><?php _e('NPL', 'bsc') ?></th>
+                                                            <th><?php _e('LLR', 'bsc') ?></th>
+                                                        <?php } else {
+                                                        ?>
+                                                            <th><?php _e('CSTT hiện tại', 'bsc') ?></th>
+                                                            <th><?php _e('CSTT nhanh', 'bsc') ?></th>
+                                                            <th><?php _e('CSTT lãi vay', 'bsc') ?></th>
+                                                            <?php if ($check_linh_vuc == 'Company') { ?>
+                                                                <th><?php _e('Nợ vay TTS', 'bsc') ?></th>
+                                                            <?php } else { ?>
+                                                                <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
+                                                            <?php } ?>
+                                                        <?php
+                                                        } ?>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                                        <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_NO_XAU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DU_PHONG_NO_XAU), 2, '.', ''); ?></td>
+                                                        <?php } else {
+                                                        ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_HIEN_THOI), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_THANH_TOAN_LAI_VAY), 2, '.', ''); ?></td>
+                                                            <?php if ($check_linh_vuc == 'Company') { ?>
+                                                                <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NO_VAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                            <?php } else { ?>
+                                                                <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                    <div class="grid font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
+                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ NỢ XẤU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_NO_XAU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_NO_XAU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_NO_XAU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_NO_XAU)) ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ nợ  xấu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ nợ  xấu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#009e87">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ DỰ PHÒNG NỢ XẤU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DU_PHONG_NO_XAU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DU_PHONG_NO_XAU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
+                                                    data-title-1="<?php _e('TLDP nợ xấu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLDP nợ xấu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DON_BAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DON_BAY,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-type="bar"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('BIÊN LỢI NHUẬN GỘP BẢO HIỂM') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
+                                                    data-title-1="<?php _e('BLN gộp bảo hiểm', 'bsc') ?>"
+                                                    data-title-2="<?php _e('BLN gộp bảo hiểm TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } else {
+                                        ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
+                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('NỢ VAY/Tổng tài sản', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_NO_VAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->NO_VAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-type="bar"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_NO_VAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Nợ vay/Tổng  tài sản', 'bsc') ?>"
+                                                    data-color-1="#235BA8">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#235BA8"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php
+                                        } ?>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="flex items-center gap-6 mb-[30px]">
+                                        <h2 class="heading-title">
+                                            <?php _e('TĂNG TRƯỞNG', 'bsc') ?>
+                                        </h2>
+                                        <?php
+                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG) {
+                                            if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'A') {
+                                                $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                                                $medal_rank = 'gold';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'B') {
+                                                $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                                                $medal_rank = 'sliver';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'C') {
+                                                $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                                                $medal_rank = 'bronze';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'D') {
+                                                $medal_rank = 'sliver-2';
+                                                $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                                            }
+                                        ?>
+                                            <p
+                                                class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                                                <?php echo svg($medal_rank, '24', '24') ?>
+                                                <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG ?>
+                                            </p>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="rounded-lg overflow-hidden mb-10">
+                                        <table
+                                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+                                            <thead>
+                                                <tr>
+                                                    <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <th><?php _e('TT cho vay', 'bsc') ?></th>
+                                                        <th><?php _e('TT tiền gửi', 'bsc') ?></th>
+                                                    <?php } else { ?>
+                                                        <th><?php _e('TT Doanh thu', 'bsc') ?></th>
+                                                        <th><?php _e('TT TNHĐ', 'bsc') ?></th>
+                                                    <?php } ?>
+                                                    <th><?php _e('TT LNST', 'bsc') ?></th>
+                                                    <th><?php _e('TT EPS', 'bsc') ?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                                    <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_CHO_VAY), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_TIEN_GUI), 2, '.', ''); ?></td>
+                                                    <?php } else {
+                                                    ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_DOANH_THU), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TT_TNHĐ), 2, '.', ''); ?></td>
+                                                    <?php
+                                                    } ?>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_LOI_NHUAN), 2, '.', ''); ?></td>
+                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_EPS), 2, '.', ''); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php if ($check_linh_vuc == 'Bank') {
+                                                    $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                            'value' => $item->TANG_TRUONG_CHO_VAY,
+                                                        ];
+                                                    }, $businessData);
+                                                    $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                            'value' => $item->TANG_TRUONG_CHO_VAY,
+                                                        ];
+                                                    }, $industryData);
+                                                ?>
+                                                    <?php _e('TĂNG TRƯỞNG CHO VAY (%)', 'bsc') ?>
+
+                                                <?php } else {
+                                                    $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                            'value' => $item->TANG_TRUONG_DOANH_THU,
+                                                        ];
+                                                    }, $businessData);
+                                                    $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
+                                                        return [
+                                                            'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                            'value' => $item->TANG_TRUONG_DOANH_THU,
+                                                        ];
+                                                    }, $industryData);
+                                                ?>
+                                                    <?php _e('TĂNG TRƯỞNG DOANH THU (%)', 'bsc') ?>
+                                                <?php } ?>
+                                            </h4>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_CHO_VAY)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_CHO_VAY)) ?>"
+                                                <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                data-title-1="<?php _e('TTCV', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTCV TB ngành', 'bsc') ?>"
+                                                <?php } else { ?>
+                                                data-title-1="<?php _e('TTDTT', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTDTT TB ngành', 'bsc') ?>"
+                                                <?php } ?>
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php _e('TĂNG TRƯỞNG EPS (%)', 'bsc') ?>
+                                            </h4>
+                                            <?php
+                                            $business_data_TANG_TRUONG_EPS = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->TANG_TRUONG_EPS,
+                                                ];
+                                            }, $businessData);
+                                            $industry_data_TANG_TRUONG_EPS = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->TANG_TRUONG_EPS,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_EPS)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_EPS)) ?>"
+                                                data-title-1="<?php _e('TT EPS', 'bsc') ?>"
+                                                data-title-2="<?php _e('TT EPS TB ngành', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                            <h4
+                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                <?php _e('TĂNG TRƯỞNG LỢI NHUẬN (%)', 'bsc') ?>
+                                            </h4>
+                                            <?php
+                                            $business_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
+                                                return [
+                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                    'value' => $item->TANG_TRUONG_LOI_NHUAN,
+                                                ];
+                                            }, $businessData);
+                                            $industry_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
+                                                return [
+                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                    'value' => $item->TANG_TRUONG_LOI_NHUAN,
+                                                ];
+                                            }, $industryData);
+                                            ?>
+                                            <div class="legend-gap bsc_chart-display"
+                                                data-load="false"
+                                                data-end="%"
+                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_LOI_NHUAN)) ?>"
+                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_LOI_NHUAN)) ?>"
+                                                data-title-1="<?php _e('TT Lợi nhuận', 'bsc') ?>"
+                                                data-title-2="<?php _e('TT Lợi nhuận TB ngành', 'bsc') ?>"
+                                                data-color-1="#009e87"
+                                                data-color-2="#FFB81C">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <article>
+                                    <div class="flex items-center gap-6 mb-[30px]">
+                                        <h2 class="heading-title">
+                                            <?php _e('HIỆU QUẢ HOẠT ĐỘNG', 'bsc') ?>
+                                        </h2>
+                                        <?php
+                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG) {
+                                            if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'A') {
+                                                $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                                                $medal_rank = 'gold';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'B') {
+                                                $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                                                $medal_rank = 'sliver';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'C') {
+                                                $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                                                $medal_rank = 'bronze';
+                                            } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'D') {
+                                                $medal_rank = 'sliver-2';
+                                                $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                                            }
+                                        ?>
+                                            <p
+                                                class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                                                <?php echo svg($medal_rank, '24', '24') ?>
+                                                <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG ?>
+                                            </p>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="rounded-lg overflow-hidden mb-10">
+                                        <table
+                                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+                                            <thead>
+                                                <tr>
+                                                    <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <th><?php _e('Tỉ lệ CIR', 'bsc') ?></th>
+                                                        <th><?php _e('NII/TOI', 'bsc') ?></th>
+                                                        <th><?php _e('Tỉ lệ CASA', 'bsc') ?></th>
+                                                    <?php } else { ?>
+                                                        <?php if ($check_linh_vuc == 'Securities') { ?>
+                                                            <th><?php _e('Tỉ trọng DT môi giới', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
+                                                            <th><?php _e('CP Bảo hiểm/DT', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php } else {
+                                                        ?>
+                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('VQ HTK', 'bsc') ?></th>
+                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                        <?php
+                                                        } ?>
+                                                    <?php } ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                                    <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
+                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_TREN_DOANH_THU), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->THU_NHAP_TU_LAI_VAY), 2, '.', ''); ?></td>
+                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CASA), 2, '.', ''); ?></td>
+                                                    <?php } else { ?>
+                                                        <?php if ($check_linh_vuc == 'Securities') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php } else {
+                                                        ?>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO), 2, '.', ''); ?></td>
+                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
+                                                        <?php
+                                                        } ?>
+                                                    <?php } ?>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+                                        <?php if ($check_linh_vuc == 'Bank') { ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ CHI PHÍ TRÊN DOANH THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ chi phí', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ chi phí TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->THU_NHAP_TU_LAI_VAY,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->THU_NHAP_TU_LAI_VAY,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_THU_NHAP_TU_LAI_VAY)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_THU_NHAP_TU_LAI_VAY)) ?>"
+                                                    data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TN từ Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('CASA', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_CASA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->CASA,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_CASA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->CASA,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_CASA)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CASA)) ?>"
+                                                    data-title-1="<?php _e('CASA', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CASA TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỶ LỆ DOANH THU MÔI GIỚI TRÊN DOANH THU THUẦN', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-title-1="<?php _e('TLDTMGTD', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLDTMGTD TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU 4 QUÝ', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
+                                                    data-title-1="<?php _e('TLCP BH trên DT', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLCP BH trên DT TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_TONG_TAI_SAN,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php } else {
+                                        ?>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay khoản phải trả', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải trả TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                                                <h4
+                                                    class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+                                                    <?php _e('VÒNG QUAY HÀNG TỒN KHO (LẦN)', 'bsc') ?>
+                                                </h4>
+                                                <?php
+                                                $business_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
+                                                    return [
+                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
+                                                        'value' => $item->VONG_QUAY_HANG_TON_KHO,
+                                                    ];
+                                                }, $businessData);
+                                                $industry_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
+                                                    return [
+                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
+                                                        'value' => $item->VONG_QUAY_HANG_TON_KHO,
+                                                    ];
+                                                }, $industryData);
+                                                ?>
+                                                <div class="legend-gap bsc_chart-display"
+                                                    data-load="false"
+                                                    data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_HANG_TON_KHO)) ?>"
+                                                    data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_HANG_TON_KHO)) ?>"
+                                                    data-title-1="<?php _e('Vòng quay hàng tồn kho', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay hàng tồn kho TB ngành', 'bsc') ?>"
+                                                    data-color-1="#009e87"
+                                                    data-color-2="#FFB81C">
+                                                </div>
+                                            </div>
+                                        <?php
+                                        } ?>
+                                    </div>
+                                </article>
                             </div>
                         <?php } ?>
                     </div>
-                <?php
-                        }
-                ?>
+            <?php }
+            } ?>
         </div>
-<?php
-                }
-            }
-?>
-</div>
-<?php
-    } elseif ($type_form == 'details_symbol_tab-3') {
-?>
-    <div class="list__content">
-        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
-            <ul class="flex items-center sm:gap-5 gap-2 customtab-nav">
-                <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-                    <button data-tabs="#tab-3-Q"
-                        class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                        <?php _e('Quý', 'bsc') ?>
-                    </button>
-                </li>
-                <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-                    <button data-tabs="#tab-3-Y"
-                        class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                        <?php _e('Năm', 'bsc') ?>
-                    </button>
-                </li>
-            </ul>
-        </div>
-        <?php
-        $freq_cttc = array('Q', 'Y');
-        if ($freq_cttc) {
-            $i = 0;
-            foreach ($freq_cttc as $freq) {
-                $i++;
-        ?>
-                <div class="tab-content <?php if ($i == 1) echo 'block';
-                                        else echo 'hidden' ?>" id="tab-3-<?php echo $freq ?>">
-                    <?php
-                    $array_data_GetFinanceDetail = array(
-                        'lang' => pll_current_language(),
-                        'symbol' => $symbol,
-                        'freq' => $freq,
-                    );
-                    $response_GetFinanceDetail = get_data_with_cache('GetFinanceDetail', $array_data_GetFinanceDetail, $time_cache);
-                    if ($response_GetFinanceDetail) {
-                        $industryData = $response_GetFinanceDetail->d->Industry[0];
-                        $businessData = $response_GetFinanceDetail->d->Bussiness[0];
-                        $check_linh_vuc = $response_GetFinanceDetail->d->Rank[0][0]->INDUSTRY_NAME;
-                    ?>
-                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:space-y-[100px] space-y-14' : 'space-y-14' ?>">
-                            <article>
-                                <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
-                                    <h2 class="heading-title">
-                                        <?php _e('LỢI NHUẬN', 'bsc') ?>
-                                    </h2>
-                                    <?php ?>
-                                    <?php
-                                    if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN) {
-                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'A') {
-                                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
-                                            $medal_rank = 'gold';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'B') {
-                                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
-                                            $medal_rank = 'sliver';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'C') {
-                                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
-                                            $medal_rank = 'bronze';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN == 'D') {
-                                            $medal_rank = 'sliver-2';
-                                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
-                                        }
-                                    ?>
-                                        <p
-                                            class="inline-flex items-center px-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
-                                            <?php echo svgClass($medal_rank, '', '', 'sm:w-6 sm:h-6 w-5 h-5') ?>
-                                            <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_LOI_NHUAN ?>
-                                        </p>
-                                    <?php } ?>
-                                </div>
-                                <div class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
-                                    <div class="overflow-x-auto whitespace-nowrap">
-                                        <table
-                                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-                                            <thead>
-                                                <tr>
-                                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e('Mã CK', 'bsc') ?></th>
-                                                    <th><?php
-                                                        if ($check_linh_vuc == 'Bank') {
-                                                            _e('NIM', 'bsc');
-                                                        } else {
-                                                            _e('Biên LNG', 'bsc');
-                                                        }
-                                                        ?></th>
-                                                    <th><?php _e('Biên LNTT', 'bsc') ?></th>
-                                                    <th><?php _e('Biên LNST', 'bsc') ?></th>
-                                                    <th><?php _e('ROE', 'bsc') ?></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                                    <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP), 2, '.', ''); ?>%</td>
-                                                    <td><?php
-                                                        if ($check_linh_vuc == 'Bank') {
-                                                            echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NIM), 2, '.', '') . '%';
-                                                        } else {
-                                                            echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_TRUOC_THUE), 2, '.', '') . '%';
-                                                        }
-                                                        ?>
-                                                    </td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE), 2, '.', ''); ?>%</td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->ROE), 2, '.', ''); ?>%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                                <div class="grid font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php
-                                            if ($check_linh_vuc == 'Bank') {
-                                                _e('NIM (%)', 'bsc');
-                                            } else {
-                                                _e('BIÊN LỢI NHUẬN GỘP (%)', 'bsc');
-                                            }
-                                            ?>
-                                        </h4>
-                                        <?php
-                                        if ($check_linh_vuc == 'Bank') {
-                                            $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->NIM,
-                                                ];
-                                            }, $businessData);
-                                        } else {
-                                            $business_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->BIEN_LOI_NHUAN_GOP,
-                                                ];
-                                            }, $businessData);
-                                        }
-                                        $industry_data_BIEN_LOI_NHUAN_GOP = array_map(function ($item) {
-                                            return [
-                                                'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                'value' => $item->BIEN_LOI_NHUAN_GOP,
-                                            ];
-                                        }, $industryData);
-                                        ?>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            <?php if ($check_linh_vuc == 'Bank') { ?>
-                                            data-title-1="<?php _e('Nim', 'bsc') ?>"
-                                            data-title-2="<?php _e('Nim TB ngành', 'bsc') ?>"
-                                            <?php } else { ?>
-                                            data-title-1="<?php _e('Biên LNG', 'bsc') ?>"
-                                            data-title-2="<?php _e('Biên LNG TB ngành', 'bsc') ?>"
-                                            <?php } ?>
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>"
-                                            data-color-1="#235BA8"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php _e('BIÊN LỢI NHUẬN SAU THUẾ (%)', 'bsc') ?>
-                                        </h4>
-                                        <?php
-                                        $business_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
-                                            return [
-                                                'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
-                                            ];
-                                        }, $businessData);
-
-                                        $industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map(function ($item) {
-                                            return [
-                                                'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
-                                            ];
-                                        }, $industryData);
-                                        ?>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
-                                            data-title-1="<?php _e('Biên LNST', 'bsc') ?>"
-                                            data-color-1="#235BA8"
-                                            data-title-2="<?php _e('Biên BLST TB ngành', 'bsc') ?>"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php _e('ROE (%)', 'bsc') ?>
-                                        </h4>
-                                        <?php
-                                        $business_data_ROE = array_map(function ($item) {
-                                            return [
-                                                'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                'value' => $item->ROE,
-                                            ];
-                                        }, $businessData);
-
-                                        $industry_data_ROE = array_map(function ($item) {
-                                            return [
-                                                'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                'value' => $item->ROE,
-                                            ];
-                                        }, $industryData);
-                                        ?>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_ROE)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>"
-                                            data-title-1="<?php _e('ROE', 'bsc') ?>"
-                                            data-color-1="#009e87"
-                                            data-title-2="<?php _e('ROE TB ngành', 'bsc') ?>"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
-                                    <h2 class="heading-title">
-                                        <?php _e('SỨC KHỎE', 'bsc') ?>
-                                    </h2>
-                                    <?php
-                                    if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE) {
-                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'A') {
-                                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
-                                            $medal_rank = 'gold';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'B') {
-                                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
-                                            $medal_rank = 'sliver';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'C') {
-                                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
-                                            $medal_rank = 'bronze';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE == 'D') {
-                                            $medal_rank = 'sliver-2';
-                                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
-                                        }
-                                    ?>
-                                        <p
-                                            class="inline-flex items-center px-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
-                                            <?php echo svgClass($medal_rank, '', '', 'sm:w-6 sm:h-6 w-5 h-5') ?>
-                                            <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_SUC_KHOE ?>
-                                        </p>
-                                    <?php } ?>
-                                </div>
-                                <div class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
-                                    <div class="overflow-x-auto whitespace-nowrap">
-                                        <table
-                                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-                                            <thead>
-                                                <tr>
-                                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e('Mã CK', 'bsc') ?></th>
-                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                        <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
-                                                        <th><?php _e('NPL', 'bsc') ?></th>
-                                                        <th><?php _e('LLR', 'bsc') ?></th>
-                                                    <?php } else {
-                                                    ?>
-                                                        <th><?php _e('CSTT hiện tại', 'bsc') ?></th>
-                                                        <th><?php _e('CSTT nhanh', 'bsc') ?></th>
-                                                        <th><?php _e('CSTT lãi vay', 'bsc') ?></th>
-                                                        <?php if ($check_linh_vuc == 'Company') { ?>
-                                                            <th><?php _e('Nợ vay TTS', 'bsc') ?></th>
-                                                        <?php } else { ?>
-                                                            <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
-                                                        <?php } ?>
-                                                    <?php
-                                                    } ?>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                                    <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                    <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_NO_XAU), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DU_PHONG_NO_XAU), 2, '.', ''); ?></td>
-                                                    <?php } else {
-                                                    ?>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_HIEN_THOI), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_THANH_TOAN_LAI_VAY), 2, '.', ''); ?></td>
-                                                        <?php if ($check_linh_vuc == 'Company') { ?>
-                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NO_VAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
-                                                        <?php } else { ?>
-                                                            <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY), 2, '.', ''); ?></td>
-                                                        <?php } ?>
-                                                    <?php } ?>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                                <div class="grid font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
-                                    <?php if ($check_linh_vuc == 'Bank') { ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ NỢ XẤU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_NO_XAU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_NO_XAU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_NO_XAU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_NO_XAU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_NO_XAU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_NO_XAU)) ?>"
-                                                data-title-1="<?php _e('Tỷ lệ nợ  xấu', 'bsc') ?>"
-                                                data-title-2="<?php _e('Tỷ lệ nợ  xấu TB ngành', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DON_BAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DON_BAY,
-                                                ];
-                                            }, $businessData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-type="bar"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
-                                                data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
-                                                data-color-1="#009e87">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ DỰ PHÒNG NỢ XẤU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DU_PHONG_NO_XAU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_DU_PHONG_NO_XAU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_DU_PHONG_NO_XAU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
-                                                data-title-1="<?php _e('TLDP nợ xấu', 'bsc') ?>"
-                                                data-title-2="<?php _e('TLDP nợ xấu TB ngành', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_NHANH,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DON_BAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DON_BAY,
-                                                ];
-                                            }, $businessData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-type="bar"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
-                                                data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
-                                                data-color-1="#235BA8">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_NHANH,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ ĐÒN BẨY', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DON_BAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DON_BAY,
-                                                ];
-                                            }, $businessData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-type="bar"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
-                                                data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
-                                                data-color-1="#235BA8">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('BIÊN LỢI NHUẬN GỘP BẢO HIỂM') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
-                                                data-title-1="<?php _e('BLN gộp bảo hiểm', 'bsc') ?>"
-                                                data-title-2="<?php _e('BLN gộp bảo hiểm TB ngành', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } else {
-                                    ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_NHANH,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('NỢ VAY/Tổng tài sản', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_NO_VAY_TONG_TAI_SAN = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->NO_VAY_TONG_TAI_SAN,
-                                                ];
-                                            }, $businessData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-type="bar"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_NO_VAY_TONG_TAI_SAN)) ?>"
-                                                data-title-1="<?php _e('Nợ vay/Tổng  tài sản', 'bsc') ?>"
-                                                data-color-1="#235BA8">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ THANH TOÁN LÃI VAY') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
-                                                data-color-1="#235BA8"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php
-                                    } ?>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="flex items-center gap-6 mb-[30px]">
-                                    <h2 class="heading-title">
-                                        <?php _e('TĂNG TRƯỞNG', 'bsc') ?>
-                                    </h2>
-                                    <?php
-                                    if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG) {
-                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'A') {
-                                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
-                                            $medal_rank = 'gold';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'B') {
-                                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
-                                            $medal_rank = 'sliver';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'C') {
-                                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
-                                            $medal_rank = 'bronze';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG == 'D') {
-                                            $medal_rank = 'sliver-2';
-                                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
-                                        }
-                                    ?>
-                                        <p
-                                            class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
-                                            <?php echo svg($medal_rank, '24', '24') ?>
-                                            <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG ?>
-                                        </p>
-                                    <?php } ?>
-                                </div>
-                                <div class="rounded-lg overflow-hidden mb-10">
-                                    <table
-                                        class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-                                        <thead>
-                                            <tr>
-                                                <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
-                                                <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                    <th><?php _e('TT cho vay', 'bsc') ?></th>
-                                                    <th><?php _e('TT tiền gửi', 'bsc') ?></th>
-                                                <?php } else { ?>
-                                                    <th><?php _e('TT Doanh thu', 'bsc') ?></th>
-                                                    <th><?php _e('TT TNHĐ', 'bsc') ?></th>
-                                                <?php } ?>
-                                                <th><?php _e('TT LNST', 'bsc') ?></th>
-                                                <th><?php _e('TT EPS', 'bsc') ?></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                                <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_CHO_VAY), 2, '.', ''); ?></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_TIEN_GUI), 2, '.', ''); ?></td>
-                                                <?php } else {
-                                                ?>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_DOANH_THU), 2, '.', ''); ?></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TT_TNHĐ), 2, '.', ''); ?></td>
-                                                <?php
-                                                } ?>
-                                                <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_LOI_NHUAN), 2, '.', ''); ?></td>
-                                                <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_EPS), 2, '.', ''); ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php if ($check_linh_vuc == 'Bank') {
-                                                $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
-                                                    return [
-                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                        'value' => $item->TANG_TRUONG_CHO_VAY,
-                                                    ];
-                                                }, $businessData);
-                                                $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
-                                                    return [
-                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                        'value' => $item->TANG_TRUONG_CHO_VAY,
-                                                    ];
-                                                }, $industryData);
-                                            ?>
-                                                <?php _e('TĂNG TRƯỞNG CHO VAY (%)', 'bsc') ?>
-
-                                            <?php } else {
-                                                $business_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
-                                                    return [
-                                                        'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                        'value' => $item->TANG_TRUONG_DOANH_THU,
-                                                    ];
-                                                }, $businessData);
-                                                $industry_data_TANG_TRUONG_CHO_VAY = array_map(function ($item) {
-                                                    return [
-                                                        'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                        'value' => $item->TANG_TRUONG_DOANH_THU,
-                                                    ];
-                                                }, $industryData);
-                                            ?>
-                                                <?php _e('TĂNG TRƯỞNG DOANH THU (%)', 'bsc') ?>
-                                            <?php } ?>
-                                        </h4>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_CHO_VAY)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_CHO_VAY)) ?>"
-                                            <?php if ($check_linh_vuc == 'Bank') { ?>
-                                            data-title-1="<?php _e('TTCV', 'bsc') ?>"
-                                            data-title-2="<?php _e('TTCV TB ngành', 'bsc') ?>"
-                                            <?php } else { ?>
-                                            data-title-1="<?php _e('TTDTT', 'bsc') ?>"
-                                            data-title-2="<?php _e('TTDTT TB ngành', 'bsc') ?>"
-                                            <?php } ?>
-                                            data-color-1="#009e87"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php _e('TĂNG TRƯỞNG EPS (%)', 'bsc') ?>
-                                        </h4>
-                                        <?php
-                                        $business_data_TANG_TRUONG_EPS = array_map(function ($item) {
-                                            return [
-                                                'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                'value' => $item->TANG_TRUONG_EPS,
-                                            ];
-                                        }, $businessData);
-                                        $industry_data_TANG_TRUONG_EPS = array_map(function ($item) {
-                                            return [
-                                                'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                'value' => $item->TANG_TRUONG_EPS,
-                                            ];
-                                        }, $industryData);
-                                        ?>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_EPS)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_EPS)) ?>"
-                                            data-title-1="<?php _e('TT EPS', 'bsc') ?>"
-                                            data-title-2="<?php _e('TT EPS TB ngành', 'bsc') ?>"
-                                            data-color-1="#009e87"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                        <h4
-                                            class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                            <?php _e('TĂNG TRƯỞNG LỢI NHUẬN (%)', 'bsc') ?>
-                                        </h4>
-                                        <?php
-                                        $business_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
-                                            return [
-                                                'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                'value' => $item->TANG_TRUONG_LOI_NHUAN,
-                                            ];
-                                        }, $businessData);
-                                        $industry_data_TANG_TRUONG_LOI_NHUAN = array_map(function ($item) {
-                                            return [
-                                                'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                'value' => $item->TANG_TRUONG_LOI_NHUAN,
-                                            ];
-                                        }, $industryData);
-                                        ?>
-                                        <div class="legend-gap bsc_chart-display"
-                                            data-load="false"
-                                            data-end="%"
-                                            data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_LOI_NHUAN)) ?>"
-                                            data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_LOI_NHUAN)) ?>"
-                                            data-title-1="<?php _e('TT Lợi nhuận', 'bsc') ?>"
-                                            data-title-2="<?php _e('TT Lợi nhuận TB ngành', 'bsc') ?>"
-                                            data-color-1="#009e87"
-                                            data-color-2="#FFB81C">
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="flex items-center gap-6 mb-[30px]">
-                                    <h2 class="heading-title">
-                                        <?php _e('HIỆU QUẢ HOẠT ĐỘNG', 'bsc') ?>
-                                    </h2>
-                                    <?php
-                                    if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG) {
-                                        if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'A') {
-                                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
-                                            $medal_rank = 'gold';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'B') {
-                                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
-                                            $medal_rank = 'sliver';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'C') {
-                                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
-                                            $medal_rank = 'bronze';
-                                        } elseif ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG == 'D') {
-                                            $medal_rank = 'sliver-2';
-                                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
-                                        }
-                                    ?>
-                                        <p
-                                            class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
-                                            <?php echo svg($medal_rank, '24', '24') ?>
-                                            <?php _e('Hạng', 'bsc') ?> <?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG ?>
-                                        </p>
-                                    <?php } ?>
-                                </div>
-                                <div class="rounded-lg overflow-hidden mb-10">
-                                    <table
-                                        class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-                                        <thead>
-                                            <tr>
-                                                <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
-                                                <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                    <th><?php _e('Tỉ lệ CIR', 'bsc') ?></th>
-                                                    <th><?php _e('NII/TOI', 'bsc') ?></th>
-                                                    <th><?php _e('Tỉ lệ CASA', 'bsc') ?></th>
-                                                <?php } else { ?>
-                                                    <?php if ($check_linh_vuc == 'Securities') { ?>
-                                                        <th><?php _e('Tỉ trọng DT môi giới', 'bsc') ?></th>
-                                                        <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                        <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                        <th><?php _e('VQ TTS', 'bsc') ?></th>
-                                                    <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
-                                                        <th><?php _e('CP Bảo hiểm/DT', 'bsc') ?></th>
-                                                        <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                        <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                        <th><?php _e('VQ TTS', 'bsc') ?></th>
-                                                    <?php } else {
-                                                    ?>
-                                                        <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                        <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                        <th><?php _e('VQ HTK', 'bsc') ?></th>
-                                                        <th><?php _e('VQ TTS', 'bsc') ?></th>
-                                                    <?php
-                                                    } ?>
-                                                <?php } ?>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                                <td class="!pl-9"><a href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a></td>
-                                                <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_TREN_DOANH_THU), 2, '.', ''); ?></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->THU_NHAP_TU_LAI_VAY), 2, '.', ''); ?></td>
-                                                    <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CASA), 2, '.', ''); ?></td>
-                                                <?php } else { ?>
-                                                    <?php if ($check_linh_vuc == 'Securities') { ?>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
-                                                    <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
-                                                    <?php } else {
-                                                    ?>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO), 2, '.', ''); ?></td>
-                                                        <td><?php echo number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN), 2, '.', ''); ?></td>
-                                                    <?php
-                                                    } ?>
-                                                <?php } ?>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
-                                    <?php if ($check_linh_vuc == 'Bank') { ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ CHI PHÍ TRÊN DOANH THU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
-                                                data-title-1="<?php _e('Tỷ lệ chi phí', 'bsc') ?>"
-                                                data-title-2="<?php _e('Tỷ lệ chi phí TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->THU_NHAP_TU_LAI_VAY,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_THU_NHAP_TU_LAI_VAY = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->THU_NHAP_TU_LAI_VAY,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_THU_NHAP_TU_LAI_VAY)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_THU_NHAP_TU_LAI_VAY)) ?>"
-                                                data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
-                                                data-title-2="<?php _e('TN từ Lãi vay TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('CASA', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_CASA = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->CASA,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_CASA = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->CASA,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_CASA)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CASA)) ?>"
-                                                data-title-1="<?php _e('CASA', 'bsc') ?>"
-                                                data-title-2="<?php _e('CASA TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } elseif ($check_linh_vuc == 'Securities') {  ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỶ LỆ DOANH THU MÔI GIỚI TRÊN DOANH THU THUẦN', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
-                                                data-title-1="<?php _e('TLDTMGTD', 'bsc') ?>"
-                                                data-title-2="<?php _e('TLDTMGTD TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_TONG_TAI_SAN,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_TONG_TAI_SAN,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
-                                                data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } elseif ($check_linh_vuc == 'Insurance') {  ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU 4 QUÝ', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
-                                                data-title-1="<?php _e('TLCP BH trên DT', 'bsc') ?>"
-                                                data-title-2="<?php _e('TLCP BH trên DT TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY TỔNG TÀI SẢN (LẦN)') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_TONG_TAI_SAN,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_TONG_TAI_SAN = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_TONG_TAI_SAN,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
-                                                data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php } else {
-                                    ?>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY KHOẢN PHẢI THU', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
-                                                data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
-                                                data-title-1="<?php _e('Vòng quay khoản phải trả', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay khoản phải trả TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-                                            <h4
-                                                class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
-                                                <?php _e('VÒNG QUAY HÀNG TỒN KHO (LẦN)', 'bsc') ?>
-                                            </h4>
-                                            <?php
-                                            $business_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
-                                                return [
-                                                    'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-                                                    'value' => $item->VONG_QUAY_HANG_TON_KHO,
-                                                ];
-                                            }, $businessData);
-                                            $industry_data_VONG_QUAY_HANG_TON_KHO = array_map(function ($item) {
-                                                return [
-                                                    'date' => sprintf('%d-Q%d', trim($item->YEAR), trim($item->QUARTER)),
-                                                    'value' => $item->VONG_QUAY_HANG_TON_KHO,
-                                                ];
-                                            }, $industryData);
-                                            ?>
-                                            <div class="legend-gap bsc_chart-display"
-                                                data-load="false"
-                                                data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_HANG_TON_KHO)) ?>"
-                                                data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_HANG_TON_KHO)) ?>"
-                                                data-title-1="<?php _e('Vòng quay hàng tồn kho', 'bsc') ?>"
-                                                data-title-2="<?php _e('Vòng quay hàng tồn kho TB ngành', 'bsc') ?>"
-                                                data-color-1="#009e87"
-                                                data-color-2="#FFB81C">
-                                            </div>
-                                        </div>
-                                    <?php
-                                    } ?>
-                                </div>
-                            </article>
-                        </div>
-                    <?php } ?>
-                </div>
-        <?php }
-        } ?>
-    </div>
-<?php
-    } elseif ($type_form == 'details_symbol_tab-4') {
-?>
     <?php
+    } elseif ($type_form == 'details_symbol_tab-4') {
+    ?>
+        <?php
         if (!$check_logout) {
             $array_data_GetForecastBussiness = array(
                 'lang' => pll_current_language(),
@@ -2560,303 +2539,257 @@ function filter_details_symbol()
             $response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
             if ($response_GetForecastBussiness) {
                 $response_GetForecastBussiness_d2 = array_reverse($response_GetForecastBussiness->d2, true);
-    ?>
-            <div class="relative">
-                <div>
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-16 flex items-end justify-between' : 'mt-[50px] space-y-4' ?>">
-                        <div
-                            class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-10' : 'gap-6' ?> relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
-                            <?php if ($response_GetForecastBussiness->d1[0]->PRICE) { ?>
-                                <div class="flex flex-col gap-1">
-                                    <p class="font-Helvetica text-xs"><?php _e('Giá mục tiêu', 'bsc') ?></p>
-                                    <strong class="lg:text-[32px] text-2xl text-primary-300"><?php echo number_format($response_GetForecastBussiness->d1[0]->PRICE) ?></strong>
-                                </div>
-                            <?php } ?>
+        ?>
+                <div class="relative">
+                    <div>
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-16 flex items-end justify-between' : 'mt-[50px] space-y-4' ?>">
+                            <div
+                                class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-10' : 'gap-6' ?> relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
+                                <?php if ($response_GetForecastBussiness->d1[0]->PRICE) { ?>
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-Helvetica text-xs"><?php _e('Giá mục tiêu', 'bsc') ?></p>
+                                        <strong class="lg:text-[32px] text-2xl text-primary-300"><?php echo number_format($response_GetForecastBussiness->d1[0]->PRICE) ?></strong>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) {
+                                    $status = $response_GetForecastBussiness->d1[0]->RECOMMENDATION;
+                                    $check_status = get_color_by_number_bsc($status);
+                                    $title_status = $check_status['title_status'];
+                                    $text_status = $check_status['text_status'];
+                                    $background_status = $check_status['background_status'];
+                                ?>
+                                    <span
+                                        class="inline-block text-center px-6  font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl rounded-lg min-w-[140px] py-2' : 'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                        <?php echo $title_status; ?>
+                                    </span>
+                                <?php } ?>
+                            </div>
                             <?php
-                            if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) {
-                                $status = $response_GetForecastBussiness->d1[0]->RECOMMENDATION;
-                                $check_status = get_color_by_number_bsc($status);
-                                $title_status = $check_status['title_status'];
-                                $text_status = $check_status['text_status'];
-                                $background_status = $check_status['background_status'];
+                            if (get_field('cdttcp1_slug_mck', 'option')) {
+                                $sub_url_bcpt = get_field('cdttcp1_slug_mck', 'option');
+                            } else {
+                                $sub_url_bcpt =  __('bao-cao-ma-co-phieu', 'bsc');
+                            }
                             ?>
-                                <span
-                                    class="inline-block text-center px-6  font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl rounded-lg min-w-[140px] py-2' : 'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-                                    <?php echo $title_status; ?>
-                                </span>
-                            <?php } ?>
+                            <a href="<?php echo get_home_url() ?>/<?php echo $sub_url_bcpt ?>/<?php echo $symbol ?>"
+                                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 md:text-lg text-xs font-Helvetica">
+                                <?php _e('Xem chi tiết', 'bsc') ?>
+                                <?php echo svg('arrow-btn', '12', '12') ?>
+                            </a>
                         </div>
-                        <?php
-                        if (get_field('cdttcp1_slug_mck', 'option')) {
-                            $sub_url_bcpt = get_field('cdttcp1_slug_mck', 'option');
-                        } else {
-                            $sub_url_bcpt =  __('bao-cao-ma-co-phieu', 'bsc');
-                        }
-                        ?>
-                        <a href="<?php echo get_home_url() ?>/<?php echo $sub_url_bcpt ?>/<?php echo $symbol ?>"
-                            class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 md:text-lg text-xs font-Helvetica">
-                            <?php _e('Xem chi tiết', 'bsc') ?>
-                            <?php echo svg('arrow-btn', '12', '12') ?>
-                        </a>
-                    </div>
-                    <div class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10' : 'mt-6' ?>">
-                        <div class="overflow-x-auto whitespace-nowrap">
-                            <table
-                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-th:p-4 prose-td:p-4' : 'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <?php foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php echo $GetForecastBussiness->FORECAST_PERIOD ?></th>
-                                        <?php } ?>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Doanh thu (tỷ đồng)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->NET_REV) {
-                                                                                                                                                echo number_format($GetForecastBussiness->NET_REV / 1000000000);
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->TANG_TRUONG_DT) {
-                                                                                                                                                echo number_format($GetForecastBussiness->TANG_TRUONG_DT / 1000000000);
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->LNST_CONG_TY_ME) {
-                                                                                                                                                echo number_format($GetForecastBussiness->LNST_CONG_TY_ME / 1000000000);
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->TANG_TRUONG_LS) {
-                                                                                                                                                echo number_format($GetForecastBussiness->TANG_TRUONG_LS / 1000000000);
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('EPS (VND)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->EPS) {
-                                                                                                                                                echo number_format($GetForecastBussiness->EPS);
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->TANG_TRUONG_EPS) {
-                                                                                                                                                echo number_format($GetForecastBussiness->TANG_TRUONG_EPS, '2', '.', ',');
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('ROE (%)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->ROE) {
-                                                                                                                                                echo number_format($GetForecastBussiness->ROE * 100, '2', '.', ',') . '%';
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('ROA (%)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->ROA) {
-                                                                                                                                                echo number_format($GetForecastBussiness->ROA * 100, '2', '.', ',') . '%';
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('P/E (x)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->PE) {
-                                                                                                                                                echo number_format($GetForecastBussiness->PE, '2', '.', ',');
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('P/B (x)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->PB) {
-                                                                                                                                                echo number_format($GetForecastBussiness->PB, '2', '.', ',');
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                    <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
-                                        <?php
-                                        foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
-                                        ?>
-                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                            if ($GetForecastBussiness->HS_CO_PHIEU) {
-                                                                                                                                                echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
-                                                                                                                                            }
-                                                                                                                                            ?></td>
-                                        <?php
-                                        }
-                                        ?>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10' : 'mt-6' ?>">
+                            <div class="overflow-x-auto whitespace-nowrap">
+                                <table
+                                    class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-th:p-4 prose-td:p-4' : 'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <?php foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php echo $GetForecastBussiness->FORECAST_PERIOD ?></th>
+                                            <?php } ?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Doanh thu (tỷ đồng)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->NET_REV) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->NET_REV / 1000000000);
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_DT) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->TANG_TRUONG_DT / 1000000000);
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->LNST_CONG_TY_ME) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->LNST_CONG_TY_ME / 1000000000);
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_LS) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->TANG_TRUONG_LS / 1000000000);
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('EPS (VND)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->EPS) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->EPS);
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_EPS) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->TANG_TRUONG_EPS, '2', '.', ',');
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('ROE (%)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->ROE) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->ROE * 100, '2', '.', ',') . '%';
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('ROA (%)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->ROA) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->ROA * 100, '2', '.', ',') . '%';
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('P/E (x)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->PE) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->PE, '2', '.', ',');
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('P/B (x)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->PB) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->PB, '2', '.', ',');
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                        <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
+                                            <?php
+                                            foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
+                                            ?>
+                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                if ($GetForecastBussiness->HS_CO_PHIEU) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
+                                                                                                                                                }
+                                                                                                                                                ?></td>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php } ?>
-    <?php
+            <?php } ?>
+        <?php
         }
-    ?>
-<?php
+        ?>
+    <?php
     } elseif ($type_form == 'instruments-symbol') {
         $first_symbol = strtoupper($symbol)[0];
         $array_data_value = array(
             'symbols' => $symbol
         );
         $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-?>
-    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?>">
-        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
-            <div
-                class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
-                <?php echo $first_symbol ?>
-            </div>
-            <?php if ($response_value) { ?>
-                <div class="flex flex-col">
-                    <h4
-                        class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
-                        <?php echo $response_value->d[0]->symbol; ?>
-                    </h4>
-                    <p class="uppercase <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?> text-paragraph">
-                        <?php echo $response_value->d[0]->exchange; ?>
-                    </p>
+    ?>
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?>">
+            <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
+                <div
+                    class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
+                    <?php echo $first_symbol ?>
                 </div>
-            <?php   } ?>
-        </div>
-
-        <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-            <?php if ($response_value) { ?>
-                <?php if ($response_value->d[0]->bidPrice1) { ?>
-                    <div class="flex-col gap-2">
-                        <div class="flex gap-[12px] data_number">
-                            <div class="text-2xl font-bold text-[#FE5353]">
-                                <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
-                            </div>
-                            <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
-                                if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
-                                    $text_color_class = 'text-[#1CCD83]';
-                                } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
-                                    $text_color_class = 'text-[#FE5353]';
-                                } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
-                                    $text_color_class = 'text-[#EB0]';
-                                } else {
-                                    $text_color_class = '';
-                                }
-                            ?>
-                                <div class="flex flex-col <?php echo $text_color_class ?> text-xs">
-                                    <p>
-                                        <?php
-                                        echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
-                                        ?>
-                                    </p>
-                                    <p>
-                                        <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
-                                    </p>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <p class="time-update mt-1 sm:text-xs text-xxs">
-                            <?php _e('Cập nhật lúc', 'bsc') ?>
-                            <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
-                            echo date("H:i"); ?>
-                            UTC_7
+                <?php if ($response_value) { ?>
+                    <div class="flex flex-col">
+                        <h4
+                            class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+                            <?php echo $response_value->d[0]->symbol; ?>
+                        </h4>
+                        <p class="uppercase <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?> text-paragraph">
+                            <?php echo $response_value->d[0]->exchange; ?>
                         </p>
                     </div>
-                <?php } ?>
-            <?php   } ?>
-        <?php } ?>
+                <?php   } ?>
+            </div>
 
-
-    </div>
-    <?php if ($response_value) { ?>
-        <div class="flex items-center 2xl:gap-7 gap-5">
-            <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-                <div class="lg:w-[176px] lg:max-w-[37%]">
+            <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+                <?php if ($response_value) { ?>
                     <?php if ($response_value->d[0]->bidPrice1) { ?>
                         <div class="flex-col gap-2">
-                            <div class="flex gap-[14px] data_number">
-                                <div class="2xl:text-[40px] text-4xl font-bold">
+                            <div class="flex gap-[12px] data_number">
+                                <div class="text-2xl font-bold text-[#FE5353]">
                                     <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
                                 </div>
                                 <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
@@ -2870,7 +2803,7 @@ function filter_details_symbol()
                                         $text_color_class = '';
                                     }
                                 ?>
-                                    <div class="flex flex-col <?php echo $text_color_class ?>">
+                                    <div class="flex flex-col <?php echo $text_color_class ?> text-xs">
                                         <p>
                                             <?php
                                             echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
@@ -2882,7 +2815,7 @@ function filter_details_symbol()
                                     </div>
                                 <?php } ?>
                             </div>
-                            <p class="time-update mt-1">
+                            <p class="time-update mt-1 sm:text-xs text-xxs">
                                 <?php _e('Cập nhật lúc', 'bsc') ?>
                                 <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
                                 echo date("H:i"); ?>
@@ -2890,112 +2823,158 @@ function filter_details_symbol()
                             </p>
                         </div>
                     <?php } ?>
-                </div>
+                <?php   } ?>
             <?php } ?>
-            <div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:gap-5 gap-4' : 'gap-6' ?>">
-                <div class="col-span-1 space-y-5">
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Trần', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-[#7F1CCD] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->ceiling) {
-                                echo number_format(($response_value->d[0]->ceiling) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
+
+
+        </div>
+        <?php if ($response_value) { ?>
+            <div class="flex items-center 2xl:gap-7 gap-5">
+                <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+                    <div class="lg:w-[176px] lg:max-w-[37%]">
+                        <?php if ($response_value->d[0]->bidPrice1) { ?>
+                            <div class="flex-col gap-2">
+                                <div class="flex gap-[14px] data_number">
+                                    <div class="2xl:text-[40px] text-4xl font-bold">
+                                        <?php echo number_format(($response_value->d[0]->bidPrice1) / 1000, 2, '.', ''); ?>
+                                    </div>
+                                    <?php if ($response_value->d[0]->bidPrice1 && $response_value->d[0]->reference) {
+                                        if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
+                                            $text_color_class = 'text-[#1CCD83]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
+                                            $text_color_class = 'text-[#FE5353]';
+                                        } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
+                                            $text_color_class = 'text-[#EB0]';
+                                        } else {
+                                            $text_color_class = '';
+                                        }
+                                    ?>
+                                        <div class="flex flex-col <?php echo $text_color_class ?>">
+                                            <p>
+                                                <?php
+                                                echo number_format(($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / 1000, 2, '.', '');
+                                                ?>
+                                            </p>
+                                            <p>
+                                                <?php echo number_format((($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) / ($response_value->d[0]->reference)) * 100, 2, '.', '') ?>%
+                                            </p>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <p class="time-update mt-1">
+                                    <?php _e('Cập nhật lúc', 'bsc') ?>
+                                    <?php date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                    echo date("H:i"); ?>
+                                    UTC_7
+                                </p>
+                            </div>
+                        <?php } ?>
                     </div>
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Cao nhất', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->high) {
-                                echo number_format(($response_value->d[0]->high) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
+                <?php } ?>
+                <div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:gap-5 gap-4' : 'gap-6' ?>">
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Trần', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#7F1CCD] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->ceiling) {
+                                    echo number_format(($response_value->d[0]->ceiling) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Cao nhất', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->high) {
+                                    echo number_format(($response_value->d[0]->high) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-span-1 space-y-5">
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Tham chiếu', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-[#FFB81C] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->reference) {
-                                echo number_format(($response_value->d[0]->reference) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Tham chiếu', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#FFB81C] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->reference) {
+                                    echo number_format(($response_value->d[0]->reference) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Thấp nhất', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->low) {
+                                    echo number_format(($response_value->d[0]->low) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Thấp nhất', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->low) {
-                                echo number_format(($response_value->d[0]->low) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-span-1 space-y-5">
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Sàn', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-[#1ABAFE] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->floor) {
-                                echo number_format(($response_value->d[0]->floor) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-0.5">
-                        <p
-                            class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('Trung bình', 'bsc') ?>
-                        </p>
-                        <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
-                            <?php
-                            if ($response_value->d[0]->averagePrice) {
-                                echo number_format(($response_value->d[0]->averagePrice) / 1000, 2, '.', '');
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </p>
+                    <div class="col-span-1 space-y-5">
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Sàn', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-[#1ABAFE] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->floor) {
+                                    echo number_format(($response_value->d[0]->floor) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-0.5">
+                            <p
+                                class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                                <?php _e('Trung bình', 'bsc') ?>
+                            </p>
+                            <p class="font-bold text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+                                <?php
+                                if ($response_value->d[0]->averagePrice) {
+                                    echo number_format(($response_value->d[0]->averagePrice) / 1000, 2, '.', '');
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php   } ?>
-<?php
-    } elseif ($type_form == 'securityBasicInfo-symbol') {
-?>
+        <?php   } ?>
     <?php
+    } elseif ($type_form == 'securityBasicInfo-symbol') {
+    ?>
+        <?php
         $array_data_securityBasicInfo = json_encode([
             'lang' => pll_current_language(),
             'secList' => $symbol,
@@ -3003,180 +2982,180 @@ function filter_details_symbol()
         ]);
         $response_securityBasicInfo = get_data_with_cache('securityBasicInfo', $array_data_securityBasicInfo, $time_cache, get_field('cdapi_ip_address_url_api_algo', 'option') . 'pbapi/api/', 'POST');
         if ($response_securityBasicInfo) {
-    ?>
-        <div
-            class="bg-[#E8F5FF] rounded-xl  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4' ?> h-full font-Helvetica">
+        ?>
             <div
-                class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between mb-6 pb-6' : 'mb-3 pb-3' ?> border-b border-[#C9CCD2]">
-                <p class="text-paragraph text-opacity-70 text-xs">
-                    <?php _e('Ngành', 'bsc') ?>
-                </p>
-                <p class="font-bold 2xl:text-lg uppercase">
-                    <?php echo $response_securityBasicInfo->data[0]->Industry ?>
-                </p>
-            </div>
-            <div class="flex gap-[12px] items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-4' : 'mb-3' ?>">
-                <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                    <?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
-                </p>
-                <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
-                    <?php echo $response_securityBasicInfo->data[0]->VolPerAVG10d ?>
-                </p>
-            </div>
-            <div class="grid grid-cols-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
-
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                class="bg-[#E8F5FF] rounded-xl  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4' ?> h-full font-Helvetica">
+                <div
+                    class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between mb-6 pb-6' : 'mb-3 pb-3' ?> border-b border-[#C9CCD2]">
+                    <p class="text-paragraph text-opacity-70 text-xs">
+                        <?php _e('Ngành', 'bsc') ?>
+                    </p>
+                    <p class="font-bold 2xl:text-lg uppercase">
+                        <?php echo $response_securityBasicInfo->data[0]->Industry ?>
+                    </p>
+                </div>
+                <div class="flex gap-[12px] items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-4' : 'mb-3' ?>">
                     <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                        <?php _e('P/E', 'bsc') ?>
+                        <?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
                     </p>
                     <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
-                        <?php echo $response_securityBasicInfo->data[0]->PE ?>
+                        <?php echo $response_securityBasicInfo->data[0]->VolPerAVG10d ?>
                     </p>
                 </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-                    <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                        <?php _e('Vốn hóa (tỷ đồng)', 'bsc') ?>
-                    </p>
-                    <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
-                        <?php
-                        if ($response_securityBasicInfo->data[0]->MarketCapital) {
-                            echo number_format($response_securityBasicInfo->data[0]->MarketCapital);
-                        }
-                        ?>
-                    </p>
-                </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                <div class="grid grid-cols-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
 
-                </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-                    <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                        <?php _e('P/B', 'bsc') ?>
-                    </p>
-                    <p class="font-medium text-lg">
-                        <?php echo $response_securityBasicInfo->data[0]->PB ?>
-                    </p>
-                </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-                    <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                        <?php _e('ROE', 'bsc') ?>
-                    </p>
-                    <p class="font-medium text-lg">
-                        <?php echo $response_securityBasicInfo->data[0]->ROE ?>
-                    </p>
-                </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-                    <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                        <?php _e('ROE', 'bsc') ?>
-                    </p>
-                    <p class="font-medium text-lg">
-                        <?php echo $response_securityBasicInfo->data[0]->ROE ?>
-                    </p>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('P/E', 'bsc') ?>
+                        </p>
+                        <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
+                            <?php echo $response_securityBasicInfo->data[0]->PE ?>
+                        </p>
+                    </div>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('Vốn hóa (tỷ đồng)', 'bsc') ?>
+                        </p>
+                        <p class="font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : '' ?>">
+                            <?php
+                            if ($response_securityBasicInfo->data[0]->MarketCapital) {
+                                echo number_format($response_securityBasicInfo->data[0]->MarketCapital);
+                            }
+                            ?>
+                        </p>
+                    </div>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+
+                    </div>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('P/B', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->PB ?>
+                        </p>
+                    </div>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('ROE', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->ROE ?>
+                        </p>
+                    </div>
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+                        <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+                            <?php _e('ROE', 'bsc') ?>
+                        </p>
+                        <p class="font-medium text-lg">
+                            <?php echo $response_securityBasicInfo->data[0]->ROE ?>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php } ?>
-    <?php
+        <?php } ?>
+        <?php
     } elseif ($type_form == 'GetRecommendedInstrument-symbol') {
         $array_data_GetRecommendedInstrument = array(
             'symbol' => $symbol
         );
         $response_GetRecommendedInstrument = get_data_with_cache('GetRecommendedInstrument', $array_data_GetRecommendedInstrument, $time_cache);
         if ($response_GetRecommendedInstrument) {
-    ?>
-        <div
-            class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="font-bold">
-                    <?php _e('KHUYẾN NGHỊ', 'bsc') ?>
-                </h3>
-                <?php
-                if ($response_GetRecommendedInstrument->rank) {
-                    if ($response_GetRecommendedInstrument->rank == 'A') {
-                        $class_rank = 'text-[#F90] bg-gradient-yellow-50';
-                        $medal_rank = 'gold';
-                    } elseif ($response_GetRecommendedInstrument->rank == 'B') {
-                        $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
-                        $medal_rank = 'sliver';
-                    } elseif ($response_GetRecommendedInstrument->rank == 'C') {
-                        $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
-                        $medal_rank = 'bronze';
-                    } elseif ($response_GetRecommendedInstrument->rank == 'D') {
-                        $medal_rank = 'sliver-2';
-                        $class_rank = 'text-[#869299] bg-gradient-sliver-100';
-                    }
-                ?>
-                    <p
-                        class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
-                        <?php echo svg($medal_rank, '24', '24') ?>
-                        <?php _e('Hạng', 'bsc') ?>
-                        <?php echo $response_GetRecommendedInstrument->rank ?>
-                    </p>
-                <?php } ?>
-            </div>
+        ?>
+            <div
+                class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-bold">
+                        <?php _e('KHUYẾN NGHỊ', 'bsc') ?>
+                    </h3>
+                    <?php
+                    if ($response_GetRecommendedInstrument->rank) {
+                        if ($response_GetRecommendedInstrument->rank == 'A') {
+                            $class_rank = 'text-[#F90] bg-gradient-yellow-50';
+                            $medal_rank = 'gold';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'B') {
+                            $class_rank = 'text-[#4F4F4F] bg-gradient-sliver-50';
+                            $medal_rank = 'sliver';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'C') {
+                            $class_rank = 'text-[#A87E5C] bg-gradient-bronze-50';
+                            $medal_rank = 'bronze';
+                        } elseif ($response_GetRecommendedInstrument->rank == 'D') {
+                            $medal_rank = 'sliver-2';
+                            $class_rank = 'text-[#869299] bg-gradient-sliver-100';
+                        }
+                    ?>
+                        <p
+                            class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+                            <?php echo svg($medal_rank, '24', '24') ?>
+                            <?php _e('Hạng', 'bsc') ?>
+                            <?php echo $response_GetRecommendedInstrument->rank ?>
+                        </p>
+                    <?php } ?>
+                </div>
 
-            <div class="mt-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4' : 'space-y-5' ?>">
-                <?php if ($response_GetRecommendedInstrument->d[0]->author) { ?>
-                    <div class="flex items-center justify-between text-xs">
-                        <p class="text-xs">
-                            <?php _e('Analyst', 'bsc') ?>:
-                        </p>
-                        <p class="font-bold text-primary-300">
-                            <?php echo $response_GetRecommendedInstrument->d[0]->author ?>
-                        </p>
-                    </div>
-                <?php } ?>
-                <?php if ($response_GetRecommendedInstrument->d[0]->recommendation) { ?>
-                    <div class="flex items-center justify-between text-xs">
-                        <p class="text-xs">
-                            <?php _e('Khuyến nghị', 'bsc') ?>:
-                        </p>
-                        <?php
-                        $status = $response_GetRecommendedInstrument->d[0]->recommendation;
-                        $check_status = get_color_by_number_bsc($status);
-                        $title_status = $check_status['title_status'];
-                        $text_status = $check_status['text_status'];
-                        $background_status = $check_status['background_status'];
-                        ?>
-                        <p class="inline-block rounded-full px-4 py-0.5 font-semibold"
-                            style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-                            <?php echo $title_status ?>
-                        </p>
-                    </div>
-                <?php } ?>
-                <?php if ($response_GetRecommendedInstrument->d[0]->categorY_NAMES) { ?>
-                    <div class="flex items-center justify-between text-xs">
-                        <p class="text-xs">
-                            <?php _e('Danh mục', 'bsc') ?>:
-                        </p>
-                        <p class="inline-block rounded-full px-4 py-0.5  font-semibold">
-                            <?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
-                        </p>
-                    </div>
-                <?php } ?>
-                <?php
-                $time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
-                $array_data = array(
-                    "symbol" => $symbol,
-                );
-                $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
-                if ($get_co_phieu_detail) {
-                    $news = $get_co_phieu_detail->d[0];
-                    if ($news->postdate) {
-                ?>
+                <div class="mt-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4' : 'space-y-5' ?>">
+                    <?php if ($response_GetRecommendedInstrument->d[0]->author) { ?>
                         <div class="flex items-center justify-between text-xs">
                             <p class="text-xs">
-                                <?php _e('Ngày cập nhật', 'bsc') ?>
+                                <?php _e('Analyst', 'bsc') ?>:
                             </p>
-                            <p class="font-bold">
-                                <?php $date = new DateTime($news->postdate); ?>
-                                <?php echo $date->format('d/m/Y'); ?>
+                            <p class="font-bold text-primary-300">
+                                <?php echo $response_GetRecommendedInstrument->d[0]->author ?>
                             </p>
                         </div>
-                <?php }
-                } ?>
+                    <?php } ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->recommendation) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Khuyến nghị', 'bsc') ?>:
+                            </p>
+                            <?php
+                            $status = $response_GetRecommendedInstrument->d[0]->recommendation;
+                            $check_status = get_color_by_number_bsc($status);
+                            $title_status = $check_status['title_status'];
+                            $text_status = $check_status['text_status'];
+                            $background_status = $check_status['background_status'];
+                            ?>
+                            <p class="inline-block rounded-full px-4 py-0.5 font-semibold"
+                                style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                <?php echo $title_status ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->categorY_NAMES) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Danh mục', 'bsc') ?>:
+                            </p>
+                            <p class="inline-block rounded-full px-4 py-0.5  font-semibold">
+                                <?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
+                            </p>
+                        </div>
+                    <?php } ?>
+                    <?php
+                    $time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
+                    $array_data = array(
+                        "symbol" => $symbol,
+                    );
+                    $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
+                    if ($get_co_phieu_detail) {
+                        $news = $get_co_phieu_detail->d[0];
+                        if ($news->postdate) {
+                    ?>
+                            <div class="flex items-center justify-between text-xs">
+                                <p class="text-xs">
+                                    <?php _e('Ngày cập nhật', 'bsc') ?>
+                                </p>
+                                <p class="font-bold">
+                                    <?php $date = new DateTime($news->postdate); ?>
+                                    <?php echo $date->format('d/m/Y'); ?>
+                                </p>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
             </div>
-        </div>
-    <?php
+        <?php
         }
     } elseif ($type_form == 'dmkn_chart_bsc') {
         $time_cache = 300;
@@ -3230,11 +3209,11 @@ function filter_details_symbol()
             $stocksDataJson = json_encode($stocksData);
             $maxValue = ceil($maxValue / 10) * 10;
             $minValue = floor($minValue / 10) * 10;
-    ?>
-        <div id="chart" data-height="514" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
-            data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>"
-            data-stock='<?php echo $stocksDataJson ?>'></div>
-        <?php
+        ?>
+            <div id="chart" data-height="514" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
+                data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>"
+                data-stock='<?php echo $stocksDataJson ?>'></div>
+            <?php
         }
     } elseif ($type_form == 'dmkn_chart_bsc_details-left') {
         if (!$check_logout) {
@@ -3247,151 +3226,151 @@ function filter_details_symbol()
             $array_data_list_bsc = array();
             $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $symbol, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
             if ($response_list_bsc) {
-        ?>
-            <div
-                class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-                <?php
-                $i = 0;
-                foreach ($response_list_bsc->d as $list_bsc) {
-                    $i++;
-                    $symbol = $list_bsc->machungkhoan;
-                    if ($symbol) {
-                        $symbols = array_column($response_instruments_array, 'symbol');
-                        $index = array_search($symbol, $symbols);
-                        if ($index !== false) {
-                            $stockData = $response_instruments_array[$index];
-                        }
-                ?>
-                        <div
-                            class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
+            ?>
+                <div
+                    class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                    <?php
+                    $i = 0;
+                    foreach ($response_list_bsc->d as $list_bsc) {
+                        $i++;
+                        $symbol = $list_bsc->machungkhoan;
+                        if ($symbol) {
+                            $symbols = array_column($response_instruments_array, 'symbol');
+                            $index = array_search($symbol, $symbols);
+                            if ($index !== false) {
+                                $stockData = $response_instruments_array[$index];
+                            }
+                    ?>
                             <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                                <a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
-                            </div>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+                                class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    <a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+                                    <?php
+                                    $status = $list_bsc->hinhthuc;
+                                    $check_status = get_color_by_number_bsc($status);
+                                    $title_status = $check_status['title_status'];
+                                    $text_status = $check_status['text_status'];
+                                    $background_status = $check_status['background_status'];
+                                    ?>
+                                    <?php if ($list_bsc->hinhthuc) { ?>
+                                        <span class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                            <?php
+                                            echo  $title_status;
+                                            ?>
+                                        </span>
+                                    <?php } ?>
+                                </div>
                                 <?php
-                                $status = $list_bsc->hinhthuc;
-                                $check_status = get_color_by_number_bsc($status);
-                                $title_status = $check_status['title_status'];
-                                $text_status = $check_status['text_status'];
-                                $background_status = $check_status['background_status'];
-                                ?>
-                                <?php if ($list_bsc->hinhthuc) { ?>
-                                    <span class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full" style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-                                        <?php
-                                        echo  $title_status;
-                                        ?>
-                                    </span>
-                                <?php } ?>
-                            </div>
-                            <?php
-                            if ($stockData->changePercent) {
-                                if (($stockData->changePercent) > 0) {
-                                    if ($stockData->closeprice == $stockData->ceiling) {
-                                        $text_color_class_price = 'text-[#7F1CCD]';
+                                if ($stockData->changePercent) {
+                                    if (($stockData->changePercent) > 0) {
+                                        if ($stockData->closeprice == $stockData->ceiling) {
+                                            $text_color_class_price = 'text-[#7F1CCD]';
+                                        } else {
+                                            $text_color_class_price = 'text-[#1CCD83]';
+                                        }
+                                    } elseif (($stockData->changePercent) < 0) {
+                                        if ($stockData->closeprice  == $stockData->ceiling) {
+                                            $text_color_class_price = 'text-[#1ABAFE]';
+                                        } else {
+                                            $text_color_class_price = 'text-[#FE5353]';
+                                        }
                                     } else {
-                                        $text_color_class_price = 'text-[#1CCD83]';
-                                    }
-                                } elseif (($stockData->changePercent) < 0) {
-                                    if ($stockData->closeprice  == $stockData->ceiling) {
-                                        $text_color_class_price = 'text-[#1ABAFE]';
-                                    } else {
-                                        $text_color_class_price = 'text-[#FE5353]';
+                                        $text_color_class_price = 'text-[#EB0]';
                                     }
                                 } else {
                                     $text_color_class_price = 'text-[#EB0]';
                                 }
-                            } else {
-                                $text_color_class_price = 'text-[#EB0]';
-                            }
-                            ?>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class_price ?>">
-                                <?php
-                                if ($stockData->closePrice) {
-                                    echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-                                }
                                 ?>
-                            </div>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                                <?php
-                                if ($list_bsc->giakyvong) {
-                                    echo number_format(($list_bsc->giakyvong), 2, '.', '');
-                                }
-                                ?>
-                            </div>
-                            <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-                                if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
-                                    $text_color_class = 'text-[#1CCD83]';
-                                } elseif (($list_bsc->giakyvong * 1000 - $stockData->closePrice) < 0) {
-                                    $text_color_class = 'text-[#FE5353]';
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class_price ?>">
+                                    <?php
+                                    if ($stockData->closePrice) {
+                                        echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
+                                    }
+                                    ?>
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    <?php
+                                    if ($list_bsc->giakyvong) {
+                                        echo number_format(($list_bsc->giakyvong), 2, '.', '');
+                                    }
+                                    ?>
+                                </div>
+                                <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                    if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
+                                        $text_color_class = 'text-[#1CCD83]';
+                                    } elseif (($list_bsc->giakyvong * 1000 - $stockData->closePrice) < 0) {
+                                        $text_color_class = 'text-[#FE5353]';
+                                    } else {
+                                        $text_color_class = 'text-[#EB0]';
+                                    }
                                 } else {
                                     $text_color_class = 'text-[#EB0]';
                                 }
-                            } else {
-                                $text_color_class = 'text-[#EB0]';
-                            }
-                            ?>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
-                                <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-                                    if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
-                                        $before_text = '+' . number_format((($list_bsc->giakyvong * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';;
-                                    } else {
-                                        $before_text = '';
-                                    }
-                                    echo $before_text;
-                                }  ?>
-                            </div>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                                <?php echo $list_bsc->san ?>
-                            </div>
-                            <div
-                                class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class_price ?>">
-                                <?php
-                                if ($stockData->closeVol) {
-                                    echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
-                                }
                                 ?>
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
+                                    <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                        if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
+                                            $before_text = '+' . number_format((($list_bsc->giakyvong * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';;
+                                        } else {
+                                            $before_text = '';
+                                        }
+                                        echo $before_text;
+                                    }  ?>
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    <?php echo $list_bsc->san ?>
+                                </div>
+                                <div
+                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class_price ?>">
+                                    <?php
+                                    if ($stockData->closeVol) {
+                                        echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
+                                    }
+                                    ?>
+                                </div>
                             </div>
-                        </div>
-                <?php
+                    <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
 
-            </div>
-        <?php }
-        } else {
-        ?>
-        <!-- Data Demo -->
-        <div class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-            <?php for ($i = 0; $i < 9; $i++) { ?>
-                <div class="flex items-center bg-[#EBF4FA]">
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                        <?php _e('CTG', 'bsc') ?> </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
-                        <span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:#D6F6DE; color:#30D158">
-                            <?php _e('Mua', 'bsc') ?> </span>
-                    </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
-                        ---- </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                        ---- </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
-                        ---- </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
-                        ---- </div>
-                    <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  text-[#1CCD83]">
-                        ----
-                    </div>
                 </div>
-            <?php } ?>
-        </div>
-    <?php
+            <?php }
+        } else {
+            ?>
+            <!-- Data Demo -->
+            <div class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                <?php for ($i = 0; $i < 9; $i++) { ?>
+                    <div class="flex items-center bg-[#EBF4FA]">
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                            <?php _e('CTG', 'bsc') ?> </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+                            <span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:#D6F6DE; color:#30D158">
+                                <?php _e('Mua', 'bsc') ?> </span>
+                        </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+                            ---- </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                            ---- </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+                            ---- </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                            ---- </div>
+                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  text-[#1CCD83]">
+                            ----
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php
         }
     } elseif ($type_form == 'dmkn_chart_bsc_details-right') {
         $array_data_GetResearchPorCurMet = array(
@@ -3399,329 +3378,329 @@ function filter_details_symbol()
         );
         $response_GetResearchPorCurMet = get_data_with_cache('GetResearchPorCurMet', $array_data_GetResearchPorCurMet, $time_cache);
         if ($response_GetResearchPorCurMet) {
-    ?>
-        <ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('Ngày điều chỉnh danh mục', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo $response_GetResearchPorCurMet->d[0]->value; ?>
-                    </p>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('Ngành chủ đạo', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo $response_GetResearchPorCurMet->d[6]->value; ?>
-                    </p>
-                </div>
-            </li>
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
-                    <?php if ($response_GetResearchPorCurMet->d[1]->value) {
-                        if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
-                            $class = "text-[#FE5353]";
-                            $class_svg = 'down';
-                        } else {
-                            $class = "text-[#1CCD83]";
-                            $class_svg = 'up';
-                        }
-                    ?>
-                        <p class="font-medium <?php echo $class ?> flex items-center gap-1">
-                            <?php echo svg($class_svg, '16', '16') ?>
-                            <?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
+        ?>
+            <ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('Ngày điều chỉnh danh mục', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo $response_GetResearchPorCurMet->d[0]->value; ?>
                         </p>
-                    <?php } ?>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-                    <?php if ($response_GetResearchPorCurMet->d[7]->value) {
-                        if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
-                            $class = "text-[#FE5353]";
-                            $class_svg = 'down';
-                        } else {
-                            $class = "text-[#1CCD83]";
-                            $class_svg = 'up';
-                        }
-                    ?>
-                        <p class="font-medium <?php echo $class ?> flex items-center gap-1">
-                            <?php echo svg($class_svg, '16', '16') ?>
-                            <?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('Ngành chủ đạo', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo $response_GetResearchPorCurMet->d[6]->value; ?>
                         </p>
-                    <?php } ?>
-                </div>
-            </li>
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
-                    <?php if ($response_GetResearchPorCurMet->d[2]->value) {
-                        if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
-                            $class = "text-[#FE5353]";
-                            $class_svg = 'down';
-                        } else {
-                            $class = "text-[#1CCD83]";
-                            $class_svg = 'up';
-                        }
-                    ?>
-                        <p class="font-medium <?php echo $class ?> flex items-center gap-1">
-                            <?php echo svg($class_svg, '16', '16') ?>
-                            <?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
+                    </div>
+                </li>
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('Thay đổi từ ngày điều chỉnh', 'bsc') ?></p>
+                        <?php if ($response_GetResearchPorCurMet->d[1]->value) {
+                            if (substr($response_GetResearchPorCurMet->d[1]->value, 0, 1) === '-') {
+                                $class = "text-[#FE5353]";
+                                $class_svg = 'down';
+                            } else {
+                                $class = "text-[#1CCD83]";
+                                $class_svg = 'up';
+                            }
+                        ?>
+                            <p class="font-medium <?php echo $class ?> flex items-center gap-1">
+                                <?php echo svg($class_svg, '16', '16') ?>
+                                <?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
+                        <?php if ($response_GetResearchPorCurMet->d[7]->value) {
+                            if (substr($response_GetResearchPorCurMet->d[7]->value, 0, 1) === '-') {
+                                $class = "text-[#FE5353]";
+                                $class_svg = 'down';
+                            } else {
+                                $class = "text-[#1CCD83]";
+                                $class_svg = 'up';
+                            }
+                        ?>
+                            <p class="font-medium <?php echo $class ?> flex items-center gap-1">
+                                <?php echo svg($class_svg, '16', '16') ?>
+                                <?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                </li>
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('Thay đổi 1W', 'bsc') ?></p>
+                        <?php if ($response_GetResearchPorCurMet->d[2]->value) {
+                            if (substr($response_GetResearchPorCurMet->d[2]->value, 0, 1) === '-') {
+                                $class = "text-[#FE5353]";
+                                $class_svg = 'down';
+                            } else {
+                                $class = "text-[#1CCD83]";
+                                $class_svg = 'up';
+                            }
+                        ?>
+                            <p class="font-medium <?php echo $class ?> flex items-center gap-1">
+                                <?php echo svg($class_svg, '16', '16') ?>
+                                <?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
+                        <?php if ($response_GetResearchPorCurMet->d[8]->value) {
+                            if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
+                                $class = "text-[#FE5353]";
+                                $class_svg = 'down';
+                            } else {
+                                $class = "text-[#1CCD83]";
+                                $class_svg = 'up';
+                            }
+                        ?>
+                            <p class="font-medium <?php echo $class ?> flex items-center gap-1">
+                                <?php echo svg($class_svg, '16', '16') ?>
+                                <?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+                </li>
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('Beta danh mục', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[3]->value; ?>
                         </p>
-                    <?php } ?>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('So với thị trường', 'bsc') ?></p>
-                    <?php if ($response_GetResearchPorCurMet->d[8]->value) {
-                        if (substr($response_GetResearchPorCurMet->d[8]->value, 0, 1) === '-') {
-                            $class = "text-[#FE5353]";
-                            $class_svg = 'down';
-                        } else {
-                            $class = "text-[#1CCD83]";
-                            $class_svg = 'up';
-                        }
-                    ?>
-                        <p class="font-medium <?php echo $class ?> flex items-center gap-1">
-                            <?php echo svg($class_svg, '16', '16') ?>
-                            <?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('Trung vị thị giá vốn', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[9]->value; ?>
                         </p>
-                    <?php } ?>
-                </div>
-            </li>
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('Beta danh mục', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[3]->value; ?>
-                    </p>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('Trung vị thị giá vốn', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[9]->value; ?>
-                    </p>
-                </div>
-            </li>
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('P/E trung vị', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[4]->value; ?>
-                    </p>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('P/E thị trường', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[10]->value; ?>
-                    </p>
-                </div>
-            </li>
-            <li class="flex xl:gap-20 gap-10">
-                <div class="w-[62%] space-y-1">
-                    <p class="text-xs"><?php _e('P/B trung vị', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[5]->value; ?>
-                    </p>
-                </div>
-                <div class="w-[38%] space-y-1">
-                    <p class="text-xs"><?php _e('P/B thị trường', 'bsc') ?></p>
-                    <p class="font-medium">
-                        <?php echo  $response_GetResearchPorCurMet->d[11]->value; ?>
-                    </p>
-                </div>
-            </li>
-        </ul>
-    <?php }
+                    </div>
+                </li>
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('P/E trung vị', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[4]->value; ?>
+                        </p>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('P/E thị trường', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[10]->value; ?>
+                        </p>
+                    </div>
+                </li>
+                <li class="flex xl:gap-20 gap-10">
+                    <div class="w-[62%] space-y-1">
+                        <p class="text-xs"><?php _e('P/B trung vị', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[5]->value; ?>
+                        </p>
+                    </div>
+                    <div class="w-[38%] space-y-1">
+                        <p class="text-xs"><?php _e('P/B thị trường', 'bsc') ?></p>
+                        <p class="font-medium">
+                            <?php echo  $response_GetResearchPorCurMet->d[11]->value; ?>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        <?php }
     } elseif ($type_form == 'ttnc_khuyen_nghi') {
         $tab = generateRandomString();
         $array_data_GetAllDanhMuc = array();
         $response_GetAllDanhMuc = get_data_with_cache('GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'));
         if ($response_GetAllDanhMuc) {
-    ?>
-        <ul class="customtab-nav flex items-center flex-wrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 mb-6' : 'gap-2 mb-4' ?>">
+        ?>
+            <ul class="customtab-nav flex items-center flex-wrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 mb-6' : 'gap-2 mb-4' ?>">
+                <?php
+                $i = 0;
+                foreach ($response_GetAllDanhMuc->d as $news) {
+                    $i++; ?>
+                    <li>
+                        <button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
+                            class="<?php if ($i == 1)
+                                        echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
+                            <?php echo $news->tendanhmuc ?>
+                        </button>
+                    </li>
+                <?php } ?>
+            </ul>
             <?php
             $i = 0;
             foreach ($response_GetAllDanhMuc->d as $news) {
                 $i++; ?>
-                <li>
-                    <button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
-                        class="<?php if ($i == 1)
-                                    echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs' ?>">
-                        <?php echo $news->tendanhmuc ?>
-                    </button>
-                </li>
-            <?php } ?>
-        </ul>
-        <?php
-            $i = 0;
-            foreach ($response_GetAllDanhMuc->d as $news) {
-                $i++; ?>
-            <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
-                id="<?php echo $tab ?>-<?php echo $i ?>">
-                <div
-                    class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
-                        <ul
-                            class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
-                            <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'min-w-[60px]' ?>"><?php _e('Mã', 'bsc') ?></li>
-                            <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
-                                <?php _e('Khuyến nghị', 'bsc') ?>
-                            </li>
-                            <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>"><?php _e('Giá', 'bsc') ?>
-                            </li>
-                            <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
-                                <?php _e('Mục tiêu', 'bsc') ?>
-                            </li>
-                            <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>"><?php _e('Upside', 'bsc') ?>
-                            </li>
-                        </ul>
-                        <?php
-                        if (! $check_logout) {
-                            $time_cache = 300;
-                            $response_instruments_array = array();
-                            $array_data_instruments = array();
-                            $response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
-                            if ($response_instruments) {
-                                $response_instruments_array = $response_instruments->d;
-                            }
-                            $array_data_list_bsc = array();
-                            $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
-                            if ($response_list_bsc) {
-                        ?>
-                                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'overflow-y-auto scroll-bar-custom max-h-[90%]' : '' ?>">
-                                    <?php
-                                    foreach ($response_list_bsc->d as $list_bsc) {
-                                        $symbol = $list_bsc->machungkhoan;
-                                        if ($symbol) {
-                                            $symbols = array_column($response_instruments_array, 'symbol');
-                                            $index = array_search($symbol, $symbols);
-                                            if ($index !== false) {
-                                                $stockData = $response_instruments_array[$index];
-                                            }
-                                    ?>
-                                            <ul
-                                                class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?>">
-                                                <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px]' ?> font-medium"><a
-                                                        href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
-                                                </li>
-                                                <?php
-                                                $status = $list_bsc->hinhthuc;
-                                                $check_status = get_color_by_number_bsc($status);
-                                                $title_status = $check_status['title_status'];
-                                                $text_status = $check_status['text_status'];
-                                                $background_status = $check_status['background_status'];
-                                                ?>
-                                                <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-medium">
-                                                    <?php if ($list_bsc->hinhthuc) { ?>
-                                                        <span
-                                                            class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
-                                                            style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-                                                            <?php
-                                                            echo $title_status;
-                                                            ?>
-                                                        </span>
-                                                    <?php } ?>
-                                                </li>
-                                                <?php if ($stockData->changePercent) {
-                                                    if (($stockData->changePercent) > 0) {
-                                                        if ($stockData->closeprice == $stockData->ceiling) {
-                                                            $text_color_class_price = 'text-[#7F1CCD]';
+                <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
+                    id="<?php echo $tab ?>-<?php echo $i ?>">
+                    <div
+                        class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[76.2416%] pt-[80%] w-full' : 'text-xs' ?>">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
+                            <ul
+                                class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
+                                <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'min-w-[60px]' ?>"><?php _e('Mã', 'bsc') ?></li>
+                                <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
+                                    <?php _e('Khuyến nghị', 'bsc') ?>
+                                </li>
+                                <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>"><?php _e('Giá', 'bsc') ?>
+                                </li>
+                                <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
+                                    <?php _e('Mục tiêu', 'bsc') ?>
+                                </li>
+                                <li class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>"><?php _e('Upside', 'bsc') ?>
+                                </li>
+                            </ul>
+                            <?php
+                            if (! $check_logout) {
+                                $time_cache = 300;
+                                $response_instruments_array = array();
+                                $array_data_instruments = array();
+                                $response_instruments = get_data_with_cache('instruments', $array_data_instruments, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
+                                if ($response_instruments) {
+                                    $response_instruments_array = $response_instruments->d;
+                                }
+                                $array_data_list_bsc = array();
+                                $response_list_bsc = get_data_with_cache('GetDanhMucChiTiet?id=' . $news->id, $array_data_list_bsc, $time_cache, get_field('cdapi_ip_address_quanlydanhmuc', 'option'), 'POST');
+                                if ($response_list_bsc) {
+                            ?>
+                                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'overflow-y-auto scroll-bar-custom max-h-[90%]' : '' ?>">
+                                        <?php
+                                        foreach ($response_list_bsc->d as $list_bsc) {
+                                            $symbol = $list_bsc->machungkhoan;
+                                            if ($symbol) {
+                                                $symbols = array_column($response_instruments_array, 'symbol');
+                                                $index = array_search($symbol, $symbols);
+                                                if ($index !== false) {
+                                                    $stockData = $response_instruments_array[$index];
+                                                }
+                                        ?>
+                                                <ul
+                                                    class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?>">
+                                                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px]' ?> font-medium"><a
+                                                            href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
+                                                    </li>
+                                                    <?php
+                                                    $status = $list_bsc->hinhthuc;
+                                                    $check_status = get_color_by_number_bsc($status);
+                                                    $title_status = $check_status['title_status'];
+                                                    $text_status = $check_status['text_status'];
+                                                    $background_status = $check_status['background_status'];
+                                                    ?>
+                                                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-medium">
+                                                        <?php if ($list_bsc->hinhthuc) { ?>
+                                                            <span
+                                                                class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
+                                                                style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                                                <?php
+                                                                echo $title_status;
+                                                                ?>
+                                                            </span>
+                                                        <?php } ?>
+                                                    </li>
+                                                    <?php if ($stockData->changePercent) {
+                                                        if (($stockData->changePercent) > 0) {
+                                                            if ($stockData->closeprice == $stockData->ceiling) {
+                                                                $text_color_class_price = 'text-[#7F1CCD]';
+                                                            } else {
+                                                                $text_color_class_price = 'text-[#1CCD83]';
+                                                            }
+                                                        } elseif (($stockData->changePercent) < 0) {
+                                                            if ($stockData->closeprice == $stockData->ceiling) {
+                                                                $text_color_class_price = 'text-[#1ABAFE]';
+                                                            } else {
+                                                                $text_color_class_price = 'text-[#FE5353]';
+                                                            }
                                                         } else {
-                                                            $text_color_class_price = 'text-[#1CCD83]';
-                                                        }
-                                                    } elseif (($stockData->changePercent) < 0) {
-                                                        if ($stockData->closeprice == $stockData->ceiling) {
-                                                            $text_color_class_price = 'text-[#1ABAFE]';
-                                                        } else {
-                                                            $text_color_class_price = 'text-[#FE5353]';
+                                                            $text_color_class_price = 'text-[#EB0]';
                                                         }
                                                     } else {
                                                         $text_color_class_price = 'text-[#EB0]';
                                                     }
-                                                } else {
-                                                    $text_color_class_price = 'text-[#EB0]';
-                                                }
-                                                ?>
-                                                <li
-                                                    class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-bold <?php echo $text_color_class_price ?>">
-                                                    <?php
-                                                    if ($stockData->closePrice) {
-                                                        echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
-                                                    }
                                                     ?>
-                                                </li>
-                                                <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-medium">
+                                                    <li
+                                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-bold <?php echo $text_color_class_price ?>">
+                                                        <?php
+                                                        if ($stockData->closePrice) {
+                                                            echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
+                                                        }
+                                                        ?>
+                                                    </li>
+                                                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-medium">
+                                                        <?php
+                                                        if ($list_bsc->giakyvong) {
+                                                            echo number_format(($list_bsc->giakyvong), 2, '.', '');
+                                                        }
+                                                        ?>
+                                                    </li>
                                                     <?php
-                                                    if ($list_bsc->giakyvong) {
-                                                        echo number_format(($list_bsc->giakyvong), 2, '.', '');
-                                                    }
-                                                    ?>
-                                                </li>
-                                                <?php
-                                                if ($stockData->closePrice && $list_bsc->giakyvong) {
-                                                    if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
-                                                        $text_color_class = 'text-[#1CCD83]';
-                                                    } elseif ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) < 0) {
-                                                        $text_color_class = 'text-[#FE5353]';
+                                                    if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                                        if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
+                                                            $text_color_class = 'text-[#1CCD83]';
+                                                        } elseif ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) < 0) {
+                                                            $text_color_class = 'text-[#FE5353]';
+                                                        } else {
+                                                            $text_color_class = 'text-[#EB0]';
+                                                        }
                                                     } else {
                                                         $text_color_class = 'text-[#EB0]';
                                                     }
-                                                } else {
-                                                    $text_color_class = 'text-[#EB0]';
-                                                }
-                                                ?>
-                                                <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-bold <?php echo $text_color_class ?>">
-                                                    <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
-                                                        if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
-                                                            $before_text = '+' . number_format(((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
-                                                        } else {
-                                                            $before_text = '-';
-                                                        }
-                                                        echo $before_text;
-                                                    } ?>
-                                                </li>
-                                            </ul>
-                                    <?php
+                                                    ?>
+                                                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-bold <?php echo $text_color_class ?>">
+                                                        <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
+                                                            if ((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) > 0) {
+                                                                $before_text = '+' . number_format(((($list_bsc->giakyvong) * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';
+                                                            } else {
+                                                                $before_text = '-';
+                                                            }
+                                                            echo $before_text;
+                                                        } ?>
+                                                    </li>
+                                                </ul>
+                                        <?php
+                                            }
                                         }
-                                    }
-                                    ?>
+                                        ?>
+                                    </div>
+                                <?php }
+                            } else {
+                                ?>
+                                <!-- Data Demo -->
+                                <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+                                    <?php for ($i = 0; $i < 8; $i++) { ?>
+                                        <ul
+                                            class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">
+                                            <li class="w-[8%] font-medium"><?php _e('BSI', 'bsc') ?></li>
+                                            <li class="w-[16%] font-medium">
+                                                <span
+                                                    class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
+                                                    style="background-color:#D6F6DE; color:#30D158">
+                                                    <?php _e('Mua', 'bsc') ?> </span>
+                                            </li>
+                                            <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                ---- </li>
+                                            <li class="w-[16%] font-medium">
+                                                ---- </li>
+                                            <li class="w-[16%] font-bold text-[#1CCD83]">
+                                                ---- </li>
+                                        </ul>
+                                    <?php } ?>
                                 </div>
-                            <?php }
-                        } else {
+                            <?php
+                            }
                             ?>
-                            <!-- Data Demo -->
-                            <div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
-                                <?php for ($i = 0; $i < 8; $i++) { ?>
-                                    <ul
-                                        class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">
-                                        <li class="w-[8%] font-medium"><?php _e('BSI', 'bsc') ?></li>
-                                        <li class="w-[16%] font-medium">
-                                            <span
-                                                class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
-                                                style="background-color:#D6F6DE; color:#30D158">
-                                                <?php _e('Mua', 'bsc') ?> </span>
-                                        </li>
-                                        <li class="w-[16%] font-bold text-[#1CCD83]">
-                                            ---- </li>
-                                        <li class="w-[16%] font-medium">
-                                            ---- </li>
-                                        <li class="w-[16%] font-bold text-[#1CCD83]">
-                                            ---- </li>
-                                    </ul>
-                                <?php } ?>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                        </div>
+                        <?php if ($check_logout) {
+                            echo $check_logout['html'];
+                        } ?>
                     </div>
-                    <?php if ($check_logout) {
-                        echo $check_logout['html'];
-                    } ?>
                 </div>
-            </div>
-        <?php
+            <?php
             }
-        ?>
-        <?php }
+            ?>
+            <?php }
     } elseif ($type_form == 'ttnc_search_max') {
         $top_co_phieu = get_top_viewed_co_phieu_option(6);
         $symbols = array_keys($top_co_phieu);
@@ -3753,166 +3732,166 @@ function filter_details_symbol()
                         $title_symbol = '+' . $upside . '%';
                     }
                 }
-        ?>
-            <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
-                class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 py-3 px-[12px]' : 'gap-3 py-2 px-3 text-xs justify-center' ?>">
-                <span>
-                    <?php echo $respon_symbol->symbol  ?>
-                </span>
-                <?php if ($title_symbol != '') { ?>
+            ?>
+                <a href="<?php echo slug_co_phieu($respon_symbol->symbol) ?>"
+                    class="inline-flex rounded-lg <?php echo $bg_color_class ?> text-white font-bold items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 py-3 px-[12px]' : 'gap-3 py-2 px-3 text-xs justify-center' ?>">
                     <span>
-                        <?php echo  $title_symbol ?>
+                        <?php echo $respon_symbol->symbol  ?>
                     </span>
-                <?php  } ?>
-            </a>
-        <?php }
+                    <?php if ($title_symbol != '') { ?>
+                        <span>
+                            <?php echo  $title_symbol ?>
+                        </span>
+                    <?php  } ?>
+                </a>
+            <?php }
         }
     } elseif ($type_form == 'ttnc_khuyen_nghi_GetForecastMacro') {
         $array_data_GetForecastMacro = array();
         $response_GetForecastMacro = get_data_with_cache('GetForecastMacro', $array_data_GetForecastMacro, $time_cache);
         if ($response_GetForecastMacro) {
-        ?>
-        <div
-            class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
+            ?>
             <div
-                class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
+                class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
                 <div
-                    class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[60px]' : '' ?>">
-                        <p>
-                            <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
-                        </p>
+                    class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
+                    <div
+                        class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[60px]' : '' ?>">
+                            <p>
+                                <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('GDP (YoY%)', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
+                            <?php _e('LSĐH (YoY%)*', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
+                            <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                        <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-bold">
+                            <?php _e('USD/VND LNH trung bình', 'bsc') ?>
+                        </div>
+                        <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?> font-semibold">
+                            <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-                        <?php _e('GDP (YoY%)', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
-                        <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-                        <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
-                        <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-                        <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
-                        <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-                        <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
-                        <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-                        <?php _e('LSĐH (YoY%)*', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?>">
-                        <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                    <div class="w-[70%] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-bold">
-                        <?php _e('USD/VND LNH trung bình', 'bsc') ?>
-                    </div>
-                    <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : 'text-right px-5' ?> font-semibold">
-                        <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
-                        </p>
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
+                    <div class="grid grid-cols-2 text-center">
+                        <div class="text-[#FF0017]">
+                            <div
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
+                                <p class="font-semibold mb-1">
+                                    <?php _e('BSC kịch bản 1', 'bsc') ?>
+                                </p>
+                                <div class="grid grid-cols-2 font-semibold">
+                                    <p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php
+                            for ($i = 0; $i < 5; $i++) {
+                            ?>
+                                <div
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
+                                    </p>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
+                                </p>
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-[#30D158]">
+                            <div
+                                class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
+                                <p class="font-semibold mb-1">
+                                    <?php _e('BSC kịch bản 2', 'bsc') ?>
+                                </p>
+                                <div class="grid grid-cols-2 font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <?php
+                            for ($i = 0; $i < 5; $i++) {
+                            ?>
+                                <div
+                                    class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+                                    <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
+                                    </p>
+                                    <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
+                                    </p>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div
+                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
+                                </p>
+                                <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
-                <div class="grid grid-cols-2 text-center">
-                    <div class="text-[#FF0017]">
-                        <div
-                            class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
-                            <p class="font-semibold mb-1">
-                                <?php _e('BSC kịch bản 1', 'bsc') ?>
-                            </p>
-                            <div class="grid grid-cols-2 font-semibold">
-                                <p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
-                                </p>
-                                <p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
-                                </p>
-                            </div>
-                        </div>
-                        <?php
-                        for ($i = 0; $i < 5; $i++) {
-                        ?>
-                            <div
-                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
-                                </p>
-                                <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
-                                </p>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <div
-                            class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
-                            <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
-                            </p>
-                            <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="text-[#30D158]">
-                        <div
-                            class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
-                            <p class="font-semibold mb-1">
-                                <?php _e('BSC kịch bản 2', 'bsc') ?>
-                            </p>
-                            <div class="grid grid-cols-2 font-semibold [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                <p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
-                                </p>
-                                <p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
-                                </p>
-                            </div>
-                        </div>
-                        <?php
-                        for ($i = 0; $i < 5; $i++) {
-                        ?>
-                            <div
-                                class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
-                                </p>
-                                <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
-                                </p>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                        <div
-                            class="grid grid-cols-2 gap-2 text-center items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
-                            <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
-                            </p>
-                            <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php }
+        <?php }
     } elseif ($type_form == 'chart') {
         $time_cache = get_sub_field('time_cache_1') ?: 300;
         date_default_timezone_set('Asia/Bangkok');
@@ -3967,835 +3946,835 @@ function filter_details_symbol()
             $maxValue = ceil($maxValue / 10) * 10;
             $minValue = floor($minValue / 10) * 10;
         }
-    ?>
-    <div id="chart" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
-        data-maxvalue="<?php echo $maxValue; ?>"
-        data-minvalue="<?php echo $minValue; ?>"
-        data-stock='<?php echo $stocksDataJson ?>'></div>
-<?php
+        ?>
+        <div id="chart" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
+            data-maxvalue="<?php echo $maxValue; ?>"
+            data-minvalue="<?php echo $minValue; ?>"
+            data-stock='<?php echo $stocksDataJson ?>'></div>
+    <?php
     } elseif ($type_form == 'report_finance_list-1') {
-?>
-    <div class="container">
-        <div class="mb-10">
-            <ul class="flex items-center gap-5 customtab-nav">
-                <li>
-                    <button data-tabs="#tab-1-Q"
-                        class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                        <?php _e('Quý', 'bsc') ?>
-                    </button>
-                </li>
-                <li>
-                    <button data-tabs="#tab-1-Y"
-                        class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                        <?php _e('Năm', 'bsc') ?>
-                    </button>
-                </li>
-            </ul>
+    ?>
+        <div class="container">
+            <div class="mb-10">
+                <ul class="flex items-center gap-5 customtab-nav">
+                    <li>
+                        <button data-tabs="#tab-1-Q"
+                            class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            <?php _e('Quý', 'bsc') ?>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-tabs="#tab-1-Y"
+                            class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            <?php _e('Năm', 'bsc') ?>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <?php
+            $freq_cttc = array('Q', 'Y');
+            if ($freq_cttc) {
+                $i = 0;
+                foreach ($freq_cttc as $freq) {
+                    $i++;
+            ?>
+                    <div class="tab-content <?php if ($i == 1) echo 'block';
+                                            else echo 'hidden' ?>" id="tab-1-<?php echo $freq ?>">
+                        <?php
+                        $array_data_GetDetailFinanceReportBySymbol = array(
+                            'lang' => pll_current_language(),
+                            'symbol' => $symbol,
+                            'freq' => $freq,
+                            'rptype' => 'BALANCE'
+                        );
+                        $response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
+                        if ($response_GetDetailFinanceReportBySymbol) {
+                            $industryname = $response_GetDetailFinanceReportBySymbol->industryname;
+                        ?>
+                            <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+                                <div
+                                    class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4">
+                                    <p class="flex-1"><?php _e('Danh sách', 'bsc') ?></p>
+                                    <?php
+                                    $yearData = $response_GetDetailFinanceReportBySymbol->d[0];
+                                    $yearDataArray = (array) $yearData;
+                                    $yearDataValues = array_slice($yearDataArray, 1, null, true);
+                                    $yearDataValues = array_reverse($yearDataValues, true);
+                                    foreach ($yearDataValues as $key => $year) {
+                                    ?>
+                                        <p class="w-[135px] max-w-[11%]"><?php echo htmlspecialchars($year); ?></p>
+                                    <?php
+                                    }
+                                    ?>
+                                    <p class="w-[175px] max-w-[14%]"><?php _e('Tăng trưởng', 'bsc') ?></p>
+                                </div>
+                                <div class="list_content-collapse font-medium">
+                                    <?php if ($industryname == 'Insurance') {
+                                        $menuData = [
+                                            [
+                                                'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
+                                                'order' => 3,
+                                                'children' => [
+                                                    [
+                                                        'title' => '1. ' . __('Tiền và các khoản tương đương tiền', 'bsc'),
+                                                        'order' => 4,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Tiền', 'bsc'),
+                                                                'order' => 5,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '_ ' . __('Các khoản tương đương tiền', 'bsc'),
+                                                                'order' => 6,
+                                                                'children' => []
+                                                            ]
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '2 ' . __('Đầu tư tài chính ngắn hạn', 'bsc'),
+                                                        'order' => 7,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Chứng khoán kinh doanh', 'bsc'),
+                                                                'order' => 8,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng giảm giá chứng khoán kinh doanh', 'bsc'),
+                                                                'order' => 9,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Đầu tư nắm giữ đến ngày đáo hạn', 'bsc'),
+                                                                'order' => 10,
+                                                                'children' => []
+                                                            ]
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '3 ' . __('Các khoản phải thu ngắn hạn', 'bsc'),
+                                                        'order' => 11,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Phải thu của khách hàng', 'bsc'),
+                                                                'order' => 12,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Phải thu về hợp đồng bảo hiểm', 'bsc'),
+                                                                        'order' => 13,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Phải thu khác của khách hàng', 'bsc'),
+                                                                        'order' => 14,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Trả trước cho người bán', 'bsc'),
+                                                                'order' => 15,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải thu nội bộ ngắn hạn', 'bsc'),
+                                                                'order' => 16,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Các khoản phải thu khác', 'bsc'),
+                                                                'order' => 17,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng các khoản phải thu khó đòi', 'bsc'),
+                                                                'order' => 18,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '4 ' . __('Hàng tồn kho', 'bsc'),
+                                                        'order' => 19,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Hàng tồn kho', 'bsc'),
+                                                                'order' => 20,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng giảm giá hàng tồn kho', 'bsc'),
+                                                                'order' => 21,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '5 ' . __('Tài sản ngắn hạn khác', 'bsc'),
+                                                        'order' => 22,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Chi phí trả trước ngắn hạn', 'bsc'),
+                                                                'order' => 23,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => '- ' . __('Chi phí hoa hồng chưa phân bổ', 'bsc'),
+                                                                        'order' => 24,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => '- ' . __('Chi phí trả trước ngắn hạn khác', 'bsc'),
+                                                                        'order' => 25,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Thuế GTGT được khấu trừ', 'bsc'),
+                                                                'order' => 26,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Thuế và các khoản khác phải thu Nhà nước', 'bsc'),
+                                                                'order' => 27,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'bsc'),
+                                                                'order' => 28,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Tài sản ngắn hạn khác', 'bsc'),
+                                                                'order' => 29,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '6 ' . __('Tài sản tái bảo hiểm', 'bsc'),
+                                                        'order' => 30,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng phí nhượng tái bảo hiểm', 'bsc'),
+                                                                'order' => 31,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng bồi thường nhượng tái bảo hiểm', 'bsc'),
+                                                                'order' => 32,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                ]
+                                            ],
+                                            [
+                                                'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'BSC'),
+                                                'order' => 33,
+                                                'children' => [
+                                                    [
+                                                        'title' => '7. ' . __('Các khoản phải thu dài hạn', 'bsc'),
+                                                        'order' => 34,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Phải thu dài hạn của khách hàng', 'bsc'),
+                                                                'order' => 35,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Trả trước người bán dài hạn', 'bsc'),
+                                                                'order' => 36,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Vốn kinh doanh của đơn vị trực thuộc', 'bsc'),
+                                                                'order' => 37,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải thu dài hạn nội bộ', 'bsc'),
+                                                                'order' => 38,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải thu dài hạn khác', 'bsc'),
+                                                                'order' => 39,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' =>  __('Kí quỹ bảo hiểm', 'bsc'),
+                                                                        'order' => 40,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' =>  __('Phải thu dài hạn khác', 'bsc'),
+                                                                        'order' => 41,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng phải thu dài hạn', 'bsc'),
+                                                                'order' => 42,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '8. ' . __('Tài sản cố định', 'bsc'),
+                                                        'order' => 43,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Tài sản cố định hữu hình', 'bsc'),
+                                                                'order' => 44,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' =>  __('Nguyên giá tài sản cố định hữu hình', 'bsc'),
+                                                                        'order' => 45,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định hữu hình', 'bsc'),
+                                                                        'order' => 46,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Tài sản cố định thuê tài chính', 'bsc'),
+                                                                'order' => 47,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' =>  __('Nguyên giá tài sản cố định thuê tài chính', 'bsc'),
+                                                                        'order' => 48,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định thuê tài chính', 'bsc'),
+                                                                        'order' => 49,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Tài sản cố định vô hình', 'bsc'),
+                                                                'order' => 50,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' =>  __('Nguyên giá tài sản cố định vô hình', 'bsc'),
+                                                                        'order' => 51,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định vô hình', 'bsc'),
+                                                                        'order' => 52,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Chi phí xây dựng cơ bản dở dang', 'bsc'),
+                                                                'order' => 53,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '9. ' . __('Bất động sản đầu tư', 'bsc'),
+                                                        'order' => 54,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Nguyên giá bất động sản đầu tư', 'bsc'),
+                                                                'order' => 55,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Giá trị hao mòn luỹ kế bất động sản đầu tư', 'bsc'),
+                                                                'order' => 56,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '10. ' . __('Đầu tư tài chính dài hạn', 'bsc'),
+                                                        'order' => 57,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Đầu tư vào công ty con', 'bsc'),
+                                                                'order' => 58,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Đầu tư vào công ty liên kết, liên doanh', 'bsc'),
+                                                                'order' => 59,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Đầu tư dài hạn khác', 'bsc'),
+                                                                'order' => 60,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng giảm giá đầu tư tài chính dài hạn', 'bsc'),
+                                                                'order' => 61,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '11. ' . __('Tài sản dài hạn khác', 'bsc'),
+                                                        'order' => 62,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Chi phí trả trước dài hạn', 'bsc'),
+                                                                'order' => 63,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Tài sản dài hạn khác', 'bsc'),
+                                                                'order' => 64,
+                                                                'children' => []
+                                                            ],
+                                                        ]
+                                                    ],
+                                                ]
+                                            ],
+                                            [
+                                                'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'BSC'),
+                                                'order' => 66,
+                                                'children' => [
+                                                    [
+                                                        'title' => '1. ' . __('Nợ ngắn hạn', 'BSC'),
+                                                        'order' => 67,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Vay và nợ ngắn hạn', 'BSC'),
+                                                                'order' => 68,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải trả cho người bán', 'BSC'),
+                                                                'order' => 69,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Phải trả về hợp đồng bảo hiểm', 'BSC'),
+                                                                        'order' => 70,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Phải trả khác cho người bán', 'BSC'),
+                                                                        'order' => 71,
+                                                                        'children' => []
+                                                                    ]
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Người mua trả tiền trước', 'BSC'),
+                                                                'order' => 72,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'BSC'),
+                                                                'order' => 73,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải trả người lao động', 'BSC'),
+                                                                'order' => 74,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Chi phí phải trả', 'BSC'),
+                                                                'order' => 75,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải trả nội bộ', 'BSC'),
+                                                                'order' => 76,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'BSC'),
+                                                                'order' => 77,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'BSC'),
+                                                                'order' => 78,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'BSC'),
+                                                                'order' => 79,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
+                                                                'order' => 80,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng nghiệp vụ', 'BSC'),
+                                                                'order' => 81,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                                                        'order' => 82,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                                                        'order' => 83,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Dự phòng dao động lớn', 'BSC'),
+                                                                        'order' => 84,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                        ]
+                                                    ],
+                                                    [
+                                                        'title' => '2. ' . __('Nợ dài hạn', 'BSC'),
+                                                        'order' => 85,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Phải trả dài hạn người bán', 'BSC'),
+                                                                'order' => 86,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'BSC'),
+                                                                        'order' => 87,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => '- ' . __('Chi phí phải trả dài hạn', 'BSC'),
+                                                                        'order' => 88,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'BSC'),
+                                                                        'order' => 89,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải trả dài hạn nội bộ', 'BSC'),
+                                                                'order' => 90,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Phải trả dài hạn khác', 'BSC'),
+                                                                'order' => 91,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Vay và nợ dài hạn', 'BSC'),
+                                                                'order' => 92,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'BSC'),
+                                                                'order' => 93,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'BSC'),
+                                                                'order' => 94,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Dự phòng phải trả dài hạn', 'BSC'),
+                                                                'order' => 95,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Doanh thu chưa thực hiện', 'BSC'),
+                                                                'order' => 96,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'BSC'),
+                                                                'order' => 97,
+                                                                'children' => []
+                                                            ],
+
+                                                        ]
+                                                    ],
+                                                ]
+                                            ],
+                                            [
+                                                'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'BSC'),
+                                                'order' => 98,
+                                                'children' => [
+                                                    [
+                                                        'title' => '1. ' . __('Vốn chủ sở hữu', 'BSC'),
+                                                        'order' => 99,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'BSC'),
+                                                                'order' => 100,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Cổ phiếu phổ thông', 'BSC'),
+                                                                        'order' => 101,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Cổ phiếu ưu đãi', 'BSC'),
+                                                                        'order' => 102,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Thặng dư vốn cổ phần', 'BSC'),
+                                                                'order' => 103,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Cổ phiếu quỹ', 'BSC'),
+                                                                'order' => 104,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Vốn khác của chủ sở hữu', 'BSC'),
+                                                                'order' => 105,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'BSC'),
+                                                                'order' => 106,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'BSC'),
+                                                                'order' => 107,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ đầu tư phát triển', 'BSC'),
+                                                                'order' => 108,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ dự phòng tài chính', 'BSC'),
+                                                                'order' => 109,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'BSC'),
+                                                                'order' => 110,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'BSC'),
+                                                                'order' => 111,
+                                                                'children' => []
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'BSC'),
+                                                                'order' => 112,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'BSC'),
+                                                                        'order' => 113,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => '- ' . __('LNST chưa phân phối kỳ này', 'BSC'),
+                                                                        'order' => 114,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                        ]
+                                                    ],
+                                                ]
+                                            ],
+                                        ];
+                                    } elseif ($industryname == 'Security') {
+                                        $menuData = [
+                                            [
+                                                'title' => 'I. ' . __('TỔNG TÀI SẢN', 'BSC'),
+                                                'order' => 2,
+                                                'children' => [
+                                                    [
+                                                        'title' => '1. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
+                                                        'order' => 3,
+                                                        'children' => [
+                                                            [
+                                                                'title' => '- ' . __('Tài sản tài chính', 'BSC'),
+                                                                'order' => 4,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Tiền và các khoản tương đương tiền', 'BSC'),
+                                                                        'order' => 5,
+                                                                        'children' => [
+                                                                            [
+                                                                                'title' => __('Tiền', 'BSC'),
+                                                                                'order' => 6,
+                                                                                'children' => []
+                                                                            ],
+                                                                            [
+                                                                                'title' => __('Các khoản tương đương tiền', 'BSC'),
+                                                                                'order' => 7,
+                                                                                'children' => []
+                                                                            ],
+                                                                        ]
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Các tài sản tài chính ghi nhận thông qua lãi/lỗ (FVTPL)', 'BSC'),
+                                                                        'order' => 8,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Các khoản đầu tư nắm giữ đến ngày đáo hạn (HTM)', 'BSC'),
+                                                                        'order' => 9,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Các khoản cho vay', 'BSC'),
+                                                                        'order' => 10,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Tài sản tài chính sẵn sảng để bán (AFS)', 'BSC'),
+                                                                        'order' => 11,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Dự phòng suy giảm giá trị các tài sản tài chính và tài sản thế chấp', 'BSC'),
+                                                                        'order' => 12,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Các khoản phải thu', 'BSC'),
+                                                                        'order' => 13,
+                                                                        'children' => [
+                                                                            [
+                                                                                'title' => __('Phải thu bán các tài sản tài chính', 'BSC'),
+                                                                                'order' => 14,
+                                                                                'children' => []
+                                                                            ],
+                                                                            [
+                                                                                'title' => __('Phải thu và dự thu cổ tức, tiền lãi các tài sản tài chính', 'BSC'),
+                                                                                'order' => 15,
+                                                                                'children' => [
+                                                                                    [
+                                                                                        'title' => __('Phải thu cổ tức, tiền lãi đến ngày nhận', 'BSC'),
+                                                                                        'order' => 16,
+                                                                                        'children' => [
+                                                                                            [
+                                                                                                'title' => __('Trong đó: Phải thu khó đòi về cổ tức, tiền lãi đến ngày nhận nhưng chưa nhận được', 'BSC'),
+                                                                                                'order' => 17,
+                                                                                                'children' => []
+                                                                                            ],
+                                                                                        ]
+                                                                                    ],
+                                                                                    [
+                                                                                        'title' => __('Dự thu cổ tức, tiền lãi chưa đến ngày nhận', 'BSC'),
+                                                                                        'order' => 19,
+                                                                                        'children' => []
+                                                                                    ],
+                                                                                ]
+                                                                            ],
+                                                                        ]
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Thuế giá trị gia tăng được khấu trừ', 'BSC'),
+                                                                        'order' => 18,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Phải thu các dịch vụ CTCK cung cấp', 'BSC'),
+                                                                        'order' => 20,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Phải thu nội bộ', 'BSC'),
+                                                                        'order' => 21,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Phải thu về lỗi giao dịch chứng khoán', 'BSC'),
+                                                                        'order' => 22,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Các khoản phải thu khác', 'BSC'),
+                                                                        'order' => 23,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
+                                                                        'order' => 24,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                            [
+                                                                'title' => '- ' . __('Tài sản ngắn hạn khác', 'BSC'),
+                                                                'order' => 25,
+                                                                'children' => [
+                                                                    [
+                                                                        'title' => __('Tạm ứng', 'BSC'),
+                                                                        'order' => 26,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Vật tư văn phòng, công cụ. dụng cụ', 'BSC'),
+                                                                        'order' => 27,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Chi phí trả trước ngắn hạn', 'BSC'),
+                                                                        'order' => 28,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Cầm cố, thế chấp, ký quỹ, ký cược ngắn hạn', 'BSC'),
+                                                                        'order' => 29,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
+                                                                        'order' => 30,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Tài sản ngắn hạn khác', 'BSC'),
+                                                                        'order' => 31,
+                                                                        'children' => []
+                                                                    ],
+                                                                    [
+                                                                        'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
+                                                                        'order' => 32,
+                                                                        'children' => []
+                                                                    ],
+                                                                ]
+                                                            ],
+                                                        ]
+                                                    ],
+                                                ]
+                                            ],
+                                        ];
+                                    } ?>
+                                    <?php
+                                    renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
+                                    ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+            <?php }
+            } ?>
         </div>
         <?php
-        $freq_cttc = array('Q', 'Y');
-        if ($freq_cttc) {
-            $i = 0;
-            foreach ($freq_cttc as $freq) {
-                $i++;
-        ?>
-                <div class="tab-content <?php if ($i == 1) echo 'block';
-                                        else echo 'hidden' ?>" id="tab-1-<?php echo $freq ?>">
-                    <?php
-                    $array_data_GetDetailFinanceReportBySymbol = array(
-                        'lang' => pll_current_language(),
-                        'symbol' => $symbol,
-                        'freq' => $freq,
-                        'rptype' => 'BALANCE'
-                    );
-                    $response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
-                    if ($response_GetDetailFinanceReportBySymbol) {
-                        $industryname = $response_GetDetailFinanceReportBySymbol->industryname;
-                    ?>
-                        <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                            <div
-                                class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4">
-                                <p class="flex-1"><?php _e('Danh sách', 'bsc') ?></p>
-                                <?php
-                                $yearData = $response_GetDetailFinanceReportBySymbol->d[0];
-                                $yearDataArray = (array) $yearData;
-                                $yearDataValues = array_slice($yearDataArray, 1, null, true);
-                                $yearDataValues = array_reverse($yearDataValues, true);
-                                foreach ($yearDataValues as $key => $year) {
-                                ?>
-                                    <p class="w-[135px] max-w-[11%]"><?php echo htmlspecialchars($year); ?></p>
-                                <?php
-                                }
-                                ?>
-                                <p class="w-[175px] max-w-[14%]"><?php _e('Tăng trưởng', 'bsc') ?></p>
-                            </div>
-                            <div class="list_content-collapse font-medium">
-                                <?php if ($industryname == 'Insurance') {
-                                    $menuData = [
-                                        [
-                                            'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
-                                            'order' => 3,
-                                            'children' => [
-                                                [
-                                                    'title' => '1. ' . __('Tiền và các khoản tương đương tiền', 'bsc'),
-                                                    'order' => 4,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Tiền', 'bsc'),
-                                                            'order' => 5,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '_ ' . __('Các khoản tương đương tiền', 'bsc'),
-                                                            'order' => 6,
-                                                            'children' => []
-                                                        ]
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '2 ' . __('Đầu tư tài chính ngắn hạn', 'bsc'),
-                                                    'order' => 7,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Chứng khoán kinh doanh', 'bsc'),
-                                                            'order' => 8,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng giảm giá chứng khoán kinh doanh', 'bsc'),
-                                                            'order' => 9,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Đầu tư nắm giữ đến ngày đáo hạn', 'bsc'),
-                                                            'order' => 10,
-                                                            'children' => []
-                                                        ]
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '3 ' . __('Các khoản phải thu ngắn hạn', 'bsc'),
-                                                    'order' => 11,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Phải thu của khách hàng', 'bsc'),
-                                                            'order' => 12,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Phải thu về hợp đồng bảo hiểm', 'bsc'),
-                                                                    'order' => 13,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Phải thu khác của khách hàng', 'bsc'),
-                                                                    'order' => 14,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Trả trước cho người bán', 'bsc'),
-                                                            'order' => 15,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải thu nội bộ ngắn hạn', 'bsc'),
-                                                            'order' => 16,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Các khoản phải thu khác', 'bsc'),
-                                                            'order' => 17,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng các khoản phải thu khó đòi', 'bsc'),
-                                                            'order' => 18,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '4 ' . __('Hàng tồn kho', 'bsc'),
-                                                    'order' => 19,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Hàng tồn kho', 'bsc'),
-                                                            'order' => 20,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng giảm giá hàng tồn kho', 'bsc'),
-                                                            'order' => 21,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '5 ' . __('Tài sản ngắn hạn khác', 'bsc'),
-                                                    'order' => 22,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Chi phí trả trước ngắn hạn', 'bsc'),
-                                                            'order' => 23,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => '- ' . __('Chi phí hoa hồng chưa phân bổ', 'bsc'),
-                                                                    'order' => 24,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => '- ' . __('Chi phí trả trước ngắn hạn khác', 'bsc'),
-                                                                    'order' => 25,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Thuế GTGT được khấu trừ', 'bsc'),
-                                                            'order' => 26,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Thuế và các khoản khác phải thu Nhà nước', 'bsc'),
-                                                            'order' => 27,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'bsc'),
-                                                            'order' => 28,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Tài sản ngắn hạn khác', 'bsc'),
-                                                            'order' => 29,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '6 ' . __('Tài sản tái bảo hiểm', 'bsc'),
-                                                    'order' => 30,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng phí nhượng tái bảo hiểm', 'bsc'),
-                                                            'order' => 31,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng bồi thường nhượng tái bảo hiểm', 'bsc'),
-                                                            'order' => 32,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                            ]
-                                        ],
-                                        [
-                                            'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'BSC'),
-                                            'order' => 33,
-                                            'children' => [
-                                                [
-                                                    'title' => '7. ' . __('Các khoản phải thu dài hạn', 'bsc'),
-                                                    'order' => 34,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Phải thu dài hạn của khách hàng', 'bsc'),
-                                                            'order' => 35,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Trả trước người bán dài hạn', 'bsc'),
-                                                            'order' => 36,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Vốn kinh doanh của đơn vị trực thuộc', 'bsc'),
-                                                            'order' => 37,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải thu dài hạn nội bộ', 'bsc'),
-                                                            'order' => 38,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải thu dài hạn khác', 'bsc'),
-                                                            'order' => 39,
-                                                            'children' => [
-                                                                [
-                                                                    'title' =>  __('Kí quỹ bảo hiểm', 'bsc'),
-                                                                    'order' => 40,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' =>  __('Phải thu dài hạn khác', 'bsc'),
-                                                                    'order' => 41,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng phải thu dài hạn', 'bsc'),
-                                                            'order' => 42,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '8. ' . __('Tài sản cố định', 'bsc'),
-                                                    'order' => 43,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Tài sản cố định hữu hình', 'bsc'),
-                                                            'order' => 44,
-                                                            'children' => [
-                                                                [
-                                                                    'title' =>  __('Nguyên giá tài sản cố định hữu hình', 'bsc'),
-                                                                    'order' => 45,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định hữu hình', 'bsc'),
-                                                                    'order' => 46,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Tài sản cố định thuê tài chính', 'bsc'),
-                                                            'order' => 47,
-                                                            'children' => [
-                                                                [
-                                                                    'title' =>  __('Nguyên giá tài sản cố định thuê tài chính', 'bsc'),
-                                                                    'order' => 48,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định thuê tài chính', 'bsc'),
-                                                                    'order' => 49,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Tài sản cố định vô hình', 'bsc'),
-                                                            'order' => 50,
-                                                            'children' => [
-                                                                [
-                                                                    'title' =>  __('Nguyên giá tài sản cố định vô hình', 'bsc'),
-                                                                    'order' => 51,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định vô hình', 'bsc'),
-                                                                    'order' => 52,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Chi phí xây dựng cơ bản dở dang', 'bsc'),
-                                                            'order' => 53,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '9. ' . __('Bất động sản đầu tư', 'bsc'),
-                                                    'order' => 54,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Nguyên giá bất động sản đầu tư', 'bsc'),
-                                                            'order' => 55,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Giá trị hao mòn luỹ kế bất động sản đầu tư', 'bsc'),
-                                                            'order' => 56,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '10. ' . __('Đầu tư tài chính dài hạn', 'bsc'),
-                                                    'order' => 57,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Đầu tư vào công ty con', 'bsc'),
-                                                            'order' => 58,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Đầu tư vào công ty liên kết, liên doanh', 'bsc'),
-                                                            'order' => 59,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Đầu tư dài hạn khác', 'bsc'),
-                                                            'order' => 60,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng giảm giá đầu tư tài chính dài hạn', 'bsc'),
-                                                            'order' => 61,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '11. ' . __('Tài sản dài hạn khác', 'bsc'),
-                                                    'order' => 62,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Chi phí trả trước dài hạn', 'bsc'),
-                                                            'order' => 63,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Tài sản dài hạn khác', 'bsc'),
-                                                            'order' => 64,
-                                                            'children' => []
-                                                        ],
-                                                    ]
-                                                ],
-                                            ]
-                                        ],
-                                        [
-                                            'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'BSC'),
-                                            'order' => 66,
-                                            'children' => [
-                                                [
-                                                    'title' => '1. ' . __('Nợ ngắn hạn', 'BSC'),
-                                                    'order' => 67,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Vay và nợ ngắn hạn', 'BSC'),
-                                                            'order' => 68,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải trả cho người bán', 'BSC'),
-                                                            'order' => 69,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Phải trả về hợp đồng bảo hiểm', 'BSC'),
-                                                                    'order' => 70,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Phải trả khác cho người bán', 'BSC'),
-                                                                    'order' => 71,
-                                                                    'children' => []
-                                                                ]
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Người mua trả tiền trước', 'BSC'),
-                                                            'order' => 72,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'BSC'),
-                                                            'order' => 73,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải trả người lao động', 'BSC'),
-                                                            'order' => 74,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Chi phí phải trả', 'BSC'),
-                                                            'order' => 75,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải trả nội bộ', 'BSC'),
-                                                            'order' => 76,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'BSC'),
-                                                            'order' => 77,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'BSC'),
-                                                            'order' => 78,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'BSC'),
-                                                            'order' => 79,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
-                                                            'order' => 80,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng nghiệp vụ', 'BSC'),
-                                                            'order' => 81,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
-                                                                    'order' => 82,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
-                                                                    'order' => 83,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Dự phòng dao động lớn', 'BSC'),
-                                                                    'order' => 84,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                    ]
-                                                ],
-                                                [
-                                                    'title' => '2. ' . __('Nợ dài hạn', 'BSC'),
-                                                    'order' => 85,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Phải trả dài hạn người bán', 'BSC'),
-                                                            'order' => 86,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'BSC'),
-                                                                    'order' => 87,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => '- ' . __('Chi phí phải trả dài hạn', 'BSC'),
-                                                                    'order' => 88,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'BSC'),
-                                                                    'order' => 89,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải trả dài hạn nội bộ', 'BSC'),
-                                                            'order' => 90,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Phải trả dài hạn khác', 'BSC'),
-                                                            'order' => 91,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Vay và nợ dài hạn', 'BSC'),
-                                                            'order' => 92,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'BSC'),
-                                                            'order' => 93,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'BSC'),
-                                                            'order' => 94,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Dự phòng phải trả dài hạn', 'BSC'),
-                                                            'order' => 95,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Doanh thu chưa thực hiện', 'BSC'),
-                                                            'order' => 96,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'BSC'),
-                                                            'order' => 97,
-                                                            'children' => []
-                                                        ],
-
-                                                    ]
-                                                ],
-                                            ]
-                                        ],
-                                        [
-                                            'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'BSC'),
-                                            'order' => 98,
-                                            'children' => [
-                                                [
-                                                    'title' => '1. ' . __('Vốn chủ sở hữu', 'BSC'),
-                                                    'order' => 99,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'BSC'),
-                                                            'order' => 100,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Cổ phiếu phổ thông', 'BSC'),
-                                                                    'order' => 101,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Cổ phiếu ưu đãi', 'BSC'),
-                                                                    'order' => 102,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Thặng dư vốn cổ phần', 'BSC'),
-                                                            'order' => 103,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Cổ phiếu quỹ', 'BSC'),
-                                                            'order' => 104,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Vốn khác của chủ sở hữu', 'BSC'),
-                                                            'order' => 105,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'BSC'),
-                                                            'order' => 106,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'BSC'),
-                                                            'order' => 107,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ đầu tư phát triển', 'BSC'),
-                                                            'order' => 108,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ dự phòng tài chính', 'BSC'),
-                                                            'order' => 109,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'BSC'),
-                                                            'order' => 110,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'BSC'),
-                                                            'order' => 111,
-                                                            'children' => []
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'BSC'),
-                                                            'order' => 112,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'BSC'),
-                                                                    'order' => 113,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => '- ' . __('LNST chưa phân phối kỳ này', 'BSC'),
-                                                                    'order' => 114,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                    ]
-                                                ],
-                                            ]
-                                        ],
-                                    ];
-                                } elseif ($industryname == 'Security') {
-                                    $menuData = [
-                                        [
-                                            'title' => 'I. ' . __('TỔNG TÀI SẢN', 'BSC'),
-                                            'order' => 2,
-                                            'children' => [
-                                                [
-                                                    'title' => '1. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
-                                                    'order' => 3,
-                                                    'children' => [
-                                                        [
-                                                            'title' => '- ' . __('Tài sản tài chính', 'BSC'),
-                                                            'order' => 4,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Tiền và các khoản tương đương tiền', 'BSC'),
-                                                                    'order' => 5,
-                                                                    'children' => [
-                                                                        [
-                                                                            'title' => __('Tiền', 'BSC'),
-                                                                            'order' => 6,
-                                                                            'children' => []
-                                                                        ],
-                                                                        [
-                                                                            'title' => __('Các khoản tương đương tiền', 'BSC'),
-                                                                            'order' => 7,
-                                                                            'children' => []
-                                                                        ],
-                                                                    ]
-                                                                ],
-                                                                [
-                                                                    'title' => __('Các tài sản tài chính ghi nhận thông qua lãi/lỗ (FVTPL)', 'BSC'),
-                                                                    'order' => 8,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Các khoản đầu tư nắm giữ đến ngày đáo hạn (HTM)', 'BSC'),
-                                                                    'order' => 9,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Các khoản cho vay', 'BSC'),
-                                                                    'order' => 10,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Tài sản tài chính sẵn sảng để bán (AFS)', 'BSC'),
-                                                                    'order' => 11,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Dự phòng suy giảm giá trị các tài sản tài chính và tài sản thế chấp', 'BSC'),
-                                                                    'order' => 12,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Các khoản phải thu', 'BSC'),
-                                                                    'order' => 13,
-                                                                    'children' => [
-                                                                        [
-                                                                            'title' => __('Phải thu bán các tài sản tài chính', 'BSC'),
-                                                                            'order' => 14,
-                                                                            'children' => []
-                                                                        ],
-                                                                        [
-                                                                            'title' => __('Phải thu và dự thu cổ tức, tiền lãi các tài sản tài chính', 'BSC'),
-                                                                            'order' => 15,
-                                                                            'children' => [
-                                                                                [
-                                                                                    'title' => __('Phải thu cổ tức, tiền lãi đến ngày nhận', 'BSC'),
-                                                                                    'order' => 16,
-                                                                                    'children' => [
-                                                                                        [
-                                                                                            'title' => __('Trong đó: Phải thu khó đòi về cổ tức, tiền lãi đến ngày nhận nhưng chưa nhận được', 'BSC'),
-                                                                                            'order' => 17,
-                                                                                            'children' => []
-                                                                                        ],
-                                                                                    ]
-                                                                                ],
-                                                                                [
-                                                                                    'title' => __('Dự thu cổ tức, tiền lãi chưa đến ngày nhận', 'BSC'),
-                                                                                    'order' => 19,
-                                                                                    'children' => []
-                                                                                ],
-                                                                            ]
-                                                                        ],
-                                                                    ]
-                                                                ],
-                                                                [
-                                                                    'title' => __('Thuế giá trị gia tăng được khấu trừ', 'BSC'),
-                                                                    'order' => 18,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Phải thu các dịch vụ CTCK cung cấp', 'BSC'),
-                                                                    'order' => 20,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Phải thu nội bộ', 'BSC'),
-                                                                    'order' => 21,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Phải thu về lỗi giao dịch chứng khoán', 'BSC'),
-                                                                    'order' => 22,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Các khoản phải thu khác', 'BSC'),
-                                                                    'order' => 23,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
-                                                                    'order' => 24,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                        [
-                                                            'title' => '- ' . __('Tài sản ngắn hạn khác', 'BSC'),
-                                                            'order' => 25,
-                                                            'children' => [
-                                                                [
-                                                                    'title' => __('Tạm ứng', 'BSC'),
-                                                                    'order' => 26,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Vật tư văn phòng, công cụ. dụng cụ', 'BSC'),
-                                                                    'order' => 27,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Chi phí trả trước ngắn hạn', 'BSC'),
-                                                                    'order' => 28,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Cầm cố, thế chấp, ký quỹ, ký cược ngắn hạn', 'BSC'),
-                                                                    'order' => 29,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
-                                                                    'order' => 30,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Tài sản ngắn hạn khác', 'BSC'),
-                                                                    'order' => 31,
-                                                                    'children' => []
-                                                                ],
-                                                                [
-                                                                    'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
-                                                                    'order' => 32,
-                                                                    'children' => []
-                                                                ],
-                                                            ]
-                                                        ],
-                                                    ]
-                                                ],
-                                            ]
-                                        ],
-                                    ];
-                                } ?>
-                                <?php
-                                renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
-                                ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-                </div>
-        <?php }
-        } ?>
-    </div>
-    <?php
     }
     die();
 }
@@ -4807,47 +4786,47 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
 {
     if ($menuData && $response_GetDetailFinanceReportBySymbol) {
         foreach ($menuData as $item) {
-    ?>
-        <div
-            class="<?php if (!empty($item['children'])) echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
-            <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
-                <h3
-                    class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
-                    <?php
-                    if (!empty($item['children'])) {
-                        echo svgClass('icon-up', '16', '16', 'transition-all');
-                    } ?>
-                    <?php echo  $item['title'] ?>
-                </h3>
-                <?php
-                $Data = $response_GetDetailFinanceReportBySymbol->d[$item['order']];
-                $Array = (array) $Data;
-                $Values = array_slice($Array, 1, null, true);
-                $Values = array_reverse($Values, true);
-                $Values_chart = implode(',', $Values);
-                foreach ($Values as $key => $Val) {
-                ?>
-                    <div class="w-[135px] max-w-[11%]">
+        ?>
+            <div
+                class="<?php if (!empty($item['children'])) echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
+                <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
+                    <h3
+                        class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
                         <?php
-                        if (is_numeric($Val)) {
-                            echo number_format($Val);
-                        }
-                        ?>
-                    </div>
-                <?php
-                }
-                ?>
-                <div class="w-[175px] max-w-[14%] h-10">
-                    <div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false" data-color="<?php echo '#007bff' ?>">
+                        if (!empty($item['children'])) {
+                            echo svgClass('icon-up', '16', '16', 'transition-all');
+                        } ?>
+                        <?php echo  $item['title'] ?>
+                    </h3>
+                    <?php
+                    $Data = $response_GetDetailFinanceReportBySymbol->d[$item['order']];
+                    $Array = (array) $Data;
+                    $Values = array_slice($Array, 1, null, true);
+                    $Values = array_reverse($Values, true);
+                    $Values_chart = implode(',', $Values);
+                    foreach ($Values as $key => $Val) {
+                    ?>
+                        <div class="w-[135px] max-w-[11%]">
+                            <?php
+                            if (is_numeric($Val)) {
+                                echo number_format($Val);
+                            }
+                            ?>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <div class="w-[175px] max-w-[14%] h-10">
+                        <div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false" data-color="<?php echo '#007bff' ?>">
+                        </div>
                     </div>
                 </div>
+                <?php if (!empty($item['children'])) { ?>
+                    <div class="sub-collapse hidden">
+                        <?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol); ?>
+                    </div>
+                <?php } ?>
             </div>
-            <?php if (!empty($item['children'])) { ?>
-                <div class="sub-collapse hidden">
-                    <?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol); ?>
-                </div>
-            <?php } ?>
-        </div>
 <?php
         }
     }
