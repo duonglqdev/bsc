@@ -2770,8 +2770,8 @@ function filter_details_symbol()
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
                                                 <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                                if ($GetForecastBussiness->HS_CO_PHIEU) {
-                                                                                                                                                    echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
+                                                                                                                                                if ($GetForecastBussiness->BVPS) {
+                                                                                                                                                    echo number_format($GetForecastBussiness->BVPS, '2', '.', ',') . '%';
                                                                                                                                                 }
                                                                                                                                                 ?></td>
                                             <?php
