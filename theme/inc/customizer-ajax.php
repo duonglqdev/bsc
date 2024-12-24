@@ -968,7 +968,7 @@ function filter_details_symbol()
                         </div>
                         <div class="md:ml-[30px] ml-4">
                             <p
-                                class="font-bold leading-normal text-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
+                                class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg line-clamp-2 mb-2':'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
                                 <?php echo htmlspecialchars($news->title) ?>
                             </p>
                             <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
@@ -990,11 +990,11 @@ function filter_details_symbol()
     } elseif ($type_form == 'details_symbol_tab-2') {
     ?>
         <div class="list__content">
-            <div class="flex items-center justify-between mt-16 mb-[30px]">
-                <ul class="flex items-center gap-5 customtab-nav">
+            <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 mb-10':'mt-[38px] mb-6' ?>">
+                <ul class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
                     <li>
                         <button data-tabs="#tab-2-Q"
-                            class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg w-full' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Quý', 'bsc') ?>
                         </button>
                     </li>
@@ -1273,13 +1273,13 @@ function filter_details_symbol()
                 <ul class="flex items-center sm:gap-5 gap-2 customtab-nav">
                     <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
                         <button data-tabs="#tab-3-Q"
-                            class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg w-full' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Quý', 'bsc') ?>
                         </button>
                     </li>
                     <li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
                         <button data-tabs="#tab-3-Y"
-                            class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg w-full' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Năm', 'bsc') ?>
                         </button>
                     </li>
@@ -3955,17 +3955,17 @@ function filter_details_symbol()
     } elseif ($type_form == 'report_finance_list-1') {
     ?>
         <div class="container">
-            <div class="mb-10">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
                 <ul class="flex items-center gap-5 customtab-nav">
-                    <li>
+                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                         <button data-tabs="#tab-1-Q"
-                            class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="active <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Quý', 'bsc') ?>
                         </button>
                     </li>
-                    <li>
+                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                         <button data-tabs="#tab-1-Y"
-                            class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Năm', 'bsc') ?>
                         </button>
                     </li>
@@ -3992,9 +3992,10 @@ function filter_details_symbol()
                             $industryname = $response_GetDetailFinanceReportBySymbol->industryname;
                         ?>
                             <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+                            <div class="overflow-x-auto">
                                 <div
-                                    class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4">
-                                    <p class="flex-1"><?php _e('Danh sách', 'bsc') ?></p>
+                                    class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
+                                    <p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
                                     <?php
                                     $yearData = $response_GetDetailFinanceReportBySymbol->d[0];
                                     $yearDataArray = (array) $yearData;
@@ -4002,11 +4003,11 @@ function filter_details_symbol()
                                     $yearDataValues = array_reverse($yearDataValues, true);
                                     foreach ($yearDataValues as $key => $year) {
                                     ?>
-                                        <p class="w-[135px] max-w-[11%]"><?php echo htmlspecialchars($year); ?></p>
+                                        <p class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[11%]':'max-w-[135px] break-words' ?>"><?php echo htmlspecialchars($year); ?></p>
                                     <?php
                                     }
                                     ?>
-                                    <p class="w-[175px] max-w-[14%]"><?php _e('Tăng trưởng', 'bsc') ?></p>
+                                    <p class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[14%]':'max-w-[175px]' ?>"><?php _e('Tăng trưởng', 'bsc') ?></p>
                                 </div>
                                 <div class="list_content-collapse font-medium">
                                     <?php if ($industryname == 'Insurance') {
@@ -4768,6 +4769,8 @@ function filter_details_symbol()
                                     renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
                                     ?>
                                 </div>
+
+                            </div>
                             </div>
                         <?php } ?>
                     </div>
@@ -4788,13 +4791,13 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
         foreach ($menuData as $item) {
         ?>
             <div
-                class="<?php if (!empty($item['children'])) echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
-                <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
+                class="<?php if (!empty($item['children'])) echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-[30px]':'px-5' ?> py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
                     <h3
                         class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
                         <?php
                         if (!empty($item['children'])) {
-                            echo svgClass('icon-up', '16', '16', 'transition-all');
+                            echo svgClass('icon-up', '16', '16', 'transition-all shrink-0');
                         } ?>
                         <?php echo  $item['title'] ?>
                     </h3>
@@ -4806,7 +4809,7 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                     $Values_chart = implode(',', $Values);
                     foreach ($Values as $key => $Val) {
                     ?>
-                        <div class="w-[135px] max-w-[11%]">
+                        <div class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[11%]':'max-w-[135px] break-words' ?>">
                             <?php
                             if (is_numeric($Val)) {
                                 echo number_format($Val);
@@ -4816,7 +4819,7 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                     <?php
                     }
                     ?>
-                    <div class="w-[175px] max-w-[14%] h-10">
+                    <div class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[14%]':'max-w-[175px]' ?> h-10">
                         <div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false" data-color="<?php echo '#007bff' ?>">
                         </div>
                     </div>
