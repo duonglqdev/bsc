@@ -16,10 +16,10 @@
                         <div class="w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[660px]':'' ?>">
                             <div
                                 class="rounded-2xl overflow-hidden relative  group block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[87.8787%]':'pt-[67%]' ?>">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
+                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105 rounded-[20px]')) ?>
                                 <?php if (get_sub_field('title')) { ?>
                                     <h4
-                                        class="absolute w-full bottom-0 left-0  text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-450 after:left-0 after:bottom-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-[26px] 2xl:text-2xl text-xl':'py-2 px-5 text-lg' ?>">
+                                        class="absolute w-full bottom-0 left-0  text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-450 after:left-0 after:bottom-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 py-[26px] 2xl:text-2xl text-xl':'py-2 px-4 text-lg' ?>">
                                         <p class="xl:max-w-[67%] relative z-10 line-clamp-2">
                                             <?php the_sub_field('title') ?>
                                         </p>
@@ -38,9 +38,9 @@
                     ?>
                             <div
                                 class="relative block w-full overflow-hidden rounded-2xl group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[42.8%]':'pt-[67%]' ?>">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
+                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105 rounded-[20px]')) ?>
                                 <h4
-                                    class="absolute w-full bottom-0 left-0  text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 lg:py-[13px] py-5 2xl:text-2xl text-xl':'py-2 px-5 text-lg' ?>">
+                                    class="absolute w-full bottom-0 left-0  text-primary-300 font-bold after:absolute after:w-full after:h-full after:bg-gradient-blue-500 after:bg-opacity-90 after:left-0 after:bottom-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-10 lg:py-[13px] py-5 2xl:text-2xl text-xl':'py-2 px-4 text-lg' ?>">
                                     <p class="2xl:max-w-[67%] relative z-10 line-clamp-2">
                                         <?php the_sub_field('title') ?>
                                     </p>
@@ -59,13 +59,13 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-3 gap-5':'block_slider block_slider-show-1 fli-dots-blue dot-bottom-40' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-3 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
                 <?php while (have_rows('benefit')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden min-h-[310px]  text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px]':'px-4 pt-8 pb-10 block_slider-item w-full' ?>"
+                    <div class="rounded-2xl overflow-hidden min-h-[320px] text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px]':'px-4 pt-8 pb-11 block_slider-item w-full' ?>"
                         style="background-color:<?php the_sub_field('color') ?>;">
                         <div class="lg:max-w-[330px] mx-auto">
                             <div class="relative w-full pt-[47%]">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
+                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:')) ?>
                             </div>
                         </div>
                         <?php if (get_sub_field('title')) { ?>

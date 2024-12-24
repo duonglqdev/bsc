@@ -71,7 +71,7 @@
                                 <?php if (get_sub_field('title')) { ?>
                                     <h4
                                         class="absolute z-10 w-full text-primary-300 font-bold top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl xl:py-[66px] py-10 px-10':'text-lg px-5 py-6' ?>">
-                                        <p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[412px] xl:max-w-[72%]':'' ?>">
+                                        <p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[412px] xl:max-w-[72%] hidden-br-pc':'' ?>">
                                             <?php the_sub_field('title') ?>
                                         </p>
                                     </h4>
@@ -91,7 +91,7 @@
                                 <?php if (get_sub_field('title')) { ?>
                                     <h4
                                         class="absolute z-10 w-full text-primary-300 font-bold  top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:py-[66px] py-10 px-10 text-2xl':'text-lg px-5 py-6' ?>">
-                                        <p class="relative z-10 line-clamp-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[270px] max-w-[67%]':'' ?>">
+                                        <p class="relative z-10 line-clamp-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[270px] max-w-[67%] hidden-br-pc':'' ?>">
                                             <?php the_sub_field('title') ?>
                                         </p>
                                     </h4>

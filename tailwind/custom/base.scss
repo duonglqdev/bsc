@@ -394,6 +394,13 @@
 			}
 		}
 	}
+	.expert-item{
+		&:hover{
+			img{
+				object-position: 0 -24px;
+			}
+		}
+	}
 	.dqgd{
 		.flickity-page-dots{
 			@apply bottom-6;
