@@ -587,7 +587,6 @@ function filter_details_symbol()
                     }
                     ?>
                 </ul>
-
             </div>
             <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-4' : 'mt-[12px]' ?>">
                 <?php if (get_field('cdc7_page_lich_su_gia', 'option')) { ?>
