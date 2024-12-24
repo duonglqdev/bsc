@@ -474,6 +474,90 @@ if (get_field('cdc5_iframe_live_chat', 'option')) {
 	the_field('cdc5_iframe_live_chat', 'option');
 }
 ?>
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script>
+	function GetInstrumentInfo() {
+		$.ajax({
+			url: 'https://priceapi.bsc.com.vn/datafeed/indexsnaps?symbol=AAA',
+			type: "GET",
+			contentType: "application/json; charset=utf-8",
+			dataType: "JSON",
+			success: function(data) {
+				console.log('REST API Response:', data);
+			},
+			error: function(xhr, status, error) {
+				console.error('Error fetching instrument info:', error);
+			}
+		});
+	}
+
+	function onchangeInstrument() {
+		const CONNECTION_METADATA_PARAMS = {
+			version: '__sails_io_sdk_version',
+			platform: '__sails_io_sdk_platform',
+			language: '__sails_io_sdk_language'
+		};
+
+		const SDK_INFO = {
+			version: '1.2.1',
+			platform: typeof module === 'undefined' ? 'browser' : 'node',
+			language: 'javascript'
+		};
+
+		let queryString = '';
+		Object.keys(CONNECTION_METADATA_PARAMS).forEach(key => {
+			queryString += '&' + CONNECTION_METADATA_PARAMS[key] + '=' + SDK_INFO[key];
+		});
+		if (queryString.length > 0) queryString = queryString.slice(1);
+
+		const socket = io('https://priceapi.bsc.com.vn', {
+			path: "/market/socket.io",
+			transports: ['websocket'],
+			query: queryString,
+		});
+
+		socket.on('connect', () => {
+			console.log('Socket connected!');
+			socket.emit('get', {
+				method: "get",
+				headers: {},
+				data: {
+					op: "subscribe",
+					args: ["i:AAA"], // Đảm bảo server hỗ trợ "i:AAA"
+				},
+				url: "/client/subscribe",
+			}, (response) => {
+				console.log('Subscription response:', response);
+			});
+		});
+
+		socket.on('disconnect', (reason) => {
+			console.warn('Socket disconnected:', reason);
+			setTimeout(() => {
+				console.log('Reconnecting socket...');
+				socket.connect();
+			}, 5000);
+		});
+
+		socket.on('i', (msg) => {
+			console.log('Received message:', msg);
+			if (msg && msg.d) {
+				console.log('Data:', msg.d);
+			} else {
+				console.warn('No data received in message:', msg);
+			}
+		});
+
+		socket.onAny((event, ...args) => {
+			console.log(`Event received: ${event}`, args);
+		});
+
+		socket.connect();
+	}
+
+	GetInstrumentInfo();
+	onchangeInstrument();
+</script>
 </body>
 
 </html>
