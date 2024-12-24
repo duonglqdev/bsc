@@ -12,8 +12,8 @@
         }
     }
 ?>
-    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-6 py-4':'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
-        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-4':'mb-[12px]' ?>">
+    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
+        <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-4' : 'mb-[12px]' ?>">
             <?php
 
             if ($news->recommendation) {
@@ -24,12 +24,7 @@
                 $background_status = $check_status['background_status'];
             }
             ?>
-            <?php if ($khoi_template == 'taxonomy') { ?>
-                <a href="<?php echo $link ?>"
-                    class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
-                    <?php echo htmlspecialchars($news->categoryname) ?>
-                </a>
-            <?php } else { ?>
+            <?php if ($khoi_template == 'price') { ?>
                 <div class="flex items-center gap-4">
                     <?php if ($news->symbols) { ?>
                         <a href="<?php echo slug_co_phieu($news->symbols) ?>"
@@ -57,6 +52,11 @@
                         </p>
                     </div>
                 </div>
+            <?php } else { ?>
+                <a href="<?php echo $link ?>"
+                    class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+                    <?php echo htmlspecialchars($news->categoryname) ?>
+                </a>
             <?php } ?>
             <div class="space-y-1.5 text-right">
                 <?php if ($news->recommendation) { ?>
@@ -71,12 +71,12 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'' ?>">
+        <h3 class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : '' ?>">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
         </h3>
-        <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+        <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
             <div class="flex items-center justify-between mt-auto">
                 <p class="italic text-paragraph text-xs font-Helvetica ">
                     <span class="content-bao-cao-phan-tich_download_count"><?php echo htmlspecialchars($news->downloads) ?></span> <?php _e('Lượt tải xuống', 'bsc') ?>
