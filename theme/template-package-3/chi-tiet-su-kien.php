@@ -8,12 +8,12 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="xl:my-[100px] my-20">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<div class="lg:flex gap-[70px]">
-				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[70px]':'space-y-10' ?>">
+				<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-80 max-w-[35%] shrink-0':'' ?>">
 					<div class="sticky top-5 z-10">
-						<div class="rounded-lg px-4 py-6 shadow-base">
+						<div class="rounded-lg md:px-4 md:py-6 shadow-base p-4">
 							<ul
 								class="prose-li:flex prose-li:items-start prose-li:justify-between space-y-3 text-xs prose-p:font-medium prose-strong:text-primary-300 font-Helvetica">
 								<li>
@@ -61,11 +61,11 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<h1 class="lg:text-[32px] text-2xl font-bold mb-8 !leading-[1.43] lg:-mt-3">
+					<h1 class="font-bold !leading-[1.43] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[32px] text-2xl lg:-mt-3 mb-8':'text-[22px] mb-6' ?>">
 						Thông báo ngày đăng ký cuối cùng lập danh sách cổ đông với cổ phiếu BBS của
 						Công ty CP Vicem bao bì Bút Sơn như sau:
 					</h1>
-					<div class="space-y-4 font-Helvetica">
+					<div class="font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4':'space-y-[12px] text-xs' ?>">
 						<p class="lg:text-2xl text-lg font-bold">
 							Chi tiết
 						</p>
