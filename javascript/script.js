@@ -18,6 +18,7 @@ import { DataTable } from 'simple-datatables';
 		aboutUsSlider();
 		aboutDynamicPopup();
 		toggleContent();
+		toggle_content_baocao();
 		handlePhoneCf7();
 		dynamicPopup();
 		stickyHeader();
@@ -420,9 +421,24 @@ import { DataTable } from 'simple-datatables';
 			},
 			complete: function () {
 				var check_chart = $(section_api).attr('data-chart');
-				if (check_chart && typeof window[check_chart] === 'function') {
-					// Nếu là chuỗi không rỗng và tương ứng với một hàm đã định nghĩa
-					window[check_chart]();
+				if (check_chart) {
+					// Tách chuỗi thành mảng các tên hàm, loại bỏ khoảng trắng thừa
+					var chartFunctions = check_chart
+						.split(',')
+						.map(function (fn) {
+							return fn.trim();
+						});
+
+					chartFunctions.forEach(function (functionName) {
+						if (typeof window[functionName] === 'function') {
+							window[functionName]();
+							if (functionName === 'running_chart') {
+								setTimeout(function () {
+									window['running_chart']();
+								}, 1000);
+							}
+						}
+					});
 				}
 			},
 		});
@@ -1011,11 +1027,6 @@ import { DataTable } from 'simple-datatables';
 				$(this).attr('placeholder', $(this).data('placeholder'));
 			});
 
-		$('.collapse-item.has-children > div > h3').click(function name() {
-			$(this).parent().siblings('.sub-collapse').slideToggle();
-			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
-		});
-
 		$('.collapse-footer').click(function () {
 			$(this).find('svg').toggleClass('rotate-180');
 			$(this).next().slideToggle();
@@ -1064,6 +1075,13 @@ import { DataTable } from 'simple-datatables';
 			$(this).find('svg').toggleClass('rotate-180');
 		});
 	}
+
+	window.toggle_content_baocao = function () {
+		$('.collapse-item.has-children > div > h3').click(function name() {
+			$(this).parent().siblings('.sub-collapse').slideToggle();
+			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
+		});
+	};
 
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
@@ -1620,7 +1638,6 @@ import { DataTable } from 'simple-datatables';
 				);
 			}
 		};
-		running_chart();
 		$(document).on(
 			'click',
 			'section.chart .btn-chart button',
@@ -2305,89 +2322,101 @@ import { DataTable } from 'simple-datatables';
 		}
 	};
 
-	function collapseChart() {
+	window.collapseChart = function () {
 		if (document.querySelector('.collapse-item-chart')) {
-			var options = {
-				chart: {
-					type: 'area',
-					height: '100%', // Tự động theo khung chứa
-					width: '100%', // Tự động theo khung chứa
-					toolbar: {
-						show: false, // Ẩn toolbar
-					},
-					parentHeightOffset: 0, // Loại bỏ khoảng trắng phía trên/ dưới biểu đồ
-					animations: {
-						enabled: false, // Tắt hoạt ảnh để tối ưu trong khung nhỏ
-					},
-				},
-				series: [
-					{
-						name: 'Data',
-						data: [50, 51, 50.5, 50.8, 51, 50.5], // Dữ liệu đã điều chỉnh để hiển thị nằm ngang
-					},
-				],
-				xaxis: {
-					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-					labels: {
-						show: false, // Ẩn nhãn trục X
-					},
-					axisBorder: {
-						show: false, // Ẩn đường viền trục X
-					},
-					axisTicks: {
-						show: false, // Ẩn dấu tick trục X
-					},
-				},
-				yaxis: {
-					show: false, // Ẩn toàn bộ trục Y
-				},
-				grid: {
-					show: false, // Ẩn lưới
-					padding: {
-						top: -10, // Loại bỏ padding dư thừa ở trên
-						bottom: -10, // Loại bỏ padding dư thừa ở dưới
-						left: 0,
-						right: 0,
-					},
-				},
-				stroke: {
-					curve: 'smooth', // Đường cong mềm mại
-					width: 1, // Đường mỏng hơn để vừa khung nhỏ
-				},
-				fill: {
-					type: 'gradient',
-					gradient: {
-						shadeIntensity: 1,
-						opacityFrom: 0.8,
-						opacityTo: 0,
-						stops: [0, 100],
-						colorStops: [
-							{
-								offset: 0,
-								color: '#007bff',
-								opacity: 0.7,
+			$('.collapse-item-chart').each(function () {
+				if ($(this).attr('data-load') == 'false') {
+					try {
+						const color = $(this).attr('data-color');
+						const stockData = $(this).attr('data-stock');
+						let stockArray = stockData.split(',');
+						stockArray = stockArray.map(function (item) {
+							return parseFloat(item); // hoặc parseInt(item)
+						});
+						var options = {
+							chart: {
+								type: 'area',
+								height: '100%', // Tự động theo khung chứa
+								width: '100%', // Tự động theo khung chứa
+								toolbar: {
+									show: false, // Ẩn toolbar
+								},
+								parentHeightOffset: 0, // Loại bỏ khoảng trắng phía trên/ dưới biểu đồ
+								animations: {
+									enabled: false, // Tắt hoạt ảnh để tối ưu trong khung nhỏ
+								},
 							},
-							{
-								offset: 100,
-								color: '#ffffff',
-								opacity: 0,
+							series: [
+								{
+									name: 'Data',
+									data: stockArray,
+								},
+							],
+							xaxis: {
+								categories: [],
+								labels: {
+									show: false, // Ẩn nhãn trục X
+								},
+								axisBorder: {
+									show: false, // Ẩn đường viền trục X
+								},
+								axisTicks: {
+									show: false, // Ẩn dấu tick trục X
+								},
 							},
-						],
-					},
-				},
-				tooltip: {
-					enabled: false, // Ẩn tooltip
-				},
-				dataLabels: {
-					enabled: false, // Ẩn nhãn dữ liệu
-				},
-			};
+							yaxis: {
+								show: false, // Ẩn toàn bộ trục Y
+							},
+							grid: {
+								show: false, // Ẩn lưới
+								padding: {
+									top: -10, // Loại bỏ padding dư thừa ở trên
+									bottom: -10, // Loại bỏ padding dư thừa ở dưới
+									left: 0,
+									right: 0,
+								},
+							},
+							stroke: {
+								curve: 'smooth', // Đường cong mềm mại
+								width: 1, // Đường mỏng hơn để vừa khung nhỏ
+							},
+							fill: {
+								type: 'gradient',
+								gradient: {
+									shadeIntensity: 1,
+									opacityFrom: 0.8,
+									opacityTo: 0,
+									stops: [0, 100],
+									colorStops: [
+										{
+											offset: 0,
+											color: color,
+											opacity: 0.7,
+										},
+										{
+											offset: 100,
+											color: '#ffffff',
+											opacity: 0,
+										},
+									],
+								},
+							},
+							tooltip: {
+								enabled: false, // Ẩn tooltip
+							},
+							dataLabels: {
+								enabled: false, // Ẩn nhãn dữ liệu
+							},
+						};
 
-			var chart = new ApexCharts(
-				document.querySelector('.collapse-item-chart'),
-				options
-			);
-			chart.render();
+						var chart = new ApexCharts(this, options);
+						chart.render();
+					} catch (error) {
+						console.error('Error parsing JSON data:', error);
+					}
+					$(this).attr('data-load', 'true');
+				}
+			});
 		}
 		if (document.querySelector('.collapse-item-chart-red')) {
 			var options = {
@@ -2473,7 +2502,7 @@ import { DataTable } from 'simple-datatables';
 			);
 			chart.render();
 		}
-	}
+	};
 
 	function handleDatatables() {
 		const tableElement = document.querySelector('#ttcp-table');

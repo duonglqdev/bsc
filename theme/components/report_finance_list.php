@@ -1,173 +1,56 @@
 <?php
-$id_class = get_sub_field('id_class');
-$tab = generateRandomString();
+if (isset($_GET['mck']) && $_GET['mck']) {
+    $symbol = $_GET['mck'];
+    $id_class = get_sub_field('id_class');
+    $tab = generateRandomString();
+    $stt_re = array('1', '2', '3', '4');
 ?>
-<?php if (have_rows('data')) { ?>
-    <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 report_finance_list" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
-        <div class="container">
-            <ul class="customtab-nav flex justify-between gap-10">
-                <?php
-                $i = 0;
-                while (have_rows('data')): the_row();
-                    $i++;
-                ?>
-                    <li class="flex-1">
-                        <button data-tabs="#<?php echo $tab . $i ?>"
-                            class="<?php if ($i == 1) echo  'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
-                            <?php the_sub_field('title') ?>
-                        </button>
-                    </li>
-                <?php
-                endwhile;
-                ?>
-
-            </ul>
-        </div>
-    </section>
-    <?php
-    $i = 0;
-    while (have_rows('data')): the_row();
-        $i++;
-    ?>
-        <section class="tab-content mt-[54px] mb-[100px] <?php if ($i % 2 == 1) echo 'block';
-                                                            else echo 'hidden' ?>" id="<?php echo $tab . $i ?>">
+    <?php if ($stt_re) { ?>
+        <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 report_finance_list" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
             <div class="container">
-                <div class="mb-10">
-                    <ul class="flex items-center gap-5">
-                        <li>
-                            <a href=""
-                                class="active inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                                Quý
-                            </a>
+                <ul class="customtab-nav flex justify-between gap-10">
+                    <?php
+                    foreach ($stt_re as $i) {
+                    ?>
+                        <li class="flex-1">
+                            <button data-tabs="#<?php echo $tab . $i ?>" <?php if ($i > 1) echo 'data-ajax="true" data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?>
+                                class="<?php if ($i == 1) echo  'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                <?php
+                                the_sub_field('title_' . $i);
+                                ?>
+                            </button>
                         </li>
-                        <li>
-                            <a href=""
-                                class="inline-block rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-                                Năm
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                    <div
-                        class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4">
-                        <p class="flex-1">Danh sách</p>
-                        <p class="w-[135px] max-w-[11%]">2020</p>
-                        <p class="w-[135px] max-w-[11%]">2021</p>
-                        <p class="w-[135px] max-w-[11%]">2022</p>
-                        <p class="w-[135px] max-w-[11%]">2023</p>
-                        <p class="w-[175px] max-w-[14%]">Tăng trưởng</p>
-                    </div>
-                    <div class="list_content-collapse font-medium">
-                        <?php
-                        for ($j = 0; $j < 6; $j++) {
-                        ?>
-                            <div
-                                class="collapse-item has-children">
-                                <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs bg-white">
-                                    <h3
-                                        class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
-                                        <?php echo svgClass('icon-up', '16', '16', 'transition-all') ?>
-                                        CÁC CHI TIÊU NGOÀI BẢNG
-                                    </h3>
-                                    <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
-                                    <div class="w-[135px] max-w-[11%]">608,349,810</div>
-                                    <div class="w-[135px] max-w-[11%]">912,577,380</div>
-                                    <div class="w-[135px] max-w-[11%]">2023</div>
-                                    <div class="w-[175px] max-w-[14%] h-10">
-                                        <div class="collapse-item-chart">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="sub-collapse hidden">
-                                    <?php
-                                    for ($i = 0; $i < 2; $i++) {
-                                    ?>
-                                        <div
-                                            class="collapse-item has-children [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
-                                            <div class="px-[30px] py-4 flex 2xl:gap-10 gap-5 items-center text-xs">
-                                                <h3
-                                                    class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer">
-                                                    <?php echo svg('icon-up', '16', '16') ?>
-                                                    1. Chứng khoán kinh doanh
-                                                </h3>
-                                                <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
-                                                <div class="w-[135px] max-w-[11%]">608,349,810</div>
-                                                <div class="w-[135px] max-w-[11%]">912,577,380</div>
-                                                <div class="w-[135px] max-w-[11%]">2023</div>
-                                                <div class="w-[175px] max-w-[14%] h-10">
-                                                    <div class="collapse-item-chart">
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div
-                                class="collapse-item has-children">
-                                <div class="px-[30px] py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs bg-[#EBF4FA]">
-                                    <h3
-                                        class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
-                                        <?php echo svgClass('icon-up', '16', '16', 'transition-all') ?>
-                                        CÁC CHI TIÊU NGOÀI BẢNG
-                                    </h3>
-                                    <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
-                                    <div class="w-[135px] max-w-[11%]">608,349,810</div>
-                                    <div class="w-[135px] max-w-[11%]">912,577,380</div>
-                                    <div class="w-[135px] max-w-[11%]">2023</div>
-                                    <div class="w-[175px] max-w-[14%] h-10">
-                                        <div class="collapse-item-chart-red">
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="sub-collapse hidden">
-                                    <?php
-                                    for ($i = 0; $i < 2; $i++) {
-                                    ?>
-                                        <div
-                                            class="collapse-item has-children [&:nth-child(even)]:bg-[#EBF4FA] bg-white pl-5">
-                                            <div class="px-[30px] py-4 flex 2xl:gap-10 gap-5 items-center text-xs">
-                                                <h3
-                                                    class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer">
-                                                    <?php echo svg('icon-up', '16', '16') ?>
-                                                    1. Chứng khoán kinh doanh
-                                                </h3>
-                                                <div class="w-[135px] max-w-[11%]">11,959,220,000,000</div>
-                                                <div class="w-[135px] max-w-[11%]">608,349,810</div>
-                                                <div class="w-[135px] max-w-[11%]">912,577,380</div>
-                                                <div class="w-[135px] max-w-[11%]">2023</div>
-                                                <div class="w-[175px] max-w-[14%] h-10">
-                                                    <div class="collapse-item-chart-red">
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-
-                    </div>
-                </div>
+                    <?php
+                    }
+                    ?>
+                </ul>
             </div>
         </section>
-    <?php
-    endwhile;
-    ?>
-<?php  } ?>
+        <?php
+        foreach ($stt_re as $i) {
+        ?>
+            <section class="tab-content mt-[54px] mb-[100px] <?php if ($i == 1) echo 'block bsc-ajax-api';
+                                                                else echo 'hidden' ?>" id="<?php echo $tab . $i ?>" <?php if ($i == 1) echo 'data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?> data-chart="collapseChart,toggle_content_baocao">
+                <div class="hidden">
+                    <div role="status">
+                        <svg aria-hidden="true"
+                            class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+                            viewBox="0 0 100 101" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                fill="currentColor" />
+                            <path
+                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                fill="currentFill" />
+                        </svg>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+            </section>
+        <?php
+        }
+        ?>
+    <?php  } ?>
+<?php } ?>

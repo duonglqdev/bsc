@@ -915,6 +915,27 @@
             "allow_null": 0
         },
         {
+            "key": "field_6768e6e335078",
+            "label": "Trang báo cáo tài chính",
+            "name": "cdc7_page_bao_cao_tai_chinh",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "allow_archives": 1,
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
             "key": "field_6759582cb8758",
             "label": "App iOS\/Android",
             "name": "",
@@ -990,5 +1011,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734079626
+    "modified": 1734928121
 }
