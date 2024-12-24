@@ -2,7 +2,7 @@
 $style = $args['data'] ?? get_sub_field('style') ?: 'nhdt';
 if ($style == 'nhdt') {
 ?>
-    <section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-20 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php if (have_rows('menu_navigation')) { ?>
             <div class="container">
                 <ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
@@ -20,7 +20,7 @@ if ($style == 'nhdt') {
     </section>
 <?php } elseif (($style == 'stgd') || ($style == 'bpgd')) {
 ?>
-    <section class="bg-primary-50 sticky z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3 top-0':'py-[12px] top-[60px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="bg-primary-50 sticky z-20 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3 top-0':'py-[12px] top-[60px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <?php
         if (get_sub_field('menu_navigation')) {
             $menu_navigation = get_sub_field('menu_navigation');
@@ -71,7 +71,7 @@ if ($style == 'nhdt') {
     </section>
 <?php } elseif ($style == 'bcpt') { ?>
     <?php if (have_rows('menu_navigation')) { ?>
-        <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+        <section class="2xl:py-4 py-3 bg-primary-50 sticky z-20 top-0" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
             <div class="container">
                 <ul class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between gap-10':'overflow-x-auto gap-4  nav-scroll-mb' ?></ul>">
                     <?php while (have_rows('menu_navigation')): the_row(); ?>
