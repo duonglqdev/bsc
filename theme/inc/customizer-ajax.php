@@ -968,7 +968,7 @@ function filter_details_symbol()
                         </div>
                         <div class="md:ml-[30px] ml-4">
                             <p
-                                class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg line-clamp-2 mb-2':'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
+                                class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
                                 <?php echo htmlspecialchars($news->title) ?>
                             </p>
                             <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
@@ -990,7 +990,7 @@ function filter_details_symbol()
     } elseif ($type_form == 'details_symbol_tab-2') {
     ?>
         <div class="list__content">
-            <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 mb-10':'mt-[38px] mb-6' ?>">
+            <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
                 <ul class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
                     <li>
                         <button data-tabs="#tab-2-Q"
@@ -2607,7 +2607,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng doanh thu (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -2635,7 +2635,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -2663,7 +2663,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
+                                            <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng EPS (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
@@ -3751,7 +3751,7 @@ function filter_details_symbol()
         $response_GetForecastMacro = get_data_with_cache('GetForecastMacro', $array_data_GetForecastMacro, $time_cache);
         if ($response_GetForecastMacro) {
             ?>
-               <div
+            <div
                 class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
                 <div
                     class="text-primary-300 font-medium  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
@@ -3955,17 +3955,17 @@ function filter_details_symbol()
     } elseif ($type_form == 'report_finance_list-1') {
     ?>
         <div class="container">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
                 <ul class="flex items-center gap-5 customtab-nav">
-                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
+                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex-1' ?>">
                         <button data-tabs="#tab-1-Q"
-                            class="active <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="active <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Quý', 'bsc') ?>
                         </button>
                     </li>
-                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
+                    <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex-1' ?>">
                         <button data-tabs="#tab-1-Y"
-                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
                             <?php _e('Năm', 'bsc') ?>
                         </button>
                     </li>
@@ -3992,785 +3992,785 @@ function filter_details_symbol()
                             $industryname = $response_GetDetailFinanceReportBySymbol->industryname;
                         ?>
                             <div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-                            <div class="overflow-x-auto">
-                                <div
-                                    class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
-                                    <p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
-                                    <?php
-                                    $yearData = $response_GetDetailFinanceReportBySymbol->d[0];
-                                    $yearDataArray = (array) $yearData;
-                                    $yearDataValues = array_slice($yearDataArray, 1, null, true);
-                                    $yearDataValues = array_reverse($yearDataValues, true);
-                                    foreach ($yearDataValues as $key => $year) {
-                                    ?>
-                                        <p class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[11%]':'max-w-[135px] break-words' ?>"><?php echo htmlspecialchars($year); ?></p>
-                                    <?php
-                                    }
-                                    ?>
-                                    <p class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[14%]':'max-w-[175px]' ?>"><?php _e('Tăng trưởng', 'bsc') ?></p>
-                                </div>
-                                <div class="list_content-collapse font-medium">
-                                    <?php if ($industryname == 'Insurance') {
-                                        $menuData = [
-                                            [
-                                                'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
-                                                'order' => 3,
-                                                'children' => [
-                                                    [
-                                                        'title' => '1. ' . __('Tiền và các khoản tương đương tiền', 'bsc'),
-                                                        'order' => 4,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Tiền', 'bsc'),
-                                                                'order' => 5,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '_ ' . __('Các khoản tương đương tiền', 'bsc'),
-                                                                'order' => 6,
-                                                                'children' => []
+                                <div class="overflow-x-auto">
+                                    <div
+                                        class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'w-max' ?>">
+                                        <p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
+                                        <?php
+                                        $yearData = $response_GetDetailFinanceReportBySymbol->d[0];
+                                        $yearDataArray = (array) $yearData;
+                                        $yearDataValues = array_slice($yearDataArray, 1, null, true);
+                                        $yearDataValues = array_reverse($yearDataValues, true);
+                                        foreach ($yearDataValues as $key => $year) {
+                                        ?>
+                                            <p class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>"><?php echo htmlspecialchars($year); ?></p>
+                                        <?php
+                                        }
+                                        ?>
+                                        <p class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>"><?php _e('Tăng trưởng', 'bsc') ?></p>
+                                    </div>
+                                    <div class="list_content-collapse font-medium">
+                                        <?php if ($industryname == 'Insurance') {
+                                            $menuData = [
+                                                [
+                                                    'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
+                                                    'order' => 3,
+                                                    'children' => [
+                                                        [
+                                                            'title' => '1. ' . __('Tiền và các khoản tương đương tiền', 'bsc'),
+                                                            'order' => 4,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Tiền', 'bsc'),
+                                                                    'order' => 5,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '_ ' . __('Các khoản tương đương tiền', 'bsc'),
+                                                                    'order' => 6,
+                                                                    'children' => []
+                                                                ]
                                                             ]
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '2 ' . __('Đầu tư tài chính ngắn hạn', 'bsc'),
-                                                        'order' => 7,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Chứng khoán kinh doanh', 'bsc'),
-                                                                'order' => 8,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng giảm giá chứng khoán kinh doanh', 'bsc'),
-                                                                'order' => 9,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Đầu tư nắm giữ đến ngày đáo hạn', 'bsc'),
-                                                                'order' => 10,
-                                                                'children' => []
+                                                        ],
+                                                        [
+                                                            'title' => '2 ' . __('Đầu tư tài chính ngắn hạn', 'bsc'),
+                                                            'order' => 7,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Chứng khoán kinh doanh', 'bsc'),
+                                                                    'order' => 8,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng giảm giá chứng khoán kinh doanh', 'bsc'),
+                                                                    'order' => 9,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Đầu tư nắm giữ đến ngày đáo hạn', 'bsc'),
+                                                                    'order' => 10,
+                                                                    'children' => []
+                                                                ]
                                                             ]
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '3 ' . __('Các khoản phải thu ngắn hạn', 'bsc'),
-                                                        'order' => 11,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Phải thu của khách hàng', 'bsc'),
-                                                                'order' => 12,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Phải thu về hợp đồng bảo hiểm', 'bsc'),
-                                                                        'order' => 13,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Phải thu khác của khách hàng', 'bsc'),
-                                                                        'order' => 14,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Trả trước cho người bán', 'bsc'),
-                                                                'order' => 15,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải thu nội bộ ngắn hạn', 'bsc'),
-                                                                'order' => 16,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Các khoản phải thu khác', 'bsc'),
-                                                                'order' => 17,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng các khoản phải thu khó đòi', 'bsc'),
-                                                                'order' => 18,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '4 ' . __('Hàng tồn kho', 'bsc'),
-                                                        'order' => 19,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Hàng tồn kho', 'bsc'),
-                                                                'order' => 20,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng giảm giá hàng tồn kho', 'bsc'),
-                                                                'order' => 21,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '5 ' . __('Tài sản ngắn hạn khác', 'bsc'),
-                                                        'order' => 22,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Chi phí trả trước ngắn hạn', 'bsc'),
-                                                                'order' => 23,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => '- ' . __('Chi phí hoa hồng chưa phân bổ', 'bsc'),
-                                                                        'order' => 24,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => '- ' . __('Chi phí trả trước ngắn hạn khác', 'bsc'),
-                                                                        'order' => 25,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Thuế GTGT được khấu trừ', 'bsc'),
-                                                                'order' => 26,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Thuế và các khoản khác phải thu Nhà nước', 'bsc'),
-                                                                'order' => 27,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'bsc'),
-                                                                'order' => 28,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Tài sản ngắn hạn khác', 'bsc'),
-                                                                'order' => 29,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '6 ' . __('Tài sản tái bảo hiểm', 'bsc'),
-                                                        'order' => 30,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng phí nhượng tái bảo hiểm', 'bsc'),
-                                                                'order' => 31,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng bồi thường nhượng tái bảo hiểm', 'bsc'),
-                                                                'order' => 32,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                ]
-                                            ],
-                                            [
-                                                'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'BSC'),
-                                                'order' => 33,
-                                                'children' => [
-                                                    [
-                                                        'title' => '7. ' . __('Các khoản phải thu dài hạn', 'bsc'),
-                                                        'order' => 34,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Phải thu dài hạn của khách hàng', 'bsc'),
-                                                                'order' => 35,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Trả trước người bán dài hạn', 'bsc'),
-                                                                'order' => 36,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Vốn kinh doanh của đơn vị trực thuộc', 'bsc'),
-                                                                'order' => 37,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải thu dài hạn nội bộ', 'bsc'),
-                                                                'order' => 38,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải thu dài hạn khác', 'bsc'),
-                                                                'order' => 39,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' =>  __('Kí quỹ bảo hiểm', 'bsc'),
-                                                                        'order' => 40,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' =>  __('Phải thu dài hạn khác', 'bsc'),
-                                                                        'order' => 41,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng phải thu dài hạn', 'bsc'),
-                                                                'order' => 42,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '8. ' . __('Tài sản cố định', 'bsc'),
-                                                        'order' => 43,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Tài sản cố định hữu hình', 'bsc'),
-                                                                'order' => 44,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' =>  __('Nguyên giá tài sản cố định hữu hình', 'bsc'),
-                                                                        'order' => 45,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định hữu hình', 'bsc'),
-                                                                        'order' => 46,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Tài sản cố định thuê tài chính', 'bsc'),
-                                                                'order' => 47,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' =>  __('Nguyên giá tài sản cố định thuê tài chính', 'bsc'),
-                                                                        'order' => 48,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định thuê tài chính', 'bsc'),
-                                                                        'order' => 49,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Tài sản cố định vô hình', 'bsc'),
-                                                                'order' => 50,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' =>  __('Nguyên giá tài sản cố định vô hình', 'bsc'),
-                                                                        'order' => 51,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định vô hình', 'bsc'),
-                                                                        'order' => 52,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Chi phí xây dựng cơ bản dở dang', 'bsc'),
-                                                                'order' => 53,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '9. ' . __('Bất động sản đầu tư', 'bsc'),
-                                                        'order' => 54,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Nguyên giá bất động sản đầu tư', 'bsc'),
-                                                                'order' => 55,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Giá trị hao mòn luỹ kế bất động sản đầu tư', 'bsc'),
-                                                                'order' => 56,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '10. ' . __('Đầu tư tài chính dài hạn', 'bsc'),
-                                                        'order' => 57,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Đầu tư vào công ty con', 'bsc'),
-                                                                'order' => 58,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Đầu tư vào công ty liên kết, liên doanh', 'bsc'),
-                                                                'order' => 59,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Đầu tư dài hạn khác', 'bsc'),
-                                                                'order' => 60,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng giảm giá đầu tư tài chính dài hạn', 'bsc'),
-                                                                'order' => 61,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '11. ' . __('Tài sản dài hạn khác', 'bsc'),
-                                                        'order' => 62,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Chi phí trả trước dài hạn', 'bsc'),
-                                                                'order' => 63,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Tài sản dài hạn khác', 'bsc'),
-                                                                'order' => 64,
-                                                                'children' => []
-                                                            ],
-                                                        ]
-                                                    ],
-                                                ]
-                                            ],
-                                            [
-                                                'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'BSC'),
-                                                'order' => 66,
-                                                'children' => [
-                                                    [
-                                                        'title' => '1. ' . __('Nợ ngắn hạn', 'BSC'),
-                                                        'order' => 67,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Vay và nợ ngắn hạn', 'BSC'),
-                                                                'order' => 68,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải trả cho người bán', 'BSC'),
-                                                                'order' => 69,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Phải trả về hợp đồng bảo hiểm', 'BSC'),
-                                                                        'order' => 70,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Phải trả khác cho người bán', 'BSC'),
-                                                                        'order' => 71,
-                                                                        'children' => []
+                                                        ],
+                                                        [
+                                                            'title' => '3 ' . __('Các khoản phải thu ngắn hạn', 'bsc'),
+                                                            'order' => 11,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Phải thu của khách hàng', 'bsc'),
+                                                                    'order' => 12,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Phải thu về hợp đồng bảo hiểm', 'bsc'),
+                                                                            'order' => 13,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Phải thu khác của khách hàng', 'bsc'),
+                                                                            'order' => 14,
+                                                                            'children' => []
+                                                                        ],
                                                                     ]
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Người mua trả tiền trước', 'BSC'),
-                                                                'order' => 72,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'BSC'),
-                                                                'order' => 73,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải trả người lao động', 'BSC'),
-                                                                'order' => 74,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Chi phí phải trả', 'BSC'),
-                                                                'order' => 75,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải trả nội bộ', 'BSC'),
-                                                                'order' => 76,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'BSC'),
-                                                                'order' => 77,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'BSC'),
-                                                                'order' => 78,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'BSC'),
-                                                                'order' => 79,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
-                                                                'order' => 80,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng nghiệp vụ', 'BSC'),
-                                                                'order' => 81,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
-                                                                        'order' => 82,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
-                                                                        'order' => 83,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Dự phòng dao động lớn', 'BSC'),
-                                                                        'order' => 84,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                        ]
-                                                    ],
-                                                    [
-                                                        'title' => '2. ' . __('Nợ dài hạn', 'BSC'),
-                                                        'order' => 85,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Phải trả dài hạn người bán', 'BSC'),
-                                                                'order' => 86,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'BSC'),
-                                                                        'order' => 87,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => '- ' . __('Chi phí phải trả dài hạn', 'BSC'),
-                                                                        'order' => 88,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'BSC'),
-                                                                        'order' => 89,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải trả dài hạn nội bộ', 'BSC'),
-                                                                'order' => 90,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Phải trả dài hạn khác', 'BSC'),
-                                                                'order' => 91,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Vay và nợ dài hạn', 'BSC'),
-                                                                'order' => 92,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'BSC'),
-                                                                'order' => 93,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'BSC'),
-                                                                'order' => 94,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Dự phòng phải trả dài hạn', 'BSC'),
-                                                                'order' => 95,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Doanh thu chưa thực hiện', 'BSC'),
-                                                                'order' => 96,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'BSC'),
-                                                                'order' => 97,
-                                                                'children' => []
-                                                            ],
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Trả trước cho người bán', 'bsc'),
+                                                                    'order' => 15,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải thu nội bộ ngắn hạn', 'bsc'),
+                                                                    'order' => 16,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Các khoản phải thu khác', 'bsc'),
+                                                                    'order' => 17,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng các khoản phải thu khó đòi', 'bsc'),
+                                                                    'order' => 18,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '4 ' . __('Hàng tồn kho', 'bsc'),
+                                                            'order' => 19,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Hàng tồn kho', 'bsc'),
+                                                                    'order' => 20,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng giảm giá hàng tồn kho', 'bsc'),
+                                                                    'order' => 21,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '5 ' . __('Tài sản ngắn hạn khác', 'bsc'),
+                                                            'order' => 22,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Chi phí trả trước ngắn hạn', 'bsc'),
+                                                                    'order' => 23,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => '- ' . __('Chi phí hoa hồng chưa phân bổ', 'bsc'),
+                                                                            'order' => 24,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => '- ' . __('Chi phí trả trước ngắn hạn khác', 'bsc'),
+                                                                            'order' => 25,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Thuế GTGT được khấu trừ', 'bsc'),
+                                                                    'order' => 26,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Thuế và các khoản khác phải thu Nhà nước', 'bsc'),
+                                                                    'order' => 27,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'bsc'),
+                                                                    'order' => 28,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản ngắn hạn khác', 'bsc'),
+                                                                    'order' => 29,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '6 ' . __('Tài sản tái bảo hiểm', 'bsc'),
+                                                            'order' => 30,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng phí nhượng tái bảo hiểm', 'bsc'),
+                                                                    'order' => 31,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng bồi thường nhượng tái bảo hiểm', 'bsc'),
+                                                                    'order' => 32,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                    ]
+                                                ],
+                                                [
+                                                    'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'BSC'),
+                                                    'order' => 33,
+                                                    'children' => [
+                                                        [
+                                                            'title' => '7. ' . __('Các khoản phải thu dài hạn', 'bsc'),
+                                                            'order' => 34,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Phải thu dài hạn của khách hàng', 'bsc'),
+                                                                    'order' => 35,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Trả trước người bán dài hạn', 'bsc'),
+                                                                    'order' => 36,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Vốn kinh doanh của đơn vị trực thuộc', 'bsc'),
+                                                                    'order' => 37,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải thu dài hạn nội bộ', 'bsc'),
+                                                                    'order' => 38,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải thu dài hạn khác', 'bsc'),
+                                                                    'order' => 39,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' =>  __('Kí quỹ bảo hiểm', 'bsc'),
+                                                                            'order' => 40,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' =>  __('Phải thu dài hạn khác', 'bsc'),
+                                                                            'order' => 41,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng phải thu dài hạn', 'bsc'),
+                                                                    'order' => 42,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '8. ' . __('Tài sản cố định', 'bsc'),
+                                                            'order' => 43,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản cố định hữu hình', 'bsc'),
+                                                                    'order' => 44,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' =>  __('Nguyên giá tài sản cố định hữu hình', 'bsc'),
+                                                                            'order' => 45,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định hữu hình', 'bsc'),
+                                                                            'order' => 46,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản cố định thuê tài chính', 'bsc'),
+                                                                    'order' => 47,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' =>  __('Nguyên giá tài sản cố định thuê tài chính', 'bsc'),
+                                                                            'order' => 48,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định thuê tài chính', 'bsc'),
+                                                                            'order' => 49,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản cố định vô hình', 'bsc'),
+                                                                    'order' => 50,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' =>  __('Nguyên giá tài sản cố định vô hình', 'bsc'),
+                                                                            'order' => 51,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' =>  __('Giá trị hao mòn luỹ kế tài sản cố định vô hình', 'bsc'),
+                                                                            'order' => 52,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Chi phí xây dựng cơ bản dở dang', 'bsc'),
+                                                                    'order' => 53,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '9. ' . __('Bất động sản đầu tư', 'bsc'),
+                                                            'order' => 54,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Nguyên giá bất động sản đầu tư', 'bsc'),
+                                                                    'order' => 55,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Giá trị hao mòn luỹ kế bất động sản đầu tư', 'bsc'),
+                                                                    'order' => 56,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '10. ' . __('Đầu tư tài chính dài hạn', 'bsc'),
+                                                            'order' => 57,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Đầu tư vào công ty con', 'bsc'),
+                                                                    'order' => 58,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Đầu tư vào công ty liên kết, liên doanh', 'bsc'),
+                                                                    'order' => 59,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Đầu tư dài hạn khác', 'bsc'),
+                                                                    'order' => 60,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng giảm giá đầu tư tài chính dài hạn', 'bsc'),
+                                                                    'order' => 61,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '11. ' . __('Tài sản dài hạn khác', 'bsc'),
+                                                            'order' => 62,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Chi phí trả trước dài hạn', 'bsc'),
+                                                                    'order' => 63,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản dài hạn khác', 'bsc'),
+                                                                    'order' => 64,
+                                                                    'children' => []
+                                                                ],
+                                                            ]
+                                                        ],
+                                                    ]
+                                                ],
+                                                [
+                                                    'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'BSC'),
+                                                    'order' => 66,
+                                                    'children' => [
+                                                        [
+                                                            'title' => '1. ' . __('Nợ ngắn hạn', 'BSC'),
+                                                            'order' => 67,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Vay và nợ ngắn hạn', 'BSC'),
+                                                                    'order' => 68,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả cho người bán', 'BSC'),
+                                                                    'order' => 69,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Phải trả về hợp đồng bảo hiểm', 'BSC'),
+                                                                            'order' => 70,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Phải trả khác cho người bán', 'BSC'),
+                                                                            'order' => 71,
+                                                                            'children' => []
+                                                                        ]
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Người mua trả tiền trước', 'BSC'),
+                                                                    'order' => 72,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'BSC'),
+                                                                    'order' => 73,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả người lao động', 'BSC'),
+                                                                    'order' => 74,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Chi phí phải trả', 'BSC'),
+                                                                    'order' => 75,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả nội bộ', 'BSC'),
+                                                                    'order' => 76,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'BSC'),
+                                                                    'order' => 77,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'BSC'),
+                                                                    'order' => 78,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'BSC'),
+                                                                    'order' => 79,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
+                                                                    'order' => 80,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng nghiệp vụ', 'BSC'),
+                                                                    'order' => 81,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                                                            'order' => 82,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                                                            'order' => 83,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Dự phòng dao động lớn', 'BSC'),
+                                                                            'order' => 84,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                            ]
+                                                        ],
+                                                        [
+                                                            'title' => '2. ' . __('Nợ dài hạn', 'BSC'),
+                                                            'order' => 85,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả dài hạn người bán', 'BSC'),
+                                                                    'order' => 86,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'BSC'),
+                                                                            'order' => 87,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => '- ' . __('Chi phí phải trả dài hạn', 'BSC'),
+                                                                            'order' => 88,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'BSC'),
+                                                                            'order' => 89,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả dài hạn nội bộ', 'BSC'),
+                                                                    'order' => 90,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Phải trả dài hạn khác', 'BSC'),
+                                                                    'order' => 91,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Vay và nợ dài hạn', 'BSC'),
+                                                                    'order' => 92,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'BSC'),
+                                                                    'order' => 93,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'BSC'),
+                                                                    'order' => 94,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Dự phòng phải trả dài hạn', 'BSC'),
+                                                                    'order' => 95,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Doanh thu chưa thực hiện', 'BSC'),
+                                                                    'order' => 96,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'BSC'),
+                                                                    'order' => 97,
+                                                                    'children' => []
+                                                                ],
 
-                                                        ]
-                                                    ],
-                                                ]
-                                            ],
-                                            [
-                                                'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'BSC'),
-                                                'order' => 98,
-                                                'children' => [
-                                                    [
-                                                        'title' => '1. ' . __('Vốn chủ sở hữu', 'BSC'),
-                                                        'order' => 99,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'BSC'),
-                                                                'order' => 100,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Cổ phiếu phổ thông', 'BSC'),
-                                                                        'order' => 101,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Cổ phiếu ưu đãi', 'BSC'),
-                                                                        'order' => 102,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Thặng dư vốn cổ phần', 'BSC'),
-                                                                'order' => 103,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Cổ phiếu quỹ', 'BSC'),
-                                                                'order' => 104,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Vốn khác của chủ sở hữu', 'BSC'),
-                                                                'order' => 105,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'BSC'),
-                                                                'order' => 106,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'BSC'),
-                                                                'order' => 107,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ đầu tư phát triển', 'BSC'),
-                                                                'order' => 108,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ dự phòng tài chính', 'BSC'),
-                                                                'order' => 109,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'BSC'),
-                                                                'order' => 110,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'BSC'),
-                                                                'order' => 111,
-                                                                'children' => []
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'BSC'),
-                                                                'order' => 112,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'BSC'),
-                                                                        'order' => 113,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => '- ' . __('LNST chưa phân phối kỳ này', 'BSC'),
-                                                                        'order' => 114,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                        ]
-                                                    ],
-                                                ]
-                                            ],
-                                        ];
-                                    } elseif ($industryname == 'Security') {
-                                        $menuData = [
-                                            [
-                                                'title' => 'I. ' . __('TỔNG TÀI SẢN', 'BSC'),
-                                                'order' => 2,
-                                                'children' => [
-                                                    [
-                                                        'title' => '1. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
-                                                        'order' => 3,
-                                                        'children' => [
-                                                            [
-                                                                'title' => '- ' . __('Tài sản tài chính', 'BSC'),
-                                                                'order' => 4,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Tiền và các khoản tương đương tiền', 'BSC'),
-                                                                        'order' => 5,
-                                                                        'children' => [
-                                                                            [
-                                                                                'title' => __('Tiền', 'BSC'),
-                                                                                'order' => 6,
-                                                                                'children' => []
-                                                                            ],
-                                                                            [
-                                                                                'title' => __('Các khoản tương đương tiền', 'BSC'),
-                                                                                'order' => 7,
-                                                                                'children' => []
-                                                                            ],
-                                                                        ]
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Các tài sản tài chính ghi nhận thông qua lãi/lỗ (FVTPL)', 'BSC'),
-                                                                        'order' => 8,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Các khoản đầu tư nắm giữ đến ngày đáo hạn (HTM)', 'BSC'),
-                                                                        'order' => 9,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Các khoản cho vay', 'BSC'),
-                                                                        'order' => 10,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Tài sản tài chính sẵn sảng để bán (AFS)', 'BSC'),
-                                                                        'order' => 11,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Dự phòng suy giảm giá trị các tài sản tài chính và tài sản thế chấp', 'BSC'),
-                                                                        'order' => 12,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Các khoản phải thu', 'BSC'),
-                                                                        'order' => 13,
-                                                                        'children' => [
-                                                                            [
-                                                                                'title' => __('Phải thu bán các tài sản tài chính', 'BSC'),
-                                                                                'order' => 14,
-                                                                                'children' => []
-                                                                            ],
-                                                                            [
-                                                                                'title' => __('Phải thu và dự thu cổ tức, tiền lãi các tài sản tài chính', 'BSC'),
-                                                                                'order' => 15,
-                                                                                'children' => [
-                                                                                    [
-                                                                                        'title' => __('Phải thu cổ tức, tiền lãi đến ngày nhận', 'BSC'),
-                                                                                        'order' => 16,
-                                                                                        'children' => [
-                                                                                            [
-                                                                                                'title' => __('Trong đó: Phải thu khó đòi về cổ tức, tiền lãi đến ngày nhận nhưng chưa nhận được', 'BSC'),
-                                                                                                'order' => 17,
-                                                                                                'children' => []
-                                                                                            ],
-                                                                                        ]
-                                                                                    ],
-                                                                                    [
-                                                                                        'title' => __('Dự thu cổ tức, tiền lãi chưa đến ngày nhận', 'BSC'),
-                                                                                        'order' => 19,
-                                                                                        'children' => []
-                                                                                    ],
-                                                                                ]
-                                                                            ],
-                                                                        ]
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Thuế giá trị gia tăng được khấu trừ', 'BSC'),
-                                                                        'order' => 18,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Phải thu các dịch vụ CTCK cung cấp', 'BSC'),
-                                                                        'order' => 20,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Phải thu nội bộ', 'BSC'),
-                                                                        'order' => 21,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Phải thu về lỗi giao dịch chứng khoán', 'BSC'),
-                                                                        'order' => 22,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Các khoản phải thu khác', 'BSC'),
-                                                                        'order' => 23,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
-                                                                        'order' => 24,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                            [
-                                                                'title' => '- ' . __('Tài sản ngắn hạn khác', 'BSC'),
-                                                                'order' => 25,
-                                                                'children' => [
-                                                                    [
-                                                                        'title' => __('Tạm ứng', 'BSC'),
-                                                                        'order' => 26,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Vật tư văn phòng, công cụ. dụng cụ', 'BSC'),
-                                                                        'order' => 27,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Chi phí trả trước ngắn hạn', 'BSC'),
-                                                                        'order' => 28,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Cầm cố, thế chấp, ký quỹ, ký cược ngắn hạn', 'BSC'),
-                                                                        'order' => 29,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
-                                                                        'order' => 30,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Tài sản ngắn hạn khác', 'BSC'),
-                                                                        'order' => 31,
-                                                                        'children' => []
-                                                                    ],
-                                                                    [
-                                                                        'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
-                                                                        'order' => 32,
-                                                                        'children' => []
-                                                                    ],
-                                                                ]
-                                                            ],
-                                                        ]
-                                                    ],
-                                                ]
-                                            ],
-                                        ];
-                                    } ?>
-                                    <?php
-                                    renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
-                                    ?>
+                                                            ]
+                                                        ],
+                                                    ]
+                                                ],
+                                                [
+                                                    'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'BSC'),
+                                                    'order' => 98,
+                                                    'children' => [
+                                                        [
+                                                            'title' => '1. ' . __('Vốn chủ sở hữu', 'BSC'),
+                                                            'order' => 99,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'BSC'),
+                                                                    'order' => 100,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Cổ phiếu phổ thông', 'BSC'),
+                                                                            'order' => 101,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Cổ phiếu ưu đãi', 'BSC'),
+                                                                            'order' => 102,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Thặng dư vốn cổ phần', 'BSC'),
+                                                                    'order' => 103,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Cổ phiếu quỹ', 'BSC'),
+                                                                    'order' => 104,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Vốn khác của chủ sở hữu', 'BSC'),
+                                                                    'order' => 105,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'BSC'),
+                                                                    'order' => 106,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'BSC'),
+                                                                    'order' => 107,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ đầu tư phát triển', 'BSC'),
+                                                                    'order' => 108,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ dự phòng tài chính', 'BSC'),
+                                                                    'order' => 109,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'BSC'),
+                                                                    'order' => 110,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'BSC'),
+                                                                    'order' => 111,
+                                                                    'children' => []
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'BSC'),
+                                                                    'order' => 112,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'BSC'),
+                                                                            'order' => 113,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => '- ' . __('LNST chưa phân phối kỳ này', 'BSC'),
+                                                                            'order' => 114,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                            ]
+                                                        ],
+                                                    ]
+                                                ],
+                                            ];
+                                        } elseif ($industryname == 'Security') {
+                                            $menuData = [
+                                                [
+                                                    'title' => 'I. ' . __('TỔNG TÀI SẢN', 'BSC'),
+                                                    'order' => 2,
+                                                    'children' => [
+                                                        [
+                                                            'title' => '1. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
+                                                            'order' => 3,
+                                                            'children' => [
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản tài chính', 'BSC'),
+                                                                    'order' => 4,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Tiền và các khoản tương đương tiền', 'BSC'),
+                                                                            'order' => 5,
+                                                                            'children' => [
+                                                                                [
+                                                                                    'title' => __('Tiền', 'BSC'),
+                                                                                    'order' => 6,
+                                                                                    'children' => []
+                                                                                ],
+                                                                                [
+                                                                                    'title' => __('Các khoản tương đương tiền', 'BSC'),
+                                                                                    'order' => 7,
+                                                                                    'children' => []
+                                                                                ],
+                                                                            ]
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Các tài sản tài chính ghi nhận thông qua lãi/lỗ (FVTPL)', 'BSC'),
+                                                                            'order' => 8,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Các khoản đầu tư nắm giữ đến ngày đáo hạn (HTM)', 'BSC'),
+                                                                            'order' => 9,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Các khoản cho vay', 'BSC'),
+                                                                            'order' => 10,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Tài sản tài chính sẵn sảng để bán (AFS)', 'BSC'),
+                                                                            'order' => 11,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Dự phòng suy giảm giá trị các tài sản tài chính và tài sản thế chấp', 'BSC'),
+                                                                            'order' => 12,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Các khoản phải thu', 'BSC'),
+                                                                            'order' => 13,
+                                                                            'children' => [
+                                                                                [
+                                                                                    'title' => __('Phải thu bán các tài sản tài chính', 'BSC'),
+                                                                                    'order' => 14,
+                                                                                    'children' => []
+                                                                                ],
+                                                                                [
+                                                                                    'title' => __('Phải thu và dự thu cổ tức, tiền lãi các tài sản tài chính', 'BSC'),
+                                                                                    'order' => 15,
+                                                                                    'children' => [
+                                                                                        [
+                                                                                            'title' => __('Phải thu cổ tức, tiền lãi đến ngày nhận', 'BSC'),
+                                                                                            'order' => 16,
+                                                                                            'children' => [
+                                                                                                [
+                                                                                                    'title' => __('Trong đó: Phải thu khó đòi về cổ tức, tiền lãi đến ngày nhận nhưng chưa nhận được', 'BSC'),
+                                                                                                    'order' => 17,
+                                                                                                    'children' => []
+                                                                                                ],
+                                                                                            ]
+                                                                                        ],
+                                                                                        [
+                                                                                            'title' => __('Dự thu cổ tức, tiền lãi chưa đến ngày nhận', 'BSC'),
+                                                                                            'order' => 19,
+                                                                                            'children' => []
+                                                                                        ],
+                                                                                    ]
+                                                                                ],
+                                                                            ]
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Thuế giá trị gia tăng được khấu trừ', 'BSC'),
+                                                                            'order' => 18,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Phải thu các dịch vụ CTCK cung cấp', 'BSC'),
+                                                                            'order' => 20,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Phải thu nội bộ', 'BSC'),
+                                                                            'order' => 21,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Phải thu về lỗi giao dịch chứng khoán', 'BSC'),
+                                                                            'order' => 22,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Các khoản phải thu khác', 'BSC'),
+                                                                            'order' => 23,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
+                                                                            'order' => 24,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                                [
+                                                                    'title' => '- ' . __('Tài sản ngắn hạn khác', 'BSC'),
+                                                                    'order' => 25,
+                                                                    'children' => [
+                                                                        [
+                                                                            'title' => __('Tạm ứng', 'BSC'),
+                                                                            'order' => 26,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Vật tư văn phòng, công cụ. dụng cụ', 'BSC'),
+                                                                            'order' => 27,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Chi phí trả trước ngắn hạn', 'BSC'),
+                                                                            'order' => 28,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Cầm cố, thế chấp, ký quỹ, ký cược ngắn hạn', 'BSC'),
+                                                                            'order' => 29,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
+                                                                            'order' => 30,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Tài sản ngắn hạn khác', 'BSC'),
+                                                                            'order' => 31,
+                                                                            'children' => []
+                                                                        ],
+                                                                        [
+                                                                            'title' => __('Dự phòng suy giảm giá trị các khoản phải thu', 'BSC'),
+                                                                            'order' => 32,
+                                                                            'children' => []
+                                                                        ],
+                                                                    ]
+                                                                ],
+                                                            ]
+                                                        ],
+                                                    ]
+                                                ],
+                                            ];
+                                        } ?>
+                                        <?php
+                                        renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
+                                        ?>
+                                    </div>
+
                                 </div>
-
-                            </div>
                             </div>
                         <?php } ?>
                     </div>
@@ -4792,7 +4792,7 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
         ?>
             <div
                 class="<?php if (!empty($item['children'])) echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-[30px]':'px-5' ?> py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
                     <h3
                         class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
                         <?php
@@ -4809,7 +4809,7 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                     $Values_chart = implode(',', $Values);
                     foreach ($Values as $key => $Val) {
                     ?>
-                        <div class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[11%]':'max-w-[135px] break-words' ?>">
+                        <div class="min-w-[135px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
                             <?php
                             if (is_numeric($Val)) {
                                 echo number_format($Val);
@@ -4819,7 +4819,7 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                     <?php
                     }
                     ?>
-                    <div class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[14%]':'max-w-[175px]' ?> h-10">
+                    <div class="min-w-[175px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?> h-10">
                         <div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false" data-color="<?php echo '#007bff' ?>">
                         </div>
                     </div>
