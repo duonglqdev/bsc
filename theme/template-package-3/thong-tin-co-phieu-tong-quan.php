@@ -480,7 +480,8 @@ get_header();
 				</div>
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-5' : '' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-5' : '' ?>">
 						<div
 							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[386px] max-w-[29%]' : 'w-full' ?>">
 							<h2
@@ -763,6 +764,17 @@ get_header();
 						}
 						?>
 					</div>
+
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
+						<div class="mt-8">
+						<a href="#"
+								class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
+								<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+								Xem chi tiết
+							</a>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="tab-content hidden" id="tab-2">
@@ -893,15 +905,18 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="tab-3">
 				<div class="list__content">
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 mb-10':'mt-[38px] mb-6' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
 						<ul class="flex items-center sm:gap-5 gap-2">
-							<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+							<li
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
 								<a href=""
 									class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
 									Quý
 								</a>
 							</li>
-							<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+							<li
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
 								<a href=""
 									class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
 									Năm
@@ -909,25 +924,30 @@ get_header();
 							</li>
 						</ul>
 					</div>
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:space-y-[100px] space-y-14':'space-y-14' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:space-y-[100px] space-y-14' : 'space-y-14' ?>">
 						<article>
-							<div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-6 mb-[30px]':'gap-[12px] mb-6' ?>">
+							<div
+								class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 								<h2 class="heading-title">
 									LỢI NHUẬN
 								</h2>
 								<p
-									class="inline-flex items-center px-4 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-1.5':'text-xs py-1' ?>">
-									<?php echo svgClass( 'gold', '', '','sm:w-6 sm:h-6 w-5 h-5' ) ?>
+									class="inline-flex items-center px-4 font-bold gap-1.5 rounded-full text-[#F90] bg-gradient-yellow-50 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?>">
+									<?php echo svgClass( 'gold', '', '', 'sm:w-6 sm:h-6 w-5 h-5' ) ?>
 									Hạng A
 								</p>
 							</div>
-							<div class="rounded-lg overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-8' ?>">
+							<div
+								class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 								<div class="overflow-x-auto whitespace-nowrap">
 									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 										<thead>
 											<tr>
-												<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-9':'!pl-4' ?>">Mã CK</th>
+												<th
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													Mã CK</th>
 												<th>Biên LNG</th>
 												<th>Biên LNTT</th>
 												<th>Biên LNST</th>
@@ -936,20 +956,24 @@ get_header();
 										</thead>
 										<tbody>
 											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-												<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-9':'!pl-4' ?>"><a href="">BSI</a></td>
+												<td
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													<a href="">BSI</a></td>
 												<td>46,44%</td>
 												<td>37,80%</td>
 												<td>30,67%</td>
 												<td>9,24%</td>
 											</tr>
-	
+
 										</tbody>
 									</table>
 
 								</div>
 							</div>
-							<div class="grid font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3 gap-5':'gap-8' ?>">
-								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-6':'space-y-4' ?>">
+							<div
+								class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
+								<div
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
 									<h4
 										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
 										BIÊN LỢI NHUẬN GỘP (%)
@@ -958,7 +982,8 @@ get_header();
 
 									</div>
 								</div>
-								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-6':'space-y-4' ?>">
+								<div
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
 									<h4
 										class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
 										BIÊN LỢI NHUẬN SAU THUẾ (%)
@@ -967,7 +992,8 @@ get_header();
 
 									</div>
 								</div>
-								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-6':'space-y-4' ?>">
+								<div
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
 									<h4
 										class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
 										ROE (%)
@@ -1154,15 +1180,16 @@ get_header();
 				</div>
 			</div>
 			<div class="tab-content hidden" id="tab-4">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 flex items-end justify-between':'mt-[50px] space-y-4' ?>">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 flex items-end justify-between' : 'mt-[50px] space-y-4' ?>">
 					<div
-						class="flex items-center relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-6' ?>">
+						class="flex items-center relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-10' : 'gap-6' ?>">
 						<div class="flex flex-col gap-1">
 							<p class="font-Helvetica text-xs">Giá mục tiêu</p>
 							<strong class="lg:text-[32px] text-2xl text-primary-300">50.300</strong>
 						</div>
 						<span
-							class="inline-block  text-center  px-6 text-[#30D158] bg-[#D6F6DE] font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl rounded-lg min-w-[140px] py-2':'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>">
+							class="inline-block  text-center  px-6 text-[#30D158] bg-[#D6F6DE] font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl rounded-lg min-w-[140px] py-2' : 'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>">
 							Mua
 						</span>
 					</div>
@@ -1172,19 +1199,30 @@ get_header();
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
 				</div>
-				<div class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
+				<div
+					class="rounded-lg overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10' : 'mt-6' ?>">
 					<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 					<div class="overflow-x-auto whitespace-nowrap">
 						<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-th:p-4 prose-td:p-4':'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
+							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:p-4' : 'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
 							<thead>
 								<tr>
 									<th></th>
-									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2021</th>
-									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2022</th>
-									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2023</th>
-									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2024</th>
-									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2025</th>
+									<th
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										2021</th>
+									<th
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										2022</th>
+									<th
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										2023</th>
+									<th
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										2024</th>
+									<th
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										2025</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -1193,12 +1231,24 @@ get_header();
 								{
 									?>
 									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-										<td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>">Doanh thu (tỷ đồng)</td>
-										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,380</td>
-										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,899</td>
-										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,495</td>
-										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,893</td>
-										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">5,277</td>
+										<td
+											class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
+											Doanh thu (tỷ đồng)</td>
+										<td
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											4,380</td>
+										<td
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											4,899</td>
+										<td
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											4,495</td>
+										<td
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											4,893</td>
+										<td
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											5,277</td>
 									</tr>
 									<?php
 								}

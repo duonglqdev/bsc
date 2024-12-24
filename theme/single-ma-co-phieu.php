@@ -274,7 +274,7 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="flex-1">
+						<div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-14' ?>">
 							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' mb-10':'mb-6' ?>">
 								<?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
 							</h2>
@@ -307,12 +307,15 @@ get_header();
 					<div class="flex justify-between items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 						<h2 class="heading-title"><?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?>
 						</h2>
-						<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
-							<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
-								class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-								<?php echo svg('arrow-btn', '16', '16') ?>
-								<?php _e('Xem thêm', 'bsc') ?>
-							</a>
+						<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+							<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
+								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+									class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
+									<?php echo svg('arrow-btn', '16', '16') ?>
+									<?php _e('Xem thêm', 'bsc') ?>
+								</a>
+							<?php } ?>
+											
 						<?php } ?>
 					</div>
 					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-x-9 gap-y-[46px]':'gap-4' ?> bsc-ajax-api" data-api="sg_ttvmcp" data-symbol="<?php echo $symbol ?>">
@@ -333,6 +336,17 @@ get_header();
 							</div>
 						</div>
 					</div>
+					<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+						<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
+							<div class="mt-8">
+								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+									class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
+									<?php echo svg('arrow-btn', '16', '16') ?>
+									<?php _e('Xem thêm', 'bsc') ?>
+								</a>
+							</div>
+							<?php } ?>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-2">

@@ -8,13 +8,13 @@ if (isset($_GET['mck']) && $_GET['mck']) {
     <?php if ($stt_re) { ?>
         <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0 report_finance_list" <?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
             <div class="container">
-                <ul class="customtab-nav flex justify-between gap-10">
+                <ul class="customtab-nav  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex justify-between gap-10':'overflow-x-auto gap-4  nav-scroll-mb' ?>">
                     <?php
                     foreach ($stt_re as $i) {
                     ?>
                         <li class="flex-1">
                             <button data-tabs="#<?php echo $tab . $i ?>" <?php if ($i > 1) echo 'data-ajax="true" data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?>
-                                class="<?php if ($i == 1) echo  'active' ?> block text-center font-bold lg:text-lg lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+                                class="<?php if ($i == 1) echo  'active' ?> block text-center font-bold lg:text-lg text-xs lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
                                 <?php
                                 the_sub_field('title_' . $i);
                                 ?>
@@ -29,7 +29,7 @@ if (isset($_GET['mck']) && $_GET['mck']) {
         <?php
         foreach ($stt_re as $i) {
         ?>
-            <section class="tab-content mt-[54px] mb-[100px] <?php if ($i == 1) echo 'block bsc-ajax-api';
+            <section class="tab-content <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-[54px] mb-[100px]':'my-[50px]' ?> <?php if ($i == 1) echo 'block bsc-ajax-api';
                                                                 else echo 'hidden' ?>" id="<?php echo $tab . $i ?>" <?php if ($i == 1) echo 'data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?> data-chart="collapseChart,toggle_content_baocao">
                 <div class="hidden">
                     <div role="status">
