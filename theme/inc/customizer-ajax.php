@@ -736,9 +736,7 @@ function filter_details_symbol()
                     $array_data = array(
                         'lang' => pll_current_language(),
                         'categoryid' => $categoryid_bcn,
-                        'maxitem' => 3,
-                        'fromdate' => $fromdate,
-                        'todate' => $todate
+                        'maxitem' => 3
                     );
                     $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
                 }
