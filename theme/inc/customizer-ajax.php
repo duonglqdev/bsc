@@ -985,7 +985,6 @@ function filter_details_symbol()
             }
             ?>
         <?php } ?>
-        <div class="trigger-button_document " data-modal-target="document-modal" data-modal-toggle="document-modal"></div>
     <?php
     } elseif ($type_form == 'details_symbol_tab-2') {
     ?>
@@ -1152,7 +1151,7 @@ function filter_details_symbol()
                                                             $check_dat++; ?>
                                                             <td><?php
                                                                 if (is_numeric($dat)) {
-                                                                    echo number_format($dat, 2, '.', ',');
+                                                                    echo number_format($dat);
                                                                 }
                                                                 ?></td>
                                                         <?php
@@ -1242,7 +1241,7 @@ function filter_details_symbol()
                                                             $check_dat_ts++; ?>
                                                             <td><?php
                                                                 if (is_numeric($dat_ts)) {
-                                                                    echo number_format($dat_ts, 2, '.', ',');
+                                                                    echo number_format($dat_ts, 2);
                                                                 }
                                                                 ?></td>
                                                         <?php
