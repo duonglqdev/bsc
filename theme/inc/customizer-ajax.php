@@ -2525,9 +2525,9 @@ function filter_details_symbol()
         ?>
                 <div class="relative">
                     <div>
-                        <div class="flex items-end justify-between mt-16">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 flex items-end justify-between':'mt-[50px] space-y-4' ?>">
                             <div
-                                class="flex items-center gap-10 relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
+                                class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-6' ?> relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
                                 <?php if ($response_GetForecastBussiness->d1[0]->PRICE) { ?>
                                     <div class="flex flex-col gap-1">
                                         <p class="font-Helvetica text-xs"><?php _e('Giá mục tiêu', 'bsc') ?></p>
@@ -2543,7 +2543,7 @@ function filter_details_symbol()
                                     $background_status = $check_status['background_status'];
                                 ?>
                                     <span
-                                        class="inline-block min-w-[140px] text-center py-2 px-6 rounded-lg text-xl font-bold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                                        class="inline-block text-center px-6  font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl rounded-lg min-w-[140px] py-2':'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
                                         <?php echo $title_status; ?>
                                     </span>
                                 <?php } ?>
@@ -2556,30 +2556,31 @@ function filter_details_symbol()
                             }
                             ?>
                             <a href="<?php echo get_home_url() ?>/<?php echo $sub_url_bcpt ?>/<?php echo $symbol ?>"
-                                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+                                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 md:text-lg text-xs font-Helvetica">
                                 <?php _e('Xem chi tiết', 'bsc') ?>
                                 <?php echo svg('arrow-btn', '12', '12') ?>
                             </a>
                         </div>
-                        <div class="rounded-lg overflow-hidden relative mt-10">
+                        <div class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
+                        <div class="overflow-x-auto whitespace-nowrap">
                             <table
-                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium ">
+                                class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-th:p-4 prose-td:p-4':'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
                                 <thead>
                                     <tr>
                                         <th></th>
                                         <?php foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <th><?php echo $GetForecastBussiness->FORECAST_PERIOD ?></th>
+                                            <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php echo $GetForecastBussiness->FORECAST_PERIOD ?></th>
                                         <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Doanh thu (tỷ đồng)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Doanh thu (tỷ đồng)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->NET_REV) {
                                                     echo number_format($GetForecastBussiness->NET_REV / 1000000000);
                                                 }
@@ -2589,11 +2590,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Tăng trưởng doanh thu', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->TANG_TRUONG_DT) {
                                                     echo number_format($GetForecastBussiness->TANG_TRUONG_DT / 1000000000);
                                                 }
@@ -2603,11 +2604,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->LNST_CONG_TY_ME) {
                                                     echo number_format($GetForecastBussiness->LNST_CONG_TY_ME / 1000000000);
                                                 }
@@ -2617,11 +2618,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Tăng trưởng LNST công ty mẹ', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->TANG_TRUONG_LS) {
                                                     echo number_format($GetForecastBussiness->TANG_TRUONG_LS / 1000000000);
                                                 }
@@ -2631,11 +2632,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('EPS (VND)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('EPS (VND)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->EPS) {
                                                     echo number_format($GetForecastBussiness->EPS);
                                                 }
@@ -2645,11 +2646,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Tăng trưởng EPS', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->TANG_TRUONG_EPS) {
                                                     echo number_format($GetForecastBussiness->TANG_TRUONG_EPS, '2', '.', ',');
                                                 }
@@ -2659,11 +2660,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('ROE (%)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('ROE (%)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->ROE) {
                                                     echo number_format($GetForecastBussiness->ROE * 100, '2', '.', ',') . '%';
                                                 }
@@ -2673,11 +2674,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('ROA (%)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('ROA (%)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->ROA) {
                                                     echo number_format($GetForecastBussiness->ROA * 100, '2', '.', ',') . '%';
                                                 }
@@ -2687,11 +2688,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('P/E (x)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('P/E (x)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->PE) {
                                                     echo number_format($GetForecastBussiness->PE, '2', '.', ',');
                                                 }
@@ -2701,11 +2702,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('P/B (x)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('P/B (x)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->PB) {
                                                     echo number_format($GetForecastBussiness->PB, '2', '.', ',');
                                                 }
@@ -2715,11 +2716,11 @@ function filter_details_symbol()
                                         ?>
                                     </tr>
                                     <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                        <td class="font-bold !pl-[30px]"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
+                                        <td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>"><?php _e('Hiệu suất cổ phiếu (%)', 'bsc') ?></td>
                                         <?php
                                         foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                         ?>
-                                            <td><?php
+                                            <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>"><?php
                                                 if ($GetForecastBussiness->HS_CO_PHIEU) {
                                                     echo number_format($GetForecastBussiness->HS_CO_PHIEU, '2', '.', ',') . '%';
                                                 }
@@ -2730,6 +2731,8 @@ function filter_details_symbol()
                                     </tr>
                                 </tbody>
                             </table>
+
+                        </div>
                         </div>
                     </div>
                 </div>

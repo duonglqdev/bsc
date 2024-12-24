@@ -1154,58 +1154,61 @@ get_header();
 				</div>
 			</div>
 			<div class="tab-content hidden" id="tab-4">
-				<div class="flex items-end justify-between mt-16">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-16 flex items-end justify-between':'mt-[50px] space-y-4' ?>">
 					<div
-						class="flex items-center gap-10 relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0">
+						class="flex items-center relative pl-6 after:absolute after:w-1 after:h-full after:bg-primary-300 after:top-0 after:left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-6' ?>">
 						<div class="flex flex-col gap-1">
 							<p class="font-Helvetica text-xs">Giá mục tiêu</p>
 							<strong class="lg:text-[32px] text-2xl text-primary-300">50.300</strong>
 						</div>
 						<span
-							class="inline-block min-w-[140px] text-center py-2 px-6 text-[#30D158] bg-[#D6F6DE] rounded-lg text-xl font-bold">
+							class="inline-block  text-center  px-6 text-[#30D158] bg-[#D6F6DE] font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl rounded-lg min-w-[140px] py-2':'text-lg rounded-[35px] min-w-[100px] py-1.5' ?>">
 							Mua
 						</span>
 					</div>
 					<a href=""
-						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
+						class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 md:text-lg text-xs font-Helvetica">
 						Xem chi tiết
 						<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 					</a>
 				</div>
-				<div class="rounded-lg overflow-hidden relative mt-10">
+				<div class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10':'mt-6' ?>">
 					<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
-					<table
-						class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium blur-sm">
-						<thead>
-							<tr>
-								<th></th>
-								<th>2021</th>
-								<th>2022</th>
-								<th>2023</th>
-								<th>2024</th>
-								<th>2025</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							for ( $i = 0; $i < 11; $i++ )
-							{
-								?>
-								<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-									<td class="font-bold !pl-[30px]">Doanh thu (tỷ đồng)</td>
-									<td>4,380</td>
-									<td>4,899</td>
-									<td>4,495</td>
-									<td>4,893</td>
-									<td>5,277</td>
+					<div class="overflow-x-auto whitespace-nowrap">
+						<table
+							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-th:p-4 prose-td:p-4':'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
+							<thead>
+								<tr>
+									<th></th>
+									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2021</th>
+									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2022</th>
+									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2023</th>
+									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2024</th>
+									<th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">2025</th>
 								</tr>
+							</thead>
+							<tbody>
 								<?php
-							}
-							?>
-						</tbody>
-					</table>
+								for ( $i = 0; $i < 11; $i++ )
+								{
+									?>
+									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+										<td class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'!pl-[30px]':'' ?>">Doanh thu (tỷ đồng)</td>
+										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,380</td>
+										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,899</td>
+										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,495</td>
+										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">4,893</td>
+										<td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[70px] !text-right' ?>">5,277</td>
+									</tr>
+									<?php
+								}
+								?>
+							</tbody>
+						</table>
+
+					</div>
 					<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-					<div
+					<!-- <div
 						class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 						<a href="#"
 							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
@@ -1214,7 +1217,7 @@ get_header();
 						<p class="italic mt-4 font-normal">
 							Để xem chi tiết danh mục
 						</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
