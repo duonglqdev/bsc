@@ -61,11 +61,11 @@
         <?php if (have_rows('benefit')) { ?>
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-3 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
                 <?php while (have_rows('benefit')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden min-h-[320px]  text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px]':'px-4 pt-8 pb-11 block_slider-item w-full' ?>"
+                    <div class="rounded-2xl overflow-hidden min-h-[320px] text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px]':'px-4 pt-8 pb-11 block_slider-item w-full' ?>"
                         style="background-color:<?php the_sub_field('color') ?>;">
                         <div class="lg:max-w-[330px] mx-auto">
                             <div class="relative w-full pt-[47%]">
-                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105')) ?>
+                                <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:')) ?>
                             </div>
                         </div>
                         <?php if (get_sub_field('title')) { ?>
