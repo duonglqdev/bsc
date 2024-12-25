@@ -125,7 +125,7 @@ get_header();
 							if ( $hinh_anh_sidebar )
 							{ ?>
 								<div class="mt-12">
-									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>">
+									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>" target="_blank">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ); ?>
 									</a>
 								</div>
