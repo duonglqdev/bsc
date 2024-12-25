@@ -93,7 +93,7 @@
                     <div class="leader_img w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[349px]':'' ?>">
                         <div class="relative w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[122%]':'pt-[75%]' ?>">
                             <img loading="lazy" src="" alt=""
-                                class="absolute w-full h-full object-cover inset-0 rounded-lg">
+                                class="absolute w-full h-full object-cover object-top inset-0 rounded-lg">
                         </div>
                         <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
                             <button type="button"
