@@ -4,13 +4,13 @@
 	$style = get_sub_field('style') ?: 'style1';
 	?>
 	<div class="container">
-		<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid grid-cols-2 gap-10' : 'flex flex-col-reverse gap-6' ?> <?php if ($style == 'style2') echo 'items-center' ?>">
-			<div class="col-span-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[640px]':'' ?>">
+		<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-2 gap-10' : 'grid-cols-1' ?> <?php if ($style == 'style2') echo 'items-center' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[640px] col-span-1':'order-2' ?>">
 				<div class="relative w-full pt-[71.25%] overflow-hidden rounded-[10px]">
 					<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105')) ?>
 				</div>
 			</div>
-			<div class="col-span-1 font-Helvetica">
+			<div class="font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-1':'order-1' ?>">
 				<?php if ($style == 'style1') { ?>
 					<?php if (get_sub_field('title')) { ?>
 						<h2 class="font-bold text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl mb-5':'mb-4 text-lg' ?>">
