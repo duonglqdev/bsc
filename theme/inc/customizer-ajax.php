@@ -3568,7 +3568,7 @@ function filter_details_symbol()
                 <div class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?>"
                     id="<?php echo $tab ?>-<?php echo $i ?>">
                     <div
-                        class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[76.2%] pt-[80%] w-full' : 'text-xs' ?>">
+                        class="rounded-lg overflow-hidden relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[78.1%] pt-[80%] w-full' : 'text-xs' ?>">
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> <?php echo $class ?>">
                             <ul
                                 class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:p-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
