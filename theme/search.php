@@ -17,19 +17,19 @@ $type_search =  $_GET['type_search'] ?: 'default';
 	<section class="py-[88px] bg-no-repeat bg-cover"
 		style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/svg/bg-search.svg)">
 		<div class="container">
-			<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+			<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 				<div class="text-center">
 					<?php if (function_exists('rank_math_the_breadcrumbs'))
 						rank_math_the_breadcrumbs(); ?>
 				</div>
 			<?php } ?>
-			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6 mb-8':'mb-6' ?>">
+			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-6 mb-8' : 'mb-6' ?>">
 				<?php _e('BẠN MUỐN TÌM KIẾM ĐIỀU GÌ?', 'bsc') ?>
 			</h2>
 			<form action="<?php echo get_home_url() ?>"
 				class="flex gap-3 justify-center form-search-result">
-				<div class="flex items-center bg-white rounded-lg overflow-hidden shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[58px] w-[660px] max-w-[90%] gap-2 py-4 px-6 ':'h-12 flex-1 gap-4 py-3 px-4' ?>">
-					<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-5 h-5' ?>">
+				<div class="flex items-center bg-white rounded-lg overflow-hidden shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[58px] w-[660px] max-w-[90%] gap-2 py-4 px-6 ' : 'h-12 flex-1 gap-4 py-3 px-4' ?>">
+					<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-6 h-6' : 'w-5 h-5' ?>">
 						<?php echo svgpath('search', '', '', 'fill-[#4a556880]') ?>
 					</p>
 					<input type="text" name="s"
@@ -43,16 +43,16 @@ $type_search =  $_GET['type_search'] ?: 'default';
 
 				</div>
 				<a type="reset" href="<?php echo get_home_url() . '?s=' ?>"
-					class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[58px] h-[58px]':'w-12 h-12' ?> shrink-0 rounded-lg flex items-center justify-center p-3 bg-white group">
+					class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[58px] h-[58px]' : 'w-12 h-12' ?> shrink-0 rounded-lg flex items-center justify-center p-3 bg-white group">
 					<?php echo svgClass('reload', '24', '24', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 				</a>
 			</form>
 		</div>
 	</section>
-	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:[my-100px] my-20':'my-[50px]' ?>">
+	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:[my-100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
 			<div class="lg:flex gap-[70px] max-w-[1112px] mx-auto">
-				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+				<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 					<div class="lg:w-[290px]">
 						<ul
 							class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base sticky top-5 z-10">
@@ -128,9 +128,9 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							</li>
 						</ul>
 					</div>
-									
+
 				<?php } ?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'text-xs' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'text-xs' ?>">
 					<?php
 					if (isset($_GET['posts_to_show'])) {
 						$post_per_page = $_GET['posts_to_show'];
@@ -194,12 +194,21 @@ $type_search =  $_GET['type_search'] ?: 'default';
 										} else {
 											$check_body  = get_the_content();
 										}
-										$all_results[] = array(
-											'type' => 'post',
-											'title' => get_the_title(),
-											'permalink' => get_permalink(),
-											'body' => bsc_get_text_excerpt($check_body, 300),
-										);
+										if (get_post_type() == 'video-huong-dan') {
+											$all_results[] = array(
+												'type' => 'video-huong-dan',
+												'title' => get_the_title(),
+												'permalink' => get_field('link_youtube'),
+												'body' => bsc_get_text_excerpt($check_body, 300),
+											);
+										} else {
+											$all_results[] = array(
+												'type' => 'post',
+												'title' => get_the_title(),
+												'permalink' => get_permalink(),
+												'body' => bsc_get_text_excerpt($check_body, 300),
+											);
+										}
 									endwhile;
 								}
 								if ($current_total_post < $post_per_page) {
@@ -514,7 +523,7 @@ $type_search =  $_GET['type_search'] ?: 'default';
 					}
 					$total_page = ceil($total_post / $post_per_page);
 					?>
-					<p class="font-Helvetica sm:text-base text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
+					<p class="font-Helvetica sm:text-base text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
 						<?php _e('Tìm thấy', 'bsc') ?> <?php echo number_format($total_post) ?> <?php _e('kết quả cho từ khóa', 'bsc') ?>: <span
 							class="font-bold text-primary-300"><?php echo  $search ?></span>
 					</p>
@@ -524,8 +533,8 @@ $type_search =  $_GET['type_search'] ?: 'default';
 							foreach ($all_results as $result) :
 							?>
 								<li class="[&:not(:first-child)]:pt-6 pb-4 border-b border-[#C9CCD2]">
-									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4':'space-y-[12px]' ?>">
-										<a href="<?php echo $result['permalink']; ?>" class="font-bold block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg':'text-base' ?>">
+									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4' : 'space-y-[12px]' ?>">
+										<a href="<?php echo $result['permalink']; ?>" <?php if ($result['type'] == 'video-huong-dan') echo 'data-fancybox' ?> class="font-bold block <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
 											<?php
 											if ($search == '') {
 												echo $result['title'];
