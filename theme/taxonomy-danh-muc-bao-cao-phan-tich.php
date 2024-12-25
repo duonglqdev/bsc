@@ -23,7 +23,7 @@ get_header();
 						<li class="flex-1">
 							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 								class="<?php if ( get_sub_field( 'active' ) )
-									echo 'active' ?> block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] 2xl:px-10 px-5' : 'py-3 px-4 text-xs' ?>">
+									echo 'active' ?> block text-center font-semibold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-base py-[12px] 2xl:px-10 px-5' : 'py-3 px-4 text-xs' ?>">
 								<?php the_sub_field( 'title' ) ?>
 							</a>
 						</li>
