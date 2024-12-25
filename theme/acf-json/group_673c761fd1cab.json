@@ -16240,6 +16240,26 @@
                             "append": ""
                         },
                         {
+                            "key": "field_676c59f067548",
+                            "label": "ID danh mục",
+                            "name": "id_report",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_6744b8d05a5ca",
                             "label": "Số lượng bài viết",
                             "name": "number",
@@ -17155,5 +17175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1735056378
+    "modified": 1735154172
 }

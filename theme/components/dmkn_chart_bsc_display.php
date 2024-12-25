@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php
-        $categoryid_kn = get_field('cddmkn1_id_danh_muc', 'option');
+        $categoryid_kn = get_sub_field('id_report');
         if ($categoryid_kn) {
             if (get_sub_field('number')) {
                 $post_per_page = get_sub_field('number');
