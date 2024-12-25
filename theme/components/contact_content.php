@@ -19,7 +19,7 @@
 					<?php } ?>
 					<?php if (get_sub_field('content')) { ?>
 						<div
-							class="prose-strong:inline-flex prose-strong:font-medium prose-strong:gap-3 prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-ul:list-disc  prose-a:text-primary-300 prose-strong:mr-1 content-contact <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:pl-7 prose-ul:mt-2 prose-ul:mb-5 prose-p:mb-5 prose-strong:items-center':'text-xs prose-ul:pl-5 prose-ul:mt-2 prose-ul:mb-4 prose-p:mb-4 prose-strong:before:-translate-y-[1px] prose-strong:items-baseline' ?>">
+							class="prose-strong:inline-flex prose-strong:font-medium prose-strong:gap-3 prose-strong:before:w-2 prose-strong:before:h-2 prose-strong:before:bg-primary-300 prose-strong:before:rounded-[2px] prose-ul:list-disc  prose-a:text-primary-300 prose-strong:mr-1 content-contact <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:pl-7 prose-ul:mt-2 2xl:prose-ul:mb-5 prose-ul:mb-[12px] 2xl:prose-p:mb-5 prose-p:mb-[12px] prose-strong:items-center':'text-xs prose-ul:pl-5 prose-ul:mt-2 prose-ul:mb-4 prose-p:mb-4 prose-strong:before:-translate-y-[1px] prose-strong:items-baseline' ?>">
 							<?php the_sub_field('content') ?>
 						</div>
 					<?php } ?>
