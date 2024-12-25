@@ -126,7 +126,7 @@ get_header();
 				</div>
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 space-y-[30px]' : 'space-y-6' ?>">
 					<div
-						class="font-Helvetica content_item prose prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8] prose-li:my-[2px] prose-li:marker:text-black prose-ul:mb-0  first:prose-h2:mt-0 prose-h2:mb-2 text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-h2:mt-[30px]' : 'prose-h2:text-lg text-xs prose-li:pl-0 prose-h2:mt-6' ?>">
+						class="font-Helvetica content_item prose prose-p:my-1 prose-h1:text-[#235BA8] prose-h2:text-[#235BA8] prose-h3:text-[#235BA8] prose-h4:text-[#235BA8] prose-h5:text-[#235BA8] prose-h6:text-[#235BA8] prose-li:my-[2px] prose-li:marker:text-black prose-ul:mb-0 prose-ul:mt-3 prose-h1:mb-5 first:prose-h2:mt-0 prose-h2:mb-2 text-black <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-h2:mt-[30px]' : 'prose-h2:text-lg text-xs prose-li:pl-0 prose-h2:mt-6' ?>">
 						<?php the_content() ?>
 					</div>
 
