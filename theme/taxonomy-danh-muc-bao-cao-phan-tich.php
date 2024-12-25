@@ -23,7 +23,7 @@ get_header();
 						<li class="flex-1">
 							<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 								class="<?php if ( get_sub_field( 'active' ) )
-									echo 'active' ?> block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] 2xl:px-10 px-5' : 'py-3 px-4 text-xs' ?>">
+									echo 'active' ?> block text-center font-semibold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-base py-[12px] 2xl:px-10 px-5' : 'py-3 px-4 text-xs' ?>">
 								<?php the_sub_field( 'title' ) ?>
 							</a>
 						</li>
@@ -125,7 +125,7 @@ get_header();
 							if ( $hinh_anh_sidebar )
 							{ ?>
 								<div class="mt-12">
-									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>">
+									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>" target="_blank">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ); ?>
 									</a>
 								</div>
@@ -507,7 +507,7 @@ get_header();
 					{
 						?>
 						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-[60px]':'mt-6 mb-16' ?>">
-							<h3 class="font-bold t<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>"><?php _e( 'Dự báo vĩ mô', 'bsc' ) ?></h3>
+							<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>"><?php _e( 'Dự báo vĩ mô', 'bsc' ) ?></h3>
 							<div class="relative">
 								<?php
 								$array_data_GetForecastMacro = array();
@@ -544,7 +544,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -554,7 +554,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -564,7 +564,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -574,7 +574,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -582,7 +582,7 @@ get_header();
 														</p>
 													</div>
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-bold">
+												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-medium ">
 													<div class="w-[70%] px-2 py-1">
 														<?php _e( 'USD/VND LNH trung bình', 'bsc' ) ?>
 													</div>
@@ -598,10 +598,10 @@ get_header();
 												<div class="text-[#FF0017]">
 													<div
 														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-														<p class="font-semibold mb-1">
+														<p class="font-medium  mb-1">
 															<?php _e( 'BSC kịch bản 1', 'bsc' ) ?>
 														</p>
-														<div class="grid grid-cols-2 font-semibold">
+														<div class="grid grid-cols-2 font-medium ">
 															<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
@@ -623,7 +623,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
+														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-medium ">
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[1][5]->value ) ?>
 														</p>
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[3][5]->value ) ?>
@@ -633,10 +633,10 @@ get_header();
 												<div class="text-[#30D158]">
 													<div
 														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-														<p class="font-semibold mb-1">
+														<p class="font-medium  mb-1">
 															<?php _e( 'BSC kịch bản 2', 'bsc' ) ?>
 														</p>
-														<div class="grid grid-cols-2 font-semibold">
+														<div class="grid grid-cols-2 font-medium ">
 															<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
@@ -658,7 +658,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
+														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-medium ">
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[0][5]->value ); ?>
 														</p>
 														<p><?php echo number_format( $response_GetForecastMacro->d->F[2][5]->value ); ?>
@@ -670,11 +670,11 @@ get_header();
 												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5 border-r-[4px] border-white':'w-full block_slider-item' ?>">
 												<div
 													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-													<p class="font-semibold mb-1">
+													<p class="font-medium  mb-1">
 														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
 													</p>
-													<div class="grid grid-cols-3 font-semibold">
+													<div class="grid grid-cols-3 font-medium ">
 														<p><?php _e( 'Min', 'bsc' ) ?></p>
 														<p><?php _e( 'TB', 'bsc' ) ?></p>
 														<p><?php _e( 'Max', 'bsc' ) ?></p>
@@ -705,11 +705,11 @@ get_header();
 												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5':'w-full block_slider-item' ?>">
 												<div
 													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-													<p class="font-semibold mb-1">
+													<p class="font-medium  mb-1">
 														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
 													</p>
-													<div class="grid grid-cols-3 font-semibold">
+													<div class="grid grid-cols-3 font-medium ">
 														<p><?php _e( 'Min', 'bsc' ) ?></p>
 														<p><?php _e( 'TB', 'bsc' ) ?></p>
 														<p><?php _e( 'Max', 'bsc' ) ?></p>
@@ -769,7 +769,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -778,7 +778,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -787,7 +787,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -796,7 +796,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">

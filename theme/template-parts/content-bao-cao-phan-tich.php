@@ -12,7 +12,7 @@
         }
     }
 ?>
-    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
+    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm 2xl:min-h-[196px] lg:min-h-[192px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
         <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-4' : 'mb-[12px]' ?>">
             <?php
 
@@ -28,7 +28,7 @@
                 <div class="flex items-center gap-4">
                     <?php if ($news->symbols) { ?>
                         <a href="<?php echo slug_co_phieu($news->symbols) ?>"
-                            class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+                            class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold max-w-[40%]">
                             <?php echo $news->symbols ?>
                         </a>
                     <?php } ?>
@@ -54,14 +54,14 @@
                 </div>
             <?php } else { ?>
                 <a href="<?php echo $link ?>"
-                    class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold">
+                    class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold max-w-[40%]">
                     <?php echo htmlspecialchars($news->categoryname) ?>
                 </a>
             <?php } ?>
             <div class="space-y-1.5 text-right">
                 <?php if ($news->recommendation) { ?>
                     <span
-                        class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+                        class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold whitespace-nowrap" style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
                         <?php echo $title_status ?>
                     </span>
                 <?php } ?>

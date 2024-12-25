@@ -80,7 +80,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                     </a>
                                 <?php } ?>
                             </div>
-                            <div  class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                            <div  class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 gap-x-6 grid gap-y-8 ':'block_slider-show-1 dots-blue' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
 												data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
 							<?php } ?>>
                                 <?php

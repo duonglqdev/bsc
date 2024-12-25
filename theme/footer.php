@@ -338,7 +338,7 @@
 			<div
 				class="flex items-center justify-between  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-6' : 'sm:pb-4 pb-[12px]' ?> border-b border-black border-opacity-10 text-black">
 				<?php if (get_field('cdc4_title_khoi', 'option')) { ?>
-					<div class="inline-flex items-center font-bold uppercase  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl gap-4' : 'sm:text-lg text-xxs gap-2' ?>">
+					<div class="inline-flex items-center font-bold uppercase  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl gap-4' : 'sm:text-lg text-base gap-2' ?>">
 						<?php echo svgClass('keyvisual', '', '', !wp_is_mobile() && !bsc_is_mobile() ? 'w-6 h-6' : 'w-4 h-4') ?>
 						<?php the_field('cdc4_title_khoi', 'option') ?>
 					</div>
@@ -350,11 +350,11 @@
 				</div>
 			</div>
 			<?php if (have_rows('cdc4_menu', 'option')) { ?>
-				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'gap-6 py-6' ?>">
+				<div class="grid grid-cols-3 scroll-bar-custom max-h-[255px] overflow-y-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'gap-6 py-6 pr-2' ?>">
 					<?php while (have_rows('cdc4_menu', 'option')) :
 						the_row(); ?>
 						<a href="<?php echo check_link(get_sub_field('link')) ?>" rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>
-							class="flex flex-col justify-center items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 p-5' : 'gap-1' ?> text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
+							class="flex flex-col items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 p-5' : 'gap-1' ?> text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
 							<?php echo svg_dir(get_sub_field('icon'), '', '', !wp_is_mobile() && !bsc_is_mobile() ? 'w-10 h-10' : 'w-6 h-6') ?>
 							<?php if (get_sub_field('title')) { ?>
 								<div class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xs' : 'text-xxs' ?>">

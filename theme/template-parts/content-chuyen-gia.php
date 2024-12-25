@@ -169,7 +169,7 @@ $fullname = get_the_title();
 			class="grid font-body expert-btn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2 gap-2' : 'grid-cols-1 gap-1.5' ?>">
 			<?php if ( get_field( 'link' ) )
 			{ ?>
-				<a href="<?php echo check_link( get_field( 'link' ) ) ?>"
+				<a href="<?php echo check_link( get_field( 'link' ) ) ?>" target="_blank"
 					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-3 rounded-lg font-bold relative transition-all duration-500 text-center w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xs py-3' : 'sm:text-xs text-xxs py-1.5' ?>">
 					<span class="block relative z-10">
 						<?php _e( 'Mở tài khoản', 'bsc' ) ?>
