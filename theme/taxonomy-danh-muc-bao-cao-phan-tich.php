@@ -506,7 +506,7 @@ get_header();
 													</div>
 													<div
 														class="flex-1 text-center">
-														<p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->value); ?>
 														</p>
 													</div>
 												</div>
@@ -516,7 +516,7 @@ get_header();
 													</div>
 													<div
 														class="flex-1 items-center">
-														<p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][1]->value); ?>
 														</p>
 													</div>
 												</div>
@@ -526,7 +526,7 @@ get_header();
 													</div>
 													<div
 														class="flex-1 items-center">
-														<p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][2]->value); ?>
 														</p>
 													</div>
 												</div>
@@ -536,7 +536,7 @@ get_header();
 													</div>
 													<div
 														class="flex-1 items-center">
-														<p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][3]->value); ?>
 														</p>
 													</div>
 												</div>
@@ -546,7 +546,7 @@ get_header();
 													</div>
 													<div
 														class="flex-1 items-center">
-														<p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][4]->value); ?>
 														</p>
 													</div>
 												</div>
@@ -581,9 +581,9 @@ get_header();
 													?>
 														<div
 															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
-															<p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
+															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][$i]->value); ?>
 															</p>
-															<p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
+															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][$i]->value); ?>
 															</p>
 														</div>
 													<?php
@@ -615,9 +615,9 @@ get_header();
 													?>
 														<div
 															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
-															<p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
+															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][$i]->value); ?>
 															</p>
-															<p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
+															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][$i]->value); ?>
 															</p>
 														</div>
 													<?php
@@ -651,18 +651,18 @@ get_header();
 												?>
 													<div
 														class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
-														<p><?php echo $response_GetForecastMacro->d->C[2][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[2][$i]->value); ?>
 														</p>
-														<p><?php echo $response_GetForecastMacro->d->C[1][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[1][$i]->value); ?>
 														</p>
-														<p><?php echo $response_GetForecastMacro->d->C[0][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[0][$i]->value); ?>
 														</p>
 													</div>
 												<?php
 												}
 												?>
 												<div class="m-auto">
-													<p><?php echo $response_GetForecastMacro->d->C[1][4]->value; ?>
+													<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[1][4]->value); ?>
 													</p>
 												</div>
 											</div>
@@ -685,18 +685,18 @@ get_header();
 												?>
 													<div
 														class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
-														<p><?php echo $response_GetForecastMacro->d->C[5][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[5][$i]->value); ?>
 														</p>
-														<p><?php echo $response_GetForecastMacro->d->C[4][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[4][$i]->value); ?>
 														</p>
-														<p><?php echo $response_GetForecastMacro->d->C[3][$i]->value; ?>
+														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[3][$i]->value); ?>
 														</p>
 													</div>
 												<?php
 												}
 												?>
 												<div class="m-auto">
-													<p><?php echo $response_GetForecastMacro->d->C[4][4]->value; ?>
+													<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[4][4]->value); ?>
 													</p>
 												</div>
 											</div>

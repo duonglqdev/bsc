@@ -3430,7 +3430,7 @@ function filter_details_symbol()
                     <div
                         class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
                         <p>
-                            <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
+                            <?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->year); ?>
                         </p>
                     </div>
                     <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -3438,7 +3438,7 @@ function filter_details_symbol()
                             <?php _e('GDP (YoY%)', 'bsc') ?>
                         </div>
                         <div class="flex-1 text-right pr-3">
-                            <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?>
+                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->value); ?>
                             </p>
                         </div>
                     </div>
@@ -3447,7 +3447,7 @@ function filter_details_symbol()
                             <?php _e('CPI trung bình (YoY%)', 'bsc') ?>
                         </div>
                         <div class="flex-1 text-right pr-3">
-                            <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?>
+                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][1]->value); ?>
                             </p>
                         </div>
                     </div>
@@ -3456,7 +3456,7 @@ function filter_details_symbol()
                             <?php _e('Xuất khẩu (YoY%)', 'bsc') ?>
                         </div>
                         <div class="flex-1 text-right pr-3">
-                            <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?>
+                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][2]->value); ?>
                             </p>
                         </div>
                     </div>
@@ -3465,7 +3465,7 @@ function filter_details_symbol()
                             <?php _e('Nhập khẩu (YoY%)', 'bsc') ?>
                         </div>
                         <div class="flex-1 text-right pr-3">
-                            <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?>
+                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][3]->value); ?>
                             </p>
                         </div>
                     </div>
@@ -3474,7 +3474,7 @@ function filter_details_symbol()
                             <?php _e('LSĐH (YoY%)', 'bsc') ?>
                         </div>
                         <div class="flex-1 text-right pr-3">
-                            <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?>
+                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][4]->value); ?>
                             </p>
                         </div>
                     </div>
@@ -3508,9 +3508,9 @@ function filter_details_symbol()
                             ?>
                                 <div
                                     class="grid grid-cols-2 gap-2 text-right items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                    <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][$i]->value); ?>
                                     </p>
-                                    <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][$i]->value); ?>
                                     </p>
                                 </div>
                             <?php
@@ -3542,9 +3542,9 @@ function filter_details_symbol()
                             ?>
                                 <div
                                     class="grid grid-cols-2 gap-2 text-right pr-3 items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-0.5' : 'py-2' ?> min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                    <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][$i]->value); ?>
                                     </p>
-                                    <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][$i]->value); ?>
                                     </p>
                                 </div>
                             <?php

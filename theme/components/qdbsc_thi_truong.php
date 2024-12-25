@@ -39,7 +39,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo $response_GetForecastMacro->d->A[0][0]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->value); ?></p>
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -48,7 +48,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo $response_GetForecastMacro->d->A[0][1]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][1]->value); ?></p>
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -57,7 +57,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo $response_GetForecastMacro->d->A[0][2]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][2]->value); ?></p>
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -66,7 +66,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo $response_GetForecastMacro->d->A[0][3]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][3]->value); ?></p>
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -75,7 +75,7 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo $response_GetForecastMacro->d->A[0][4]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][4]->value); ?></p>
                                     </div>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA] font-bold">
@@ -106,8 +106,8 @@ $class = $check_logout['class'];
                                     ?>
                                         <div
                                             class="grid grid-cols-2 gap-2 text-center items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <p><?php echo $response_GetForecastMacro->d->F[1][$i]->value; ?></p>
-                                            <p><?php echo $response_GetForecastMacro->d->F[3][$i]->value; ?></p>
+                                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][$i]->value); ?></p>
+                                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][$i]->value); ?></p>
                                         </div>
                                     <?php
                                     }
@@ -134,8 +134,8 @@ $class = $check_logout['class'];
                                     ?>
                                         <div
                                             class="grid grid-cols-2 gap-2 text-center items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <p><?php echo $response_GetForecastMacro->d->F[0][$i]->value; ?></p>
-                                            <p><?php echo $response_GetForecastMacro->d->F[2][$i]->value; ?></p>
+                                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][$i]->value); ?></p>
+                                            <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][$i]->value); ?></p>
                                         </div>
                                     <?php
                                     }
@@ -164,15 +164,15 @@ $class = $check_logout['class'];
                                 ?>
                                     <div
                                         class="grid grid-cols-3 gap-2 text-center items-center min-h-10 [&:nth-child(even)]:bg-white">
-                                        <p><?php echo $response_GetForecastMacro->d->C[2][$i]->value; ?></p>
-                                        <p><?php echo $response_GetForecastMacro->d->C[1][$i]->value; ?></p>
-                                        <p><?php echo $response_GetForecastMacro->d->C[0][$i]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[2][$i]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[1][$i]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[0][$i]->value); ?></p>
                                     </div>
                                 <?php
                                 }
                                 ?>
                                 <div class="m-auto">
-                                    <p><?php echo $response_GetForecastMacro->d->C[1][4]->value; ?></p>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[1][4]->value); ?></p>
                                 </div>
                             </div>
                             <div class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
@@ -192,15 +192,15 @@ $class = $check_logout['class'];
                                 ?>
                                     <div
                                         class="grid grid-cols-3 gap-2 text-center items-center min-h-10 [&:nth-child(even)]:bg-white">
-                                        <p><?php echo $response_GetForecastMacro->d->C[5][$i]->value; ?></p>
-                                        <p><?php echo $response_GetForecastMacro->d->C[4][$i]->value; ?></p>
-                                        <p><?php echo $response_GetForecastMacro->d->C[3][$i]->value; ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[5][$i]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[4][$i]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[3][$i]->value); ?></p>
                                     </div>
                                 <?php
                                 }
                                 ?>
                                 <div class="m-auto">
-                                    <p><?php echo $response_GetForecastMacro->d->C[4][4]->value; ?></p>
+                                    <p><?php echo bsc_number_format($response_GetForecastMacro->d->C[4][4]->value) ?></p>
                                 </div>
                             </div>
                         </div>

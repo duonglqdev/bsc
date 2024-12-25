@@ -3073,7 +3073,7 @@ import { DataTable } from 'simple-datatables';
 								bg_color_class = 'bg-[#FE5353]';
 								title_symbol = `${upside}%`;
 							} else if (share.changePercent === 0) {
-								bg_color_class = 'bg-[#EB0]';
+								bg_color_class = 'bg-yellow-100';
 								title_symbol = `+${upside}%`;
 							}
 							wrapper_price.addClass(bg_color_class);
