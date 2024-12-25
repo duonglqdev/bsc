@@ -28,7 +28,7 @@ if ($term) {
                 );
                 $response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
                 if ($response) { ?>
-                    <div class="ggrid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-5 lg:grid-cols-3 md:grid-cols-2' : 'md:grid-cols-2 grid-cols-1 gap-4' ?>">
+                    <div class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-5 lg:grid-cols-3 md:grid-cols-2' : 'md:grid-cols-2 grid-cols-1 gap-4' ?>">
                         <?php
                         foreach ($response->d as $news) {
                             get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
