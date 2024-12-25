@@ -263,7 +263,8 @@ function get_shares_data()
     $time_cache = 300;
     $array_data = array(
         'lang' => pll_current_language(),
-        'maxitem' => '2200'
+        'maxitem' => '2200',
+        'StockType' => '2'
     );
     $response = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
     if ($response) {

@@ -92,14 +92,19 @@ function slug_report($postid, $title)
     return  $url;
 }
 
-function slug_co_phieu($title)
+function slug_co_phieu($title = null)
 {
+
     if (get_field('cdttcp1_slug', 'option')) {
         $sub_url = get_field('cdttcp1_slug', 'option');
     } else {
         $sub_url = __('ma-co-phieu', 'bsc');
     }
-    $url = get_home_url() . '/' . $sub_url . '/' . sanitize_title($title);
+    if ($title) {
+        $url = get_home_url() . '/' . $sub_url . '/' . sanitize_title($title);
+    } else {
+        $url = get_home_url() . '/' . $sub_url . '/';
+    }
     return  $url;
 }
 

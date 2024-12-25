@@ -21,7 +21,7 @@
 					$array_data_value = array(
 						'symbols' => 'BSI'
 					);
-					$response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
+					// $response_value = get_data_with_cache('instruments', $array_data_value, $time_cache, get_field('cdapi_ip_address_url_api_price', 'option') . 'datafeed/');
 					if ($response_value) {
 					?>
 						<div

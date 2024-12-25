@@ -21,6 +21,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<script>
+		var slug_co_phieu = '<?php echo slug_co_phieu() ?>';
+		var slug_api_price = '<?php echo get_field('cdapi_ip_address_url_api_price', 'option') ?>';
+	</script>
 </head>
 
 <body <?php body_class('font-body text-black font-normal'); ?>>
@@ -46,8 +50,7 @@
 									</label>
 								</div>
 								<div class="flex ml-4 md:pr-[22px] pr-5 border-r border-white">
-									<input type="radio" id="other" name="investment" class="hidden peer"
-										>
+									<input type="radio" id="other" name="investment" class="hidden peer">
 									<label for="other"
 										class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-white after:transition-all after:duration-500 after:left-0 after:top-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-white before:border-white before:border-2 before:rounded-full before:left-0 before:top-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-white peer-checked:before:scale-50">
 										<?php _e('Khác', 'bsc') ?>
@@ -64,7 +67,7 @@
 									<li class="no-results text-center p-4 font-bold hidden text-black">
 										<?php _e('Không thấy kết quả!', 'bsc') ?>
 									</li>
-								
+
 									<div class="text-center loader hidden w-full h-full">
 										<div
 											class="h-full w-full flex flex-col justify-center items-center">
@@ -112,7 +115,7 @@
 			</div>
 
 		<?php } ?>
-		<div class="bg-white 2xl:py-[14px] py-3 shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'relative' ?>">
+		<div class="bg-white 2xl:py-[14px] py-3 shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'relative' ?>">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
 					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
@@ -138,7 +141,7 @@
 									</div>
 									<div class="flex items-center">
 										<input type="radio" id="other" name="investment"
-											class="hidden peer" >
+											class="hidden peer">
 										<label for="other"
 											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1 before:top-1">
 											<?php _e('Khác', 'bsc') ?>
@@ -185,7 +188,7 @@
 					if ($custom_logo_id) {
 						$image = wp_get_attachment_image_src($custom_logo_id, 'medium');
 					?>
-						<a class="block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>" href="<?php echo get_bloginfo('url'); ?>"
+						<a class="block <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>" href="<?php echo get_bloginfo('url'); ?>"
 							title="<?php echo get_bloginfo('description'); ?>">
 							<img class="object-contain <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16 max-h-12' ?>"
 								src="<?php echo esc_url($image[0]); ?>" loading="lazy">

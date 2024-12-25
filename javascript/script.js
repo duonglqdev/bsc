@@ -41,6 +41,7 @@ import { DataTable } from 'simple-datatables';
 		centerActiveMenu();
 		handleLoading();
 		// checkScreen();
+		bsc_need_crawl_price();
 	});
 
 	function menuMobile() {
@@ -2658,6 +2659,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	let isAjaxInProgress = false;
+	let globalShares = [];
 
 	function handleSearch() {
 		// Hàm kiểm tra nếu checkbox #cp được chọn
@@ -2677,41 +2679,32 @@ import { DataTable } from 'simple-datatables';
 			if (isAjaxInProgress) return;
 
 			isAjaxInProgress = true;
-
+			console.log(slug_api_price + 'datafeed/instruments?stocktype=2');
 			$.ajax({
-				url: ajaxurl.ajaxurl,
-				type: 'POST',
-				data: {
-					action: 'get_shares_data',
-					security: ajaxurl.security,
-				},
-				success: function (response) {
-					isAjaxInProgress = false;
-
-					if (response.success) {
+				url: slug_api_price + 'datafeed/instruments?stocktype=2',
+				type: 'GET',
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'JSON',
+				success: function (data) {
+					if (data && data.s === 'ok') {
+						globalShares = data.d;
 						const noResults = sharesResult.find('.no-results');
 						sharesResult.empty();
 						sharesResult.append(noResults);
 
 						let hasResults = false;
-
-						response.data.forEach(function (share) {
+						const filteredShares = data.d.filter(
+							(share) => share.StockType === '2'
+						);
+						filteredShares.forEach(function (share) {
 							sharesResult.append(
-								`<li><a href="${share.link}" target="_blank">${share.name}</a></li>`
+								`<li><a href="${slug_co_phieu}${share.symbol}" target="_blank">${share.symbol}</a></li>`
 							);
 							hasResults = true;
 						});
 
 						noResults.toggleClass('hidden', hasResults);
-						loader.addClass('hidden');
-					} else {
-						console.error('Error: ', response.data);
-						loader.addClass('hidden');
 					}
-				},
-				error: function (xhr, status, error) {
-					isAjaxInProgress = false;
-					console.error('AJAX Error: ', error);
 					loader.addClass('hidden');
 				},
 			});
@@ -3082,4 +3075,75 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	}
+
+	window.onchangeInstrument = function (symbol) {
+		var CONNECTION_METADATA_PARAMS = {
+			version: '__sails_io_sdk_version',
+			platform: '__sails_io_sdk_platform',
+			language: '__sails_io_sdk_language',
+		};
+
+		var SDK_INFO = {
+			version: '1.2.1',
+			platform: typeof module === 'undefined' ? 'browser' : 'node',
+			language: 'javascript',
+		};
+		var queryString = '';
+		var receiveCount = 0;
+		Object.keys(CONNECTION_METADATA_PARAMS).map((key) => {
+			queryString +=
+				'&' + CONNECTION_METADATA_PARAMS[key] + '=' + SDK_INFO[key];
+		});
+		if (queryString.length > 0)
+			queryString = queryString.slice(-(queryString.length - 1));
+		const socket = io('https://priceapi.bsc.com.vn', {
+			path: '/market/socket.io',
+			transports: ['websocket'],
+			query: queryString,
+			autoConnect: false,
+		});
+
+		socket.connect();
+		socket.on('disconnect', (reason) => {
+			setTimeout(() => {
+				socket.connect();
+				socket.emit('get', {
+					method: 'get',
+					headers: {},
+					data: {
+						op: 'subscribe',
+						args: ['i:' + symbol],
+					},
+					url: '/client/subscribe',
+				});
+			}, 5000);
+		});
+
+		socket.emit('get', {
+			method: 'get',
+			headers: {},
+			data: {
+				op: 'subscribe',
+				args: ['i:' + symbol],
+			},
+			url: '/client/subscribe',
+		});
+
+		socket.on('i', function (msg) {
+			console.log('/////i///////', msg.d);
+			// ... update lai gia tri
+		});
+	};
+
+	window.bsc_need_crawl_price = function () {
+		$.ajax({
+			url: slug_api_price + 'datafeed/instruments?stocktype=2',
+			type: 'GET',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'JSON',
+			success: function (data) {
+				console.log(data);
+			},
+		});
+	};
 })(jQuery);
