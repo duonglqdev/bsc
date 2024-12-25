@@ -3259,7 +3259,7 @@ function filter_details_symbol()
             if ($response_list_bsc) {
             ?>
                 <div
-                    class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
+                    class="prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[600px]':'' ?>">
                     <?php
                     $i = 0;
                     foreach ($response_list_bsc->d as $list_bsc) {
@@ -3273,13 +3273,13 @@ function filter_details_symbol()
                             }
                     ?>
                             <div
-                                class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?>">
+                                class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'gap-4' ?>">
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
                                     <a href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
                                 </div>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
                                     <?php
                                     $status = $list_bsc->hinhthuc;
                                     $check_status = get_color_by_number_bsc($status);
@@ -3317,7 +3317,7 @@ function filter_details_symbol()
                                 }
                                 ?>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class_price ?>">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold <?php echo $text_color_class_price ?>">
                                     <?php
                                     if ($stockData->closePrice) {
                                         echo number_format(($stockData->closePrice) / 1000, 2, '.', '');
@@ -3325,7 +3325,7 @@ function filter_details_symbol()
                                     ?>
                                 </div>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
                                     <?php
                                     if ($list_bsc->giakyvong) {
                                         echo number_format(($list_bsc->giakyvong), 2, '.', '');
@@ -3345,7 +3345,7 @@ function filter_details_symbol()
                                 }
                                 ?>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold <?php echo $text_color_class ?>">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold <?php echo $text_color_class ?>">
                                     <?php if ($stockData->closePrice && $list_bsc->giakyvong) {
                                         if (($list_bsc->giakyvong * 1000 - $stockData->closePrice) > 0) {
                                             $before_text = '+' . number_format((($list_bsc->giakyvong * 1000 - $stockData->closePrice) / $stockData->closePrice) * 100, 2, '.', '') . '%';;
@@ -3356,11 +3356,11 @@ function filter_details_symbol()
                                     }  ?>
                                 </div>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
                                     <?php echo $list_bsc->san ?>
                                 </div>
                                 <div
-                                    class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  <?php echo $text_color_class_price ?>">
+                                    class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3  <?php echo $text_color_class_price ?>">
                                     <?php
                                     if ($stockData->closeVol) {
                                         echo number_format(($stockData->closeVol) / 1000, 2, '.', '');
@@ -3381,21 +3381,21 @@ function filter_details_symbol()
             <div class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
                 <?php for ($i = 0; $i < 9; $i++) { ?>
                     <div class="flex items-center bg-[#EBF4FA]">
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                        <div class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
                             <?php _e('CTG', 'bsc') ?> </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-semibold">
+                        <div class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
                             <span class="inline-block px-4 py-0.5 font-semibold rounded-full" style=" background-color:#D6F6DE; color:#30D158">
                                 <?php _e('Mua', 'bsc') ?> </span>
                         </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+                        <div class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 text-[#1CCD83]">
                             ---- </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                        <div class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
                             ---- </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold text-[#1CCD83]">
+                        <div class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 text-[#1CCD83]">
                             ---- </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3">
+                        <div class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
                             ---- </div>
-                        <div class="flex-1 min-w-[110px] min-h-[60px] flex items-center justify-center leading-[1.125] py-1 px-3 font-bold  text-[#1CCD83]">
+                        <div class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3  text-[#1CCD83]">
                             ----
                         </div>
                     </div>
