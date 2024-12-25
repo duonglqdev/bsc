@@ -9,7 +9,7 @@
                     </h2>
                 </div>
             <?php } ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex justify-end items-center flex-wrap gap-4' : 'grid grid-cols-3 gap-[12px]' ?> bsc-ajax-api" data-api="ttnc_search_max">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex justify-end items-center flex-wrap gap-4' : 'grid grid-cols-3 gap-[12px]' ?> bsc-ajax-api" data-api="ttnc_search_max" data-chart="bsc_need_crawl_price_display">
                 <div class="hidden">
                     <div role="status">
                         <svg aria-hidden="true"

@@ -7,7 +7,7 @@
 						<?php the_sub_field('title') ?>
 					</h2>
 				<?php } ?>
-				<div class="bsc-ajax-api" data-api="ttnc_khuyen_nghi">
+				<div class="bsc-ajax-api" data-api="ttnc_khuyen_nghi" data-chart="bsc_need_crawl_price_display">
 					<div class="hidden">
 						<div role="status">
 							<svg aria-hidden="true"

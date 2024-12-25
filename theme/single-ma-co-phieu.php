@@ -45,21 +45,117 @@ get_header();
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc-ajax-api" data-api="instruments-symbol" data-symbol="<?php echo $symbol ?>">
-						<div class="hidden">
-							<div role="status">
-								<svg aria-hidden="true"
-									class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-									viewBox="0 0 100 101" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-										fill="currentColor" />
-									<path
-										d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-										fill="currentFill" />
-								</svg>
-								<span class="sr-only">Loading...</span>
+						class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price" data-symbol="<?php echo $symbol ?>">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
+							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
+								<div
+									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center bsc_need_crawl_price-symbol">
+								</div>
+								<div class="flex flex-col">
+									<h4
+										class="font-bold lg:text-[32px] text-2xl uppercase leading-normal bsc_need_crawl_price-symbol">
+									</h4>
+									<p class="uppercase <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?> text-paragraph bsc_need_crawl_price-exchange">
+									</p>
+								</div>
+							</div>
+							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+								<div class="flex-col gap-2">
+									<div class="flex gap-[12px] data_number">
+										<div class="text-2xl font-bold text-[#FE5353] bsc_need_crawl_price-bidPrice1">
+										</div>
+										<div class="flex flex-col bsc_need_crawl_price-text-color text-xs">
+											<p class="bsc_need_crawl_price-bidPrice1-reference">
+											</p>
+											<p class="bsc_need_crawl_price-bidPrice1-reference-phantram">
+											</p>
+										</div>
+									</div>
+									<p class="time-update mt-1 sm:text-xs text-xxs">
+										<?php _e('Cập nhật lúc', 'bsc') ?>
+										<span class="bsc_need_crawl_date"></span>
+										<?php _e('UTC_7', 'bsc') ?>
+									</p>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="flex items-center 2xl:gap-7 gap-5">
+							<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+								<div class="lg:w-[176px] lg:max-w-[37%]">
+									<div class="flex-col gap-2">
+										<div class="flex gap-[14px] data_number">
+											<div class="2xl:text-[40px] text-4xl font-bold bsc_need_crawl_price-bidPrice1">
+											</div>
+											<div class="flex flex-col bsc_need_crawl_price-text-color">
+												<p class="bsc_need_crawl_price-bidPrice1-reference">
+												</p>
+												<p class="bsc_need_crawl_price-bidPrice1-reference-phantram">
+												</p>
+											</div>
+										</div>
+										<p class="time-update mt-1">
+											<?php _e('Cập nhật lúc', 'bsc') ?>
+											<span class="bsc_need_crawl_date"></span>
+											<?php _e('UTC_7', 'bsc') ?>
+										</p>
+									</div>
+								</div>
+							<?php } ?>
+							<div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:gap-5 gap-4' : 'gap-6' ?>">
+								<div class="col-span-1 space-y-5">
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Trần', 'bsc') ?>
+										</p>
+										<p class="font-bold text-[#7F1CCD] bsc_need_crawl_price-ceiling <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Cao nhất', 'bsc') ?>
+										</p>
+										<p class="font-bold text-black bsc_need_crawl_price-high <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+								</div>
+								<div class="col-span-1 space-y-5">
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Tham chiếu', 'bsc') ?>
+										</p>
+										<p class="font-bold text-[#FFB81C] bsc_need_crawl_price-bidPrice1-reference <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Thấp nhất', 'bsc') ?>
+										</p>
+										<p class="font-bold text-black bsc_need_crawl_price-low <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+								</div>
+								<div class="col-span-1 space-y-5">
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Sàn', 'bsc') ?>
+										</p>
+										<p class="font-bold text-[#1ABAFE] bsc_need_crawl_price-floor <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+									<div class="flex flex-col gap-0.5">
+										<p
+											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e('Trung bình', 'bsc') ?>
+										</p>
+										<p class="font-bold text-black bsc_need_crawl_price-averagePrice <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

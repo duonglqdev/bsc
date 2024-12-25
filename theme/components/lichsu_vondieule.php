@@ -59,17 +59,6 @@
 							<div class="flex gap-[14px] data_number">
 								<div class="lg:text-[40px] text-4xl font-bold bsc_need_crawl_price-bidPrice1">
 								</div>
-								<?php
-								// if (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) > 0) {
-								// 	$text_color_class = 'text-[#1CCD83]';
-								// } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) < 0) {
-								// 	$text_color_class = 'text-[#FE5353]';
-								// } elseif (($response_value->d[0]->bidPrice1 - $response_value->d[0]->reference) == 0) {
-								// 	$text_color_class = 'text-[#EB0]';
-								// } else {
-								// 	$text_color_class = '';
-								// }
-								?>
 								<div class="flex flex-col bsc_need_crawl_price-text-color">
 									<p class="bsc_need_crawl_price-bidPrice1-reference">
 									</p>

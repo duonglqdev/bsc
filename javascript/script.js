@@ -231,6 +231,18 @@ import { DataTable } from 'simple-datatables';
 		);
 	}
 
+	window.bsc_number_format = function (input) {
+		// Kiểm tra nếu input là số hợp lệ
+		if (!isNaN(input) && isFinite(input)) {
+			// Ép kiểu về số và làm tròn đến 2 chữ số thập phân
+			let num = parseFloat(input).toFixed(2);
+			// Định dạng số với dấu phẩy
+			return parseFloat(num).toLocaleString('en-US');
+		} else {
+			return '-';
+		}
+	};
+
 	function handleSlider() {
 		$('.block_slider').each(function () {
 			var blockSliderCount = $(this).find('.block_slider-item').length;
@@ -2718,27 +2730,377 @@ import { DataTable } from 'simple-datatables';
 			// ... update lai gia tri
 		});
 	};
-	window.bsc_need_crawl_price = function () {};
+	window.bsc_need_crawl_price_display = function () {
+		if ('.bsc_need_crawl_price'.length) {
+			$('.bsc_need_crawl_price').each(function () {
+				var symbol = $(this).attr('data-symbol');
+				var wrapper_price = $(this);
+				if (symbol) {
+					const share = globalShares.find(
+						(item) => item.symbol === symbol
+					);
+					if (share) {
+						if (
+							share.symbol &&
+							wrapper_price.find('.bsc_need_crawl_price-symbol')
+								.length > 0
+						) {
+							var symbol_title = share.symbol;
+							wrapper_price
+								.find('.bsc_need_crawl_price-symbol')
+								.html(symbol_title);
+						}
+						if (
+							share.exchange &&
+							wrapper_price.find('.bsc_need_crawl_price-exchange')
+								.length > 0
+						) {
+							var exchange_title = share.exchange;
+							wrapper_price
+								.find('.bsc_need_crawl_price-exchange')
+								.html(exchange_title);
+						}
+						if (
+							share.bidPrice1 &&
+							wrapper_price.find(
+								'.bsc_need_crawl_price-bidPrice1'
+							).length > 0
+						) {
+							var bidPrice1_title = share.bidPrice1;
+							bidPrice1_title =
+								bsc_number_format(bidPrice1_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-bidPrice1')
+								.html(bidPrice1_title);
+						}
+						if (
+							share.ceiling &&
+							wrapper_price.find('.bsc_need_crawl_price-ceiling')
+								.length > 0
+						) {
+							var ceiling_title = share.ceiling;
+							ceiling_title = bsc_number_format(
+								ceiling_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-ceiling')
+								.html(ceiling_title);
+						}
+						if (
+							share.high &&
+							wrapper_price.find('.bsc_need_crawl_price-high')
+								.length > 0
+						) {
+							var high_title = share.high;
+							high_title = bsc_number_format(
+								high_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-high')
+								.html(high_title);
+						}
+						if (
+							share.low &&
+							wrapper_price.find('.bsc_need_crawl_price-low')
+								.length > 0
+						) {
+							var low_title = share.low;
+							low_title = bsc_number_format(low_title / 1000, 2);
+							wrapper_price
+								.find('.bsc_need_crawl_price-low')
+								.html(low_title);
+						}
+						if (
+							share.floor &&
+							wrapper_price.find('.bsc_need_crawl_price-floor')
+								.length > 0
+						) {
+							var floor_title = share.floor;
+							floor_title = bsc_number_format(
+								floor_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-floor')
+								.html(floor_title);
+						}
+						if (
+							share.averagePrice &&
+							wrapper_price.find(
+								'.bsc_need_crawl_price-averagePrice'
+							).length > 0
+						) {
+							var averagePrice_title = share.averagePrice;
+							averagePrice_title = bsc_number_format(
+								averagePrice_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-averagePrice')
+								.html(averagePrice_title);
+						}
+						if (
+							share.closePrice &&
+							wrapper_price.find(
+								'.bsc_need_crawl_price-closePrice'
+							).length > 0
+						) {
+							var closePrice_title = share.closePrice;
+							closePrice_title = bsc_number_format(
+								closePrice_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-closePrice')
+								.html(closePrice_title);
+						}
+						if (
+							share.closeVol &&
+							wrapper_price.find('.bsc_need_crawl_price-closeVol')
+								.length > 0
+						) {
+							var closeVol_title = share.closeVol;
+							closeVol_title = bsc_number_format(
+								closeVol_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price-closeVol')
+								.html(closeVol_title);
+						}
+						if (share.reference && share.bidPrice1) {
+							const difference =
+								share.bidPrice1 - share.reference;
+							let text_color_class = '';
+							if (difference > 0) {
+								text_color_class = 'text-[#1CCD83]';
+							} else if (difference < 0) {
+								text_color_class = 'text-[#FE5353]';
+							} else if (difference === 0) {
+								text_color_class = 'text-[#EB0]';
+							}
+							if (
+								wrapper_price.find(
+									'.bsc_need_crawl_price-text-color'
+								).length > 0
+							) {
+								wrapper_price
+									.find('.bsc_need_crawl_price-text-color')
+									.addClass(text_color_class);
+							}
+							if (
+								wrapper_price.find(
+									'.bsc_need_crawl_price-bidPrice1-reference'
+								).length > 0
+							) {
+								const formattedDifference = bsc_number_format(
+									difference / 1000,
+									2
+								);
+								wrapper_price
+									.find(
+										'.bsc_need_crawl_price-bidPrice1-reference'
+									)
+									.html(formattedDifference);
+							}
+							if (
+								wrapper_price.find(
+									'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+								).length > 0
+							) {
+								const formattedPercentage = bsc_number_format(
+									(difference / share.reference) * 100,
+									2
+								);
+								wrapper_price
+									.find(
+										'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+									)
+									.html(formattedPercentage + '%');
+							}
+						}
+						let text_color_class_price_changePercent = '';
 
-	function handleSearch() {
-		// Hàm kiểm tra nếu checkbox #cp được chọn
-		function isCheckboxChecked() {
-			return $('#cp').is(':checked');
+						// Kiểm tra nếu share.changePercent tồn tại
+						if (share.changePercent) {
+							if (share.changePercent > 0) {
+								// Nếu closeprice bằng ceiling
+								if (share.closeprice === share.ceiling) {
+									text_color_class_price_changePercent =
+										'text-[#7F1CCD]';
+								} else {
+									text_color_class_price_changePercent =
+										'text-[#1CCD83]';
+								}
+							} else if (share.changePercent < 0) {
+								// Nếu closeprice bằng ceiling
+								if (share.closeprice === share.ceiling) {
+									text_color_class_price_changePercent =
+										'text-[#1ABAFE]';
+								} else {
+									text_color_class_price_changePercent =
+										'text-[#FE5353]';
+								}
+							} else {
+								text_color_class_price_changePercent =
+									'text-[#EB0]';
+							}
+						} else {
+							text_color_class_price_changePercent =
+								'text-[#EB0]';
+						}
+						if (
+							wrapper_price.find('.bsc_need_crawl_price-closeVol')
+								.length > 0
+						) {
+							wrapper_price
+								.find('.bsc_need_crawl_price-closeVol')
+								.addClass(text_color_class_price_changePercent);
+						}
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-closePrice'
+							).length > 0
+						) {
+							wrapper_price
+								.find('.bsc_need_crawl_price-closePrice')
+								.addClass(text_color_class_price_changePercent);
+						}
+						console.log('a');
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-text_color-closePrice'
+							).length > 0
+						) {
+							const giakyvong = wrapper_price
+								.find(
+									'.bsc_need_crawl_price-text_color-closePrice'
+								)
+								.attr('data-giakyvong');
+							console.log(giakyvong + '1');
+							// Kiểm tra và tính toán
+							let text_color_class_price_closePrice = '';
+							let before_text_closePrice = '';
+
+							if (share.closePrice && giakyvong) {
+								const expectedPrice = giakyvong * 1000; // Chuyển giakyvong về giá trị tính toán
+								const difference =
+									expectedPrice - share.closePrice;
+
+								// Xác định class màu sắc
+								if (difference > 0) {
+									text_color_class_price_closePrice =
+										'text-[#1CCD83]';
+								} else if (difference < 0) {
+									text_color_class_price_closePrice =
+										'text-[#FE5353]';
+								} else {
+									text_color_class_price_closePrice =
+										'text-[#EB0]';
+								}
+
+								// Tính toán before_text_closePrice nếu chênh lệch dương
+								if (difference > 0) {
+									before_text_closePrice =
+										'+' +
+										bsc_number_format(
+											(difference / share.closePrice) *
+												100,
+											2
+										) +
+										'%';
+								} else {
+									before_text_closePrice = '';
+								}
+							} else {
+								text_color_class_price_closePrice =
+									'text-[#EB0]';
+							}
+
+							wrapper_price
+								.find(
+									'.bsc_need_crawl_price-text_color-closePrice'
+								)
+								.addClass(text_color_class_price_closePrice);
+							wrapper_price
+								.find(
+									'.bsc_need_crawl_price-text_color-closePrice'
+								)
+								.html(before_text_closePrice);
+						}
+						if (
+							wrapper_price.find('.bsc_need_crawl_date').length >
+							0
+						) {
+							const now = new Date();
+
+							// Lấy thời gian ở 'Asia/Ho_Chi_Minh' sử dụng Intl.DateTimeFormat
+							const formatter = new Intl.DateTimeFormat('en-US', {
+								timeZone: 'Asia/Ho_Chi_Minh',
+								hour: '2-digit',
+								minute: '2-digit',
+								second: '2-digit',
+								hour12: false,
+							});
+							wrapper_price
+								.find('.bsc_need_crawl_date')
+								.html(formatter.format(now));
+						}
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-value_search'
+							).length > 0
+						) {
+							let upside = share.changePercent; // Lấy giá trị changePercent từ share
+
+							// Làm tròn giá trị upside
+							if (upside >= 1) {
+								upside = Math.round(upside); // Làm tròn đến số nguyên
+							} else {
+								upside = upside.toFixed(1); // Làm tròn đến 1 chữ số thập phân
+							}
+
+							// Xác định màu sắc và tiêu đề
+							let bg_color_class = 'bg-[#1CCD83]';
+							let title_symbol = '';
+
+							if (share.changePercent > 0) {
+								bg_color_class = 'bg-[#1CCD83]';
+								title_symbol = `+${upside}%`;
+							} else if (share.changePercent < 0) {
+								bg_color_class = 'bg-[#FE5353]';
+								title_symbol = `${upside}%`;
+							} else if (share.changePercent === 0) {
+								bg_color_class = 'bg-[#EB0]';
+								title_symbol = `+${upside}%`;
+							}
+							wrapper_price.addClass(bg_color_class);
+							wrapper_price
+								.find('.bsc_need_crawl_price-value_search')
+								.html(title_symbol);
+						}
+					}
+					onchangeInstrument(symbol);
+				}
+			});
 		}
+	};
+	window.bsc_need_crawl_price = function () {
+		if ('.bsc_need_crawl_price'.length) {
+			running_api_price();
+		}
+	};
+	window.running_api_price = function () {
+		const sharesResult = $('.shares-result');
+		const loader = sharesResult.find('.loader');
+		loader.removeClass('hidden');
 
-		// Khi focus vào #search-shares
-		$('#search-shares').on('focus', function () {
-			if (!isCheckboxChecked()) return;
-
-			const sharesResult = $('.shares-result');
-			const loader = sharesResult.find('.loader');
-			sharesResult.addClass('active');
-			loader.removeClass('hidden');
-
-			if (isAjaxInProgress) return;
-
+		if (isAjaxInProgress) {
+			bsc_need_crawl_price();
+		} else {
 			isAjaxInProgress = true;
-			console.log(slug_api_price + 'datafeed/instruments?stocktype=2');
 			$.ajax({
 				url: slug_api_price + 'datafeed/instruments?stocktype=2',
 				type: 'GET',
@@ -2746,7 +3108,6 @@ import { DataTable } from 'simple-datatables';
 				dataType: 'JSON',
 				success: function (data) {
 					if (data && data.s === 'ok') {
-						globalShares = data.d;
 						const noResults = sharesResult.find('.no-results');
 						sharesResult.empty();
 						sharesResult.append(noResults);
@@ -2761,12 +3122,26 @@ import { DataTable } from 'simple-datatables';
 							);
 							hasResults = true;
 						});
-
+						globalShares = data.d;
+						bsc_need_crawl_price_display();
 						noResults.toggleClass('hidden', hasResults);
 					}
 					loader.addClass('hidden');
 				},
 			});
+		}
+	};
+	window.handleSearch = function () {
+		// Hàm kiểm tra nếu checkbox #cp được chọn
+		function isCheckboxChecked() {
+			return $('#cp').is(':checked');
+		}
+		// Khi focus vào #search-shares
+		$('#search-shares').on('focus', function () {
+			if (!isCheckboxChecked()) return;
+			const sharesResult = $('.shares-result');
+			sharesResult.addClass('active');
+			running_api_price();
 		});
 
 		// Khi input thay đổi
@@ -3006,7 +3381,7 @@ import { DataTable } from 'simple-datatables';
 				load_du_lieu_lich_su(page);
 			});
 		}
-	}
+	};
 
 	function sameHeight() {
 		if ($('.block_sameheight').length) {
