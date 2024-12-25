@@ -1365,11 +1365,11 @@ function filter_details_symbol()
                                                             if ($check_linh_vuc == 'Bank') {
                                                                 _e('NIM', 'bsc');
                                                             } else {
-                                                                _e('Biên LNG', 'bsc');
+                                                                _e('Biên lợi nhuận gộp', 'bsc');
                                                             }
                                                             ?></th>
-                                                        <th><?php _e('Biên LNTT', 'bsc') ?></th>
-                                                        <th><?php _e('Biên LNST', 'bsc') ?></th>
+                                                        <th><?php _e('Biên lợi nhuận trước thuế', 'bsc') ?></th>
+                                                        <th><?php _e('Biên lợi nhuận sau thuế', 'bsc') ?></th>
                                                         <th><?php _e('ROE', 'bsc') ?></th>
                                                     </tr>
                                                 </thead>
@@ -1433,10 +1433,10 @@ function filter_details_symbol()
                                                 data-end="%"
                                                 <?php if ($check_linh_vuc == 'Bank') { ?>
                                                 data-title-1="<?php _e('Nim', 'bsc') ?>"
-                                                data-title-2="<?php _e('Nim TB ngành', 'bsc') ?>"
+                                                data-title-2="<?php _e('Nim trung bình ngành', 'bsc') ?>"
                                                 <?php } else { ?>
-                                                data-title-1="<?php _e('Biên LNG', 'bsc') ?>"
-                                                data-title-2="<?php _e('Biên LNG TB ngành', 'bsc') ?>"
+                                                data-title-1="<?php _e('Biên lợi nhuận gộp', 'bsc') ?>"
+                                                data-title-2="<?php _e('Biên lợi nhuận gộp trung bình ngành', 'bsc') ?>"
                                                 <?php } ?>
                                                 data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP)) ?>"
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP)) ?>"
@@ -1469,9 +1469,9 @@ function filter_details_symbol()
                                                 data-end="%"
                                                 data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_SAU_THUE)) ?>"
-                                                data-title-1="<?php _e('Biên LNST', 'bsc') ?>"
+                                                data-title-1="<?php _e('Biên lợi nhuận sau thuế', 'bsc') ?>"
                                                 data-color-1="#235BA8"
-                                                data-title-2="<?php _e('Biên BLST TB ngành', 'bsc') ?>"
+                                                data-title-2="<?php _e('Biên lợi nhuận sau thuế trung bình ngành', 'bsc') ?>"
                                                 data-color-2="#FFB81C">
                                             </div>
                                         </div>
@@ -1502,7 +1502,7 @@ function filter_details_symbol()
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_ROE)) ?>"
                                                 data-title-1="<?php _e('ROE', 'bsc') ?>"
                                                 data-color-1="#009e87"
-                                                data-title-2="<?php _e('ROE TB ngành', 'bsc') ?>"
+                                                data-title-2="<?php _e('ROE trung bình ngành', 'bsc') ?>"
                                                 data-color-2="#FFB81C">
                                             </div>
                                         </div>
@@ -1549,11 +1549,11 @@ function filter_details_symbol()
                                                             <th><?php _e('LLR', 'bsc') ?></th>
                                                         <?php } else {
                                                         ?>
-                                                            <th><?php _e('CSTT hiện tại', 'bsc') ?></th>
-                                                            <th><?php _e('CSTT nhanh', 'bsc') ?></th>
-                                                            <th><?php _e('CSTT lãi vay', 'bsc') ?></th>
+                                                            <th><?php _e('Chỉ số thanh toán hiện tại', 'bsc') ?></th>
+                                                            <th><?php _e('Chỉ số thanh toán nhanh', 'bsc') ?></th>
+                                                            <th><?php _e('Chỉ số thanh toán lãi vay', 'bsc') ?></th>
                                                             <?php if ($check_linh_vuc == 'Company') { ?>
-                                                                <th><?php _e('Nợ vay TTS', 'bsc') ?></th>
+                                                                <th><?php _e('Nợ vay tổng tài sản', 'bsc') ?></th>
                                                             <?php } else { ?>
                                                                 <th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
                                                             <?php } ?>
@@ -1612,7 +1612,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_NO_XAU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_NO_XAU)) ?>"
                                                     data-title-1="<?php _e('Tỷ lệ nợ  xấu', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Tỷ lệ nợ  xấu TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ nợ  xấu trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1662,7 +1662,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DU_PHONG_NO_XAU)) ?>"
                                                     data-title-1="<?php _e('TLDP nợ xấu', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLDP nợ xấu TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLDP nợ xấu trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1691,8 +1691,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1742,7 +1742,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1771,8 +1771,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1822,7 +1822,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM)) ?>"
                                                     data-title-1="<?php _e('BLN gộp bảo hiểm', 'bsc') ?>"
-                                                    data-title-2="<?php _e('BLN gộp bảo hiểm TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('BLN gộp bảo hiểm trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1852,8 +1852,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-                                                    data-title-1="<?php _e('CSTT nhanh', 'bsc') ?>"
-                                                    data-title-2="<?php _e('CSTT hiện thời', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1903,7 +1903,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLTT Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLTT Lãi vay trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1947,14 +1947,14 @@ function filter_details_symbol()
                                                 <tr>
                                                     <th class="!pl-9"><?php _e('Mã CK', 'bsc') ?></th>
                                                     <?php if ($check_linh_vuc == 'Bank') { ?>
-                                                        <th><?php _e('TT cho vay', 'bsc') ?></th>
-                                                        <th><?php _e('TT tiền gửi', 'bsc') ?></th>
+                                                        <th><?php _e('Tăng trưởng cho vay', 'bsc') ?></th>
+                                                        <th><?php _e('Tăng trưởng tiền gửi', 'bsc') ?></th>
                                                     <?php } else { ?>
-                                                        <th><?php _e('TT Doanh thu', 'bsc') ?></th>
-                                                        <th><?php _e('TT TNHĐ', 'bsc') ?></th>
+                                                        <th><?php _e('Tăng trưởng Doanh thu', 'bsc') ?></th>
+                                                        <th><?php _e('Tăng trưởng thu nhập hoạt động', 'bsc') ?></th>
                                                     <?php } ?>
-                                                    <th><?php _e('TT LNST', 'bsc') ?></th>
-                                                    <th><?php _e('TT EPS', 'bsc') ?></th>
+                                                    <th><?php _e('Tăng trưởng lợi nhuận sau thuế', 'bsc') ?></th>
+                                                    <th><?php _e('Tăng trưởng EPS', 'bsc') ?></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2019,10 +2019,10 @@ function filter_details_symbol()
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_CHO_VAY)) ?>"
                                                 <?php if ($check_linh_vuc == 'Bank') { ?>
                                                 data-title-1="<?php _e('TTCV', 'bsc') ?>"
-                                                data-title-2="<?php _e('TTCV TB ngành', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTCV trung bình ngành', 'bsc') ?>"
                                                 <?php } else { ?>
                                                 data-title-1="<?php _e('TTDTT', 'bsc') ?>"
-                                                data-title-2="<?php _e('TTDTT TB ngành', 'bsc') ?>"
+                                                data-title-2="<?php _e('TTDTT trung bình ngành', 'bsc') ?>"
                                                 <?php } ?>
                                                 data-color-1="#009e87"
                                                 data-color-2="#FFB81C">
@@ -2052,8 +2052,8 @@ function filter_details_symbol()
                                                 data-end="%"
                                                 data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_EPS)) ?>"
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_EPS)) ?>"
-                                                data-title-1="<?php _e('TT EPS', 'bsc') ?>"
-                                                data-title-2="<?php _e('TT EPS TB ngành', 'bsc') ?>"
+                                                data-title-1="<?php _e('Tăng trưởng EPS', 'bsc') ?>"
+                                                data-title-2="<?php _e('Tăng trưởng EPS trung bình ngành', 'bsc') ?>"
                                                 data-color-1="#009e87"
                                                 data-color-2="#FFB81C">
                                             </div>
@@ -2082,8 +2082,8 @@ function filter_details_symbol()
                                                 data-end="%"
                                                 data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_LOI_NHUAN)) ?>"
                                                 data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TANG_TRUONG_LOI_NHUAN)) ?>"
-                                                data-title-1="<?php _e('TT Lợi nhuận', 'bsc') ?>"
-                                                data-title-2="<?php _e('TT Lợi nhuận TB ngành', 'bsc') ?>"
+                                                data-title-1="<?php _e('Tăng trưởng Lợi nhuận', 'bsc') ?>"
+                                                data-title-2="<?php _e('Tăng trưởng Lợi nhuận trung bình ngành', 'bsc') ?>"
                                                 data-color-1="#009e87"
                                                 data-color-2="#FFB81C">
                                             </div>
@@ -2131,20 +2131,20 @@ function filter_details_symbol()
                                                     <?php } else { ?>
                                                         <?php if ($check_linh_vuc == 'Securities') { ?>
                                                             <th><?php _e('Tỉ trọng DT môi giới', 'bsc') ?></th>
-                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay tổng tài sản', 'bsc') ?></th>
                                                         <?php } elseif ($check_linh_vuc == 'Insurance') { ?>
                                                             <th><?php _e('CP Bảo hiểm/DT', 'bsc') ?></th>
-                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay tổng tài sản', 'bsc') ?></th>
                                                         <?php } else {
                                                         ?>
-                                                            <th><?php _e('VQ phải thu', 'bsc') ?></th>
-                                                            <th><?php _e('VQ phải trả', 'bsc') ?></th>
-                                                            <th><?php _e('VQ HTK', 'bsc') ?></th>
-                                                            <th><?php _e('VQ TTS', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải thu', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay phải trả', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay HTK', 'bsc') ?></th>
+                                                            <th><?php _e('Vòng quay tổng tài sản', 'bsc') ?></th>
                                                         <?php
                                                         } ?>
                                                     <?php } ?>
@@ -2207,7 +2207,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU)) ?>"
                                                     data-title-1="<?php _e('Tỷ lệ chi phí', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Tỷ lệ chi phí TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ chi phí trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2236,7 +2236,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_THU_NHAP_TU_LAI_VAY)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_THU_NHAP_TU_LAI_VAY)) ?>"
                                                     data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TN từ Lãi vay TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TN từ Lãi vay trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2265,7 +2265,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_CASA)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_CASA)) ?>"
                                                     data-title-1="<?php _e('CASA', 'bsc') ?>"
-                                                    data-title-2="<?php _e('CASA TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('CASA trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2294,8 +2294,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
-                                                    data-title-1="<?php _e('TLDTMGTD', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLDTMGTD TB ngành', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ DT môi giới trên DTT', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ DT môi giới trên DTT trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2324,7 +2324,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2353,7 +2353,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
                                                     data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2383,7 +2383,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)) ?>"
                                                     data-title-1="<?php _e('TLCP BH trên DT', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLCP BH trên DT TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('TLCP BH trên DT trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2412,7 +2412,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2441,7 +2441,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_TONG_TAI_SAN)) ?>"
                                                     data-title-1="<?php _e('Vòng quay tổng tài sản', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay tổng tài sản TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay tổng tài sản trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2472,7 +2472,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_THU)) ?>"
                                                     data-title-1="<?php _e('Vòng quay khoản phải thu', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay khoản phải thu TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải thu trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2501,7 +2501,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_KHOAN_PHAI_TRA)) ?>"
                                                     data-title-1="<?php _e('Vòng quay khoản phải trả', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay khoản phải trả TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay khoản phải trả trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2530,7 +2530,7 @@ function filter_details_symbol()
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_VONG_QUAY_HANG_TON_KHO)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_VONG_QUAY_HANG_TON_KHO)) ?>"
                                                     data-title-1="<?php _e('Vòng quay hàng tồn kho', 'bsc') ?>"
-                                                    data-title-2="<?php _e('Vòng quay hàng tồn kho TB ngành', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Vòng quay hàng tồn kho trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#009e87"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -2653,7 +2653,7 @@ function filter_details_symbol()
                                             ?>
                                         </tr>
                                         <tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-                                            <td class="font-bold italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng LNST công ty mẹ (%YoY)', 'bsc') ?></td>
+                                            <td class="font-bold italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '!pl-[30px]' : '' ?>"><?php _e('Tăng trưởng lợi nhuận sau thuế công ty mẹ (%YoY)', 'bsc') ?></td>
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
