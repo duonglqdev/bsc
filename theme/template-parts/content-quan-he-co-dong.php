@@ -53,7 +53,7 @@
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-                    <div class="line-clamp-2 text-paragraph mb-4 main_content font-Helvetica not-italic">
+                    <div class="line-clamp-2 text-paragraph main_content font-Helvetica not-italic">
                         <?php echo $news->description ?>
                     </div>
                 <?php } ?>

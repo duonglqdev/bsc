@@ -31,7 +31,7 @@
                         <?php if (have_rows('content')) {
                             while (have_rows('content')): the_row(); ?>
                                 <div
-                                    class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20 [&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px] flex lg:gap-[50px] gap-5 items-start <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+                                    class="about_award-item [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#384352] [&:not(:last-child)]:border-opacity-20  flex lg:gap-[50px] gap-5 items-start <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:last-child)]:pb-[30px] [&:not(:last-child)]:mb-[30px]':'text-xs [&:not(:last-child)]:6 [&:not(:last-child)]:mb-6' ?>">
                                     <?php echo wp_get_attachment_image(get_sub_field('icon'), 'large', '', array('class' => 'max-w-[40px]')) ?>
                                     <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?' mt-2 prose-p:mb-4':'prose-p:mb-3 text-xs' ?>">
                                         <?php the_sub_field('mota') ?>

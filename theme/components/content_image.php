@@ -15,14 +15,14 @@
 					class="font-Helvetica text-justify <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 					<?php if ( get_sub_field( 'content_tren' ) )
 					{ ?>
-						<div class="mb-4 font-bold">
+						<div class="mb-2 font-bold">
 							<?php the_sub_field( 'content_tren' ) ?>
 						</div>
 					<?php } ?>
 					<?php if ( have_rows( 'list_content' ) )
 					{ ?>
 						<ul
-							class="flex-1 list-icon <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-[12px]' ?>">
+							class="flex-1 list-icon <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-[12px]' ?>">
 							<?php while ( have_rows( 'list_content' ) ) :
 								the_row(); ?>
 								<li class="font-semibold list-icon-item">
@@ -33,7 +33,7 @@
 					<?php } ?>
 					<?php if ( get_sub_field( 'content' ) )
 					{ ?>
-						<div class="font-bold mt-4 text-justify">
+						<div class="font-bold mt-2 text-justify">
 							<?php the_sub_field( 'content' ) ?>
 						</div>
 					<?php } ?>

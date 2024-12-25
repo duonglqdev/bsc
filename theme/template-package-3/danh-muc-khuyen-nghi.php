@@ -53,22 +53,26 @@ get_header();
 			<ul class="flex items-center flex-wrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6 mb-10 gap-6':'mt-4 mb-6 gap-2' ?>">
 				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="active lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?>">
+						class="active lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?>">
 						BSC 10
 					</a>
 				</li>
 				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 						BSC 30
 					</a>
 				</li>
 				<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:flex-auto flex-1' ?>">
 					<a href=""
-						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-6 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
+						class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block font-bold':'block font-semibold' ?> lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
 						BSC 50
 					</a>
 				</li>
+				<button type="reset"
+                class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-12 h-12':'w-11 h-11' ?>">
+                <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+            </button>
 			</ul>
 			<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl':'text-[22px]' ?>">
 				Hiệu suất danh mục
@@ -198,7 +202,7 @@ get_header();
 					</div> -->
 				</div>
 				<div class="flex-1 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
-					<ul class="space-y-6">
+					<ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
 						<li class="flex xl:gap-20 gap-10">
 							<div class="w-[62%] space-y-1">
 								<p class="text-xs">Ngày điều chỉnh danh mục</p>

@@ -44,7 +44,7 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <div class="w-[70%] px-2 py-1">
-                                        <?php _e('CPI trung bình (YoY%)*', 'bsc') ?>
+                                        <?php _e('CPI trung bình (YoY%)', 'bsc') ?>
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
@@ -53,7 +53,7 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <div class="w-[70%] px-2 py-1">
-                                        <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?>
+                                        <?php _e('Xuất khẩu (YoY%)', 'bsc') ?>
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
@@ -62,7 +62,7 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <div class="w-[70%] px-2 py-1">
-                                        <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?>
+                                        <?php _e('Nhập khẩu (YoY%)', 'bsc') ?>
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
@@ -71,7 +71,7 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <div class="w-[70%] px-2 py-1">
-                                        <?php _e('LSĐH (YoY%)*', 'bsc') ?>
+                                        <?php _e('LSĐH (YoY%)', 'bsc') ?>
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
@@ -229,28 +229,28 @@ $class = $check_logout['class'];
                             </div>
                             <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                 <div class="w-[70%] px-2 py-1">
-                                    <?php _e('CPI trung bình (YoY%)*', 'bsc') ?> </div>
+                                    <?php _e('CPI trung bình (YoY%)', 'bsc') ?> </div>
                                 <div class="flex-1 text-right pr-5">
                                     <p>----</p>
                                 </div>
                             </div>
                             <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                 <div class="w-[70%] px-2 py-1">
-                                    <?php _e('Xuất khẩu (YoY%)*', 'bsc') ?> </div>
+                                    <?php _e('Xuất khẩu (YoY%)', 'bsc') ?> </div>
                                 <div class="flex-1 text-right pr-5">
                                     <p>----</p>
                                 </div>
                             </div>
                             <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                 <div class="w-[70%] px-2 py-1">
-                                    <?php _e('Nhập khẩu (YoY%)*', 'bsc') ?> </div>
+                                    <?php _e('Nhập khẩu (YoY%)', 'bsc') ?> </div>
                                 <div class="flex-1 text-right pr-5">
                                     <p>----</p>
                                 </div>
                             </div>
                             <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                 <div class="w-[70%] px-2 py-1">
-                                    <?php _e('LSĐH (YoY%)*', 'bsc') ?> </div>
+                                    <?php _e('LSĐH (YoY%)', 'bsc') ?> </div>
                                 <div class="flex-1 text-right pr-5">
                                     <p>----</p>
                                 </div>

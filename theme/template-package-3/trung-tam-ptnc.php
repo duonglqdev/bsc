@@ -170,7 +170,7 @@ get_header();
 									class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 									<div
 										class="w-[70%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-										CPI trung bình (YoY%)*
+										CPI trung bình (YoY%)
 									</div>
 									<div
 										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
@@ -181,7 +181,7 @@ get_header();
 									class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 									<div
 										class="w-[70%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-										Xuất khẩu (YoY%)*
+										Xuất khẩu (YoY%)
 									</div>
 									<div
 										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
@@ -192,7 +192,7 @@ get_header();
 									class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 									<div
 										class="w-[70%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-										Nhập khẩu (YoY%)*
+										Nhập khẩu (YoY%)
 									</div>
 									<div
 										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
@@ -203,7 +203,7 @@ get_header();
 									class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 									<div
 										class="w-[70%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-semibold">
-										LSĐH (YoY%)*
+										LSĐH (YoY%)
 									</div>
 									<div
 										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
