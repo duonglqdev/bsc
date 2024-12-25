@@ -1187,23 +1187,23 @@ if ($file) {
             <h2 class="font-bold text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-8' : 'text-lg mb-5' ?>">
                 <?php the_sub_field('title'); ?>
             </h2>
-            <div class="flex gap-4 items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-                <div>
+            <div class="gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 flex items-center' : 'mb-4 grid grid-cols-2' ?>">
+                <div class="space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center gap-2':'' ?>">
                     <strong><?php _e('Tỉnh thành', 'bsc') ?>:</strong>
-                    <select id="city" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
+                    <select id="city" class="select_custom  py-0 border-[#EAEEF4] h-[38px] max-w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-[10px] pl-5 w-[160px]':'w-full rounded-lg pl-3 text-xs' ?>">
                         <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                     </select>
                 </div>
-                <div>
+                <div class="space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center gap-2':'' ?>">
                     <strong><?php _e('Quận huyện', 'bsc') ?>:</strong>
-                    <select id="district" class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
+                    <select id="district" class="select_custom  py-0 border-[#EAEEF4] h-[38px] max-w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-[10px] pl-5 w-[160px]':'w-full rounded-lg pl-3 text-xs' ?>">
                         <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                     </select>
                 </div>
             </div>
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-12' : '' ?>">
                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-                    <div class="lg:w-[460px] md:max-w-[35%]">
+                    <div class="w-[460px] max-w-[35%]">
                         <div class="w-full rounded-[10px] shadow-base py-2">
                             <div
                                 class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
@@ -1217,24 +1217,23 @@ if ($file) {
                     </div>
                                     
                 <?php } ?>
-                <div class="flex-1">
+                <div class="flex-1 relative">
                     <div class="map-item relative w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[76.4424%]' : 'pt-[150%]' ?>" id="map">
-
-                    <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
-                        <div class="absolute z-[2] w-[90%] left-1/2 -translate-x-1/2 bottom-4">
-                        <div class="w-full rounded-[10px] shadow-base py-2 bg-white">
-                            <div
-                                class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
-                                <?php echo svgClass('search', '','',!wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-5 h-5 shrink-0') ?>
-                                <input type="text" id="search-contact"
-                                    class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] p-0">
-                            </div>
-                            <div class="scroll-bar-custom overflow-y-auto max-h-[140px]" id="branch-list">
-                            </div>
                         </div>
-                        </div>     
-                    <?php } ?>
-                    </div>
+                        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                            <div class="absolute z-[2] w-[90%] left-1/2 -translate-x-1/2 bottom-4">
+                            <div class="w-full rounded-[10px] shadow-base py-2 bg-white">
+                                <div
+                                    class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
+                                    <?php echo svgClass('search', '','',!wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-5 h-5 shrink-0') ?>
+                                    <input type="text" id="search-contact"
+                                        class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] p-0">
+                                </div>
+                                <div class="scroll-bar-custom overflow-y-auto max-h-[140px]" id="branch-list">
+                                </div>
+                            </div>
+                            </div>     
+                        <?php } ?>
                 </div>
             </div>
         </div>

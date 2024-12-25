@@ -81,13 +81,23 @@ get_header();
 				Danh sách điểm hỗ trợ
 			</h2>
 			<div
-				class="flex items-center gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-				<strong>Tỉnh thành:</strong>
-				<select class="select_custom pl-5 py-0 border-[#EAEEF4] rounded-[10px] h-[38px]">
-					<option value="">Tất cả</option>
-					<option value="">CN Kon Tum</option>
-					<option value="">CN Ba Đình</option>
-				</select>
+				class="gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 flex items-center' : 'mb-4 grid grid-cols-2' ?>">
+				<div class="space-y-2">
+					<strong>Tỉnh thành:</strong>
+					<select class="select_custom  py-0 border-[#EAEEF4] h-[38px] max-w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-[10px] pl-5':'w-full rounded-lg pl-3 text-xs' ?>">
+						<option value="">Tất cả</option>
+						<option value="">CN Kon Tum</option>
+						<option value="">CN Ba Đình</option>
+					</select>
+				</div>
+				<div class="space-y-2">
+					<strong>Quận huyện</strong>
+					<select class="select_custom py-0 border-[#EAEEF4] h-[38px] max-w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-[10px]':'w-full rounded-lg pl-3 text-xs' ?>">
+						<option value="">Tất cả</option>
+						<option value="">CN Kon Tum CN Kon Tum</option>
+						<option value="">CN Ba Đình</option>
+					</select>
+				</div>
 			</div>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-12' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
