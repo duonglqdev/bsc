@@ -149,7 +149,7 @@ get_header();
 					</div>
 					<div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div class="w-[70%] px-2 py-1">
-							CPI trung bình (YoY%)*
+							CPI trung bình (YoY%)
 						</div>
 						<div class="flex-1 text-right pr-5">
 							<p>3.26</p>
@@ -157,7 +157,7 @@ get_header();
 					</div>
 					<div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div class="w-[70%] px-2 py-1">
-							Xuất khẩu (YoY%)*
+							Xuất khẩu (YoY%)
 						</div>
 						<div class="flex-1 text-right pr-5">
 							<p>3.26</p>
@@ -165,7 +165,7 @@ get_header();
 					</div>
 					<div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div class="w-[70%] px-2 py-1">
-							Nhập khẩu (YoY%)*
+							Nhập khẩu (YoY%)
 						</div>
 						<div class="flex-1 text-right pr-5">
 							<p>3.26</p>
@@ -173,7 +173,7 @@ get_header();
 					</div>
 					<div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div class="w-[70%] px-2 py-1">
-							LSĐH (YoY%)*
+							LSĐH (YoY%)
 						</div>
 						<div class="flex-1 text-right pr-5">
 							<p>3.26</p>

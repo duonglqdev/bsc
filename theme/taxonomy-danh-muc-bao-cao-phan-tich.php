@@ -544,7 +544,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -554,7 +554,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -564,7 +564,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -574,7 +574,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 items-center">
@@ -769,7 +769,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'CPI trung bình (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -778,7 +778,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Xuất khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -787,7 +787,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Nhập khẩu (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
@@ -796,7 +796,7 @@ get_header();
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'LSĐH (YoY%)*', 'bsc' ) ?>
+														<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
 													</div>
 													<div
 														class="flex-1 grid grid-cols-2 gap-2 text-center items-center">
