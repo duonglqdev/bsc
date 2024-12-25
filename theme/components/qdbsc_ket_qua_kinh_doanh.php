@@ -78,7 +78,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->revenue) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->revenue) ?>
                                             </li>
                                         <?php
                                         }
@@ -115,7 +115,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->eps) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->eps) ?>
                                             </li>
                                         <?php
                                         }
@@ -133,7 +133,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->pe) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->pe) ?>
                                             </li>
                                         <?php
                                         }
@@ -152,7 +152,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->pb) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->pb) ?>
                                             </li>
                                         <?php
                                         }
@@ -170,7 +170,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->roa) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->roa) ?>
                                             </li>
                                         <?php
                                         }
@@ -188,7 +188,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->roe) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->roe) ?>
                                             </li>
                                         <?php
                                         }
@@ -206,7 +206,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->closeprice) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->closeprice) ?>
                                             </li>
                                         <?php
                                         }
@@ -224,7 +224,7 @@ $class = $check_logout['class'];
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
                                             <li>
-                                                <?php echo number_format($GetForecastBussinessResults->pricerecommended) ?>
+                                                <?php echo bsc_number_format($GetForecastBussinessResults->pricerecommended) ?>
                                             </li>
                                         <?php
                                         }

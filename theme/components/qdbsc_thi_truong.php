@@ -2,15 +2,15 @@
 $check_logout = bsc_is_user_logged_out();
 $class = $check_logout['class'];
 ?>
-<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> qdbsc_thi_truong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> qdbsc_thi_truong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <?php if (get_sub_field('link')) { ?>
-                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 text-2xl':'text-[22px] mb-4' ?>">
+                <a href="<?php echo check_link(get_sub_field('link')) ?>" class="font-bold block <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?>">
                     <?php the_sub_field('title') ?>
                 </a>
             <?php } else { ?>
-                <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 text-2xl':'text-[22px] mb-4' ?>">
+                <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?>">
                     <?php the_sub_field('title') ?>
                 </h3>
             <?php } ?>
@@ -23,15 +23,15 @@ $class = $check_logout['class'];
                 if ($response_GetForecastMacro) {
             ?>
                     <div class="<?php echo $class ?>">
-                        <h4 class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'' ?>font-bold text-primary-300 mb-4"><?php _e('Dự báo kinh tế vĩ mô Việt Nam', 'bsc') ?> <?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?></h4>
+                        <h4 class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center' : '' ?>font-bold text-primary-300 mb-4"><?php _e('Dự báo kinh tế vĩ mô Việt Nam', 'bsc') ?> <?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?></h4>
                         <div
                             class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10 text-xs' ?>">
-                            <div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-r-[4px] border-white w-1/3':' w-full block_slider-item' ?>">
+                            <div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : ' w-full block_slider-item' ?>">
                                 <div
-                                    class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-b-[4px] border-white pt-[13px] pb-[9px] min-h-[71px]':'py-2 min-h-[64px]' ?>">
-                                        <p>
-                                            <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
-                                        </p>
+                                    class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-b-[4px] border-white pt-[13px] pb-[9px] min-h-[71px]' : 'py-2 min-h-[64px]' ?>">
+                                    <p>
+                                        <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
+                                    </p>
                                 </div>
                                 <div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
                                     <div class="w-[70%] px-2 py-1">
@@ -84,15 +84,15 @@ $class = $check_logout['class'];
                                     </div>
                                     <div
                                         class="flex-1 text-right pr-5">
-                                        <p><?php echo number_format($response_GetForecastMacro->d->A[0][5]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][5]->value); ?></p>
                                     </div>
                                 </div>
                             </div>
                             <div
-                                class="grid grid-cols-2 text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-r-[4px] border-white w-[27%]':'w-full block_slider-item' ?>">
+                                class="grid grid-cols-2 text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-r-[4px] border-white w-[27%]' : 'w-full block_slider-item' ?>">
                                 <div class="text-[#FF0017]">
                                     <div
-                                        class="min-h-[58px] bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-3 pb-[6px] border-b-[4px] border-white':'py-1.5 px-5' ?>">
+                                        class="min-h-[58px] bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
                                         <p class="font-semibold mb-1">
                                             <?php _e('BSC kịch bản 1', 'bsc') ?>
                                         </p>
@@ -114,13 +114,13 @@ $class = $check_logout['class'];
                                     ?>
                                     <div
                                         class="grid grid-cols-2 gap-2 text-center items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
-                                        <p><?php echo number_format($response_GetForecastMacro->d->F[1][5]->value) ?></p>
-                                        <p><?php echo number_format($response_GetForecastMacro->d->F[3][5]->value) ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][5]->value) ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][5]->value) ?></p>
                                     </div>
                                 </div>
                                 <div class="text-[#30D158]">
                                     <div
-                                        class="min-h-[58px] bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-3 pb-[6px] border-b-[4px] border-white':'py-1.5 px-5' ?>">
+                                        class="min-h-[58px] bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
                                         <p class="font-semibold mb-1">
                                             <?php _e('BSC kịch bản 2', 'bsc') ?>
                                         </p>
@@ -142,14 +142,14 @@ $class = $check_logout['class'];
                                     ?>
                                     <div
                                         class="grid grid-cols-2 gap-2 text-center items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA] font-semibold">
-                                        <p><?php echo number_format($response_GetForecastMacro->d->F[0][5]->value); ?></p>
-                                        <p><?php echo number_format($response_GetForecastMacro->d->F[2][5]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][5]->value); ?></p>
+                                        <p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][5]->value); ?></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-primary-300 text-center flex flex-col  bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-r-[4px] border-white w-1/5':'w-full block_slider-item h-full' ?>">
+                            <div class="text-primary-300 text-center flex flex-col  bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-r-[4px] border-white w-1/5' : 'w-full block_slider-item h-full' ?>">
                                 <div
-                                    class="min-h-[58px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' border-b-[4px] border-white pt-3 pb-[6px]':'py-1.5 px-5' ?>">
+                                    class="min-h-[58px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' border-b-[4px] border-white pt-3 pb-[6px]' : 'py-1.5 px-5' ?>">
                                     <p class="font-semibold mb-1">
                                         <?php _e('Consensus', 'bsc') ?> <?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
                                     </p>
@@ -175,9 +175,9 @@ $class = $check_logout['class'];
                                     <p><?php echo $response_GetForecastMacro->d->C[1][4]->value; ?></p>
                                 </div>
                             </div>
-                            <div class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5':'w-full block_slider-item h-full' ?>">
+                            <div class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
                                 <div
-                                    class="min-h-[58px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' border-b-[4px] border-white pt-3 pb-[6px]':'py-1.5 px-5' ?>">
+                                    class="min-h-[58px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' border-b-[4px] border-white pt-3 pb-[6px]' : 'py-1.5 px-5' ?>">
                                     <p class="font-semibold mb-1">
                                         <?php _e('Consensus', 'bsc') ?> <?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
                                     </p>

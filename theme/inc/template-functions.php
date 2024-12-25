@@ -743,3 +743,26 @@ function bsc_is_ios()
 	}
 	return false; // Không phải thiết bị iOS
 }
+
+/**
+ * Create function
+ */
+function bsc_number_format($input)
+{
+	// Kiểm tra nếu input là số hợp lệ
+	if (is_numeric($input) && is_finite($input)) {
+		// Ép kiểu về số float
+		$num = (float)$input;
+
+		// Kiểm tra nếu có phần thập phân
+		if (floor($num) == $num) {
+			// Nếu không có phần thập phân (số nguyên)
+			return number_format($num, 0, '.', ',');
+		} else {
+			// Nếu có phần thập phân, loại bỏ các số 0 dư thừa cuối cùng
+			return rtrim(number_format($num, 2, '.', ','), '0');
+		}
+	} else {
+		return '-';
+	}
+}

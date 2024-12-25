@@ -41,7 +41,7 @@
                         <p class="font-medium">
                             <?php if ($news->pricerecommendation) { ?>
                                 <?php
-                                echo number_format($news->pricerecommendation);
+                                echo bsc_number_format($news->pricerecommendation);
                                 ?>
                             <?php } ?>
                             <?php if ($news->upside) { ?>

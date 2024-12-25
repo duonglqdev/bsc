@@ -89,7 +89,7 @@
 									</p>
 									<p
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
-										<?php echo number_format($response->d[0]->outsshares); ?>
+										<?php echo bsc_number_format($response->d[0]->outsshares); ?>
 									</p>
 								</div>
 							<?php } ?>
@@ -100,7 +100,7 @@
 									</p>
 									<p
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base mt-auto' ?>">
-										<?php echo number_format($response->d[0]->listedshares); ?>
+										<?php echo bsc_number_format($response->d[0]->listedshares); ?>
 									</p>
 								</div>
 							<?php } ?>

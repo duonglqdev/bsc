@@ -3,30 +3,29 @@ $time_cache  = 3000;
 ?>
 <section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?> co_phieu_list" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-    <?php if ( wp_is_mobile() && bsc_is_mobile() )
-			{ ?>
-				<div class="toggle-form mb-[12px] inline-block">
-					<div class="">
-						<p class="inline-flex items-baseline gap-2 font-medium">
-                            <?php _e('Thu gọn', 'bsc') ?>
-							<?php echo svgClass( 'down', '', '', 'rotate-180' ) ?>
-						</p>
-					</div>
-					<div class="hidden">
-						<p class="inline-flex items-baseline gap-2 font-medium">
-                            <?php _e('Thu gọn', 'bsc') ?>
-							<?php echo svg( 'down' ) ?>
-						</p>
-					</div>
-				</div>
-			<?php } ?>
-        <form class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 items-end mb-10':'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>" id="form-search-cophieu">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[300px]':'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
-                <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+        <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+            <div class="toggle-form mb-[12px] inline-block">
+                <div class="">
+                    <p class="inline-flex items-baseline gap-2 font-medium">
+                        <?php _e('Thu gọn', 'bsc') ?>
+                        <?php echo svgClass('down', '', '', 'rotate-180') ?>
+                    </p>
+                </div>
+                <div class="hidden">
+                    <p class="inline-flex items-baseline gap-2 font-medium">
+                        <?php _e('Thu gọn', 'bsc') ?>
+                        <?php echo svg('down') ?>
+                    </p>
+                </div>
+            </div>
+        <?php } ?>
+        <form class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>" id="form-search-cophieu">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[20%] max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+                <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
                     <?php _e('Tìm theo tên', 'bsc') ?>
                 </p>
                 <input type="text" placeholder="<?php _e('Nhập mã chứng khoán', 'bsc') ?>"
-                    class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-[10px] px-5':'h-[42px] rounded-lg px-4 text-xs' ?>" id="search-name" value="<?php if (isset($_GET['mcp'])) echo $_GET['mcp'] ?>">
+                    class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-[10px] px-5' : 'h-[42px] rounded-lg px-4 text-xs' ?>" id="search-name" value="<?php if (isset($_GET['mcp'])) echo $_GET['mcp'] ?>">
             </div>
             <?php
             $array_data = json_encode([
@@ -39,12 +38,12 @@ $time_cache  = 3000;
                 $shares_data =  [];
                 if ($codes) {
             ?>
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[300px]':'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
-                        <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[20%] max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+                        <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
                             <?php _e('Tìm mã cổ phiếu', 'bsc') ?>
                         </p>
                         <select
-                            class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-[10px] pl-5':'pl-4 rounded-lg text-xs' ?>" id="search-code">
+                            class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>" id="search-code">
                             <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                             <?php foreach ($codes as $code) { ?>
                                 <option value="<?php echo $code ?>"><?php echo $code ?></option>
@@ -63,12 +62,12 @@ $time_cache  = 3000;
             $response_GetIndustryLv2 = get_data_with_cache('GetIndustryLv2', $array_data_GetIndustryLv2, $time_cache);
             if ($response_GetIndustryLv2) {
             ?>
-                <div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[243px]':'w-1/2 px-2' ?>">
-                    <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+                <div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[20%] max-w-[243px]' : 'w-1/2 px-2' ?>">
+                    <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
                         <?php _e('Tìm theo ngành', 'bsc') ?>
                     </p>
                     <select
-                        class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-[10px] pl-5':'pl-4 rounded-lg text-xs' ?>" id="search-major">
+                        class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>" id="search-major">
                         <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                         <?php foreach ($response_GetIndustryLv2->d as $GetIndustryLv2) { ?>
                             <option value="<?php echo $GetIndustryLv2->name ?>"><?php echo $GetIndustryLv2->name ?></option>
@@ -77,12 +76,12 @@ $time_cache  = 3000;
                     <input type="hidden" id="filter-major">
                 </div>
             <?php } ?>
-            <div class="lflex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[241px]':'w-1/2 px-2' ?>">
-                <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+            <div class="lflex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[20%] max-w-[241px]' : 'w-1/2 px-2' ?>">
+                <p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
                     <?php _e('Tìm theo sàn', 'bsc') ?>
                 </p>
                 <select
-                    class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-[10px] pl-5':'pl-4 rounded-lg text-xs' ?>" id="search-trading">
+                    class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>" id="search-trading">
                     <option value=""><?php _e('Tất cả', 'bsc') ?></option>
                     <option value="HOSE">HOSE</option>
                     <option value="HNX">HNX</option>
@@ -91,11 +90,11 @@ $time_cache  = 3000;
                 <input type="hidden" id="filter-trading">
             </div>
             <button type="button" id="search_cophieu"
-                class="btn-base-yellow flex-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-xl':'h-10 rounded-lg mr-4' ?>">
-                    <?php _e('Tìm kiếm', 'bsc') ?>
+                class="btn-base-yellow flex-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-xl' : 'h-10 rounded-lg mr-4' ?>">
+                <?php _e('Tìm kiếm', 'bsc') ?>
             </button>
             <button type="reset" id="reset-ttcp"
-                class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[50px] h-[50px]':'w-10 h-10' ?>">
+                class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?>">
                 <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
             </button>
         </form>
@@ -115,24 +114,24 @@ $time_cache  = 3000;
                 ?>
                     <div class="rounded-tl-lg rounded-tr-lg overflow-hidden relative block-loading">
                         <table id="ttcp-table"
-                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-td:py-4':'prose-td:py-3' ?>">
+                            class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
                             <thead>
                                 <tr>
-                                    <th class="!pl-5 cursor-pointer filter-table <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[100px]' ?>"><?php _e('Mã CK', 'bsc') ?>
+                                    <th class="!pl-5 cursor-pointer filter-table <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>"><?php _e('Mã CK', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
-                                    <th class="w-1/5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[140px]' ?>"><?php _e('Tên công ty', 'bsc') ?></th>
-                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[80px]' ?>"><?php _e('Sàn', 'bsc') ?></th>
-                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[150px]' ?>"><?php _e('Ngành', 'bsc') ?></th>
-                                    <th class="cursor-pointer text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[130px]' ?>"><?php _e('Vốn hóa', 'bsc') ?>
+                                    <th class="w-1/5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[140px]' ?>"><?php _e('Tên công ty', 'bsc') ?></th>
+                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>"><?php _e('Sàn', 'bsc') ?></th>
+                                    <th class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[150px]' ?>"><?php _e('Ngành', 'bsc') ?></th>
+                                    <th class="cursor-pointer text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[130px]' ?>"><?php _e('Vốn hóa', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
-                                    <th class="text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[80px]' ?>"><?php _e('KLGD', 'bsc') ?></th>
-                                    <th class="text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[80px]' ?>"><?php _e('GTGD', 'bsc') ?></th>
-                                    <th class=" cursor-pointer filter-table text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[100px]' ?>"><?php _e('PE', 'bsc') ?>
+                                    <th class="text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>"><?php _e('KLGD', 'bsc') ?></th>
+                                    <th class="text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>"><?php _e('GTGD', 'bsc') ?></th>
+                                    <th class=" cursor-pointer filter-table text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>"><?php _e('PE', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
-                                    <th class="cursor-pointer filter-table text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'whitespace-nowrap min-w-[80px]' ?>"><?php _e('PB', 'bsc') ?>
+                                    <th class="cursor-pointer filter-table text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>"><?php _e('PB', 'bsc') ?>
                                         <?php echo svgClass('filter', '20', '20', 'inline-block') ?>
                                     </th>
                                 </tr>
@@ -150,9 +149,9 @@ $time_cache  = 3000;
                                         <td><?php echo $news->FULLNAME ?></td>
                                         <td><?php echo $news->EXCHANGE; ?></td>
                                         <td><?php echo $news->INDUSTRYNAME ?></td>
-                                        <td class="text-right"><?php echo rtrim(rtrim(number_format($news->MC, 2, ',', '.'), '0'), ',');  ?></td>
+                                        <td class="text-right"><?php echo bsc_number_format($news->MC);  ?></td>
                                         <td class="text-right"><?php echo $news->TOTALVOLUME ?></td>
-                                        <td class="text-right"><?php echo number_format($news->TOTALVALUE) ?></td>
+                                        <td class="text-right"><?php echo bsc_number_format($news->TOTALVALUE) ?></td>
                                         <td class="text-right"><?php echo $news->PE ?></td>
                                         <td class="text-right"><?php echo $news->PB ?></td>
                                     </tr>
