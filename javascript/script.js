@@ -2660,6 +2660,65 @@ import { DataTable } from 'simple-datatables';
 
 	let isAjaxInProgress = false;
 	let globalShares = [];
+	window.onchangeInstrument = function (symbol) {
+		var CONNECTION_METADATA_PARAMS = {
+			version: '__sails_io_sdk_version',
+			platform: '__sails_io_sdk_platform',
+			language: '__sails_io_sdk_language',
+		};
+
+		var SDK_INFO = {
+			version: '1.2.1',
+			platform: typeof module === 'undefined' ? 'browser' : 'node',
+			language: 'javascript',
+		};
+		var queryString = '';
+		var receiveCount = 0;
+		Object.keys(CONNECTION_METADATA_PARAMS).map((key) => {
+			queryString +=
+				'&' + CONNECTION_METADATA_PARAMS[key] + '=' + SDK_INFO[key];
+		});
+		if (queryString.length > 0)
+			queryString = queryString.slice(-(queryString.length - 1));
+		const socket = io('https://priceapi.bsc.com.vn', {
+			path: '/market/socket.io',
+			transports: ['websocket'],
+			query: queryString,
+			autoConnect: false,
+		});
+
+		socket.connect();
+		socket.on('disconnect', (reason) => {
+			setTimeout(() => {
+				socket.connect();
+				socket.emit('get', {
+					method: 'get',
+					headers: {},
+					data: {
+						op: 'subscribe',
+						args: ['i:' + symbol],
+					},
+					url: '/client/subscribe',
+				});
+			}, 5000);
+		});
+
+		socket.emit('get', {
+			method: 'get',
+			headers: {},
+			data: {
+				op: 'subscribe',
+				args: ['i:' + symbol],
+			},
+			url: '/client/subscribe',
+		});
+
+		socket.on('i', function (msg) {
+			console.log('/////i///////', msg.d);
+			// ... update lai gia tri
+		});
+	};
+	window.bsc_need_crawl_price = function () {};
 
 	function handleSearch() {
 		// Hàm kiểm tra nếu checkbox #cp được chọn
@@ -3075,75 +3134,4 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	}
-
-	window.onchangeInstrument = function (symbol) {
-		var CONNECTION_METADATA_PARAMS = {
-			version: '__sails_io_sdk_version',
-			platform: '__sails_io_sdk_platform',
-			language: '__sails_io_sdk_language',
-		};
-
-		var SDK_INFO = {
-			version: '1.2.1',
-			platform: typeof module === 'undefined' ? 'browser' : 'node',
-			language: 'javascript',
-		};
-		var queryString = '';
-		var receiveCount = 0;
-		Object.keys(CONNECTION_METADATA_PARAMS).map((key) => {
-			queryString +=
-				'&' + CONNECTION_METADATA_PARAMS[key] + '=' + SDK_INFO[key];
-		});
-		if (queryString.length > 0)
-			queryString = queryString.slice(-(queryString.length - 1));
-		const socket = io('https://priceapi.bsc.com.vn', {
-			path: '/market/socket.io',
-			transports: ['websocket'],
-			query: queryString,
-			autoConnect: false,
-		});
-
-		socket.connect();
-		socket.on('disconnect', (reason) => {
-			setTimeout(() => {
-				socket.connect();
-				socket.emit('get', {
-					method: 'get',
-					headers: {},
-					data: {
-						op: 'subscribe',
-						args: ['i:' + symbol],
-					},
-					url: '/client/subscribe',
-				});
-			}, 5000);
-		});
-
-		socket.emit('get', {
-			method: 'get',
-			headers: {},
-			data: {
-				op: 'subscribe',
-				args: ['i:' + symbol],
-			},
-			url: '/client/subscribe',
-		});
-
-		socket.on('i', function (msg) {
-			console.log('/////i///////', msg.d);
-			// ... update lai gia tri
-		});
-	};
-
-	window.bsc_need_crawl_price = function () {
-		$.ajax({
-			url: slug_api_price + 'datafeed/instruments?stocktype=2',
-			type: 'GET',
-			contentType: 'application/json; charset=utf-8',
-			dataType: 'JSON',
-			success: function (data) {
-				console.log(data);
-			},
-		});
-	};
 })(jQuery);
