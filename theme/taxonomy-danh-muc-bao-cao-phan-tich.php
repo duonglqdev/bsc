@@ -159,7 +159,7 @@ get_header();
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key']))
-																										echo $_GET['key'] ?>">
+																									echo $_GET['key'] ?>">
 							</div>
 							<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 								datepicker-autohide datepicker-orientation="bottom right"
@@ -171,7 +171,7 @@ get_header();
 									<input id="datepicker-range-start" name="fromdate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 										placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
-																									echo $_GET['fromdate'] ?>">
+																								echo $_GET['fromdate'] ?>">
 									<?php echo svg('day', '20', '20') ?>
 								</div>
 								<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
@@ -179,7 +179,7 @@ get_header();
 									<input id="datepicker-range-end" name="todate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 										placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
-																									echo $_GET['todate'] ?>">
+																								echo $_GET['todate'] ?>">
 									<?php echo svg('day', '20', '20') ?>
 								</div>
 							</div>
@@ -201,7 +201,7 @@ get_header();
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key']))
-																										echo $_GET['key'] ?>">
+																									echo $_GET['key'] ?>">
 							</div>
 							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 								<div
@@ -252,7 +252,7 @@ get_header();
 										<input id="datepicker-range-start" name="fromdate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
-																										echo $_GET['fromdate'] ?>">
+																									echo $_GET['fromdate'] ?>">
 										<?php echo svg('day', '20', '20') ?>
 									</div>
 									<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
@@ -260,7 +260,7 @@ get_header();
 										<input id="datepicker-range-end" name="todate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
-																										echo $_GET['todate'] ?>">
+																									echo $_GET['todate'] ?>">
 										<?php echo svg('day', '20', '20') ?>
 									</div>
 								</div>
@@ -808,25 +808,27 @@ get_header();
 									<div
 										class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'w-max' ?>">
 										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
-											<?php _e('Mã CK', 'bsc') ?>
+											<?php _e('Mã chứng khoán', 'bsc') ?>
 										</div>
 										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
 											<?php _e('Ngành', 'bsc') ?>
 										</div>
 										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
-											<?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
+											<?php _e('Doanh thu thuần', 'bsc') ?> <?php echo date('Y') ?>
 											<p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
 										</div>
 										<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 											<?php _e('LNST CĐTS', 'bsc') ?>
+											<!-- @Duong: Bổ sung tooltip -->
+											<div class="tool-tip">
+												<?php _e('Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc') ?>
+											</div>
 										</div>
 										<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
-											<?php _e('EPS', 'bsc') ?> <br>
-											<?php echo date('Y') ?>
+											<?php _e('EPS', 'bsc') ?>
 										</div>
 										<div class="w-[21%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[120px]' ?>">
-											<?php _e('Giá mục tiêu', 'bsc') ?> <br>
-											<?php echo date('Y') ?>/<?php echo date('Y') + 1 ?>
+											<?php _e('Giá mục tiêu', 'bsc') ?>
 										</div>
 									</div>
 									<?php
@@ -858,7 +860,7 @@ get_header();
 												</div>
 												<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 													<?php if ($GetForecastBussinessResults->npatmi) { ?>
-														<?php echo $GetForecastBussinessResults->npatmi ?>%
+														<?php echo $GetForecastBussinessResults->npatmi ?>
 													<?php } ?>
 												</div>
 												<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
