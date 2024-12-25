@@ -70,7 +70,7 @@ $class = $check_logout['class'];
                                 <div class="min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                        <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
+                                        <?php _e('Doanh thu thuần', 'bsc') ?> <?php echo date('Y') ?>
                                         <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
                                     </div>
                                     <ul>
@@ -88,7 +88,11 @@ $class = $check_logout['class'];
                                 <div class="min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                        <?php _e('% YoY', 'bsc') ?>
+                                        <?php _e('LNST CĐTS', 'bsc') ?>
+                                        <!-- #Duong: đoạn này em sửa thành tooltip -->
+                                        <div class="tool-tip">
+                                            <?php _e('Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc') ?>
+                                        </div>
                                     </div>
                                     <ul>
                                         <?php
@@ -198,8 +202,15 @@ $class = $check_logout['class'];
                                 <div class="min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                        <?php _e('Giá ngày', 'bsc') ?> <br>
-                                        <?php echo date('d/m/Y', strtotime('-1 day')); ?>
+                                        <?php _e('Giá gần nhất', 'bsc') ?> <br>
+                                        <?php $date = new DateTime($response_GetForecastBussinessResults->d[0]->tradedatebefore);
+                                        $tradedatebefore = $date->format('d/m/Y');
+                                        echo $tradedatebefore;
+                                        ?>
+                                        <!-- #Duong: đoạn này em sửa thành tooltip -->
+                                        <div class="tool-tip">
+                                            <?php echo  __('Giá đóng cửa tại ngày', 'bsc') . ' ' . $tradedatebefore ?>
+                                        </div>
                                     </div>
                                     <ul>
                                         <?php
@@ -265,14 +276,14 @@ $class = $check_logout['class'];
                             class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
                             <div
                                 class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
-                                <?php _e('Ngành', 'bsc') ?>
+                                <?php _e('Mã chứng khoán', 'bsc') ?>
                             </div>
                             <ul>
                                 <?php
                                 for ($i = 0; $i < 6; $i++) {
                                 ?>
-                                    <li>
-                                        <?php _e('Ngân hàng', 'bsc') ?>
+                                    <li class="text-primary-300">
+                                        <?php _e('BID', 'bsc') ?>
                                     </li>
                                 <?php
                                 }
@@ -284,14 +295,15 @@ $class = $check_logout['class'];
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
-                                    <?php _e('Mã CK', 'bsc') ?>
+                                    <?php _e('Ngành', 'bsc') ?>
                                 </div>
                                 <ul>
                                     <?php
                                     for ($i = 0; $i < 6; $i++) {
                                     ?>
                                         <li>
-                                            <?php _e('BID', 'bsc') ?>
+                                            <?php _e('Ngân hàng', 'bsc') ?>
+
                                         </li>
                                     <?php
                                     }
@@ -301,7 +313,7 @@ $class = $check_logout['class'];
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
-                                    <?php _e('DTT', 'bsc') ?>
+                                    <?php _e('Doanh thu thuần', 'bsc') ?>
                                     <p>
                                         <?php _e('(tỷ VND)', 'bsc') ?>
                                     </p>
@@ -321,7 +333,7 @@ $class = $check_logout['class'];
                             <div class="min-w-[110px]">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
-                                    <?php _e('% YoY', 'bsc') ?>
+                                    <?php _e('LNST CĐTS', 'bsc') ?>
                                 </div>
                                 <ul>
                                     <?php
