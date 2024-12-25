@@ -31,6 +31,10 @@
 					<?php _e('BSC50', 'bsc') ?>
 				</button>
 			</li>
+			<button type="reset" data-todate="<?php echo $todate ?>" id="chart_btn-reload"
+                class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-12 h-12':'w-11 h-11' ?>">
+                <?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
+            </button>
 		</ul>
 		<h2 class="font-bold 2xl:text-[32px] text-2xl">
 			<?php _e('Hiệu suất danh mục', 'bsc') ?>
