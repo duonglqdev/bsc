@@ -26,7 +26,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex flex-col' : 'mt-[50px]' ?>">
 				<?php if (get_sub_field('title_phan_tich')) { ?>
 					<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-14' : 'mb-6' ?>">
 						<?php the_sub_field('title_phan_tich') ?>
@@ -57,7 +57,7 @@
 					}
 					?>
 				</div>
-				<div class="flex flex-col bsc-ajax-api" data-api="ttnc_khuyen_nghi_GetForecastMacro">
+				<div class="bsc-ajax-api <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'' ?>" data-api="ttnc_khuyen_nghi_GetForecastMacro">
 					<div class="hidden">
 						<div role="status">
 							<svg aria-hidden="true"
@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<?php if (get_sub_field('image')) { ?>
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-[50px]' ?>">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-auto':'mt-[50px]' ?>">
 						<a href="<?php echo check_link(get_sub_field('link_youtube')) ?>"
 							data-fancybox
 							class="rounded-[10px] overflow-hidden pt-[55.576%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
