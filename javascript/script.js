@@ -2265,6 +2265,14 @@ import { DataTable } from 'simple-datatables';
 								height: 278,
 								toolbar: { show: false },
 							},
+							plotOptions: {
+								bar: {
+								  borderRadius: 10,
+								  dataLabels: {
+									position: 'top',
+								  },
+								}
+							  },
 							series: series,
 							xaxis: {
 								categories: formattedDates, // Sử dụng ngày đã chuyển đổi

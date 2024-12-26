@@ -162,7 +162,7 @@ get_header();
 				</div>
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[433px] max-w-[33%]' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api" data-api="securityBasicInfo-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
-						<div role="status">
+						<div role="status"  class="mt-10">
 							<svg aria-hidden="true"
 								class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 								viewBox="0 0 100 101" fill="none"
@@ -180,7 +180,7 @@ get_header();
 				</div>
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api" data-api="GetRecommendedInstrument-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
-						<div role="status">
+						<div role="status"  class="mt-10">
 							<svg aria-hidden="true"
 								class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 								viewBox="0 0 100 101" fill="none"
@@ -286,7 +286,7 @@ get_header();
 						</ul>
 						<div class="tab-content block bsc-ajax-api" id="lichsugiaodich" data-api="lichsugiaodich" data-symbol="<?php echo $symbol ?>">
 							<div class="hidden">
-								<div role="status">
+								<div role="status"  class="mt-10">
 									<svg aria-hidden="true"
 										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 										viewBox="0 0 100 101" fill="none"
@@ -304,7 +304,7 @@ get_header();
 						</div>
 						<div class="tab-content hidden" id="ndtnn">
 							<div class="hidden">
-								<div role="status">
+								<div role="status"  class="mt-10">
 									<svg aria-hidden="true"
 										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 										viewBox="0 0 100 101" fill="none"
@@ -330,7 +330,7 @@ get_header();
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status">
+									<div role="status"  class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 											viewBox="0 0 100 101" fill="none"
@@ -353,7 +353,7 @@ get_header();
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status">
+									<div role="status"  class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 											viewBox="0 0 100 101" fill="none"
@@ -377,7 +377,7 @@ get_header();
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative bsc-ajax-api"
 								data-api="sg_dncn" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status">
+									<div role="status"  class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 											viewBox="0 0 100 101" fill="none"
@@ -416,7 +416,7 @@ get_header();
 					</div>
 					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?> bsc-ajax-api" data-api="sg_ttvmcp" data-symbol="<?php echo $symbol ?>">
 						<div class="hidden">
-							<div role="status">
+							<div role="status"  class="mt-10">
 								<svg aria-hidden="true"
 									class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 									viewBox="0 0 100 101" fill="none"
@@ -447,7 +447,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-2">
 				<div class="hidden">
-					<div role="status">
+					<div role="status"  class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -464,7 +464,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-3" data-chart="profitChart">
 				<div class="hidden">
-					<div role="status">
+					<div role="status"  class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -481,7 +481,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-4">
 				<div class="hidden">
-					<div role="status">
+					<div role="status"  class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
