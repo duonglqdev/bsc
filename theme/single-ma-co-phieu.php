@@ -45,7 +45,7 @@ get_header();
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
 				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price" data-symbol="<?php echo $symbol ?>">
+						class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price" data-symbol="<?php echo $symbol ?>" data-socket="true">
 						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
 							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div

@@ -847,7 +847,7 @@ function filter_details_symbol()
                                 <?php _e('Tỷ lệ sở hữu nhà nước (%)', 'bsc') ?>
                             </p>
                             <strong>
-                                <?php echo $response_GetShareholderRelations->d[0]->govheldpct ?>%
+                                <?php echo bsc_number_format($response_GetShareholderRelations->d[0]->govheldpct) ?>%
                             </strong>
                         </li>
                     <?php } ?>
@@ -857,7 +857,7 @@ function filter_details_symbol()
                                 <?php _e('Tỷ lệ sở hữu nước ngoài (%)', 'bsc') ?>
                             </p>
                             <strong>
-                                <?php echo $response_GetShareholderRelations->d[0]->fheldpct ?>%
+                                <?php echo bsc_number_format($response_GetShareholderRelations->d[0]->fheldpct) ?>%
                             </strong>
                         </li>
                     <?php } ?>
@@ -867,7 +867,7 @@ function filter_details_symbol()
                                 <?php _e('Room nước ngoài', 'bsc') ?>
                             </p>
                             <strong>
-                                <?php echo $response_GetShareholderRelations->d[0]->froom ?>%
+                                <?php echo bsc_number_format($response_GetShareholderRelations->d[0]->froom) ?>%
                             </strong>
                         </li>
                     <?php } ?>
@@ -2941,37 +2941,27 @@ function filter_details_symbol()
                             </p>
                         </div>
                     <?php } ?>
-                    <?php if ($response_GetRecommendedInstrument->d[0]->categorY_NAMES) { ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->categorynames) { ?>
                         <div class="flex items-center justify-between text-xs">
                             <p class="text-xs">
                                 <?php _e('Danh mục', 'bsc') ?>:
                             </p>
                             <p class="inline-block rounded-full px-4 py-0.5  font-semibold">
-                                <?php echo $response_GetRecommendedInstrument->d[0]->categorY_NAMES ?>
+                                <?php echo $response_GetRecommendedInstrument->d[0]->categorynames ?>
                             </p>
                         </div>
                     <?php } ?>
-                    <?php
-                    $time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
-                    $array_data = array(
-                        "symbol" => $symbol,
-                    );
-                    $get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
-                    if ($get_co_phieu_detail) {
-                        $news = $get_co_phieu_detail->d[0];
-                        if ($news->postdate) {
-                    ?>
-                            <div class="flex items-center justify-between text-xs">
-                                <p class="text-xs">
-                                    <?php _e('Ngày cập nhật', 'bsc') ?>
-                                </p>
-                                <p class="font-bold">
-                                    <?php $date = new DateTime($news->postdate); ?>
-                                    <?php echo $date->format('d/m/Y'); ?>
-                                </p>
-                            </div>
-                    <?php }
-                    } ?>
+                    <?php if ($response_GetRecommendedInstrument->d[0]->datetimepublished) { ?>
+                        <div class="flex items-center justify-between text-xs">
+                            <p class="text-xs">
+                                <?php _e('Ngày cập nhật', 'bsc') ?>
+                            </p>
+                            <p class="font-bold">
+                                <?php $date = new DateTime($response_GetRecommendedInstrument->d[0]->datetimepublished); ?>
+                                <?php echo $date->format('d/m/Y'); ?>
+                            </p>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         <?php
@@ -3430,7 +3420,7 @@ function filter_details_symbol()
                     <div
                         class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
                         <p>
-                            <?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->year); ?>
+                            <?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
                         </p>
                     </div>
                     <div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">

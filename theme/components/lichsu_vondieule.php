@@ -9,7 +9,7 @@
 				<?php the_sub_field('title') ?>
 			</h2>
 		<?php } ?>
-		<div class="flex md:flex-row flex-col md:gap-[38px] gap-8 bsc_need_crawl_price" data-symbol="BSI">
+		<div class="flex md:flex-row flex-col md:gap-[38px] gap-8 bsc_need_crawl_price" data-symbol="BSI" data-socket="true">
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-80 w-full ' : 'w-full' ?>">
 				<div
