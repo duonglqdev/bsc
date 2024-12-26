@@ -2629,11 +2629,11 @@ function filter_details_symbol()
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
-                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_DT) {
-                                                                                                                                                    echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_DT);
-                                                                                                                                                }
-                                                                                                                                                ?></td>
+                                                <td class="italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                        if ($GetForecastBussiness->TANG_TRUONG_DT) {
+                                                                                                                                                            echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_DT);
+                                                                                                                                                        }
+                                                                                                                                                        ?></td>
                                             <?php
                                             }
                                             ?>
@@ -2657,11 +2657,11 @@ function filter_details_symbol()
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
-                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_LS) {
-                                                                                                                                                    echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_LS);
-                                                                                                                                                }
-                                                                                                                                                ?></td>
+                                                <td class="italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                        if ($GetForecastBussiness->TANG_TRUONG_LS) {
+                                                                                                                                                            echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_LS);
+                                                                                                                                                        }
+                                                                                                                                                        ?></td>
                                             <?php
                                             }
                                             ?>
@@ -2685,11 +2685,11 @@ function filter_details_symbol()
                                             <?php
                                             foreach ($response_GetForecastBussiness_d2 as $GetForecastBussiness) {
                                             ?>
-                                                <td class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
-                                                                                                                                                if ($GetForecastBussiness->TANG_TRUONG_EPS) {
-                                                                                                                                                    echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_EPS);
-                                                                                                                                                }
-                                                                                                                                                ?></td>
+                                                <td class="italic <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>"><?php
+                                                                                                                                                        if ($GetForecastBussiness->TANG_TRUONG_EPS) {
+                                                                                                                                                            echo bsc_number_format($GetForecastBussiness->TANG_TRUONG_EPS);
+                                                                                                                                                        }
+                                                                                                                                                        ?></td>
                                             <?php
                                             }
                                             ?>
