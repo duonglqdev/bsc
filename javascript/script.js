@@ -3293,6 +3293,13 @@ import { DataTable } from 'simple-datatables';
 			e.preventDefault();
 			load_du_lieu_lich_su();
 		});
+		$(document).ready(function () {
+			var mck_dlls = $('#du-lieu-lich-su_form .mck').val();
+			if (mck_dlls) {
+				$('#du-lieu-lich-su_submit').trigger('click');
+			}
+		});
+		
 		$(document).on('click', '#du-lieu-lich-su_reset', function (e) {
 			$('#du-lieu-lich-su_form')[0].reset();
 			load_du_lieu_lich_su();
