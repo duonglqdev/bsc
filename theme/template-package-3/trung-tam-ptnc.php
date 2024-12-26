@@ -143,17 +143,15 @@ get_header();
 
 					<div class="flex flex-col">
 						<div
-							class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
+							class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'flex overflow-x-auto snap-x snap-mandatory' ?>">
 							<div
-								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
+								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'min-w-full snap-start' ?>">
 								<div
-									class="flex justify-end items-center font-semibold bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px]  mb-1.5' : 'py-1.5 px-5' ?>">
-									<div
-										class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[60px]' : '' ?>">
-										<p>
-											2023
-										</p>
-									</div>
+									class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
+									<p>
+										2023
+									</p>
+
 								</div>
 								<div
 									class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
@@ -162,7 +160,7 @@ get_header();
 										GDP (YoY%)
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
+										class="flex-1 text-right pr-3">
 										<p>6.1</p>
 									</div>
 								</div>
@@ -173,7 +171,7 @@ get_header();
 										CPI trung bình (YoY%)
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
+										class="flex-1 text-right pr-3">
 										<p>6.1</p>
 									</div>
 								</div>
@@ -184,7 +182,7 @@ get_header();
 										Xuất khẩu (YoY%)
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
+										class="flex-1 text-right pr-3">
 										<p>6.1</p>
 									</div>
 								</div>
@@ -195,7 +193,7 @@ get_header();
 										Nhập khẩu (YoY%)
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
+										class="flex-1 text-right pr-3">
 										<p>6.1</p>
 									</div>
 								</div>
@@ -206,7 +204,7 @@ get_header();
 										LSĐH (YoY%)
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?>">
+										class="flex-1 text-right pr-3">
 										<p>6.1</p>
 									</div>
 								</div>
@@ -217,13 +215,13 @@ get_header();
 										USD/VND LNH trung bình
 									</div>
 									<div
-										class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : 'text-right pr-5' ?> font-semibold">
+										class="flex-1 text-right pr-3 font-semibold">
 										<p>23,839</p>
 									</div>
 								</div>
 							</div>
 							<div
-								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'min-w-full snap-start' ?>">
 								<div class="grid grid-cols-2 text-center">
 									<div class="text-[#FF0017]">
 										<div
@@ -289,7 +287,7 @@ get_header();
 
 
 					</div>
-					<div class="mt-6">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-[50px]' ?>">
 						<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox
 							class="rounded-[10px] overflow-hidden pt-[55.576%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
 							<img loading="lazy"
@@ -469,7 +467,8 @@ get_header();
 					<?php } ?>
 					<?php if ( wp_is_mobile() && bsc_is_mobile() )
 					{ ?>
-						<ul class="customtab-nav flex flex-nowrap gap-8 overflow-x-auto border-b border-[#C9CCD2] mb-6">
+						<ul
+							class="customtab-nav flex flex-nowrap gap-8 overflow-x-auto border-b border-[#C9CCD2] mb-6">
 							<li>
 								<button type="button" data-tabs="#tab-11"
 									class="active font-bold text-lg [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:text-opacity-70 whitespace-nowrap border-b-2 [&:not(.active)]:border-transparent border-primary-300 pb-4 border-opacity-100">
@@ -592,68 +591,82 @@ get_header();
 			<?php } ?>
 		</div>
 	</section>
-	<section class="bg-no-repeat bg-cover bg-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[77px]':'py-5 min-h-[774px]' ?>"
+	<section
+		class="bg-no-repeat bg-cover bg-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[77px]' : 'py-5 min-h-[774px]' ?>"
 		style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/images/bg-report-mb.png)">
 		<div class="container">
-			<div class="bg-white rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[602px] max-w-[60%] p-10':'p-6' ?>">
-				<h2 class="heading-title text-center !leading-none <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4' ?>">
+			<div
+				class="bg-white rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[602px] max-w-[60%] p-10' : 'p-6' ?>">
+				<h2
+					class="heading-title text-center !leading-none <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 					Báo cáo phân tích Từ bsc
 				</h2>
-				<ul class="divide-y divide-solid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'space-y-4':'space-y-[12px]' ?>">
-					<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:first-child)]:pt-4':'[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
+				<ul
+					class="divide-y divide-solid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-[12px]' ?>">
+					<li
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
-							<span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-2':'gap-1.5' ?>">
-								<?php echo svgClass( 'report1', '30', '30', !wp_is_mobile() && !bsc_is_mobile() ?'shrink-0 w-[30px] h-[30px]':'shrink-0 w-6 h-6' ) ?>
+							<span
+								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
+								<?php echo svgClass( 'report1', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
 								Báo cáo vĩ mô
 							</span>
 							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
 						</a>
 					</li>
-					<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:first-child)]:pt-4':'[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
+					<li
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
-							<span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-2':'gap-1.5' ?>">
-								<?php echo svgClass( 'report2', '30', '30', !wp_is_mobile() && !bsc_is_mobile() ?'shrink-0 w-[30px] h-[30px]':'shrink-0 w-6 h-6' ) ?>
+							<span
+								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
+								<?php echo svgClass( 'report2', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
 								Báo cáo Ngành & Doanh nghiệp
 							</span>
 							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
 						</a>
 					</li>
-					<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:first-child)]:pt-4':'[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
+					<li
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
-							<span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-2':'gap-1.5' ?>">
-								<?php echo svgClass( 'report3', '30', '30', !wp_is_mobile() && !bsc_is_mobile() ?'shrink-0 w-[30px] h-[30px]':'shrink-0 w-6 h-6' ) ?>
+							<span
+								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
+								<?php echo svgClass( 'report3', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
 								Báo cáo chuyên đề
 							</span>
 							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
 						</a>
 					</li>
-					<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:first-child)]:pt-4':'[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
+					<li
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
-							<span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-2':'gap-1.5' ?>">
-								<?php echo svgClass( 'report4', '30', '30', !wp_is_mobile() && !bsc_is_mobile() ?'shrink-0 w-[30px] h-[30px]':'shrink-0 w-6 h-6' ) ?>
+							<span
+								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
+								<?php echo svgClass( 'report4', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
 								Danh mục khuyến nghị
 							</span>
 							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
 						</a>
 					</li>
-					<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(:first-child)]:pt-4':'[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
+					<li
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
 							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
-							<span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-2':'gap-1.5' ?>">
-								<?php echo svgClass( 'report5', '30', '30', !wp_is_mobile() && !bsc_is_mobile() ?'shrink-0 w-[30px] h-[30px]':'shrink-0 w-6 h-6' ) ?>
+							<span
+								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
+								<?php echo svgClass( 'report5', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
 								Quan điểm BSC
 							</span>
 							<?php echo svgpath( 'arrow-btn', '18', '18', 'fill-green' ) ?>
 						</a>
 					</li>
 				</ul>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 					<a href=""
-						class=" items-center gap-3  btn-base-yellow text-xs font-bold  rounded-md <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-flex pl-6 pr-8 py-4 min-h-[52px]':'flex justify-center py-3 px-5 min-h-10' ?>">
+						class=" items-center gap-3  btn-base-yellow text-xs font-bold  rounded-md <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-flex pl-6 pr-8 py-4 min-h-[52px]' : 'flex justify-center py-3 px-5 min-h-10' ?>">
 						<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 						<?php _e( 'Khám phá', 'bsc' ) ?>
 					</a>

@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<?php if (get_sub_field('image')) { ?>
-					<div class="mt-6">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-[50px]' ?>">
 						<a href="<?php echo check_link(get_sub_field('link_youtube')) ?>"
 							data-fancybox
 							class="rounded-[10px] overflow-hidden pt-[55.576%] relative block after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40">
