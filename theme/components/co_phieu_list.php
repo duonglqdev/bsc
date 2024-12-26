@@ -149,7 +149,7 @@ $time_cache  = 3000;
                                         <td><?php echo $news->FULLNAME ?></td>
                                         <td><?php echo $news->EXCHANGE; ?></td>
                                         <td><?php echo $news->INDUSTRYNAME ?></td>
-                                        <td class="text-right"><?php echo bsc_number_format($news->MC);  ?></td>
+                                        <td class="text-right !pr-8"><?php echo bsc_number_format($news->MC);  ?></td>
                                         <td class="text-right"><?php echo $news->TOTALVOLUME ?></td>
                                         <td class="text-right"><?php echo bsc_number_format($news->TOTALVALUE) ?></td>
                                         <td class="text-right"><?php echo $news->PE ?></td>
