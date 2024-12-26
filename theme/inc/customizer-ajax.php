@@ -961,22 +961,22 @@ function filter_details_symbol() {
 						<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 					</th>
 
-					<th class="filter-table cursor-pointer filter-table">
+					<th class="filter-table cursor-pointer filter-table text-right">
 						<?php _e( 'Vốn hóa', 'bsc' ) ?>
 						<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 					</th>
 
-					<th class="filter-table cursor-pointer filter-table">
+					<th class="filter-table cursor-pointer filter-table text-right">
 						<?php _e( 'PE', 'bsc' ) ?>
 						<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 					</th>
-					<th class="filter-table cursor-pointer filter-table !pl-5">
+					<th class="filter-table cursor-pointer filter-table !pl-5 text-right">
 						<?php _e( 'PB', 'bsc' ) ?>
 						<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 					</th>
 				</tr>
 			</thead>
-			<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
+			<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
 				<?php
 				$array_data_sameIndustry = array(
 					'lang' => pll_current_language(),
@@ -991,13 +991,13 @@ function filter_details_symbol() {
 					{
 						?>
 						<tr>
-							<td class="!pl-5"><a
+							<td class="!pl-5 text-left w-1/4"><a
 									href="<?php echo slug_co_phieu( $record->SYMBOL ) ?>"><?php echo $record->SYMBOL ?></a>
 							</td>
-							<td><?php
+							<td class="w-1/4"><?php
 							echo bsc_number_format( $record->MC ) ?></td>
-							<td><?php echo bsc_number_format( $record->PE ) ?></td>
-							<td class="text-center"><?php echo bsc_number_format( $record->PB ) ?></td>
+							<td class="w-1/4"><?php echo bsc_number_format( $record->PE ) ?></td>
+							<td class="w-1/4"><?php echo bsc_number_format( $record->PB ) ?></td>
 						</tr>
 						<?php
 					}

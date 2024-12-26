@@ -659,44 +659,38 @@ get_header();
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table">
+											<th class="filter-table cursor-pointer filter-table text-right">
 												Vốn hóa
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table">
+											<th class="filter-table cursor-pointer filter-table text-right">
 												PE
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 											<th
-												class="filter-table cursor-pointer filter-table text-center !pl-5">
+												class="filter-table cursor-pointer filter-table text-right !pl-5">
 												PB
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 										</tr>
 									</thead>
-									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
+									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
 										<?php
 										for ( $i = 0; $i < 3; $i++ )
 										{
 											?>
 											<tr>
-												<td class="!pl-5"><a href="">A32</a></td>
-												<td>36,80</td>
-												<td>301,24</td>
-												<td class="text-center">6,99</td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A32</a></td>
+												<td class="w-1/4">36,80</td>
+												<td class="w-1/4">301,24</td>
+												<td class="w-1/4">6,99</td>
 											</tr>
 											<tr>
-												<td class="!pl-5"><a href="">A33</a></td>
-												<td>37,80</td>
-												<td>302,24</td>
-												<td class="text-center">7,99</td>
-											</tr>
-											<tr>
-												<td class="!pl-5"><a href="">A34</a></td>
-												<td>38,80</td>
-												<td>303,24</td>
-												<td class="text-center">8,99</td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A33</a></td>
+												<td class="w-1/4">362,80</td>
+												<td class="w-1/4">1,24</td>
+												<td class="w-1/4">6,9934</td>
 											</tr>
 											<?php
 										}
