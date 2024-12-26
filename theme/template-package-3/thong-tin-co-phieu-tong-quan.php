@@ -330,7 +330,7 @@ get_header();
 			</ul>
 			<div class="tab-content block" id="tab-1">
 				<div
-					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[69px]' : '' ?>">
+					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[90px]' : '' ?>">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
 						<h2
@@ -437,7 +437,7 @@ get_header();
 											</div>
 											<div
 												class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-												<p>
+												<p class="min-w-[30px] text-right">
 													46.7
 												</p>
 												<p
@@ -447,11 +447,11 @@ get_header();
 												</p>
 											</div>
 											<div
-												class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end border-r border-[#C9CCD2] text-right pr-10">
 												331,200
 											</div>
 											<div
-												class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?>">
+												class="px-3 py-2 min-h-10 flex items-center justify-end sm:flex-1 pr-8 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?>">
 												15,608,000
 											</div>
 										</li>

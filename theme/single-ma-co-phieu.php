@@ -49,7 +49,7 @@ get_header();
 						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
 							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div
-									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center bsc_need_crawl_price-symbol">
+									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center bsc_need_crawl_price-symbol">
 								</div>
 								<div class="flex flex-col">
 									<h4

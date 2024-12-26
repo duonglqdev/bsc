@@ -609,7 +609,7 @@ function filter_details_symbol() {
 								?>
 								<div
 									class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-									<p>
+									<p class="min-w-[30px] text-right">
 										<?php
 										if ( $record['CLOSE_PRICE'] )
 										{
@@ -624,11 +624,11 @@ function filter_details_symbol() {
 									</p>
 								</div>
 								<div
-									class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+									class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2] text-right pr-10">
 									<?php echo bsc_number_format( $record['TOT_VOLUME'] ) ?>
 								</div>
 								<div
-									class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?>">
+									class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?> pr-8">
 									<?php echo bsc_number_format( $record['TOT_VALUE'] ) ?>
 								</div>
 							</li>
