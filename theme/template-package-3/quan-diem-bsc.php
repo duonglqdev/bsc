@@ -187,8 +187,7 @@ get_header();
 							<p>3.26</p>
 						</div>
 					</div>
-					<div
-						class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
+					<div class="flex gap-1 items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div class="w-[70%] px-2 py-1">
 							USD/VND LNH trung bình
 						</div>
@@ -205,7 +204,8 @@ get_header();
 							<p class=" mb-1">
 								BSC kịch bản 1
 							</p>
-							<div class="grid grid-cols-2 text-right  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5 gap-5':'mr-6 gap-4' ?>">
+							<div
+								class="grid grid-cols-2 text-right  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 gap-5' : 'mr-6 gap-4' ?>">
 								<p>2024</p>
 								<p>2025</p>
 							</div>
@@ -215,7 +215,7 @@ get_header();
 						{
 							?>
 							<div
-								class="grid grid-cols-2 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
+								class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 								<p>6.1</p>
 								<p>5.25</p>
 							</div>
@@ -223,7 +223,7 @@ get_header();
 						}
 						?>
 						<div
-							class="grid grid-cols-2 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pr-11' ?> items-center min-h-10  [&:nth-child(odd)]:bg-[#EBF4FA]">
+							class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10  [&:nth-child(odd)]:bg-[#EBF4FA]">
 							<p>22,842</p>
 							<p>23,839</p>
 						</div>
@@ -234,7 +234,8 @@ get_header();
 							<p class=" mb-1">
 								BSC kịch bản 2
 							</p>
-							<div class="grid grid-cols-2 text-right  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5 gap-5':'mr-6 gap-4' ?>">
+							<div
+								class="grid grid-cols-2 text-right  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 gap-5' : 'mr-6 gap-4' ?>">
 								<p>2024</p>
 								<p>2025</p>
 							</div>
@@ -244,7 +245,7 @@ get_header();
 						{
 							?>
 							<div
-								class="grid grid-cols-2 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
+								class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
 								<p>6.1</p>
 								<p>5.25</p>
 							</div>
@@ -252,7 +253,7 @@ get_header();
 						}
 						?>
 						<div
-							class="grid grid-cols-2 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pr-11' ?> items-center min-h-10  [&:nth-child(odd)]:bg-[#EBF4FA]">
+							class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10  [&:nth-child(odd)]:bg-[#EBF4FA]">
 							<p>22,842</p>
 							<p>23,839</p>
 						</div>
@@ -265,7 +266,8 @@ get_header();
 						<p class=" mb-1">
 							Consensus 2024
 						</p>
-						<div class="grid grid-cols-3 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' pr-5':'mr-12' ?>">
+						<div
+							class="grid grid-cols-3 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' pr-5' : 'mr-12' ?>">
 							<p>Min</p>
 							<p>TB</p>
 							<p>Max</p>
@@ -276,7 +278,7 @@ get_header();
 					{
 						?>
 						<div
-							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pl-5 pr-[68px]' ?>">
+							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
 							<p>6.1</p>
 							<p>5.25</p>
 							<p>5.25</p>
@@ -295,7 +297,8 @@ get_header();
 						<p class=" mb-1">
 							Consensus 2025
 						</p>
-						<div class="grid grid-cols-3 text-right gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' pr-5':'mr-12' ?>">
+						<div
+							class="grid grid-cols-3 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' pr-5' : 'mr-12' ?>">
 							<p>Min</p>
 							<p>TB</p>
 							<p>Max</p>
@@ -306,7 +309,7 @@ get_header();
 					{
 						?>
 						<div
-							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5':'pl-5 pr-[68px]' ?>">
+							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
 							<p>6.1</p>
 							<p>5.25</p>
 							<p>5.25</p>
@@ -333,18 +336,23 @@ get_header();
 					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white">
 					<div class="flex">
 						<div
-							class="shrink-0 prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[160px] prose-li:min-h-10' : 'w-[140px] prose-li:min-h-[30px]' ?>">
+							class="shrink-0 prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[120px] prose-li:min-h-10' : 'w-[140px] prose-li:min-h-[30px]' ?>">
 							<div
 								class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
-								Ngành
+								Mã CK
 							</div>
+
+
+
 							<ul>
 								<?php
 								for ( $i = 0; $i < 6; $i++ )
 								{
 									?>
 									<li>
-										Ngân hàng
+										<a href="">
+											BID
+										</a>
 									</li>
 									<?php
 								}
@@ -357,7 +365,9 @@ get_header();
 								{
 									?>
 									<li>
-										Ngân hàng
+										<a href="">
+											BID
+										</a>
 									</li>
 									<?php
 								}
@@ -370,7 +380,9 @@ get_header();
 								{
 									?>
 									<li>
-										Ngân hàng
+										<a href="">
+											BID
+										</a>
 									</li>
 									<?php
 								}
@@ -378,56 +390,55 @@ get_header();
 							</ul>
 						</div>
 						<div
-							class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10' : 'prose-li:min-h-[30px]' ?>">
-							<div class="min-w-[110px]">
+							class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-end  prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10  prose-li:pr-10' : 'prose-li:min-h-[30px] prose-li:pr-4' ?>">
+							<div class="min-w-[150px]">
 								<div
 									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-									Mã CK
+									Ngành
 								</div>
-								<ul>
+
+
+								<ul
+									class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
 									<?php
 									for ( $i = 0; $i < 6; $i++ )
 									{
 										?>
 										<li>
-											<a href="">
-												BID
-											</a>
+											Xây dựng và Vật liệu
 										</li>
 										<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-								<ul>
+								<ul class="prose-li:!justify-start prose-li:pl-3 whitespace-nowrap">
 									<?php
 									for ( $i = 0; $i < 6; $i++ )
 									{
 										?>
 										<li>
-											<a href="">
-												BID
-											</a>
+											Dịch vụ tài chính
 										</li>
 										<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
-								<ul>
+								<ul class="prose-li:!justify-start prose-li:pl-3 whitespace-nowrap">
 									<?php
 									for ( $i = 0; $i < 6; $i++ )
 									{
 										?>
 										<li>
-											<a href="">
-												BID
-											</a>
+											Bất động sản
 										</li>
 										<?php
 									}
 									?>
 								</ul>
+
+
 							</div>
 							<div class="min-w-[110px]">
 								<div
@@ -478,8 +489,17 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
-									% YoY
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5] p-2">
+									LNST <br> CĐTS
+									<button data-tooltip-target="tooltip-animation1" class="ml-1"
+										type="button">
+										<?php echo svg( 'tooltip', '20', '20' ) ?>
+									</button>
+									<div id="tooltip-animation1" role="tooltip"
+										class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+										Lợi nhuận sau thuế của cổ đông thiểu số
+										<div class="tooltip-arrow" data-popper-arrow></div>
+									</div>
 								</div>
 								<ul>
 									<?php
@@ -747,9 +767,19 @@ get_header();
 							</div>
 							<div class="min-w-[110px]">
 								<div
-									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2">
-									Giá ngày <br>
+									class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5]">
+									Giá gần nhất <br>
 									15/08/2024
+									<button data-tooltip-target="tooltip-animation2" class="ml-1"
+										type="button">
+										<?php echo svg( 'tooltip', '20', '20' ) ?>
+									</button>
+									<div id="tooltip-animation2" role="tooltip"
+										class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+										<?php _e( 'Giá đóng cửa tại ngày 26/12/2024
+', 'bsc' ) ?>
+										<div class="tooltip-arrow" data-popper-arrow></div>
+									</div>
 								</div>
 								<ul>
 									<?php
