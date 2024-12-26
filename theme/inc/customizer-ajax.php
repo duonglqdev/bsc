@@ -1741,8 +1741,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLTT Lãi vay trung bình ngành', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
@@ -1902,8 +1902,8 @@ function filter_details_symbol()
                                                     data-load="false"
                                                     data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
                                                     data-2="<?php echo  htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-                                                    data-title-1="<?php _e('TLTT Lãi vay', 'bsc') ?>"
-                                                    data-title-2="<?php _e('TLTT Lãi vay trung bình ngành', 'bsc') ?>"
+                                                    data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
+                                                    data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
                                                     data-color-1="#235BA8"
                                                     data-color-2="#FFB81C">
                                                 </div>
