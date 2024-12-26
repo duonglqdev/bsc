@@ -768,7 +768,7 @@ get_header();
 					<?php if ( wp_is_mobile() && bsc_is_mobile() )
 					{ ?>
 						<div class="mt-8">
-						<a href="#"
+							<a href="#"
 								class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
 								<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 								Xem chi tiết
@@ -831,19 +831,19 @@ get_header();
 							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 								<table
 									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
 											<th colspan="7">Kết quả kinh doanh</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="text-right">
 										<?php
-										for ( $i = 0; $i < 4; $i++ )
+										for ( $i = 0; $i < 2; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-												<td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Lợi nhuận sau thuế của công ty mẹ	
 												</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
@@ -851,6 +851,23 @@ get_header();
 												<td>1,333,024,980</td>
 												<td>1,089,005,390</td>
 												<td>1,258,998,059</td>
+											</tr>
+											<?php
+										}
+										?>
+										<?php
+										for ( $i = 0; $i < 2; $i++ )
+										{
+											?>
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng lợi nhuận KT trước
+													thuế</td>
+												<td>2,174,230,121.89</td>
+												<td>3,384,568,877.75</td>
+												<td>3,261,215,356.87</td>
+												<td>3,733,225,669.77</td>
+												<td>3,412,385,133.84</td>
+												<td>912,577,380</td>
 											</tr>
 											<?php
 										}
@@ -863,19 +880,19 @@ get_header();
 							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 								<table
 									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
 											<th colspan="7">Cân đối kế toán</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="text-right">
 										<?php
 										for ( $i = 0; $i < 4; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-												<td class="lg:min-w-[231px]">Tổng tài sản</td>
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng tài sản</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
 												<td>912,577,380</td>
@@ -958,7 +975,8 @@ get_header();
 											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 												<td
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
-													<a href="">BSI</a></td>
+													<a href="">BSI</a>
+												</td>
 												<td>46,44%</td>
 												<td>37,80%</td>
 												<td>30,67%</td>

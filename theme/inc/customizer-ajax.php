@@ -1201,14 +1201,14 @@ function filter_details_symbol() {
 									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 										<table
 											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 											<thead>
 												<tr>
 													<th colspan="<?php echo $total_colspan ?>">
 														<?php _e( 'Kết quả kinh doanh', 'bsc' ); ?></th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody class="text-right">
 												<?php
 												$check_kqkd = 0;
 												foreach ( $response_GetSummaryFinanceReportBySymbol->d2 as $data )
@@ -1270,8 +1270,8 @@ function filter_details_symbol() {
 															);
 														}
 														?>
-														<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-															<td class="lg:min-w-[231px]"><?php echo $data_title[ $check_kqkd ] ?>
+														<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+															<td class="lg:min-w-[231px] lg:!w-1/4 text-left"><?php echo $data_title[ $check_kqkd ] ?>
 															</td>
 															<?php
 															$dataArray = (array) $data;
@@ -1305,14 +1305,14 @@ function filter_details_symbol() {
 									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 										<table
 											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 											<thead>
 												<tr>
 													<th colspan="<?php echo $total_colspan ?>">
 														<?php _e( 'Cân đối kế toán', 'bsc' ) ?></th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody class="text-right">
 												<?php
 												$check_ts = 0;
 												foreach ( $response_GetSummaryFinanceReportBySymbol->d1 as $data_ts )
@@ -1374,8 +1374,8 @@ function filter_details_symbol() {
 															);
 														}
 														?>
-														<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-															<td class="lg:min-w-[231px]"><?php echo $data_ts_title[ $check_ts ] ?>
+														<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+															<td class="lg:min-w-[231px] lg:!w-1/4 text-left"><?php echo $data_ts_title[ $check_ts ] ?>
 															</td>
 															<?php
 															$data_tsArray = (array) $data_ts;
