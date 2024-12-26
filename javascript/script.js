@@ -3148,6 +3148,7 @@ import { DataTable } from 'simple-datatables';
 		$('#search-shares').on('focus', function () {
 			if (!isCheckboxChecked()) return;
 			const sharesResult = $('.shares-result');
+			$('html').removeClass('scroll-pt-10');
 			sharesResult.addClass('active');
 			running_api_price();
 		});
