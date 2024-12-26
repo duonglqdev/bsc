@@ -2938,8 +2938,9 @@ import { DataTable } from 'simple-datatables';
 							).length > 0
 						) {
 							var bidPrice1_title = share.bidPrice1;
-							bidPrice1_title =
-								bsc_number_format(bidPrice1_title);
+							bidPrice1_title = bsc_number_format(
+								bidPrice1_title / 1000
+							);
 							wrapper_price
 								.find('.bsc_need_crawl_price-bidPrice1')
 								.html(bidPrice1_title);
@@ -3060,6 +3061,24 @@ import { DataTable } from 'simple-datatables';
 								wrapper_price
 									.find('.bsc_need_crawl_price-text-color')
 									.addClass(text_color_class);
+							}
+							if (
+								wrapper_price.find(
+									'.bsc_need_crawl_price-bidPrice1'
+								).length > 0
+							) {
+								let text_class_price = '';
+								if (share.bidPrice1 === share.ceiling) {
+									text_class_price = 'text-[#7F1CCD]';
+								} else if (share.bidPrice1 === share.floor) {
+									text_class_price = 'text-[#1ABAFE]';
+								} else {
+									text_class_price = text_color_class;
+								}
+
+								wrapper_price
+									.find('.bsc_need_crawl_price-bidPrice1')
+									.addClass(text_class_price);
 							}
 							if (
 								wrapper_price.find(

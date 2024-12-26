@@ -2,6 +2,7 @@
 if ($args['data']) {
 	$news = $args['data'];
 	$symbol = strtoupper($args['symbol']);
+	$first_symbol = substr($symbol, 0, 1);
 	$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
 	$banner = wp_get_attachment_image_url(
 		wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
@@ -49,7 +50,8 @@ get_header();
 						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
 							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div
-									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center bsc_need_crawl_price-symbol">
+									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center ">
+									<?php echo $first_symbol ?>
 								</div>
 								<div class="flex flex-col">
 									<h4

@@ -2864,10 +2864,10 @@ function filter_details_symbol()
                     </div>
                     <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
                         <p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-                            <?php _e('ROE', 'bsc') ?>
+                            <?php _e('ROA', 'bsc') ?>
                         </p>
                         <p class="font-medium text-lg">
-                            <?php echo $response_securityBasicInfo->data[0]->ROE ?>
+                            <?php echo $response_securityBasicInfo->data[0]->ROA ?>
                         </p>
                     </div>
                 </div>
