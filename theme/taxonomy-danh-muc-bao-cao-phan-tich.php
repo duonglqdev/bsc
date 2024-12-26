@@ -339,7 +339,7 @@ get_header();
 											$stocksDataJson = json_encode($vnIndexData); ?>
 											<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
 												<div
-													class="bg-white shadow-base rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?>">
+													class="bg-white shadow-base rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:p-8 p-6' : 'p-4' ?>">
 													<h4
 														class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
 														<?php _e('Năm', 'bsc') ?> <?php echo date("Y"); ?>
@@ -355,7 +355,7 @@ get_header();
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+																class="min-w-[84px] text-center py-0.5 px-3 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Tích cực', 'bsc') ?>
 															</div>
 														</div>
@@ -370,7 +370,7 @@ get_header();
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+																class="min-w-[84px] text-center py-0.5 px-3 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Cơ sở', 'bsc') ?>
 															</div>
 														</div>
@@ -384,7 +384,7 @@ get_header();
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+																class="min-w-[84px] text-center py-0.5 px-3 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Tiêu cực', 'bsc') ?>
 															</div>
 														</div>

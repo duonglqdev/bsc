@@ -330,7 +330,7 @@ get_header();
 			</ul>
 			<div class="tab-content block" id="tab-1">
 				<div
-					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[69px]' : '' ?>">
+					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[90px]' : '' ?>">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
 						<h2
@@ -437,7 +437,7 @@ get_header();
 											</div>
 											<div
 												class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-												<p>
+												<p class="min-w-[30px] text-right">
 													46.7
 												</p>
 												<p
@@ -447,11 +447,11 @@ get_header();
 												</p>
 											</div>
 											<div
-												class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-center border-r border-[#C9CCD2]">
+												class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end border-r border-[#C9CCD2] text-right pr-10">
 												331,200
 											</div>
 											<div
-												class="px-3 py-2 min-h-10 flex items-center justify-center sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?>">
+												class="px-3 py-2 min-h-10 flex items-center justify-end sm:flex-1 pr-8 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?>">
 												15,608,000
 											</div>
 										</li>
@@ -659,44 +659,38 @@ get_header();
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table">
+											<th class="filter-table cursor-pointer filter-table text-right">
 												Vốn hóa
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table">
+											<th class="filter-table cursor-pointer filter-table text-right">
 												PE
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 											<th
-												class="filter-table cursor-pointer filter-table text-center !pl-5">
+												class="filter-table cursor-pointer filter-table text-right !pl-5">
 												PB
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 										</tr>
 									</thead>
-									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2]">
+									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
 										<?php
 										for ( $i = 0; $i < 3; $i++ )
 										{
 											?>
 											<tr>
-												<td class="!pl-5"><a href="">A32</a></td>
-												<td>36,80</td>
-												<td>301,24</td>
-												<td class="text-center">6,99</td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A32</a></td>
+												<td class="w-1/4">36,80</td>
+												<td class="w-1/4">301,24</td>
+												<td class="w-1/4">6,99</td>
 											</tr>
 											<tr>
-												<td class="!pl-5"><a href="">A33</a></td>
-												<td>37,80</td>
-												<td>302,24</td>
-												<td class="text-center">7,99</td>
-											</tr>
-											<tr>
-												<td class="!pl-5"><a href="">A34</a></td>
-												<td>38,80</td>
-												<td>303,24</td>
-												<td class="text-center">8,99</td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A33</a></td>
+												<td class="w-1/4">362,80</td>
+												<td class="w-1/4">1,24</td>
+												<td class="w-1/4">6,9934</td>
 											</tr>
 											<?php
 										}
@@ -768,7 +762,7 @@ get_header();
 					<?php if ( wp_is_mobile() && bsc_is_mobile() )
 					{ ?>
 						<div class="mt-8">
-						<a href="#"
+							<a href="#"
 								class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
 								<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 								Xem chi tiết
@@ -831,19 +825,19 @@ get_header();
 							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 								<table
 									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
 											<th colspan="7">Kết quả kinh doanh</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="text-right">
 										<?php
-										for ( $i = 0; $i < 4; $i++ )
+										for ( $i = 0; $i < 2; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-												<td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Lợi nhuận sau thuế của công ty mẹ	
 												</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
@@ -851,6 +845,23 @@ get_header();
 												<td>1,333,024,980</td>
 												<td>1,089,005,390</td>
 												<td>1,258,998,059</td>
+											</tr>
+											<?php
+										}
+										?>
+										<?php
+										for ( $i = 0; $i < 2; $i++ )
+										{
+											?>
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng lợi nhuận KT trước
+													thuế</td>
+												<td>2,174,230,121.89</td>
+												<td>3,384,568,877.75</td>
+												<td>3,261,215,356.87</td>
+												<td>3,733,225,669.77</td>
+												<td>3,412,385,133.84</td>
+												<td>912,577,380</td>
 											</tr>
 											<?php
 										}
@@ -863,19 +874,19 @@ get_header();
 							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 								<table
 									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4  prose-td:p-4' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
 											<th colspan="7">Cân đối kế toán</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="text-right">
 										<?php
 										for ( $i = 0; $i < 4; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-												<td class="lg:min-w-[231px]">Tổng tài sản</td>
+											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng tài sản</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
 												<td>912,577,380</td>
@@ -958,7 +969,8 @@ get_header();
 											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 												<td
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
-													<a href="">BSI</a></td>
+													<a href="">BSI</a>
+												</td>
 												<td>46,44%</td>
 												<td>37,80%</td>
 												<td>30,67%</td>

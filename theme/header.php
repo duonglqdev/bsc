@@ -30,7 +30,7 @@
 <body <?php body_class('font-body text-black font-normal'); ?>>
 
 	<?php wp_body_open(); ?>
-	<header class="transition duration-500 z-30 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'relative' : 'sticky top-0' ?>">
+	<header class="transition duration-500 z-[51] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'relative' : 'sticky top-0' ?>">
 		<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 			<div class="bg-gradient-blue py-2 text-white relative lg:block hidden">
 				<div

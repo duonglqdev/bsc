@@ -2265,6 +2265,14 @@ import { DataTable } from 'simple-datatables';
 								height: 278,
 								toolbar: { show: false },
 							},
+							plotOptions: {
+								bar: {
+								  borderRadius: 10,
+								  dataLabels: {
+									position: 'top',
+								  },
+								}
+							  },
 							series: series,
 							xaxis: {
 								categories: formattedDates, // Sử dụng ngày đã chuyển đổi
@@ -3140,6 +3148,7 @@ import { DataTable } from 'simple-datatables';
 		$('#search-shares').on('focus', function () {
 			if (!isCheckboxChecked()) return;
 			const sharesResult = $('.shares-result');
+			$('html').removeClass('scroll-pt-10');
 			sharesResult.addClass('active');
 			running_api_price();
 		});
@@ -3293,6 +3302,13 @@ import { DataTable } from 'simple-datatables';
 			e.preventDefault();
 			load_du_lieu_lich_su();
 		});
+		$(document).ready(function () {
+			var mck_dlls = $('#du-lieu-lich-su_form .mck').val();
+			if (mck_dlls) {
+				$('#du-lieu-lich-su_submit').trigger('click');
+			}
+		});
+		
 		$(document).on('click', '#du-lieu-lich-su_reset', function (e) {
 			$('#du-lieu-lich-su_form')[0].reset();
 			load_du_lieu_lich_su();

@@ -73,7 +73,7 @@ $time_cache = 300;
 					} ?>
 				<?php } ?>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px] overflow-hidden' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 flex flex-col' : 'mt-[50px] overflow-hidden' ?>">
 					<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 						<?php if (get_sub_field('title_ma_hieu_qua')) { ?>
 							<h2
@@ -161,7 +161,7 @@ $time_cache = 300;
 						<?php } ?>
 					<?php } ?>
 					<?php if (have_rows('tien_ich')) { ?>
-						<div class="space-y-[14px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'hidden tab-content' ?>"
+						<div class="space-y-[14px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto' : 'hidden tab-content' ?>"
 							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?> id="ttnc-2" <?php } ?>>
 							<?php while (have_rows('tien_ich')) :
 								the_row(); ?>

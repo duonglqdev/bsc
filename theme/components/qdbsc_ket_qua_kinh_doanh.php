@@ -29,10 +29,10 @@ $class = $check_logout['class'];
                         class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white <?php echo $class ?>">
                         <div class="flex">
                             <div
-                                class="shrink-0 prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[160px] prose-li:min-h-10' : 'w-[140px] prose-li:min-h-[30px]' ?>">
+                                class="shrink-0 prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc] w-[120px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' prose-li:min-h-10' : 'prose-li:min-h-[30px]' ?>">
                                 <div
                                     class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                    <?php _e('Mã chứng khoán', 'bsc') ?>
+                                    <?php _e('Mã CK', 'bsc') ?>
                                 </div>
                                 <ul>
                                     <?php
@@ -49,13 +49,13 @@ $class = $check_logout['class'];
                                 </ul>
                             </div>
                             <div
-                                class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-center prose-p:font-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-li:min-h-10' : 'prose-li:min-h-[30px]' ?>">
-                                <div class="min-w-[110px]">
+                                class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-end  prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10  prose-li:pr-10' : 'prose-li:min-h-[30px] prose-li:pr-4' ?>">
+                                <div class="min-w-[150px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
                                         <?php _e('Ngành', 'bsc') ?>
                                     </div>
-                                    <ul>
+                                    <ul class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
                                         <?php
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
@@ -70,7 +70,7 @@ $class = $check_logout['class'];
                                 <div class="min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                        <?php _e('Doanh thu thuần', 'bsc') ?> <?php echo date('Y') ?>
+                                        <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
                                         <p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
                                     </div>
                                     <ul>
@@ -87,12 +87,20 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="min-w-[110px]">
                                     <div
-                                        class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
-                                        <?php _e('LNST CĐTS', 'bsc') ?>
-                                        <!-- #Duong: đoạn này em sửa thành tooltip -->
-                                        <div class="tool-tip">
-                                            <?php _e('Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc') ?>
-                                        </div>
+                                        class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5] p-2 border-r-[0.1px] border-[#c3c3c3]">
+                                        <?php _e('LNST', 'bsc') ?> <br>
+                                        <?php _e('CĐTS', 'bsc') ?>
+                                        
+                                        <button data-tooltip-target="tooltip-animation1" class="ml-1"
+										type="button">
+										 <?php echo svg('tooltip', '20','20') ?>
+									</button>
+									<div id="tooltip-animation1" role="tooltip"
+										class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+                                        <?php _e('Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc') ?>
+										<div class="tooltip-arrow" data-popper-arrow></div>
+									</div>
+                                       
                                     </div>
                                     <ul>
                                         <?php
@@ -201,16 +209,23 @@ $class = $check_logout['class'];
                                 </div>
                                 <div class="min-w-[110px]">
                                     <div
-                                        class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
+                                        class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5] border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('Giá gần nhất', 'bsc') ?> <br>
                                         <?php $date = new DateTime($response_GetForecastBussinessResults->d[0]->tradedatebefore);
                                         $tradedatebefore = $date->format('d/m/Y');
                                         echo $tradedatebefore;
                                         ?>
-                                        <!-- #Duong: đoạn này em sửa thành tooltip -->
-                                        <div class="tool-tip">
-                                            <?php echo  __('Giá đóng cửa tại ngày', 'bsc') . ' ' . $tradedatebefore ?>
-                                        </div>
+                                      
+
+                                        <button data-tooltip-target="tooltip-animation2" class="ml-1"
+										type="button">
+										<?php echo svg( 'tooltip', '20', '20' ) ?>
+									</button>
+									<div id="tooltip-animation2" role="tooltip"
+										class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+                                        <?php echo  __('Giá đóng cửa tại ngày', 'bsc') . ' ' . $tradedatebefore ?>
+										<div class="tooltip-arrow" data-popper-arrow></div>
+									</div>
                                     </div>
                                     <ul>
                                         <?php
@@ -276,7 +291,7 @@ $class = $check_logout['class'];
                             class="w-[160px] shrink-0 prose-li:min-h-[30px] prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc]">
                             <div
                                 class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4">
-                                <?php _e('Mã chứng khoán', 'bsc') ?>
+                                <?php _e('Mã CK', 'bsc') ?>
                             </div>
                             <ul>
                                 <?php
