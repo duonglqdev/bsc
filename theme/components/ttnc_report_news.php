@@ -18,7 +18,7 @@ $time_cache = 300;
 						the_row();
 						if (get_sub_field('title')) { ?>
 							<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab'))
-																			echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
+																		echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 								class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
 								<?php echo svg('arrow-btn', '16', '16') ?>
 								<?php the_sub_field('title') ?>
@@ -62,7 +62,7 @@ $time_cache = 300;
 							the_row();
 							if (get_sub_field('title')) { ?>
 								<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab'))
-																				echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
+																			echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
 									class="flex items-center justify-center gap-3 py-3 px-5 btn-base-yellow text-xs font-bold min-h-[38px] mt-8 rounded-md">
 									<?php echo svg('arrow-btn', '16', '16') ?>
 									<?php the_sub_field('title') ?>
@@ -118,7 +118,7 @@ $time_cache = 300;
 								<?php
 								foreach ($GetRecommendedCategory->d as $news) {
 								?>
-									<a href="javascript:void(0)"
+									<a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"
 										class="inline-flex justify-center rounded-lg bg-[#1CCD83] text-white font-bold items-center gap-4 py-3 px-[12px]">
 										<span>
 											<?php echo $news->SYMBOL ?>
@@ -184,7 +184,7 @@ $time_cache = 300;
 												if (get_sub_field('title')) {
 										?>
 													<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab'))
-																									echo 'target="_blank"' ?>
+																								echo 'target="_blank"' ?>
 														href="<?php echo check_link(get_sub_field('link')) ?>"
 														class="inline-flex items-center gap-2 text-xs font-medium transition-all duration-500 hover:scale-105">
 														<?php the_sub_field('title') ?>
