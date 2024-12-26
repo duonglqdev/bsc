@@ -2735,13 +2735,184 @@ import { DataTable } from 'simple-datatables';
 
 		socket.on('i', function (msg) {
 			console.log('/////i///////', msg.d);
-			// ... update lai gia tri
+			if (Array.isArray(msg.d) && msg.d.length > 0) {
+				const share = msg.d[0];
+				if (
+					share.EX &&
+					wrapper_price.find('.bsc_need_crawl_price-exchange')
+						.length > 0
+				) {
+					var exchange_title = share.EX;
+					wrapper_price
+						.find('.bsc_need_crawl_price-exchange')
+						.html(exchange_title);
+				}
+				if (
+					share.B1 &&
+					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
+						.length > 0
+				) {
+					var bidPrice1_title = share.B1;
+					bidPrice1_title = bsc_number_format(bidPrice1_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-bidPrice1')
+						.html(bidPrice1_title);
+				}
+				if (
+					share.CL &&
+					wrapper_price.find('.bsc_need_crawl_price-ceiling').length >
+						0
+				) {
+					var ceiling_title = share.CL;
+					ceiling_title = bsc_number_format(ceiling_title / 1000, 2);
+					wrapper_price
+						.find('.bsc_need_crawl_price-ceiling')
+						.html(ceiling_title);
+				}
+				if (
+					share.HI &&
+					wrapper_price.find('.bsc_need_crawl_price-high').length > 0
+				) {
+					var high_title = share.HI;
+					high_title = bsc_number_format(high_title / 1000, 2);
+					wrapper_price
+						.find('.bsc_need_crawl_price-high')
+						.html(high_title);
+				}
+				if (
+					share.LO &&
+					wrapper_price.find('.bsc_need_crawl_price-low').length > 0
+				) {
+					var low_title = share.LO;
+					low_title = bsc_number_format(low_title / 1000, 2);
+					wrapper_price
+						.find('.bsc_need_crawl_price-low')
+						.html(low_title);
+				}
+				if (
+					share.FL &&
+					wrapper_price.find('.bsc_need_crawl_price-floor').length > 0
+				) {
+					var floor_title = share.FL;
+					floor_title = bsc_number_format(floor_title / 1000, 2);
+					wrapper_price
+						.find('.bsc_need_crawl_price-floor')
+						.html(floor_title);
+				}
+				if (
+					share.AP &&
+					wrapper_price.find('.bsc_need_crawl_price-averagePrice')
+						.length > 0
+				) {
+					var averagePrice_title = share.AP;
+					averagePrice_title = bsc_number_format(
+						averagePrice_title / 1000,
+						2
+					);
+					wrapper_price
+						.find('.bsc_need_crawl_price-averagePrice')
+						.html(averagePrice_title);
+				}
+				if (
+					share.CP &&
+					wrapper_price.find('.bsc_need_crawl_price-closePrice')
+						.length > 0
+				) {
+					var closePrice_title = share.CP;
+					closePrice_title = bsc_number_format(
+						closePrice_title / 1000,
+						2
+					);
+					wrapper_price
+						.find('.bsc_need_crawl_price-closePrice')
+						.html(closePrice_title);
+				}
+				if (
+					share.CV &&
+					wrapper_price.find('.bsc_need_crawl_price-closeVol')
+						.length > 0
+				) {
+					var closeVol_title = share.CV;
+					closeVol_title = bsc_number_format(
+						closeVol_title / 1000,
+						2
+					);
+					wrapper_price
+						.find('.bsc_need_crawl_price-closeVol')
+						.html(closeVol_title);
+				}
+				if (share.CH) {
+					const difference = share.CH;
+					let text_color_class = '';
+					if (difference > 0) {
+						text_color_class = 'text-[#1CCD83]';
+					} else if (difference < 0) {
+						text_color_class = 'text-[#FE5353]';
+					} else if (difference === 0) {
+						text_color_class = 'text-[#EB0]';
+					}
+					if (
+						wrapper_price.find('.bsc_need_crawl_price-text-color')
+							.length > 0
+					) {
+						wrapper_price
+							.find('.bsc_need_crawl_price-text-color')
+							.addClass(text_color_class);
+					}
+					if (
+						wrapper_price.find(
+							'.bsc_need_crawl_price-bidPrice1-reference'
+						).length > 0
+					) {
+						const formattedDifference = bsc_number_format(
+							difference,
+							2
+						);
+						wrapper_price
+							.find('.bsc_need_crawl_price-bidPrice1-reference')
+							.html(formattedDifference);
+					}
+				}
+				if (share.CHP) {
+					if (
+						wrapper_price.find(
+							'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+						).length > 0
+					) {
+						const formattedPercentage = bsc_number_format(
+							share.CHP,
+							2
+						);
+						wrapper_price
+							.find(
+								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+							)
+							.html(formattedPercentage + '%');
+					}
+				}
+				if (wrapper_price.find('.bsc_need_crawl_date').length > 0) {
+					const now = new Date();
+
+					// Lấy thời gian ở 'Asia/Ho_Chi_Minh' sử dụng Intl.DateTimeFormat
+					const formatter = new Intl.DateTimeFormat('en-US', {
+						timeZone: 'Asia/Ho_Chi_Minh',
+						hour: '2-digit',
+						minute: '2-digit',
+						second: '2-digit',
+						hour12: false,
+					});
+					wrapper_price
+						.find('.bsc_need_crawl_date')
+						.html(formatter.format(now));
+				}
+			}
 		});
 	};
 	window.bsc_need_crawl_price_display = function () {
 		if ('.bsc_need_crawl_price'.length) {
 			$('.bsc_need_crawl_price').each(function () {
 				var symbol = $(this).attr('data-symbol');
+				var check_socket = $(this).attr('data-socket');
 				var wrapper_price = $(this);
 				if (symbol) {
 					const share = globalShares.find(
@@ -2775,8 +2946,9 @@ import { DataTable } from 'simple-datatables';
 							).length > 0
 						) {
 							var bidPrice1_title = share.bidPrice1;
-							bidPrice1_title =
-								bsc_number_format(bidPrice1_title);
+							bidPrice1_title = bsc_number_format(
+								bidPrice1_title / 1000
+							);
 							wrapper_price
 								.find('.bsc_need_crawl_price-bidPrice1')
 								.html(bidPrice1_title);
@@ -2900,6 +3072,24 @@ import { DataTable } from 'simple-datatables';
 							}
 							if (
 								wrapper_price.find(
+									'.bsc_need_crawl_price-bidPrice1'
+								).length > 0
+							) {
+								let text_class_price = '';
+								if (share.bidPrice1 === share.ceiling) {
+									text_class_price = 'text-[#7F1CCD]';
+								} else if (share.bidPrice1 === share.floor) {
+									text_class_price = 'text-[#1ABAFE]';
+								} else {
+									text_class_price = text_color_class;
+								}
+
+								wrapper_price
+									.find('.bsc_need_crawl_price-bidPrice1')
+									.addClass(text_class_price);
+							}
+							if (
+								wrapper_price.find(
 									'.bsc_need_crawl_price-bidPrice1-reference'
 								).length > 0
 							) {
@@ -2976,7 +3166,6 @@ import { DataTable } from 'simple-datatables';
 								.find('.bsc_need_crawl_price-closePrice')
 								.addClass(text_color_class_price_changePercent);
 						}
-						console.log('a');
 						if (
 							wrapper_price.find(
 								'.bsc_need_crawl_price-text_color-closePrice'
@@ -2987,7 +3176,6 @@ import { DataTable } from 'simple-datatables';
 									'.bsc_need_crawl_price-text_color-closePrice'
 								)
 								.attr('data-giakyvong');
-							console.log(giakyvong + '1');
 							// Kiểm tra và tính toán
 							let text_color_class_price_closePrice = '';
 							let before_text_closePrice = '';
@@ -3090,7 +3278,9 @@ import { DataTable } from 'simple-datatables';
 								.html(title_symbol);
 						}
 					}
-					onchangeInstrument(symbol);
+					if (check_socket === 'true') {
+						onchangeInstrument(symbol);
+					}
 				}
 			});
 		}
