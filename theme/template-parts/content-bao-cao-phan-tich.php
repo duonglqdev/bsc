@@ -12,7 +12,7 @@
         }
     }
 ?>
-    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm 2xl:min-h-[196px] lg:min-h-[192px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
+    <div class="content-bao-cao-phan-tich relative rounded-[10px] bg-white shadow-base-sm lg:min-h-[196px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-6 py-4' : 'p-4' ?> flex flex-col transition-all duration-500 hover:shadow-[2px_3px_11px_1px_#ccc]">
         <div class="flex items-center justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-4' : 'mb-[12px]' ?>">
             <?php
 
