@@ -3698,7 +3698,7 @@ function filter_details_symbol()
 /**
  * Render Menu Report 
  */
-function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
+function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null, $level = 0)
 {
     if ($menuData && $response_GetDetailFinanceReportBySymbol) {
         foreach ($menuData as $item) {
@@ -3710,7 +3710,11 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                         class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
                         <?php
                         if (!empty($item['children'])) {
-                            echo svgClass('icon-up', '16', '16', 'transition-all shrink-0');
+                            if (($level === 0)) {
+                                echo svgClass('icon-up', '16', '16', 'transition-all shrink-0 rotate-180');
+                            } else {
+                                echo svgClass('icon-up', '16', '16', 'transition-all shrink-0');
+                            }
                         } ?>
                         <?php echo  $item['title'] ?>
                     </h3>
@@ -3738,8 +3742,8 @@ function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null)
                     </div>
                 </div>
                 <?php if (!empty($item['children'])) { ?>
-                    <div class="sub-collapse hidden">
-                        <?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol); ?>
+                    <div class="sub-collapse hidden" style="<?php echo ($level === 0) ? 'display: block;' : '' ?>">
+                        <?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1); ?>
                     </div>
                 <?php } ?>
             </div>

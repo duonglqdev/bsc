@@ -230,7 +230,7 @@ get_header();
 				);
 				$response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
 				if ($response_GetForecastBussiness) {
-					if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) { ?>
+					if (isset($response_GetForecastBussiness->d2) && !empty($response_GetForecastBussiness->d2)) {						?>
 						<li
 							class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 							<?php if ($check_logout) {
