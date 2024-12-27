@@ -2006,6 +2006,7 @@ import { DataTable } from 'simple-datatables';
 						{
 							y: kb2Value,
 							borderColor: '#30D158',
+							borderWidth: 3,
 							label: {
 								borderColor: '#30D158',
 								style: {
@@ -2018,6 +2019,7 @@ import { DataTable } from 'simple-datatables';
 						{
 							y: kbcoso,
 							borderColor: '#FEAF00',
+							borderWidth: 3,
 							label: {
 								borderColor: '#FEAF00',
 								style: {
@@ -2033,6 +2035,7 @@ import { DataTable } from 'simple-datatables';
 						{
 							y: kb1Value,
 							borderColor: '#FF0017',
+							borderWidth: 3,
 							label: {
 								borderColor: '#FF0017',
 								style: {
