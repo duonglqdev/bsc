@@ -1,28 +1,28 @@
 <?php
-if ($args['data']) {
+if ( $args['data'] ) {
 	$news = $args['data'];
-	$symbol = strtoupper($args['symbol']);
-	$first_symbol = substr($symbol, 0, 1);
-	$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
+	$symbol = strtoupper( $args['symbol'] );
+	$first_symbol = substr( $symbol, 0, 1 );
+	$time_cache = get_field( 'cdttcp1_time_cache', 'option' ) ?: 300;
 	$banner = wp_get_attachment_image_url(
-		wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
-			? get_field('cdc1_background_banner_mobile', 'option')
-			: get_field('cdc1_background_banner', 'option'),
+		wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile', 'option' )
+		? get_field( 'cdc1_background_banner_mobile', 'option' )
+		: get_field( 'cdc1_background_banner', 'option' ),
 		'full'
 	);
-	if (get_field('cdttcp1_background_banner', 'option') || get_field('cdttcp1_background_banner_mobile', 'option')) {
+	if ( get_field( 'cdttcp1_background_banner', 'option' ) || get_field( 'cdttcp1_background_banner_mobile', 'option' ) ) {
 		$banner = wp_get_attachment_image_url(
-			wp_is_mobile() && bsc_is_mobile() && get_field('cdttcp1_background_banner_mobile ', 'option')
-				? get_field('cdttcp1_background_banner_mobile ', 'option')
-				: get_field('cdttcp1_background_banner ', 'option'),
+			wp_is_mobile() && bsc_is_mobile() && get_field( 'cdttcp1_background_banner_mobile ', 'option' )
+			? get_field( 'cdttcp1_background_banner_mobile ', 'option' )
+			: get_field( 'cdttcp1_background_banner ', 'option' ),
 			'full'
 		);
 	}
-	$style = get_field('cdttcp1_background_banner_display', 'option') ?: 'default';
-	$title_breadcrumb = get_field('cdttcp1_title', 'option');
+	$style = get_field( 'cdttcp1_background_banner_display', 'option' ) ?: 'default';
+	$title_breadcrumb = get_field( 'cdttcp1_title', 'option' );
 	$breadcrumb = 'cophieu';
 } else {
-	wp_redirect(home_url('/404'), 301);
+	wp_redirect( home_url( '/404' ), 301 );
 	exit;
 }
 $check_logout = bsc_is_user_logged_out();
@@ -30,38 +30,44 @@ $class = $check_logout['class'];
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner', null, array(
+	<?php get_template_part( 'components/page-banner', null, array(
 		'banner' => $banner,
 		'style' => $style,
 		'title' => $title_breadcrumb,
 		'breadcrumb' => $breadcrumb,
-	)) ?>
-	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
+	) ) ?>
+	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<?php if ($news->FULLNAME) { ?>
-				<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' xl:text-[32px] text-2xl' : 'md:text-xl text-lg' ?> mb-2 leading-normal uppercase">
+			<?php if ( $news->FULLNAME ) { ?>
+				<h2
+					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' xl:text-[32px] text-2xl' : 'md:text-xl text-lg' ?> mb-2 leading-normal uppercase">
 					<?php echo $news->FULLNAME ?>
 				</h2>
 			<?php } ?>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price" data-symbol="<?php echo $symbol ?>" data-socket="true">
-						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
-							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
+			<div
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
+					<div class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price"
+						data-symbol="<?php echo $symbol ?>" data-socket="true">
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
+							<div
+								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div
-									class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center ">
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center ">
 									<?php echo $first_symbol ?>
 								</div>
 								<div class="flex flex-col">
 									<h4
 										class="font-bold lg:text-[32px] text-2xl uppercase leading-normal bsc_need_crawl_price-symbol">
 									</h4>
-									<p class="uppercase <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?> text-paragraph bsc_need_crawl_price-exchange">
+									<p
+										class="uppercase <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-xs' ?> text-paragraph bsc_need_crawl_price-exchange">
 									</p>
 								</div>
 							</div>
-							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div class="flex-col gap-2">
 									<div class="flex gap-[12px] data_number">
 										<div class="text-2xl font-bold text-[#FE5353] bsc_need_crawl_price-bidPrice1">
@@ -74,15 +80,15 @@ get_header();
 										</div>
 									</div>
 									<p class="time-update mt-1 sm:text-xs text-xxs">
-										<?php _e('Cập nhật lúc', 'bsc') ?>
+										<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
 										<span class="bsc_need_crawl_date"></span>
-										<?php _e('UTC_7', 'bsc') ?>
+										<?php _e( 'UTC_7', 'bsc' ) ?>
 									</p>
 								</div>
 							<?php } ?>
 						</div>
 						<div class="flex items-center 2xl:gap-7 gap-5">
-							<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="lg:w-[176px] lg:max-w-[37%]">
 									<div class="flex-col gap-2">
 										<div class="flex gap-[14px] data_number">
@@ -96,65 +102,66 @@ get_header();
 											</div>
 										</div>
 										<p class="time-update mt-1">
-											<?php _e('Cập nhật lúc', 'bsc') ?>
+											<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
 											<span class="bsc_need_crawl_date"></span>
-											<?php _e('UTC_7', 'bsc') ?>
+											<?php _e( 'UTC_7', 'bsc' ) ?>
 										</p>
 									</div>
 								</div>
 							<?php } ?>
-							<div class="flex-1 grid grid-cols-3 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:gap-5 gap-4' : 'gap-6' ?>">
+							<div
+								class="flex-1 grid grid-cols-3 font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-5 gap-4' : 'gap-6' ?>">
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Trần', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Trần', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-[#7F1CCD] bsc_need_crawl_price-ceiling <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-[#7F1CCD] bsc_need_crawl_price-ceiling <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Cao nhất', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Cao nhất', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-black bsc_need_crawl_price-high <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-black bsc_need_crawl_price-high <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 								</div>
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Tham chiếu', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Tham chiếu', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-[#FFB81C] bsc_need_crawl_price-bidPrice1-reference <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-[#FFB81C] bsc_need_crawl_price--reference <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Thấp nhất', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Thấp nhất', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-black bsc_need_crawl_price-low <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-black bsc_need_crawl_price-low <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 								</div>
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Sàn', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Sàn', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-[#1ABAFE] bsc_need_crawl_price-floor <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-[#1ABAFE] bsc_need_crawl_price-floor <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p
-											class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Trung bình', 'bsc') ?>
+										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+											<?php _e( 'Trung bình', 'bsc' ) ?>
 										</p>
-										<p class="font-bold text-black bsc_need_crawl_price-averagePrice <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' text-lg' : '' ?>">
+										<p
+											class="font-bold text-black bsc_need_crawl_price-averagePrice <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
 										</p>
 									</div>
 								</div>
@@ -162,13 +169,13 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[433px] max-w-[33%]' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api" data-api="securityBasicInfo-symbol" data-symbol="<?php echo $symbol ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[433px] max-w-[33%]' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api"
+					data-api="securityBasicInfo-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
-						<div role="status"  class="mt-10">
+						<div role="status" class="mt-10">
 							<svg aria-hidden="true"
 								class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-								viewBox="0 0 100 101" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
+								viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 									fill="currentColor" />
@@ -180,13 +187,13 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api" data-api="GetRecommendedInstrument-symbol" data-symbol="<?php echo $symbol ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api"
+					data-api="GetRecommendedInstrument-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
-						<div role="status"  class="mt-10">
+						<div role="status" class="mt-10">
 							<svg aria-hidden="true"
 								class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-								viewBox="0 0 100 101" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
+								viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 									fill="currentColor" />
@@ -201,98 +208,106 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-16 mb-[50px]' ?> display_data_details_symbol">
+	<section
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-16 mb-[50px]' ?> display_data_details_symbol">
 		<div class="container">
 			<ul
-				class="flex  whitespace-nowrap overflow-x-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:gap-[100px] gap-10' : 'gap-8' ?> items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white">
+				class="flex  whitespace-nowrap overflow-x-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:gap-[100px] gap-10' : 'gap-8' ?> items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white">
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#details_symbol_tab-1"
 						class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('TỔNG QUAN', 'bsc') ?>
+						<?php _e( 'TỔNG QUAN', 'bsc' ) ?>
 					</button>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
-					<button data-tabs="#details_symbol_tab-2" data-ajax="true" data-api="details_symbol_tab-2" data-symbol="<?php echo $symbol ?>"
+					<button data-tabs="#details_symbol_tab-2" data-ajax="true" data-api="details_symbol_tab-2"
+						data-symbol="<?php echo $symbol ?>"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('BÁO CÁO TÀI CHÍNH', 'bsc') ?>
+						<?php _e( 'BÁO CÁO TÀI CHÍNH', 'bsc' ) ?>
 					</button>
 				</li>
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
-					<button data-tabs="#details_symbol_tab-3" data-ajax="true" data-api="details_symbol_tab-3" data-symbol="<?php echo $symbol ?>"
+					<button data-tabs="#details_symbol_tab-3" data-ajax="true" data-api="details_symbol_tab-3"
+						data-symbol="<?php echo $symbol ?>"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('CHỈ TIÊU TÀI CHÍNH', 'bsc') ?>
+						<?php _e( 'CHỈ TIÊU TÀI CHÍNH', 'bsc' ) ?>
 					</button>
 				</li>
 				<?php $array_data_GetForecastBussiness = array(
 					'lang' => pll_current_language(),
 					'symbol' => $symbol,
 				);
-				$response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
-				if ($response_GetForecastBussiness) {
-					if (isset($response_GetForecastBussiness->d2) && !empty($response_GetForecastBussiness->d2)) {						?>
+				$response_GetForecastBussiness = get_data_with_cache( 'GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache );
+				if ( $response_GetForecastBussiness ) {
+					if ( isset( $response_GetForecastBussiness->d2 ) && ! empty( $response_GetForecastBussiness->d2 ) ) { ?>
 						<li
 							class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
-							<?php if ($check_logout) {
-							?>
+							<?php if ( $check_logout ) {
+								?>
 								<a href="<?php echo bsc_url_sso() ?>"
 									class="none-tab has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-									<?php echo svgClass('star', '', '', 'w-6 h-6 shrink-0') ?>
-									<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									<?php echo svgClass( 'star', '', '', 'w-6 h-6 shrink-0' ) ?>
+									<?php _e( 'BSC DỰ PHÓNG', 'bsc' ) ?>
 								</a>
-							<?php
+								<?php
 							} else { ?>
-								<button data-tabs="#details_symbol_tab-4" data-ajax="true" data-api="details_symbol_tab-4" data-symbol="<?php echo $symbol ?>"
+								<button data-tabs="#details_symbol_tab-4" data-ajax="true" data-api="details_symbol_tab-4"
+									data-symbol="<?php echo $symbol ?>"
 									class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-									<?php echo svgClass('star', '', '', 'w-6 h-6 shrink-0') ?>
-									<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									<?php echo svgClass( 'star', '', '', 'w-6 h-6 shrink-0' ) ?>
+									<?php _e( 'BSC DỰ PHÓNG', 'bsc' ) ?>
 								</button>
 							<?php } ?>
 						</li>
-				<?php
+						<?php
 					}
 				} ?>
 			</ul>
 			<div class="tab-content block" id="details_symbol_tab-1">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-[69px]' : '' ?> mt-10">
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
-						<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
-							<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[69px]' : '' ?> mt-10">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
+						<h2
+							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
+							<?php _e( 'BIỂU ĐỒ GIÁ', 'bsc' ) ?>
 						</h2>
-						<div class="rounded-2xl bg-[#F5FCFF] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
+						<div
+							class="rounded-2xl bg-[#F5FCFF] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
 							<iframe width='100%' height='100%'
 								src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light'
 								frameBorder='0' allowFullScreen></iframe>
 						</div>
 					</div>
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
-						<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-							<?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
+						<h2
+							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+							<?php _e( 'LỊCH SỬ GIAO DỊCH', 'bsc' ) ?>
 						</h2>
-						<ul
-							class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
+						<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
 							<li>
 								<button data-tabs="#lichsugiaodich"
 									class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									<?php _e('Lịch sử GD', 'bsc') ?>
+									<?php _e( 'Lịch sử GD', 'bsc' ) ?>
 								</button>
 							</li>
 							<li>
-								<button data-tabs="#ndtnn" data-ajax="true" data-api="ndtnn" data-symbol="<?php echo $symbol ?>"
+								<button data-tabs="#ndtnn" data-ajax="true" data-api="ndtnn"
+									data-symbol="<?php echo $symbol ?>"
 									class="inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									<?php _e('NĐTNN', 'bsc') ?>
+									<?php _e( 'NĐTNN', 'bsc' ) ?>
 								</button>
 							</li>
 						</ul>
-						<div class="tab-content block bsc-ajax-api" id="lichsugiaodich" data-api="lichsugiaodich" data-symbol="<?php echo $symbol ?>">
+						<div class="tab-content block bsc-ajax-api" id="lichsugiaodich" data-api="lichsugiaodich"
+							data-symbol="<?php echo $symbol ?>">
 							<div class="hidden">
-								<div role="status"  class="mt-10">
+								<div role="status" class="mt-10">
 									<svg aria-hidden="true"
 										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-										viewBox="0 0 100 101" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
+										viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 											fill="currentColor" />
@@ -306,11 +321,10 @@ get_header();
 						</div>
 						<div class="tab-content hidden" id="ndtnn">
 							<div class="hidden">
-								<div role="status"  class="mt-10">
+								<div role="status" class="mt-10">
 									<svg aria-hidden="true"
 										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-										viewBox="0 0 100 101" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
+										viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 											fill="currentColor" />
@@ -324,19 +338,20 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-5' : '' ?>">
-						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[386px] max-w-[29%]' : 'w-full' ?>">
-							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('BÁO CÁO PHÂN TÍCH', 'bsc') ?>
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-5' : '' ?>">
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[386px] max-w-[29%]' : 'w-full' ?>">
+							<h2
+								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status"  class="mt-10">
+									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-											viewBox="0 0 100 101" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
+											viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path
 												d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 												fill="currentColor" />
@@ -349,17 +364,18 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[414px] max-w-[31%]' : 'mt-[50px]' ?>">
-							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[414px] max-w-[31%]' : 'mt-[50px]' ?>">
+							<h2
+								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status"  class="mt-10">
+									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-											viewBox="0 0 100 101" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
+											viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path
 												d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 												fill="currentColor" />
@@ -372,18 +388,18 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'mt-14' ?>">
-							<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
+						<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-14' ?>">
+							<h2
+								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								<?php _e( 'DOANH NGHIỆP CÙNG NGÀNH', 'bsc' ) ?>
 							</h2>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative bsc-ajax-api"
 								data-api="sg_dncn" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
-									<div role="status"  class="mt-10">
+									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
 											class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-											viewBox="0 0 100 101" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
+											viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path
 												d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 												fill="currentColor" />
@@ -396,33 +412,34 @@ get_header();
 								</div>
 							</div>
 							<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
-								<?php _e('Đơn vị Vốn hóa (Triệu đồng)', 'bsc') ?>
+								<?php _e( 'Đơn vị Vốn hóa (Triệu đồng)', 'bsc' ) ?>
 							</p>
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<div class="flex justify-between items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-						<h2 class="heading-title"><?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?>
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+					<div
+						class="flex justify-between items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+						<h2 class="heading-title"><?php _e( 'TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc' ) ?>
 						</h2>
-						<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-							<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
-								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+							<?php if ( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) { ?>
+								<a href="<?php echo check_link( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) ?>?mck=<?php echo $symbol ?>"
 									class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem thêm', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem thêm', 'bsc' ) ?>
 								</a>
 							<?php } ?>
 
 						<?php } ?>
 					</div>
-					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?> bsc-ajax-api" data-api="sg_ttvmcp" data-symbol="<?php echo $symbol ?>">
+					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?> bsc-ajax-api"
+						data-api="sg_ttvmcp" data-symbol="<?php echo $symbol ?>">
 						<div class="hidden">
-							<div role="status"  class="mt-10">
+							<div role="status" class="mt-10">
 								<svg aria-hidden="true"
 									class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
-									viewBox="0 0 100 101" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
+									viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path
 										d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
 										fill="currentColor" />
@@ -434,13 +451,13 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-						<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+						<?php if ( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) { ?>
 							<div class="mt-8">
-								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+								<a href="<?php echo check_link( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) ?>?mck=<?php echo $symbol ?>"
 									class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem thêm', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem thêm', 'bsc' ) ?>
 								</a>
 							</div>
 						<?php } ?>
@@ -449,7 +466,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-2">
 				<div class="hidden">
-					<div role="status"  class="mt-10">
+					<div role="status" class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -466,7 +483,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-3" data-chart="profitChart">
 				<div class="hidden">
-					<div role="status"  class="mt-10">
+					<div role="status" class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -483,7 +500,7 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="details_symbol_tab-4">
 				<div class="hidden">
-					<div role="status"  class="mt-10">
+					<div role="status" class="mt-10">
 						<svg aria-hidden="true"
 							class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 							viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
