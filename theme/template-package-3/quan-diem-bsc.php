@@ -45,15 +45,13 @@ get_header();
 			</ul>
 		</div>
 	</section> -->
-	<section
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?>">
+	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
 			<h3
 				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl mb-6' : 'text-[22px] mb-4' ?>">
 				Dự báo vĩ mô</h3>
 			<div class="relative">
-				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?>">
 					<div
 						class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
 						<div
@@ -127,8 +125,7 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
 			<h3
 				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?>">
@@ -202,7 +199,7 @@ get_header();
 						<div
 							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
 							<p class=" mb-1">
-								BSC kịch bản 1
+								Kịch bản tiêu cực
 							</p>
 							<div
 								class="grid grid-cols-2 text-right  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 gap-5' : 'mr-6 gap-4' ?>">
@@ -211,15 +208,14 @@ get_header();
 							</div>
 						</div>
 						<?php
-						for ( $i = 0; $i < 5; $i++ )
-						{
+						for ( $i = 0; $i < 5; $i++ ) {
 							?>
-							<div
-								class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
-								<p>6.1</p>
-								<p>5.25</p>
-							</div>
-							<?php
+								<div
+									class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<p>6.1</p>
+									<p>5.25</p>
+								</div>
+								<?php
 						}
 						?>
 						<div
@@ -232,7 +228,7 @@ get_header();
 						<div
 							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
 							<p class=" mb-1">
-								BSC kịch bản 2
+								Kịch bản tích cực
 							</p>
 							<div
 								class="grid grid-cols-2 text-right  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 gap-5' : 'mr-6 gap-4' ?>">
@@ -241,15 +237,14 @@ get_header();
 							</div>
 						</div>
 						<?php
-						for ( $i = 0; $i < 5; $i++ )
-						{
+						for ( $i = 0; $i < 5; $i++ ) {
 							?>
-							<div
-								class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
-								<p>6.1</p>
-								<p>5.25</p>
-							</div>
-							<?php
+								<div
+									class="grid grid-cols-2 text-right gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pr-11' ?> items-center min-h-10 [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<p>6.1</p>
+									<p>5.25</p>
+								</div>
+								<?php
 						}
 						?>
 						<div
@@ -274,16 +269,15 @@ get_header();
 						</div>
 					</div>
 					<?php
-					for ( $i = 0; $i < 3; $i++ )
-					{
+					for ( $i = 0; $i < 3; $i++ ) {
 						?>
-						<div
-							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
-							<p>6.1</p>
-							<p>5.25</p>
-							<p>5.25</p>
-						</div>
-						<?php
+							<div
+								class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
+								<p>6.1</p>
+								<p>5.25</p>
+								<p>5.25</p>
+							</div>
+							<?php
 					}
 					?>
 					<div class="m-auto">
@@ -305,16 +299,15 @@ get_header();
 						</div>
 					</div>
 					<?php
-					for ( $i = 0; $i < 3; $i++ )
-					{
+					for ( $i = 0; $i < 3; $i++ ) {
 						?>
-						<div
-							class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
-							<p>6.1</p>
-							<p>5.25</p>
-							<p>5.25</p>
-						</div>
-						<?php
+							<div
+								class="grid grid-cols-3 text-right gap-5 items-center min-h-10 [&:nth-child(even)]:bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5' : 'pl-5 pr-[68px]' ?>">
+								<p>6.1</p>
+								<p>5.25</p>
+								<p>5.25</p>
+							</div>
+							<?php
 					}
 					?>
 					<div class="m-auto">
@@ -324,16 +317,14 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
 			<h3
 				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?>">
 				Dự báo kết quả kinh doanh</h3>
 			<div class="relative">
 				<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
-				<div
-					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white">
+				<div class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white">
 					<div class="flex">
 						<div
 							class="shrink-0 prose-li:flex prose-li:items-center prose-ul:pl-4 prose-ul:pr-3 shadow-[2px_3px_7px_0px_#ccc] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[120px] prose-li:min-h-10' : 'w-[140px] prose-li:min-h-[30px]' ?>">
@@ -346,45 +337,42 @@ get_header();
 
 							<ul>
 								<?php
-								for ( $i = 0; $i < 6; $i++ )
-								{
+								for ( $i = 0; $i < 6; $i++ ) {
 									?>
-									<li>
-										<a href="">
-											BID
-										</a>
-									</li>
-									<?php
+										<li>
+											<a href="">
+												BID
+											</a>
+										</li>
+										<?php
 								}
 								?>
 							</ul>
 							<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 							<ul>
 								<?php
-								for ( $i = 0; $i < 6; $i++ )
-								{
+								for ( $i = 0; $i < 6; $i++ ) {
 									?>
-									<li>
-										<a href="">
-											BID
-										</a>
-									</li>
-									<?php
+										<li>
+											<a href="">
+												BID
+											</a>
+										</li>
+										<?php
 								}
 								?>
 							</ul>
 							<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 							<ul>
 								<?php
-								for ( $i = 0; $i < 6; $i++ )
-								{
+								for ( $i = 0; $i < 6; $i++ ) {
 									?>
-									<li>
-										<a href="">
-											BID
-										</a>
-									</li>
-									<?php
+										<li>
+											<a href="">
+												BID
+											</a>
+										</li>
+										<?php
 								}
 								?>
 							</ul>
@@ -398,42 +386,38 @@ get_header();
 								</div>
 
 
-								<ul
-									class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
+								<ul class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											Xây dựng và Vật liệu
-										</li>
-										<?php
+											<li>
+												Xây dựng và Vật liệu
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul class="prose-li:!justify-start prose-li:pl-3 whitespace-nowrap">
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											Dịch vụ tài chính
-										</li>
-										<?php
+											<li>
+												Dịch vụ tài chính
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul class="prose-li:!justify-start prose-li:pl-3 whitespace-nowrap">
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											Bất động sản
-										</li>
-										<?php
+											<li>
+												Bất động sản
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -450,39 +434,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											81,424
-										</li>
-										<?php
+											<li>
+												81,424
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											81,424
-										</li>
-										<?php
+											<li>
+												81,424
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											81,424
-										</li>
-										<?php
+											<li>
+												81,424
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -491,8 +472,7 @@ get_header();
 								<div
 									class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5] p-2">
 									LNST <br> CĐTS
-									<button data-tooltip-target="tooltip-animation1" class="ml-1"
-										type="button">
+									<button data-tooltip-target="tooltip-animation1" class="ml-1" type="button">
 										<?php echo svg( 'tooltip', '20', '20' ) ?>
 									</button>
 									<div id="tooltip-animation1" role="tooltip"
@@ -503,39 +483,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											45%
-										</li>
-										<?php
+											<li>
+												45%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											45%
-										</li>
-										<?php
+											<li>
+												45%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											45%
-										</li>
-										<?php
+											<li>
+												45%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -548,39 +525,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											24,796
-										</li>
-										<?php
+											<li>
+												24,796
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											24,796
-										</li>
-										<?php
+											<li>
+												24,796
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											24,796
-										</li>
-										<?php
+											<li>
+												24,796
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -593,39 +567,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											15%
-										</li>
-										<?php
+											<li>
+												15%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											15%
-										</li>
-										<?php
+											<li>
+												15%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											15%
-										</li>
-										<?php
+											<li>
+												15%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -638,39 +609,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											4.350
-										</li>
-										<?php
+											<li>
+												4.350
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											4.350
-										</li>
-										<?php
+											<li>
+												4.350
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											4.350
-										</li>
-										<?php
+											<li>
+												4.350
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -683,39 +651,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											10.75
-										</li>
-										<?php
+											<li>
+												10.75
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											10.75
-										</li>
-										<?php
+											<li>
+												10.75
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											10.75
-										</li>
-										<?php
+											<li>
+												10.75
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -728,39 +693,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											1.57
-										</li>
-										<?php
+											<li>
+												1.57
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											1.57
-										</li>
-										<?php
+											<li>
+												1.57
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											1.57
-										</li>
-										<?php
+											<li>
+												1.57
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -770,8 +732,7 @@ get_header();
 									class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5]">
 									Giá gần nhất <br>
 									15/08/2024
-									<button data-tooltip-target="tooltip-animation2" class="ml-1"
-										type="button">
+									<button data-tooltip-target="tooltip-animation2" class="ml-1" type="button">
 										<?php echo svg( 'tooltip', '20', '20' ) ?>
 									</button>
 									<div id="tooltip-animation2" role="tooltip"
@@ -783,39 +744,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											22,760
-										</li>
-										<?php
+											<li>
+												22,760
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											22,760
-										</li>
-										<?php
+											<li>
+												22,760
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											22,760
-										</li>
-										<?php
+											<li>
+												22,760
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -828,39 +786,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											27,970
-										</li>
-										<?php
+											<li>
+												27,970
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											27,970
-										</li>
-										<?php
+											<li>
+												27,970
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											27,970
-										</li>
-										<?php
+											<li>
+												27,970
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -873,39 +828,36 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											28%
-										</li>
-										<?php
+											<li>
+												28%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											28%
-										</li>
-										<?php
+											<li>
+												28%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
 								<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]" />
 								<ul>
 									<?php
-									for ( $i = 0; $i < 6; $i++ )
-									{
+									for ( $i = 0; $i < 6; $i++ ) {
 										?>
-										<li>
-											28%
-										</li>
-										<?php
+											<li>
+												28%
+											</li>
+											<?php
 									}
 									?>
 								</ul>
@@ -930,8 +882,7 @@ get_header();
 
 		</div>
 	</section>
-	<section
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
 			<h3
 				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'mb-4 text-[22px]' ?>">
@@ -959,30 +910,27 @@ get_header();
 					<div
 						class="prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'scroll-bar-custom overflow-y-auto max-h-[340px]' : 'w-max' ?>">
 						<?php
-						for ( $i = 0; $i < 9; $i++ )
-						{
+						for ( $i = 0; $i < 9; $i++ ) {
 							?>
-							<div
-								class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
-								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
-									CNTT - Viễn thông
+								<div class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+									<div
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+										CNTT - Viễn thông
+									</div>
+									<div
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+										Tích cực
+									</div>
+									<div
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158]">
+										Tích cực
+									</div>
 								</div>
-								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
-									Tích cực
-								</div>
-								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center justify-center leading-[1.5] py-1 px-3 text-[#30D158]">
-									Tích cực
-								</div>
-							</div>
 
-							<?php
+								<?php
 						}
 						?>
-						<div
-							class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+						<div class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 							<div
 								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'whitespace-nowrap min-w-[163px]' ?> min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 								Vận tải & Cảng biển
