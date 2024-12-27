@@ -3398,9 +3398,10 @@ import { DataTable } from 'simple-datatables';
 		}
 		// Khi focus vào #search-shares
 		$('#search-shares').on('focus', function () {
+			$('html').removeClass('scroll-pt-10');
 			if (!isCheckboxChecked()) return;
 			const sharesResult = $('.shares-result');
-			$('html').removeClass('scroll-pt-10');
+			
 			sharesResult.addClass('active');
 			running_api_price();
 		});

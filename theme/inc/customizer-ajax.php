@@ -3556,7 +3556,7 @@ function filter_details_symbol() {
 				<div
 					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 					<div
-						class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
+						class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[34px] pb-[9px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
 						<p>
 							<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 						</p>
@@ -3626,7 +3626,7 @@ function filter_details_symbol() {
 					<div class="grid grid-cols-2 text-center">
 						<div class="text-[#FF0017]">
 							<div
-								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
+								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
 								<p class="font-medium  mb-1">
 									<?php _e( 'BSC kịch bản 1', 'bsc' ) ?>
 								</p>
@@ -3660,7 +3660,7 @@ function filter_details_symbol() {
 						</div>
 						<div class="text-[#30D158]">
 							<div
-								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-[6px] pt-[12px] mb-1.5' : 'py-1.5 px-5' ?>">
+								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
 								<p class="font-medium  mb-1">
 									<?php _e( 'BSC kịch bản 2', 'bsc' ) ?>
 								</p>
