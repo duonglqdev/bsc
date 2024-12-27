@@ -513,7 +513,7 @@ get_header();
 											</div>
 										</div>
 										<h3
-											class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+											class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 											<a href="" class="line-clamp-2">
 												Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 												quỹ_20240808
@@ -735,7 +735,7 @@ get_header();
 									</div>
 									<div class="md:ml-[30px] ml-4">
 										<a href=""
-											class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-green <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2' : 'line-clamp-3' ?>">
+											class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2' : 'line-clamp-3' ?>">
 											Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
 											trả lãi, gốc trái phiếu mã BSI32301
 										</a>

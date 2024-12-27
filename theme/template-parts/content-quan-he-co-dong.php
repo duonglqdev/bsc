@@ -49,7 +49,7 @@
 
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'ml-[30px]' : 'ml-4' ?>">
                 <p
-                    class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?> line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
+                    class="font-bold leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?> line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300 cursor-pointer main_title">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>

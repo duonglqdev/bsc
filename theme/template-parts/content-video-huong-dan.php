@@ -9,7 +9,7 @@
         </div>
     </a>
     <h4
-        class="font-Helvetica line-clamp-2 font-bold transition-all duration-500 hover:text-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'text-xs' ?>">
+        class="font-Helvetica line-clamp-2 font-bold transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'text-xs' ?>">
         <a href="<?php echo check_link(get_field('link_youtube')) ?>" data-fancybox>
             <?php the_title() ?>
         </a>

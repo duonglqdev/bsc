@@ -418,7 +418,7 @@ get_header();
 									</div>
 								</div>
 								<h3
-									class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : '' ?>">
+									class="font-bold transition-all duration-500 hover:text-primary-300 font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : '' ?>">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -606,7 +606,7 @@ get_header();
 					<li
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
-							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
 							<span
 								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
 								<?php echo svgClass( 'report1', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
@@ -618,7 +618,7 @@ get_header();
 					<li
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
-							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
 							<span
 								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
 								<?php echo svgClass( 'report2', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
@@ -630,7 +630,7 @@ get_header();
 					<li
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
-							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
 							<span
 								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
 								<?php echo svgClass( 'report3', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
@@ -642,7 +642,7 @@ get_header();
 					<li
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
-							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
 							<span
 								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
 								<?php echo svgClass( 'report4', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>
@@ -654,7 +654,7 @@ get_header();
 					<li
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
 						<a href=""
-							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+							class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
 							<span
 								class="inline-flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
 								<?php echo svgClass( 'report5', '30', '30', ! wp_is_mobile() && ! bsc_is_mobile() ? 'shrink-0 w-[30px] h-[30px]' : 'shrink-0 w-6 h-6' ) ?>

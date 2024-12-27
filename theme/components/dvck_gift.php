@@ -100,7 +100,7 @@
 											</a>
 										</div>
 										<div class="flex-1">
-											<h4 class="font-bold mb-2 transition-all duration-500 hover:text-green">
+											<h4 class="font-bold mb-2 transition-all duration-500 hover:text-primary-300">
 												<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 													class="line-clamp-2">
 													<?php echo htmlspecialchars( $news->title ) ?>
@@ -158,7 +158,7 @@
 										</a>
 									</div>
 									<div class="flex-1">
-										<h4 class="font-bold mb-2 transition-all duration-500 hover:text-green">
+										<h4 class="font-bold mb-2 transition-all duration-500 hover:text-primary-300">
 											<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 												class="line-clamp-2">
 												<?php echo htmlspecialchars( $news->title ) ?>

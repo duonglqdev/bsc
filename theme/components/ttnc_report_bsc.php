@@ -17,7 +17,7 @@ $bg = !wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb;
                     <?php while (have_rows('bao_cao')): the_row(); ?>
                         <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '[&:not(:first-child)]:pt-4' : '[&:not(:first-child)]:pt-[12px] sm:text-base text-sm' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
-                                class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-green">
+                                class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
                                 <span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
                                     <?php echo svgClass_dir(get_sub_field('icon'), '30', '30', 'shrink-0') ?>
                                     <?php the_sub_field('title') ?>

@@ -980,7 +980,7 @@ function filter_details_symbol() {
 						</div>
 						<div class="md:ml-[30px] ml-4">
 							<p
-								class="font-bold leading-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-green main_title">
+								class="font-bold leading-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars( $news->title ) ?>
 							</p>
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
