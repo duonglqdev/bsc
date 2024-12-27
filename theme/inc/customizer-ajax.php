@@ -317,7 +317,6 @@ function filter_event_calendar() {
 	$response_GetEvents = get_data_with_cache( 'GetEvents', $array_data_GetEvents, $time_cache );
 	if ( $response_GetEvents ) {
 		$filtered_events = [];
-
 		// Lọc dựa trên ký tự bất kỳ trong `mck`
 		if ( ! empty( $mck ) ) {
 			foreach ( $response_GetEvents->d as $event ) {
@@ -325,12 +324,19 @@ function filter_event_calendar() {
 					$filtered_events[] = $event;
 				}
 			}
+			$total_post = count( $filtered_events );
+			$total_page = ceil( $total_post / $post_per_page );
 		} else {
 			$filtered_events = $response_GetEvents->d;
+			if ( $response_GetEvents->totalrecord ) {
+				$total_post = $response_GetEvents->totalrecord;
+			} else {
+				$total_post = $post_per_page;
+			}
+			$total_page = ceil( $total_post / $post_per_page );
 		}
-		$total_post = count( $filtered_events );
-		$total_page = ceil( $total_post / $post_per_page );
-
+		?>
+		<?php
 		// Hiển thị dữ liệu đã lọc
 		foreach ( $filtered_events as $GetEvents ) {
 			get_template_part( 'template-parts/content-lich-thi-truong', '', array(

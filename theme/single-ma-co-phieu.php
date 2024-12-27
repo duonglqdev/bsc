@@ -69,10 +69,10 @@ get_header();
 							</div>
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div class="flex-col gap-2">
-									<div class="flex gap-[12px] data_number">
+									<div class="flex gap-[12px] data_number bsc_need_crawl_price-text-color">
 										<div class="text-2xl font-bold text-[#FE5353] bsc_need_crawl_price-bidPrice1">
 										</div>
-										<div class="flex flex-col bsc_need_crawl_price-text-color text-xs">
+										<div class="flex flex-col text-xs">
 											<p class="bsc_need_crawl_price-bidPrice1-reference">
 											</p>
 											<p class="bsc_need_crawl_price-bidPrice1-reference-phantram">
@@ -91,10 +91,10 @@ get_header();
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="lg:w-[176px] lg:max-w-[37%]">
 									<div class="flex-col gap-2">
-										<div class="flex gap-[14px] data_number">
+										<div class="flex gap-[14px] data_number bsc_need_crawl_price-text-color">
 											<div class="2xl:text-[40px] text-4xl font-bold bsc_need_crawl_price-bidPrice1">
 											</div>
-											<div class="flex flex-col bsc_need_crawl_price-text-color">
+											<div class="flex flex-col ">
 												<p class="bsc_need_crawl_price-bidPrice1-reference">
 												</p>
 												<p class="bsc_need_crawl_price-bidPrice1-reference-phantram">

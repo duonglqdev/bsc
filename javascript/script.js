@@ -2856,10 +2856,17 @@ import { DataTable } from 'simple-datatables';
 						.html(closeVol_title);
 				}
 				let text_color_class = '';
-				if (share.CH) {
+				if (
+					share.CH ||
+					(share.B1 && share.CE) ||
+					(share.B1 && share.FL)
+				) {
 					const difference = share.CH;
-					console.log(difference);
-					if (difference > 0) {
+					if (share.B1 && share.CE && share.B1 === share.CE) {
+						text_color_class = 'text-[#7F1CCD]';
+					} else if (share.B1 && share.FL && share.B1 === share.FL) {
+						text_color_class = 'text-[#1ABAFE]';
+					} else if (difference > 0) {
 						text_color_class = 'text-[#1CCD83]';
 					} else if (difference < 0) {
 						text_color_class = 'text-[#FE5353]';
@@ -2870,6 +2877,18 @@ import { DataTable } from 'simple-datatables';
 						wrapper_price.find('.bsc_need_crawl_price-text-color')
 							.length > 0
 					) {
+						const classesToRemove = [
+							'text-[#7F1CCD]',
+							'text-[#1ABAFE]',
+							'text-[#1CCD83]',
+							'text-[#FE5353]',
+							'text-[#EB0]',
+						];
+						classesToRemove.forEach((className) => {
+							wrapper_price
+								.find('.bsc_need_crawl_price-text-color')
+								.removeClass(className);
+						});
 						wrapper_price
 							.find('.bsc_need_crawl_price-text-color')
 							.addClass(text_color_class);
@@ -2887,23 +2906,6 @@ import { DataTable } from 'simple-datatables';
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
 							.html(formattedDifference);
 					}
-				}
-				if (
-					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
-						.length > 0
-				) {
-					let text_class_price = '';
-					if (share.B1 === share.CE) {
-						text_class_price = 'text-[#7F1CCD]';
-					} else if (share.B1 === share.FL) {
-						text_class_price = 'text-[#1ABAFE]';
-					} else {
-						text_class_price = text_color_class;
-					}
-
-					wrapper_price
-						.find('.bsc_need_crawl_price-bidPrice1')
-						.addClass(text_class_price);
 				}
 				if (share.CHP) {
 					if (
@@ -3101,7 +3103,11 @@ import { DataTable } from 'simple-datatables';
 							const difference =
 								share.bidPrice1 - share.reference;
 							let text_color_class = '';
-							if (difference > 0) {
+							if (share.bidPrice1 == share.ceiling) {
+								text_color_class = 'text-[#7F1CCD]';
+							} else if (share.bidPrice1 == share.floor) {
+								text_color_class = 'text-[#1ABAFE]';
+							} else if (difference > 0) {
 								text_color_class = 'text-[#1CCD83]';
 							} else if (difference < 0) {
 								text_color_class = 'text-[#FE5353]';
@@ -3116,24 +3122,6 @@ import { DataTable } from 'simple-datatables';
 								wrapper_price
 									.find('.bsc_need_crawl_price-text-color')
 									.addClass(text_color_class);
-							}
-							if (
-								wrapper_price.find(
-									'.bsc_need_crawl_price-bidPrice1'
-								).length > 0
-							) {
-								let text_class_price = '';
-								if (share.bidPrice1 === share.ceiling) {
-									text_class_price = 'text-[#7F1CCD]';
-								} else if (share.bidPrice1 === share.floor) {
-									text_class_price = 'text-[#1ABAFE]';
-								} else {
-									text_class_price = text_color_class;
-								}
-
-								wrapper_price
-									.find('.bsc_need_crawl_price-bidPrice1')
-									.addClass(text_class_price);
 							}
 							if (
 								wrapper_price.find(
