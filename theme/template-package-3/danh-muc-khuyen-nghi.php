@@ -127,19 +127,19 @@ get_header();
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
 								Khuyến nghị
 							</div>
-							<div class="flex-1 min-w-[110px] whitespace-nowrap">
+							<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 								Giá
 							</div>
-							<div class="flex-1 min-w-[110px] whitespace-nowrap">
+							<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 								Mục tiêu
 							</div>
-							<div class="flex-1 min-w-[110px] whitespace-nowrap">
+							<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 								Upside
 							</div>
 							<div class="flex-1 min-w-[110px] whitespace-nowrap">
 								Sàn
 							</div>
-							<div class="flex-1 min-w-[110px] whitespace-nowrap">
+							<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 								KL
 							</div>
 
@@ -151,34 +151,34 @@ get_header();
 							{
 								?>
 								<div
-									class="flex items-center <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'gap-4' ?>">
+									class="flex items-center gap-4 <?php echo $i % 2 == 0 ? '' : 'bg-[#EBF4FA]' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>" >
 									<div
-										class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
+										class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]   <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?>">
 										CTG
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125]  font-semibold">
 										<span
 											class="px-4 py-0.5 bg-[#D6F6DE] text-[#30D158] font-semibold rounded-full min-w-[78px] min-h-[28px] inline-flex items-center justify-center">Mua</span>
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125]  font-bold text-[#1CCD83]">
 										35.05
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-end pr-10  leading-[1.125] ">
 										43.65
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-end pr-10  leading-[1.125]  font-bold text-[#1CCD83]">
 										+24.45%
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] ">
 										HOSE
 									</div>
 									<div
-										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-bold text-[#1CCD83]">
+										class="flex-1 min-w-[110px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[60px] py-1':'py-[12px]' ?> flex items-center justify-end pr-10  leading-[1.125]  font-bold text-[#1CCD83]">
 										345.6
 									</div>
 								</div>

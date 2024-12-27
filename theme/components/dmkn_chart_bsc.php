@@ -131,19 +131,19 @@ if ( $data_bsc ) {
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
 									<?php _e( 'Khuyến nghị', 'bsc' ) ?>
 								</div>
-								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 									<?php _e( 'Giá', 'bsc' ) ?>
 								</div>
-								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 									<?php _e( 'Mục tiêu', 'bsc' ) ?>
 								</div>
-								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 									<?php _e( 'Upside', 'bsc' ) ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
 									<?php _e( 'Sàn', 'bsc' ) ?>
 								</div>
-								<div class="flex-1 min-w-[110px] whitespace-nowrap">
+								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
 									<?php _e( 'KL', 'bsc' ) ?>
 
 								</div>
