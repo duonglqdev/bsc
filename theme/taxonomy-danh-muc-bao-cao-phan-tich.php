@@ -169,7 +169,7 @@ get_header();
 								</p>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-start" name="fromdate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
 										placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
 																								echo $_GET['fromdate'] ?>">
 									<?php echo svg('day', '20', '20') ?>
@@ -177,7 +177,7 @@ get_header();
 								<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-end" name="todate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
 										placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
 																								echo $_GET['todate'] ?>">
 									<?php echo svg('day', '20', '20') ?>

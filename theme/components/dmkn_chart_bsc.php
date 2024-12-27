@@ -63,7 +63,7 @@
 					class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 					<input id="datepicker-performance-start" name="start" type="text"
 						class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-						placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="">
+						placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value=""autocomplete="off">
 					<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 				</div>
 				<?php $todate = date( 'Y-m-d' ); ?>
@@ -71,7 +71,7 @@
 					class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 					<input id="datepicker-performance-end" name="end" type="text"
 						class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-						placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php echo $todate ?>">
+						placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php echo $todate ?>" autocomplete="off">
 					<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 				</div>
 			</div>

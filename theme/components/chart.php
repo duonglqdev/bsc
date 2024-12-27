@@ -68,7 +68,9 @@
 																																								? 'max-w-[100px] w-full p-0'
 																																								: 'max-w-full w-full p-0 text-xs'; ?>"
 											placeholder="<?php _e('Từ ngày', 'bsc') ?>"
-											value="">
+											value=""
+											autocomplete="off"
+											>
 										<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
 									</div>
 									<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
@@ -79,7 +81,9 @@
 																																							? 'max-w-[100px] w-full p-0'
 																																							: 'max-w-full w-full p-0 text-xs'; ?>"
 											placeholder="<?php _e('Đến ngày', 'bsc') ?>"
-											value="<?php echo $todate ?>">
+											value="<?php echo $todate ?>"
+											autocomplete="off"
+											>
 										<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
 									</div>
 

@@ -59,6 +59,7 @@
                         <div class="flex items-center 2xl:gap-5 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1 justify-between' ?>">
                             <input id="datepicker-range-start" name="fromdate" type="text"
                                 class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
+                                autocomplete="off"
                                 placeholder="<?php _e('Từ ngày', 'bsc') ?>">
                            <?php echo svgClass( 'day', '', '','sm:w-5 w-4 sm:h-5 h-4' ) ?>
                         </div>
@@ -66,6 +67,7 @@
                         <div class="flex items-center 2xl:gap-5 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1 justify-between' ?>">
                             <input id="datepicker-range-end" name="todate" type="text"
                                 class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
+                                autocomplete="off"
                                 placeholder="<?php _e('Đến ngày', 'bsc') ?>">
                            <?php echo svgClass( 'day', '', '','sm:w-5 w-4 sm:h-5 h-4' ) ?>
                         </div>
