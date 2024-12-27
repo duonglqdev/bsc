@@ -1693,9 +1693,9 @@ import { DataTable } from 'simple-datatables';
 				var todate = jQuery(this).attr('data-todate');
 				jQuery('section.chart .fromdate').val(fromdate);
 				jQuery('section.chart .todate').val(todate);
-				jQuery('section.chart .btn-chart button:first-child()').trigger(
-					'click'
-				);
+				jQuery(
+					'section.chart .btn-chart button[data-chart="BSC10"]'
+				).trigger('click');
 			}
 		);
 		let debounceTimer;
@@ -2267,12 +2267,12 @@ import { DataTable } from 'simple-datatables';
 							},
 							plotOptions: {
 								bar: {
-								  borderRadius: 10,
-								  dataLabels: {
-									position: 'top',
-								  },
-								}
-							  },
+									borderRadius: 10,
+									dataLabels: {
+										position: 'top',
+									},
+								},
+							},
 							series: series,
 							xaxis: {
 								categories: formattedDates, // Sử dụng ngày đã chuyển đổi
@@ -2680,7 +2680,7 @@ import { DataTable } from 'simple-datatables';
 
 	let isAjaxInProgress = false;
 	let globalShares = [];
-	window.onchangeInstrument = function (symbol) {
+	window.onchangeInstrument = function (symbol, wrapper_price) {
 		var CONNECTION_METADATA_PARAMS = {
 			version: '__sails_io_sdk_version',
 			platform: '__sails_io_sdk_platform',
@@ -2753,7 +2753,7 @@ import { DataTable } from 'simple-datatables';
 						.length > 0
 				) {
 					var bidPrice1_title = share.B1;
-					bidPrice1_title = bsc_number_format(bidPrice1_title);
+					bidPrice1_title = bsc_number_format(bidPrice1_title / 1000);
 					wrapper_price
 						.find('.bsc_need_crawl_price-bidPrice1')
 						.html(bidPrice1_title);
@@ -2768,6 +2768,20 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-ceiling')
 						.html(ceiling_title);
+				}
+				if (
+					share.RE &&
+					wrapper_price.find('.bsc_need_crawl_price--reference')
+						.length > 0
+				) {
+					var reference_title = share.RE;
+					reference_title = bsc_number_format(
+						reference_title / 1000,
+						2
+					);
+					wrapper_price
+						.find('.bsc_need_crawl_price--reference')
+						.html(reference_title);
 				}
 				if (
 					share.HI &&
@@ -2841,9 +2855,10 @@ import { DataTable } from 'simple-datatables';
 						.find('.bsc_need_crawl_price-closeVol')
 						.html(closeVol_title);
 				}
+				let text_color_class = '';
 				if (share.CH) {
 					const difference = share.CH;
-					let text_color_class = '';
+					console.log(difference);
 					if (difference > 0) {
 						text_color_class = 'text-[#1CCD83]';
 					} else if (difference < 0) {
@@ -2865,13 +2880,30 @@ import { DataTable } from 'simple-datatables';
 						).length > 0
 					) {
 						const formattedDifference = bsc_number_format(
-							difference,
+							difference / 1000,
 							2
 						);
 						wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
 							.html(formattedDifference);
 					}
+				}
+				if (
+					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
+						.length > 0
+				) {
+					let text_class_price = '';
+					if (share.B1 === share.CE) {
+						text_class_price = 'text-[#7F1CCD]';
+					} else if (share.B1 === share.FL) {
+						text_class_price = 'text-[#1ABAFE]';
+					} else {
+						text_class_price = text_color_class;
+					}
+
+					wrapper_price
+						.find('.bsc_need_crawl_price-bidPrice1')
+						.addClass(text_class_price);
 				}
 				if (share.CHP) {
 					if (
@@ -2980,6 +3012,21 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-high')
 								.html(high_title);
+						}
+						if (
+							share.reference &&
+							wrapper_price.find(
+								'.bsc_need_crawl_price--reference'
+							).length > 0
+						) {
+							var reference_title = share.reference;
+							reference_title = bsc_number_format(
+								reference_title / 1000,
+								2
+							);
+							wrapper_price
+								.find('.bsc_need_crawl_price--reference')
+								.html(reference_title);
 						}
 						if (
 							share.low &&
@@ -3279,7 +3326,7 @@ import { DataTable } from 'simple-datatables';
 						}
 					}
 					if (check_socket === 'true') {
-						onchangeInstrument(symbol);
+						onchangeInstrument(symbol, wrapper_price);
 					}
 				}
 			});
@@ -3498,7 +3545,7 @@ import { DataTable } from 'simple-datatables';
 				$('#du-lieu-lich-su_submit').trigger('click');
 			}
 		});
-		
+
 		$(document).on('click', '#du-lieu-lich-su_reset', function (e) {
 			$('#du-lieu-lich-su_form')[0].reset();
 			load_du_lieu_lich_su();
