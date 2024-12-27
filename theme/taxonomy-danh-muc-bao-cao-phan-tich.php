@@ -806,28 +806,33 @@ get_header();
 								<div
 									class="relative text-xs text-center border border-[#EAEEF4] <?php echo $class ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : ' overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
 									<div
-										class="flex text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'w-max' ?>">
+										class="flex gap-5 text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'w-max' ?>">
 										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
-											<?php _e('Mã chứng khoán', 'bsc') ?>
+											<?php _e('Mã CK', 'bsc') ?>
 										</div>
-										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
+										<div class="w-[15%] whitespace-nowrap text-left <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
 											<?php _e('Ngành', 'bsc') ?>
 										</div>
-										<div class="w-[15%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
-											<?php _e('Doanh thu thuần', 'bsc') ?> <?php echo date('Y') ?>
+										<div class="w-[16%] whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
+											<?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
 											<p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
 										</div>
-										<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+										<div class="w-[20%] whitespace-nowrap flex items-center justify-end gap-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 											<?php _e('LNST CĐTS', 'bsc') ?>
-											<!-- @Duong: Bổ sung tooltip -->
-											<div class="tool-tip">
-												<?php _e('Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc') ?>
-											</div>
+											<button data-tooltip-target="tooltip-animations" data-tooltip-placement="top"
+											class="ml-1" type="button">
+											<?php echo svg( 'tooltip', '20', '20' ) ?>
+										</button>
+										<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+											<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
+											<div class="tooltip-arrow" data-popper-arrow></div>
 										</div>
-										<div class="w-[17%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+										</div>
+										<div class="w-[15%] whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 											<?php _e('EPS', 'bsc') ?>
 										</div>
-										<div class="w-[21%] whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[120px]' ?>">
+										<div class="w-[19%] whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pr-10' : 'min-w-[120px] pr-5' ?>">
 											<?php _e('Giá mục tiêu', 'bsc') ?>
 										</div>
 									</div>
@@ -841,32 +846,32 @@ get_header();
 										if ($response_GetForecastBussinessResults) {
 									?>
 											<div
-												class="prose-a:text-primary-300 prose-a:font-bold font-medium whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'scroll-bar-custom overflow-y-auto max-h-[300px] ' : 'sm:w-full w-max' ?>"">
+												class="prose-a:text-primary-300 prose-a:font-bold font-medium whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'scroll-bar-custom overflow-y-auto max-h-[300px] ' : 'sm:w-full w-max' ?>">
 												<?php
 												foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
 												?>
 													<div class=" flex items-center min-h-[30px]">
-												<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
+												<div class="w-[15%] py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
 													<?php if ($GetForecastBussinessResults->symbol) { ?>
 														<a
 															href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
 													<?php } ?>
 												</div>
-												<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
+												<div class="w-[15%] py-1 whitespace-nowrap text-left <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
 													<?php echo $GetForecastBussinessResults->industryname ?>
 												</div>
-												<div class="w-[15%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
+												<div class="w-[16%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
 													<?php echo bsc_number_format($GetForecastBussinessResults->revenue) ?>
 												</div>
-												<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+												<div class="w-[20%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
 													<?php if ($GetForecastBussinessResults->npatmi) { ?>
 														<?php echo $GetForecastBussinessResults->npatmi ?>
 													<?php } ?>
 												</div>
-												<div class="w-[17%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+												<div class="w-[15%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 													<?php echo bsc_number_format($GetForecastBussinessResults->eps) ?>
 												</div>
-												<div class="w-[21%] px-3 py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[120px]' ?>">
+												<div class="w-[19%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[120px]' ?>">
 													<?php echo bsc_number_format($GetForecastBussinessResults->pricerecommended) ?>
 												</div>
 											</div>
