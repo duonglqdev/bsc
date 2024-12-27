@@ -2995,8 +2995,8 @@ function filter_details_symbol() {
 		$response_GetRecommendedInstrument = get_data_with_cache( 'GetRecommendedInstrument', $array_data_GetRecommendedInstrument, $time_cache );
 		if ( $response_GetRecommendedInstrument ) {
 			?>
-			<div class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
-				<div class="flex items-center justify-between mb-6">
+			<div class="bg-[#E8F5FF] rounded-xl 2xl:px-6 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
+				<div class="flex items-center justify-between mb-6 -mt-1">
 					<h3 class="font-bold">
 						<?php _e( 'KHUYẾN NGHỊ', 'bsc' ) ?>
 					</h3>
