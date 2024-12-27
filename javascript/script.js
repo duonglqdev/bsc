@@ -1960,13 +1960,13 @@ import { DataTable } from 'simple-datatables';
 					{
 						name: chartElement.getAttribute('data-kb2'), // KB2 (Tăng)
 						data: kb2Series,
-						dashArray: 5,
+						dashArray: 2,
 						color: '#30D158',
 					},
 					{
 						name: chartElement.getAttribute('data-kb1'), // KB1 (Giảm)
 						data: kb1Series,
-						dashArray: 5,
+						dashArray: 2,
 						color: '#FF0017',
 					},
 				],
@@ -1999,31 +1999,31 @@ import { DataTable } from 'simple-datatables';
 					max: Math.max(...closeIndexes, kb2Value) + 50, // Y trục kết thúc cao hơn giá trị lớn nhất
 				},
 				stroke: {
-					width: [3, 3, 3],
+					width: [2, 2, 2],
 					curve: 'smooth',
 				},
 				annotations: {
 					yaxis: [
 						{
 							y: kb2Value,
-							borderColor: '#00E396',
+							borderColor: '#30D158',
 							label: {
-								borderColor: '#00E396',
+								borderColor: '#30D158',
 								style: {
 									color: '#fff',
-									background: '#00E396',
+									background: '#30D158',
 								},
 								text: 'KB2:' + kb2Value,
 							},
 						},
 						{
 							y: kbcoso,
-							borderColor: '#775DD0',
+							borderColor: '#FEAF00',
 							label: {
-								borderColor: '#775DD0',
+								borderColor: '#FEAF00',
 								style: {
 									color: '#fff',
-									background: '#775DD0',
+									background: '#FEAF00',
 								},
 								text:
 									chartElement.getAttribute('data-coso') +
@@ -2033,19 +2033,19 @@ import { DataTable } from 'simple-datatables';
 						},
 						{
 							y: kb1Value,
-							borderColor: '#FF4560',
+							borderColor: '#FF0017',
 							label: {
-								borderColor: '#FF4560',
+								borderColor: '#FF0017',
 								style: {
 									color: '#fff',
-									background: '#FF4560',
+									background: '#FF0017',
 								},
 								text: 'KB1:' + kb1Value,
 							},
 						},
 					],
 				},
-				colors: ['#008FFB', '#00E396', '#FF4560'],
+				colors: ['#008FFB', '#30D158', '#FF0017'],
 				tooltip: {
 					shared: true,
 					intersect: false,
