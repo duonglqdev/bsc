@@ -7,11 +7,9 @@
  *
  * @package bsc
  */
-if ( get_field( 'api_id_danh_muc', get_queried_object() ) )
-{
+if ( get_field( 'api_id_danh_muc', get_queried_object() ) ) {
 	$groupid = get_field( 'api_id_danh_muc', get_queried_object() );
-} else
-{
+} else {
 	wp_redirect( home_url( '/404' ), 301 );
 	exit;
 }
@@ -21,10 +19,8 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
-			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-				{ ?>
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
+				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<?php
@@ -77,8 +73,7 @@ get_header();
 
 							<?php
 							$hinh_anh_sidebar = get_field( 'hinh_anh_sidebar', get_queried_object() );
-							if ( $hinh_anh_sidebar )
-							{ ?>
+							if ( $hinh_anh_sidebar ) { ?>
 								<div class="mt-12">
 									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
@@ -90,18 +85,14 @@ get_header();
 				<?php } ?>
 				<div class="flex-1">
 					<?php
-					if ( isset( $_GET['posts_to_show'] ) )
-					{
+					if ( isset( $_GET['posts_to_show'] ) ) {
 						$post_per_page = $_GET['posts_to_show'];
-					} else
-					{
+					} else {
 						$post_per_page = get_option( 'posts_per_page' );
 					}
-					if ( isset( $_GET['post_page'] ) )
-					{
+					if ( isset( $_GET['post_page'] ) ) {
 						$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
-					} else
-					{
+					} else {
 						$index = 1;
 					}
 					$array_data = array(
@@ -111,62 +102,56 @@ get_header();
 						'index' => $index
 					);
 					$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
-					if ( $response )
-					{
-						if ( $response->totalrecord )
-						{
+					if ( $response ) {
+						if ( $response->totalrecord ) {
 							$total_post = $response->totalrecord;
-						} else
-						{
+						} else {
 							$total_post = $post_per_page;
 						}
 						$total_page = ceil( $total_post / $post_per_page );
 						?>
-						<?php if ( get_field( 'type_danh_muc', get_queried_object() ) == 'avatar' )
-						{ ?>
-							<?php if ( wp_is_mobile() && bsc_is_mobile() )
-							{ ?>
+						<?php if ( get_field( 'type_danh_muc', get_queried_object() ) == 'avatar' ) { ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
 									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
 									<?php echo get_the_archive_title(); ?>
 									<?php echo svg( 'down-white', '20', '20' ) ?>
 								</div>
 
-								
-									<?php
-									$excluded_category_id = get_array_id_taxonomy_hide( 'category' );
-									$terms = get_terms( array(
-										'taxonomy' => 'category',
-										'hide_empty' => false,
-										'parent' => 0,
-										'exclude' => $excluded_category_id,
-									) );
-									if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
-										?>
-										<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
-											<?php
-											$current_term_id = get_queried_object_id();
-											foreach ( $terms as $term ) :
-												$active_class = ( $current_term_id === $term->term_id ) ? 'active' : '';
-												?>
-												<li>
-													<a href="<?php echo get_term_link( $term ); ?>"
-														class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-														<?php echo esc_html( $term->name ); ?>
-													</a>
-												</li>
-											<?php endforeach; ?>
-										</ul>
-									<?php endif; ?>
-								
+
+								<?php
+								$excluded_category_id = get_array_id_taxonomy_hide( 'category' );
+								$terms = get_terms( array(
+									'taxonomy' => 'category',
+									'hide_empty' => false,
+									'parent' => 0,
+									'exclude' => $excluded_category_id,
+								) );
+								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+									?>
+									<ul
+										class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+										<?php
+										$current_term_id = get_queried_object_id();
+										foreach ( $terms as $term ) :
+											$active_class = ( $current_term_id === $term->term_id ) ? 'active' : '';
+											?>
+											<li>
+												<a href="<?php echo get_term_link( $term ); ?>"
+													class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+													<?php echo esc_html( $term->name ); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+
 							<?php } ?>
-							<div
-								class="list__news <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-6' ?>">
+							<div class="list__news <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-6' ?>">
 								<div
 									class="grid gap-x-6 gap-y-8 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2' : 'md:grid-cols-2 grid-cols-1' ?>">
 									<?php
-									foreach ( $response->d as $news )
-									{
+									foreach ( $response->d as $news ) {
 										get_template_part( 'template-parts/content', null, array(
 											'data' => $news,
 										) );
@@ -174,21 +159,17 @@ get_header();
 									?>
 								</div>
 							</div>
-						<?php } else
-						{
+						<?php } else {
 							$current_month = '';
 							$current_year = '';
 							echo '<div class="space-y-12">';
-							foreach ( $response->d as $news )
-							{
+							foreach ( $response->d as $news ) {
 								$post_date = strtotime( $news->postdate );
 								$month = date( 'm', $post_date );
 								$year = date( 'Y', $post_date );
 
-								if ( $month != $current_month || $year != $current_year )
-								{
-									if ( $current_month !== '' && $current_year !== '' )
-									{
+								if ( $month != $current_month || $year != $current_year ) {
+									if ( $current_month !== '' && $current_year !== '' ) {
 										echo '</div>';
 										echo '</div>';
 									}
@@ -203,6 +184,7 @@ get_header();
 
 								get_template_part( 'template-parts/content_nothumb', get_post_type(), array(
 									'data' => $news,
+									'style' => 'thu'
 								) );
 							}
 
@@ -215,8 +197,7 @@ get_header();
 							'total_page' => $total_page,
 							'url' => get_term_link( get_queried_object_id() ),
 						) ) ?>
-					<?php } else
-					{
+					<?php } else {
 						get_template_part( 'template-parts/content', 'none' );
 					} ?>
 				</div>
