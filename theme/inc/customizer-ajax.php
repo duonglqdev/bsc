@@ -1439,8 +1439,8 @@ function filter_details_symbol() {
 									</div>
 									<div
 										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
-										<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
-											<h4 class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg">
+										<div class="flex flex-col">
+											<h4 class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6':'mb-4' ?>">
 												<?php
 												if ( $check_linh_vuc == 'Bank' ) {
 													_e( 'NIM (%)', 'bsc' );
@@ -1472,7 +1472,7 @@ function filter_details_symbol() {
 												];
 											}, $industryData );
 											?>
-											<div class="legend-gap bsc_chart-display" data-load="false" data-end="%" <?php if ( $check_linh_vuc == 'Bank' ) { ?> data-title-1="<?php _e( 'Nim', 'bsc' ) ?>"
+											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%" <?php if ( $check_linh_vuc == 'Bank' ) { ?> data-title-1="<?php _e( 'Nim', 'bsc' ) ?>"
 													data-title-2="<?php _e( 'Nim trung bình ngành', 'bsc' ) ?>" <?php } else { ?>
 													data-title-1="<?php _e( 'Biên lợi nhuận gộp', 'bsc' ) ?>"
 													data-title-2="<?php _e( 'Biên lợi nhuận gộp trung bình ngành', 'bsc' ) ?>" <?php } ?>
