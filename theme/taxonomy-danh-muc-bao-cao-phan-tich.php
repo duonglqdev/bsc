@@ -822,7 +822,7 @@ get_header();
 											<?php echo svg( 'tooltip', '20', '20' ) ?>
 										</button>
 										<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
-											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 											<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
 											<div class="tooltip-arrow" data-popper-arrow></div>
 										</div>
