@@ -333,7 +333,7 @@ get_header();
 													'closeindex' => $item->closeindex,
 												];
 											}, $response_thitruong->d->VNI[0] );
-
+											$nam_period = $response_thitruong->d->F[0][1]->period;
 											$stocksDataJson = json_encode( $vnIndexData ); ?>
 											<div
 												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
@@ -341,7 +341,7 @@ get_header();
 													class="bg-white shadow-base rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:p-8 p-6' : 'p-4' ?>">
 													<h4
 														class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
-														<?php _e( 'Năm', 'bsc' ) ?> 			<?php echo date( "Y" ); ?>
+														<?php _e( 'Năm', 'bsc' ) ?> 			<?php echo $nam_period ?>
 													</h4>
 													<div
 														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'grid grid-cols-3 gap-4' ?>">
@@ -397,7 +397,7 @@ get_header();
 											<div class="flex-1 bg-white rounded-lg shadow-base">
 												<div id="chart-forecast" class="font-body"
 													data-stock='<?php echo $stocksDataJson ?>'
-													data-title="Dự báo VN-Index <?php echo date( "Y" ); ?>"
+													data-title="Dự báo VN-Index <?php echo $nam_period ?>"
 													data-kb1="Dự báo KB1 (Giảm)" data-coso="<?php _e( 'KB cơ sở' ) ?>"
 													data-kb-coso="<?php echo $response_thitruong->d->F[0][1]->value; ?>"
 													data-kb1-value="<?php echo $response_thitruong->d->F[0][2]->value; ?>"
