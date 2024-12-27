@@ -1275,7 +1275,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	jQuery(document).ready(function ($) {
-		function load__chuyen_gia(page = 1) {
+		function load__chuyen_gia(paged = 1) {
 			var thanh_pho = $(
 				'.list_chuyen_gia input[name="thanh_pho"]:checked'
 			).val();
@@ -1309,7 +1309,11 @@ import { DataTable } from 'simple-datatables';
 			var name_chuyen_gia = $(
 				'#form-search-expert #name_chuyen_gia'
 			).val();
-			var paged = $('#form-search-expert').attr('data-paged');
+			if (paged) {
+				$('#form-search-expert').attr('data-paged', paged);
+			} else {
+				var paged = $('#form-search-expert').attr('data-paged');
+			}
 			var posts_per_page = $('#posts_per_page').val();
 			$.ajax({
 				url: ajaxurl.ajaxurl,
