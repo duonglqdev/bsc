@@ -117,18 +117,19 @@ get_header();
 					<?php } ?>
 					<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>"
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'grid gap-[12px] grid-cols-5 mb-6' ?>">
-							<div
-								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] 2xl:px-[26px] px-5 ' : 'w-full p-[12px] h-[46px] col-span-3' ?> shrink-0">
-								<?php echo svgClass( 'search', '', '',! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0') ?>
+						<div
+							class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] 2xl:px-[26px] px-5 ' : 'w-full p-[12px] h-[46px] col-span-3' ?> shrink-0">
+							<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
 							<input type="text" name="key"
-								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs p-0 w-[calc(100%-50px)]' ?>"
+								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
 										 echo $_GET['key'] ?>">
 							</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
-								<div
-									class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
-									<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
+						<?php if ( wp_is_mobile() && bsc_is_mobile() )
+									 { ?>
+							<div
+								class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
+								<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
 								<select id="select_year" name="years"
 									class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-[26px] pl-0 sm:text-xs text-[13px]">
 									<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
@@ -141,13 +142,15 @@ get_header();
 										</option>
 									<?php endfor; ?>
 								</select>
-							</div>	
-							<?php } ?>
-							<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:gap-5 gap-4 mb-10 mt-4':'col-span-5 flex-wrap' ?>">
-								<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-									<div
-										class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
-										<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
+							</div>
+						<?php } ?>
+						<div
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-5 gap-4 mb-10 mt-4' : 'col-span-5 flex-wrap' ?>">
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+							{ ?>
+								<div
+									class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+									<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
 									<select id="select_year" name="years"
 										class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
 										<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
@@ -161,12 +164,12 @@ get_header();
 										<?php endfor; ?>
 									</select>
 								</div>
-													
-								<?php } ?>
+
+							<?php } ?>
 							<div id="date-range-picker" date-rangepicker
 								datepicker-format="dd/mm/yyyy" datepicker-autohide
 								datepicker-orientation="bottom right"
-								class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[50%] px-5 h-[50px]':'w-full h-[46px] px-[12px] mb-[12px]' ?>">
+								class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50%] px-5 h-[50px]' : 'w-full h-[46px] px-[12px] mb-[12px]' ?>">
 								<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
 									<?php _e( 'Thời gian:', 'gnws' ) ?>
 								</p>
@@ -187,7 +190,7 @@ get_header();
 								</div>
 							</div>
 							<button type="submit"
-								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-xl h-[50px]':'rounded-lg h-10 mr-[12px]' ?>">
+								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-xl h-[50px]' : 'rounded-lg h-10 mr-[12px]' ?>">
 								<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 							</button>
 							<a href="<?php echo get_term_link( get_queried_object() ) ?>"
@@ -197,29 +200,32 @@ get_header();
 						</div>
 					</form>
 
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-[60px]':'mt-6 mb-16' ?>">
-						<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">Dự báo vĩ mô</h3>
-						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4':'mt-6' ?>">
-							<h4 class="font-bold text-primary-300 mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center':'' ?>">Dự báo kinh tế
-								vĩ mô Việt Nam 2024-2025</h4>
-							<div class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex':'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
-								<div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'border-r-[4px] border-white w-1/3':'w-full block_slider-item' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[60px]' : 'mt-6 mb-16' ?>">
+						<h3
+							class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
+							Dự báo vĩ mô</h3>
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-6' ?>">
+							<h4
+								class="font-bold text-primary-300 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : '' ?>">
+								Dự báo kinh tế vĩ mô Việt Nam 2024-2025</h4>
+							<div
+								class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+								<div
+									class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
 									<div
-										class="flex justify-end items-center bg-[#EBF4FA] border-b-[4px] border-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[13px] pb-[9px] min-h-[68px]':'min-h-[38px]' ?>">
-										<div
-											class="min-w-[60px]">
-											<p>
-												2023
-											</p>
-										</div>
+										class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
+										<p>
+											2023
+										</p>
 									</div>
 									<div
 										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											GDP (YoY%)
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>5.25</p>
 										</div>
 									</div>
@@ -228,8 +234,7 @@ get_header();
 										<div class="w-[70%] px-2 py-1">
 											CPI trung bình (YoY%)
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>3.26</p>
 										</div>
 									</div>
@@ -238,8 +243,7 @@ get_header();
 										<div class="w-[70%] px-2 py-1">
 											Xuất khẩu (YoY%)
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>3.26</p>
 										</div>
 									</div>
@@ -248,8 +252,7 @@ get_header();
 										<div class="w-[70%] px-2 py-1">
 											Nhập khẩu (YoY%)
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>3.26</p>
 										</div>
 									</div>
@@ -258,31 +261,29 @@ get_header();
 										<div class="w-[70%] px-2 py-1">
 											LSĐH (YoY%)
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>3.26</p>
 										</div>
 									</div>
 									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-bold">
+										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											USD/VND LNH trung bình
 										</div>
-										<div
-											class="flex-1 text-center">
+										<div class="flex-1 text-right pr-5">
 											<p>23,839</p>
 										</div>
 									</div>
 								</div>
 								<div
-									class=" grid grid-cols-2 text-center bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[27%] border-r-[4px] border-white':'w-full block_slider-item' ?>">
+									class=" grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
 									<div class="text-[#FF0017]">
 										<div
-											class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-											<p class="font-semibold mb-1">
+											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+											<p class="mb-1 text-center">
 												BSC kịch bản 1
 											</p>
-											<div class="grid grid-cols-2 font-semibold">
+											<div class="grid grid-cols-2 gap-3 text-right pr-4">
 												<p>2024</p>
 												<p>2025</p>
 											</div>
@@ -292,7 +293,7 @@ get_header();
 										{
 											?>
 											<div
-												class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
+												class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
@@ -300,18 +301,18 @@ get_header();
 										}
 										?>
 										<div
-											class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
+											class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 											<p>22,842</p>
 											<p>23,839</p>
 										</div>
 									</div>
 									<div class="text-[#30D158]">
 										<div
-											class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-											<p class="font-semibold mb-1">
+											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+											<p class="mb-1 text-center">
 												BSC kịch bản 2
 											</p>
-											<div class="grid grid-cols-2 font-semibold">
+											<div class="grid grid-cols-2 pr-4">
 												<p>2024</p>
 												<p>2025</p>
 											</div>
@@ -321,7 +322,7 @@ get_header();
 										{
 											?>
 											<div
-												class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
+												class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 												<p>6.1</p>
 												<p>5.25</p>
 											</div>
@@ -329,20 +330,20 @@ get_header();
 										}
 										?>
 										<div
-											class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-semibold">
+											class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 											<p>22,842</p>
 											<p>23,839</p>
 										</div>
 									</div>
 								</div>
 								<div
-									class=" text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5 border-r-[4px] border-white':'w-full block_slider-item' ?>">
+									class=" text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
 									<div
-										class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-										<p class="font-semibold mb-1">
+										class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+										<p class=" mb-1">
 											Consensus 2024
 										</p>
-										<div class="grid grid-cols-3 font-semibold">
+										<div class="grid grid-cols-3 gap-2 text-right pr-5">
 											<p>Min</p>
 											<p>TB</p>
 											<p>Max</p>
@@ -353,7 +354,7 @@ get_header();
 									{
 										?>
 										<div
-											class="grid grid-cols-3 gap-2 text-center items-center min-h-[30px]">
+											class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
@@ -366,13 +367,13 @@ get_header();
 									</div>
 								</div>
 								<div
-									class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/5':'w-full block_slider-item' ?>">
+									class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
 									<div
-										class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-										<p class="font-semibold mb-1">
+										class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+										<p class="mb-1">
 											Consensus 2025
 										</p>
-										<div class="grid grid-cols-3 font-semibold">
+										<div class="grid grid-cols-3 gap-2 text-right pr-5">
 											<p>Min</p>
 											<p>TB</p>
 											<p>Max</p>
@@ -383,7 +384,7 @@ get_header();
 									{
 										?>
 										<div
-											class="grid grid-cols-3 gap-2 text-center items-center min-h-[30px]">
+											class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
@@ -419,7 +420,7 @@ get_header();
 									</div>
 								</div>
 								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -450,7 +451,7 @@ get_header();
 									</div>
 								</div>
 								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -481,7 +482,7 @@ get_header();
 									</div>
 								</div>
 								<h3
-									class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808

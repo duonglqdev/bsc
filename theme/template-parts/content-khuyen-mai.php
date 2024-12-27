@@ -8,7 +8,7 @@
                 class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
         </a>
         <h3
-            class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-lg transition-all duration-500 hover:text-green mt-8':'mt-4' ?>">
+            class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-lg transition-all duration-500 hover:text-primary-300 mt-8 mb-6':'mt-4 mb-2' ?>">
             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>
@@ -36,7 +36,7 @@
                 $formattedStartDate = 'N/A';
             }
         ?>
-            <div class="flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 mt-6 ':'mt-2 text-xs gap-2' ?>">
+            <div class="flex items-center mt-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4':' text-xs gap-2' ?>">
                 <div class="inline-flex items-center gap-2">
                     <?php echo svg('time') ?>
                     <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 

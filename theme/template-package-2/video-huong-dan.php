@@ -117,7 +117,7 @@ get_header();
 									</div>
 								</a>
 								<h4
-									class="font-Helvetica line-clamp-2 font-bold transition-all duration-500 hover:text-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'text-xs' ?>">
+									class="font-Helvetica line-clamp-2 font-bold transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5':'text-xs' ?>">
 									<a href="https://youtu.be/v-S2oFvblgw?si=2aeRx1owiG1ETA5e" data-fancybox>
 										Hướng dẫn nộp tiền vào tài khoản chứng khoán
 									</a>

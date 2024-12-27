@@ -30,8 +30,8 @@ get_header();
 							<div
 								class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6' : 'gap-4' ?>">
 								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] [90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
-									<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
+									class="text-[#6B6F78] lg:text-xl-[52px] text-3xl overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center">
+									M
 								</div>
 								<div class="flex flex-col">
 									<h4
@@ -513,7 +513,7 @@ get_header();
 											</div>
 										</div>
 										<h3
-											class="font-bold mb-6 transition-all duration-500 hover:text-green font-Helvetica">
+											class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 											<a href="" class="line-clamp-2">
 												Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 												quỹ_20240808
@@ -735,7 +735,7 @@ get_header();
 									</div>
 									<div class="md:ml-[30px] ml-4">
 										<a href=""
-											class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-green <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2' : 'line-clamp-3' ?>">
+											class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2' : 'line-clamp-3' ?>">
 											Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
 											trả lãi, gốc trái phiếu mã BSI32301
 										</a>
@@ -1219,21 +1219,21 @@ get_header();
 							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold  prose-th:text-left  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:p-4' : 'prose-td:p-[12px] prose-th:p-[12px] text-xs' ?>">
 							<thead>
 								<tr>
-									<th></th>
+									<th class="lg:w-1/3"></th>
 									<th
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right">
 										2021</th>
 									<th
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right">
 										2022</th>
 									<th
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right">
 										2023</th>
 									<th
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right">
 										2024</th>
 									<th
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right !pr-10">
 										2025</th>
 								</tr>
 							</thead>
@@ -1247,19 +1247,19 @@ get_header();
 											class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
 											Doanh thu (tỷ đồng)</td>
 										<td
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] ' ?> !text-right">
 											4,380</td>
 										<td
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] ' ?> !text-right">
 											4,899</td>
 										<td
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] ' ?> !text-right">
 											4,495</td>
 										<td
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] ' ?> !text-right">
 											4,893</td>
 										<td
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right !pr-10">
 											5,277</td>
 									</tr>
 									<?php

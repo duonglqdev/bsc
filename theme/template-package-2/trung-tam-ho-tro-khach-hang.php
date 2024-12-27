@@ -202,7 +202,7 @@ get_header();
 							</div>
 						</a>
 						<h4
-							class="font-Helvetica line-clamp-2 uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5 transition-all duration-500 hover:text-green':'text-xs mt-4' ?>">
+							class="font-Helvetica line-clamp-2 uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-5 transition-all duration-500 hover:text-primary-300':'text-xs mt-4' ?>">
 							CHUYỂN ĐỘNG CHỨNG KHOÁN #1| TIỀM NĂNG TTCK VIỆT NAM KHI ĐƯỢC NÂNG HẠNG?
 						</h4>
 					</div>

@@ -55,7 +55,7 @@ get_header();
 							<div
 								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center ">
+									class="text-[#6B6F78] lg:text-xl-[52px] text-3xl overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px] p-5' : 'w-14 h-14 p-4' ?> bg-white rounded-full flex items-center justify-center ">
 									<?php echo $first_symbol ?>
 								</div>
 								<div class="flex flex-col">

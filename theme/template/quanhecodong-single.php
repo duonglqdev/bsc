@@ -225,7 +225,7 @@ get_header();
 
 									<div class="ml-4">
 										<p
-											class="font-bold leading-normal text-base line-clamp-2 mb-2 transition-all duration-500 hover:text-green cursor-pointer main_title">
+											class="font-bold leading-normal text-base line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300 cursor-pointer main_title">
 											BSC - Các Quyết định hủy niêm yết chứng quyền có bảo đảm của
 											Sở GDCK Tp Hồ Chí Minh với 02 mã chứng quyền: CACB2304,
 											CTCB2309 </p>

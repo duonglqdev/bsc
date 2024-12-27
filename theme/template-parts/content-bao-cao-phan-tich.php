@@ -71,7 +71,7 @@
                 <p class="text-paragraph text-xs font-Helvetica"> <?php echo $date->format('d/m/Y'); ?></p>
             </div>
         </div>
-        <h3 class="font-bold transition-all duration-500 hover:text-green font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : '' ?>">
+        <h3 class="font-bold transition-all duration-500 hover:text-primary-300 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : '' ?>">
             <a href="<?php echo slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)); ?>" class="line-clamp-2">
                 <?php echo htmlspecialchars($news->title) ?>
             </a>

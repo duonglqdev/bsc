@@ -41,7 +41,7 @@ get_header();
 
 								<div class="md:ml-[30px] ml-5">
 									<p
-										class="font-bold leading-normal transition-all duration-500 hover:text-green cursor-pointer main_title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'line-clamp-2 mb-2 text-lg':'line-clamp-3' ?>">
+										class="font-bold leading-normal transition-all duration-500 hover:text-primary-300 cursor-pointer main_title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'line-clamp-2 mb-2 text-lg':'line-clamp-3' ?>">
 										BSI: Bổ sung một số Nghị quyết HĐQT liên quan đến việc phê duyệt sử dụng hạn mức hạn mức tín dụng năm 2023
 									</p>
 									<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 

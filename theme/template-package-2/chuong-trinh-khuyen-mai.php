@@ -180,7 +180,7 @@ get_header();
 								class="absolute w-full h-full inset-0 object-cover hover:scale-105 transition-all duration-500">
 						</a>
 						<h3
-							class="font-bold transition-all duration-500 hover:text-green <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8 text-lg':'mt-6' ?>">
+							class="font-bold transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8 text-lg':'mt-6' ?>">
 							<a href="" class="line-clamp-2">
 								“Giao dịch ngay - Quay là trúng” cùng BSC WebTrading
 							</a>

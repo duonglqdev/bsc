@@ -169,7 +169,7 @@ get_header();
 								</p>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-start" name="fromdate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
 										placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
 																								echo $_GET['fromdate'] ?>">
 									<?php echo svg('day', '20', '20') ?>
@@ -177,7 +177,7 @@ get_header();
 								<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-end" name="todate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
 										placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
 																								echo $_GET['todate'] ?>">
 									<?php echo svg('day', '20', '20') ?>
@@ -492,20 +492,18 @@ get_header();
 											class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
 											<div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
 												<div
-													class="flex justify-end items-center bg-[#EBF4FA] border-b-[4px] border-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[38px]' ?>">
-													<div
-														class="min-w-[60px]">
+													class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
+													
 														<p>
 															<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 														</p>
-													</div>
 												</div>
 												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
 														<?php _e('GDP (YoY%)', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 text-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][0]->value); ?>
 														</p>
 													</div>
@@ -515,7 +513,7 @@ get_header();
 														<?php _e('CPI trung bình (YoY%)', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 items-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][1]->value); ?>
 														</p>
 													</div>
@@ -525,7 +523,7 @@ get_header();
 														<?php _e('Xuất khẩu (YoY%)', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 items-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][2]->value); ?>
 														</p>
 													</div>
@@ -535,7 +533,7 @@ get_header();
 														<?php _e('Nhập khẩu (YoY%)', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 items-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][3]->value); ?>
 														</p>
 													</div>
@@ -545,7 +543,7 @@ get_header();
 														<?php _e('LSĐH (YoY%)', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 items-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][4]->value); ?>
 														</p>
 													</div>
@@ -555,21 +553,21 @@ get_header();
 														<?php _e('USD/VND LNH trung bình', 'bsc') ?>
 													</div>
 													<div
-														class="flex-1 items-center">
+														class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
 														</p>
 													</div>
 												</div>
 											</div>
 											<div
-												class="grid grid-cols-2 text-center bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+												class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
 												<div class="text-[#FF0017]">
 													<div
-														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-														<p class="font-medium  mb-1">
+														class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+														<p class="text-center mb-1">
 															<?php _e('BSC kịch bản 1', 'bsc') ?>
 														</p>
-														<div class="grid grid-cols-2 font-medium ">
+														<div class="grid grid-cols-2 gap-3 text-right pr-4">
 															<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
@@ -580,7 +578,7 @@ get_header();
 													for ($i = 0; $i < 5; $i++) {
 													?>
 														<div
-															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
+															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][$i]->value); ?>
 															</p>
 															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][$i]->value); ?>
@@ -590,7 +588,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-medium ">
+														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
 														</p>
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[3][5]->value) ?>
@@ -599,11 +597,11 @@ get_header();
 												</div>
 												<div class="text-[#30D158]">
 													<div
-														class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-														<p class="font-medium  mb-1">
+														class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+														<p class="text-center  mb-1">
 															<?php _e('BSC kịch bản 2', 'bsc') ?>
 														</p>
-														<div class="grid grid-cols-2 font-medium ">
+														<div class="grid grid-cols-2 pr-4 ">
 															<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
 															</p>
 															<p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
@@ -614,7 +612,7 @@ get_header();
 													for ($i = 0; $i < 5; $i++) {
 													?>
 														<div
-															class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white">
+															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
 															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][$i]->value); ?>
 															</p>
 															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][$i]->value); ?>
@@ -624,7 +622,7 @@ get_header();
 													}
 													?>
 													<div
-														class="grid grid-cols-2 gap-2 text-center items-center min-h-[30px] [&:nth-child(even)]:bg-white font-medium ">
+														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
 														</p>
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[2][5]->value); ?>
@@ -633,14 +631,14 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
 												<div
-													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
+													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 													<p class="font-medium  mb-1">
 														<?php _e('Consensus', 'bsc') ?>
 														<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
 													</p>
-													<div class="grid grid-cols-3 font-medium ">
+													<div class="grid grid-cols-3 gap-2 text-right pr-5">
 														<p><?php _e('Min', 'bsc') ?></p>
 														<p><?php _e('TB', 'bsc') ?></p>
 														<p><?php _e('Max', 'bsc') ?></p>
@@ -650,7 +648,7 @@ get_header();
 												for ($i = 0; $i < 2; $i++) {
 												?>
 													<div
-														class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+														class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[2][$i]->value); ?>
 														</p>
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[1][$i]->value); ?>
@@ -667,14 +665,14 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item' ?>">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
 												<div
-													class="pt-[12px] pb-[6px] min-h-[58px] border-b-[4px] border-white">
-													<p class="font-medium  mb-1">
+													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+													<p class="mb-1">
 														<?php _e('Consensus', 'bsc') ?>
 														<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
 													</p>
-													<div class="grid grid-cols-3 font-medium ">
+													<div class="grid grid-cols-3 gap-2 text-right pr-5">
 														<p><?php _e('Min', 'bsc') ?></p>
 														<p><?php _e('TB', 'bsc') ?></p>
 														<p><?php _e('Max', 'bsc') ?></p>
@@ -684,7 +682,7 @@ get_header();
 												for ($i = 0; $i < 2; $i++) {
 												?>
 													<div
-														class="grid grid-cols-3 gap-2 text-center items-center py-0.5 min-h-[30px]">
+														class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[5][$i]->value); ?>
 														</p>
 														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[4][$i]->value); ?>
@@ -824,7 +822,7 @@ get_header();
 											<?php echo svg( 'tooltip', '20', '20' ) ?>
 										</button>
 										<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
-											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 											<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
 											<div class="tooltip-arrow" data-popper-arrow></div>
 										</div>
@@ -871,7 +869,7 @@ get_header();
 												<div class="w-[15%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 													<?php echo bsc_number_format($GetForecastBussinessResults->eps) ?>
 												</div>
-												<div class="w-[19%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[120px]' ?>">
+												<div class="w-[19%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pr-10' : 'pr-5 min-w-[120px]' ?>">
 													<?php echo bsc_number_format($GetForecastBussinessResults->pricerecommended) ?>
 												</div>
 											</div>

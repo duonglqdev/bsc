@@ -146,7 +146,7 @@ $time_cache  = 3000;
                                                 <a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"><?php echo $news->SYMBOL ?></a>
                                             <?php } ?>
                                         </td>
-                                        <td><?php echo $news->FULLNAME ?></td>
+                                        <td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>
                                         <td><?php echo $news->EXCHANGE; ?></td>
                                         <td><?php echo $news->INDUSTRYNAME ?></td>
                                         <td class="text-right !pr-8"><?php echo bsc_number_format($news->MC);  ?></td>

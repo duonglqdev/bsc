@@ -409,7 +409,7 @@ get_header();
 								</div>
 								<div class="flex-1">
 									<h4
-										class="font-bold mb-2 transition-all duration-500 hover:text-green">
+										class="font-bold mb-2 transition-all duration-500 hover:text-primary-300">
 										<a href="" class="line-clamp-2">
 											Danh mục “Chuẩn” – Ưu đãi “Chất”
 										</a>
