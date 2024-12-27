@@ -2636,7 +2636,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_DT ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_DT );
+														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_DT ) . '%';
 													}
 													?>
 												</td>
@@ -2676,7 +2676,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_LS ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_LS );
+														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_LS ) . '%';
 													}
 													?>
 												</td>
@@ -2716,7 +2716,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_EPS ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_EPS );
+														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_EPS ) . '%';
 													}
 													?>
 												</td>
@@ -2756,7 +2756,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->ROE ) {
-														echo bsc_number_format( $GetForecastBussiness->ROE * 100 );
+														echo bsc_number_format( $GetForecastBussiness->ROE * 100 ) . '%';
 													}
 													?>
 												</td>
@@ -2776,7 +2776,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->ROA ) {
-														echo bsc_number_format( $GetForecastBussiness->ROA * 100 );
+														echo bsc_number_format( $GetForecastBussiness->ROA * 100 ) . '%';
 													}
 													?>
 												</td>
@@ -2836,7 +2836,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?>">
 													<?php
 													if ( $GetForecastBussiness->HS_CO_PHIEU ) {
-														echo bsc_number_format( $GetForecastBussiness->HS_CO_PHIEU );
+														echo bsc_number_format( $GetForecastBussiness->HS_CO_PHIEU ) . '%';
 													}
 													?>
 												</td>
