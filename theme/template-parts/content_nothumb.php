@@ -26,6 +26,13 @@
 	} else {
 		$month_name = date( 'F', strtotime( $day ) );
 	}
+	if ( get_locale() == 'vi' ) {
+		$weekday_number = date( 'N', strtotime( $day ) );
+		$weekday_names = [ __( 'Thứ', 'bsc' ) . ' 2', __( 'Thứ', 'bsc' ) . ' 3', __( 'Thứ', 'bsc' ) . ' 4', __( 'Thứ', 'bsc' ) . ' 5', __( 'Thứ', 'bsc' ) . ' 6', __( 'Thứ', 'bsc' ) . ' 7', __( 'Chủ Nhật', 'bsc' ) ];
+		$weekday_name = $weekday_names[ $weekday_number - 1 ];
+	} else {
+		$weekday_name = date( 'l', strtotime( $day ) );
+	}
 	?>
 	<div class="news_service-item md:flex items-center justify-between md:gap-20">
 		<div class="flex items-center">
@@ -33,14 +40,24 @@
 				class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
 				<p
 					class="date text-center bg-primary-300 text-white font-bold  py-[2px] px-1 leading-normal w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xs' : 'text-xxs' ?>">
-					<?php echo $month_name ?>
+					<?php
+					if ( isset( $args['style'] ) && $args['style'] == 'thu' ) {
+						echo $weekday_name;
+					} else {
+						echo $month_name;
+					} ?>
 				</p>
 				<p
 					class="flex-1 flex flex-col justify-center items-center  font-bold bg-primary-50 w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-2xl text-xl' : 'text-xl' ?>">
-					<?php echo $day_of_month; ?>
-					<span class="text-primary-300 text-[12px] font-medium">
-						<?php echo $day_of_year; ?>
-					</span>
+					<?php
+					echo $day_of_month;
+					if ( isset( $args['style'] ) && $args['style'] == 'thu' ) {
+					} else {
+						?>
+						<span class="text-primary-300 text-[12px] font-medium">
+							<?php echo $day_of_year; ?>
+						</span>
+					<?php } ?>
 				</p>
 			</div>
 			<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'ml-[30px]' : 'ml-4' ?>">
