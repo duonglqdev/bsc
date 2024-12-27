@@ -1673,7 +1673,7 @@ function filter_details_symbol() {
 												?>
 												<div class="legend-gap bsc_chart-display" data-type="bar" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DON_BAY ) ) ?>"
-													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#009e87">
+													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#009E87">
 												</div>
 											</div>
 											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
@@ -1743,7 +1743,7 @@ function filter_details_symbol() {
 												?>
 												<div class="legend-gap bsc_chart-display" data-type="bar" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DON_BAY ) ) ?>"
-													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#235BA8">
+													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#009E87">
 												</div>
 											</div>
 											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
@@ -1813,7 +1813,7 @@ function filter_details_symbol() {
 												?>
 												<div class="legend-gap bsc_chart-display" data-type="bar" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DON_BAY ) ) ?>"
-													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#235BA8">
+													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>" data-color-1="#009E87">
 												</div>
 											</div>
 											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
@@ -1884,7 +1884,7 @@ function filter_details_symbol() {
 												?>
 												<div class="legend-gap bsc_chart-display" data-load="false" data-type="bar"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_NO_VAY_TONG_TAI_SAN ) ) ?>"
-													data-title-1="<?php _e( 'Nợ vay/Tổng  tài sản', 'bsc' ) ?>" data-color-1="#235BA8">
+													data-title-1="<?php _e( 'Nợ vay/Tổng  tài sản', 'bsc' ) ?>" data-color-1="#009E87">
 												</div>
 											</div>
 											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">

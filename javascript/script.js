@@ -40,7 +40,6 @@ import { DataTable } from 'simple-datatables';
 		resetForm();
 		centerActiveMenu();
 		handleLoading();
-		// checkScreen();
 		bsc_need_crawl_price();
 	});
 
@@ -2267,12 +2266,23 @@ import { DataTable } from 'simple-datatables';
 							},
 							plotOptions: {
 								bar: {
-									borderRadius: 10,
+									borderRadius: 8,
+									borderRadiusApplication: 'end',
 									dataLabels: {
 										position: 'top',
 									},
 								},
 							},
+
+							dataLabels: {
+								enabled: true,
+								offsetY: -20,
+								style: {
+								  fontSize: '12px',
+								  colors: ["#31333F"]
+								}
+							  },
+
 							series: series,
 							xaxis: {
 								categories: formattedDates, // Sử dụng ngày đã chuyển đổi
@@ -2295,10 +2305,12 @@ import { DataTable } from 'simple-datatables';
 							markers: {
 								size: 0,
 							},
-							stroke: {
+							stroke: type_chart === "bar"
+							? { show: false }
+							: { 
 								curve: 'smooth',
 								width: 2,
-							},
+							  },
 							grid: {
 								show: true,
 								yaxis: { lines: { show: false } },
@@ -3720,46 +3732,4 @@ import { DataTable } from 'simple-datatables';
 		$('.block-loading').addClass('active');
 	}
 
-	function checkScreen() {
-		function sendScreenInfo(screenWidth) {
-			const isDesktop = screenWidth > 1024 ? 'true' : 'false';
-
-			$.ajax({
-				url: ajaxurl.ajaxurl,
-				type: 'POST',
-				data: {
-					action: 'save_screen_info',
-					is_desktop: isDesktop,
-				},
-				success: function (response) {
-					location.reload();
-				},
-			});
-
-			localStorage.setItem('screen_checked', 'true');
-			localStorage.setItem('is_desktop', isDesktop);
-			localStorage.setItem('initial_screen_width', screenWidth);
-		}
-
-		// Lấy thông tin từ localStorage
-		const initialScreenWidth = localStorage.getItem('initial_screen_width');
-		const currentScreenWidth = $(window).width();
-
-		// Kiểm tra xem màn hình có thay đổi so với lần đầu hay không
-		if (!initialScreenWidth || initialScreenWidth != currentScreenWidth) {
-			sendScreenInfo(currentScreenWidth); // Gửi AJAX và cập nhật localStorage
-		}
-
-		// Lắng nghe sự kiện thay đổi kích thước màn hình
-		$(window).resize(function () {
-			const newScreenWidth = $(window).width();
-
-			// Nếu màn hình thay đổi kích thước, cập nhật lại
-			if (
-				localStorage.getItem('initial_screen_width') != newScreenWidth
-			) {
-				sendScreenInfo(newScreenWidth);
-			}
-		});
-	}
 })(jQuery);
