@@ -121,7 +121,7 @@ $class = $check_logout['class'];
                                 <div class="text-[#30D158]">
                                     <div
                                         class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
-                                        <p class="mb-1">
+                                        <p class="font-semibold mb-1">
                                             <?php _e('BSC kịch bản 2', 'bsc') ?>
                                         </p>
                                         <div class="grid grid-cols-2 text-right  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-5 gap-5':'mr-6 gap-4' ?>">

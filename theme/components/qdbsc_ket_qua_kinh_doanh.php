@@ -116,13 +116,13 @@ $class = $check_logout['class'];
                                         ?>
                                     </ul>
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="lg:min-w-[90px] min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('EPS', 'bsc') ?> <br>
                                         <?php echo date('Y') ?>
                                     </div>
-                                    <ul>
+                                    <ul class="prose-li:!lg:pr-8">
                                         <?php
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
@@ -171,13 +171,13 @@ $class = $check_logout['class'];
                                         ?>
                                     </ul>
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="lg:min-w-[90px] min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('ROA', 'bsc') ?> <br>
                                         <?php echo date('Y') ?>
                                     </div>
-                                    <ul>
+                                    <ul class="prose-li:!lg:pr-8">
                                         <?php
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
@@ -189,13 +189,13 @@ $class = $check_logout['class'];
                                         ?>
                                     </ul>
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="lg:min-w-[90px] min-w-[110px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('ROE', 'bsc') ?> <br>
                                         <?php echo date('Y') ?>
                                     </div>
-                                    <ul>
+                                    <ul class="prose-li:!lg:pr-8">
                                         <?php
                                         foreach ($response_GetForecastBussinessResults->d as $GetForecastBussinessResults) {
                                         ?>
@@ -207,7 +207,7 @@ $class = $check_logout['class'];
                                         ?>
                                     </ul>
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="min-w-[130px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center gap-1 min-h-[60px] leading-[1.5] border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('Giá gần nhất', 'bsc') ?> <br>
@@ -258,7 +258,7 @@ $class = $check_logout['class'];
                                     </ul>
 
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="2xl:min-w-[110px] min-w-[90px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('Upside', 'bsc') ?> <br>
