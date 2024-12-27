@@ -4108,6 +4108,16 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					$Values = array_slice( $Array, 1, null, true );
 					$Values = array_reverse( $Values, true );
 					$Values_chart = implode( ',', $Values );
+					$lastTwoValues = array_slice( $Values, -2, 2, true );
+					$dataColor = '#007bff';
+					if ( count( $lastTwoValues ) === 2 ) {
+						$valuesArray = array_values( $lastTwoValues ); // Chuyển thành mảng chỉ số liên tiếp
+						if ( $valuesArray[1] > $valuesArray[0] ) {
+							$dataColor = '#007bff'; // Màu xanh nếu số cuối lớn hơn
+						} elseif ( $valuesArray[1] < $valuesArray[0] ) {
+							$dataColor = '#A82323'; // Màu đỏ nếu số cuối nhỏ hơn
+						}
+					}
 					foreach ( $Values as $key => $Val ) {
 						?>
 						<div
@@ -4124,7 +4134,7 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					<div
 						class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?> h-10">
 						<div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false"
-							data-color="<?php echo '#007bff' ?>">
+							data-color="<?php echo $dataColor ?>">
 						</div>
 					</div>
 				</div>
