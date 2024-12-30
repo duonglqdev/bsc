@@ -2263,7 +2263,14 @@ import { DataTable } from 'simple-datatables';
 						if (data2) {
 							series.push({ name: title2, data: values2 });
 						}
-
+						const dataLabelsConfig = type_chart === "bar" ? {
+							enabled: true,
+							offsetY: -20,
+							style: {
+							  fontSize: '12px',
+							  colors: ["#31333F"],
+							},
+						  } : { enabled: false }; // Nếu không phải bar thì tắt dataLabels
 						// Cấu hình biểu đồ
 						const chartOptions = {
 							chart: {
@@ -2281,15 +2288,7 @@ import { DataTable } from 'simple-datatables';
 								},
 							},
 
-							dataLabels: {
-								enabled: true,
-								offsetY: -20,
-								style: {
-								  fontSize: '12px',
-								  colors: ["#31333F"]
-								}
-							  },
-
+							dataLabels: dataLabelsConfig,
 							series: series,
 							xaxis: {
 								categories: formattedDates, // Sử dụng ngày đã chuyển đổi
