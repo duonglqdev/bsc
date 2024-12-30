@@ -267,7 +267,7 @@ get_header();
 				} ?>
 			</ul>
 			<div class="tab-content block" id="details_symbol_tab-1">
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[69px]' : '' ?> mt-10">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[90px]' : '' ?> mt-10">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
 						<h2
