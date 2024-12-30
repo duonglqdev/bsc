@@ -1629,6 +1629,9 @@ import { DataTable } from 'simple-datatables';
 				const initialDateRange = get_current_date_chart();
 				var stocksData = $('#chart').attr('data-stock');
 				var fromdate = $('#chart').attr('data-fromdate');
+				var first_bsc = $(
+					'section.chart .btn-chart button[data-stt="1"]'
+				);
 				if (fromdate) {
 					jQuery('#datepicker-performance-start').val(fromdate);
 				}
@@ -1646,7 +1649,7 @@ import { DataTable } from 'simple-datatables';
 					10
 				);
 				updateChart(
-					'BSC10',
+					first_bsc,
 					initialDateRange,
 					stocksData,
 					maxYAxisValue,
@@ -1696,9 +1699,9 @@ import { DataTable } from 'simple-datatables';
 				var todate = jQuery(this).attr('data-todate');
 				jQuery('section.chart .fromdate').val(fromdate);
 				jQuery('section.chart .todate').val(todate);
-				jQuery(
-					'section.chart .btn-chart button[data-chart="BSC10"]'
-				).trigger('click');
+				jQuery('section.chart .btn-chart button[data-stt="1"]').trigger(
+					'click'
+				);
 			}
 		);
 		let debounceTimer;
@@ -1706,14 +1709,28 @@ import { DataTable } from 'simple-datatables';
 		jQuery('section.chart .fromdate,section.chart  .todate').on(
 			'changeDate',
 			function () {
+				var first_bsc = $(
+					'section.chart .btn-chart button[data-stt="1"]'
+				);
 				clearTimeout(debounceTimer);
 				debounceTimer = setTimeout(function () {
 					const activeChart =
 						jQuery('section.chart .btn-chart button.active').data(
 							'chart'
-						) || 'BSC10';
+						) || first_bsc;
 					const fromDate = jQuery('section.chart .fromdate').val();
 					const toDate = jQuery('section.chart .todate').val();
+					const portcodeAttr = jQuery('#chart').attr('data-array');
+					let portcode;
+					try {
+						portcode = JSON.parse(portcodeAttr); // Giải mã chuỗi JSON
+					} catch (error) {
+						portcode = []; // Mặc định là mảng rỗng nếu lỗi
+					}
+					portcode = Array.isArray(portcode)
+						? portcode.join(',')
+						: portcode;
+
 					const time_cache = jQuery('#chart').attr('data-time_cache');
 					jQuery.ajax({
 						url: ajaxurl.ajaxurl,
@@ -1722,7 +1739,7 @@ import { DataTable } from 'simple-datatables';
 							action: 'fetch_portfolio_data',
 							fromdate: fromDate,
 							todate: toDate,
-							portcode: 'BSC10,BSC30,BSC50,HOSE,VNDIAMOND',
+							portcode: portcode,
 							time_cache: time_cache,
 							security: ajaxurl.security,
 						},
@@ -2263,14 +2280,17 @@ import { DataTable } from 'simple-datatables';
 						if (data2) {
 							series.push({ name: title2, data: values2 });
 						}
-						const dataLabelsConfig = type_chart === "bar" ? {
-							enabled: true,
-							offsetY: -20,
-							style: {
-							  fontSize: '12px',
-							  colors: ["#31333F"],
-							},
-						  } : { enabled: false }; // Nếu không phải bar thì tắt dataLabels
+						const dataLabelsConfig =
+							type_chart === 'bar'
+								? {
+										enabled: true,
+										offsetY: -20,
+										style: {
+											fontSize: '12px',
+											colors: ['#31333F'],
+										},
+									}
+								: { enabled: false }; // Nếu không phải bar thì tắt dataLabels
 						// Cấu hình biểu đồ
 						const chartOptions = {
 							chart: {
@@ -2311,12 +2331,13 @@ import { DataTable } from 'simple-datatables';
 							markers: {
 								size: 0,
 							},
-							stroke: type_chart === "bar"
-							? { show: false }
-							: { 
-								curve: 'smooth',
-								width: 2,
-							  },
+							stroke:
+								type_chart === 'bar'
+									? { show: false }
+									: {
+											curve: 'smooth',
+											width: 2,
+										},
 							grid: {
 								show: true,
 								yaxis: { lines: { show: false } },
@@ -3392,7 +3413,7 @@ import { DataTable } from 'simple-datatables';
 			$('html').removeClass('scroll-pt-10');
 			if (!isCheckboxChecked()) return;
 			const sharesResult = $('.shares-result');
-			
+
 			sharesResult.addClass('active');
 			running_api_price();
 		});
@@ -3726,5 +3747,4 @@ import { DataTable } from 'simple-datatables';
 	function handleLoading() {
 		$('.block-loading').addClass('active');
 	}
-
 })(jQuery);
