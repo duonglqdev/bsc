@@ -3562,7 +3562,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'GDP (YoY%)', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][0]->col . ' (' . $response_GetForecastMacro->d->A[0][0]->comparison . $response_GetForecastMacro->d->A[0][0]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][0]->value ); ?>
@@ -3572,7 +3572,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][1]->col . ' (' . $response_GetForecastMacro->d->A[0][1]->comparison . $response_GetForecastMacro->d->A[0][1]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][1]->value ); ?>
@@ -3582,7 +3582,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][2]->col . ' (' . $response_GetForecastMacro->d->A[0][2]->comparison . $response_GetForecastMacro->d->A[0][2]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][2]->value ); ?>
@@ -3592,7 +3592,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][3]->col . ' (' . $response_GetForecastMacro->d->A[0][3]->comparison . $response_GetForecastMacro->d->A[0][3]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][3]->value ); ?>
@@ -3602,7 +3602,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][4]->col . ' (' . $response_GetForecastMacro->d->A[0][4]->comparison . $response_GetForecastMacro->d->A[0][4]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][4]->value ); ?>
@@ -3612,7 +3612,7 @@ function filter_details_symbol() {
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
 							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
-							<?php _e( 'USD/VND LNH trung bình', 'bsc' ) ?>
+							<?php echo $response_GetForecastMacro->d->A[0][5]->col ?>
 						</div>
 						<div class="flex-1 text-right pr-3 font-medium ">
 							<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][5]->value ); ?>
@@ -3626,7 +3626,13 @@ function filter_details_symbol() {
 							<div
 								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
 								<p class="font-medium  mb-1">
-									<?php _e( 'Kịch bản tiêu cực', 'bsc' ) ?>
+									<?php
+									if ( $response_GetForecastMacro->d->F[1][0]->scenario ) {
+										echo $response_GetForecastMacro->d->F[1][0]->scenario;
+									} else {
+										echo $response_GetForecastMacro->d->F[1][1]->scenario;
+									}
+									?>
 								</p>
 								<div class="grid grid-cols-2 font-medium text-right gap-2 pr-6">
 									<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
@@ -3660,7 +3666,13 @@ function filter_details_symbol() {
 							<div
 								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
 								<p class="font-medium  mb-1">
-									<?php _e( 'Kịch bản tích cực', 'bsc' ) ?>
+									<?php
+									if ( $response_GetForecastMacro->d->F[0][0]->scenario ) {
+										echo $response_GetForecastMacro->d->F[0][0]->scenario;
+									} else {
+										echo $response_GetForecastMacro->d->F[0][1]->scenario;
+									}
+									?>
 								</p>
 								<div class="grid grid-cols-2 font-medium  [&:nth-child(odd)]:bg-[#EBF4FA] text-right pr-6">
 									<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>

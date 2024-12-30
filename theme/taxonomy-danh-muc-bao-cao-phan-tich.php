@@ -165,18 +165,18 @@ get_header();
 								</p>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-start" name="fromdate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
-										placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
-																								echo $_GET['fromdate'] ?>">
-									<?php echo svg('day', '20', '20') ?>
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
+												 echo $_GET['fromdate'] ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
 								<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-end" name="todate" type="text"
-										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0" autocomplete="off"
-										placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
-																								echo $_GET['todate'] ?>">
-									<?php echo svg('day', '20', '20') ?>
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
+												 echo $_GET['todate'] ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
 							</div>
 							<button type="submit"
@@ -493,19 +493,21 @@ get_header();
 											<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
 										</h4>
 										<div
-											class="font-medium text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
-											<div class="text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
+											class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+											<div
+												class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
 												<div
-													class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
-													
-														<p>
-															<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
-														</p>
-													
+													class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
+
+													<p>
+														<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
+													</p>
+
 												</div>
-												<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+												<div
+													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'GDP (YoY%)', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][0]->col . ' (' . $response_GetForecastMacro->d->A[0][0]->comparison . $response_GetForecastMacro->d->A[0][0]->unit . ')' ?>
 													</div>
 													<div class="flex-1 text-right pr-5">
 														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][0]->value ); ?>
@@ -515,66 +517,67 @@ get_header();
 												<div
 													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'CPI trung bình (YoY%)', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][1]->col . ' (' . $response_GetForecastMacro->d->A[0][1]->comparison . $response_GetForecastMacro->d->A[0][1]->unit . ')' ?>
 													</div>
-													<div
-														class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][1]->value); ?>
+													<div class="flex-1 text-right pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][1]->value ); ?>
 														</p>
 													</div>
 												</div>
 												<div
 													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Xuất khẩu (YoY%)', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][2]->col . ' (' . $response_GetForecastMacro->d->A[0][2]->comparison . $response_GetForecastMacro->d->A[0][2]->unit . ')' ?>
 													</div>
-													<div
-														class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][2]->value); ?>
+													<div class="flex-1 text-right pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][2]->value ); ?>
 														</p>
 													</div>
 												</div>
 												<div
 													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'Nhập khẩu (YoY%)', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][3]->col . ' (' . $response_GetForecastMacro->d->A[0][3]->comparison . $response_GetForecastMacro->d->A[0][3]->unit . ')' ?>
 													</div>
-													<div
-														class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][3]->value); ?>
+													<div class="flex-1 text-right pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][3]->value ); ?>
 														</p>
 													</div>
 												</div>
 												<div
 													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'LSĐH (YoY%)', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][4]->col . ' (' . $response_GetForecastMacro->d->A[0][4]->comparison . $response_GetForecastMacro->d->A[0][4]->unit . ')' ?>
 													</div>
-													<div
-														class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][4]->value); ?>
+													<div class="flex-1 text-right pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][4]->value ); ?>
 														</p>
 													</div>
 												</div>
 												<div
 													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-medium ">
 													<div class="w-[70%] px-2 py-1">
-														<?php _e( 'USD/VND LNH trung bình', 'bsc' ) ?>
+														<?php echo $response_GetForecastMacro->d->A[0][5]->col ?>
 													</div>
-													<div
-														class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->A[0][5]->value); ?>
+													<div class="flex-1 text-right pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][5]->value ); ?>
 														</p>
 													</div>
 												</div>
 											</div>
 											<div
-												class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+												class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
 												<div class="text-[#FF0017]">
 													<div
-														class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 														<p class="text-center mb-1">
-															<?php _e('BSC kịch bản 1', 'bsc') ?>
+															<?php
+															if ( $response_GetForecastMacro->d->F[1][0]->scenario ) {
+																echo $response_GetForecastMacro->d->F[1][0]->scenario;
+															} else {
+																echo $response_GetForecastMacro->d->F[1][1]->scenario;
+															}
+															?>
 														</p>
 														<div class="grid grid-cols-2 gap-3 text-right pr-4">
 															<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
@@ -588,7 +591,7 @@ get_header();
 														?>
 														<div
 															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
-															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][$i]->value); ?>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][ $i ]->value ); ?>
 															</p>
 															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][ $i ]->value ); ?>
 															</p>
@@ -598,7 +601,7 @@ get_header();
 													?>
 													<div
 														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[1][5]->value) ?>
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][5]->value ) ?>
 														</p>
 														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][5]->value ) ?>
 														</p>
@@ -606,9 +609,15 @@ get_header();
 												</div>
 												<div class="text-[#30D158]">
 													<div
-														class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 														<p class="text-center  mb-1">
-															<?php _e('BSC kịch bản 2', 'bsc') ?>
+															<?php
+															if ( $response_GetForecastMacro->d->F[0][0]->scenario ) {
+																echo $response_GetForecastMacro->d->F[0][0]->scenario;
+															} else {
+																echo $response_GetForecastMacro->d->F[0][1]->scenario;
+															}
+															?>
 														</p>
 														<div class="grid grid-cols-2 pr-4 ">
 															<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
@@ -622,7 +631,7 @@ get_header();
 														?>
 														<div
 															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
-															<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][$i]->value); ?>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][ $i ]->value ); ?>
 															</p>
 															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][ $i ]->value ); ?>
 															</p>
@@ -632,7 +641,7 @@ get_header();
 													?>
 													<div
 														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->F[0][5]->value); ?>
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][5]->value ); ?>
 														</p>
 														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][5]->value ); ?>
 														</p>
@@ -640,25 +649,24 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
 												<div
-													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 													<p class="font-medium  mb-1">
 														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
 													</p>
 													<div class="grid grid-cols-3 gap-2 text-right pr-5">
-														<p><?php _e('Min', 'bsc') ?></p>
-														<p><?php _e('TB', 'bsc') ?></p>
-														<p><?php _e('Max', 'bsc') ?></p>
+														<p><?php _e( 'Min', 'bsc' ) ?></p>
+														<p><?php _e( 'TB', 'bsc' ) ?></p>
+														<p><?php _e( 'Max', 'bsc' ) ?></p>
 													</div>
 												</div>
 												<?php
 												for ( $i = 0; $i < 2; $i++ ) {
 													?>
-													<div
-														class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[2][$i]->value); ?>
+													<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[2][ $i ]->value ); ?>
 														</p>
 														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][ $i ]->value ); ?>
 														</p>
@@ -674,25 +682,24 @@ get_header();
 												</div>
 											</div>
 											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
+												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
 												<div
-													class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[12px] pb-[6px]':'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 													<p class="mb-1">
-														<?php _e('Consensus', 'bsc') ?>
+														<?php _e( 'Consensus', 'bsc' ) ?>
 														<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
 													</p>
 													<div class="grid grid-cols-3 gap-2 text-right pr-5">
-														<p><?php _e('Min', 'bsc') ?></p>
-														<p><?php _e('TB', 'bsc') ?></p>
-														<p><?php _e('Max', 'bsc') ?></p>
+														<p><?php _e( 'Min', 'bsc' ) ?></p>
+														<p><?php _e( 'TB', 'bsc' ) ?></p>
+														<p><?php _e( 'Max', 'bsc' ) ?></p>
 													</div>
 												</div>
 												<?php
 												for ( $i = 0; $i < 2; $i++ ) {
 													?>
-													<div
-														class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
-														<p><?php echo bsc_number_format($response_GetForecastMacro->d->C[5][$i]->value); ?>
+													<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[5][ $i ]->value ); ?>
 														</p>
 														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][ $i ]->value ); ?>
 														</p>
@@ -829,14 +836,14 @@ get_header();
 											class="w-[20%] whitespace-nowrap flex items-center justify-end gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
 											<?php _e( 'LNST CĐTS', 'bsc' ) ?>
 											<button data-tooltip-target="tooltip-animations" data-tooltip-placement="top"
-											class="ml-1" type="button">
-											<?php echo svg( 'tooltip', '20', '20' ) ?>
-										</button>
-										<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
-											class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
-											<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
-											<div class="tooltip-arrow" data-popper-arrow></div>
-										</div>
+												class="ml-1" type="button">
+												<?php echo svg( 'tooltip', '20', '20' ) ?>
+											</button>
+											<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+												class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+												<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
+												<div class="tooltip-arrow" data-popper-arrow></div>
+											</div>
 										</div>
 										<div
 											class="w-[15%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
@@ -862,31 +869,37 @@ get_header();
 												foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
 													?>
 													<div class=" flex items-center min-h-[30px]">
-												<div class="w-[15%] py-1 whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
-													<?php if ($GetForecastBussinessResults->symbol) { ?>
-														<a
-															href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
-													<?php } ?>
-												</div>
-												<div class="w-[15%] py-1 whitespace-nowrap text-left <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
-													<?php echo $GetForecastBussinessResults->industryname ?>
-												</div>
-												<div class="w-[16%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
-													<?php echo bsc_number_format($GetForecastBussinessResults->revenue) ?>
-												</div>
-												<div class="w-[20%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
-													<?php if ($GetForecastBussinessResults->npatmi) { ?>
-														<?php echo $GetForecastBussinessResults->npatmi ?>
-													<?php } ?>
-												</div>
-												<div class="w-[15%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
-													<?php echo bsc_number_format($GetForecastBussinessResults->eps) ?>
-												</div>
-												<div class="w-[19%] py-1 whitespace-nowrap text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pr-10' : 'pr-5 min-w-[120px]' ?>">
-													<?php echo bsc_number_format($GetForecastBussinessResults->pricerecommended) ?>
-												</div>
-											</div>
-										<?php
+														<div
+															class="w-[15%] py-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[64px]' ?>">
+															<?php if ( $GetForecastBussinessResults->symbol ) { ?>
+																<a
+																	href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
+															<?php } ?>
+														</div>
+														<div
+															class="w-[15%] py-1 whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
+															<?php echo $GetForecastBussinessResults->industryname ?>
+														</div>
+														<div
+															class="w-[16%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[90px]' ?>">
+															<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ) ?>
+														</div>
+														<div
+															class="w-[20%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
+															<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
+																<?php echo $GetForecastBussinessResults->npatmi ?>
+															<?php } ?>
+														</div>
+														<div
+															class="w-[15%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+															<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
+														</div>
+														<div
+															class="w-[19%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-10' : 'pr-5 min-w-[120px]' ?>">
+															<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
+														</div>
+													</div>
+													<?php
 												}
 												?>
 											</div>
@@ -1082,109 +1095,111 @@ get_header();
 						$get_array_id_taxonomy = get_array_id_taxonomy( 'danh-muc-bao-cao-phan-tich' );
 						?>
 
-						
-							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-								<?php
-								if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
-									$current_term_id = get_queried_object_id();
-									$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
 
-									if ( $current_term && ! is_wp_error( $current_term ) ) {
-										
-										$child_terms = get_terms( array(
-											'taxonomy' => 'danh-muc-bao-cao-phan-tich',
-											'parent' => $current_term_id,
-											'hide_empty' => false,
-										) );
-
-										
-										if ( ! empty( $child_terms ) ) { ?>
-											<div class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
-												<?php echo esc_html( $current_term->name ); ?>
-												<?php echo svg( 'down-white', '20' ); ?>
-											</div>
-										<?php } else {
-											
-											?>
-											<div class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
-												<?php echo __( 'Tất cả', 'bsc' ); ?>
-												<?php echo svg( 'down-white', '20' ); ?>
-											</div>
-										<?php }
-									} 
-								}
-								?>
-								<?php
+						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+							<?php
+							if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
 								$current_term_id = get_queried_object_id();
 								$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
-								$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao-phan-tich' );
+
 								if ( $current_term && ! is_wp_error( $current_term ) ) {
+
 									$child_terms = get_terms( array(
 										'taxonomy' => 'danh-muc-bao-cao-phan-tich',
 										'parent' => $current_term_id,
 										'hide_empty' => false,
-										'exclude' => $excluded_category_id,
 									) );
 
+
 									if ( ! empty( $child_terms ) ) { ?>
-										<ul
-											class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
-											<?php
-											$is_active = ( $current_term_id === $current_term->term_id ) ? 'active' : ''; ?>
+										<div
+											class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
+											<?php echo esc_html( $current_term->name ); ?>
+											<?php echo svg( 'down-white', '20' ); ?>
+										</div>
+									<?php } else {
+
+										?>
+										<div
+											class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
+											<?php echo __( 'Tất cả', 'bsc' ); ?>
+											<?php echo svg( 'down-white', '20' ); ?>
+										</div>
+									<?php }
+								}
+							}
+							?>
+							<?php
+							$current_term_id = get_queried_object_id();
+							$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
+							$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao-phan-tich' );
+							if ( $current_term && ! is_wp_error( $current_term ) ) {
+								$child_terms = get_terms( array(
+									'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+									'parent' => $current_term_id,
+									'hide_empty' => false,
+									'exclude' => $excluded_category_id,
+								) );
+
+								if ( ! empty( $child_terms ) ) { ?>
+									<ul
+										class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+										<?php
+										$is_active = ( $current_term_id === $current_term->term_id ) ? 'active' : ''; ?>
+										<li>
+											<a href="<?php echo get_term_link( $current_term ); ?>"
+												class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+												<?php _e( 'Tất cả', 'bsc' ); ?>
+											</a>
+										</li>
+										<?php foreach ( $child_terms as $child_term ) {
+											$is_active = ( $current_term_id === $child_term->term_id ) ? 'active' : ''; ?>
 											<li>
-												<a href="<?php echo get_term_link( $current_term ); ?>"
+												<a href="<?php echo get_term_link( $child_term ); ?>"
 													class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-													<?php _e( 'Tất cả', 'bsc' ); ?>
+													<?php echo $child_term->name; ?>
 												</a>
 											</li>
-											<?php foreach ( $child_terms as $child_term ) {
-												$is_active = ( $current_term_id === $child_term->term_id ) ? 'active' : ''; ?>
+										<?php } ?>
+									</ul>
+								<?php } else {
+									$parent_term_id = $current_term->parent;
+									if ( $parent_term_id ) {
+										$parent_term = get_term( $parent_term_id, 'danh-muc-bao-cao-phan-tich' );
+										$siblings = get_terms( array(
+											'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+											'parent' => $parent_term_id,
+											'hide_empty' => false,
+											'exclude' => $excluded_category_id,
+										) );
+
+										if ( ! empty( $siblings ) ) { ?>
+											<ul
+												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+												<?php
+												$is_active = ( $current_term_id === $parent_term->term_id ) ? 'active' : ''; ?>
 												<li>
-													<a href="<?php echo get_term_link( $child_term ); ?>"
+													<a href="<?php echo get_term_link( $parent_term ); ?>"
 														class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-														<?php echo $child_term->name; ?>
+														<?php _e( 'Tất cả', 'bsc' ); ?>
 													</a>
 												</li>
-											<?php } ?>
-										</ul>
-									<?php } else {
-										$parent_term_id = $current_term->parent;
-										if ( $parent_term_id ) {
-											$parent_term = get_term( $parent_term_id, 'danh-muc-bao-cao-phan-tich' );
-											$siblings = get_terms( array(
-												'taxonomy' => 'danh-muc-bao-cao-phan-tich',
-												'parent' => $parent_term_id,
-												'hide_empty' => false,
-												'exclude' => $excluded_category_id,
-											) );
-
-											if ( ! empty( $siblings ) ) { ?>
-												<ul
-													class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
-													<?php
-													$is_active = ( $current_term_id === $parent_term->term_id ) ? 'active' : ''; ?>
+												<?php foreach ( $siblings as $sibling ) {
+													$is_active = ( $current_term_id === $sibling->term_id ) ? 'active' : ''; ?>
 													<li>
-														<a href="<?php echo get_term_link( $parent_term ); ?>"
+														<a href="<?php echo get_term_link( $sibling ); ?>"
 															class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-															<?php _e( 'Tất cả', 'bsc' ); ?>
+															<?php echo $sibling->name; ?>
 														</a>
 													</li>
-													<?php foreach ( $siblings as $sibling ) {
-														$is_active = ( $current_term_id === $sibling->term_id ) ? 'active' : ''; ?>
-														<li>
-															<a href="<?php echo get_term_link( $sibling ); ?>"
-																class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-																<?php echo $sibling->name; ?>
-															</a>
-														</li>
-													<?php } ?>
-												</ul>
-											<?php }
-										}
+												<?php } ?>
+											</ul>
+										<?php }
 									}
-								} ?>
-							<?php } ?>
-					
+								}
+							} ?>
+						<?php } ?>
+
 
 
 						<div
