@@ -17,7 +17,7 @@ get_header();
 					<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-4' ?>">
 						TRÁCH NHIỆM VỚI CỘNG ĐỒNG
 					</h2>
-					<div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'text-xs mb-8' ?>">
+					<div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-8' ?>">
 						BSC hiểu rằng, xây dựng giá trị của doanh nghiệp là một chiến lược thông
 						minh, hài hòa giữa phát triển doanh nghiệp bền vững và thực hiện trách nhiệm
 						với cộng đồng.
@@ -83,7 +83,7 @@ get_header();
 						<div class="community_nav-item cursor-pointer relative w-1/2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[200px]' : '' ?>"
 							data-index="0">
 							<div class="relative w-full pt-[100%]">
-								<?php echo svgClass( 'comunity', '', '' ) ?>
+								<?php echo svgpath( 'comunity', '', '','md:stroke-auto stroke-1' ) ?>
 								<div
 									class="icon absolute <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'top-3 right-5' : 'w-[36%] h-[36%] flex items-center justify-center top-4 right-4' ?>">
 									<?php echo svgClass( 'com_1' ) ?>
@@ -174,7 +174,7 @@ get_header();
 					<div class="sticky top-5 z-10">
 						<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
 							<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
+									class="py-[12px] px-4 text-base font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
 									Năm 2024
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>		
@@ -262,7 +262,7 @@ get_header();
 						}
 						?>
 					</div>
-					<div class="mt-12">
+					<div class="lg:mt-12">
 						<?php get_template_part( 'components/pagination' ) ?>
 					</div>
 				</div>
