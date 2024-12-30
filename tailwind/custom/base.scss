@@ -11,7 +11,7 @@
  * `theme.json` file and is applied both to the frontend and in the block
  * editor.
 */
-@import "mixin";
+@use "mixin";
 .is-desktop {
 	.menu_top {
 		li {
@@ -496,7 +496,7 @@
 		&-item {
 			@apply w-[35%];
 			&:nth-child(2) {
-				@apply -translate-x-[20px] translate-y-5;
+				@apply -translate-x-[30px] translate-y-5;
 			}
 			&:nth-child(3) {
 				@apply translate-x-[63%] -translate-y-[30%];
@@ -783,6 +783,7 @@ header {
 			.com-svg {
 				.com-svg-path {
 					fill: url(#gradientFill);
+					
 				}
 			}
 			.icon {
@@ -799,6 +800,9 @@ header {
 			@apply absolute w-full h-full inset-0;
 			.com-svg-path {
 				fill: white;
+				@media(max-width:767px){
+					stroke-width: 1;
+				}
 			}
 		}
 	}

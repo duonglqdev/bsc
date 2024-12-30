@@ -8,7 +8,7 @@
                     </h2>
                 <?php } ?>
                 <?php if (get_sub_field('mota')) { ?>
-                    <div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'text-xs mb-8' ?>">
+                    <div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-8' ?>">
                         <?php the_sub_field('mota') ?>
                     </div>
                 <?php } ?>

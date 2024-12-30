@@ -652,7 +652,7 @@ function filter_details_symbol() {
 									?>
 								</div>
 								<div
-									class="min-w-[90px] sm:max-w-[19%] pl-4 py-2 text-left min-h-10 flex items-center justify-end pr-6 border-r border-[#C9CCD2]">
+									class="min-w-[90px] sm:max-w-[19%] pl-4 py-2 text-left min-h-10 flex items-center justify-end pr-3 border-r border-[#C9CCD2]">
 									<?php
 									if ( $GetForeignInvestors->f_BUY_VOLUME ) {
 										echo bsc_number_format( ( $GetForeignInvestors->f_BUY_VOLUME ) );
@@ -660,7 +660,7 @@ function filter_details_symbol() {
 									?>
 								</div>
 								<div
-									class="min-w-[100px] sm:max-w-[20%] pl-4 py-2 text-left min-h-10 flex items-center justify-end pr-6 border-r border-[#C9CCD2]">
+									class="min-w-[100px] sm:max-w-[20%] pl-4 py-2 text-left min-h-10 flex items-center justify-end pr-3 border-r border-[#C9CCD2]">
 									<?php
 									if ( $GetForeignInvestors->f_BUY_VALUE ) {
 										echo bsc_number_format( $GetForeignInvestors->f_BUY_VALUE );
@@ -668,14 +668,14 @@ function filter_details_symbol() {
 									?>
 								</div>
 								<div
-									class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end pr-6 border-r border-[#C9CCD2]">
+									class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end pr-3 border-r border-[#C9CCD2]">
 									<?php
 									if ( $GetForeignInvestors->f_SELL_VOLUME ) {
 										echo bsc_number_format( ( $GetForeignInvestors->f_SELL_VOLUME ) );
 									}
 									?>
 								</div>
-								<div class="flex-1 px-3 py-2 min-h-10 flex items-center justify-end pr-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
+								<div class="flex-1 px-3 py-2 min-h-10 flex items-center justify-end pr-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[100px]' ?>">
 									<?php
 									if ( $GetForeignInvestors->f_SELL_VALUE ) {
 										echo bsc_number_format( $GetForeignInvestors->f_SELL_VALUE );

@@ -1,3 +1,4 @@
+<?php if (isset($args['total_page']) && $args['total_page'] > 1) : ?>
 <div class="bsc-pagination <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-12' : 'mt-8' ?>">
 	<nav class="flex items-center gap-8 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'justify-center' ?>">
 		<?php if (isset($args['get']) && $args['get'] == 'api') {
@@ -165,3 +166,4 @@
 		<?php } ?>
 	</nav>
 </div>
+<?php endif; ?>
