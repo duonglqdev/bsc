@@ -2595,15 +2595,10 @@ function filter_details_symbol() {
 										<tr>
 										<th class="lg:w-1/3"></th>
 										<?php 
-										$total_items = count($response_GetForecastBussiness_d2); 
-										$current_index = 0; 
-
 										foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-											$current_index++; 
-																						$is_last = ($current_index === $total_items); 
 											?>
 											<th
-												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 												<?php echo $GetForecastBussiness->FORECAST_PERIOD ?>
 											</th>
 										<?php 
@@ -2618,11 +2613,9 @@ function filter_details_symbol() {
 												<?php _e( 'Doanh thu (tỷ đồng)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
@@ -2642,12 +2635,11 @@ function filter_details_symbol() {
 												<?php _e( 'Tăng trưởng doanh thu (%YoY)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
 												?>
 												<td
-													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_DT ) {
 														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_DT ) . '%';
@@ -2664,14 +2656,12 @@ function filter_details_symbol() {
 												<?php _e( 'Lợi nhuận sau thuế công ty mẹ (tỷ đồng)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?> <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?>  !text-right">
 													<?php
 													if ( $GetForecastBussiness->LNST_CONG_TY_ME ) {
 														echo bsc_number_format( $GetForecastBussiness->LNST_CONG_TY_ME / 1000000000 );
@@ -2684,18 +2674,16 @@ function filter_details_symbol() {
 										</tr>
 										<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 											<td
-												class="font-bold italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
+												class="font-bold italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?> !text-right">
 												<?php _e( 'Tăng trưởng lợi nhuận sau thuế công ty mẹ (%YoY)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?> <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?> ">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_LS ) {
 														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_LS ) . '%';
@@ -2708,18 +2696,16 @@ function filter_details_symbol() {
 										</tr>
 										<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 											<td
-												class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
+												class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?> !text-right">
 												<?php _e( 'EPS (VND)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right ' ?> <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right ' ?> ">
 													<?php
 													if ( $GetForecastBussiness->EPS ) {
 														echo bsc_number_format( $GetForecastBussiness->EPS );
@@ -2736,14 +2722,12 @@ function filter_details_symbol() {
 												<?php _e( 'Tăng trưởng EPS (%YoY)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_EPS ) {
 														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_EPS ) . '%';
@@ -2760,14 +2744,12 @@ function filter_details_symbol() {
 												<?php _e( 'Giá trị sổ sách (VND)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->BVPS ) {
 														echo bsc_number_format( $GetForecastBussiness->BVPS );
@@ -2784,14 +2766,12 @@ function filter_details_symbol() {
 												<?php _e( 'ROE (%)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->ROE ) {
 														echo bsc_number_format( $GetForecastBussiness->ROE * 100 ) . '%';
@@ -2808,14 +2788,12 @@ function filter_details_symbol() {
 												<?php _e( 'ROA (%)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->ROA ) {
 														echo bsc_number_format( $GetForecastBussiness->ROA * 100 ) . '%';
@@ -2832,14 +2810,12 @@ function filter_details_symbol() {
 												<?php _e( 'P/E (x)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
-												$current_index++;
-    											$is_last = ($current_index === $total_items);
+												
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->PE ) {
 														echo bsc_number_format( $GetForecastBussiness->PE );
@@ -2863,7 +2839,7 @@ function filter_details_symbol() {
 																							$is_last = ($current_index === $total_items);
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->PB ) {
 														echo bsc_number_format( $GetForecastBussiness->PB );
@@ -2880,14 +2856,13 @@ function filter_details_symbol() {
 												<?php _e( 'Hiệu suất cổ phiếu (%)', 'bsc' ) ?>
 											</td>
 											<?php
-											$total_items = count($response_GetForecastBussiness_d2); 
-											$current_index = 0;
+											
 											foreach ( $response_GetForecastBussiness_d2 as $GetForecastBussiness ) {
 												$current_index++;
 																							$is_last = ($current_index === $total_items);
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right <?php echo $is_last ? '!pr-10' : ''; ?>">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->HS_CO_PHIEU ) {
 														echo bsc_number_format( $GetForecastBussiness->HS_CO_PHIEU ) . '%';
