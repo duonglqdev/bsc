@@ -55,7 +55,7 @@
 				datepicker-orientation="bottom left"
 				class="flex items-center text-xs gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-6' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<p class="font-semibold mr-6">chart_btn-reload
+					<p class="font-semibold mr-6">
 						<?php _e( 'Thời gian:', 'gnws' ) ?>
 					</p>
 				<?php } ?>
@@ -63,7 +63,7 @@
 					class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 					<input id="datepicker-performance-start" name="start" type="text"
 						class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-						placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value=""autocomplete="off">
+						placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="" autocomplete="off">
 					<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 				</div>
 				<?php $todate = date( 'Y-m-d' ); ?>
