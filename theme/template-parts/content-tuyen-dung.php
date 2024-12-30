@@ -107,9 +107,8 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 		</p>
 	</div>
 
-
 	<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-		<div class="col-span-1 job_status m-auto">
+		<div class="col-span-1 job_status mx-auto mt-6">
 			<div
 				class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
 				<?php echo $label ?>
