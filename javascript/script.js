@@ -1631,7 +1631,7 @@ import { DataTable } from 'simple-datatables';
 				var fromdate = $('#chart').attr('data-fromdate');
 				var first_bsc = $(
 					'section.chart .btn-chart button[data-stt="1"]'
-				);
+				).attr('data-chart');
 				if (fromdate) {
 					jQuery('#datepicker-performance-start').val(fromdate);
 				}
@@ -1711,7 +1711,7 @@ import { DataTable } from 'simple-datatables';
 			function () {
 				var first_bsc = $(
 					'section.chart .btn-chart button[data-stt="1"]'
-				);
+				).attr('data-chart');
 				clearTimeout(debounceTimer);
 				debounceTimer = setTimeout(function () {
 					const activeChart =
