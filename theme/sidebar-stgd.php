@@ -74,9 +74,42 @@ $current_post_id = get_the_ID();
 			<?php } ?>
 		</ul>
 	<?php else : ?>
+		<?php 
+		$active_category_name = '';
+
+		foreach ( $categories as $category ) {
+			$posts_in_category = get_posts( [ 
+				'post_type' => 'so-tay-giao-dich',
+				'tax_query' => [ 
+					[ 
+						'taxonomy' => 'danh-muc-so-tay',
+						'field' => 'term_id',
+						'terms' => $category->term_id,
+					],
+				],
+				'numberposts' => -1,
+			] );
+			$has_active_post = false;
+			foreach ( $posts_in_category as $post ) {
+				if ( $post->ID == $current_post_id ) {
+					$has_active_post = true;
+		
+					$ancestors = get_ancestors( $category->term_id, 'danh-muc-so-tay' );
+					if ( ! empty( $ancestors ) ) {
+						$parent_id = array_pop( $ancestors ); // Lấy danh mục cha cao nhất
+						$parent_category = get_term( $parent_id, 'danh-muc-so-tay' );
+						$active_category_name = $parent_category->name;
+					} else {
+						$active_category_name = $category->name;
+					}
+					break;
+				}
+			}
+		}
+		?>
 		<div
-			class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
-			<?php single_term_title(); ?>
+			class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next title">
+			<?php echo esc_html( $active_category_name ); ?>
 			<?php echo svg( 'down-white', '20' ) ?>
 		</div>
 

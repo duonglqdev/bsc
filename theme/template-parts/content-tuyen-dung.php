@@ -42,10 +42,11 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	<div
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
-			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			class="text-gray-100 font-medium text-xs lg:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
 				<?php _e('Kinh nghiệm', 'bsc') ?>
 			<?php else : ?>
+				 <?php echo svg('exp', '20') ?>
 				<?php _e('Kinh nghiệm:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
@@ -56,10 +57,11 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	<div
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
-			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			class="text-gray-100 font-medium text-xs lg:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
 				<?php _e('Nơi làm việc', 'bsc') ?>
 			<?php else : ?>
+				<?php echo svg('loca', '20') ?>
 				<?php _e('Nơi làm việc:', 'bsc') ?>
 			<?php endif; ?>
 
@@ -77,10 +79,11 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	<div
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
-			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			class="text-gray-100 font-medium text-xs lg:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
 				<?php _e('Số lượng tuyển', 'bsc') ?>
 			<?php else : ?>
+				 <?php echo svg('number', '20') ?>
 				<?php _e('Số lượng tuyển:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
@@ -91,10 +94,11 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	<div
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
-			class="text-gray-100 font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
+			class="text-gray-100 font-medium text-xs lg:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
 				<?php _e('Hạn nộp hồ sơ', 'bsc') ?>
 			<?php else : ?>
+				 <?php echo svg('time-2', '20') ?>
 				<?php _e('Hạn nộp hồ sơ:', 'bsc') ?>
 			<?php endif; ?>
 		</p>

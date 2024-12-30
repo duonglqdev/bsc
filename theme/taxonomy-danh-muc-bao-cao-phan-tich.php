@@ -1082,26 +1082,38 @@ get_header();
 						$get_array_id_taxonomy = get_array_id_taxonomy( 'danh-muc-bao-cao-phan-tich' );
 						?>
 
-						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+						
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-								<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
-									<?php
+								<?php
+								if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
+									$current_term_id = get_queried_object_id();
+									$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
 
-									if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
+									if ( $current_term && ! is_wp_error( $current_term ) ) {
+										
+										$child_terms = get_terms( array(
+											'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+											'parent' => $current_term_id,
+											'hide_empty' => false,
+										) );
 
-										$current_term_id = get_queried_object_id();
-										$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
-										if ( $current_term && ! is_wp_error( $current_term ) ) {
-											echo esc_html( $current_term->name );
-										} else {
-											echo __( 'Tất cả', 'bsc' );
-										}
-									}
-
-									?>
-									<?php echo svg( 'down-white', '20' ) ?>
-								</div>
+										
+										if ( ! empty( $child_terms ) ) { ?>
+											<div class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
+												<?php echo esc_html( $current_term->name ); ?>
+												<?php echo svg( 'down-white', '20' ); ?>
+											</div>
+										<?php } else {
+											
+											?>
+											<div class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
+												<?php echo __( 'Tất cả', 'bsc' ); ?>
+												<?php echo svg( 'down-white', '20' ); ?>
+											</div>
+										<?php }
+									} 
+								}
+								?>
 								<?php
 								$current_term_id = get_queried_object_id();
 								$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
@@ -1172,7 +1184,7 @@ get_header();
 									}
 								} ?>
 							<?php } ?>
-						<?php } ?>
+					
 
 
 						<div
@@ -1197,7 +1209,7 @@ get_header();
 						get_template_part( 'template-parts/content', 'none' );
 					} ?>
 					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-						<div class="p-4 bg-gradient-blue-50 mt-[50px]">
+						<div class="p-4 bg-gradient-blue-50 mt-[50px] rounded-lg">
 							<h3 class="text-primary-300 font-bold text-lg mb-4">
 								<?php _e( 'Đăng ký nhận báo cáo từ BSC', 'bsc' ) ?>
 							</h3>

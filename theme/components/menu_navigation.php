@@ -56,11 +56,11 @@ if ($style == 'nhdt') {
                 $endpoint = '';
             };
             if (have_rows('menu_navigation')) { ?>
-                <ul class="flex justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-4' ?>">
+                <ul class="flex justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-10':'gap-3' ?>">
                     <?php while (have_rows('menu_navigation')) : the_row() ?>
                         <li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1' ?>">
                             <a href="<?php echo check_link(get_sub_field('link')) . $endpoint ?>"
-                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-semibold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base py-[12px] px-10':'text-xs py-3 px-5' ?>">
+                                class="<?php if (get_sub_field('active')) echo 'active' ?> block text-center font-semibold  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg xl:min-w-[400px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-base py-[12px] px-10':'text-xs py-2 px-3' ?>">
                                 <?php the_sub_field('title') ?>
                             </a>
                         </li>
