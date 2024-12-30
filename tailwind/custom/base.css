@@ -524,7 +524,7 @@
 .is-mobile .form_cv-wrapper .upload-label {
   @apply mb-2;
 }
-@media (max-width: 414px) {
+@media (max-width: 480px) {
   .is-mobile .datepicker-dropdown {
     left: 50% !important;
     transform: translateX(-50%) !important;

@@ -1,6 +1,6 @@
 <section class="mt-12 xl:mb-[100px] mb-20 stgd_page_content" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="grid md:grid-cols-4 gap-12">
+        <div class="grid lg:grid-cols-4 gap-12">
             <div class="md:col-span-1 col-span-full">
                 <?php if (have_rows('menu_naviation')) { ?>
                     <div class="sticky lg:top-28 top-5 z-[9]">
@@ -21,7 +21,7 @@
                     </div>
                 <?php } ?>
             </div>
-            <div class="md:col-span-3 col-span-full">
+            <div class="lg:col-span-3 col-span-full">
                 <h1 class="text-xl font-bold mb-5 text-primary-300">
                     <?php the_sub_field('title') ?>
                 </h1>
