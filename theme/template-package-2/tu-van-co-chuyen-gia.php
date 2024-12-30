@@ -55,11 +55,11 @@ get_header();
 			<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 				ĐẶC QUYỀN CỦA TƯ VẤN ĐẦU TƯ CÙNG CHUYÊN GIA
 			</h2>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider block_slider-show-1 fli-dots-blue sm:-mx-3' ?>">
 				<?php 
 				 for ($i = 0; $i < 4; $i++) {
 				 ?>
-				 <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item w-full' ?>">
+				 <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item sm:w-1/2 w-full sm:px-3' ?>">
 					 <div class="relative pt-[121.25%]">
 						 <div class="absolute w-full h-full inset-0 flex flex-col">
 							 <div
