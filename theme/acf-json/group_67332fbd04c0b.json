@@ -298,7 +298,7 @@
         {
             "key": "field_67332fc010164",
             "label": "ID Danh mục",
-            "name": "cdctkm1_id_danh_mục",
+            "name": "cdctkm1_id_danh_muc",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -418,5 +418,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734080652
+    "modified": 1735578527
 }

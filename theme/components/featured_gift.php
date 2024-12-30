@@ -1,5 +1,5 @@
 <?php
-$chuong_trinh_khuyen_mai_id = get_field('cdctkm1_id_danh_mục', 'option');
+$chuong_trinh_khuyen_mai_id = get_field('cdctkm1_id_danh_muc', 'option');
 if ($chuong_trinh_khuyen_mai_id) {
     $number = get_sub_field('number') ?: 3;
     $time_cache = get_sub_field('time_cache') ?: 300;

@@ -1,30 +1,24 @@
 <section
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-[50px] mb-20' ?> dvck_gift"
-	<?php if ( get_sub_field( 'id_class' ) )
-	{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>"
-	<?php } ?>>
+	<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<div
 			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex items-center justify-between mb-10' : 'mb-6' ?>">
-			<?php if ( get_sub_field( 'title' ) )
-			{ ?>
+			<?php if ( get_sub_field( 'title' ) ) { ?>
 				<h2 class="heading-title"><?php the_sub_field( 'title' ) ?></h2>
 			<?php } ?>
-			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-			{ ?>
+			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 				<a href="<?php echo check_link( get_field( 'cdctkm1_page', 'option' ) ) ?><?php if ( $class = get_field( 'cdctkm1_pageid_class', 'option' ) ) :
 							echo '#' . $class;
-						endif; ?>"
-					class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
+						endif; ?>" class="btn-base-yellow py-[12px] pl-4 pr-6 text-xs font-bold inline-flex items-center gap-x-3">
 					<?php echo svg( 'arrow-btn', '20' ) ?>
 					<?php _e( 'Xem tất cả', 'bsc' ) ?>
 				</a>
 			<?php } ?>
 		</div>
 		<?php
-		$chuong_trinh_khuyen_mai_id = get_field( 'cdctkm1_id_danh_mục', 'option' );
-		if ( $chuong_trinh_khuyen_mai_id )
-		{
+		$chuong_trinh_khuyen_mai_id = get_field( 'cdctkm1_id_danh_muc', 'option' );
+		if ( $chuong_trinh_khuyen_mai_id ) {
 			$time_cache = get_sub_field( 'time_cache' ) ?: 300;
 			$array_data = array(
 				"maxitem" => 3,
@@ -34,8 +28,7 @@
 			);
 			$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
 
-			if ( $response )
-			{
+			if ( $response ) {
 				$is_mobile = wp_is_mobile() && bsc_is_mobile();
 
 				function calculate_promotion_data( $news ) {
@@ -46,8 +39,7 @@
 						'formattedEndDate' => 'N/A',
 					];
 
-					if ( ! empty( $news->promotionstarted ) && ! empty( $news->promotionended ) )
-					{
+					if ( ! empty( $news->promotionstarted ) && ! empty( $news->promotionended ) ) {
 						$startDate = new DateTime( $news->promotionstarted );
 						$endDate = new DateTime( $news->promotionended );
 
@@ -55,8 +47,7 @@
 						$result['formattedEndDate'] = $endDate->format( 'd/m/Y' );
 
 						$today = new DateTime();
-						if ( $today <= $endDate )
-						{
+						if ( $today <= $endDate ) {
 							$interval = $startDate->diff( $endDate )->days;
 							$remainingInterval = $today->diff( $endDate )->days;
 
@@ -76,8 +67,7 @@
 							if ( $first_news ) : ?>
 								<a href="<?php echo slug_news( htmlspecialchars( $first_news->newsid ), htmlspecialchars( $first_news->title ) ); ?>"
 									class="w-full block relative overflow-hidden rounded-2xl pt-[55%]">
-									<img loading="lazy"
-										src="<?php echo bsc_set_thumbnail( $first_news, 'thumbnail' ) ?>"
+									<img loading="lazy" src="<?php echo bsc_set_thumbnail( $first_news, 'thumbnail' ) ?>"
 										alt="<?php echo htmlspecialchars( $first_news->title ) ?>"
 										class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 								</a>
@@ -93,8 +83,7 @@
 										<div class="w-[270px] max-w-[45%]">
 											<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 												class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
-												<img loading="lazy"
-													src="<?php echo bsc_set_thumbnail( $news, 'thumbnail' ) ?>"
+												<img loading="lazy" src="<?php echo bsc_set_thumbnail( $news, 'thumbnail' ) ?>"
 													alt="<?php echo htmlspecialchars( $news->title ) ?>"
 													class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 											</a>
@@ -115,18 +104,15 @@
 													</div>
 												</div>
 												<div class="mt-[14px] font-Helvetica">
-													<div
-														class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
+													<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
 														<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 															style="width:<?php echo round( $promo_data['completionPercentage'], 2 ) ?>%">
 														</p>
 													</div>
 													<div class="mt-2 text-xs">
-														<?php if ( $promo_data['remainingDays'] == 0 )
-														{
+														<?php if ( $promo_data['remainingDays'] == 0 ) {
 															_e( 'Chương trình đã kết thúc', 'bsc' );
-														} else
-														{
+														} else {
 															printf(
 																__( 'Thời gian khuyến mãi còn <strong class="text-primary-300">%s ngày</strong>', 'bsc' ),
 																$promo_data['remainingDays']
@@ -151,8 +137,7 @@
 									<div class="mb-4">
 										<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 											class="w-full relative pt-[63%] block overflow-hidden rounded-[10px]">
-											<img loading="lazy"
-												src="<?php echo bsc_set_thumbnail( $news, 'thumbnail' ) ?>"
+											<img loading="lazy" src="<?php echo bsc_set_thumbnail( $news, 'thumbnail' ) ?>"
 												alt="<?php echo htmlspecialchars( $news->title ) ?>"
 												class="absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105">
 										</a>
@@ -173,18 +158,15 @@
 												</div>
 											</div>
 											<div class="mt-[14px] font-Helvetica">
-												<div
-													class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
+												<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[3px]">
 													<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 														style="width:<?php echo round( $promo_data['completionPercentage'], 2 ) ?>%">
 													</p>
 												</div>
 												<div class="mt-2 text-xs">
-													<?php if ( $promo_data['remainingDays'] == 0 )
-													{
+													<?php if ( $promo_data['remainingDays'] == 0 ) {
 														_e( 'Chương trình đã kết thúc', 'bsc' );
-													} else
-													{
+													} else {
 														printf(
 															__( 'Thời gian khuyến mãi còn <strong class="text-primary-300">%s ngày</strong>', 'bsc' ),
 															$promo_data['remainingDays']
