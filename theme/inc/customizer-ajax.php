@@ -1054,8 +1054,9 @@ function filter_details_symbol() {
 						if ( $response_GetSummaryFinanceReportBySymbol ) {
 							$industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
 							?>
+							<li class="lg:w-1/4"></li>
 							<ul
-								class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] flex-wrap mr-6 mb-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] mb-6 mr-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
 								<?php
 								// Lấy dữ liệu từ đối tượng phản hồi
 								$yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
@@ -1080,7 +1081,7 @@ function filter_details_symbol() {
 									// Lấy giá trị kiểm toán tương ứng
 									$kiem_toan = isset( $kiemToanDataValues[ $key ] ) ? $kiemToanDataValues[ $key ] : '';
 									?>
-									<li class="lg:min-w-[140px] font-bold">
+									<li class="lg:min-w-[140px] font-bold flex-1">
 										<p><?php echo htmlspecialchars( $year ); ?></p>
 										<p class="text-[#1CCD83]">
 											<?php
