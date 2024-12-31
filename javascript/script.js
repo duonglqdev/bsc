@@ -2439,6 +2439,7 @@ import { DataTable } from 'simple-datatables';
 							stroke: {
 								curve: 'smooth', // Đường cong mềm mại
 								width: 1, // Đường mỏng hơn để vừa khung nhỏ
+								colors: color,
 							},
 							fill: {
 								type: 'gradient',

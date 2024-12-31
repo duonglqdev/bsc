@@ -49,27 +49,29 @@ if ($chuong_trinh_khuyen_mai_id) {
                                         <?php echo htmlspecialchars($news->title) ?>
                                     </h2>
                                     <?php if ($news->promotionended) {
-                                        $remainingDays = 0;
-                                        $completionPercentage = 0;
-                                        $startDate = new DateTime($news->promotionstarted);
-                                        $endDate = new DateTime($news->promotionended);
-                                        $formattedEndDate = $endDate->format('d/m/Y');
-                                        if ($news->promotionstarted) {
-                                            $formattedStartDate = $startDate->format('d/m/Y');
-                                            $interval = $startDate->diff($endDate);
-                                            $daysDifference = $interval->days;
-                                            $today = new DateTime();
-                                            $remainingInterval = $today->diff($endDate);
-                                            $remainingDays = $remainingInterval->days;
-                                            $elapsedDays = $daysDifference - $remainingDays;
-                                            $completionPercentage = ($elapsedDays / $daysDifference) * 100;
-                                            if ($today > $endDate) {
-                                                $remainingDays = 0;
-                                                $completionPercentage = 0;
-                                            }
-                                        } else {
-                                            $formattedStartDate = 'N/A';
-                                        } ?>
+                                       $remainingDays = 0;
+                                       $completionPercentage = 0;
+                                       $startDate = new DateTime( $news->promotionstarted );
+                                       $endDate = new DateTime( $news->promotionended );
+                                       $endDate = $endDate->setTime( 0, 0, 0 );
+                                       $formattedEndDate = $endDate->format( 'd/m/Y' );
+                                       if ( $news->promotionstarted ) {
+                                           $formattedStartDate = $startDate->format( 'd/m/Y' );
+                                           $interval = $startDate->diff( $endDate );
+                                           $daysDifference = $interval->days;
+                                           $today = new DateTime();
+                                           $today = $today->setTime( 0, 0, 0 );
+                                           $remainingInterval = $today->diff( $endDate );
+                                           $remainingDays = $remainingInterval->days;
+                                           $elapsedDays = $daysDifference - $remainingDays;
+                                           $completionPercentage = ( $elapsedDays / $daysDifference ) * 100;
+                                           if ( $today > $endDate ) {
+                                               $remainingDays = 0;
+                                               $completionPercentage = 0;
+                                           }
+                                       } else {
+                                           $formattedStartDate = 'N/A';
+                                       } ?>
                                         <div class="flex items-center gap-2 font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-4 ':'mt-[12px] text-xs' ?>">
                                             <div class="inline-flex items-center gap-2">
                                                 <?php echo svg('time') ?>
@@ -86,7 +88,8 @@ if ($chuong_trinh_khuyen_mai_id) {
                                                     style="width:<?php echo round($completionPercentage, 2)  ?>%"></p>
                                             </div>
                                             <div class="mt-2 text-xs">
-                                                <?php if ($remainingDays == 0) {
+                                                <?php 
+                                                   if ( $today > $endDate ) {
                                                     _e('Chương trình đã kết thúc', 'bsc');
                                                 } else { ?>
                                                     <?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong class="text-primary-300"><?php echo $remainingDays ?>

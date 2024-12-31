@@ -3899,7 +3899,7 @@ function filter_details_symbol() {
 										?>
 										<p
 											class="min-w-[175px] text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-											<?php _e( 'Tăng trưởng', 'bsc' ) ?>
+											<?php _e( 'Thay đổi', 'bsc' ) ?>
 										</p>
 									</div>
 									<div class="list_content-collapse font-medium">
@@ -3991,7 +3991,7 @@ function filter_details_symbol() {
 										?>
 										<p
 											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-											<?php _e( 'Tăng trưởng', 'bsc' ) ?>
+											<?php _e( 'Thay đổi', 'bsc' ) ?>
 										</p>
 									</div>
 									<div class="list_content-collapse font-medium">
@@ -4083,7 +4083,7 @@ function filter_details_symbol() {
 										?>
 										<p
 											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-											<?php _e( 'Tăng trưởng', 'bsc' ) ?>
+											<?php _e( 'Thay đổi', 'bsc' ) ?>
 										</p>
 									</div>
 									<div class="list_content-collapse font-medium">
@@ -4175,7 +4175,7 @@ function filter_details_symbol() {
 										?>
 										<p
 											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-											<?php _e( 'Tăng trưởng', 'bsc' ) ?>
+											<?php _e( 'Thay đổi', 'bsc' ) ?>
 										</p>
 									</div>
 									<div class="list_content-collapse font-medium">
@@ -4215,6 +4215,14 @@ function filter_details_symbol() {
 function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null, $level = 0 ) {
 	if ( $menuData && $response_GetDetailFinanceReportBySymbol ) {
 		foreach ( $menuData as $item ) {
+			$Data = $response_GetDetailFinanceReportBySymbol->d[ $item['order'] ];
+			$Array = (array) $Data;
+			$Values = array_slice( $Array, 1, null, true );
+			$Values = array_reverse( $Values, true );
+			// Kiểm tra nếu $Values trống hoặc toàn bộ giá trị bên trong là 0
+			if ( empty( $Values ) || array_sum( $Values ) == 0 ) {
+				continue; // Bỏ qua item này nếu điều kiện thỏa mãn
+			}
 			?>
 			<div class="<?php if ( ! empty( $item['children'] ) )
 				echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
@@ -4233,10 +4241,6 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 						<?php echo $item['title'] ?>
 					</h3>
 					<?php
-					$Data = $response_GetDetailFinanceReportBySymbol->d[ $item['order'] ];
-					$Array = (array) $Data;
-					$Values = array_slice( $Array, 1, null, true );
-					$Values = array_reverse( $Values, true );
 					$Values_chart = implode( ',', $Values );
 					$lastTwoValues = array_slice( $Values, -2, 2, true );
 					$dataColor = '#007bff';
