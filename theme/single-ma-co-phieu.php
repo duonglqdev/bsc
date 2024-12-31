@@ -275,8 +275,8 @@ get_header();
 							<?php _e( 'BIỂU ĐỒ GIÁ', 'bsc' ) ?>
 						</h2>
 						<div
-							class="rounded-2xl bg-[#F5FCFF] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
-							<iframe width='100%' height='100%'
+							class="rounded-2xl bg-[#F5FCFF] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px] relative' ?>">
+							<iframe width='100%' height='100%' class="lg:static absolute inset-0 w-full h-full"
 								src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light'
 								frameBorder='0' allowFullScreen></iframe>
 						</div>
