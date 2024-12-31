@@ -22,7 +22,6 @@ if ( $response_GetAllDanhMuc ) {
 			} else {
 				$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
 			}
-			echo $current_bsc;
 			if ( get_sub_field( 'title' ) ) { ?>
 				<h2
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[32px] text-2xl' : 'text-[22px]' ?>">
@@ -38,7 +37,7 @@ if ( $response_GetAllDanhMuc ) {
 					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:flex-auto flex-1' ?>">
 						<button data-chart="<?php echo $news->tendanhmuc ?>" data-stt="<?php echo $i ?>"
 							class="<?php if ( $current_bsc == $news->tendanhmuc )
-								echo 'active' ?>  lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block font-bold' : 'block font-semibold' ?>">
+								echo 'active' ?>  lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block font-bold' : 'block font-semibold w-full' ?>">
 							<?php echo $news->tendanhmuc ?>
 						</button>
 					</li>
@@ -63,17 +62,17 @@ if ( $response_GetAllDanhMuc ) {
 						</p>
 					<?php } ?>
 					<div
-						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
+						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-start" name="start" type="text"
-							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
 							placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="" autocomplete="off">
 						<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 					</div>
 					<?php $todate = date( 'Y-m-d' ); ?>
 					<div
-						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
+						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-end" name="end" type="text"
-							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
 							placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php echo $todate ?>" autocomplete="off">
 						<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 					</div>
