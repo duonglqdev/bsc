@@ -1,6 +1,7 @@
 <?php
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout['class'];
+// $class = $check_logout['class'];
+$class = '';
 ?>
 <section
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?> qdbsc_vi_mo"
@@ -22,7 +23,7 @@ $class = $check_logout['class'];
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?> <?php echo $class ?>">
 				<?php
-				if ( ! $check_logout ) {
+				if ( ! $check_logout || 1 == 1 ) {
 					$array_data_thitruong = array();
 					$response_thitruong = get_data_with_cache( 'GetVNIChart', $array_data_thitruong, $time_cache );
 					if ( $response_thitruong ) {
@@ -164,8 +165,8 @@ $class = $check_logout['class'];
 				} ?>
 			</div>
 			<?php if ( $check_logout ) {
-				echo $check_logout['html'];
-			} ?>
+			// echo $check_logout['html'];
+		} ?>
 		</div>
 	</div>
 </section>

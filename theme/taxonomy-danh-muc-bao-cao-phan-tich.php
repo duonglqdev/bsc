@@ -311,7 +311,8 @@ get_header();
 					?>
 					<?php
 					$check_logout = bsc_is_user_logged_out();
-					$class = $check_logout['class'];
+					// $class = $check_logout['class'];
+					$class = '';
 					$type_danh_muc = get_field( 'type_danh_muc', get_queried_object() );
 					if ( $type_danh_muc == 'thitruong' ) {
 						?>
@@ -323,7 +324,7 @@ get_header();
 							<div class="relative">
 								<div
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-8' : 'grid gap-4' ?> <?php echo $class ?>">
-									<?php if ( ! $check_logout ) {
+									<?php if ( ! $check_logout || 1 == 1 ) {
 										$array_data_thitruong = array();
 										$response_thitruong = get_data_with_cache( 'GetVNIChart', $array_data_thitruong, $time_cache );
 										if ( $response_thitruong ) {
@@ -467,8 +468,8 @@ get_header();
 									?>
 								</div>
 								<?php if ( $check_logout ) {
-									echo $check_logout['html'];
-								} ?>
+								// echo $check_logout['html'];
+							} ?>
 							</div>
 						</div>
 						<?php
@@ -482,241 +483,244 @@ get_header();
 							</h3>
 							<div class="relative">
 								<?php
-								$array_data_GetForecastMacro = array();
-								$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
-								if ( $response_GetForecastMacro ) {
-									?>
-									<div
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-6' ?> <?php echo $class ?>">
-										<h4 class="text-center font-bold text-primary-300 mb-4"><?php _e( 'Dự báo kinh tế
-                                            vĩ mô Việt Nam', 'bsc' ) ?>
-											<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
-										</h4>
+								if ( ! $check_logout || 1 == 1 ) {
+									$array_data_GetForecastMacro = array();
+									$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
+									if ( $response_GetForecastMacro ) {
+										?>
 										<div
-											class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-6' ?> <?php echo $class ?>">
+											<h4 class="text-center font-bold text-primary-300 mb-4"><?php _e( 'Dự báo kinh tế
+                                            vĩ mô Việt Nam', 'bsc' ) ?>
+												<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
+											</h4>
 											<div
-												class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
+												class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
 												<div
-													class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
-
-													<p>
-														<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
-													</p>
-
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][0]->col . ' (' . $response_GetForecastMacro->d->A[0][0]->comparison . $response_GetForecastMacro->d->A[0][0]->unit . ')' ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][0]->value ); ?>
-														</p>
-													</div>
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][1]->col . ' (' . $response_GetForecastMacro->d->A[0][1]->comparison . $response_GetForecastMacro->d->A[0][1]->unit . ')' ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][1]->value ); ?>
-														</p>
-													</div>
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][2]->col . ' (' . $response_GetForecastMacro->d->A[0][2]->comparison . $response_GetForecastMacro->d->A[0][2]->unit . ')' ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][2]->value ); ?>
-														</p>
-													</div>
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][3]->col . ' (' . $response_GetForecastMacro->d->A[0][3]->comparison . $response_GetForecastMacro->d->A[0][3]->unit . ')' ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][3]->value ); ?>
-														</p>
-													</div>
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][4]->col . ' (' . $response_GetForecastMacro->d->A[0][4]->comparison . $response_GetForecastMacro->d->A[0][4]->unit . ')' ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][4]->value ); ?>
-														</p>
-													</div>
-												</div>
-												<div
-													class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-medium ">
-													<div class="w-[70%] px-2 py-1">
-														<?php echo $response_GetForecastMacro->d->A[0][5]->col ?>
-													</div>
-													<div class="flex-1 text-right pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][5]->value ); ?>
-														</p>
-													</div>
-												</div>
-											</div>
-											<div
-												class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
-												<div class="text-[#FF0017]">
+													class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
 													<div
-														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
-														<p class="text-center mb-1">
-															<?php
-															if ( $response_GetForecastMacro->d->F[1][0]->scenario ) {
-																echo $response_GetForecastMacro->d->F[1][0]->scenario;
-															} else {
-																echo $response_GetForecastMacro->d->F[1][1]->scenario;
-															}
-															?>
+														class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
+
+														<p>
+															<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 														</p>
-														<div class="grid grid-cols-2 gap-3 text-right pr-4">
-															<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
-															</p>
-															<p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
+
+													</div>
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][0]->col . ' (' . $response_GetForecastMacro->d->A[0][0]->comparison . $response_GetForecastMacro->d->A[0][0]->unit . ')' ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][0]->value ); ?>
 															</p>
 														</div>
 													</div>
-													<?php
-													for ( $i = 0; $i < 5; $i++ ) {
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][1]->col . ' (' . $response_GetForecastMacro->d->A[0][1]->comparison . $response_GetForecastMacro->d->A[0][1]->unit . ')' ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][1]->value ); ?>
+															</p>
+														</div>
+													</div>
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][2]->col . ' (' . $response_GetForecastMacro->d->A[0][2]->comparison . $response_GetForecastMacro->d->A[0][2]->unit . ')' ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][2]->value ); ?>
+															</p>
+														</div>
+													</div>
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][3]->col . ' (' . $response_GetForecastMacro->d->A[0][3]->comparison . $response_GetForecastMacro->d->A[0][3]->unit . ')' ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][3]->value ); ?>
+															</p>
+														</div>
+													</div>
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][4]->col . ' (' . $response_GetForecastMacro->d->A[0][4]->comparison . $response_GetForecastMacro->d->A[0][4]->unit . ')' ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][4]->value ); ?>
+															</p>
+														</div>
+													</div>
+													<div
+														class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA] font-medium ">
+														<div class="w-[70%] px-2 py-1">
+															<?php echo $response_GetForecastMacro->d->A[0][5]->col ?>
+														</div>
+														<div class="flex-1 text-right pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->A[0][5]->value ); ?>
+															</p>
+														</div>
+													</div>
+												</div>
+												<div
+													class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+													<div class="text-[#FF0017]">
+														<div
+															class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+															<p class="text-center mb-1">
+																<?php
+																if ( $response_GetForecastMacro->d->F[1][0]->scenario ) {
+																	echo $response_GetForecastMacro->d->F[1][0]->scenario;
+																} else {
+																	echo $response_GetForecastMacro->d->F[1][1]->scenario;
+																}
+																?>
+															</p>
+															<div class="grid grid-cols-2 gap-3 text-right pr-4">
+																<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
+																</p>
+																<p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
+																</p>
+															</div>
+														</div>
+														<?php
+														for ( $i = 0; $i < 5; $i++ ) {
+															?>
+															<div
+																class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
+																<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][ $i ]->value ); ?>
+																</p>
+																<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][ $i ]->value ); ?>
+																</p>
+															</div>
+															<?php
+														}
 														?>
 														<div
-															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
-															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][ $i ]->value ); ?>
+															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][5]->value ) ?>
 															</p>
-															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][ $i ]->value ); ?>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][5]->value ) ?>
+															</p>
+														</div>
+													</div>
+													<div class="text-[#30D158]">
+														<div
+															class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+															<p class="text-center  mb-1">
+																<?php
+																if ( $response_GetForecastMacro->d->F[0][0]->scenario ) {
+																	echo $response_GetForecastMacro->d->F[0][0]->scenario;
+																} else {
+																	echo $response_GetForecastMacro->d->F[0][1]->scenario;
+																}
+																?>
+															</p>
+															<div class="grid grid-cols-2 pr-4 ">
+																<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
+																</p>
+																<p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
+																</p>
+															</div>
+														</div>
+														<?php
+														for ( $i = 0; $i < 5; $i++ ) {
+															?>
+															<div
+																class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
+																<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][ $i ]->value ); ?>
+																</p>
+																<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][ $i ]->value ); ?>
+																</p>
+															</div>
+															<?php
+														}
+														?>
+														<div
+															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][5]->value ); ?>
+															</p>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][5]->value ); ?>
+															</p>
+														</div>
+													</div>
+												</div>
+												<div
+													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
+													<div
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
+														<p class="font-medium  mb-1">
+															<?php _e( 'Consensus', 'bsc' ) ?>
+															<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
+														</p>
+														<div class="grid grid-cols-3 gap-2 text-right pr-5">
+															<p><?php _e( 'Min', 'bsc' ) ?></p>
+															<p><?php _e( 'TB', 'bsc' ) ?></p>
+															<p><?php _e( 'Max', 'bsc' ) ?></p>
+														</div>
+													</div>
+													<?php
+													for ( $i = 0; $i < 2; $i++ ) {
+														?>
+														<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[2][ $i ]->value ); ?>
+															</p>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][ $i ]->value ); ?>
+															</p>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[0][ $i ]->value ); ?>
 															</p>
 														</div>
 														<?php
 													}
 													?>
-													<div
-														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[1][5]->value ) ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[3][5]->value ) ?>
+													<div class="m-auto">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?>
 														</p>
 													</div>
 												</div>
-												<div class="text-[#30D158]">
+												<div
+													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
 													<div
 														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
-														<p class="text-center  mb-1">
-															<?php
-															if ( $response_GetForecastMacro->d->F[0][0]->scenario ) {
-																echo $response_GetForecastMacro->d->F[0][0]->scenario;
-															} else {
-																echo $response_GetForecastMacro->d->F[0][1]->scenario;
-															}
-															?>
+														<p class="mb-1">
+															<?php _e( 'Consensus', 'bsc' ) ?>
+															<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
 														</p>
-														<div class="grid grid-cols-2 pr-4 ">
-															<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
-															</p>
-															<p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
-															</p>
+														<div class="grid grid-cols-3 gap-2 text-right pr-5">
+															<p><?php _e( 'Min', 'bsc' ) ?></p>
+															<p><?php _e( 'TB', 'bsc' ) ?></p>
+															<p><?php _e( 'Max', 'bsc' ) ?></p>
 														</div>
 													</div>
 													<?php
-													for ( $i = 0; $i < 5; $i++ ) {
+													for ( $i = 0; $i < 2; $i++ ) {
 														?>
-														<div
-															class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
-															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][ $i ]->value ); ?>
+														<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[5][ $i ]->value ); ?>
 															</p>
-															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][ $i ]->value ); ?>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][ $i ]->value ); ?>
+															</p>
+															<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[3][ $i ]->value ); ?>
 															</p>
 														</div>
 														<?php
 													}
 													?>
-													<div
-														class="grid grid-cols-2 gap-2 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4 ">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[0][5]->value ); ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->F[2][5]->value ); ?>
+													<div class="m-auto">
+														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ); ?>
 														</p>
 													</div>
-												</div>
-											</div>
-											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
-												<div
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
-													<p class="font-medium  mb-1">
-														<?php _e( 'Consensus', 'bsc' ) ?>
-														<?php echo $response_GetForecastMacro->d->C[0][0]->year; ?>
-													</p>
-													<div class="grid grid-cols-3 gap-2 text-right pr-5">
-														<p><?php _e( 'Min', 'bsc' ) ?></p>
-														<p><?php _e( 'TB', 'bsc' ) ?></p>
-														<p><?php _e( 'Max', 'bsc' ) ?></p>
-													</div>
-												</div>
-												<?php
-												for ( $i = 0; $i < 2; $i++ ) {
-													?>
-													<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[2][ $i ]->value ); ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][ $i ]->value ); ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[0][ $i ]->value ); ?>
-														</p>
-													</div>
-													<?php
-												}
-												?>
-												<div class="m-auto">
-													<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?>
-													</p>
-												</div>
-											</div>
-											<div
-												class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
-												<div
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
-													<p class="mb-1">
-														<?php _e( 'Consensus', 'bsc' ) ?>
-														<?php echo $response_GetForecastMacro->d->C[3][0]->year; ?>
-													</p>
-													<div class="grid grid-cols-3 gap-2 text-right pr-5">
-														<p><?php _e( 'Min', 'bsc' ) ?></p>
-														<p><?php _e( 'TB', 'bsc' ) ?></p>
-														<p><?php _e( 'Max', 'bsc' ) ?></p>
-													</div>
-												</div>
-												<?php
-												for ( $i = 0; $i < 2; $i++ ) {
-													?>
-													<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[5][ $i ]->value ); ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][ $i ]->value ); ?>
-														</p>
-														<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[3][ $i ]->value ); ?>
-														</p>
-													</div>
-													<?php
-												}
-												?>
-												<div class="m-auto">
-													<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ); ?>
-													</p>
 												</div>
 											</div>
 										</div>
-									</div>
-								<?php } else {
+									<?php
+									}
+								} else {
 									?>
 									<!-- Data Demo -->
 									<div class="<?php echo $class ?>">
@@ -800,8 +804,8 @@ get_header();
 									<?php
 								} ?>
 								<?php if ( $check_logout ) {
-									echo $check_logout['html'];
-								} ?>
+								// echo $check_logout['html'];
+							} ?>
 							</div>
 						</div>
 						<?php
