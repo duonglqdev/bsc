@@ -3008,7 +3008,7 @@ function filter_details_symbol() {
 			?>
 			<div class="bg-[#E8F5FF] rounded-xl 2xl:px-6 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 				<div class="flex items-center justify-between mb-6 -mt-1">
-					<h3 class="font-bold">
+					<h3 class="font-bold 2xl:text-lg">
 						<?php _e( 'KHUYẾN NGHỊ', 'bsc' ) ?>
 					</h3>
 					<?php
