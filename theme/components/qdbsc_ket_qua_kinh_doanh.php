@@ -49,7 +49,7 @@ $class = $check_logout['class'];
                                 </ul>
                             </div>
                             <div
-                                class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-end  prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10  prose-li:pr-10' : 'prose-li:min-h-[30px] prose-li:pr-4' ?>">
+                                class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-end  prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10 prose-li:pr-3' : 'prose-li:min-h-[30px] prose-li:pr-4' ?>">
                                 <div class="min-w-[150px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
@@ -67,7 +67,7 @@ $class = $check_logout['class'];
                                         ?>
                                     </ul>
                                 </div>
-                                <div class="min-w-[110px]">
+                                <div class="min-w-[120px]">
                                     <div
                                         class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
                                         <?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>

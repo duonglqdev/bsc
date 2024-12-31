@@ -139,7 +139,7 @@ get_header();
 				<div
 					class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : ' w-full block_slider-item' ?>">
 					<div
-						class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-b-[4px] border-white pt-[13px] pb-[9px] min-h-[71px]' : 'py-2 min-h-[58px]' ?>">
+						class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-b-[4px] border-white pt-[37px] pb-[9px] min-h-[71px]' : 'py-2 min-h-[58px]' ?>">
 						<p>
 							2023
 						</p>
@@ -197,7 +197,7 @@ get_header();
 					class="grid grid-cols-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-[27%]' : 'w-full block_slider-item' ?>">
 					<div class="text-[#FF0017]">
 						<div
-							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
+							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
 							<p class=" mb-1">
 								Kịch bản tiêu cực
 							</p>
@@ -226,7 +226,7 @@ get_header();
 					</div>
 					<div class="text-[#30D158]">
 						<div
-							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-3 pb-[6px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
+							class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
 							<p class=" mb-1">
 								Kịch bản tích cực
 							</p>
@@ -257,7 +257,7 @@ get_header();
 				<div
 					class=" text-primary-300 text-center flex flex-col  bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/5' : 'w-full block_slider-item h-full' ?>">
 					<div
-						class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white pt-3 pb-[6px]' : 'py-1.5 px-5' ?>">
+						class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white py-[9px]' : 'py-1.5 px-5' ?>">
 						<p class=" mb-1">
 							Consensus 2024
 						</p>
@@ -287,7 +287,7 @@ get_header();
 				<div
 					class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
 					<div
-						class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white pt-3 pb-[6px]' : 'py-1.5 px-5' ?>">
+						class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white py-[9px]' : 'py-1.5 px-5' ?>">
 						<p class=" mb-1">
 							Consensus 2025
 						</p>
