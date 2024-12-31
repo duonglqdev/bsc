@@ -64,7 +64,7 @@ if ( $display == 'history' )
 					<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 					<div class="flex items-center 2xl:gap-5 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1 justify-between' ?>">
 						<input id="datepicker-range-end" name="todate" type="text"
-							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
+							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
 							autocomplete="off"
 							placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
 						<?php echo svgClass( 'day', '', '','md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
@@ -95,13 +95,13 @@ if ( $display == 'history' )
 							<th colspan="3"><?php _e( 'Mở cửa (nghìn VNĐ)', 'bsc' ) ?></th>
 						</tr>
 						<tr>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Tham chiếu', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Trần', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Sàn', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Tham chiếu', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Trần', 'bsc' ) ?></th>
+							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Sàn', 'bsc' ) ?></th>
 						</tr>
 					</thead>
 					<tbody id="list-du-lieu-lich-su">

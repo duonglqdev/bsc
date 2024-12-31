@@ -1,7 +1,7 @@
 <?php if ($args['data']) {
     $GetForeignInvestors = $args['data'];
 ?>
-    <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+    <tr class="[&:nth-child(even)]:bg-[#EBF4FA] text-right">
         <td>
             <?php
             if ($GetForeignInvestors->tradedate) {
@@ -22,7 +22,7 @@
             }
         }
         ?>
-        <td class="<?php echo $text_color_class_GetForeignInvestors ?> text-right !pr-8">
+        <td class="<?php echo $text_color_class_GetForeignInvestors ?> lg:!pr-8">
             <?php if ($GetForeignInvestors->closeprice) { ?>
                 <?php
                 if ($GetForeignInvestors->closeprice) {
@@ -31,14 +31,14 @@
                 ?>(<?php echo bsc_number_format((($GetForeignInvestors->closeprice - $GetForeignInvestors->refprice) / ($GetForeignInvestors->refprice)) * 100) ?>%)
             <?php } ?>
         </td>
-        <td class="text-right !pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_NET_TRADING_VOLUME) ?></td>
-        <td class="text-right !pr-5"><?php echo bsc_number_format($GetForeignInvestors->f_NET_TRADING_VALUE) ?></td>
-        <td class="text-right !pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_BUY_VOLUME) ?></td>
-        <td class="text-right !pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_BUY_VALUE) ?></td>
-        <td class="text-right !pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_SELL_VOLUME) ?></td>
-        <td class="text-right"><?php echo bsc_number_format($GetForeignInvestors->f_SELL_VALUE) ?></td>
-        <td class="text-right"><?php echo bsc_number_format($GetForeignInvestors->f_ROOM) ?></td>
-        <td class="text-right">
+        <td class=" lg:!pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_NET_TRADING_VOLUME) ?></td>
+        <td class=" lg:!pr-5"><?php echo bsc_number_format($GetForeignInvestors->f_NET_TRADING_VALUE) ?></td>
+        <td class=" lg:!pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_BUY_VOLUME) ?></td>
+        <td class=" lg:!pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_BUY_VALUE) ?></td>
+        <td class=" lg:!pr-8"><?php echo bsc_number_format($GetForeignInvestors->f_SELL_VOLUME) ?></td>
+        <td class=""><?php echo bsc_number_format($GetForeignInvestors->f_SELL_VALUE) ?></td>
+        <td class=""><?php echo bsc_number_format($GetForeignInvestors->f_ROOM) ?></td>
+        <td class="">
             <?php echo round($GetForeignInvestors->f_HELD_PCT, 2) ?>%
         </td>
     </tr>

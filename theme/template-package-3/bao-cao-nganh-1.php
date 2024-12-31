@@ -115,14 +115,14 @@ get_header();
 							</p>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
-									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+									class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0"
 									placeholder="<?php _e('Từ ngày', 'bsc') ?>">
 								<?php echo svg('day', '20', '20') ?>
 							</div>
 							<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-end" name="end" type="text"
-									class="border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] p-0"
+									class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0"
 									placeholder="<?php _e('Đến ngày', 'bsc') ?>">
 								<?php echo svg('day', '20', '20') ?>
 							</div>
