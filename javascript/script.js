@@ -1826,25 +1826,31 @@ import { DataTable } from 'simple-datatables';
 			var $rows = $tbody.find('tr');
 			var headerIndex = $header.index();
 			var isAscending = $header.hasClass('ascending');
-
+	
 			// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
 			$table.find('th').removeClass('ascending descending');
 			$header.toggleClass('ascending', !isAscending);
 			$header.toggleClass('descending', isAscending);
-
+	
 			$rows.sort(function (rowA, rowB) {
 				var cellA = $(rowA).children().eq(headerIndex).text().trim();
 				var cellB = $(rowB).children().eq(headerIndex).text().trim();
-
+	
+				// Hàm chuyển đổi chuỗi thành số chuẩn
+				function parseNumber(value) {
+					// Loại bỏ các dấu phẩy và chuyển về số float
+					return parseFloat(value.replace(/,/g, ''));
+				}
+	
 				// Kiểm tra xem nội dung cột là số hay chữ
-				var a = $.isNumeric(cellA) ? parseFloat(cellA) : cellA;
-				var b = $.isNumeric(cellB) ? parseFloat(cellB) : cellB;
-
+				var a = $.isNumeric(cellA.replace(/,/g, '')) ? parseNumber(cellA) : cellA;
+				var b = $.isNumeric(cellB.replace(/,/g, '')) ? parseNumber(cellB) : cellB;
+	
 				if (a < b) return isAscending ? 1 : -1;
 				if (a > b) return isAscending ? -1 : 1;
 				return 0;
 			});
-
+	
 			// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
 			$tbody.empty().append($rows);
 		});

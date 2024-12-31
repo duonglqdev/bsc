@@ -659,12 +659,14 @@ get_header();
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table text-right">
+											<th
+												class="filter-table cursor-pointer filter-table text-right">
 												Vốn hóa
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table text-right">
+											<th
+												class="filter-table cursor-pointer filter-table text-right">
 												PE
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
@@ -675,19 +677,22 @@ get_header();
 											</th>
 										</tr>
 									</thead>
-									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
+									<tbody
+										class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
 										<?php
 										for ( $i = 0; $i < 3; $i++ )
 										{
 											?>
 											<tr>
-												<td class="!pl-5 text-left w-1/4"><a href="">A32</a></td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A32</a>
+												</td>
 												<td class="w-1/4">36,80</td>
 												<td class="w-1/4">301,24</td>
 												<td class="w-1/4">6,99</td>
 											</tr>
 											<tr>
-												<td class="!pl-5 text-left w-1/4"><a href="">A33</a></td>
+												<td class="!pl-5 text-left w-1/4"><a href="">A33</a>
+												</td>
 												<td class="w-1/4">362,80</td>
 												<td class="w-1/4">1,24</td>
 												<td class="w-1/4">6,9934</td>
@@ -802,12 +807,13 @@ get_header();
 						<?php } ?>
 					</div>
 					<ul
-						class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] flex-wrap mr-6 mb-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+						class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] mb-6 mr-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+						<li class="lg:w-1/4"></li>
 						<?php
 						for ( $i = 18; $i < 24; $i++ )
 						{
 							?>
-							<li class="lg:min-w-[140px] font-bold">
+							<li class="lg:min-w-[140px] font-bold flex-1">
 								<p>
 									Năm 20<?= $i ?>
 								</p>
@@ -836,8 +842,10 @@ get_header();
 										for ( $i = 0; $i < 2; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
-												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Lợi nhuận sau thuế của công ty mẹ	
+											<tr
+												class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Lợi
+													nhuận sau thuế của công ty mẹ
 												</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
@@ -853,8 +861,10 @@ get_header();
 										for ( $i = 0; $i < 2; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
-												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng lợi nhuận KT trước
+											<tr
+												class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng
+													lợi nhuận KT trước
 													thuế</td>
 												<td>2,174,230,121.89</td>
 												<td>3,384,568,877.75</td>
@@ -885,8 +895,10 @@ get_header();
 										for ( $i = 0; $i < 4; $i++ )
 										{
 											?>
-											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
-												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng tài sản</td>
+											<tr
+												class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng
+													tài sản</td>
 												<td>911,959,220</td>
 												<td>608,349,810</td>
 												<td>912,577,380</td>
@@ -953,11 +965,11 @@ get_header();
 								class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 								<div class="overflow-x-auto whitespace-nowrap">
 									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 										<thead>
 											<tr>
 												<th
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 													Mã CK</th>
 												<th>Biên LNG</th>
 												<th>Biên LNTT</th>
@@ -968,7 +980,7 @@ get_header();
 										<tbody>
 											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 													<a href="">BSI</a>
 												</td>
 												<td>46,44%</td>
