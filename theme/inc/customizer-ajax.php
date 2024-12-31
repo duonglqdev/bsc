@@ -3242,7 +3242,7 @@ function filter_details_symbol() {
 		$response_GetResearchPorCurMet = get_data_with_cache( 'GetResearchPorCurMet', $array_data_GetResearchPorCurMet, $time_cache );
 		if ( $response_GetResearchPorCurMet ) {
 			?>
-			<ul class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
+			<ul class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-6' : 'space-y-4' ?>">
 				<li class="flex xl:gap-20 gap-10">
 					<div class="w-[62%] space-y-1">
 						<p class="text-xs"><?php _e( 'Ngày điều chỉnh danh mục', 'bsc' ) ?></p>
@@ -3269,7 +3269,7 @@ function filter_details_symbol() {
 								$class_svg = 'up';
 							}
 							?>
-							<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+							<p class="font-medium <?php echo $class ?> flex items-center gap-1 justify-end">
 								<?php echo svg( $class_svg, '16', '16' ) ?>
 								<?php echo $response_GetResearchPorCurMet->d[1]->value; ?>
 							</p>
@@ -3286,7 +3286,7 @@ function filter_details_symbol() {
 								$class_svg = 'up';
 							}
 							?>
-							<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+							<p class="font-medium <?php echo $class ?> flex items-center gap-1 justify-end">
 								<?php echo svg( $class_svg, '16', '16' ) ?>
 								<?php echo $response_GetResearchPorCurMet->d[7]->value; ?>
 							</p>
@@ -3305,7 +3305,7 @@ function filter_details_symbol() {
 								$class_svg = 'up';
 							}
 							?>
-							<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+							<p class="font-medium <?php echo $class ?> flex items-center gap-1 justify-end">
 								<?php echo svg( $class_svg, '16', '16' ) ?>
 								<?php echo $response_GetResearchPorCurMet->d[2]->value; ?>
 							</p>
@@ -3322,7 +3322,7 @@ function filter_details_symbol() {
 								$class_svg = 'up';
 							}
 							?>
-							<p class="font-medium <?php echo $class ?> flex items-center gap-1">
+							<p class="font-medium <?php echo $class ?> flex items-center gap-1 justify-end">
 								<?php echo svg( $class_svg, '16', '16' ) ?>
 								<?php echo $response_GetResearchPorCurMet->d[8]->value; ?>
 							</p>
