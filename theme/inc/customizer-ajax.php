@@ -1473,8 +1473,10 @@ function filter_details_symbol() {
 												}, $businessData );
 											}
 											$industry_data_BIEN_LOI_NHUAN_GOP = array_map( function ($item) {
+												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												return [ 
-													'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+													'date' => $date,
 													'value' => $item->BIEN_LOI_NHUAN_GOP,
 												];
 											}, $industryData );
@@ -1502,8 +1504,10 @@ function filter_details_symbol() {
 											}, $businessData );
 
 											$industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map( function ($item) {
+												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												return [ 
-													'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+													'date' => $date,
 													'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
 												];
 											}, $industryData );
@@ -1530,8 +1534,10 @@ function filter_details_symbol() {
 											}, $businessData );
 
 											$industry_data_ROE = array_map( function ($item) {
+												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												return [ 
-													'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+													'date' => $date,
 													'value' => $item->ROE,
 												];
 											}, $industryData );
@@ -1655,8 +1661,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_NO_XAU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_NO_XAU,
 													];
 												}, $industryData );
@@ -1700,8 +1708,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DU_PHONG_NO_XAU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_DU_PHONG_NO_XAU,
 													];
 												}, $industryData );
@@ -1728,8 +1738,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $industryData );
@@ -1773,8 +1785,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
 													];
 												}, $industryData );
@@ -1801,8 +1815,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $industryData );
@@ -1846,8 +1862,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
 													];
 												}, $industryData );
@@ -1875,8 +1893,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $industryData );
@@ -1920,8 +1940,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
 													];
 												}, $industryData );
@@ -2022,8 +2044,10 @@ function filter_details_symbol() {
 														];
 													}, $businessData );
 													$industry_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 														return [ 
-															'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+															'date' => $date,
 															'value' => $item->TANG_TRUONG_CHO_VAY,
 														];
 													}, $industryData );
@@ -2038,8 +2062,10 @@ function filter_details_symbol() {
 														];
 													}, $businessData );
 													$industry_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 														return [ 
-															'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+															'date' => $date,
 															'value' => $item->TANG_TRUONG_DOANH_THU,
 														];
 													}, $industryData );
@@ -2070,8 +2096,10 @@ function filter_details_symbol() {
 												];
 											}, $businessData );
 											$industry_data_TANG_TRUONG_EPS = array_map( function ($item) {
+												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												return [ 
-													'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+													'date' => $date,
 													'value' => $item->TANG_TRUONG_EPS,
 												];
 											}, $industryData );
@@ -2097,8 +2125,10 @@ function filter_details_symbol() {
 												];
 											}, $businessData );
 											$industry_data_TANG_TRUONG_LOI_NHUAN = array_map( function ($item) {
+												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												return [ 
-													'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+													'date' => $date,
 													'value' => $item->TANG_TRUONG_LOI_NHUAN,
 												];
 											}, $industryData );
@@ -2237,8 +2267,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
 													];
 												}, $industryData );
@@ -2264,8 +2296,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_THU_NHAP_TU_LAI_VAY = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->THU_NHAP_TU_LAI_VAY,
 													];
 												}, $industryData );
@@ -2291,8 +2325,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CASA = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->CASA,
 													];
 												}, $industryData );
@@ -2319,8 +2355,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
 													];
 												}, $industryData );
@@ -2346,8 +2384,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
 													];
 												}, $industryData );
@@ -2373,8 +2413,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_TONG_TAI_SAN,
 													];
 												}, $industryData );
@@ -2401,8 +2443,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
 													];
 												}, $industryData );
@@ -2428,8 +2472,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
 													];
 												}, $industryData );
@@ -2455,8 +2501,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_TONG_TAI_SAN,
 													];
 												}, $industryData );
@@ -2484,8 +2532,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
 													];
 												}, $industryData );
@@ -2511,8 +2561,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
 													];
 												}, $industryData );
@@ -2538,8 +2590,10 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_HANG_TON_KHO = array_map( function ($item) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													return [ 
-														'date' => sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) ),
+														'date' => $date,
 														'value' => $item->VONG_QUAY_HANG_TON_KHO,
 													];
 												}, $industryData );
