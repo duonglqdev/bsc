@@ -1400,10 +1400,10 @@ function filter_details_symbol() {
 										class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 										<div class="overflow-x-auto whitespace-nowrap">
 											<table
-												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 												<thead>
 													<tr>
-														<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+														<th class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 															<?php _e( 'Mã CK', 'bsc' ) ?>
 														</th>
 														<th><?php
@@ -1420,7 +1420,7 @@ function filter_details_symbol() {
 												</thead>
 												<tbody>
 													<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-														<td class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+														<td class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 															<a
 																href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 														</td>
@@ -1580,10 +1580,10 @@ function filter_details_symbol() {
 										class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 										<div class="overflow-x-auto whitespace-nowrap">
 											<table
-												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 												<thead>
 													<tr>
-														<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+														<th class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 															<?php _e( 'Mã CK', 'bsc' ) ?>
 														</th>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
@@ -1606,7 +1606,7 @@ function filter_details_symbol() {
 												</thead>
 												<tbody>
 													<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-														<td class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+														<td class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 															<a
 																href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 														</td>
@@ -1971,10 +1971,10 @@ function filter_details_symbol() {
 									<div class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 									<div class="overflow-x-auto whitespace-nowrap">
 										<table
-											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 											<thead>
 												<tr>
-													<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
+													<th class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
 													<?php if ( $check_linh_vuc == 'Bank' ) { ?>
 														<th><?php _e( 'Tăng trưởng cho vay', 'bsc' ) ?></th>
 														<th><?php _e( 'Tăng trưởng tiền gửi', 'bsc' ) ?></th>
@@ -1988,7 +1988,7 @@ function filter_details_symbol() {
 											</thead>
 											<tbody>
 												<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-													<td class="!pl-9"><a
+													<td class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a
 															href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 													</td>
 													<?php if ( $check_linh_vuc == 'Bank' ) { ?>
@@ -2149,10 +2149,10 @@ function filter_details_symbol() {
 									<div class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 									<div class="overflow-x-auto whitespace-nowrap"> 
 										<table
-												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 												<thead>
 													<tr>
-														<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
+														<th class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
 															<th><?php _e( 'Tỉ lệ CIR', 'bsc' ) ?></th>
 															<th><?php _e( 'NII/TOI', 'bsc' ) ?></th>
@@ -2181,7 +2181,7 @@ function filter_details_symbol() {
 												</thead>
 												<tbody>
 													<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-														<td class="!pl-9"><a
+														<td class="!text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><a
 																href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 														</td>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>

@@ -965,11 +965,11 @@ get_header();
 								class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
 								<div class="overflow-x-auto whitespace-nowrap">
 									<table
-										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+										class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 text-center prose-th:border-l prose-th:border-[#C9CCD2] prose-td:border-l prose-td:border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 										<thead>
 											<tr>
 												<th
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 													Mã CK</th>
 												<th>Biên LNG</th>
 												<th>Biên LNTT</th>
@@ -980,7 +980,7 @@ get_header();
 										<tbody>
 											<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
+													class="text-left !border-l-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>">
 													<a href="">BSI</a>
 												</td>
 												<td>46,44%</td>
