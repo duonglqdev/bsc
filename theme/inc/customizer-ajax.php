@@ -4174,7 +4174,7 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					<div
 						class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
 					<h3
-						class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
+						class="flex-1 font-bold flex items-baseline gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 text-left">
 						<?php
 						if ( ! empty( $item['children'] ) ) {
 							if ( ( $level === 0 ) ) {
@@ -4222,7 +4222,7 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					</div>
 				</div>
 				<?php if ( ! empty( $item['children'] ) ) { ?>
-					<div class="sub-collapse hidden" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
+					<div class="sub-collapse hidden text-xs" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
 						<?php renderMenu( $item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1 ); ?>
 					</div>
 				<?php } ?>
