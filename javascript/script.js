@@ -3362,6 +3362,7 @@ import { DataTable } from 'simple-datatables';
 	window.bsc_need_crawl_price = function () {
 		if ('.bsc_need_crawl_price'.length) {
 			running_api_price();
+			sameHeight();
 		}
 	};
 	window.running_api_price = function () {

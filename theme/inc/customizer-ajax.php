@@ -513,78 +513,78 @@ function filter_details_symbol() {
 							<?php _e( 'Tổng GTGD', 'bsc' ) ?>
 						</div>
 					</div>
-				</div>
-				<ul>
-					<?php
-					$i = 0;
-					foreach ( $data_response_secTradingHistory as $record ) {
-						$i++;
-						if ( $i < 8 ) {
-							?>
-							<li
-								class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:w-full w-max' ?>">
-								<div
-									class="min-w-[90px] sm:max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
-									<?php
-									if ( $record['TRADE_DATE'] ) {
-										$date = new DateTime( $record['TRADE_DATE'] );
-										echo $date->format( 'd/m' );
-									}
-									?>
-								</div>
-								<?php if ( $record['CLOSE_PRICE'] && $record['REF_PRICE'] ) {
-									if ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) > 0 ) {
-										$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
-									} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) < 0 ) {
-										$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
-									} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) == 0 ) {
-										$text_color_class_GetForeignInvestors = 'text-[#EB0]';
-									} else {
-										$text_color_class_GetForeignInvestors = '';
-									}
-									if ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) > 0 ) {
-										$first_GetForeignInvestors = '+';
-										$icon_GetForeignInvestors = svg( 'up', '17', '17' );
-									} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) == 0 ) {
-										$first_GetForeignInvestors = '';
-										$icon_GetForeignInvestors = '';
-									} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) < 0 ) {
-										$first_GetForeignInvestors = '';
-										$icon_GetForeignInvestors = svg( 'downn', '17', '17' );
-									} else {
-										$first_GetForeignInvestors = '';
-										$icon_GetForeignInvestors = '';
-									}
-								}
+					<ul>
+						<?php
+						$i = 0;
+						foreach ( $data_response_secTradingHistory as $record ) {
+							$i++;
+							if ( $i < 8 ) {
 								?>
-								<div
-									class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
-									<p class="min-w-[30px] text-right">
+								<li
+									class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:w-full w-max' ?>">
+									<div
+										class="min-w-[90px] sm:max-w-[19%] pl-4 pr-3 py-2 text-left min-h-10 flex items-center border-r border-[#C9CCD2]">
 										<?php
-										if ( $record['CLOSE_PRICE'] ) {
-											echo bsc_number_format( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) / 1000 );
+										if ( $record['TRADE_DATE'] ) {
+											$date = new DateTime( $record['TRADE_DATE'] );
+											echo $date->format( 'd/m' );
 										}
 										?>
-									</p>
-									<p class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors ?> font-Helvetica">
-										<?php echo $icon_GetForeignInvestors ?>
-										<?php echo bsc_number_format( ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) / ( $record['REF_PRICE'] ) ) * 100 ) ?>%
-									</p>
-								</div>
-								<div
-									class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end border-r border-[#C9CCD2] text-right pr-10">
-									<?php echo bsc_number_format( $record['TOT_VOLUME'] ) ?>
-								</div>
-								<div
-									class="px-3 py-2 min-h-10 flex items-center justify-end sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?> pr-10">
-									<?php echo bsc_number_format( $record['TOT_VALUE'] ) ?>
-								</div>
-							</li>
-							<?php
+									</div>
+									<?php if ( $record['CLOSE_PRICE'] && $record['REF_PRICE'] ) {
+										if ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) > 0 ) {
+											$text_color_class_GetForeignInvestors = 'text-[#1CCD83]';
+										} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) < 0 ) {
+											$text_color_class_GetForeignInvestors = 'text-[#FE5353]';
+										} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) == 0 ) {
+											$text_color_class_GetForeignInvestors = 'text-[#EB0]';
+										} else {
+											$text_color_class_GetForeignInvestors = '';
+										}
+										if ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) > 0 ) {
+											$first_GetForeignInvestors = '+';
+											$icon_GetForeignInvestors = svg( 'up', '17', '17' );
+										} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) == 0 ) {
+											$first_GetForeignInvestors = '';
+											$icon_GetForeignInvestors = '';
+										} elseif ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) < 0 ) {
+											$first_GetForeignInvestors = '';
+											$icon_GetForeignInvestors = svg( 'downn', '17', '17' );
+										} else {
+											$first_GetForeignInvestors = '';
+											$icon_GetForeignInvestors = '';
+										}
+									}
+									?>
+									<div
+										class="min-w-[152px] sm:max-w-[30%] px-3 py-2 min-h-10 flex items-center justify-between border-r border-[#C9CCD2]">
+										<p class="min-w-[30px] text-right">
+											<?php
+											if ( $record['CLOSE_PRICE'] ) {
+												echo bsc_number_format( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) / 1000 );
+											}
+											?>
+										</p>
+										<p class="flex items-center gap-1 <?php echo $text_color_class_GetForeignInvestors ?> font-Helvetica">
+											<?php echo $icon_GetForeignInvestors ?>
+											<?php echo bsc_number_format( ( ( $record['CLOSE_PRICE'] - $record['REF_PRICE'] ) / ( $record['REF_PRICE'] ) ) * 100 ) ?>%
+										</p>
+									</div>
+									<div
+										class="min-w-[136px] sm:max-w-[27%] px-3 py-2 min-h-10 flex items-center justify-end border-r border-[#C9CCD2] text-right pr-10">
+										<?php echo bsc_number_format( $record['TOT_VOLUME'] ) ?>
+									</div>
+									<div
+										class="px-3 py-2 min-h-10 flex items-center justify-end sm:flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[136px]' ?> pr-10">
+										<?php echo bsc_number_format( $record['TOT_VALUE'] ) ?>
+									</div>
+								</li>
+								<?php
+							}
 						}
-					}
-					?>
-				</ul>
+						?>
+					</ul>
+				</div>
 			</div>
 			<div
 				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-[12px]' ?>">
@@ -986,7 +986,7 @@ function filter_details_symbol() {
 						</div>
 						<div class="md:ml-[30px] ml-4">
 							<p
-								class="font-bold leading-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-primary-300 main_title">
+								class="lg:font-bold font-semibold leading-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars( $news->title ) ?>
 							</p>
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
@@ -1939,7 +1939,7 @@ function filter_details_symbol() {
 									</div>
 								</article>
 								<article>
-									<div class="flex items-center gap-6 mb-[30px]">
+									<div class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 										<h2 class="heading-title">
 											<?php _e( 'TĂNG TRƯỞNG', 'bsc' ) ?>
 										</h2>
@@ -1960,19 +1960,20 @@ function filter_details_symbol() {
 											}
 											?>
 											<p
-												class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+												class="inline-flex items-center px-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
 												<?php echo svg( $medal_rank, '24', '24' ) ?>
 												<?php _e( 'Hạng', 'bsc' ) ?>
 												<?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_TANG_TRUONG ?>
 											</p>
 										<?php } ?>
 									</div>
-									<div class="rounded-lg overflow-hidden mb-10">
+									<div class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
+									<div class="overflow-x-auto whitespace-nowrap">
 										<table
-											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
+											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 											<thead>
 												<tr>
-													<th class="!pl-9"><?php _e( 'Mã CK', 'bsc' ) ?></th>
+													<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
 													<?php if ( $check_linh_vuc == 'Bank' ) { ?>
 														<th><?php _e( 'Tăng trưởng cho vay', 'bsc' ) ?></th>
 														<th><?php _e( 'Tăng trưởng tiền gửi', 'bsc' ) ?></th>
@@ -2009,6 +2010,8 @@ function filter_details_symbol() {
 												</tr>
 											</tbody>
 										</table>
+
+									</div>
 									</div>
 									<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 										<div class="flex flex-col">
@@ -2114,7 +2117,7 @@ function filter_details_symbol() {
 									</div>
 								</article>
 								<article>
-									<div class="flex items-center gap-6 mb-[30px]">
+									<div class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 										<h2 class="heading-title">
 											<?php _e( 'HIỆU QUẢ HOẠT ĐỘNG', 'bsc' ) ?>
 										</h2>
@@ -2135,92 +2138,95 @@ function filter_details_symbol() {
 											}
 											?>
 											<p
-												class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+												class="inline-flex items-center px-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
 												<?php echo svg( $medal_rank, '24', '24' ) ?>
 												<?php _e( 'Hạng', 'bsc' ) ?>
 												<?php echo $response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG ?>
 											</p>
 										<?php } ?>
 									</div>
-									<div class="rounded-lg overflow-hidden mb-10">
+									<div class="rounded-lg overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-8' ?>">
+									<div class="overflow-x-auto whitespace-nowrap"> 
 										<table
-											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300">
-											<thead>
-												<tr>
-													<th class="!pl-9"><?php _e( 'Mã CK', 'bsc' ) ?></th>
-													<?php if ( $check_linh_vuc == 'Bank' ) { ?>
-														<th><?php _e( 'Tỉ lệ CIR', 'bsc' ) ?></th>
-														<th><?php _e( 'NII/TOI', 'bsc' ) ?></th>
-														<th><?php _e( 'Tỉ lệ CASA', 'bsc' ) ?></th>
-													<?php } else { ?>
-														<?php if ( $check_linh_vuc == 'Securities' ) { ?>
-															<th><?php _e( 'Tỉ trọng DT môi giới', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
-														<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
-															<th><?php _e( 'CP Bảo hiểm/DT', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
-														<?php } else {
-															?>
-															<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay HTK', 'bsc' ) ?></th>
-															<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
-															<?php
-														} ?>
-													<?php } ?>
-												</tr>
-											</thead>
-											<tbody>
-												<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
-													<td class="!pl-9"><a
-															href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
-													</td>
-													<?php if ( $check_linh_vuc == 'Bank' ) { ?>
-														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_TREN_DOANH_THU ) ); ?>
+												class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left prose-td:p-4 font-medium prose-a:font-bold prose-a:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												<thead>
+													<tr>
+														<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-9' : '!pl-4' ?>"><?php _e( 'Mã CK', 'bsc' ) ?></th>
+														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
+															<th><?php _e( 'Tỉ lệ CIR', 'bsc' ) ?></th>
+															<th><?php _e( 'NII/TOI', 'bsc' ) ?></th>
+															<th><?php _e( 'Tỉ lệ CASA', 'bsc' ) ?></th>
+														<?php } else { ?>
+															<?php if ( $check_linh_vuc == 'Securities' ) { ?>
+																<th><?php _e( 'Tỉ trọng DT môi giới', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+															<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
+																<th><?php _e( 'CP Bảo hiểm/DT', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+															<?php } else {
+																?>
+																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay HTK', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+																<?php
+															} ?>
+														<?php } ?>
+													</tr>
+												</thead>
+												<tbody>
+													<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
+														<td class="!pl-9"><a
+																href="<?php echo slug_co_phieu( $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 														</td>
-														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->THU_NHAP_TU_LAI_VAY ) ); ?>
-														</td>
-														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->CASA ) ); ?>
-														</td>
-													<?php } else { ?>
-														<?php if ( $check_linh_vuc == 'Securities' ) { ?>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ); ?>
+														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
+															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_TREN_DOANH_THU ) ); ?>
 															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
+															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->THU_NHAP_TU_LAI_VAY ) ); ?>
 															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
+															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->CASA ) ); ?>
 															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
-															</td>
-														<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
-															</td>
-														<?php } else {
-															?>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO ) ); ?>
-															</td>
-															<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
-															</td>
-															<?php
-														} ?>
-													<?php } ?>
-												</tr>
-											</tbody>
-										</table>
+														<?php } else { ?>
+															<?php if ( $check_linh_vuc == 'Securities' ) { ?>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
+																</td>
+															<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
+																</td>
+															<?php } else {
+																?>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_TRA ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO ) ); ?>
+																</td>
+																<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN ) ); ?>
+																</td>
+																<?php
+															} ?>
+														<?php } ?>
+													</tr>
+												</tbody>
+											</table>
+
+									</div>
 									</div>
 									<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 										<?php if ( $check_linh_vuc == 'Bank' ) { ?>
@@ -2704,7 +2710,7 @@ function filter_details_symbol() {
 										</tr>
 										<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 											<td
-												class="font-bold italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?> !text-right">
+												class="font-bold italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
 												<?php _e( 'Tăng trưởng lợi nhuận sau thuế công ty mẹ (%YoY)', 'bsc' ) ?>
 											</td>
 											<?php
@@ -2713,7 +2719,7 @@ function filter_details_symbol() {
 
 												?>
 												<td
-													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right' ?> ">
+													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?>  !text-right">
 													<?php
 													if ( $GetForecastBussiness->TANG_TRUONG_LS ) {
 														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_LS ) . '%';
@@ -2726,7 +2732,7 @@ function filter_details_symbol() {
 										</tr>
 										<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 											<td
-												class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?> !text-right">
+												class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '!pl-[30px]' : '' ?>">
 												<?php _e( 'EPS (VND)', 'bsc' ) ?>
 											</td>
 											<?php
@@ -2735,7 +2741,7 @@ function filter_details_symbol() {
 
 												?>
 												<td
-													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] !text-right ' ?> ">
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px] ' ?> !text-right ">
 													<?php
 													if ( $GetForecastBussiness->EPS ) {
 														echo bsc_number_format( $GetForecastBussiness->EPS );
@@ -3027,7 +3033,7 @@ function filter_details_symbol() {
 							$class_rank = 'text-[#869299] bg-gradient-sliver-100';
 						}
 						?>
-						<p class="inline-flex items-center px-4 py-1.5 font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+						<p class="inline-flex items-center px-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
 							<?php echo svg( $medal_rank, '24', '24' ) ?>
 							<?php _e( 'Hạng', 'bsc' ) ?>
 							<?php echo $response_GetRecommendedInstrument->rank ?>
