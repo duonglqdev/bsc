@@ -3787,6 +3787,13 @@ function filter_details_symbol() {
 				</div>
 			</div>
 		<?php }
+	} elseif ( $type_form == 'ttnc_khuyen_nghi_GetForecastMacro_title' ) {
+		$array_data_GetForecastMacro = array();
+		$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
+		if ( $response_GetForecastMacro ) {
+			echo _e( 'Dự báo kinh tế vĩ mô Việt Nam', 'bsc' ) . ' ' . $response_GetForecastMacro->d->F[1][0]->year . '-' . $response_GetForecastMacro->d->F[3][0]->year;
+			;
+		}
 	} elseif ( $type_form == 'chart' ) {
 		$time_cache = 300;
 		date_default_timezone_set( 'Asia/Bangkok' );

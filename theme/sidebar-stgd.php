@@ -5,8 +5,7 @@ $categories = get_terms( [
 ] );
 $current_post_id = get_the_ID();
 ?>
-<div
-	class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
+<div class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
 	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 		<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
 			<?php foreach ( $categories as $category ) : ?>
@@ -23,10 +22,8 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 				$has_active_post = false;
-				foreach ( $posts_in_category as $post )
-				{
-					if ( $post->ID == $current_post_id )
-					{
+				foreach ( $posts_in_category as $post ) {
+					if ( $post->ID == $current_post_id ) {
 						$has_active_post = true;
 						break;
 					}
@@ -61,8 +58,7 @@ $current_post_id = get_the_ID();
 				</li>
 			<?php endforeach;
 			wp_reset_postdata() ?>
-			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) )
-			{
+			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) ) {
 				$link = check_link( get_field( 'cdstgg2_page_video', 'option' ) );
 				$is_active = ( $link == get_permalink() ) ? 'active' : '';
 				?>
@@ -74,7 +70,7 @@ $current_post_id = get_the_ID();
 			<?php } ?>
 		</ul>
 	<?php else : ?>
-		<?php 
+		<?php
 		$active_category_name = '';
 
 		foreach ( $categories as $category ) {
@@ -93,7 +89,7 @@ $current_post_id = get_the_ID();
 			foreach ( $posts_in_category as $post ) {
 				if ( $post->ID == $current_post_id ) {
 					$has_active_post = true;
-		
+
 					$ancestors = get_ancestors( $category->term_id, 'danh-muc-so-tay' );
 					if ( ! empty( $ancestors ) ) {
 						$parent_id = array_pop( $ancestors ); // Lấy danh mục cha cao nhất
@@ -129,10 +125,8 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 				$has_active_post = false;
-				foreach ( $posts_in_category as $post )
-				{
-					if ( $post->ID == $current_post_id )
-					{
+				foreach ( $posts_in_category as $post ) {
+					if ( $post->ID == $current_post_id ) {
 						$has_active_post = true;
 						break;
 					}
@@ -169,5 +163,6 @@ $current_post_id = get_the_ID();
 				</li>
 			<?php endforeach; ?>
 		</ul>
-	<?php endif; ?>
+	<?php endif;
+	wp_reset_postdata() ?>
 </div>
