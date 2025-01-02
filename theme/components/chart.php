@@ -93,10 +93,10 @@
 							</div>
 						</div>
 					<?php } ?>
-					<div class="flex-1 chart-info <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+					<div class="flex-1 chart-info flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 						? 'min-h-0 bg-none rounded-none py-0 px-0'
 						: 'min-h-96 bg-white rounded-[10px] py-4 px-5 -mx-5'; ?>">
-						<div class="bsc-ajax-api h-full" data-api="chart" data-chart="running_chart">
+						<div class="bsc-ajax-api h-full flex-1" data-api="chart" data-chart="running_chart">
 							<div class="hidden">
 								<div role="status">
 									<svg aria-hidden="true"

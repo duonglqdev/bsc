@@ -61,7 +61,7 @@
         </div>
         <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
             <p
-                class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
+                class="text-green font-semibold lg:inline-flex hidden gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs whitespace-nowrap cursor-pointer">
                 <?php _e('Xem nội dung', 'bsc') ?>
                 <?php echo svgClass('download','','','shrink-0') ?>
             </p>

@@ -11,9 +11,10 @@ get_header();
 	<section
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-gradient-blue-to-bottom-50 pt-12 pb-16' : 'bg-gradient-blue-to-bottom-150 py-[50px]' ?>">
 		<div class="container">
-			<div class="lg:flex gap-[70px]">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+			<div class="md:flex lg:gap-[70px] gap-10">
+				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+				{ ?>
+					<div class="md:w-80 md:max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
 								<li class="">
@@ -102,7 +103,7 @@ get_header();
 					<?php } ?>
 					<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>">
 						<div
-							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-nowrap gap-5 mb-12' : 'mb-6 flex-wrap' ?>">
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap' ?>">
 							<div
 								class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full 2xl:max-w-[50%] lg:max-w-[40%] px-5 gap-4' : 'w-[52%] pl-4 gap-3 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
 								<div
