@@ -17,8 +17,8 @@ if ( $response_GetAllDanhMuc ) {
 			$todate = date( 'Y-m-d' );
 			?>
 			<?php
-			if ( isset( $_GET['bsc'] ) && trim( $_GET['bsc'] ) !== '' ) {
-				$current_bsc = 'BSC' . $_GET['bsc'];
+			if ( isset( $_GET['mck'] ) && trim( $_GET['mck'] ) !== '' ) {
+				$current_bsc = bsc_format_string( $_GET['mck'] );
 			} else {
 				$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
 			}
