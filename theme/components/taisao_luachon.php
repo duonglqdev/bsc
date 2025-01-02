@@ -5,7 +5,7 @@
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
-        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex 2xl:gap-[90px] gap-12':'' ?>">
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex 2xl:gap-[90px] gap-12 l':'' ?>">
             <?php if (have_rows('content')) { ?>
                 <div class="flex-1">
                     <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 2xl:gap-x-[70px] gap-x-10 2xl:gap-y-[50px] gap-y-5':'gap-y-6' ?>">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <div class="w-full relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[495px] max-w-[40%]':'max-w-[77%] mx-auto mt-[90px]' ?>">
+            <div class="w-full relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[495px] lg:max-w-[40%] max-w-[60%] mx-auto lg:mt-0 mt-24':'max-w-[77%] mx-auto mt-[90px]' ?>">
                 <div class="relative z-[2] main_image">
                     <?php echo wp_get_attachment_image(get_sub_field('img'), 'large') ?>
                 </div>
