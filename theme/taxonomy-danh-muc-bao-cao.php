@@ -113,7 +113,7 @@ get_header();
 							$total_page = ceil($total_post / $post_per_page);
 						?>
 							<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-8' : 'mt-8'; ?>">
-								<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-4 gap-5' : 'grid-cols-2 gap-y-5 gap-x-4'; ?>">
+								<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-4 grid-cols-2 gap-5' : 'grid-cols-2 gap-y-5 gap-x-4'; ?>">
 									<?php
 									$item_count = 0;
 									foreach ($response->d as $news) {
