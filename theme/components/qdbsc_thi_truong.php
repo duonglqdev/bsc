@@ -1,6 +1,7 @@
 <?php
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout['class'];
+// $class = $check_logout['class'];
+$class = '';
 ?>
 <section
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> qdbsc_thi_truong"
@@ -21,7 +22,7 @@ $class = $check_logout['class'];
 		<?php } ?>
 		<div class="relative">
 			<?php
-			if ( ! $check_logout ) {
+			if ( ! $check_logout || 1 == 1 ) {
 				$array_data_GetForecastMacro = array();
 				$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
 				if ( $response_GetForecastMacro ) {
@@ -316,8 +317,8 @@ $class = $check_logout['class'];
 			}
 			?>
 			<?php if ( $check_logout ) {
-				echo $check_logout['html'];
-			} ?>
+			// echo $check_logout['html'];
+		} ?>
 		</div>
 	</div>
 </section>

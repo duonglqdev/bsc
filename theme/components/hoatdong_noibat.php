@@ -10,7 +10,7 @@
 				<div class="sticky top-5 z-10">
 					<?php
 					$currentYear = date( 'Y' );
-					$selectedYear = ! empty( $_GET['years'] ) ? $_GET['years'] : $currentYear;
+					$selectedYear = ! empty( $_GET['years'] ) ? bsc_format_string( $_GET['years'], 'number' ) : $currentYear;
 
 					if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div
@@ -53,12 +53,12 @@
 			if ( $cdtnvcd2_id_danh_muc ) {
 				$time_cache = get_field( 'cdtnvcd2_time_cache', 'option' );
 				if ( isset( $_GET['posts_to_show'] ) ) {
-					$post_per_page = $_GET['posts_to_show'];
+					$post_per_page = bsc_format_string( $_GET['posts_to_show'], 'number' );
 				} else {
 					$post_per_page = get_option( 'posts_per_page' );
 				}
 				if ( isset( $_GET['post_page'] ) ) {
-					$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+					$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 				} else {
 					$index = 1;
 				}

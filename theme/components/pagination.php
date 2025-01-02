@@ -15,19 +15,19 @@
 						<?php
 						$endpoint = '';
 						if (isset($_GET['key'])) {
-							$endpoint .= '&key=' . $_GET['key'];
+							$endpoint .= '&key=' . bsc_format_string($_GET['key'],'all');
 						}
 						if (isset($_GET['mck'])) {
-							$endpoint .= '&mck=' . $_GET['mck'];
+							$endpoint .= '&mck=' . bsc_format_string($_GET['mck']);
 						}
 						if (isset($_GET['years'])) {
-							$endpoint .= '&years=' . $_GET['years'];
+							$endpoint .= '&years=' . bsc_format_string($_GET['years'],'number');
 						}
 						if (isset($_GET['s'])) {
-							$endpoint .= '&s=' . $_GET['s'];
+							$endpoint .= '&s=' .bsc_format_string( $_GET['s'],'all');
 						}
 						if (isset($_GET['type_search'])) {
-							$endpoint .= '&type_search=' . $_GET['type_search'];
+							$endpoint .= '&type_search=' . bsc_format_string($_GET['type_search'],'all');
 						}
 						foreach ($posts_to_show as $number) :
 							$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
@@ -66,16 +66,16 @@
 						<?php
 						$endpoint = '';
 						if (isset($_GET['key'])) {
-							$endpoint .= '&key=' . $_GET['key'];
+							$endpoint .= '&key=' . bsc_format_string($_GET['key'],'all');
 						}
 						if (isset($_GET['years'])) {
-							$endpoint .= '&years=' . $_GET['years'];
+							$endpoint .= '&years=' . bsc_format_string($_GET['years'],'number');
 						}
 						if (isset($_GET['s'])) {
-							$endpoint .= '&s=' . $_GET['s'];
+							$endpoint .= '&s=' . bsc_format_string($_GET['s'],'all');
 						}
 						if (isset($_GET['type_search'])) {
-							$endpoint .= '&type_search=' . $_GET['type_search'];
+							$endpoint .= '&type_search=' . bsc_format_string($_GET['type_search'],'all');
 						}
 						foreach ($posts_to_show as $number) :
 							$selected = isset($_GET['posts_to_show']) && (int) $_GET['posts_to_show'] === $number ? 'selected' : '';
