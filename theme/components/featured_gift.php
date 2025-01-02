@@ -42,7 +42,7 @@ if ($chuong_trinh_khuyen_mai_id) {
                         <div class="w-full block_slider-item">
                             <a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
                                 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid group grid-cols-2 rounded-2xl overflow-hidden' : 'block' ?>">
-                                <div class="h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-14 px-20' : ' rounded-tl-xl rounded-tr-xl px-4 py-[29px]' ?>"
+                                <div class="h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-14 py-8 lg:px-20 px-8' : ' rounded-tl-xl rounded-tr-xl px-4 py-[29px]' ?>"
                                     style="background-color:<?php echo  $color ?>;">
                                     <h2
                                         class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[28px] text-xl mb-6' : 'text-lg mb-[12px]' ?> font-bold line-clamp-2  transition-all duration-500 group-hover:text-yellow-100 leading-snug">

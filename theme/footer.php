@@ -48,7 +48,7 @@
 		<div
 			class="grid grid-cols-8 font-light <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-12 gap-10 mb-6 pb-10 border-b border-[#f3f3f3] border-opacity-50' : 'md:gap-5 mb-6' ?>">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-3 col-span-full' : 'col-span-full' ?>">
 				<?php
 				$custom_logo_id = get_field('f1_logo', 'option');
 				if ($custom_logo_id) {
@@ -68,7 +68,7 @@
 
 			</div>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-3' : 'col-span-full' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-3 col-span-4' : 'col-span-full' ?>">
 				<ul
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-4' : 'space-y-3 text-xs' ?>">
 					<?php if (have_rows('f1_thongtintruso', 'option')) {
@@ -118,7 +118,7 @@
 				</ul>
 			</div>
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-				<div class="col-span-2">
+				<div class="lg:col-span-2 col-span-4">
 					<?php if (get_field('f2_title', 'option')) { ?>
 						<p class="font-bold text-xs uppercase mb-4">
 							<?php the_field('f2_title', 'option') ?>
@@ -184,11 +184,11 @@
 			<?php } ?>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'hidden mt-6' ?>">
 				<div
-					class="flex justify-between <?php echo !wp_is_mobile() && !bsc_is_mobile() ? ' gap-5' : 'flex-wrap gap-y-5' ?>">
+					class="flex justify-between flex-wrap gap-y-5 -mx-3">
 					<?php if (have_rows('f3_menu', 'option')) {
 						while (have_rows('f3_menu', 'option')) :
 							the_row(); ?>
-							<div class="space-y-4 footer-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-full' : 'w-[48%]' ?>">
+							<div class="space-y-4 footer-item px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-full w-1/2 lg:flex-1' : 'w-[48%]' ?>">
 								<?php if (get_sub_field('title')) { ?>
 									<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-base' : 'text-xs' ?>">
 										<?php the_sub_field('title') ?>
@@ -208,7 +208,7 @@
 					<?php endwhile;
 					} ?>
 					<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-						<div class="space-y-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:max-w-[33%] max-w-[38%]' : 'max-w-full' ?>">
+						<div class="space-y-4 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:max-w-[33%] lg:max-w-[38%] max-w-[50%]' : 'max-w-full' ?>">
 							<?php if (get_field('f4_title', 'option')) { ?>
 								<p class="font-bold uppercase text-yellow-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-base' : 'text-xs' ?>">
 									<?php the_field('f4_title', 'option') ?>

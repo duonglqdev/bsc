@@ -12,7 +12,7 @@
 		<?php } ?>
 		<?php if ( have_rows( 'reward' ) )
 		{ ?>
-			<div class=" font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid md:grid-cols-3 grid-cols-1 gap-10 2xl:mx-16' : 'block_sameheight block_slider-show-1 dots-blue dot-30' ?>"
+			<div class="font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid lg:grid-cols-3 grid-cols-1 gap-10 2xl:mx-16' : 'block_sameheight block_slider-show-1 dots-blue dot-30' ?>"
 				<?php if ( wp_is_mobile() && bsc_is_mobile() )
 				{ ?>
 					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'

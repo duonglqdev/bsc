@@ -14,7 +14,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>
-	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() || ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
+	class="scroll-smooth scroll-pt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'is-desktop' : 'is-mobile' ?>">
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -114,11 +114,10 @@
 
 		<?php } ?>
 		<div
-			class="bg-white 2xl:py-[14px] py-3 shadow-base <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'relative' ?>">
+			class="bg-white 2xl:py-[14px] py-3 shadow-base lg:static relative">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
-					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-						<div class="flex items-center gap-2 relative">
+						<div class="flex items-center gap-2 relative lg:hidden">
 							<div class="bar_mobile ">
 								<?php echo svg( 'bar' ) ?>
 							</div>
@@ -128,7 +127,7 @@
 
 
 							<form action="<?php echo get_home_url() ?>"
-								class="flex flex-col p-4 bg-white rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute w-screen -left-5 top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
+								class="flex flex-col p-4 bg-white rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
 								<div class="flex items-center gap-6">
 									<div class="flex">
 										<input type="radio" id="cp" name="investment" class="hidden peer" checked>
@@ -177,7 +176,6 @@
 							</form>
 						</div>
 
-					<?php } ?>
 					<?php
 					$custom_logo_id = get_field( 'h0_logo', 'option' );
 					if ( $custom_logo_id ) {
@@ -220,8 +218,8 @@
 						<?php } ?>
 						<ul
 							class="main_menu-navbar lg:bg-[#F3FBFE] w-full lg:max-w-[1006px] lg:absolute lg:shadow-menu lg:shadow-[#0000001A] lg:rounded-br-2xl lg:rounded-bl-2xl bg-gradient-menu lg:top-full 2xl:mt-[22px] lg:mt-4 2xl:p-10 p-5 lg:backdrop-blur-2xl lg:flex">
-							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-								<div class="flex items-center justify-between mb-6">
+							
+								<div class="lg:hidden flex items-center justify-between mb-6">
 									<div class="close-mobile">
 										<?php echo svg( 'close', '24', '24' ) ?>
 									</div>
@@ -252,7 +250,7 @@
 														</span>
 													</a>
 													<?php
-													break;
+													
 												}
 												$i++;
 											endwhile;
@@ -262,7 +260,7 @@
 									</div>
 								</div>
 
-							<?php } ?>
+							
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
@@ -286,7 +284,7 @@
 											echo 'target="_blank"' ?>
 												rel="<?php the_sub_field( 'rel' ) ?>"
 											href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d]' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
+											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
 											<span class="block relative z-10 ">
 												<?php the_sub_field( 'title' ) ?>
 											</span>

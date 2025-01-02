@@ -5,7 +5,7 @@
 				<?php the_sub_field( 'title' ) ?>
 			</h2>
 		<?php } ?>
-		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px] ' : '' ?>">
+		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 lg:max-w-[35%] shrink-0' : '' ?>">
 				<div class="sticky top-5 z-10">
 					<?php
@@ -83,7 +83,7 @@
 					?>
 					<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-6' ?>">
 						<div
-							class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:grid-cols-2 gap-x-6 gap-y-8' : 'md:grid-cols-2 grid-cols-1 gap-y-6 gap-x-5' ?>">
+							class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8' : 'md:grid-cols-2 grid-cols-1 gap-y-6 gap-x-5' ?>">
 							<?php
 							foreach ( $response->d as $news ) {
 								get_template_part( 'template-parts/content', null, array(

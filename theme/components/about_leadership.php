@@ -8,7 +8,7 @@
         <?php
         $title_tab = generateRandomString(10);
         if (have_rows('doi_ngu')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-4 2xl:gap-[50px] gap-9':'' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 2xl:gap-[50px] gap-9 lg:space-y-0 space-y-5':'' ?>">
                 <div class="col-span-1">
                     <ul class="flex about_leadership-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3':'justify-between shadow-none pb-6 mb-6 border-b border-[#C9CCD2]' ?>"
                         data-tabs-toggle="#about_leadership-tab" role="tablist"

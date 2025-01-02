@@ -12,7 +12,7 @@
 			<div class="block__slider-marquee marquee-rtl block_slider-show-6 partner_list">
 				<?php while ( have_rows( 'gallery' ) ) :
 					the_row(); ?>
-					<div class="block_slider-item lg:px-4 px-[12px] lg:py-3 py-2 lg:w-1/6 md:w-1/4 w-2/5">
+					<div class="block_slider-item md:px-4 px-[12px] md:py-3 py-2 lg:w-1/6 md:w-1/4 w-2/5">
 						<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 							class="block relative partner-item pt-[45%] rounded-lg overflow-hidden w-full shadow bg-no-repeat bg-full bg-center transition-all duration-500 hover:scale-110"
 							style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/assets/svg/test-svg.png)">
@@ -23,7 +23,7 @@
 			</div>
 		<?php endif; ?>
 		<?php
-		if ( have_rows( 'gallery' ) ) : ?>
+		if ( have_rows( 'gallery' ) && wp_is_mobile() && bsc_is_mobile() ) : ?>
 			<div class="block__slider-marquee marquee block_slider-show-6 partner_list lg:hidden">
 				<?php while ( have_rows( 'gallery' ) ) :
 					the_row(); ?>

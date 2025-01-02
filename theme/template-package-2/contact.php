@@ -99,10 +99,10 @@ get_header();
 					</select>
 				</div>
 			</div>
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-12' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-12' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 				{ ?>
-					<div class="w-[460px] max-w-[35%]">
+					<div class="lg:w-[460px] lg:max-w-[35%] lg:mb-0 mb-10">
 						<div class="w-full rounded-[10px] shadow-base py-2">
 							<div
 								class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">

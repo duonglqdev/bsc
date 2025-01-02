@@ -3,7 +3,7 @@
         <?php if (have_rows('su_menh_tam_nhin')) { ?>
             <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-5 md:grid-cols-2':'grid-cols-1 gap-4' ?>">
                 <?php while (have_rows('su_menh_tam_nhin')): the_row(); ?>
-                    <div class="h-full bg-gradient-blue-50 rounded-[10px]  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-9 2xl:py-20 py-10':'px-6 py-5' ?>">
+                    <div class="h-full bg-gradient-blue-50 rounded-[10px]  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:px-9 px-6 py-6 2xl:py-20 lg:py-10':'px-6 py-5' ?>">
                         <?php if (get_sub_field('title')) { ?>
                             <h2 class="heading-title mb-4 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xl' ?>">
                                 <?php the_sub_field('title') ?>
@@ -25,7 +25,7 @@
                 </h2>
             <?php } ?>
             <?php if (have_rows('gia_tri_cot_loi')) { ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-3 grid-cols-1 gap-5':'block_slider-show-1 fli-dots-blue block_sameheight' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-3 grid-cols-1 gap-5':'block_slider-show-1 fli-dots-blue block_sameheight' ?>" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
                              data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'       
                 <?php } ?>>
                     <?php while (have_rows('gia_tri_cot_loi')): the_row(); ?>

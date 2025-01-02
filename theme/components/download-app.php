@@ -13,8 +13,8 @@
 				<?php the_sub_field('mota') ?>
 			</p>
 		<?php } ?>
-		<div class="grid grid-cols-2 gap-5 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-0' : 'mt-10' ?>">
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 order-1' : 'col-span-full order-2' ?>">
+		<div class="grid lg:grid-cols-2 grid-cols-1 gap-5 lg:mt-0 mt-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-0' : 'mt-10' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-1 order-2' : 'col-span-full order-2' ?>">
 
 				<div class="relative">
 					<?php if (have_rows('trai_nghiem')) {
@@ -24,11 +24,11 @@
 							$i++; ?>
 							<div data-download="<?php echo $i ?>"
 								class="<?php if ($i == 1)
-											echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 [&:not(.active)]:absolute static w-full h-full top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'absolute' : '' ?>">
+											echo 'active' ?> [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none pointer-events-auto transition-all duration-1000 [&:not(.active)]:absolute static w-full h-full top-0 left-0 lg:absolute">
 								<?php if (have_rows('qr_code')) {
 									while (have_rows('qr_code')) :
 										the_row(); ?>
-										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-11 items-center my-20' : '' ?>">
+										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-11 items-center lg:my-20' : '' ?>">
 											<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 												<div class="qr w-52 max-w-[40%]">
 													<?php
@@ -143,7 +143,7 @@
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 order-2 -mt-20' : 'col-span-full order-1' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-2 order-1 lg:-mt-20' : 'col-span-full order-1' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('trai_nghiem')) :

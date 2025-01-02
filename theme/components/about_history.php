@@ -11,9 +11,9 @@
                 while (have_rows('history')): the_row();
                 ?>
                     <div class="w-full block_slider-item">
-                        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'items-center':'flex-col flex-col-reverse' ?>">
+                        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'items-center lg:flex-row flex-col-reverse':'flex-col flex-col-reverse' ?>">
                             <?php if (get_sub_field('img')) { ?>
-                                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[547px] w-full':'mt-6' ?>">
+                                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[547px] w-full lg:mt-0 mt-6':'mt-6' ?>">
                                     <div class="rounded-[20px] overflow-hidden relative pt-[70.21%] group">
                                         <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-110')) ?>
                                     </div>

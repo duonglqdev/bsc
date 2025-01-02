@@ -34,7 +34,7 @@
 		$weekday_name = date( 'l', strtotime( $day ) );
 	}
 	?>
-	<div class="news_service-item md:flex items-center justify-between md:gap-20">
+	<div class="news_service-item md:flex items-center justify-between g:gap-20 gap-5">
 		<div class="flex items-center">
 			<div
 				class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -62,7 +62,7 @@
 			</div>
 			<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'ml-[30px]' : 'ml-4' ?>">
 				<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-					class="block font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
+					class="font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
 					<p class="line-clamp-2">
 						<?php echo htmlspecialchars( $news->title ) ?>
 					</p>
@@ -77,7 +77,7 @@
 		</div>
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 			<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-				class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
+				class="text-green font-semibold lg:inline-flex hidden gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 				<?php _e( 'Xem chi tiết', 'bsc' ) ?>
 				<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 			</a>

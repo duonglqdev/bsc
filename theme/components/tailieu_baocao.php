@@ -20,7 +20,7 @@
 		));
 		if (! empty($terms) && ! is_wp_error($terms)) :
 		?>
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
 
 				<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
@@ -109,7 +109,7 @@
 									<div
 										class="space-y-6 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10 pb-10 border-b border-[#E1E1E1]' : '' ?>">
 										<?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
-											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid grid-cols-4 gap-5' : '-mx-2' ?>"
+											<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid lg:grid-cols-4 grid-cols-2 gap-5' : '-mx-2' ?>"
 												<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 												data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": false, "cellAlign": "left","contain": true, "autoPlay":false}'
 												<?php } ?>>

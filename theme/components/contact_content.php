@@ -4,7 +4,7 @@
 	$style = get_sub_field('style') ?: 'style1';
 	?>
 	<div class="container">
-		<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-2 gap-10' : 'grid-cols-1' ?> <?php if ($style == 'style2') echo 'items-center' ?>">
+		<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-2 gap-10 grid-cols-1' : 'grid-cols-1' ?> <?php if ($style == 'style2') echo 'items-center' ?>">
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[640px] col-span-1':'order-2' ?>">
 				<div class="relative w-full pt-[71.25%] overflow-hidden rounded-[10px]">
 					<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105')) ?>

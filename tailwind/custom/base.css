@@ -369,6 +369,11 @@
 .is-mobile .container {
   @apply px-5;
 }
+@media only screen and (min-width: 480px) {
+  .is-mobile .container {
+    max-width: 90% !important;
+  }
+}
 .is-mobile .main_menu-navbar {
   @apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden transition-all duration-500 [&:not(.active)]:-translate-x-full translate-x-0 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none;
 }
@@ -506,11 +511,21 @@
 .is-mobile .community_nav-item:nth-child(2) {
   @apply -translate-x-[30px] translate-y-5;
 }
+@media only screen and (min-width: 768px) {
+  .is-mobile .community_nav-item:nth-child(2) {
+    @apply -translate-x-[104px];
+  }
+}
 .is-mobile .community_nav-item:nth-child(3) {
   @apply translate-x-[63%] -translate-y-[30%];
 }
 .is-mobile .community_nav-item:nth-child(4) {
   @apply -translate-x-[12%] translate-y-[35%];
+}
+@media only screen and (min-width: 768px) {
+  .is-mobile .community_nav-item:nth-child(4) {
+    @apply -translate-x-[50%];
+  }
 }
 .is-mobile .form_cv-wrapper .upload_file {
   @apply text-center text-xs;

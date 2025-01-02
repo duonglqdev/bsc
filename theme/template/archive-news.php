@@ -23,130 +23,59 @@ get_header();
 				"selectedAttraction": 0.01,
 				"friction": 0.2
 			}'>
-				<div class="w-full block_slider-item">
-					<a href=""
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid group grid-cols-2 rounded-2xl overflow-hidden' : 'block' ?>">
-						<div class="h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-14 px-20' : 'py-[29px] px-4' ?>"
-							style="background-color:#ccece7;">
-							<h2
-								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[28px] text-xl mb-6' : 'text-lg mb-[12px]' ?> font-bold line-clamp-2  transition-all duration-500 group-hover:text-yellow-100 leading-snug">
-								Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
-							</h2>
-							<div
-								class="line-clamp-3 font-Helvetica  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-base mb-10' : 'text-xs' ?>">
-								Với mục tiêu nâng cao trải nghiệm tài chính cho các nhà đầu tư, từ
-								ngày 16/09/2024, CTCP Chứng khoán BIDV (BSC) kết hợp cùng FireAnt,
-								hân hạnh mang đến chương trình khuyến mãi hấp dẫn “Mở tài khoản BSC
-								– Nhận quà liền tay”.
-							</div>
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-							{ ?>
-								<div class="mt-auto">
-									<p
-										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
-										<span
-											class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
-									</p>
+			<?php 
+			 for ($i = 0; $i < 3; $i++) {
+			 ?>
+			 <div class="w-full block_slider-item">
+				 <a href=""
+					 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid group grid-cols-2 rounded-2xl overflow-hidden' : 'block' ?>">
+					 <div class="h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-14 py-8 lg:px-20 px-8' : 'py-[29px] px-4' ?>"
+						 style="background-color:#ccece7;">
+						 <h2
+							 class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[28px] text-xl mb-6' : 'text-lg mb-[12px]' ?> font-bold line-clamp-2  transition-all duration-500 group-hover:text-yellow-100 leading-snug">
+							 Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
+						 </h2>
+						 <div
+							 class="line-clamp-3 font-Helvetica  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-base mb-10' : 'text-xs' ?>">
+							 Với mục tiêu nâng cao trải nghiệm tài chính cho các nhà đầu tư, từ
+							 ngày 16/09/2024, CTCP Chứng khoán BIDV (BSC) kết hợp cùng FireAnt,
+							 hân hạnh mang đến chương trình khuyến mãi hấp dẫn “Mở tài khoản BSC
+							 – Nhận quà liền tay”.
+						 </div>
+						 <?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						 { ?>
+							 <div class="mt-auto">
+								 <p
+									 class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
+									 <span
+										 class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
+								 </p>
 
-								</div>
-							<?php } ?>
-						</div>
-						<div
-							class="relative w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[55%]' : 'pt-[62.68%]' ?>">
-							<img loading="lazy"
-								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
-								alt="" class="object-cover absolute w-full h-full inset-0">
-						</div>
-						<?php if ( wp_is_mobile() && bsc_is_mobile() )
-						{ ?>
-							<div class="mt-2">
-								<p
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] font-semibold relative transition-all duration-500 rounded-lg py-3 px-6 text-center text-xs">
-									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết bài đăng', 'bsc' ) ?></span>
-								</p>
+							 </div>
+						 <?php } ?>
+					 </div>
+					 <div
+						 class="relative w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[55%]' : 'pt-[62.68%]' ?>">
+						 <img loading="lazy"
+							 src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
+							 alt="" class="object-cover absolute w-full h-full inset-0">
+					 </div>
+					 <?php if ( wp_is_mobile() && bsc_is_mobile() )
+					 { ?>
+						 <div class="mt-2">
+							 <p
+								 class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] font-semibold relative transition-all duration-500 rounded-lg py-3 px-6 text-center text-xs">
+								 <span
+									 class="block relative z-10"><?php _e( 'Xem chi tiết bài đăng', 'bsc' ) ?></span>
+							 </p>
 
-							</div>
-						<?php } ?>
-					</a>
-				</div>
-				<div class="w-full block_slider-item">
-					<a href=""
-						class="group grid lg:grid-cols-2 grid-cols-1 rounded-2xl overflow-hidden">
-						<div class="lg:py-14 py-10 lg:px-20 px-6 h-full"
-							style="background-color:#fff1d2;">
-							<h2
-								class="lg:2xl:text-[28px] text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
-								Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
-							</h2>
-							<div
-								class="line-clamp-3 font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-7' ?>">
-								Với mục tiêu nâng cao trải nghiệm tài chính cho các nhà đầu tư, từ
-								ngày 16/09/2024, CTCP Chứng khoán BIDV (BSC) kết hợp cùng FireAnt,
-								hân hạnh mang đến chương trình khuyến mãi hấp dẫn “Mở tài khoản BSC
-								– Nhận quà liền tay”.
-							</div>
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-							{ ?>
-								<div class="mt-auto">
-									<p
-										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
-										<span
-											class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
-									</p>
-
-								</div>
-							<?php } ?>
-						</div>
-						<div class="relative w-full pt-[55%]">
-							<img loading="lazy"
-								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
-								alt="" class="object-cover absolute w-full h-full inset-0">
-						</div>
-						<?php if ( wp_is_mobile() && bsc_is_mobile() )
-						{ ?>
-							<div class="mt-2">
-								<p
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] font-semibold relative transition-all duration-500 rounded-lg py-3 px-6 text-center text-xs">
-									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết bài đăng', 'bsc' ) ?></span>
-								</p>
-
-							</div>
-						<?php } ?>
-					</a>
-				</div>
-				<div class="w-full block_slider-item">
-					<a href=""
-						class="group grid lg:grid-cols-2 grid-cols-1 rounded-2xl overflow-hidden">
-						<div class="lg:py-14 py-10 lg:px-20 px-6 h-full"
-							style="background-color:#EBF4FA ;">
-							<h2
-								class="lg:2xl:text-[28px] text-xl text-xl font-bold line-clamp-2 mb-6 transition-all duration-500 group-hover:text-yellow-100 leading-snug">
-								Ưu đãi đặc biệt khi mở tài khoản BSC dành cho các hội viên FireAnt
-							</h2>
-							<div class="line-clamp-3 font-Helvetica mb-10">
-								Với mục tiêu nâng cao trải nghiệm tài chính cho các nhà đầu tư, từ
-								ngày 16/09/2024, CTCP Chứng khoán BIDV (BSC) kết hợp cùng FireAnt,
-								hân hạnh mang đến chương trình khuyến mãi hấp dẫn “Mở tài khoản BSC
-								– Nhận quà liền tay”.
-							</div>
-							<div class="mt-auto">
-								<p
-									class="inline-block px-6 py-3 rounded-md bg-yellow-100 text-black font-semibold relative transition-all duration-500 after:absolute after:h-full after:w-0 after:top-0 after:left-0 after:bg-green after:transition-all after:duration-500 after:opacity-0 after:rounded-md hover:after:w-full hover:after:opacity-100 hover:text-white">
-									<span
-										class="block relative z-10"><?php _e( 'Xem chi tiết', 'bsc' ) ?></span>
-								</p>
-
-							</div>
-						</div>
-						<div class="relative w-full pt-[55%]">
-							<img loading="lazy"
-								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/featured-img.png"
-								alt="" class="object-cover absolute w-full h-full inset-0">
-						</div>
-					</a>
-				</div>
+						 </div>
+					 <?php } ?>
+				 </a>
+			 </div>
+			  <?php 
+			 } 
+			?>
 			</div>
 		</div>
 	</section>
@@ -154,7 +83,7 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:mt-[100px] mt-16 mb-16' : 'my-[50px]' ?>">
 		<div class="container">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-5' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 				{ ?>
 					<div class="w-80 max-w-[35%] shrink-0">
@@ -222,7 +151,7 @@ get_header();
 								<?php } ?>
 							</div>
 							<div
-								class="grid gap-y-8  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1]' : 'grid-cols-1' ?>">
+								class="grid gap-y-8  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1]' : 'grid-cols-1' ?>">
 								<?php
 								for ( $i = 0; $i < 4; $i++ )
 								{
@@ -362,7 +291,7 @@ get_header();
 							{
 								?>
 								<div
-									class="news_service-item md:flex items-center justify-between md:gap-20">
+									class="news_service-item md:flex items-center justify-between lg:gap-20 gap-5">
 									<div class="flex items-center">
 										<div
 											class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -375,9 +304,9 @@ get_header();
 												16
 											</p>
 										</div>
-										<div class="md:ml-[30px] ml-5">
+										<div class="lg:ml-[30px] ml-5">
 											<a href=""
-												class="block font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300">
+												class="font-bold leading-normal text-lg line-clamp-2 mb-2 transition-all duration-500 hover:text-primary-300">
 												Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
 												trả lãi, gốc trái phiếu mã BSI32301
 											</a>
@@ -392,7 +321,7 @@ get_header();
 										</div>
 									</div>
 									<a href=""
-										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
+										class="text-green font-semibold lg:inline-flex hidden gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Xem chi tiết
 										<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 									</a>

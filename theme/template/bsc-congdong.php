@@ -11,7 +11,7 @@ get_header();
 	<section class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[130px] pb-[100px]':'bg-gradient-blue-50 py-10' ?>">
 		<div class="container">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid grid-cols-2 gap-20' : 'gap-10 flex flex-col' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
 				<div
 					class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1' : 'order-2' ?>">
 					<h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-4' ?>">
@@ -79,13 +79,13 @@ get_header();
 				<div
 					class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-2' : 'order-1 pb-[80px] relative' ?>">
 					<div
-						class="community_nav <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full  flex flex-wrap justify-between' : 'relative flex flex-wrap justify-around ' ?>">
+						class="community_nav <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full m-auto flex flex-wrap justify-between' : 'relative flex flex-wrap justify-around ' ?>">
 						<div class="community_nav-item cursor-pointer relative w-1/2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[200px]' : '' ?>"
 							data-index="0">
 							<div class="relative w-full pt-[100%]">
 								<?php echo svgpath( 'comunity', '', '','md:stroke-auto stroke-1' ) ?>
 								<div
-									class="icon absolute <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'top-3 right-5' : 'w-[36%] h-[36%] flex items-center justify-center top-4 right-4' ?>">
+									class="icon absolute <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'top-3 right-5 lg:w-auto lg:h-auto w-2/5 h-2/5' : 'w-[36%] h-[36%] flex items-center justify-center top-4 right-4' ?>">
 									<?php echo svgClass( 'com_1' ) ?>
 								</div>
 							</div>
