@@ -140,6 +140,33 @@ function remove_xmlrpc_methods( $methods ) {
 add_filter( 'xmlrpc_methods', 'remove_xmlrpc_methods' );
 remove_action( 'wp_head', 'rsd_link' );
 
+
+/**
+ * Disable Rest  API
+ */
+
+add_filter( 'rest_authentication_errors', function ($result) {
+	// If a previous authentication check was applied,
+	// pass that result along without modification.
+	if ( true === $result || is_wp_error( $result ) ) {
+		return $result;
+	}
+
+	// No authentication has been performed yet.
+	// Return an error if user is not logged in.
+	if ( ! is_user_logged_in() ) {
+		return new WP_Error(
+			'rest_not_logged_in',
+			__( 'You are not currently logged in.' ),
+			array( 'status' => 401 )
+		);
+	}
+
+	// Our custom authentication check should have no effect
+	// on logged-in requests
+	return $result;
+} );
+
 /**
  * Remove Logo / Version / Help
  */
@@ -277,7 +304,7 @@ add_filter( 'next_posts_link_attributes', 'add_class_to_posts_link_next' );
 function filter_posts( $query ) {
 	if ( $query->is_main_query() && ! is_admin() ) :
 		if ( isset( $_GET['posts_to_show'] ) ) :
-			$posts_to_show = $_GET['posts_to_show'];
+			$posts_to_show = bsc_format_string( $_GET['posts_to_show'], 'number' );
 		else :
 			$posts_to_show = get_option( 'posts_per_page' );
 		endif;
@@ -346,7 +373,7 @@ add_filter( 'posts_search', 'wpse_11826_search_by_title', 10, 2 );
  */
 add_action( 'template_redirect', function () {
 	if ( isset( $_GET['investment'] ) && isset( $_GET['s'] ) && $_GET['investment'] === 'co_phieu' ) {
-		$redirect_url = get_field( 'cdttcp1_page', 'option' ) . '?mcp=' . $_GET['s'];
+		$redirect_url = get_field( 'cdttcp1_page', 'option' ) . '?mcp=' . bsc_format_string( $_GET['s'], 'all' );
 		wp_redirect( $redirect_url );
 		exit;
 	}

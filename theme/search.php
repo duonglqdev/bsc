@@ -11,7 +11,11 @@
 get_header();
 $search = get_search_query();
 $current_url = get_home_url();
-$type_search = $_GET['type_search'] ?: 'default';
+if ( isset( $_GET['type_search'] ) ) {
+	$type_search = bsc_format_string( $_GET['type_search'], 'all' );
+} else {
+	$type_search = 'default';
+}
 ?>
 <main>
 	<section class="py-[88px] bg-no-repeat bg-cover"
@@ -144,12 +148,12 @@ $type_search = $_GET['type_search'] ?: 'default';
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'text-xs' ?>">
 					<?php
 					if ( isset( $_GET['posts_to_show'] ) ) {
-						$post_per_page = $_GET['posts_to_show'];
+						$post_per_page = bsc_format_string( $_GET['posts_to_show'], 'number' );
 					} else {
 						$post_per_page = get_option( 'posts_per_page' );
 					}
 					if ( isset( $_GET['page'] ) ) {
-						$paged = $_GET['page'];
+						$paged = bsc_format_string( $_GET['page'], 'number' );
 					} else {
 						$paged = 1;
 					}
@@ -227,7 +231,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 									if ( ( $post_thieu_GetNews != $post_per_page ) || ( $current_total_post == 0 ) ) {
 										$index_GetNews = 1;
 									} else {
-										$index_GetNews = ( $_GET['post_page'] - 1 ) * $post_per_page - $total_news + 1;
+										$index_GetNews = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page - $total_news + 1;
 									}
 									$array_data_GetNews = array(
 										'lang' => pll_current_language(),
@@ -256,7 +260,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 										if ( $post_thieu_GetReportsBySymbol != $post_per_page ) {
 											$index_GetReportsBySymbol = 1;
 										} else {
-											$index_GetReportsBySymbol = ( $_GET['post_page'] - 1 ) * $post_per_page - ( $total_GetNews + $total_news ) + 1;
+											$index_GetReportsBySymbol = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page - ( $total_GetNews + $total_news ) + 1;
 										}
 										$array_data_GetReportsBySymbol = array(
 											'lang' => pll_current_language(),
@@ -300,7 +304,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'news' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -332,7 +336,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'cong_dong' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -363,7 +367,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'khuyen_mai' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -415,7 +419,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'bao_cao' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -447,7 +451,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'kien_thuc' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -479,7 +483,7 @@ $type_search = $_GET['type_search'] ?: 'default';
 							}
 						} elseif ( $type_search == 'co_dong' ) {
 							if ( isset( $_GET['post_page'] ) ) {
-								$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+								$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}

@@ -86,12 +86,12 @@ get_header();
 				<div class="flex-1">
 					<?php
 					if ( isset( $_GET['posts_to_show'] ) ) {
-						$post_per_page = $_GET['posts_to_show'];
+						$post_per_page = bsc_format_string( $_GET['posts_to_show'], 'number' );
 					} else {
 						$post_per_page = get_option( 'posts_per_page' );
 					}
 					if ( isset( $_GET['post_page'] ) ) {
-						$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+						$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 					} else {
 						$index = 1;
 					}

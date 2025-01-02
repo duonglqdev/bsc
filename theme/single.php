@@ -129,7 +129,7 @@ get_header();
 												class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[180px] overflow-y-auto space-y-2">
 												<?php
 												$currentYear = date( 'Y' );
-												$selectedYear = ! empty( $_GET['years'] ) ? $_GET['years'] : $currentYear;
+												$selectedYear = ! empty( $_GET['years'] ) ? bsc_format_string( $_GET['years'], 'number' ) : $currentYear;
 												for ( $year = $currentYear; $year >= 2015; $year-- ) :
 													?>
 													<li>

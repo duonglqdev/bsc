@@ -33,7 +33,7 @@ $time_cache = 3000;
 				<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
 					class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] px-5' : 'h-[42px] rounded-lg px-4 text-xs' ?>"
 					id="search-name" value="<?php if ( isset( $_GET['mcp'] ) )
-						echo $_GET['mcp'] ?>">
+						echo bsc_format_string( $_GET['mcp'] ) ?>">
 				</div>
 				<?php
 					$array_data = json_encode( [ 
@@ -141,13 +141,16 @@ $time_cache = 3000;
 									</th>
 									<th
 										class="w-1/5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[140px]' ?>">
-										<?php _e( 'Tên công ty', 'bsc' ) ?></th>
+										<?php _e( 'Tên công ty', 'bsc' ) ?>
+									</th>
 									<th
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
-										<?php _e( 'Sàn', 'bsc' ) ?></th>
+										<?php _e( 'Sàn', 'bsc' ) ?>
+									</th>
 									<th
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[150px]' ?>">
-										<?php _e( 'Ngành', 'bsc' ) ?></th>
+										<?php _e( 'Ngành', 'bsc' ) ?>
+									</th>
 									<th
 										class="cursor-pointer text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[130px]' ?>">
 										<?php _e( 'Vốn hóa', 'bsc' ) ?>
@@ -155,10 +158,12 @@ $time_cache = 3000;
 									</th>
 									<th
 										class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
-										<?php _e( 'KLGD', 'bsc' ) ?></th>
+										<?php _e( 'KLGD', 'bsc' ) ?>
+									</th>
 									<th
 										class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
-										<?php _e( 'GTGD', 'bsc' ) ?></th>
+										<?php _e( 'GTGD', 'bsc' ) ?>
+									</th>
 									<th
 										class=" cursor-pointer filter-table text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
 										<?php _e( 'PE', 'bsc' ) ?>
@@ -178,7 +183,8 @@ $time_cache = 3000;
 									<tr class="border-b border-[#C9CCD2]">
 										<td class="!pl-5" data-code>
 											<?php if ( $news->SYMBOL ) { ?>
-												<a href="<?php echo slug_co_phieu( $news->SYMBOL ) ?>"><?php echo $news->SYMBOL ?></a>
+												<a
+													href="<?php echo slug_co_phieu( $news->SYMBOL ) ?>"><?php echo $news->SYMBOL ?></a>
 											<?php } ?>
 										</td>
 										<td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>

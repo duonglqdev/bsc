@@ -1,107 +1,132 @@
 <?php
 $id_class = get_sub_field( 'id_class' );
 $display = get_sub_field( 'display' );
-$symbol = '';
-if ( isset( $_GET['mck'] ) )
-{
-	$symbol = $_GET['mck'];
-}
-if ( $display == 'history' )
-{
+$symbol = bsc_format_string( $_GET['mck'] );
+if ( $display == 'history' ) {
 	$dateformat = 'yyyy-mm-dd';
-} else
-{
+} else {
 	$dateformat = 'dd/mm/yyyy';
 }
 ?>
-<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-12 lg:mb-[100px] mb-20':'mt-8 mb-[50px]' ?> data_history_price" <?php if ( $id_class )
-{ ?>
-		id="<?php echo $id_class ?>" <?php } ?>>
+<section
+	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-12 lg:mb-[100px] mb-20' : 'mt-8 mb-[50px]' ?> data_history_price"
+	<?php if ( $id_class ) { ?> id="<?php echo $id_class ?>" <?php } ?>>
 	<div class="container">
-	<?php if ( wp_is_mobile() && bsc_is_mobile() )
-			{ ?>
-				<div class="toggle-form mb-[12px] inline-block">
-					<div class="">
-						<p class="inline-flex items-baseline gap-2 font-medium">
-                            <?php _e('Bộ lọc', 'bsc') ?>
-							<?php echo svgClass( 'down', '', '', 'rotate-180' ) ?>
-						</p>
-					</div>
-					<div class="hidden">
-						<p class="inline-flex items-baseline gap-2 font-medium">
-                            <?php _e('Ẩn bộ lọc', 'bsc') ?>
-							<?php echo svg( 'down' ) ?>
-						</p>
-					</div>
+		<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+			<div class="toggle-form mb-[12px] inline-block">
+				<div class="">
+					<p class="inline-flex items-baseline gap-2 font-medium">
+						<?php _e( 'Bộ lọc', 'bsc' ) ?>
+						<?php echo svgClass( 'down', '', '', 'rotate-180' ) ?>
+					</p>
 				</div>
-			<?php } ?>
-		<form class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-5 mb-12 mt-4 items-end':'flex-wrap gap-4 mb-6' ?>" id="du-lieu-lich-su_form"
-			data-form="<?php echo $display ?>">
-			<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-80 max-w-1/3':'w-full' ?>">
-				<p class="font-medium mb-2  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+				<div class="hidden">
+					<p class="inline-flex items-baseline gap-2 font-medium">
+						<?php _e( 'Ẩn bộ lọc', 'bsc' ) ?>
+						<?php echo svg( 'down' ) ?>
+					</p>
+				</div>
+			</div>
+		<?php } ?>
+		<form
+			class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-5 mb-12 mt-4 items-end' : 'flex-wrap gap-4 mb-6' ?>"
+			id="du-lieu-lich-su_form" data-form="<?php echo $display ?>">
+			<div
+				class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 max-w-1/3' : 'w-full' ?>">
+				<p class="font-medium mb-2  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 					<?php _e( 'Mã cổ phiếu', 'bsc' ) ?>
 				</p>
 				<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
-					class="w-full border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] px-5 rounded-[10px]':'h-[42px] px-4 text-xs rounded-lg' ?> mck" name="mck"
-					value="<?php echo $symbol ?>">
+					class="w-full border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] px-5 rounded-[10px]' : 'h-[42px] px-4 text-xs rounded-lg' ?> mck"
+					name="mck" value="<?php echo $symbol ?>">
 			</div>
-			<div class="font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[433px] max-w-[40%]':'w-full' ?>">
-				<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+			<div
+				class="font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[433px] max-w-[40%]' : 'w-full' ?>">
+				<p class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 					<?php _e( 'Lọc theo ngày', 'bsc' ) ?>
 				</p>
-				<div id="date-range-picker" date-rangepicker
-					datepicker-format="<?php echo $dateformat ?>" datepicker-autohide
-					datepicker-orientation="bottom right"
-					class="flex items-center border border-[#EAEEF4] text-xs <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] px-5 rounded-[10px]':'h-[42px] px-4 rounded-lg' ?>">
+				<div id="date-range-picker" date-rangepicker datepicker-format="<?php echo $dateformat ?>"
+					datepicker-autohide datepicker-orientation="bottom right"
+					class="flex items-center border border-[#EAEEF4] text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] px-5 rounded-[10px]' : 'h-[42px] px-4 rounded-lg' ?>">
 
-					<div class="flex items-center 2xl:gap-5 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1 justify-between' ?>">
+					<div
+						class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 						<input id="datepicker-range-start" name="fromdate" type="text"
-							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
-							autocomplete="off"
-							placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
-						<?php echo svgClass( 'day', '', '','md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
+							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
+						<?php echo svgClass( 'day', '', '', 'md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
 					</div>
 					<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
-					<div class="flex items-center 2xl:gap-5 gap-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'flex-1 justify-between' ?>">
+					<div
+						class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 						<input id="datepicker-range-end" name="todate" type="text"
-							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>"
-							autocomplete="off"
-							placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
-						<?php echo svgClass( 'day', '', '','md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
+							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
+						<?php echo svgClass( 'day', '', '', 'md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
 					</div>
 				</div>
 			</div>
 			<button type="submit" id="du-lieu-lich-su_submit"
-				class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight min-w-[155px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-xl h-[50px]':'h-10 rounded-lg block flex-1' ?>">
+				class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight min-w-[155px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-xl h-[50px]' : 'h-10 rounded-lg block flex-1' ?>">
 				<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 			</button>
 			<button type="button" id="du-lieu-lich-su_reset"
-				class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-xl h-[50px] w-[50px]':'h-10 w-10' ?>">
+				class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-xl h-[50px] w-[50px]' : 'h-10 w-10' ?>">
 				<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 			</button>
 		</form>
-		<?php if ( $display == 'history' )
-		{ ?>
-			<div class="rounded-lg overflow-hidden overflow-y-auto scroll-bar-custom overflow-x-auto scroll-bar-x <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-h-[646px]':'md:max-h-[646px] max-h-[525px]' ?>">
+		<?php if ( $display == 'history' ) { ?>
+			<div
+				class="rounded-lg overflow-hidden overflow-y-auto scroll-bar-custom overflow-x-auto scroll-bar-x <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-h-[646px]' : 'md:max-h-[646px] max-h-[525px]' ?>">
 				<table
 					class="w-full max-w-full text-center prose-thead:bg-primary-300 prose-thead:text-white text-xs font-medium prose-thead:font-bold prose-th:py-1.5 prose-thead:px-3 prose-th:border-collapse prose-th:border prose-th:border-white prose-td:p-3 bg-white prose-thead:sticky prose-thead:top-0">
 					<thead>
 						<tr>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px] ' ?>"><?php _e( 'Ngày', 'bsc' ) ?></th>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px] ' ?>"><?php _e( 'Đóng cửa (nghìn VNĐ)', 'bsc' ) ?></th>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px] ' ?>"><?php _e( 'Thay đổi', 'bsc' ) ?></th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px] ' ?>">
+								<?php _e( 'Ngày', 'bsc' ) ?>
+							</th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px] ' ?>">
+								<?php _e( 'Đóng cửa (nghìn VNĐ)', 'bsc' ) ?>
+							</th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px] ' ?>">
+								<?php _e( 'Thay đổi', 'bsc' ) ?>
+							</th>
 							<th colspan="2"><?php _e( 'GD khớp lệnh', 'bsc' ) ?></th>
 							<th colspan="2"><?php _e( 'GD thỏa thuận', 'bsc' ) ?></th>
 							<th colspan="3"><?php _e( 'Mở cửa (nghìn VNĐ)', 'bsc' ) ?></th>
 						</tr>
 						<tr>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Tham chiếu', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Trần', 'bsc' ) ?></th>
-							<th class="whitespace-nowrap px-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px]' ?>"><?php _e( 'Sàn', 'bsc' ) ?></th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Khối lượng', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Khối lượng', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Giá trị (triệu VNĐ)', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Tham chiếu', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Trần', 'bsc' ) ?>
+							</th>
+							<th
+								class="whitespace-nowrap px-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px]' ?>">
+								<?php _e( 'Sàn', 'bsc' ) ?>
+							</th>
 						</tr>
 					</thead>
 					<tbody id="list-du-lieu-lich-su">
@@ -115,12 +140,10 @@ if ( $display == 'history' )
 							'endDate' => $current_date_ymd
 						] );
 						$response_secTradingHistory = get_data_with_cache( 'secTradingHistory', $array_data_secTradingHistory, $time_cache, get_field( 'cdapi_ip_address_url_api_algo', 'option' ) . 'pbapi/api/', 'POST' );
-						if ( $response_secTradingHistory )
-						{
+						if ( $response_secTradingHistory ) {
 							$data_response_secTradingHistory = json_decode( $response_secTradingHistory->data, true );
 							$data_response_secTradingHistory = array_reverse( $data_response_secTradingHistory, true );
-							foreach ( $data_response_secTradingHistory as $record )
-							{
+							foreach ( $data_response_secTradingHistory as $record ) {
 								get_template_part( 'template-parts/content-data-history', '', array(
 									'data' => $record,
 								) );
@@ -148,29 +171,49 @@ if ( $display == 'history' )
 				</div>
 			</div>
 			<div class="mt-8">
-				<nav aria-label="Page navigation example"
-					class="flex items-center gap-8 justify-center dlls-pagination">
+				<nav aria-label="Page navigation example" class="flex items-center gap-8 justify-center dlls-pagination">
 					<ul class="flex items-center gap-[11px] h-9 text-base">
 
 					</ul>
 
 				</nav>
 			</div>
-		<?php } else
-		{
+		<?php } else {
 			?>
-			<div class="rounded-lg overflow-hidden overflow-y-auto scroll-bar-custom overflow-x-auto scroll-bar-x <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-h-[646px]':'md:max-h-[646px] max-h-[525px]' ?>">
+			<div
+				class="rounded-lg overflow-hidden overflow-y-auto scroll-bar-custom overflow-x-auto scroll-bar-x <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-h-[646px]' : 'md:max-h-[646px] max-h-[525px]' ?>">
 				<table
 					class="w-full max-w-full text-center prose-thead:bg-primary-300 prose-thead:text-white text-xs font-medium prose-thead:font-bold prose-th:py-1.5 prose-thead:px-3 prose-th:border-collapse prose-th:border prose-th:border-white prose-td:p-3 bg-white prose-thead:sticky prose-thead:top-0">
 					<thead>
 						<tr>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px] ' ?>"><?php _e( 'Ngày', 'bsc' ) ?></th>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[110px] ' ?>"><?php _e( 'Thay đổi', 'bsc' ) ?></th>
-							<th colspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[200px] ' ?>"><?php _e( 'Giao dịch ròng', 'bsc' ) ?></th>
-							<th colspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[200px] ' ?>"><?php _e( 'Mua', 'bsc' ) ?></th>
-							<th colspan="2"class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[200px] ' ?>"><?php _e( 'Bán', 'bsc' ) ?></th>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[120px] ' ?>"><?php _e( 'Room còn lại', 'bsc' ) ?></th>
-							<th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-w-[120px] ' ?>"><?php _e( 'Đang sở hữu', 'bsc' ) ?></th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px] ' ?>">
+								<?php _e( 'Ngày', 'bsc' ) ?>
+							</th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[110px] ' ?>">
+								<?php _e( 'Thay đổi', 'bsc' ) ?>
+							</th>
+							<th colspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[200px] ' ?>">
+								<?php _e( 'Giao dịch ròng', 'bsc' ) ?>
+							</th>
+							<th colspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[200px] ' ?>">
+								<?php _e( 'Mua', 'bsc' ) ?>
+							</th>
+							<th colspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[200px] ' ?>">
+								<?php _e( 'Bán', 'bsc' ) ?>
+							</th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[120px] ' ?>">
+								<?php _e( 'Room còn lại', 'bsc' ) ?>
+							</th>
+							<th rowspan="2"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[120px] ' ?>">
+								<?php _e( 'Đang sở hữu', 'bsc' ) ?>
+							</th>
 						</tr>
 						<tr>
 							<th class="whitespace-nowrap px-2"><?php _e( 'Khối lượng', 'bsc' ) ?></th>
@@ -192,12 +235,10 @@ if ( $display == 'history' )
 							'todate' => $current_date_dmy
 						);
 						$response_GetForeignInvestors = get_data_with_cache( 'GetForeignInvestors', $array_data_GetForeignInvestors, $time_cache );
-						if ( $response_GetForeignInvestors )
-						{
+						if ( $response_GetForeignInvestors ) {
 							?>
 							<?php
-							foreach ( $response_GetForeignInvestors->d as $GetForeignInvestors )
-							{
+							foreach ( $response_GetForeignInvestors->d as $GetForeignInvestors ) {
 								get_template_part( 'template-parts/content-data-history_ndtnn', '', array(
 									'data' => $GetForeignInvestors,
 								) );
@@ -225,8 +266,7 @@ if ( $display == 'history' )
 				</div>
 			</div>
 			<div class="mt-8">
-				<nav aria-label="Page navigation example"
-					class="flex items-center gap-8 justify-center dlls-pagination">
+				<nav aria-label="Page navigation example" class="flex items-center gap-8 justify-center dlls-pagination">
 					<ul class="flex items-center gap-[11px] h-9 text-base">
 
 					</ul>

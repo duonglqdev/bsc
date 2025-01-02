@@ -155,7 +155,7 @@ get_header();
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-											 echo $_GET['key'] ?>">
+											 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
 								</div>
 								<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 									datepicker-orientation="bottom right"
@@ -167,7 +167,7 @@ get_header();
 									<input id="datepicker-range-start" name="fromdate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 										autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-												 echo $_GET['fromdate'] ?>">
+												 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
 									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
 								<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
@@ -175,7 +175,7 @@ get_header();
 									<input id="datepicker-range-end" name="todate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 										autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-												 echo $_GET['todate'] ?>">
+												 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
 									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
 							</div>
@@ -197,7 +197,7 @@ get_header();
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-											 echo $_GET['key'] ?>">
+											 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
 								</div>
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
@@ -248,7 +248,7 @@ get_header();
 										<input id="datepicker-range-start" name="fromdate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-													 echo $_GET['fromdate'] ?>">
+													 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
 										<?php echo svg( 'day', '20', '20' ) ?>
 									</div>
 									<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
@@ -256,7 +256,7 @@ get_header();
 										<input id="datepicker-range-end" name="todate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-													 echo $_GET['todate'] ?>">
+													 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
 										<?php echo svg( 'day', '20', '20' ) ?>
 									</div>
 								</div>
@@ -273,12 +273,12 @@ get_header();
 					<?php } ?>
 					<?php
 					if ( isset( $_GET['posts_to_show'] ) ) {
-						$post_per_page = $_GET['posts_to_show'];
+						$post_per_page = bsc_format_string( $_GET['posts_to_show'], 'number' );
 					} else {
 						$post_per_page = get_option( 'posts_per_page' );
 					}
 					if ( isset( $_GET['post_page'] ) ) {
-						$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+						$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 					} else {
 						$index = 1;
 					}
@@ -289,20 +289,20 @@ get_header();
 						'index' => $index
 					);
 					if ( isset( $_GET['key'] ) && ! empty( $_GET['key'] ) ) {
-						$array_data['title'] = $_GET['key'];
+						$array_data['title'] = bsc_format_string( $_GET['key'], 'all' );
 					}
 					if ( ( isset( $_GET['fromdate'] ) && ! empty( $_GET['fromdate'] ) ) || ( isset( $_GET['todate'] ) && ! empty( $_GET['todate'] ) ) ) {
 						if ( isset( $_GET['fromdate'] ) && ! empty( $_GET['fromdate'] ) ) {
-							$fromdate = $_GET['fromdate'];
+							$fromdate = bsc_format_string( $_GET['fromdate'], 'all' );
 							$array_data['fromdate'] = $fromdate;
 						}
 						if ( isset( $_GET['todate'] ) && ! empty( $_GET['todate'] ) ) {
-							$todate = $_GET['todate'];
+							$todate = bsc_format_string( $_GET['todate'], 'all' );
 							$array_data['todate'] = $todate;
 						}
 					} else {
 						if ( isset( $_GET['years'] ) && ! empty( $_GET['years'] ) ) {
-							$years = $_GET['years'];
+							$years = bsc_format_string( $_GET['years'], 'number' );
 							$array_data['fromdate'] = '01/01/' . $years;
 							$array_data['todate'] = '31/12/' . $years;
 						}
@@ -718,7 +718,7 @@ get_header();
 												</div>
 											</div>
 										</div>
-									<?php
+										<?php
 									}
 								} else {
 									?>

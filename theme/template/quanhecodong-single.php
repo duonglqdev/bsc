@@ -12,12 +12,10 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-gradient-blue-to-bottom-50 pt-12 pb-16' : 'bg-gradient-blue-to-bottom-150 py-[50px]' ?>">
 		<div class="container">
 			<div class="lg:flex gap-[70px]">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-				{ ?>
+				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="lg:w-80 lg:max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
-							<ul
-								class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
+							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
 								<li class="">
 									<a href="http://website-uat.bsc.com.vn/cong-bo-thong-tin/"
 										class="flex items-center gap-4 md:text-lg font-bold  [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
@@ -28,8 +26,7 @@ get_header();
 										class="flex items-center gap-4 md:text-lg font-bold active [&amp;:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&amp;:not(.active)]:before:bg-[#051D36] [&amp;:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&amp;:not(.active)]:bg-white [&amp;:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
 										Đại hội đồng cổ đông </a>
 
-									<ul class="pl-5 hidden sub-menu w-full bg-white"
-										style="display: none;">
+									<ul class="pl-5 hidden sub-menu w-full bg-white" style="display: none;">
 										<li class="pl-5">
 											<a href="http://website-uat.bsc.com.vn/thong-bao-moi-hop/"
 												class=" [&amp;:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&amp;:not(.active)]:bg-white  hover:!text-primary-300 block">
@@ -80,8 +77,8 @@ get_header();
 								<a href="javascript:void(0)">
 									<img width="680" height="1164"
 										src="http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image.png"
-										class="rounded-lg transition-all duration-500 hover:scale-105"
-										alt="" decoding="async" fetchpriority="high"
+										class="rounded-lg transition-all duration-500 hover:scale-105" alt=""
+										decoding="async" fetchpriority="high"
 										srcset="http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image.png 680w, http://website-uat.bsc.com.vn/wp-content/uploads/2024/10/333image-300x514.png 300w"
 										sizes="(max-width: 680px) 100vw, 680px" loading="lazy"> </a>
 							</div>
@@ -89,8 +86,7 @@ get_header();
 					</div>
 				<?php } ?>
 				<div class="flex-1">
-					<?php if ( wp_is_mobile() && bsc_is_mobile() )
-					{ ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div class="toggle-form mb-[12px] inline-block">
 							<div class="">
 								<p class="inline-flex items-baseline gap-2 font-medium">Thu gọn
@@ -104,8 +100,7 @@ get_header();
 							</div>
 						</div>
 					<?php } ?>
-					<form method="get"
-						action="<?php echo get_term_link( get_queried_object() ); ?>">
+					<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>">
 						<div
 							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-nowrap gap-5 mb-12' : 'mb-6 flex-wrap' ?>">
 							<div
@@ -115,16 +110,14 @@ get_header();
 									<?php echo svgClass( 'search', '', ) ?>
 								</div>
 								<input type="text" name="key" value="<?php if ( isset( $_GET['key'] ) )
-									echo $_GET['key'] ?>" placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>"
+									echo bsc_format_string( $_GET['key'], 'all' ) ?>" placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>"
 									class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'max-w-[75%] text-xs' ?>">
 							</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile() )
-							{ ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div class="w-[48%] px-1.5 ">
 									<div
 										class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-4 flex gap-4 justify-between items-center">
-										<label for=""
-											class="font-medium text-[12px]"><?php _e( 'Năm:', 'bsc' ) ?></label>
+										<label for="" class="font-medium text-[12px]"><?php _e( 'Năm:', 'bsc' ) ?></label>
 										<select id="select_year" name="years"
 											class="select_custom py-0 border-0 focus:ring-0 text-[12px] pl-0 !pr-8">
 											<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
@@ -141,12 +134,10 @@ get_header();
 								</div>
 							<?php } ?>
 							<div class="flex gap-4 flex-1">
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-								{ ?>
+								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 									<div
 										class="2xl:w-[45%] w-1/2 bg-white rounded-[10px] border border-[##EAEEF4] px-5 py-3 flex gap-5 justify-between items-center">
-										<label for=""
-											class="font-bold"><?php _e( 'Năm:', 'bsc' ) ?></label>
+										<label for="" class="font-bold"><?php _e( 'Năm:', 'bsc' ) ?></label>
 										<select id="select_year" name="years"
 											class="select_custom py-0 border-0 focus:ring-0">
 											<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
@@ -165,8 +156,7 @@ get_header();
 									class=" flex items-center gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[55%] w-1/2' : 'w-full mt-[12px]' ?>">
 									<button type="submit"
 										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] 2xl:px-6  2xl:py-3   relative transition-all duration-500 inline-block w-full h-full px-6 py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'font-semibold rounded-xl' : 'flex-1 h-10 text-xs font-bold rounded-lg' ?>">
-										<span
-											class="block relative z-10"><?php _e( 'Tìm kiếm', 'bsc' ) ?></span>
+										<span class="block relative z-10"><?php _e( 'Tìm kiếm', 'bsc' ) ?></span>
 									</button>
 									<a href="<?php echo get_term_link( get_queried_object() ) ?>"
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3  group shrink-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white' : 'bg-[#E8F5FF]' ?>">
@@ -176,8 +166,7 @@ get_header();
 							</div>
 						</div>
 					</form>
-					<?php if ( wp_is_mobile() && bsc_is_mobile() )
-					{ ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div
 							class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between mb-6">
 							Công bố thông tin
@@ -203,8 +192,7 @@ get_header();
 					<?php } ?>
 					<div class="space-y-6 mt-6">
 						<?php
-						for ( $i = 0; $i < 10; $i++ )
-						{
+						for ( $i = 0; $i < 10; $i++ ) {
 							?>
 							<div class="news_service-item document_item-popup md:flex items-center justify-between md:gap-20 [&amp;:not(:last-child)]:border-b [&amp;:not(:last-child)]:border-[#E1E1E1] [&amp;:not(:last-child)]:pb-8"
 								data-modal-target="document-modal" data-modal-toggle="document-modal"

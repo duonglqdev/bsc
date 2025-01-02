@@ -20,12 +20,12 @@
 			if ( $cdtnvcd2_id_danh_muc ) {
 				$time_cache = 300;
 				if ( isset( $_GET['posts_to_show'] ) ) {
-					$post_per_page = $_GET['posts_to_show'];
+					$post_per_page = bsc_format_string( $_GET['posts_to_show'], 'number' );
 				} else {
 					$post_per_page = get_option( 'posts_per_page' );
 				}
 				if ( isset( $_GET['post_page'] ) ) {
-					$index = ( $_GET['post_page'] - 1 ) * $post_per_page + 1;
+					$index = ( bsc_format_string( $_GET['post_page'], 'number' ) - 1 ) * $post_per_page + 1;
 				} else {
 					$index = 1;
 				}
@@ -37,7 +37,7 @@
 					'index' => $index
 				);
 				if ( isset( $_GET['mck'] ) && ! empty( $_GET['mck'] ) ) {
-					$array_data['symbol'] = $_GET['mck'];
+					$array_data['symbol'] = bsc_format_string( $_GET['mck'] );
 					$array_data['newstype'] = 1;
 					$newstype = 1;
 				}
