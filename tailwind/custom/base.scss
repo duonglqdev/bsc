@@ -502,12 +502,18 @@
 			@apply w-[35%];
 			&:nth-child(2) {
 				@apply -translate-x-[30px] translate-y-5;
+				@media only screen and (min-width: 768px) {
+					@apply -translate-x-[104px];
+				}
 			}
 			&:nth-child(3) {
 				@apply translate-x-[63%] -translate-y-[30%];
 			}
 			&:nth-child(4) {
 				@apply -translate-x-[12%] translate-y-[35%];
+				@media only screen and (min-width: 768px) {
+					@apply -translate-x-[50%];
+				}
 			}
 		}
 	}

@@ -511,11 +511,21 @@
 .is-mobile .community_nav-item:nth-child(2) {
   @apply -translate-x-[30px] translate-y-5;
 }
+@media only screen and (min-width: 768px) {
+  .is-mobile .community_nav-item:nth-child(2) {
+    @apply -translate-x-[104px];
+  }
+}
 .is-mobile .community_nav-item:nth-child(3) {
   @apply translate-x-[63%] -translate-y-[30%];
 }
 .is-mobile .community_nav-item:nth-child(4) {
   @apply -translate-x-[12%] translate-y-[35%];
+}
+@media only screen and (min-width: 768px) {
+  .is-mobile .community_nav-item:nth-child(4) {
+    @apply -translate-x-[50%];
+  }
 }
 .is-mobile .form_cv-wrapper .upload_file {
   @apply text-center text-xs;
