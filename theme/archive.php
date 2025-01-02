@@ -19,7 +19,7 @@ get_header();
 	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="bg-gradient-blue-to-bottom-50 lg:pt-12 lg:pb-[130px] pt-10 pb-10">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
@@ -149,7 +149,7 @@ get_header();
 							<?php } ?>
 							<div class="list__news <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-6' ?>">
 								<div
-									class="grid gap-x-6 gap-y-8 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2' : 'md:grid-cols-2 grid-cols-1' ?>">
+									class="grid gap-x-6 gap-y-8 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1' : 'lg:grid-cols-2 grid-cols-1' ?>">
 									<?php
 									foreach ( $response->d as $news ) {
 										get_template_part( 'template-parts/content', null, array(

@@ -114,9 +114,9 @@ get_header();
 		'breadcrumb' => $breadcrumb,
 	) ) ?>
 	<section
-		class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 pb-16 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
+		class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 lg:pb-16 pb-10 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
@@ -220,7 +220,7 @@ get_header();
 				<?php } ?>
 				<div class="flex-1">
 					<h1
-						class="font-bold mb-6 !leading-snug <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-4xl' : 'text-[22px]' ?>">
+						class="font-bold mb-6 !leading-snug <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-4xl lg:text-3xl text-2xl' : 'text-[22px]' ?>">
 						<?php echo $title ?>
 					</h1>
 					<?php if ( $groupid == $chuong_trinh_khuyen_mai_id ) {
@@ -385,7 +385,7 @@ get_header();
 		$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
 		if ( $response ) {
 			?>
-			<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-16 pb-[106px]' : 'my-12' ?>">
+			<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:pt-16 pt-10 lg:pb-[106px] pb-10' : 'my-12' ?>">
 				<div class="container">
 					<h2 class="heading-title mb-6 normal-case">
 						<?php echo $title_lienquan . ' ' . __( 'liên quan', 'bsc' ) ?>
