@@ -6,15 +6,15 @@ get_header();
 	<?php get_template_part('components/page-banner') ?>
 	<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:my-[100px] my-10' : 'my-[50px]' ?>">
 		<div class="container">
-			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-3' : '' ?>">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2' : '' ?>">
+			<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-3' : '' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:col-span-2' : '' ?>">
 					<h1 class="font-bold mb-10 leading-[1.43] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:text-[32px] 2xl:text-2xl text-xl' : 'text-[22px]' ?>">
 						<?php the_title() ?>
 					</h1>
 				</div>
 			</div>
-			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex 2xl:gap-[70px] gap-12' : 'space-y-6' ?>">
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[320px] max-w-[35%]' : 'w-full' ?>">
+			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex 2xl:gap-[70px] lg:gap-12 gap-10 lg:space-y-0 space-y-6' : 'space-y-6' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[320px] lg:max-w-[35%]' : 'w-full' ?>">
 					<div class="bg-[#F5FCFF] py-5 px-6 rounded-[10px]">
 						<h3 class="text-primary-300 uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : '' ?>">
 							<?php _e('THÔNG TIN CHUNG', 'bsc') ?>
