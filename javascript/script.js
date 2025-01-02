@@ -41,7 +41,14 @@ import { DataTable } from 'simple-datatables';
 		centerActiveMenu();
 		handleLoading();
 		bsc_need_crawl_price();
+		checkScreenSize();
+		adjustFormSearchWidth();
 	});
+	$(window).resize(function () {
+        checkScreenSize();
+		handleMegamenu();
+		adjustFormSearchWidth();
+    });
 
 	function menuMobile() {
 		$('.bar_mobile').click(function () {
@@ -76,6 +83,22 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
+	function checkScreenSize() {
+        const $html = $("html");
+        if ($(window).width() > 1024) {
+            if (!$html.hasClass("is-desktop")) {
+                $html.addClass("is-desktop");
+            }
+            $html.removeClass("is-mobile");
+        } else {
+            if (!$html.hasClass("is-mobile")) {
+                $html.addClass("is-mobile");
+            }
+            $html.removeClass("is-desktop");
+        }
+    }
+    
+
 	function backToTop() {
 		var $backToTop = $('.back-to-top');
 
@@ -86,90 +109,84 @@ import { DataTable } from 'simple-datatables';
 
 	function handleMegamenu() {
 		if ($(window).width() > 1024) {
-			$('.main_menu > ul > li:not(.menu-home)').each(function (index) {
+			// Thêm data-menu vào các mục menu chính
+			$('.main_menu > ul > li:not(.menu-home)').each(function () {
 				var menuId = $(this).attr('id');
 				$(this).attr('data-menu', menuId);
 				$('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
 			});
-
-			$('.main_menu-navbar > li.menu-item-has-children').each(
-				function () {
-					var dataMenuValue = $(this).attr('data-menu');
-					$(this)
-						.children('.sub-menu')
-						.attr('data-submenu', dataMenuValue);
-				}
-			);
-
-			$('.main_menu-navbar > li').wrapAll(
-				"<div class='submenu-wrapper' />"
-			);
-			$('.submenu-wrapper').after("<div class='submenu-content'></div>");
-
+	
+			// Thêm data-submenu vào các menu con
+			$('.main_menu-navbar > li.menu-item-has-children').each(function () {
+				var dataMenuValue = $(this).attr('data-menu');
+				$(this).children('.sub-menu').attr('data-submenu', dataMenuValue);
+			});
+	
+			// Thêm submenu-wrapper và submenu-content nếu chưa tồn tại
+			if ($('.submenu-wrapper').length === 0) {
+				$('.main_menu-navbar > li').wrapAll("<div class='submenu-wrapper' />");
+				$('.submenu-wrapper').after("<div class='submenu-content'></div>");
+			}
+	
 			var timeout;
 			var isMouseInNavbar = false;
-
+	
+			// Xử lý hover vào menu chính
 			$('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
 				var dataMenuValue = $(this).attr('data-menu');
-
 				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
-
 				$('.main_menu-navbar').addClass('active');
-
-				$(
-					'.submenu-wrapper > li[data-menu="' +
-						dataMenuValue +
-						'"] > a'
-				).trigger('mouseenter');
-
+	
+				$('.submenu-wrapper > li[data-menu="' + dataMenuValue + '"] > a')
+					.trigger('mouseenter');
+	
 				$(this).addClass('active');
-
 				clearTimeout(timeout);
 			});
-
+	
+			// Xử lý hover ra khỏi menu chính
 			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
 				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
 				if (isMouseInNavbar) {
 					timeout = setTimeout(() => {
 						$('.main_menu-navbar').removeClass('active');
-
 						$('.submenu-wrapper > li').removeClass('active');
 						$('.submenu-content').html('');
 						$('.submenu-content').css('max-height', '0');
 					}, 200);
 				}
 			});
-
+	
+			// Xử lý hover vào navbar
 			$('.main_menu-navbar').mouseenter(function () {
 				isMouseInNavbar = true;
 				clearTimeout(timeout);
 			});
-
+	
+			// Xử lý hover ra khỏi navbar
 			$('.main_menu-navbar').mouseleave(function () {
 				isMouseInNavbar = false;
 				timeout = setTimeout(() => {
 					$('.main_menu-navbar').removeClass('active');
-					$('.main_menu > ul > li:not(.menu-home)').removeClass(
-						'active'
-					);
+					$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
 					$('.submenu-wrapper > li').removeClass('active');
 					$('.submenu-content').css('max-height', '0');
 				}, 200);
 			});
-
+	
+			// Xử lý hover vào submenu
 			$('.submenu-wrapper > li > a').mouseenter(function () {
-				var $parentLi = $(this).parent(); // Lấy thẻ cha <li>
+				var $parentLi = $(this).parent();
 				var dataMenuValue = $parentLi.attr('data-menu');
 				var submenuToMove = $parentLi.children(
 					'.sub-menu[data-submenu="' + dataMenuValue + '"]'
 				);
-
+	
 				$('.submenu-wrapper > li').removeClass('active');
-				$parentLi.addClass('active'); // Thêm class vào thẻ <li>
-
+				$parentLi.addClass('active');
+	
 				if (submenuToMove.length) {
 					$('.submenu-content').html(submenuToMove.html());
-
 					var newHeight = $('.submenu-content').prop('scrollHeight');
 					$('.submenu-content').css({
 						'max-height': newHeight + 'px',
@@ -179,11 +196,18 @@ import { DataTable } from 'simple-datatables';
 					$('.submenu-content').html('');
 					$('.submenu-content').css('max-height', '0');
 				}
-
+	
 				clearTimeout(timeout);
 			});
+		} else {
+			// Gỡ bỏ submenu-wrapper và submenu-content khi màn hình nhỏ hơn 1024px
+			if ($('.submenu-wrapper').length > 0) {
+				$('.submenu-wrapper > li').unwrap();
+			}
+			$('.submenu-content').remove();
 		}
 	}
+
 
 	function hoverSvg() {
 		$('.value-item svg path').css({
@@ -3754,5 +3778,18 @@ import { DataTable } from 'simple-datatables';
 
 	function handleLoading() {
 		$('.block-loading').addClass('active');
+	}
+	function adjustFormSearchWidth() {
+		var $formSearch = $('.form-search-mb');
+	
+		if ($formSearch.length) {
+			var $container = $formSearch.parents('.container'); 
+	
+			if ($container.length > 0) {
+				var containerWidth = $container.width(); 
+	
+				$formSearch.css('width', containerWidth + 'px');
+			}
+		}
 	}
 })(jQuery);

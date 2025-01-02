@@ -4,9 +4,9 @@
 	<?php } ?>>
 	<div class="container">
 		<div
-			class="grid overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2 2xl:gap-32 gap-20' : 'gap-10' ?>">
+			class="grid overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10' : 'gap-10' ?>">
 			<div
-				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1' : 'order-2' ?>">
+				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-1 order-2' : 'order-2' ?>">
 				<?php if (get_sub_field('title')) { ?>
 					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field('title') ?>
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div
-				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-2' : 'order-1' ?>">
+				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-2 order-1' : 'order-1' ?>">
 				<?php if (get_sub_field('title_2')) { ?>
 					<h2 class="heading-title mb-8 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field('title_2') ?>

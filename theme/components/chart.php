@@ -9,11 +9,11 @@
 			</h2>
 		<?php } ?>
 		<div
-			class="relative z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-0 flex' : 'space-y-10' ?>">
+			class="relative z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:space-y-0 space-y-10 lg:flex' : 'space-y-10' ?>">
 			<?php
 			$todate = date( 'Y-m-d' );
 			?>
-			<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mr-5' : '' ?>">
+			<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
 				<?php if ( get_sub_field( 'title' ) ) { ?>
 					<h2 class="border-l-2 border-primary-300 2xl:text-[28px] font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl mb-7 pl-6' : 'text-lg mb-6 pl-[12px]' ?>"
 						data-wow-duration="2s">
@@ -118,7 +118,7 @@
 
 				</div>
 			</div>
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[33.181%]' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[33.181%] w-full' : 'w-full' ?>">
 				<div
 					class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-7' : 'mb-6' ?>">
 					<?php if ( get_sub_field( 'title_2' ) ) { ?>
