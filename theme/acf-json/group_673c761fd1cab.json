@@ -14716,26 +14716,6 @@
                             "append": ""
                         },
                         {
-                            "key": "field_676463afc06f5",
-                            "label": "Tiêu đề bảng",
-                            "name": "title_table",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
                             "key": "field_673c4bd961f65",
                             "label": "Đường dẫn Youtube",
                             "name": "link_youtube",
@@ -17175,5 +17155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1735154172
+    "modified": 1735832045
 }
