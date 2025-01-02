@@ -12,7 +12,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
 ?>
     <section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:mt-[100px] mt-16 mb-16' : 'my-[50px]' ?> list_grid_news" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
-            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+            <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
                 <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
                     <div class="w-80 max-w-[35%] shrink-0">
                         <div class="sticky top-5 z-10 ">
@@ -93,7 +93,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 if ($response) { ?>
                                     <?php if (get_field('type_danh_muc', $term) == 'avatar') { ?>
                                         <div
-                                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid-cols-2 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ' : 'block_slider-show-1 dots-blue' ?>" <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+                                            class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1 gap-x-6 mb-10 pb-10 border-b border-[#E1E1E1] grid gap-y-8 ' : 'block_slider-show-1 dots-blue' ?>" <?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
                                             data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
                                             <?php } ?>>
                                             <?php
