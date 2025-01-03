@@ -121,9 +121,9 @@ if ( $response_GetAllDanhMuc ) {
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[32px] text-2xl' : 'text-[22px]' ?> mb-6">
 					<?php _e( 'Chi tiết danh mục', 'bsc' ) ?>
 				</h2>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex xl:gap-14 gap-10' : 'space-y-8' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex xl:gap-14 gap-10 lg:space-y-0 space-y-10' : 'space-y-8' ?>">
 					<div
-						class="relative rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[887px] max-w-[66%]' : '' ?>">
+						class="relative rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[887px] lg:max-w-[66%]' : '' ?>">
 						<div class="overflow-x-auto scroll-bar-custom scroll-bar-x text-center border border-[#EAEEF4] <?php if ( $public == 'N' ) {
 							echo $class_login;
 						} ?>">

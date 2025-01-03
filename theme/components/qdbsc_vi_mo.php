@@ -21,7 +21,7 @@ $class = '';
 		<?php } ?>
 		<div class="relative">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-8' : 'space-y-4' ?> <?php echo $class ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-8 gap-6' : 'space-y-4' ?> <?php echo $class ?>">
 				<?php
 				if ( ! $check_logout || 1 == 1 ) {
 					$array_data_thitruong = array();
@@ -38,7 +38,7 @@ $class = '';
 						?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
 							<div
-								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?> bg-white shadow-base rounded-2xl">
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:px-10 lg:py-8 p-6' : 'p-4' ?> bg-white shadow-base rounded-2xl">
 								<h4
 									class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
 									<?php _e( 'Năm', 'bsc' ) ?> 		<?php echo $nam_period ?>
@@ -109,7 +109,7 @@ $class = '';
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?> shrink-0">
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-8' : 'p-4' ?> bg-white shadow-base rounded-2xl">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:px-10 lg:py-8 p-6' : 'p-4' ?> bg-white shadow-base rounded-2xl">
 							<h4
 								class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
 								<?php _e( 'Năm 0000', 'bsc' ) ?>

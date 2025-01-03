@@ -34,9 +34,9 @@ $class = '';
 							<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
 						</h4>
 						<div
-							class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10 text-xs' ?>">
+							class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex lg:overflow-hidden lg:overflow-x-hidden overflow-x-auto snap-x' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10 text-xs' ?>">
 							<div
-								class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : ' w-full block_slider-item' ?>">
+								class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-1/3 w-1/2 snap-start lg:min-w-0 min-w-[50%]' : ' w-full block_slider-item' ?>">
 								<div
 									class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-b-[4px] border-white pt-[37px] pb-[9px] min-h-[71px]' : 'py-2 min-h-[58px]' ?>">
 									<p>
@@ -93,7 +93,7 @@ $class = '';
 								</div>
 							</div>
 							<div
-								class="grid grid-cols-2 text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-[27%]' : 'w-full block_slider-item' ?>">
+								class="grid grid-cols-2 text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-[27%] w-1/2 snap-start lg:min-w-0 min-w-[50%]' : 'w-full block_slider-item' ?>">
 								<div class="text-[#FF0017]">
 									<div
 										class="min-h-[58px] bg-[#EBF4FA] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] border-b-[4px] border-white' : 'py-1.5 px-5' ?>">
@@ -170,7 +170,7 @@ $class = '';
 								</div>
 							</div>
 							<div
-								class="text-primary-300 text-center flex flex-col  bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/5' : 'w-full block_slider-item h-full' ?>">
+								class="text-primary-300 text-center flex flex-col  bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-1/5 w-1/2 snap-start lg:min-w-0 min-w-[50%]' : 'w-full block_slider-item h-full' ?>">
 								<div
 									class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white py-[9px]' : 'py-1.5 px-5' ?>">
 									<p class="font-semibold mb-1">
@@ -201,7 +201,7 @@ $class = '';
 								</div>
 							</div>
 							<div
-								class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
+								class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-1/5 w-1/2 snap-start lg:min-w-0 min-w-[50%]' : 'w-full block_slider-item h-full' ?>">
 								<div
 									class="min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' border-b-[4px] border-white py-[9px]' : 'py-1.5 px-5' ?>">
 									<p class="font-semibold mb-1">
