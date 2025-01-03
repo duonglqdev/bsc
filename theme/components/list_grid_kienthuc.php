@@ -10,9 +10,9 @@ if (!empty($terms) && !is_wp_error($terms)) :
 ?>
     <section class="lg:my-[100px] my-20 list_grid_kienthuc" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
-            <div class="lg:flex 2xl:gap-[70px] gap-12">
+            <div class="md:flex 2xl:gap-[70px] lg:gap-12 gap-6">
                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-                    <div class="w-80 max-w-[35%] shrink-0">
+                    <div class="w-80 lg:max-w-[35%] max-w-[30%] shrink-0">
                         <div class="sticky top-5 z-10">
                             <ul
                                 class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2 scroll_nav">

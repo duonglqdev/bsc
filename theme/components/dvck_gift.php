@@ -60,7 +60,7 @@
 				}
 				?>
 
-				<div class="<?php echo ! $is_mobile ? 'lg:flex gap-10' : '' ?>">
+				<div class="<?php echo ! $is_mobile ? 'lg:flex gap-10 lg:space-y-0 space-y-5' : '' ?>">
 					<?php if ( ! $is_mobile ) : ?>
 						<div class="lg:w-[656px] lg:max-w-[50%]">
 							<?php $first_news = $response->d[0] ?? null;

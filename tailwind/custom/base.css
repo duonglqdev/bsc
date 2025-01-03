@@ -379,6 +379,15 @@
     max-width: 95% !important;
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .is-mobile .step-item {
+    @apply bg-white rounded-md;
+    @apply hover:text-white;
+  }
+  .is-mobile .step-item:hover {
+    @apply hover:bg-gradient-blue;
+  }
+}
 .is-mobile .main_menu-navbar {
   @apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden transition-all duration-500 [&:not(.active)]:-translate-x-full translate-x-0 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none;
 }

@@ -15,7 +15,7 @@ $generateRandomString = generateRandomString();
                 $i++;
             ?>
                 <div class="tab-content <?php echo ($i == 1) ? 'block' : 'hidden'; ?>" id="<?php echo $generateRandomString ?>-<?php echo $i ?>">
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-[84px] items-end':'' ?>">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-2 lg:gap-[84px] items-end lg:space-y-0 space-y-5':'' ?>">
                     <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                             <div class="col-span-1">
                                 <div class="relative w-full pt-[76%]">
@@ -57,6 +57,12 @@ $generateRandomString = generateRandomString();
                                 endwhile;
                             }
                             ?>
+                            <?php if ( wp_is_mobile() && bsc_is_mobile() )
+						{ ?>
+							<div class="relative w-full pt-[76%] mt-[54px]">
+                            <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-contain m-auto')) ?>
+							</div>
+						<?php } ?>
                         </div>
                     </div>
                 </div>

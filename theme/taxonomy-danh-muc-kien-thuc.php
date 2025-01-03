@@ -15,8 +15,8 @@ get_header();
 	<section
 		class="bg-gradient-blue-to-bottom-50  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 pb-[130px]' : 'py-[50px]' ?>">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex gap-[70px]' : '' ?>">
-				<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 max-w-[35%] shrink-0' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-6' : '' ?>">
+				<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 lg:max-w-[35%] max-w-[30%] shrink-0' : '' ?>">
 					<div class="sticky top-5 z-10">
 						<?php
 						$terms = get_terms( array(
