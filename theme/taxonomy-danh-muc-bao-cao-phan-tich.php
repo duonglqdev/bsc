@@ -14,7 +14,7 @@ get_header();
 			class="bg-primary-50 sticky z-50 top-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-4 py-3' : 'py-[12px]' ?>">
 			<div class="container">
 				<ul
-					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 lg:gap-5 gap-4 overflow-x-auto whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
+					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 lg:gap-5 gap-4 lg:overflow-x-hidden overflow-x-auto lg:whitespace-normal whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
 					<?php while ( have_rows( 'menu_navigation', get_queried_object() ) ) :
 						the_row(); ?>
 						<li class="flex-1">
@@ -34,7 +34,7 @@ get_header();
 			<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[26px]' : 'mb-4' ?>">
 				<?php _e( 'CHUYÊN MỤC', 'bsc' ) ?>
 			</h2>
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] gap-10 ' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] lg:gap-10 gap-6' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="md:w-80 max-w-[35%] shrink-0">
 						<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
@@ -190,21 +190,43 @@ get_header();
 						</form>
 					<?php } else { ?>
 						<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>"
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'grid gap-[12px] grid-cols-5 mb-6' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'grid gap-[12px] grid-cols-5 mb-6' ?>">
+						<div
+							class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] 2xl:px-[26px] px-5 ' : 'w-full p-[12px] h-[46px] col-span-3' ?> shrink-0">
+							<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
+							<input type="text" name="key"
+								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
+								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
+										 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
+							</div>
+						<?php if ( wp_is_mobile() && bsc_is_mobile() )
+									 { ?>
 							<div
-								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] 2xl:px-[26px] px-5 ' : 'w-full p-[12px] h-[46px] col-span-3' ?> shrink-0">
-								<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
-								<input type="text" name="key"
-									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
-									placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-											 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
-								</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+								class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
+								<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
+								<select id="select_year" name="years"
+									class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-[26px] pl-0 sm:text-xs text-[13px]">
+									<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
+									<?php
+									$currentYear = date( 'Y' );
+									for ( $year = $currentYear; $year >= 2015; $year-- ) :
+										?>
+										<option value="<?php echo esc_attr( $year ); ?>" <?php selected( isset( $_GET['years'] ) && $_GET['years'] == $year ); ?>>
+											<?php echo esc_html( $year ); ?>
+										</option>
+									<?php endfor; ?>
+								</select>
+							</div>
+						<?php } ?>
+						<div
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-5 gap-4 mb-10 mt-4 flex-wrap' : 'col-span-5 flex-wrap' ?>">
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+							{ ?>
 								<div
-									class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
-									<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
+									class="lg:w-1/5 w-2/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
+									<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
 									<select id="select_year" name="years"
-										class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-[26px] pl-0 sm:text-xs text-[13px]">
+										class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
 										<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
 										<?php
 										$currentYear = date( 'Y' );
@@ -216,60 +238,41 @@ get_header();
 										<?php endfor; ?>
 									</select>
 								</div>
-							<?php } ?>
-							<div
-								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-5 gap-4 mb-10 mt-4' : 'col-span-5 flex-wrap' ?>">
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-									<div
-										class="w-1/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
-										<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
-										<select id="select_year" name="years"
-											class="select_custom border-none focus:outline-0 focus:ring-0 text-center !pr-8 pl-0">
-											<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
-											<?php
-											$currentYear = date( 'Y' );
-											for ( $year = $currentYear; $year >= 2015; $year-- ) :
-												?>
-												<option value="<?php echo esc_attr( $year ); ?>" <?php selected( isset( $_GET['years'] ) && $_GET['years'] == $year ); ?>>
-													<?php echo esc_html( $year ); ?>
-												</option>
-											<?php endfor; ?>
-										</select>
-									</div>
 
-								<?php } ?>
-								<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
-									datepicker-autohide datepicker-orientation="bottom right"
-									class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50%] px-5 h-[50px]' : 'w-full h-[46px] px-[12px] mb-[12px]' ?>">
-									<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
-										<?php _e( 'Thời gian:', 'gnws' ) ?>
-									</p>
-									<div class="flex items-center 2xl:gap-5 gap-3">
-										<input id="datepicker-range-start" name="fromdate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
-											placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-													 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
-									</div>
-									<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
-									<div class="flex items-center 2xl:gap-5 gap-3">
-										<input id="datepicker-range-end" name="todate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
-											placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-													 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
-									</div>
+							<?php } ?>
+							<div id="date-range-picker" date-rangepicker
+								datepicker-format="dd/mm/yyyy" datepicker-autohide
+								datepicker-orientation="bottom right"
+								class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[50%] w-[55%] px-5 h-[50px]' : 'w-full h-[46px] px-[12px] mb-[12px]' ?>">
+								<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap lg:inline-block md:hidden">
+									<?php _e( 'Thời gian:', 'gnws' ) ?>
+								</p>
+								<div class="flex items-center 2xl:gap-5 gap-3">
+									<input id="datepicker-range-start" name="fromdate" type="text"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
+												 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
 								</div>
-								<button type="submit"
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-xl h-[50px]' : 'rounded-lg h-10 mr-[12px]' ?>">
-									<?php _e( 'Tìm kiếm', 'bsc' ) ?>
-								</button>
-								<a href="<?php echo get_term_link( get_queried_object() ) ?>"
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
-									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
-								</a>
+								<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
+								<div class="flex items-center 2xl:gap-5 gap-3">
+									<input id="datepicker-range-end" name="todate" type="text"
+										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+										placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
+												 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
+									<?php echo svg( 'day', '20', '20' ) ?>
+								</div>
 							</div>
-						</form>
+							<button type="submit"
+								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-xl h-[50px]' : 'rounded-lg h-10 mr-[12px]' ?>">
+								<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+							</button>
+							<a href="<?php echo get_term_link( get_queried_object() ) ?>"
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
+								<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+							</a>
+						</div>
+					</form>
 					<?php } ?>
 					<?php
 					if ( isset( $_GET['posts_to_show'] ) ) {
@@ -323,7 +326,7 @@ get_header();
 							</h3>
 							<div class="relative">
 								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-8' : 'grid gap-4' ?> <?php echo $class ?>">
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-8 lg:space-y-0 space-y-5' : 'grid gap-4' ?> <?php echo $class ?>">
 									<?php if ( ! $check_logout || 1 == 1 ) {
 										$array_data_thitruong = array();
 										$response_thitruong = get_data_with_cache( 'GetVNIChart', $array_data_thitruong, $time_cache );
@@ -337,7 +340,7 @@ get_header();
 											$nam_period = $response_thitruong->d->F[0][1]->period;
 											$stocksDataJson = json_encode( $vnIndexData ); ?>
 											<div
-												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[255px] max-w-[27%]' : 'w-full' ?>">
+												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[255px] lg:max-w-[27%]' : 'w-full' ?>">
 												<div
 													class="bg-white shadow-base rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:p-8 p-6' : 'p-4' ?>">
 													<h4
@@ -495,9 +498,9 @@ get_header();
 												<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
 											</h4>
 											<div
-												class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+												class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex overflow-x-auto snap-x' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
 												<div
-													class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
+													class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-1/3 lg:min-w-0 min-w-full snap-start' : 'w-full block_slider-item' ?>">
 													<div
 														class="flex justify-end items-center pr-5 bg-[#EBF4FA] border-b-[4px] border-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[13px] pb-[9px] min-h-[68px]' : 'min-h-[70px]' ?>">
 
@@ -568,7 +571,7 @@ get_header();
 													</div>
 												</div>
 												<div
-													class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[27%] border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+													class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[27%] lg:min-w-0 min-w-full snap-start border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
 													<div class="text-[#FF0017]">
 														<div
 															class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
@@ -651,7 +654,7 @@ get_header();
 													</div>
 												</div>
 												<div
-													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5 border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
+													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-1/5 lg:min-w-0 min-w-full border-r-[4px] border-white' : 'w-full block_slider-item h-full' ?>">
 													<div
 														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 														<p class="font-medium  mb-1">
@@ -684,7 +687,7 @@ get_header();
 													</div>
 												</div>
 												<div
-													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/5' : 'w-full block_slider-item h-full' ?>">
+													class="text-primary-300 text-center flex flex-col bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-1/5 lg:min-w-0 min-w-full w-full' : 'w-full block_slider-item h-full' ?>">
 													<div
 														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
 														<p class="mb-1">
