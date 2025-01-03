@@ -311,10 +311,10 @@ get_header();
 					?>
 					<?php
 					$check_logout = bsc_is_user_logged_out();
-					// $class = $check_logout['class'];
-					$class = '';
+					$class = $check_logout['class'];
 					$type_danh_muc = get_field( 'type_danh_muc', get_queried_object() );
 					if ( $type_danh_muc == 'thitruong' ) {
+						$class = '';
 						?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px]' ?>">
 							<h3
@@ -475,6 +475,7 @@ get_header();
 						<?php
 
 					} elseif ( $type_danh_muc == 'vimo' ) {
+						$class = '';
 						?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[60px]' : 'mt-6 mb-16' ?>">
 							<h3
