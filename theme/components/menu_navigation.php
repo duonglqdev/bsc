@@ -41,7 +41,7 @@ if ( $style == 'nhdt' ) {
 		if ( $menu_navigation ) { ?>
 			<div class="container">
 				<ul
-					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
+					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between lg:gap-10 gap-6' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
 					<?php foreach ( $menu_navigation as $row ) { ?>
 						<li class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap' ?>">
 							<a href="<?php echo check_link( $row['link'] ) ?>"
