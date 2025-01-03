@@ -27,7 +27,7 @@
 			}
 			?>
 			<?php if ( $khoi_template == 'price' ) { ?>
-				<div class="flex items-center gap-4">
+				<div class="flex items-center gap-4 flex-1">
 					<?php if ( $news->symbols ) { ?>
 						<a href="<?php echo slug_co_phieu( $news->symbols ) ?>"
 							class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold max-w-[40%]">
