@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider-show-1 block_slider fli-dots-blue dot-bottom-40' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider-show-1 block_slider fli-dots-blue dot-bottom-40' ?>">
                 <?php
                 $i = 3;
                 while (have_rows('benefit')): the_row();

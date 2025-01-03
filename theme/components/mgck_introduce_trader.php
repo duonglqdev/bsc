@@ -12,7 +12,7 @@
                 while (have_rows('introduce')): the_row();
                     $i++; ?>
                     <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' gap-[54px] items-center':'gap-6 flex-col-reverse' ?> <?php if ($i % 2 == 0 && !wp_is_mobile() && !bsc_is_mobile()) echo 'flex-row-reverse' ?>">
-                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[660px] max-w-[70%]':'w-full' ?>">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[660px] lg:max-w-[70%] max-w-[40%]':'w-full' ?>">
                             <?php echo wp_get_attachment_image(get_sub_field('img'), 'full', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
                         </div>
                         <div class="flex-1 font-Helvetica">

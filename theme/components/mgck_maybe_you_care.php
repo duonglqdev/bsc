@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('content')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-5':'space-y-5' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-2 grid-cols-1 gap-5':'space-y-5' ?>">
                 <?php while (have_rows('content')): the_row(); ?>
                     <div class="rounded-xl overflow-hidden bg-no-repeat bg-cover flex  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[228px] px-11 py-5':'min-h-[184px] pl-5 py-3' ?>"
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
