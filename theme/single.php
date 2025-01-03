@@ -116,10 +116,10 @@ get_header();
 	<section
 		class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 lg:pb-16 pb-10 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-6' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
-						<div class="sticky top-5 z-10">
+						<div class="sticky top-5 z-10 space-y-12">
 							<?php if ( $groupid != $chuong_trinh_khuyen_mai_id ) { ?>
 								<?php if ( $groupid == $trach_nhiem_cong_dong_id ) {
 									?>
@@ -206,11 +206,11 @@ get_header();
 								$hinh_anh_sidebar = get_field( 'hinh_anh_sidebar', $tax );
 							}
 							if ( $hinh_anh_sidebar ) { ?>
-								<div class="mt-12">
+								
 									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
 									</a>
-								</div>
+								
 							<?php }
 							;
 							?>
@@ -226,7 +226,7 @@ get_header();
 					<?php if ( $groupid == $chuong_trinh_khuyen_mai_id ) {
 						?>
 						<div
-							class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-8' : 'mb-6' ?>">
+							class="flex items-center justify-between flex-wrap gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-8' : 'mb-6' ?>">
 							<?php if ( $news->promotionended ) {
 								$remainingDays = 0;
 								$completionPercentage = 0;
@@ -285,7 +285,7 @@ get_header();
 								</div>
 							<?php } ?>
 							<div
-								class="share flex items-center  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-[12px] ml-12' : 'flex-1 justify-end' ?>">
+								class="share flex items-center  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-[12px] lg:ml-12' : 'flex-1 justify-end' ?>">
 								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 									<strong>
 										<?php _e( 'Chia sẻ:', 'bsc' ) ?>
