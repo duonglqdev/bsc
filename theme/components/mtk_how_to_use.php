@@ -33,7 +33,7 @@
                 </h2>
             <?php } ?>
             <?php if (have_rows('uudai')) { ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider-show-1 block_slider' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider-show-1 block_slider' ?>">
                     <?php while (have_rows('uudai')): the_row(); ?>
                         <div class="rounded-2xl min-h-[414px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 shadow-base':'block_slider-item p-10 w-full' ?>"
                             style="background-color:<?php echo get_sub_field('color') ?>;">

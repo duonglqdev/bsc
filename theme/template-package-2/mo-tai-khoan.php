@@ -75,14 +75,14 @@ get_header();
 				<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 					3 PHÚT CÓ NGAY TÀI KHOẢN
 				</h2>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex':'' ?>">
-					<div class="border-[#C4C4C4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/2 xl:pr-[106px] pr-20 border-r':'border-b pb-6 mb-6' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex lg:space-y-0 space-y-5':'' ?>">
+					<div class="border-[#C4C4C4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 xl:pr-[106px] lg:pr-20 lg:border-r':'border-b pb-6 mb-6' ?>">
 						<h3
 							class="font-bold !leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl xl:mb-[54px] mb-10':'text-xl mb-6' ?>">
 							Mở tài khoản <span class="text-primary-300">eKYC</span> ngay trên ứng
 							dụng <span class="text-primary-300">BSC Smart Invest</span>
 						</h3>
-						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[61px] items-center':'' ?>">
+						<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex lg:gap-[61px] gap-10 items-center lg:justify-start justify-center ':'' ?>">
 							<div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex flex-col gap-[21px]':'grid grid-cols-2 gap-4' ?>">
 								<a href="">
 									<img loading="lazy"
@@ -107,7 +107,7 @@ get_header();
 							<?php } ?>
 						</div>
 					</div>
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/2 xl:pl-[106px] pl-20':'' ?>">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 xl:pl-[106px] lg:pl-20':'' ?>">
 						<h3 class="font-bold !leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl mb-6':'text-xl mb-4' ?>">
 							Mở tài khoản trực tiếp
 						</h3>
@@ -187,7 +187,7 @@ get_header();
 				<h2 class="heading-title text-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-6' ?>">
 					TẬN HƯỞNG ĐẶC QUYỀN KHI GIAO DỊCH
 				</h2>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':'block_slider-show-1 block_slider' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider-show-1 block_slider' ?>">
 					<?php 
 					 for ($i = 0; $i < 4; $i++) {
 					 ?>

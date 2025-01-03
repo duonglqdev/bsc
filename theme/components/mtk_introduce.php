@@ -34,7 +34,7 @@
                                         if (get_sub_field('title')) {
                             ?>
                                             <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                                class="<?php echo $class ?> inline-block rounded-md font-semibold relative transition-all duration-500 xl:min-w-[208px] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-3 py-2' : 'flex-1 py-[12px] !leading-[1.313]' ?>" target="_blank">
+                                                class="<?php echo $class ?> 2xl:px-6 px-4 inline-block rounded-md font-semibold relative transition-all duration-500 xl:min-w-[208px] text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-3 py-2' : 'flex-1 py-[12px] !leading-[1.313]' ?>" target="_blank">
                                                 <span class="block relative z-10">
                                                     <?php the_sub_field('title') ?>
                                                 </span>
@@ -72,15 +72,15 @@
                     <?php the_sub_field('title_2') ?>
                 </h2>
             <?php } ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex':'' ?>">
-                <div class="border-[#C4C4C4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/2 xl:pr-[106px] pr-20 border-r':'border-b pb-6 mb-6' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex lg:space-y-0 space-y-5':'' ?>">
+                <div class="border-[#C4C4C4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 xl:pr-[106px] lg:pr-20 lg:border-r':'border-b pb-6 mb-6' ?>">
                     <?php if (get_sub_field('mota')) { ?>
                         <div
                             class="font-bold !leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl xl:mb-[54px] mb-10':'text-xl mb-6' ?>">
                             <?php the_sub_field('mota') ?>
                         </div>
                     <?php } ?>
-                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[61px] items-center':'' ?>">
+                    <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex lg:gap-[61px] gap-10 items-center lg:justify-start justify-center':'' ?>">
                         <?php if (have_rows('link_tai')) { ?>
                             <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex flex-col gap-[21px]':'grid grid-cols-2 gap-4' ?>">
                                 <?php while (have_rows('link_tai')): the_row(); ?>
@@ -104,7 +104,7 @@
                         } ?>
                     </div>
                 </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/2 xl:pl-[106px] pl-20':'' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 xl:pl-[106px] lg:pl-20':'' ?>">
                     <?php if (get_sub_field('title_3')) { ?>
                         <h3 class="font-bold !leading-normal <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[32px] text-2xl mb-6':'text-xl mb-4' ?>">
                             <?php the_sub_field('title_3') ?>
