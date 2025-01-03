@@ -29,7 +29,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14' : 'my-[30px]' ?>">
     <div class="container">
         <?php if (!wp_is_mobile() && !bsc_is_mobile()) : ?>
-            <form class="flex gap-6 items-end mb-10" id="form-search-expert" data-scale="pc" data-paged="1">
+            <form class="flex gap-6 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc" data-paged="1">
                 <?php
                 $kinh_nghiems = get_terms(array(
                     'taxonomy' => 'kinh-nghiem',
@@ -149,7 +149,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         ?>
         <div id="list-chuyen-gia">
             <?php if ($filter_job->have_posts()) :  ?>
-                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:grid-cols-4 grid-cols-3 gap-x-5 gap-y-6' : 'grid-cols-2 gap-4' ?>">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-x-5 gap-y-6' : 'grid-cols-2 gap-4' ?>">
                     <?php
                     while ($filter_job->have_posts()) :
                         $filter_job->the_post();
