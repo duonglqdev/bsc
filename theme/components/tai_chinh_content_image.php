@@ -1,7 +1,7 @@
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> relative tai_chinh_content_image" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 items-center':'' ?>">
-            <div class="col-span-1 xl:-mr-[17px]">
+        <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-2 grid-cols-3 items-center':'' ?>">
+            <div class="lg:col-span-1 md:col-span-3 col-span-full xl:-mr-[17px]">
                 <div
                     class="bg-gradient-blue-550 rounded-2xl shadow-base  relative z-10  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-10 py-5 2xl:px-[50px] px-10 min-h-[402px] flex flex-col justify-center':'px-6 pt-6 pb-[72px]' ?>">
                     <?php if (get_sub_field('title')) { ?>
@@ -121,10 +121,10 @@
                     ?>
                 </div>
             </div>
-            <div class="col-span-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:-ml-[185px] -ml-24':'w-[85%] mx-auto relative z-10 -mt-10' ?>">
+            <div class="lg:col-span-1 md:col-span-3 col-span-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:-ml-[185px] -ml-24':'w-[85%] mx-auto relative z-10 -mt-10' ?>">
                 <?php if (get_sub_field('link_youtube')) { ?>
                     <a href="<?php the_sub_field('link_youtube') ?>" data-fancybox
-                        class="relative block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl pt-[59.64%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
+                        class="relative block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[100%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
                         <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
 
                         <div
@@ -133,7 +133,7 @@
                         </div>
                     </a>
                 <?php } else { ?>
-                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl pt-[59.64%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
+                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[100%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
                         <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
                     </div>
                 <?php } ?>
