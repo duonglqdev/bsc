@@ -269,7 +269,7 @@
   @apply rounded-2xl;
 }
 .is-desktop .award__item.active {
-  @apply rounded-tr-none rounded-br-none grow-[2.5] last:rounded-tl-none last:rounded-bl-none;
+  @apply rounded-tr-none rounded-br-none lg:grow-[2.5] grow-[2] last:rounded-tl-none last:rounded-bl-none;
 }
 .is-desktop .award__item.active .award__item-content {
   @apply w-2/3 h-auto;
@@ -550,6 +550,9 @@
 }
 .is-mobile .font-base * {
   font-size: 14px !important;
+}
+.is-mobile .award__item {
+  @apply md:min-w-[16%];
 }
 .is-mobile .award__item:not(:first-child) {
   @apply -mt-4;

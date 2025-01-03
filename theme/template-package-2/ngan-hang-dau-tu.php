@@ -11,7 +11,7 @@ get_header();
 	<!-- Tab nav -->
 	<section class="bg-primary-50 sticky z-10 top-0 menu_navigation <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:py-4 py-3':'py-[12px]' ?>">
 		<div class="container">
-			<ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between':'overflow-x-auto gap-[12px]' ?>">
+			<ul class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'justify-between overflow-x-auto gap-[12px] whitespace-nowrap':'overflow-x-auto gap-[12px]' ?>">
 				<li>
 					<a href=""
 						class=" inline-block font-bold xl:text-lg  [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-10 px-5 xl:py-4 py-3':'whitespace-nowrap min-w-[40%] text-xs text-left px-4 py-3 border border-primary-300' ?>">
@@ -47,7 +47,7 @@ get_header();
 			id="bank-tab-<?php echo $j ?>">
 			<div class="content_image <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] lg:my-20 my-[50px]':'my-[50px]' ?>">
 				<div class="container">
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-2 xl:gap-0 gap-10':'' ?>">
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-2 xl:gap-0 gap-10 lg:space-y-0 space-y-5':'' ?>">
 						<div class="col-span-1 xl:pr-[42px]">
 							<h2 class="heading-title mb-4">
 								DỊCH VỤ THỊ TRƯỜNG VỐN (ECM)
@@ -310,7 +310,7 @@ get_header();
 								</div>
 							<?php } ?>
 						</div>
-						<div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]':'' ?>">
+						<div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pl-[50px] lg:pl-10 lg:border-l border-[#D2D2D2] lg:mt-0 mt-8':'' ?>">
 							<h3 class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 xl:text-2xl text-xl ':'mb-4' ?>">
 								<?php _e('Đăng ký thông tin hỗ trợ', 'gnws') ?>
 							</h3>

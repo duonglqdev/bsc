@@ -3,7 +3,7 @@
 	{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
 		<div
-			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 xl:gap-0 gap-10' : '' ?>">
+			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 xl:gap-0 gap-10 lg:space-y-0 space-y-5' : '' ?>">
 			<div class="col-span-1 xl:pr-[42px]">
 				<?php if ( get_sub_field( 'title' ) )
 				{ ?>

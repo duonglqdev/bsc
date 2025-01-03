@@ -8,7 +8,7 @@ if ( $style == 'nhdt' ) {
 		<?php if ( have_rows( 'menu_navigation' ) ) { ?>
 			<div class="container">
 				<ul
-					class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between' : 'overflow-x-auto gap-[12px]' ?>">
+					class="flex bank-nav-tab nav-scroll-mb hidden-br-pc <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between overflow-x-auto gap-[12px] whitespace-nowrap' : 'overflow-x-auto gap-[12px]' ?>">
 					<?php while ( have_rows( 'menu_navigation' ) ) :
 						the_row(); ?>
 						<li>

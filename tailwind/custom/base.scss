@@ -187,7 +187,7 @@
 	.award__item {
 		@apply rounded-2xl;
 		&.active {
-			@apply rounded-tr-none rounded-br-none grow-[2.5] last:rounded-tl-none last:rounded-bl-none;
+			@apply rounded-tr-none rounded-br-none lg:grow-[2.5] grow-[2] last:rounded-tl-none last:rounded-bl-none;
 			.award__item-content {
 				@apply w-2/3 h-auto;
 			}
@@ -544,9 +544,11 @@
 		font-size: 14px !important;
 	}
 	.award__item {
+		@apply md:min-w-[16%];
 		&:not(:first-child) {
 			@apply -mt-4;
 		}
+
 	}
 	.form_support {
 		@apply text-xs;
