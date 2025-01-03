@@ -112,7 +112,7 @@ $class = $check_logout['class'];
 											?>
 											<li>
 												<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
-													<?php echo $GetForecastBussinessResults->npatmi ?>
+													<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
 												<?php } ?>
 											</li>
 											<?php
@@ -186,7 +186,7 @@ $class = $check_logout['class'];
 										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
 											?>
 											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->roa ) ?>
+												<?php echo bsc_number_format( $GetForecastBussinessResults->roa, false ) ?>
 											</li>
 											<?php
 										}
@@ -204,7 +204,7 @@ $class = $check_logout['class'];
 										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
 											?>
 											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->roe ) ?>
+												<?php echo bsc_number_format( $GetForecastBussinessResults->roe, false ) ?>
 											</li>
 											<?php
 										}

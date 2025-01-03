@@ -1439,7 +1439,7 @@ function filter_details_symbol() {
 														</td>
 														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE ) ); ?>%
 														</td>
-														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->ROE ) ); ?>%
+														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->ROE ), false ); ?>%
 														</td>
 													</tr>
 												</tbody>
@@ -2884,7 +2884,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROE ) && $GetForecastBussiness->ROE !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROE * 100 ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROE * 100, false ) . '%';
 													}
 													?>
 												</td>
@@ -2906,7 +2906,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROA ) && $GetForecastBussiness->ROA !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROA * 100 ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROA * 100, false ) . '%';
 													}
 													?>
 												</td>
@@ -3056,7 +3056,7 @@ function filter_details_symbol() {
 							<?php _e( 'P/B', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->PB ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->PB ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3064,7 +3064,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROE', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->ROE ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROE, false ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3072,7 +3072,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROA', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->ROA ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROA, false ) ?>
 						</p>
 					</div>
 				</div>

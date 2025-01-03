@@ -892,7 +892,7 @@ get_header();
 														<div
 															class="w-[20%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
 															<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
-																<?php echo $GetForecastBussinessResults->npatmi ?>
+																<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
 															<?php } ?>
 														</div>
 														<div
