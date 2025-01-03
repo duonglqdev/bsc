@@ -14,7 +14,7 @@ get_header();
 			class="bg-primary-50 sticky z-50 top-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-4 py-3' : 'py-[12px]' ?>">
 			<div class="container">
 				<ul
-					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 gap-5' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
+					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 lg:gap-5 gap-4 overflow-x-auto whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
 					<?php while ( have_rows( 'menu_navigation', get_queried_object() ) ) :
 						the_row(); ?>
 						<li class="flex-1">
@@ -36,7 +36,7 @@ get_header();
 			</h2>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] gap-10 ' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+					<div class="md:w-80 max-w-[35%] shrink-0">
 						<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 							<?php
 							$current_term_id = get_queried_object_id();
@@ -147,10 +147,10 @@ get_header();
 					<?php $search_template = get_field( 'search_template', get_queried_object() ) ?: 'default';
 					if ( $search_template == 'default' ) { ?>
 						<form method="get"
-							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-nowrap gap-5 mb-12' : 'mb-6 flex-wrap gap-[12px]' ?>"
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-nowrap flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap gap-[12px]' ?>"
 							action="<?php echo get_term_link( get_queried_object() ); ?>">
 							<div
-								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[270px] max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0">
+								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[270px] lg:max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0">
 								<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
@@ -159,10 +159,10 @@ get_header();
 								</div>
 								<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 									datepicker-orientation="bottom right"
-									class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-5' : 'px-[12px] w-full text-xs' ?>">
-								<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
-									<?php _e( 'Thời gian:', 'gnws' ) ?>
-								</p>
+									class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 lg:w-auto w-full px-5' : 'px-[12px] w-full text-xs' ?>">
+										<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
+											<?php _e( 'Thời gian:', 'gnws' ) ?>
+										</p>
 								<div class="flex items-center gap-5">
 									<input id="datepicker-range-start" name="fromdate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
@@ -1207,7 +1207,7 @@ get_header();
 
 
 						<div
-							class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:grid-cols-2 gap-6' : 'md:grid-cols-2 gap-4 mt-6 grid-cols-1' ?>">
+							class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1 gap-6' : 'md:grid-cols-2 gap-4 mt-6 grid-cols-1' ?>">
 							<?php
 							foreach ( $response->d as $news ) {
 								get_template_part( 'template-parts/content', 'bao-cao-phan-tich', array(

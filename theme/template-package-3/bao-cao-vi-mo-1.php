@@ -12,7 +12,7 @@ get_header();
 		class="bg-primary-50 sticky z-10 top-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-4 py-3' : 'py-[12px]' ?>">
 		<div class="container">
 			<ul
-				class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 gap-5' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
+				class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 gap-5 overflow-x-auto whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
 				<li class="flex-1">
 					<a href="#"
 						class="active block text-center font-bold [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg py-[12px] 2xl:px-10 px-5' : 'py-3 px-4 text-xs' ?>">
@@ -54,7 +54,7 @@ get_header();
 			</h2>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] gap-10 ' : '' ?>">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+					<div class="md:w-80 max-w-[35%] shrink-0">
 						<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
 								<li>
@@ -114,9 +114,9 @@ get_header();
 						</div>
 					<?php } ?>
 					<form method="get" action="<?php echo get_term_link( get_queried_object() ); ?>"
-						class="flex mb-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-5' : 'flex-wrap gap-[12px]' ?>">
+						class="flex mb-10 flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-5' : 'flex-wrap gap-[12px]' ?>">
 						<div
-							class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[270px] max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0 ">
+							class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[270px] w-full lg:max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0 ">
 							<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
 							<input type="text" name="key"
 								class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
@@ -125,7 +125,7 @@ get_header();
 							</div>
 							<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 								datepicker-orientation="bottom right"
-								class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-5' : 'px-[12px] w-full text-xs' ?>">
+								class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 px-5 lg:w-auto w-full' : 'px-[12px] w-full text-xs' ?>">
 							<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
 								<?php _e( 'Thời gian:', 'gnws' ) ?>
 							</p>
@@ -190,7 +190,7 @@ get_header();
 						</ul>
 					<?php } ?>
 					<div
-						class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:grid-cols-2 gap-6' : 'md:grid-cols-2 gap-4 mt-6' ?>">
+						class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 grid-cols-1 gap-6' : 'md:grid-cols-2 gap-4 mt-6' ?>">
 						<?php
 						for ( $i = 0; $i < 3; $i++ ) {
 							?>
