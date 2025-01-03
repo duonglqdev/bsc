@@ -22,9 +22,9 @@
             <div class="block_slider slider-tutorial dmkm <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'block_slider-show-3 has-nav no-dots -mx-3':'block_slider-show-1 fli-dots-blue dots-left dots-left-6' ?>">
                 <?php while (have_rows('khuyen_nghi')): the_row(); ?>
                     <div class="block_slider-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-3 w-1/3':'w-full' ?>">
-                        <div class="overflow-hidden flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[223px] rounded-xl':'min-h-[168px] rounded-lg' ?>"
+                        <div class="overflow-hidden flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[223px] rounded-xl lg:flex-row flex-col-reverse':'min-h-[168px] rounded-lg' ?>"
                             style="background-color:<?php the_sub_field('background_color') ?>;">
-                            <div class="py-5 pr-1 w-1/2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pl-6':'pl-5' ?>">
+                            <div class="py-5 pr-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pl-6 lg:w-1/2 w-full':'pl-5 w-1/2' ?>">
                                 <?php if (get_sub_field('title')) { ?>
                                     <h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl':'text-lg' ?> mb-2">
                                         <?php the_sub_field('title') ?>
@@ -42,7 +42,7 @@
                                     endwhile;
                                 } ?>
                             </div>
-                            <div class="w-1/2">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 w-full':'w-1/2' ?>">
                                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium') ?>
                             </div>
                         </div>

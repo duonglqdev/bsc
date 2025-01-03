@@ -445,9 +445,9 @@ get_header();
 				 for ($i = 0; $i < 3; $i++) {
 				 ?>
 				 <div class="block_slider-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-3 w-1/3':'w-full' ?>">
-					 <div class="overflow-hidden flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[223px] rounded-xl':'min-h-[168px] rounded-lg' ?>"
+					 <div class="overflow-hidden flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[223px] rounded-xl lg:flex-row flex-col-reverse':'min-h-[168px] rounded-lg' ?>"
 						 style="background-color:#235BA81a;">
-						 <div class="py-5 pr-1 w-1/2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pl-6':'pl-5' ?>">
+						 <div class="py-5 pr-1  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pl-6 lg:w-1/2 w-full':'pl-5 w-1/2' ?>">
 							 <h3 class="font-bold mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl':'text-lg' ?>">
 								 Danh mục BSC 10
 							 </h3>
@@ -457,7 +457,7 @@ get_header();
 								 Xem chi tiết
 							 </a>
 						 </div>
-						 <div class="w-1/2">
+						 <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-1/2 w-full':'w-1/2' ?>">
 							 <img loading="lazy"
 								 src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/Rectangle 23490.png"
 								 alt="">
