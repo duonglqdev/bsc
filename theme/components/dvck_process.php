@@ -14,7 +14,7 @@ $generateRandomString = generateRandomString();
 			<?php } ?>
 			<?php if (have_rows('hanh_trinh')) { ?>
 				<div
-					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'translate-x-[120px] grid-cols-4' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
+					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:translate-x-[120px] grid-cols-4' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('hanh_trinh')) :
@@ -66,7 +66,7 @@ $generateRandomString = generateRandomString();
 			<?php } ?>
 			<?php if (have_rows('product')) { ?>
 				<ul
-					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:gap-[100px] gap-12' : 'gap-8' ?>">
+					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:gap-[100px] lg:gap-12 gap-6' : 'gap-8' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('product')) :
@@ -97,9 +97,9 @@ $generateRandomString = generateRandomString();
 									the_row();
 									$y++;
 									if ($y % 2 == 1) {
-										$class = 'bg-white p-8 rounded-3xl lg:flex lg:gap-16 gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 lg:flex-row flex-col gap-10 items-center';
 									} else {
-										$class = 'bg-white p-8 rounded-3xl lg:flex lg:flex-row-reverse lg:gap-16 gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:flex-row-reverse flex-col lg:gap-16 gap-10 items-center';
 									}
 							?>
 									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? $class : 'bg-white p-4 rounded-2xl' ?>">

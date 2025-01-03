@@ -46,7 +46,7 @@
 				{
 					?>
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-						<div class="grid grid-cols-5 gap-5">
+						<div class="lg:grid grid-cols-5 gap-5 lg:space-y-0 space-y-6">
 							<?php
 							$i = 0;
 							foreach ( $response->d as $news )

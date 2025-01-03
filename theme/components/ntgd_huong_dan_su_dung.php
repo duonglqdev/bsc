@@ -19,7 +19,7 @@
                         $color2 = '';
                     }
                 ?>
-                    <div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[57.686567%] mr-[23px]' : 'w-full' ?>">
+                    <div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[57.686567%] w-full lg:mr-[23px]' : 'w-full' ?>">
                         <div class="relative rounded-[20px] overflow-hidden h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[54.33376%]' : 'pt-[125.373%]' ?>">
                             <?php if (!wp_is_mobile() && !bsc_is_mobile()) : ?>
                                 <?php echo wp_get_attachment_image(get_sub_field('background'), 'full', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>

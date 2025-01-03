@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('support')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-3 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-3 grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
                 <?php while (have_rows('support')): the_row(); ?>
                     <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[230px]':'min-h-[192px] w-full block_slider-item' ?>"
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">

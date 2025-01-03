@@ -9,7 +9,7 @@ get_header();
 	<h1 class="hidden"><?php the_title() ?></h1>
 	<section class="mt-12 xl:mb-[100px] mb-20">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-10' : '' ?>">
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 max-w-[35%] shrink-0' : 'relative' ?>">
 					<?php echo get_sidebar( 'stgd' ) ?>

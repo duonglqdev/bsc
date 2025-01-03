@@ -8,7 +8,7 @@
 		<?php $display = get_sub_field('display') ?: 'kyquy';
 		if ($display == 'kyquy') { ?>
 			<?php if (have_rows('benefit')) { ?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-4 gap-5':' block_slider block_slider-show-1 fli-dots-blue' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':' block_slider block_slider-show-1 fli-dots-blue' ?>">
 					<?php while (have_rows('benefit')) :
 						the_row(); ?>
 						<div class="rounded-2xl<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 min-h-[414px] shadow-base':'min-h-[388px] pt-9 px-11 pb-14 block_slider-item w-full' ?>"
@@ -42,7 +42,7 @@
 					<?php while (have_rows('ung_tien')) :
 						the_row(); ?>
 						<div
-							class="rounded-2xl h-full bg-[#D4EDFF]  flex flex-col overflow-hidden group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[46px] pl-10 pb-[19px]':'min-h-[376px] px-5 pt-[30px] pb-14 block_slider-item w-full' ?>">
+							class="rounded-2xl h-full bg-[#D4EDFF]  flex flex-col overflow-hidden group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pt-[46px] pt-8 lg:pl-10 pl-5 lg:pr-0 pr-3 pb-[19px]':'min-h-[376px] px-5 pt-[30px] pb-14 block_slider-item w-full' ?>">
 							<?php if (get_sub_field('title')) { ?>
 								<h4 class="text-primary-300 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-6 xl:text-2xl text-xl':'text-lg mb-4' ?>">
 									<?php the_sub_field('title') ?>

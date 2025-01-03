@@ -17,7 +17,7 @@ get_header();
 					BẮT ĐẦU HÀNH TRÌNH ĐẦU TƯ CÙNG BSC
 				</h2>
 				<div
-					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'translate-x-[120px] grid-cols-4' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
+					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:translate-x-[120px] grid-cols-4' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
 					<div
 						class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[187px]' : 'min-h-[165px] rounded-lg hover:bg-gradient-blue hover:text-white' ?> step-item transition-all duration-500 relative bg-no-repeat bg-full ">
 						<div
@@ -116,10 +116,10 @@ get_header();
 						<div id="tab-<?php echo $i ?>"
 							class="tab-content <?php echo $i == 1 ? 'block' : 'hidden' ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-10' : 'space-y-6' ?>">
 							<div
-								class="bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-16 p-8 items-center rounded-3xl' : 'p-4 rounded-2xl' ?>">
+								class="bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-16 gap-8 lg:flex-row flex-col p-8 items-center rounded-3xl' : 'p-4 rounded-2xl' ?>">
 								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 								{ ?>
-									<div class="w-[563px] max-w-[50%]">
+									<div class="lg:w-[563px] lg:max-w-[50%] w-full">
 										<div
 											class="relative w-full pt-[62.166%] rounded-2xl overflow-hidden">
 											<img loading="lazy"
@@ -129,7 +129,7 @@ get_header();
 										</div>
 									</div>
 								<?php } ?>
-								<div class="flex-1">
+								<div class="lg:flex-1 lg:w-auto w-full">
 									<h3
 										class="uppercase font-bold text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:text-2xl text-lg mb-6' : 'text-xl mb-4' ?>">
 										Tư vấn đầu tư cùng chuyên gia
@@ -227,7 +227,7 @@ get_header();
 			</h2>
 			<div class="tab-content block" id="tab-a1">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid grid-cols-2 gap-[84px] items-end' : '' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 lg:gap-[84px] items-end lg:space-y-0 space-y-5' : '' ?>">
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 					{ ?>
 						<div class="col-span-1">
@@ -326,7 +326,7 @@ get_header();
 							<?php echo svg( 'arrow-btn', '20' ) ?>
 							Khám phá ngay
 						</a>
-						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						<?php if (  wp_is_mobile() && bsc_is_mobile() )
 						{ ?>
 							<div class="relative w-full pt-[76%] mt-[56px]">
 								<img loading="lazy"

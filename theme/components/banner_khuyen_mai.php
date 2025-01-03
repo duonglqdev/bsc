@@ -1,6 +1,6 @@
 <section class="banner_khuyen_mai <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:pl-[113px] pl-20 xl:pr-[110px] pr-5 grid grid-cols-2 gap-5 items-center':'px-6 py-8 space-y-8' ?>"
+        <div class="rounded-2xl bg-no-repeat bg-cover overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:pl-[113px] lg:pl-20 pl-8 xl:pr-[110px] pr-5 grid grid-cols-2 gap-5 items-center':'px-6 py-8 space-y-8' ?>"
             style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-10':'' ?>">
                 <?php if (get_sub_field('title')) { ?>
@@ -9,7 +9,7 @@
                     </h2>
                 <?php } ?>
                 <?php if (have_rows('danh_sach_nut')) { ?>
-                    <div class="space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pl-14':'' ?>">
+                    <div class="space-y-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pl-14':'' ?>">
                         <?php
                         $i = 0;
                         while (have_rows('danh_sach_nut')): the_row();
@@ -30,7 +30,7 @@
                                 }
                             }
                         endwhile; ?>
-                        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center':'space-y-2' ?>">
+                        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center flex-wrap lg:gap-0 gap-2':'space-y-2' ?>">
                             <?php
                             $i = 0;
                             while (have_rows('danh_sach_nut')): the_row();

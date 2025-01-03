@@ -1,15 +1,15 @@
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> ttnc_search_max" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div
-            class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center gap-4 px-6 py-12' : 'p-6' ?>">
+            class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex items-center gap-4 px-6 py-12 lg:space-y-0 space-y-5' : 'p-6' ?>">
             <?php if (get_sub_field('title')) { ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[345px] max-w-[33.333%]' : 'mb-6' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[345px] lg:max-w-[33.333%]' : 'mb-6' ?>">
                     <h2 class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-[28px] !leading-[1.57]' : 'text-[22px]' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
                 </div>
             <?php } ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex justify-end items-center flex-wrap gap-4' : 'grid grid-cols-3 gap-[12px]' ?> bsc-ajax-api" data-api="ttnc_search_max" data-chart="bsc_need_crawl_price_display">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-1 flex lg:justify-end items-center flex-wrap gap-4' : 'grid grid-cols-3 gap-[12px]' ?> bsc-ajax-api" data-api="ttnc_search_max" data-chart="bsc_need_crawl_price_display">
                 <div class="hidden">
                     <div role="status">
                         <svg aria-hidden="true"

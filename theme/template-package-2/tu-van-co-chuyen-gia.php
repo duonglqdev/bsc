@@ -108,7 +108,7 @@ get_header();
 							alt=""
 							class="absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105">
 						<h4
-							class="absolute z-10 w-full text-primary-300 font-bold top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl xl:py-[66px] py-10 px-10':'text-lg px-5 py-6' ?>">
+							class="absolute z-10 w-full text-primary-300 font-bold top-0 left-0 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl xl:py-[66px] lg:py-10 lg:px-10 -5':'text-lg px-5 py-6' ?>">
 							<p class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[412px] xl:max-w-[72%]':'' ?>">
 								Muốn tham khảo nhận định và chiến lược đầu tư từ các chuyên gia hàng
 								đầu

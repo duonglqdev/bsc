@@ -4,7 +4,7 @@
         alt="<?php the_title() ?>" class="absolute w-full h-full inset-0 object-cover">
     <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-        <?php echo svgClass('play', '','',!wp_is_mobile() && !bsc_is_mobile() ?'w-[62px] h-[62px]':'w-[38px] h-[38px]') ?>
+        <?php echo svgClass('play', '','',!wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[62px] lg:h-[62px] w-[38px] h-[38px]':'w-[38px] h-[38px]') ?>
     </div>
 </a>
 <h4

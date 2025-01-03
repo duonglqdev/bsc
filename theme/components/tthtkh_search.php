@@ -23,7 +23,7 @@
                 </h2>
             <?php } ?>
             <?php if (have_rows('category_navigation')) { ?>
-                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-3 grid-cols-2 gap-12 gap-10':'gap-6' ?>">
+                <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid-cols-3 grid-cols-2 gap-12 gap-10':'gap-6' ?>">
                     <?php
                     while (have_rows('category_navigation')): the_row();
                     ?>

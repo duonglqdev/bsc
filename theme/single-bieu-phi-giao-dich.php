@@ -10,8 +10,8 @@ $id_post = get_the_ID();
     <h1 class="hidden"><?php the_title() ?></h1>
     <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-14 xl:mb-[100px] mb-20':'my-[50px]' ?>">
         <div class="container">
-            <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-20':'' ?>">
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[340px] max-w-[35%] shrink-0':'relative' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex lg:gap-20 gap-6':'' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[340px] lg:max-w-[35%] max-w-[30%] shrink-0':'relative' ?>">
                     <?php $query = new WP_Query(array(
                         'post_type' => 'bieu-phi-giao-dich',
                         'post_status' => 'publish',
@@ -53,10 +53,6 @@ $id_post = get_the_ID();
                     <?php };
                     wp_reset_postdata() ?>
                 </div>
-
-
-
-
                 <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-6' ?>">
                     <?php if (get_field('title')) {
                         $title = get_field('title');
