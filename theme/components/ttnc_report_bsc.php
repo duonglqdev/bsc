@@ -6,7 +6,7 @@ $bg = !wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb;
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-[77px]' : 'py-5 min-h-[774px]' ?> bg-no-repeat bg-cover bg-center ttnc_report_bsc" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>
     style="background-image:url(<?php echo wp_get_attachment_image_url($bg, 'full') ?>)">
     <div class="container">
-        <div class="bg-white rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[602px] max-w-[60%] p-10' : 'p-6' ?>">
+        <div class="bg-white rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[602px] lg:max-w-[60%] max-w-[70%] p-10' : 'p-6' ?>">
             <?php if (get_sub_field('title')) { ?>
                 <h2 class="heading-title text-center !leading-none <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
                     <?php the_sub_field('title') ?>

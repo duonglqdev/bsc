@@ -39,7 +39,7 @@ $time_cache = 300;
 			$get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
 		?>
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-				<div class="flex 2xl:gap-[70px] gap-10">
+				<div class="lg:flex 2xl:gap-[70px] gap-10 lg:space-y-0 space-y-10">
 					<div class="lg:w-[843px] lg:max-w-[66%]">
 					<?php } ?>
 					<div

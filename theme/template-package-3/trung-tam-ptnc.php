@@ -12,9 +12,9 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-14 xl:mb-pb-[110px] mb-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-12 gap-10' : '' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-12 gap-10 lg:space-y-0 space-y-10' : '' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[745px] max-w-[56%]' : 'w-full' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[745px] lg:max-w-[56%]' : 'w-full' ?>">
 					<h2
 						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'mb-6' ?>">
 						Danh mục khuyến nghị
@@ -122,7 +122,7 @@ get_header();
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 					<h2
-						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-14' : 'mb-6' ?>">
+						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mb-14 mb-6' : 'mb-6' ?>">
 						Thông tin phân tích mới nhất
 					</h2>
 					<div
@@ -303,16 +303,16 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
 			<div
-				class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex items-center gap-4 px-6 py-12' : 'p-6' ?>">
+				class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex items-center gap-4 px-6 py-12 lg:space-y-0 space-y-5' : 'p-6' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[345px] max-w-[33.333%]' : 'mb-6' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[345px] lg:max-w-[33.333%]' : 'mb-6' ?>">
 					<h2
 						class="uppercase font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[28px] !leading-[1.57]' : 'text-[22px]' ?>">
 						các mã được khácH hàng tìm kiếm nhiều nhất
 					</h2>
 				</div>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 flex justify-end items-center flex-wrap gap-6' : 'grid grid-cols-3 gap-[12px]' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 flex lg:justify-end items-center flex-wrap gap-6' : 'grid grid-cols-3 gap-[12px]' ?>">
 					<a href=""
 						class="inline-flex rounded-lg bg-[#1CCD83] text-white font-bold items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 py-3 px-[12px]' : 'gap-3 py-2 px-3 text-xs justify-center' ?>">
 						<span>
@@ -387,7 +387,7 @@ get_header();
 			</div>
 
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<div class="flex 2xl:gap-[70px] gap-10">
+					<div class="lg:flex 2xl:gap-[70px] gap-10 lg:space-y-0 space-y-10">
 						<div class="lg:w-[843px] lg:max-w-[66%]">
 					<?php } ?>
 					<div

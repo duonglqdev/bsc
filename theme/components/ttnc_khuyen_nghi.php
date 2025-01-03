@@ -2,8 +2,8 @@
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-14 xl:mb-pb-[110px] mb-20' : 'mt-8 mb-[50px]' ?> ttnc_khuyen_nghi"
 	<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-12 gap-10' : '' ?>">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[745px] max-w-[56%]' : 'w-full' ?>">
+		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-12 gap-10 lg:space-y-0 space-y-10' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[745px] lg:max-w-[56%]' : 'w-full' ?>">
 				<?php if ( get_sub_field( 'title' ) ) { ?>
 					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'mb-6' ?>">
 						<?php the_sub_field( 'title' ) ?>
@@ -29,7 +29,7 @@
 			</div>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 flex flex-col' : 'mt-[50px]' ?>">
 				<?php if ( get_sub_field( 'title_phan_tich' ) ) { ?>
-					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-14' : 'mb-6' ?>">
+					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mb-14 mb-6' : 'mb-6' ?>">
 						<?php the_sub_field( 'title_phan_tich' ) ?>
 					</h2>
 				<?php } ?>
