@@ -1,39 +1,39 @@
 <?php
 function callApi( $url, $data = false, $method = "GET" ) {
 	// $curl = curl_init();
-	// curl_setopt_array($curl, array(
-	//     CURLOPT_URL => $url,
-	//     CURLOPT_RETURNTRANSFER => true,
-	//     CURLOPT_ENCODING => '',
-	//     CURLOPT_MAXREDIRS => 10,
-	//     CURLOPT_TIMEOUT => 0,
-	//     CURLOPT_FOLLOWLOCATION => true,
-	//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	//     CURLOPT_CUSTOMREQUEST => $method,
-	//     CURLOPT_POSTFIELDS => $data,
-	//     CURLOPT_HTTPHEADER => array(
-	//         'Content-Type: application/json'
-	//     ),
-	// ));
+	// curl_setopt_array( $curl, array(
+	// 	CURLOPT_URL => $url,
+	// 	CURLOPT_RETURNTRANSFER => true,
+	// 	CURLOPT_ENCODING => '',
+	// 	CURLOPT_MAXREDIRS => 10,
+	// 	CURLOPT_TIMEOUT => 0,
+	// 	CURLOPT_FOLLOWLOCATION => true,
+	// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	// 	CURLOPT_CUSTOMREQUEST => $method,
+	// 	CURLOPT_POSTFIELDS => $data,
+	// 	CURLOPT_HTTPHEADER => array(
+	// 		'Content-Type: application/json'
+	// 	),
+	// ) );
 
-	// $response = curl_exec($curl);
-	// $error = curl_error($curl); // Lấy lỗi nếu có
-	// $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
-	// curl_close($curl);
+	// $response = curl_exec( $curl );
+	// $error = curl_error( $curl ); // Lấy lỗi nếu có
+	// $http_code = curl_getinfo( $curl, CURLINFO_HTTP_CODE ); // Mã HTTP trả về
+	// curl_close( $curl );
 
-	// if ($error) {
-	//     // Ghi log lỗi
-	//     error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
-	//     return null;
+	// if ( $error ) {
+	// 	// Ghi log lỗi
+	// 	error_log( "API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode( $data ) );
+	// 	return null;
 	// }
 
 	// // Nếu mã HTTP không phải 2xx, ghi log lỗi
-	// if ($http_code < 200 || $http_code >= 300) {
-	//     error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
-	//     return null;
+	// if ( $http_code < 200 || $http_code >= 300 ) {
+	// 	error_log( "API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response );
+	// 	return null;
 	// }
 
-	// return json_decode($response);
+	// return json_decode( $response );
 }
 
 
@@ -708,3 +708,80 @@ function get_top_viewed_co_phieu_option( $limit = 6 ) {
 	// Lấy top mã cổ phiếu
 	return array_slice( $views, 0, $limit, true );
 }
+
+
+/**
+ * Create link PDF Report
+ */
+function bsc_proxy_pdf_content() {
+	// Lấy ID từ URL
+	$id = get_query_var( 'report_pdf_id' );
+
+	if ( ! $id ) {
+		wp_die( 'Không tìm thấy ID tệp.' );
+	}
+	if ( $id ) {
+		$time_cache = get_field( 'cdbcpt2_time_cache', 'option' ) ?: 300;
+		$array_data = array(
+			"id" => $id,
+		);
+		$get_report_detail = get_data_with_cache( 'GetReportsDetail', $array_data, $time_cache );
+		if ( $get_report_detail ) {
+			// Lấy chi tiết báo cáo từ API response
+			$news = $get_report_detail->d[0];
+			$pdf_url = $news->reporturl;
+			$viewerpermission = $news->viewerpermission;
+			if ( $viewerpermission == 'USER_BSC' ) {
+				$datetimeopen = $news->datetimeopen;
+				if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
+					if ( bsc_is_user_logged_out() ) {
+						wp_redirect( bsc_url_sso() );
+						exit;
+					}
+				}
+			}
+		} else {
+			// Nếu không có dữ liệu từ API
+			wp_redirect( home_url( '/404' ) );
+			exit;
+		}
+	}
+	// Tạo URL PDF dựa trên ID
+
+
+	// Gửi yêu cầu đến URL PDF gốc
+	$args = array(
+		'timeout' => 15, // Tăng thời gian chờ lên 15 giây
+		'sslverify' => true, // Xác minh SSL (bỏ qua nếu cần)
+	);
+
+	$response = wp_remote_get( $pdf_url, $args );
+	if ( is_wp_error( $response ) ) {
+		$error_message = $response->get_error_message();
+		wp_die( 'Không thể tải nội dung tệp PDF. Lỗi: ' . $error_message );
+	}
+
+	// Gửi nội dung PDF tới trình duyệt
+	header( 'Content-Type: application/pdf' );
+	header( 'Content-Disposition: inline; filename="report-' . $id . '.pdf"' );
+	echo wp_remote_retrieve_body( $response );
+	exit;
+}
+
+function bsc_register_pdf_proxy_route() {
+	add_rewrite_rule( '^Report/ReportFile/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top' );
+}
+add_action( 'init', 'bsc_register_pdf_proxy_route' );
+
+function bsc_add_pdf_proxy_query_var( $vars ) {
+	$vars[] = 'report_pdf_id';
+	return $vars;
+}
+add_filter( 'query_vars', 'bsc_add_pdf_proxy_query_var' );
+
+function bsc_handle_pdf_proxy_request() {
+	if ( get_query_var( 'report_pdf_id' ) ) {
+		bsc_proxy_pdf_content();
+	}
+}
+add_action( 'template_redirect', 'bsc_handle_pdf_proxy_request' );

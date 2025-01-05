@@ -1055,9 +1055,9 @@ function filter_details_symbol() {
 						if ( $response_GetSummaryFinanceReportBySymbol ) {
 							$industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
 							?>
-							<li class="lg:w-1/4"></li>
 							<ul
 								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] mb-6 mr-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+								<li class="lg:w-1/4"></li>
 								<?php
 								// Lấy dữ liệu từ đối tượng phản hồi
 								$yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
@@ -1410,14 +1410,30 @@ function filter_details_symbol() {
 														</th>
 														<th><?php
 														if ( $check_linh_vuc == 'Bank' ) {
-															_e( 'NIM', 'bsc' );
+															?>
+																<div class="flex items-center justify-center">
+																	<?php
+																	_e( 'NIM (%)', 'bsc' );
+																	?>
+																	<button data-tooltip-target="tooltip-animations"
+																		data-tooltip-placement="top" class="ml-1" type="button">
+																		<?php echo svg( 'tooltip', '20', '20' ) ?>
+																	</button>
+																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+																		<?php _e( 'Tỷ lệ NIM (biên lãi ròng) là chênh lệch phần trăm giữa thu nhập lãi và chi phí lãi phải trả, dùng để đo lường hiệu quả và khả năng sinh lời của ngân hàng', 'bsc' ) ?>
+																		<div class="tooltip-arrow" data-popper-arrow></div>
+																	</div>
+																</div>
+																<?php
 														} else {
-															_e( 'Biên lợi nhuận gộp', 'bsc' );
+															_e( 'Biên lợi nhuận gộp (%)', 'bsc' );
 														}
-														?></th>
-														<th><?php _e( 'Biên lợi nhuận trước thuế', 'bsc' ) ?></th>
-														<th><?php _e( 'Biên lợi nhuận sau thuế', 'bsc' ) ?></th>
-														<th><?php _e( 'ROE', 'bsc' ) ?></th>
+														?>
+														</th>
+														<th><?php _e( 'Biên lợi nhuận trước thuế  (%)', 'bsc' ) ?></th>
+														<th><?php _e( 'Biên lợi nhuận sau thuế (%)', 'bsc' ) ?></th>
+														<th><?php _e( 'ROE (%)', 'bsc' ) ?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -1439,7 +1455,7 @@ function filter_details_symbol() {
 														</td>
 														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE ) ); ?>%
 														</td>
-														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->ROE ) ); ?>%
+														<td><?php echo bsc_number_format( ( $response_GetFinanceDetail->d->Bussiness[0][0]->ROE ), false ); ?>%
 														</td>
 													</tr>
 												</tbody>
@@ -1454,9 +1470,9 @@ function filter_details_symbol() {
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php
 												if ( $check_linh_vuc == 'Bank' ) {
-													_e( 'NIM (%)', 'bsc' );
+													_e( 'NIM', 'bsc' );
 												} else {
-													_e( 'BIÊN LỢI NHUẬN GỘP (%)', 'bsc' );
+													_e( 'BIÊN LỢI NHUẬN GỘP', 'bsc' );
 												}
 												?>
 											</h4>
@@ -1477,8 +1493,12 @@ function filter_details_symbol() {
 												}, $businessData );
 											}
 											$industry_data_BIEN_LOI_NHUAN_GOP = array_map( function ($item) {
-												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												if ( $item->QUARTER ) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												} else {
+													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+												}
 												return [ 
 													'date' => $date,
 													'value' => $item->BIEN_LOI_NHUAN_GOP,
@@ -1497,7 +1517,7 @@ function filter_details_symbol() {
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-												<?php _e( 'BIÊN LỢI NHUẬN SAU THUẾ (%)', 'bsc' ) ?>
+												<?php _e( 'BIÊN LỢI NHUẬN SAU THUẾ', 'bsc' ) ?>
 											</h4>
 											<?php
 											$business_data_BIEN_LOI_NHUAN_SAU_THUE = array_map( function ($item) {
@@ -1508,8 +1528,12 @@ function filter_details_symbol() {
 											}, $businessData );
 
 											$industry_data_BIEN_LOI_NHUAN_SAU_THUE = array_map( function ($item) {
-												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												if ( $item->QUARTER ) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												} else {
+													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+												}
 												return [ 
 													'date' => $date,
 													'value' => $item->BIEN_LOI_NHUAN_SAU_THUE,
@@ -1527,7 +1551,7 @@ function filter_details_symbol() {
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-												<?php _e( 'ROE (%)', 'bsc' ) ?>
+												<?php _e( 'ROE', 'bsc' ) ?>
 											</h4>
 											<?php
 											$business_data_ROE = array_map( function ($item) {
@@ -1538,8 +1562,12 @@ function filter_details_symbol() {
 											}, $businessData );
 
 											$industry_data_ROE = array_map( function ($item) {
-												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												if ( $item->QUARTER ) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												} else {
+													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+												}
 												return [ 
 													'date' => $date,
 													'value' => $item->ROE,
@@ -1597,16 +1625,16 @@ function filter_details_symbol() {
 															<?php _e( 'Mã CK', 'bsc' ) ?>
 														</th>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
-															<th><?php _e( 'Tỉ lệ đòn bẩy', 'bsc' ) ?></th>
-															<th><?php _e( 'NPL', 'bsc' ) ?></th>
-															<th><?php _e( 'LLR', 'bsc' ) ?></th>
+															<th><?php _e( 'Tỉ lệ đòn bẩy (lần)', 'bsc' ) ?></th>
+															<th><?php _e( 'Tỷ lệ nợ xấu (%)', 'bsc' ) ?></th>
+															<th><?php _e( 'Tỷ lệ dự phòng nợ xấu (%)', 'bsc' ) ?></th>
 														<?php } else {
 															?>
 															<th><?php _e( 'Chỉ số thanh toán hiện tại', 'bsc' ) ?></th>
 															<th><?php _e( 'Chỉ số thanh toán nhanh', 'bsc' ) ?></th>
 															<th><?php _e( 'Chỉ số thanh toán lãi vay', 'bsc' ) ?></th>
 															<?php if ( $check_linh_vuc == 'Company' ) { ?>
-																<th><?php _e( 'Nợ vay tổng tài sản', 'bsc' ) ?></th>
+																<th><?php _e( 'Nợ vay/Tổng tài sản', 'bsc' ) ?></th>
 															<?php } else { ?>
 																<th><?php _e( 'Tỉ lệ đòn bẩy', 'bsc' ) ?></th>
 															<?php } ?>
@@ -1667,8 +1695,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_NO_XAU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_NO_XAU,
@@ -1714,8 +1746,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DU_PHONG_NO_XAU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_DU_PHONG_NO_XAU,
@@ -1734,7 +1770,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc' ) ?>
+													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map( function ($item) {
@@ -1744,8 +1780,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
@@ -1791,8 +1831,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
@@ -1811,7 +1855,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc' ) ?>
+													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map( function ($item) {
@@ -1821,8 +1865,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
@@ -1868,8 +1916,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->BIEN_LOI_NHUAN_GOP_BAO_HIEM,
@@ -1889,7 +1941,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'CHỈ SỐ THANH TOÁN NHANH/HIỆN THỜI', 'bsc' ) ?>
+													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map( function ($item) {
@@ -1899,8 +1951,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
@@ -1946,8 +2002,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_THANH_TOAN_LAI_VAY = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_THANH_TOAN_LAI_VAY,
@@ -2008,14 +2068,14 @@ function filter_details_symbol() {
 															<?php _e( 'Mã CK', 'bsc' ) ?>
 														</th>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
-															<th><?php _e( 'Tăng trưởng cho vay', 'bsc' ) ?></th>
-															<th><?php _e( 'Tăng trưởng tiền gửi', 'bsc' ) ?></th>
+															<th><?php _e( 'Tăng trưởng cho vay (%)', 'bsc' ) ?></th>
+															<th><?php _e( 'Tăng trưởng tiền gửi (%)', 'bsc' ) ?></th>
 														<?php } else { ?>
-															<th><?php _e( 'Tăng trưởng Doanh thu', 'bsc' ) ?></th>
-															<th><?php _e( 'Tăng trưởng thu nhập hoạt động', 'bsc' ) ?></th>
+															<th><?php _e( 'Tăng trưởng doanh thu (%)', 'bsc' ) ?></th>
+															<th><?php _e( 'Tăng trưởng thu nhập hoạt động (%)', 'bsc' ) ?></th>
 														<?php } ?>
-														<th><?php _e( 'Tăng trưởng lợi nhuận sau thuế', 'bsc' ) ?></th>
-														<th><?php _e( 'Tăng trưởng EPS', 'bsc' ) ?></th>
+														<th><?php _e( 'Tăng trưởng lợi nhuận sau thuế (%)', 'bsc' ) ?></th>
+														<th><?php _e( 'Tăng trưởng EPS (%)', 'bsc' ) ?></th>
 													</tr>
 												</thead>
 												<tbody>
@@ -2060,15 +2120,19 @@ function filter_details_symbol() {
 														];
 													}, $businessData );
 													$industry_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
-														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+														if ( $item->QUARTER ) {
+															$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+															$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+														} else {
+															$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														}
 														return [ 
 															'date' => $date,
 															'value' => $item->TANG_TRUONG_CHO_VAY,
 														];
 													}, $industryData );
 													?>
-													<?php _e( 'TĂNG TRƯỞNG CHO VAY (%)', 'bsc' ) ?>
+													<?php _e( 'TĂNG TRƯỞNG CHO VAY', 'bsc' ) ?>
 
 												<?php } else {
 													$business_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
@@ -2078,15 +2142,19 @@ function filter_details_symbol() {
 														];
 													}, $businessData );
 													$industry_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
-														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+														if ( $item->QUARTER ) {
+															$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+															$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+														} else {
+															$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														}
 														return [ 
 															'date' => $date,
 															'value' => $item->TANG_TRUONG_DOANH_THU,
 														];
 													}, $industryData );
 													?>
-													<?php _e( 'TĂNG TRƯỞNG DOANH THU (%)', 'bsc' ) ?>
+													<?php _e( 'TĂNG TRƯỞNG DOANH THU', 'bsc' ) ?>
 												<?php } ?>
 											</h4>
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
@@ -2102,7 +2170,7 @@ function filter_details_symbol() {
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-												<?php _e( 'TĂNG TRƯỞNG EPS (%)', 'bsc' ) ?>
+												<?php _e( 'TĂNG TRƯỞNG EPS', 'bsc' ) ?>
 											</h4>
 											<?php
 											$business_data_TANG_TRUONG_EPS = array_map( function ($item) {
@@ -2112,8 +2180,12 @@ function filter_details_symbol() {
 												];
 											}, $businessData );
 											$industry_data_TANG_TRUONG_EPS = array_map( function ($item) {
-												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												if ( $item->QUARTER ) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												} else {
+													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+												}
 												return [ 
 													'date' => $date,
 													'value' => $item->TANG_TRUONG_EPS,
@@ -2131,7 +2203,7 @@ function filter_details_symbol() {
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-												<?php _e( 'TĂNG TRƯỞNG LỢI NHUẬN (%)', 'bsc' ) ?>
+												<?php _e( 'TĂNG TRƯỞNG LỢI NHUẬN SAU THUẾ', 'bsc' ) ?>
 											</h4>
 											<?php
 											$business_data_TANG_TRUONG_LOI_NHUAN = array_map( function ($item) {
@@ -2141,8 +2213,12 @@ function filter_details_symbol() {
 												];
 											}, $businessData );
 											$industry_data_TANG_TRUONG_LOI_NHUAN = array_map( function ($item) {
-												$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-												$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												if ( $item->QUARTER ) {
+													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+												} else {
+													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+												}
 												return [ 
 													'date' => $date,
 													'value' => $item->TANG_TRUONG_LOI_NHUAN,
@@ -2163,7 +2239,7 @@ function filter_details_symbol() {
 									<div
 										class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 										<h2 class="heading-title">
-											<?php _e( 'HIỆU QUẢ HOẠT ĐỘNG', 'bsc' ) ?>
+											<?php _e( 'KẾT QUẢ HOẠT ĐỘNG', 'bsc' ) ?>
 										</h2>
 										<?php
 										if ( $response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG ) {
@@ -2201,26 +2277,65 @@ function filter_details_symbol() {
 															<?php _e( 'Mã CK', 'bsc' ) ?>
 														</th>
 														<?php if ( $check_linh_vuc == 'Bank' ) { ?>
-															<th><?php _e( 'Tỉ lệ CIR', 'bsc' ) ?></th>
-															<th><?php _e( 'NII/TOI', 'bsc' ) ?></th>
-															<th><?php _e( 'Tỉ lệ CASA', 'bsc' ) ?></th>
+															<th>
+																<div class="flex items-center justify-center">
+																	<?php _e( 'Tỷ lệ chi phí trên doanh thu (CIR)', 'bsc' ) ?>
+																	<button data-tooltip-target="tooltip-animations"
+																		data-tooltip-placement="top" class="ml-1" type="button">
+																		<?php echo svg( 'tooltip', '20', '20' ) ?>
+																	</button>
+																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+																		<?php _e( 'Chỉ số CIR phản ánh tỷ lệ phần trăm chi phí hoạt động so với tổng doanh thu của ngân hàng, từ đó có thể đánh giá hiệu quả hoạt động của ngân hàng', 'bsc' ) ?>
+																		<div class="tooltip-arrow" data-popper-arrow></div>
+																	</div>
+																</div>
+															</th>
+															<th>
+																<div class="flex items-center justify-center">
+																	<?php _e( 'Tỷ lệ Thu nhập từ lãi vay trên Tổng thu nhập hoạt động (NII/TOI)', 'bsc' ) ?>
+																	<button data-tooltip-target="tooltip-animations"
+																		data-tooltip-placement="top" class="ml-1" type="button">
+																		<?php echo svg( 'tooltip', '20', '20' ) ?>
+																	</button>
+																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+																		<?php _e( 'Tỷ lệ NII/TOI cho thấy tỷ trọng thu nhập từ lãi vay trên tổng thu nhập hoạt động của ngân hàng, từ đó cho thấy mức độ đa dạng thu nhập của ngân hàng đối với các nguồn thu nhập khác ngoài lãi vay', 'bsc' ) ?>
+																		<div class="tooltip-arrow" data-popper-arrow></div>
+																	</div>
+																</div>
+															</th>
+															<th>
+																<div class="flex items-center justify-center">
+																	<?php _e( 'Tỉ lệ CASA  (%)', 'bsc' ) ?>
+																	<button data-tooltip-target="tooltip-animations"
+																		data-tooltip-placement="top" class="ml-1" type="button">
+																		<?php echo svg( 'tooltip', '20', '20' ) ?>
+																	</button>
+																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
+																		<?php _e( 'Tỷ lệ CASA là tỷ lệ giữa tiền gửi thanh toán và tiết kiệm trên tổng tiền gửi, phản ánh khả năng huy động vốn chi phí thấp của ngân hàng.', 'bsc' ) ?>
+																		<div class="tooltip-arrow" data-popper-arrow></div>
+																	</div>
+																</div>
+															</th>
 														<?php } else { ?>
 															<?php if ( $check_linh_vuc == 'Securities' ) { ?>
-																<th><?php _e( 'Tỉ trọng DT môi giới', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+																<th><?php _e( 'Tỷ lệ doanh thu môi giới trên Doanh thu thuần (%)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải thu (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải trả (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản (lần)', 'bsc' ) ?></th>
 															<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
-																<th><?php _e( 'CP Bảo hiểm/DT', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+																<th><?php _e( 'Tỷ lệ chi phí bảo hiểm trên Doanh thu (%)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải thu (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải trả (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản (lần)', 'bsc' ) ?></th>
 															<?php } else {
 																?>
-																<th><?php _e( 'Vòng quay phải thu', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay phải trả', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay HTK', 'bsc' ) ?></th>
-																<th><?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?></th>
+																<th><?php _e( 'Tỷ lệ chi phí bảo hiểm trên Doanh thu (%)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải thu (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay khoản phải trả (lần)', 'bsc' ) ?></th>
+																<th><?php _e( 'Vòng quay tổng tài sản (lần)', 'bsc' ) ?></th>
 																<?php
 															} ?>
 														<?php } ?>
@@ -2293,8 +2408,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_CHI_PHI_TREN_DOANH_THU,
@@ -2312,7 +2431,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc' ) ?>
+													<?php _e( 'TỶ LỆ THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_THU_NHAP_TU_LAI_VAY = array_map( function ($item) {
@@ -2322,8 +2441,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_THU_NHAP_TU_LAI_VAY = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->THU_NHAP_TU_LAI_VAY,
@@ -2341,7 +2464,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'CASA', 'bsc' ) ?>
+													<?php _e( 'TỶ LỆ CASA', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_CASA = array_map( function ($item) {
@@ -2351,8 +2474,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_CASA = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->CASA,
@@ -2381,8 +2508,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
@@ -2410,8 +2541,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
@@ -2429,7 +2564,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN (LẦN)' ) ?>
+													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN' ) ?>
 												</h4>
 												<?php
 												$business_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
@@ -2439,8 +2574,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_TONG_TAI_SAN,
@@ -2459,7 +2598,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU 4 QUÝ', 'bsc' ) ?>
+													<?php _e( 'TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map( function ($item) {
@@ -2469,8 +2608,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
@@ -2498,8 +2641,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
@@ -2517,7 +2664,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN (LẦN)' ) ?>
+													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN' ) ?>
 												</h4>
 												<?php
 												$business_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
@@ -2527,8 +2674,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_TONG_TAI_SAN = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_TONG_TAI_SAN,
@@ -2558,8 +2709,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_THU = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_THU,
@@ -2577,7 +2732,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'VÒNG QUAY KHOẢN PHẢI TRẢ (LẦN)', 'bsc' ) ?>
+													<?php _e( 'VÒNG QUAY KHOẢN PHẢI TRẢ', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map( function ($item) {
@@ -2587,8 +2742,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_KHOAN_PHAI_TRA = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_KHOAN_PHAI_TRA,
@@ -2606,7 +2765,7 @@ function filter_details_symbol() {
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e( 'VÒNG QUAY HÀNG TỒN KHO (LẦN)', 'bsc' ) ?>
+													<?php _e( 'VÒNG QUAY HÀNG TỒN KHO', 'bsc' ) ?>
 												</h4>
 												<?php
 												$business_data_VONG_QUAY_HANG_TON_KHO = array_map( function ($item) {
@@ -2616,8 +2775,12 @@ function filter_details_symbol() {
 													];
 												}, $businessData );
 												$industry_data_VONG_QUAY_HANG_TON_KHO = array_map( function ($item) {
-													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
-													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													if ( $item->QUARTER ) {
+														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
+														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
+													} else {
+														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													}
 													return [ 
 														'date' => $date,
 														'value' => $item->VONG_QUAY_HANG_TON_KHO,
@@ -2884,7 +3047,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROE ) && $GetForecastBussiness->ROE !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROE * 100 ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROE * 100, false ) . '%';
 													}
 													?>
 												</td>
@@ -2906,7 +3069,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROA ) && $GetForecastBussiness->ROA !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROA * 100 ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROA * 100, false ) . '%';
 													}
 													?>
 												</td>
@@ -3056,7 +3219,7 @@ function filter_details_symbol() {
 							<?php _e( 'P/B', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->PB ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->PB ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3064,7 +3227,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROE', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->ROE ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROE, false ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3072,7 +3235,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROA', 'bsc' ) ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo $response_securityBasicInfo->data[0]->ROA ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROA, false ) ?>
 						</p>
 					</div>
 				</div>

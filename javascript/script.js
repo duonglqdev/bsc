@@ -45,10 +45,10 @@ import { DataTable } from 'simple-datatables';
 		adjustFormSearchWidth();
 	});
 	$(window).resize(function () {
-        checkScreenSize();
+		checkScreenSize();
 		handleMegamenu();
 		adjustFormSearchWidth();
-    });
+	});
 
 	function menuMobile() {
 		$('.bar_mobile').click(function () {
@@ -84,20 +84,19 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function checkScreenSize() {
-        const $html = $("html");
-        if ($(window).width() > 1024) {
-            if (!$html.hasClass("is-desktop")) {
-                $html.addClass("is-desktop");
-            }
-            $html.removeClass("is-mobile");
-        } else {
-            if (!$html.hasClass("is-mobile")) {
-                $html.addClass("is-mobile");
-            }
-            $html.removeClass("is-desktop");
-        }
-    }
-    
+		const $html = $('html');
+		if ($(window).width() > 1024) {
+			if (!$html.hasClass('is-desktop')) {
+				$html.addClass('is-desktop');
+			}
+			$html.removeClass('is-mobile');
+		} else {
+			if (!$html.hasClass('is-mobile')) {
+				$html.addClass('is-mobile');
+			}
+			$html.removeClass('is-desktop');
+		}
+	}
 
 	function backToTop() {
 		var $backToTop = $('.back-to-top');
@@ -115,35 +114,46 @@ import { DataTable } from 'simple-datatables';
 				$(this).attr('data-menu', menuId);
 				$('.main_menu-navbar > li.' + menuId).attr('data-menu', menuId);
 			});
-	
+
 			// Thêm data-submenu vào các menu con
-			$('.main_menu-navbar > li.menu-item-has-children').each(function () {
-				var dataMenuValue = $(this).attr('data-menu');
-				$(this).children('.sub-menu').attr('data-submenu', dataMenuValue);
-			});
-	
+			$('.main_menu-navbar > li.menu-item-has-children').each(
+				function () {
+					var dataMenuValue = $(this).attr('data-menu');
+					$(this)
+						.children('.sub-menu')
+						.attr('data-submenu', dataMenuValue);
+				}
+			);
+
 			// Thêm submenu-wrapper và submenu-content nếu chưa tồn tại
 			if ($('.submenu-wrapper').length === 0) {
-				$('.main_menu-navbar > li').wrapAll("<div class='submenu-wrapper' />");
-				$('.submenu-wrapper').after("<div class='submenu-content'></div>");
+				$('.main_menu-navbar > li').wrapAll(
+					"<div class='submenu-wrapper' />"
+				);
+				$('.submenu-wrapper').after(
+					"<div class='submenu-content'></div>"
+				);
 			}
-	
+
 			var timeout;
 			var isMouseInNavbar = false;
-	
+
 			// Xử lý hover vào menu chính
 			$('.main_menu > ul > li:not(.menu-home)').mouseenter(function () {
 				var dataMenuValue = $(this).attr('data-menu');
 				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
 				$('.main_menu-navbar').addClass('active');
-	
-				$('.submenu-wrapper > li[data-menu="' + dataMenuValue + '"] > a')
-					.trigger('mouseenter');
-	
+
+				$(
+					'.submenu-wrapper > li[data-menu="' +
+						dataMenuValue +
+						'"] > a'
+				).trigger('mouseenter');
+
 				$(this).addClass('active');
 				clearTimeout(timeout);
 			});
-	
+
 			// Xử lý hover ra khỏi menu chính
 			$('.main_menu > ul > li:not(.menu-home)').mouseleave(function () {
 				$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
@@ -156,24 +166,26 @@ import { DataTable } from 'simple-datatables';
 					}, 200);
 				}
 			});
-	
+
 			// Xử lý hover vào navbar
 			$('.main_menu-navbar').mouseenter(function () {
 				isMouseInNavbar = true;
 				clearTimeout(timeout);
 			});
-	
+
 			// Xử lý hover ra khỏi navbar
 			$('.main_menu-navbar').mouseleave(function () {
 				isMouseInNavbar = false;
 				timeout = setTimeout(() => {
 					$('.main_menu-navbar').removeClass('active');
-					$('.main_menu > ul > li:not(.menu-home)').removeClass('active');
+					$('.main_menu > ul > li:not(.menu-home)').removeClass(
+						'active'
+					);
 					$('.submenu-wrapper > li').removeClass('active');
 					$('.submenu-content').css('max-height', '0');
 				}, 200);
 			});
-	
+
 			// Xử lý hover vào submenu
 			$('.submenu-wrapper > li > a').mouseenter(function () {
 				var $parentLi = $(this).parent();
@@ -181,10 +193,10 @@ import { DataTable } from 'simple-datatables';
 				var submenuToMove = $parentLi.children(
 					'.sub-menu[data-submenu="' + dataMenuValue + '"]'
 				);
-	
+
 				$('.submenu-wrapper > li').removeClass('active');
 				$parentLi.addClass('active');
-	
+
 				if (submenuToMove.length) {
 					$('.submenu-content').html(submenuToMove.html());
 					var newHeight = $('.submenu-content').prop('scrollHeight');
@@ -196,7 +208,7 @@ import { DataTable } from 'simple-datatables';
 					$('.submenu-content').html('');
 					$('.submenu-content').css('max-height', '0');
 				}
-	
+
 				clearTimeout(timeout);
 			});
 		} else {
@@ -207,7 +219,6 @@ import { DataTable } from 'simple-datatables';
 			$('.submenu-content').remove();
 		}
 	}
-
 
 	function hoverSvg() {
 		$('.value-item svg path').css({
@@ -1850,31 +1861,35 @@ import { DataTable } from 'simple-datatables';
 			var $rows = $tbody.find('tr');
 			var headerIndex = $header.index();
 			var isAscending = $header.hasClass('ascending');
-	
+
 			// Xóa lớp `ascending` và `descending` khỏi tất cả các cột, sau đó thêm lớp thích hợp vào cột được nhấp
 			$table.find('th').removeClass('ascending descending');
 			$header.toggleClass('ascending', !isAscending);
 			$header.toggleClass('descending', isAscending);
-	
+
 			$rows.sort(function (rowA, rowB) {
 				var cellA = $(rowA).children().eq(headerIndex).text().trim();
 				var cellB = $(rowB).children().eq(headerIndex).text().trim();
-	
+
 				// Hàm chuyển đổi chuỗi thành số chuẩn
 				function parseNumber(value) {
 					// Loại bỏ các dấu phẩy và chuyển về số float
 					return parseFloat(value.replace(/,/g, ''));
 				}
-	
+
 				// Kiểm tra xem nội dung cột là số hay chữ
-				var a = $.isNumeric(cellA.replace(/,/g, '')) ? parseNumber(cellA) : cellA;
-				var b = $.isNumeric(cellB.replace(/,/g, '')) ? parseNumber(cellB) : cellB;
-	
+				var a = $.isNumeric(cellA.replace(/,/g, ''))
+					? parseNumber(cellA)
+					: cellA;
+				var b = $.isNumeric(cellB.replace(/,/g, ''))
+					? parseNumber(cellB)
+					: cellB;
+
 				if (a < b) return isAscending ? 1 : -1;
 				if (a > b) return isAscending ? -1 : 1;
 				return 0;
 			});
-	
+
 			// Xóa nội dung hiện tại của tbody và thêm các hàng đã sắp xếp
 			$tbody.empty().append($rows);
 		});
@@ -2804,7 +2819,6 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		socket.on('i', function (msg) {
-			console.log('/////i///////', msg.d);
 			if (Array.isArray(msg.d) && msg.d.length > 0) {
 				const share = msg.d[0];
 				if (
@@ -2931,10 +2945,10 @@ import { DataTable } from 'simple-datatables';
 					(share.B1 && share.CE) ||
 					(share.B1 && share.FL)
 				) {
-					const difference = share.CH;
-					if (share.B1 && share.CE && share.B1 === share.CE) {
+					const difference = share.CHP;
+					if (share.CP && share.CE && share.CP === share.CE) {
 						text_color_class = 'text-[#7F1CCD]';
-					} else if (share.B1 && share.FL && share.B1 === share.FL) {
+					} else if (share.CP && share.FL && share.CP === share.FL) {
 						text_color_class = 'text-[#1ABAFE]';
 					} else if (difference > 0) {
 						text_color_class = 'text-[#1CCD83]';
@@ -3044,12 +3058,12 @@ import { DataTable } from 'simple-datatables';
 								.html(exchange_title);
 						}
 						if (
-							share.bidPrice1 &&
+							share.closePrice &&
 							wrapper_price.find(
 								'.bsc_need_crawl_price-bidPrice1'
 							).length > 0
 						) {
-							var bidPrice1_title = share.bidPrice1;
+							var bidPrice1_title = share.closePrice;
 							bidPrice1_title = bsc_number_format(
 								bidPrice1_title / 1000
 							);
@@ -3169,60 +3183,56 @@ import { DataTable } from 'simple-datatables';
 								.find('.bsc_need_crawl_price-closeVol')
 								.html(closeVol_title);
 						}
-						if (share.reference && share.bidPrice1) {
-							const difference =
-								share.bidPrice1 - share.reference;
-							let text_color_class = '';
-							if (share.bidPrice1 == share.ceiling) {
-								text_color_class = 'text-[#7F1CCD]';
-							} else if (share.bidPrice1 == share.floor) {
-								text_color_class = 'text-[#1ABAFE]';
-							} else if (difference > 0) {
-								text_color_class = 'text-[#1CCD83]';
-							} else if (difference < 0) {
-								text_color_class = 'text-[#FE5353]';
-							} else if (difference === 0) {
-								text_color_class = 'text-[#EB0]';
-							}
-							if (
-								wrapper_price.find(
-									'.bsc_need_crawl_price-text-color'
-								).length > 0
-							) {
-								wrapper_price
-									.find('.bsc_need_crawl_price-text-color')
-									.addClass(text_color_class);
-							}
-							if (
-								wrapper_price.find(
+						let text_color_class = '';
+						if (share.closeprice == share.ceiling) {
+							text_color_class = 'text-[#7F1CCD]';
+						} else if (share.closeprice == share.floor) {
+							text_color_class = 'text-[#1ABAFE]';
+						} else if (share.changePercent > 0) {
+							text_color_class = 'text-[#1CCD83]';
+						} else if (share.changePercent < 0) {
+							text_color_class = 'text-[#FE5353]';
+						} else if (share.changePercent === 0) {
+							text_color_class = 'text-[#EB0]';
+						}
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-text-color'
+							).length > 0
+						) {
+							wrapper_price
+								.find('.bsc_need_crawl_price-text-color')
+								.addClass(text_color_class);
+						}
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-bidPrice1-reference'
+							).length > 0
+						) {
+							const formattedDifference = bsc_number_format(
+								share.change / 1000,
+								2
+							);
+							wrapper_price
+								.find(
 									'.bsc_need_crawl_price-bidPrice1-reference'
-								).length > 0
-							) {
-								const formattedDifference = bsc_number_format(
-									difference / 1000,
-									2
-								);
-								wrapper_price
-									.find(
-										'.bsc_need_crawl_price-bidPrice1-reference'
-									)
-									.html(formattedDifference);
-							}
-							if (
-								wrapper_price.find(
+								)
+								.html(formattedDifference);
+						}
+						if (
+							wrapper_price.find(
+								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+							).length > 0
+						) {
+							const formattedPercentage = bsc_number_format(
+								share.changePercent,
+								2
+							);
+							wrapper_price
+								.find(
 									'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-								).length > 0
-							) {
-								const formattedPercentage = bsc_number_format(
-									(difference / share.reference) * 100,
-									2
-								);
-								wrapper_price
-									.find(
-										'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-									)
-									.html(formattedPercentage + '%');
-							}
+								)
+								.html(formattedPercentage + '%');
 						}
 						let text_color_class_price_changePercent = '';
 
@@ -3406,7 +3416,7 @@ import { DataTable } from 'simple-datatables';
 		} else {
 			isAjaxInProgress = true;
 			$.ajax({
-				url: slug_api_price + 'datafeed/instruments?stocktype=2',
+				url: slug_api_price + 'datafeed/instruments',
 				type: 'GET',
 				contentType: 'application/json; charset=utf-8',
 				dataType: 'JSON',
@@ -3781,13 +3791,13 @@ import { DataTable } from 'simple-datatables';
 	}
 	function adjustFormSearchWidth() {
 		var $formSearch = $('.form-search-mb');
-	
+
 		if ($formSearch.length) {
-			var $container = $formSearch.parents('.container'); 
-	
+			var $container = $formSearch.parents('.container');
+
 			if ($container.length > 0) {
-				var containerWidth = $container.width(); 
-	
+				var containerWidth = $container.width();
+
 				$formSearch.css('width', containerWidth + 'px');
 			}
 		}

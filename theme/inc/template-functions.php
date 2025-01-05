@@ -723,7 +723,7 @@ function bsc_is_ios() {
 /**
  * Create function format number	
  */
-function bsc_number_format( $input ) {
+function bsc_number_format( $input, $format = true ) {
 	// Kiểm tra nếu input là số hợp lệ
 	if ( is_numeric( $input ) && is_finite( $input ) ) {
 		// Ép kiểu về số float
@@ -734,8 +734,12 @@ function bsc_number_format( $input ) {
 			// Nếu không có phần thập phân (số nguyên)
 			return number_format( $num, 0, '.', ',' );
 		} else {
-			// Nếu có phần thập phân, loại bỏ các số 0 dư thừa cuối cùng
-			return rtrim( number_format( $num, 2, '.', ',' ), '0' );
+			if ( ! $format ) {
+				return number_format( $num, 2, '.', ',' );
+			} else {
+				// Nếu có phần thập phân, loại bỏ các số 0 dư thừa cuối cùng
+				return rtrim( number_format( $num, 2, '.', ',' ), '0' );
+			}
 		}
 	} else {
 		return '-';
