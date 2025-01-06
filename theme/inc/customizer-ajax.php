@@ -1008,7 +1008,7 @@ function filter_details_symbol() {
 		?>
 		<div class="list__content">
 			<div
-				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
+				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-2' ?>">
 				<ul
 					class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
 					<li>
@@ -1056,7 +1056,7 @@ function filter_details_symbol() {
 							$industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
 							?>
 							<ul
-								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-6 mb-6 mr-5' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-6 mb-6 mr-5' : 'overflow-x-auto whitespace-nowrap gap-8 pb-4 pt-4 sticky top-0 z-[52] text-xs -mx-5' ?>">
 								<li class="lg:w-1/4"></li>
 								<?php
 								// Lấy dữ liệu từ đối tượng phản hồi
