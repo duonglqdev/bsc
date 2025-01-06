@@ -44,7 +44,7 @@
 								<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : '' ?>">
 									<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
 											echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+										class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>"
 										data-wow-duration="2s">
 										<?php echo svg( 'keyvisual', '24', '24' ) ?>
 										<?php the_sub_field( 'title' ) ?>
@@ -160,7 +160,7 @@
 							<p class="mt-4">
 								<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
 										echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>"
 									data-wow-duration="2s">
 									<?php echo svg( 'keyvisual', '24', '24' ) ?>
 									<?php the_sub_field( 'title' ) ?>
@@ -180,7 +180,7 @@
 		</div>
 	<?php } ?>
 	<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-		<div class="relative z-10 -mt-14">
+		<div class="relative z-10 sm:-mt-28 -mt-14">
 			<?php echo svg( 'wave' ) ?>
 		</div>
 	<?php } ?>

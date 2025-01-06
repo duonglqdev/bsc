@@ -22,6 +22,26 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 	<script>
+		(function () {
+			function checkScreenSize() {
+				const html = document.documentElement;
+				if (window.innerWidth > 1024) {
+					if (!html.classList.contains('is-desktop')) {
+						html.classList.add('is-desktop');
+					}
+					html.classList.remove('is-mobile');
+				} else {
+					if (!html.classList.contains('is-mobile')) {
+						html.classList.add('is-mobile');
+					}
+					html.classList.remove('is-desktop');
+				}
+			}
+			checkScreenSize();
+			window.addEventListener('resize', checkScreenSize);
+		})();
+	</script>
+	<script>
 		var slug_co_phieu = '<?php echo slug_co_phieu() ?>';
 		var slug_api_price = '<?php echo get_field( 'cdapi_ip_address_url_api_price', 'option' ) ?>';
 	</script>

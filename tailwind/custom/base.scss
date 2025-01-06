@@ -178,7 +178,7 @@
 	}
 	.hidden-br-pc {
 		br {
-			@apply hidden;
+			@apply sm:hidden;
 		}
 	}
 	.the_content p {
@@ -387,6 +387,11 @@
 					}
 				}
 			}
+		}
+	}
+	.hidden-br-pc {
+		br {
+			@apply sm:hidden;
 		}
 	}
 	.page__banner {
