@@ -20,9 +20,9 @@ get_header();
 				BIDV Securities Joint Stock
 				Company</p>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5 flex-wrap' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[547px] lg:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
 					<div
 						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?>">
 						<div
@@ -154,7 +154,7 @@ get_header();
 					</div>
 				</div>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[433px] max-w-[33%]' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[433px] lg:max-w-[33%] w-1/2' : 'w-full block_slider-item sameheight_item' ?>">
 					<div
 						class="bg-[#E8F5FF] rounded-xl h-full font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4' ?>">
 						<div
@@ -162,7 +162,7 @@ get_header();
 							<p class="text-paragraph text-opacity-70 text-xs">
 								<?php _e( 'Ngành', 'bsc' ) ?>
 							</p>
-							<p class="font-bold 2xl:text-lg uppercase">
+							<p class="font-bold 2xl:text-lg lg:text-base text-xs uppercase">
 								HÀNG CÔNG NGHIỆP & XUẤT KHẨU
 							</p>
 						</div>
@@ -330,9 +330,9 @@ get_header();
 			</ul>
 			<div class="tab-content block" id="tab-1">
 				<div
-					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[90px]' : '' ?>">
+					class="mt-10 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-[90px] lg:space-y-0 space-y-5' : '' ?>">
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[744px] lg:max-w-[56%]' : 'w-full' ?>">
 						<h2
 							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
 							BIỂU ĐỒ GIÁ
@@ -481,9 +481,9 @@ get_header();
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-5' : '' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'g:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
 						<div
-							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[386px] max-w-[29%]' : 'w-full' ?>">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[386px] lg:max-w-[29%]' : 'w-full' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								BÁO CÁO PHÂN TÍCH
@@ -534,7 +534,7 @@ get_header();
 							</div>
 						</div>
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[414px] max-w-[31%]' : 'mt-[50px]' ?>">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[414px] lg:max-w-[31%]' : 'mt-[50px]' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
 								CƠ CẤU CỔ ĐÔNG
@@ -717,7 +717,7 @@ get_header();
 						TIN TỨC VỀ MÃ CỔ PHIẾU
 					</h2>
 					<div
-						class="grid md:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?>">
+						class="grid lg:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?>">
 						<?php
 						for ( $i = 0; $i < 6; $i++ )
 						{
