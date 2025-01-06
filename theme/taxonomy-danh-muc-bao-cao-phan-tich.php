@@ -822,9 +822,9 @@ get_header();
 								<?php _e( 'Dự báo KQKD', 'bsc' ) ?>
 							</h2>
 							<div
-								class="rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
+								class="rounded-[10px] overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 								<div
-									class="relative text-xs text-center border border-[#EAEEF4] <?php echo $class ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : ' overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
+									class="text-xs text-center border border-[#EAEEF4] <?php echo $class ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : ' overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
 									<div
 										class="flex gap-5 text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<div
@@ -946,11 +946,11 @@ get_header();
 										</div>
 										<?php
 									} ?>
-									<?php if ( $check_logout ) {
+									
+								</div>
+								<?php if ( $check_logout ) {
 										echo $check_logout['html'];
 									} ?>
-								</div>
-
 							</div>
 						</div>
 						<?php
