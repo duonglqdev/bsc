@@ -29,12 +29,12 @@ $generateRandomString = generateRandomString();
                                 <?php the_sub_field('title') ?>
                             </h3>
                             <?php if (get_sub_field('mota')) { ?>
-                                <p class="font-bold text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg mb-6':'mb-4' ?>">
+                                <p class="font-bold text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-xl mb-6':'mb-4' ?>">
                                     <?php the_sub_field('mota') ?>
                                 </p>
                             <?php } ?>
                             <?php if (have_rows('danh_sach')) { ?>
-                                <ul class="list-icon space-y-4 font-Helvetica mb-8 2xl:text-lg font-bold">
+                                <ul class="list-icon space-y-4 font-Helvetica mb-8 2xl:text-lg font-bold ">
                                     <?php while (have_rows('danh_sach')): the_row(); ?>
                                         <li class="list-icon-item">
                                             <?php the_sub_field('content') ?>
