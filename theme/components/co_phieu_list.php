@@ -25,9 +25,9 @@ $time_cache = 3000;
 			class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>"
 			id="form-search-cophieu">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[20%] max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
 				<p
-					class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
+					class="font-medium mb-2 lg:text-base text-xs">
 					<?php _e( 'Tìm theo tên', 'bsc' ) ?>
 				</p>
 				<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
@@ -47,9 +47,9 @@ $time_cache = 3000;
 						if ( $codes ) {
 							?>
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[20%] max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
 						<p
-							class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
+							class="font-medium mb-2 lg:text-base text-xs">
 							<?php _e( 'Tìm mã cổ phiếu', 'bsc' ) ?>
 						</p>
 						<select
@@ -74,9 +74,9 @@ $time_cache = 3000;
 			if ( $response_GetIndustryLv2 ) {
 				?>
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[20%] max-w-[243px]' : 'w-1/2 px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[243px]' : 'w-1/2 px-2' ?>">
 					<p
-						class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
+						class="font-medium mb-2 lg:text-base text-xs">
 						<?php _e( 'Tìm theo ngành', 'bsc' ) ?>
 					</p>
 					<select
@@ -91,9 +91,9 @@ $time_cache = 3000;
 				</div>
 			<?php } ?>
 			<div
-				class="lflex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[20%] max-w-[241px]' : 'w-1/2 px-2' ?>">
+				class="lflex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[241px]' : 'w-1/2 px-2' ?>">
 				<p
-					class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>">
+					class="font-medium mb-2 lg:text-base text-xs">
 					<?php _e( 'Tìm theo sàn', 'bsc' ) ?>
 				</p>
 				<select

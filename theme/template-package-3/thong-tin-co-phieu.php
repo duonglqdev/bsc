@@ -27,16 +27,16 @@ get_header();
 				</div>
 			<?php } ?>
 			<form class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 items-end mb-10':'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>" id="form-search-cophieu">
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[300px]':'sm:w-1/2 w-full px-2' ?>">
-					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[20%] w-1/6 max-w-[300px]':'sm:w-1/2 w-full px-2' ?>">
+					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo tên
 					</p>
 					<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
 						class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-[10px] px-5':'h-[42px] rounded-lg px-4 text-xs' ?>"
 						id="search-name">
 				</div>
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[300px]':'sm:w-1/2 w-full px-2' ?>">
-					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[20%] w-1/6 max-w-[300px]':'sm:w-1/2 w-full px-2' ?>">
+					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm mã cổ phiếu
 					</p>
 					<select
@@ -48,8 +48,8 @@ get_header();
 					</select>
 					<input type="hidden" id="filter-code">
 				</div>
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[243px]':'w-1/2 px-2' ?>">
-					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[20%] w-1/6 max-w-[243px]':'w-1/2 px-2' ?>">
+					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo ngành
 					</p>
 					<select
@@ -62,8 +62,8 @@ get_header();
 					</select>
 					<input type="hidden" id="filter-major">
 				</div>
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[20%] max-w-[241px]':'w-1/2 px-2' ?>">
-					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'sm:text-base text-xs' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[20%] w-1/6 max-w-[241px]':'w-1/2 px-2' ?>">
+					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo sàn
 					</p>
 					<select

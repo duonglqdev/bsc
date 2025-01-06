@@ -12,7 +12,7 @@
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'large') ?>)">
                         <div class="w-1/2 h-full">
                             <div
-                                class="flex flex-col justify-end h-full font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'ml-10':'pb-[43px]' ?>">
+                                class="flex flex-col lg:justify-end justify-center h-full font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:ml-10':'pb-[43px]' ?>">
                                 <?php if (get_sub_field('title')) { ?>
                                     <p class="font-bold mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
                                         <?php the_sub_field('title') ?>
