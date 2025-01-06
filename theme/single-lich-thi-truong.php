@@ -34,7 +34,7 @@ get_header();
     )) ?>
     <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'mt-8 mb-[50px]' ?>">
         <div class="container">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex gap-[70px]':'space-y-10' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex lg:gap-[70px] gap-6':'space-y-10' ?>">
                 <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-80 max-w-[35%] shrink-0':'' ?>">
                     <div class="sticky top-5 z-10">
                         <div class="rounded-lg px-4 md:py-6 py-4 shadow-base">
