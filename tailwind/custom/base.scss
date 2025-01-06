@@ -372,7 +372,7 @@
 			@apply hidden mt-4 space-y-6;
 			> li {
 				> a {
-					@apply flex items-center gap-[12px] text-black text-opacity-70 text-xs;
+					@apply flex items-center gap-[12px] text-black text-opacity-70 text-xs uppercase;
 					img {
 						@apply w-6 h-6 object-contain;
 					}
@@ -383,7 +383,7 @@
 				.sub-menu {
 					@apply bg-white py-4 px-6 rounded-tl-lg rounded-bl-lg space-y-4 -mr-16;
 					a {
-						@apply text-paragraph font-medium;
+						@apply text-paragraph font-medium normal-case;
 					}
 				}
 			}
