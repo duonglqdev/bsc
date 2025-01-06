@@ -43,6 +43,7 @@ import { DataTable } from 'simple-datatables';
 		bsc_need_crawl_price();
 		checkScreenSize();
 		adjustFormSearchWidth();
+		transformText();
 	});
 	$(window).resize(function () {
 		checkScreenSize();
@@ -3801,5 +3802,18 @@ import { DataTable } from 'simple-datatables';
 				$formSearch.css('width', containerWidth + 'px');
 			}
 		}
+	}
+	function transformText(){
+		$('.upper-first h3').each(function() {
+			var htmlContent = $(this).html();
+		
+			var newHtml = htmlContent.replace(/>([^<]*)$/, function(_, text) {
+				var newText = text.trim().toLowerCase();
+		
+				newText = newText.charAt(0).toUpperCase() + newText.slice(1);
+				return '>' + newText;
+			});
+			$(this).html(newHtml);
+		});
 	}
 })(jQuery);

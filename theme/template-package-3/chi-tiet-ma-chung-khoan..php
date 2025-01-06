@@ -78,7 +78,7 @@ get_header();
 							 class="collapse-item has-children <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
 							 <div class="lg:px-[30px] px-5 py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs bg-white">
 								 <h3
-									 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300">
+									 class="flex-1 font-bold text-base flex items-center gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 upper-first">
 									 <?php echo svgClass( 'icon-up', '16', '16', 'transition-all shrink-0' ) ?>
 									 CÁC CHI TIÊU NGOÀI BẢNG
 								 </h3>

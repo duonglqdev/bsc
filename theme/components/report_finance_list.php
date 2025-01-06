@@ -10,7 +10,7 @@ if ( isset( $_GET['mck'] ) && $_GET['mck'] ) {
 				id="<?php echo $id_class ?>" <?php } ?>>
 			<div class="container">
 				<ul
-					class="customtab-nav  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between gap-10' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
+					class="customtab-nav flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
 					<?php
 					foreach ( $stt_re as $i ) {
 						?>
