@@ -27,15 +27,15 @@ get_header();
 					</div>
 				</div>
 			<?php } ?>
-			<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' gap-5 mb-10 mt-4 items-end':'gap-y-[12px] mb-6 mt-[12px] flex-wrap -mx-2' ?>">
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-80 lg:max-w-1/3':'w-1/2 px-2' ?>">
+			<div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:gap-5 gap-3 mb-10 mt-4 items-end':'gap-y-[12px] mb-6 mt-[12px] flex-wrap -mx-2' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'md:w-80 md:max-w-1/3':'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 						Mã cổ phiếu
 					</p>
 					<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
 						class="w-full rounded-[10px]  border-[#E4E4E4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-5 h-[50px]':'text-xs px-5 h-11' ?>">
 				</div>
-				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-80 lg:max-w-1/3':'w-1/2 px-2' ?>">
+				<div class="flex flex-col font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'md:w-80 md:max-w-1/3':'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
 						Loại sự kiện
 					</p>
@@ -70,7 +70,7 @@ get_header();
 					</div>
 				</div>
 				<button type="submit"
-					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]  px-6 py-3 font-semibold relative transition-all duration-500 leading-tight  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-xl inline-block  min-w-[155px]':'h-10 rounded-lg text-xs flex-1 ml-2' ?>">
+					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]  px-6 py-3 font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-xl inline-block lg:min-w-[155px]':'h-10 rounded-lg text-xs flex-1 ml-2' ?>">
 					<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 				</button>
 				<button type="button" id="btn-reload"
