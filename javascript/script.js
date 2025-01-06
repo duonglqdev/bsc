@@ -41,11 +41,10 @@ import { DataTable } from 'simple-datatables';
 		centerActiveMenu();
 		handleLoading();
 		bsc_need_crawl_price();
-		checkScreenSize();
 		adjustFormSearchWidth();
+		transformText();
 	});
 	$(window).resize(function () {
-		checkScreenSize();
 		handleMegamenu();
 		adjustFormSearchWidth();
 	});
@@ -83,20 +82,6 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-	function checkScreenSize() {
-		const $html = $('html');
-		if ($(window).width() > 1024) {
-			if (!$html.hasClass('is-desktop')) {
-				$html.addClass('is-desktop');
-			}
-			$html.removeClass('is-mobile');
-		} else {
-			if (!$html.hasClass('is-mobile')) {
-				$html.addClass('is-mobile');
-			}
-			$html.removeClass('is-desktop');
-		}
-	}
 
 	function backToTop() {
 		var $backToTop = $('.back-to-top');
@@ -3801,5 +3786,18 @@ import { DataTable } from 'simple-datatables';
 				$formSearch.css('width', containerWidth + 'px');
 			}
 		}
+	}
+	function transformText(){
+		$('.upper-first h3').each(function() {
+			var htmlContent = $(this).html();
+		
+			var newHtml = htmlContent.replace(/>([^<]*)$/, function(_, text) {
+				var newText = text.trim().toLowerCase();
+		
+				newText = newText.charAt(0).toUpperCase() + newText.slice(1);
+				return '>' + newText;
+			});
+			$(this).html(newHtml);
+		});
 	}
 })(jQuery);

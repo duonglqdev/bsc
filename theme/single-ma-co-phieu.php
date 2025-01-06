@@ -47,7 +47,7 @@ get_header();
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[547px] max-w-[41%]' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[547px] lg:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
 					<div class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?> space-y-6 h-full bsc_need_crawl_price"
 						data-symbol="<?php echo $symbol ?>" data-socket="true">
 						<div
@@ -169,7 +169,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[433px] max-w-[33%]' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api"
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[433px] lg:max-w-[33%] w-1/2' : 'w-full block_slider-item sameheight_item' ?> bsc-ajax-api"
 					data-api="securityBasicInfo-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
 						<div role="status" class="mt-10">
@@ -267,15 +267,15 @@ get_header();
 				} ?>
 			</ul>
 			<div class="tab-content block" id="details_symbol_tab-1">
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[90px]' : '' ?> mt-10">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-[90px] lg:space-y-0 space-y-10' : '' ?> mt-10">
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[744px] max-w-[56%]' : 'w-full' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[744px] lg:max-w-[56%] w-full' : 'w-full' ?>">
 						<h2
 							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
 							<?php _e( 'BIỂU ĐỒ GIÁ', 'bsc' ) ?>
 						</h2>
 						<div
-							class="rounded-2xl bg-[#F5FCFF] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px] relative' ?>">
+							class="rounded-2xl bg-[#F5FCFF] relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
 							<iframe width='100%' height='100%' class="lg:static absolute inset-0 w-full h-full"
 								src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light'
 								frameBorder='0' allowFullScreen></iframe>
@@ -339,9 +339,9 @@ get_header();
 					</div>
 				</div>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-5' : '' ?>">
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[386px] max-w-[29%]' : 'w-full' ?>">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[386px] lg:max-w-[29%]' : 'w-full' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
@@ -365,7 +365,7 @@ get_header();
 							</div>
 						</div>
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[414px] max-w-[31%]' : 'mt-[50px]' ?>">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[414px] lg:max-w-[31%]' : 'mt-[50px]' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
@@ -433,7 +433,7 @@ get_header();
 
 						<?php } ?>
 					</div>
-					<div class="grid md:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?> bsc-ajax-api"
+					<div class="grid lg:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?> bsc-ajax-api"
 						data-api="sg_ttvmcp" data-symbol="<?php echo $symbol ?>">
 						<div class="hidden">
 							<div role="status" class="mt-10">

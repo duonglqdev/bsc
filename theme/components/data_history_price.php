@@ -47,12 +47,12 @@ if ( $display == 'history' ) {
 				</p>
 				<div id="date-range-picker" date-rangepicker datepicker-format="<?php echo $dateformat ?>"
 					datepicker-autohide datepicker-orientation="bottom right"
-					class="flex items-center border border-[#EAEEF4] text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] px-5 rounded-[10px]' : 'h-[42px] px-4 rounded-lg' ?>">
+					class="flex items-center border border-[#EAEEF4] text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] lg:px-5 px-4 rounded-[10px]' : 'h-[42px] px-4 rounded-lg' ?>">
 
 					<div
 						class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 						<input id="datepicker-range-start" name="fromdate" type="text"
-							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] sm:max-w-[80px] max-w-[110px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
 							autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
 						<?php echo svgClass( 'day', '', '', 'md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
 					</div>
@@ -60,7 +60,7 @@ if ( $display == 'history' ) {
 					<div
 						class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 						<input id="datepicker-range-end" name="todate" type="text"
-							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
+							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 lg:max-w-[100px] sm:max-w-[80px] max-w-[110px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
 							autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
 						<?php echo svgClass( 'day', '', '', 'md:w-5 md:h-5 w-4 h-4 shrink-0' ) ?>
 					</div>

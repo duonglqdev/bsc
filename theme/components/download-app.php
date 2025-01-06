@@ -45,7 +45,7 @@
 													while (have_rows('mota')) :
 														the_row(); ?>
 														<li
-															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-full text-lg' : 'px-1 text-xs' ?>">
+															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-full text-lg' : 'px-1 sm:text-base text-xs' ?>">
 															<?php the_sub_field('content') ?>
 														</li>
 												<?php
@@ -100,7 +100,7 @@
 												if (get_sub_field('title')) { ?>
 													<li class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'my-0' : 'my-4 px-3' ?>">
 														<a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-															class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php if (have_rows('icon_app'))
+															class="text-green font-semibold inline-flex gap-x-3 items-center transition-all sm:text-base text-xs duration-500 hover:scale-105 <?php if (have_rows('icon_app'))
 																																												echo 'ml-9' ?>">
 															<?php echo svg('arrow-btn', '20', '20') ?>
 															<?php the_sub_field('title') ?>
@@ -172,7 +172,7 @@
 								<?php } else {
 								?>
 									<?php foreach ($images as $image) : ?>
-										<div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'pt-[75%]' ?>">
+										<div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'sm:pt-[62%] pt-[75%]' ?>">
 											<img loading="lazy" src="<?php echo esc_url($image['sizes']['large']); ?>" alt=""
 												class="object-contain m-auto <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[426px] static' : 'absolute w-full h-full inset-0' ?>">
 										</div>
@@ -185,7 +185,7 @@
 					?>
 					<div class="text-center">
 						<ul
-							class="inline-flex justify-center pb-2 border-b border-[#D9D9D9] relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-8 mt-[30px]' : 'gap-16 mt-4' ?>">
+							class="inline-flex justify-center pb-2 border-b border-[#D9D9D9] relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-8 mt-[30px]' : 'gap-16 mt-4 sm:text-lg text-base' ?>">
 							<?php
 							$i = 0;
 							while (have_rows('trai_nghiem')) :

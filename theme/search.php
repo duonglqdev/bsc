@@ -56,9 +56,9 @@ if ( isset( $_GET['type_search'] ) ) {
 	</section>
 	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:[my-100px] my-20' : 'my-[50px]' ?>">
 		<div class="container">
-			<div class="lg:flex gap-[70px] max-w-[1112px] mx-auto">
+			<div class="md:flex lg:gap-[70px] gap-6 max-w-[1112px] mx-auto">
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-					<div class="lg:w-[290px]">
+					<div class="md:w-[290px] max-w-[33.333%] shrink-0">
 						<ul
 							class="flex flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3 shadow-base sticky top-5 z-10">
 							<li>

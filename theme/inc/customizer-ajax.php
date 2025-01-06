@@ -1008,7 +1008,7 @@ function filter_details_symbol() {
 		?>
 		<div class="list__content">
 			<div
-				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
+				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-2' ?>">
 				<ul
 					class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
 					<li>
@@ -1056,7 +1056,7 @@ function filter_details_symbol() {
 							$industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
 							?>
 							<ul
-								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] mb-6 mr-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
+								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-6 mb-6 mr-5' : 'overflow-x-auto whitespace-nowrap gap-8 pb-4 pt-4 sticky top-0 z-[52] text-xs -mx-5' ?>">
 								<li class="lg:w-1/4"></li>
 								<?php
 								// Lấy dữ liệu từ đối tượng phản hồi
@@ -1082,7 +1082,7 @@ function filter_details_symbol() {
 									// Lấy giá trị kiểm toán tương ứng
 									$kiem_toan = isset( $kiemToanDataValues[ $key ] ) ? $kiemToanDataValues[ $key ] : '';
 									?>
-									<li class="lg:min-w-[140px] font-bold flex-1">
+									<li class="lg:min-w-[200px] md:min-w-[120px] font-bold">
 										<p><?php echo htmlspecialchars( $year ); ?></p>
 										<p class="text-[#1CCD83]">
 											<?php
@@ -1467,7 +1467,7 @@ function filter_details_symbol() {
 										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php
 												if ( $check_linh_vuc == 'Bank' ) {
 													_e( 'NIM', 'bsc' );
@@ -1516,7 +1516,7 @@ function filter_details_symbol() {
 										</div>
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php _e( 'BIÊN LỢI NHUẬN SAU THUẾ', 'bsc' ) ?>
 											</h4>
 											<?php
@@ -1550,7 +1550,7 @@ function filter_details_symbol() {
 										</div>
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php _e( 'ROE', 'bsc' ) ?>
 											</h4>
 											<?php
@@ -1684,7 +1684,7 @@ function filter_details_symbol() {
 										<?php if ( $check_linh_vuc == 'Bank' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ NỢ XẤU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1717,7 +1717,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ ĐÒN BẨY', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1735,7 +1735,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ DỰ PHÒNG NỢ XẤU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1769,7 +1769,7 @@ function filter_details_symbol() {
 										<?php } elseif ( $check_linh_vuc == 'Securities' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1802,7 +1802,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ ĐÒN BẨY', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1820,7 +1820,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ THANH TOÁN LÃI VAY' ) ?>
 												</h4>
 												<?php
@@ -1854,7 +1854,7 @@ function filter_details_symbol() {
 										<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1887,7 +1887,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ ĐÒN BẨY', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1905,7 +1905,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'BIÊN LỢI NHUẬN GỘP BẢO HIỂM' ) ?>
 												</h4>
 												<?php
@@ -1940,7 +1940,7 @@ function filter_details_symbol() {
 											?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'CHỈ SỐ THANH TOÁN HIỆN THỜI', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1973,7 +1973,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'NỢ VAY/Tổng tài sản', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -1991,7 +1991,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ THANH TOÁN LÃI VAY' ) ?>
 												</h4>
 												<?php
@@ -2111,7 +2111,7 @@ function filter_details_symbol() {
 									<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php if ( $check_linh_vuc == 'Bank' ) {
 													$business_data_TANG_TRUONG_CHO_VAY = array_map( function ($item) {
 														return [ 
@@ -2169,7 +2169,7 @@ function filter_details_symbol() {
 										</div>
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php _e( 'TĂNG TRƯỞNG EPS', 'bsc' ) ?>
 											</h4>
 											<?php
@@ -2202,7 +2202,7 @@ function filter_details_symbol() {
 										</div>
 										<div class="flex flex-col">
 											<h4
-												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 												<?php _e( 'TĂNG TRƯỞNG LỢI NHUẬN SAU THUẾ', 'bsc' ) ?>
 											</h4>
 											<?php
@@ -2397,7 +2397,7 @@ function filter_details_symbol() {
 										<?php if ( $check_linh_vuc == 'Bank' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ CHI PHÍ TRÊN DOANH THU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2430,7 +2430,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ THU NHẬP TỪ LÃI VAY/TỔNG THU NHẬP HOẠT ĐỘNG', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2463,7 +2463,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ CASA', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2497,7 +2497,7 @@ function filter_details_symbol() {
 										<?php } elseif ( $check_linh_vuc == 'Securities' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỶ LỆ DOANH THU MÔI GIỚI TRÊN DOANH THU THUẦN', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2530,7 +2530,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY KHOẢN PHẢI THU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2563,7 +2563,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN' ) ?>
 												</h4>
 												<?php
@@ -2597,7 +2597,7 @@ function filter_details_symbol() {
 										<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2630,7 +2630,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY KHOẢN PHẢI THU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2663,7 +2663,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY TỔNG TÀI SẢN' ) ?>
 												</h4>
 												<?php
@@ -2698,7 +2698,7 @@ function filter_details_symbol() {
 											?>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY KHOẢN PHẢI THU', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2731,7 +2731,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-green py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY KHOẢN PHẢI TRẢ', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2764,7 +2764,7 @@ function filter_details_symbol() {
 											</div>
 											<div class="flex flex-col">
 												<h4
-													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold md:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
+													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
 													<?php _e( 'VÒNG QUAY HÀNG TỒN KHO', 'bsc' ) ?>
 												</h4>
 												<?php
@@ -2854,7 +2854,7 @@ function filter_details_symbol() {
 							}
 							?>
 							<a href="<?php echo get_home_url() ?>/<?php echo $sub_url_bcpt ?>/<?php echo $symbol ?>"
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 md:text-lg text-xs font-Helvetica">
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 lg:text-lg text-xs font-Helvetica">
 								<?php _e( 'Xem chi tiết', 'bsc' ) ?>
 								<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 							</a>
@@ -4078,7 +4078,7 @@ function filter_details_symbol() {
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 w-fit">
 										<p class="flex-1 min-w-[200px]"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4088,7 +4088,7 @@ function filter_details_symbol() {
 										foreach ( $yearDataValues as $key => $year ) {
 											?>
 											<p
-												class="min-w-[135px] text-right pr-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												class="min-w-[135px] text-right lg:pr-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
 												<?php echo htmlspecialchars( $year ); ?>
 											</p>
 											<?php
@@ -4424,9 +4424,9 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 			<div class="<?php if ( ! empty( $item['children'] ) )
 				echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
 					<div
-						class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex flex-wrap 2xl:gap-x-10 gap-x-5 items-center text-xs ">
+						class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs ">
 					<h3
-						class="flex-1 font-bold flex items-baseline gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 text-left">
+						class="flex-1 font-bold flex items-baseline gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 text-left min-w-[200px]">
 						<?php
 						if ( ! empty( $item['children'] ) ) {
 							if ( ( $level === 0 ) ) {
@@ -4470,7 +4470,7 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					</div>
 				</div>
 				<?php if ( ! empty( $item['children'] ) ) { ?>
-					<div class="sub-collapse hidden text-xs" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
+					<div class="sub-collapse hidden text-xs upper-first" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
 						<?php renderMenu( $item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1 ); ?>
 					</div>
 				<?php } ?>
