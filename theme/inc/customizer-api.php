@@ -127,8 +127,8 @@ function slug_calendar($postid)
 // Thêm rewrite rule cho 'tin-tuc' vào functions.php
 function custom_rewrite_rule_for_news()
 {
-	if (get_field('cdtt2_slug', 'option')) {
-		$sub_url = get_field('cdtt2_slug', 'option');
+	if (get_field(get_locale() . '_cdtt2_slug', 'option')) {
+		$sub_url = get_field(get_locale() . '_cdtt2_slug', 'option');
 	} else {
 		$sub_url = __('tin-tuc', 'bsc');
 	}
@@ -196,8 +196,8 @@ add_action('template_redirect', 'custom_template_redirect');
 // Thêm rewrite rule cho 'bao-cao'
 function custom_rewrite_rule_for_report()
 {
-	if (get_field('cdbcpt2_slug', 'option')) {
-		$sub_url = get_field('cdbcpt2_slug', 'option');
+	if (get_field(get_locale() . '_cdbcpt2_slug', 'option')) {
+		$sub_url = get_field(get_locale() . '_cdbcpt2_slug', 'option');
 	} else {
 		$sub_url = __('bao-cao', 'bsc');
 	}
@@ -255,8 +255,8 @@ add_action('template_redirect', 'custom_template_redirect_for_report');
 // Thêm rewrite rule cho 'ma-co-phieu'
 function custom_rewrite_rule_for_co_phieu()
 {
-	if (get_field('cdttcp1_slug', 'option')) {
-		$sub_url = get_field('cdttcp1_slug', 'option');
+	if (get_field(get_locale() . '_cdttcp1_slug', 'option')) {
+		$sub_url = get_field(get_locale() . '_cdttcp1_slug', 'option');
 	} else {
 		$sub_url = __('ma-co-phieu', 'bsc');
 	}
@@ -347,8 +347,8 @@ add_action('template_redirect', 'custom_template_redirect_for_tag_report');
  */
 function custom_rewrite_rule_for_bao_cao_phan_tich()
 {
-	if (get_field('cdttcp1_slug_mck', 'option')) {
-		$sub_url = get_field('cdttcp1_slug_mck', 'option');
+	if (get_field(get_locale() . '_cdttcp1_slug_mck', 'option')) {
+		$sub_url = get_field(get_locale() . '_cdttcp1_slug_mck', 'option');
 	} else {
 		$sub_url = __('bao-cao-ma-co-phieu', 'bsc');
 	}
@@ -385,8 +385,8 @@ add_action('template_redirect', 'custom_template_redirect_for_bao_cao_phan_tich'
 // Thêm rewrite rule cho 'lich-su-kien'
 function custom_rewrite_rule_for_calendar()
 {
-	if (get_field('cdltt1_slug_lich', 'option')) {
-		$sub_url = get_field('cdltt1_slug_lich', 'option');
+	if (get_field(get_locale() . '_cdltt1_slug_lich', 'option')) {
+		$sub_url = get_field(get_locale() . '_cdltt1_slug_lich', 'option');
 	} else {
 		$sub_url = __('lich-su-kien', 'bsc');
 	}
@@ -753,7 +753,8 @@ function bsc_proxy_pdf_content()
 	$id = get_query_var('report_pdf_id');
 
 	if (! $id) {
-		wp_die('Không tìm thấy ID tệp.');
+		wp_redirect(home_url('/404'));
+		exit;
 	}
 	if ($id) {
 		$time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
@@ -762,7 +763,6 @@ function bsc_proxy_pdf_content()
 		);
 		$get_report_detail = get_data_with_cache('GetReportsDetail', $array_data, $time_cache);
 		if ($get_report_detail) {
-			// Lấy chi tiết báo cáo từ API response
 			$news = $get_report_detail->d[0];
 			$pdf_url = $news->reporturl;
 			$viewerpermission = $news->viewerpermission;
@@ -786,10 +786,12 @@ function bsc_proxy_pdf_content()
 
 	// Gửi yêu cầu đến URL PDF gốc
 	$args = array(
-		'timeout' => 15, // Tăng thời gian chờ lên 15 giây
-		'sslverify' => true, // Xác minh SSL (bỏ qua nếu cần)
+		'timeout' => 60,
+		'sslverify' => false,
+		'headers'  => array(
+			'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+		),
 	);
-
 	$response = wp_remote_get($pdf_url, $args);
 	if (is_wp_error($response)) {
 		$error_message = $response->get_error_message();
