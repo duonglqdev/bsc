@@ -538,6 +538,9 @@
 .is-mobile .show-4-item > div:nth-child(n+5) {
   @apply hidden;
 }
+.is-mobile .show-2-item > div:nth-child(n+3) {
+  @apply hidden;
+}
 .is-mobile .community_nav-item {
   @apply w-[35%];
 }

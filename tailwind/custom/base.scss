@@ -528,6 +528,11 @@
 			@apply hidden;
 		}
 	}
+	.show-2-item {
+		> div:nth-child(n + 3) {
+			@apply hidden;
+		}
+	}
 	.community_nav {
 		&-item {
 			@apply w-[35%];

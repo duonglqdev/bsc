@@ -1103,6 +1103,10 @@ import { DataTable } from 'simple-datatables';
 			$(this).prev('.grid,div').toggleClass('show-4-item');
 			$(this).find('span').toggle();
 		});
+		$('.show-item-btn-2').click(function () {
+			$(this).prev().toggleClass('show-2-item');
+			$(this).find('span').toggle();
+		});
 		$('.toggle-next').click(function () {
 			$(this).next().toggleClass('active');
 			$(this).find('svg').toggleClass('rotate-180');
