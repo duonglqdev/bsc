@@ -59,6 +59,42 @@ function filter_jobs_ajax()
 	die();
 }
 
+function load_more_recruitment() {
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+
+    $args = array(
+        'post_type' => 'tuyen-dung',
+        'post_status' => 'publish',
+        'posts_per_page' => 6,
+        'paged' => $paged,
+        'orderby' => 'meta_value_num',
+        'meta_key' => 'deadline',
+        'order' => 'DESC',
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        ob_start();
+        while ($query->have_posts()) {
+            $query->the_post();
+            get_template_part('template-parts/content', get_post_type());
+        }
+        $data = ob_get_clean();
+
+        wp_send_json_success([
+            'data' => $data,
+            'more_posts' => $query->max_num_pages > $paged,
+        ]);
+    } else {
+        wp_send_json_error();
+    }
+
+    wp_die();
+}
+add_action('wp_ajax_load_more_recruitment', 'load_more_recruitment');
+add_action('wp_ajax_nopriv_load_more_recruitment', 'load_more_recruitment');
+
 
 add_action('wp_ajax_filter_chuyengia', 'filter_chuyengia_ajax');
 add_action('wp_ajax_nopriv_filter_chuyengia', 'filter_chuyengia_ajax');

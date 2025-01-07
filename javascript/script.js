@@ -43,6 +43,7 @@ import { DataTable } from 'simple-datatables';
 		bsc_need_crawl_price();
 		adjustFormSearchWidth();
 		transformText();
+		loadMoreJob();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -1480,6 +1481,8 @@ import { DataTable } from 'simple-datatables';
 			load_jobs(1);
 		});
 
+		
+
 		function getMaxValue(dataSets) {
 			return (
 				Math.ceil(
@@ -1799,6 +1802,48 @@ import { DataTable } from 'simple-datatables';
 			}
 		);
 	});
+
+	function loadMoreJob() {
+		let page = 1;
+		const button = $('.show-more-recruitment');
+		const loading = $('#tuyen-dung-loading');
+		const container = $('#vi-tri-tuyen-dung');
+	
+		button.on('click', function () {
+			if (!button.hasClass('loading')) {
+				button.addClass('loading');
+				loading.removeClass('hidden');
+				page++;
+	
+				$.ajax({
+					url: ajaxurl.ajaxurl,
+					type: 'POST',
+					data: {
+						action: 'load_more_recruitment',
+						paged: page,
+					},
+					success: function (response) {
+						if (response.success && response.data) {
+							container.append(response.data.data);
+							if (!response.data.more_posts) {
+								button.hide();
+							}
+						} else {
+							button.hide();
+						}
+					},
+					complete: function () {
+						button.removeClass('loading');
+						loading.addClass('hidden');
+					},
+					error: function () {
+						console.error('Có lỗi xảy ra khi tải thêm dữ liệu.');
+					},
+				});
+			}
+		});
+	
+}
 
 	function handleScrollTable() {
 		function enableHorizontalScroll(element) {
