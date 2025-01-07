@@ -127,8 +127,8 @@ function slug_calendar($postid)
 // Thêm rewrite rule cho 'tin-tuc' vào functions.php
 function custom_rewrite_rule_for_news()
 {
-	if (get_field(get_locale() . '_cdtt2_slug', 'option')) {
-		$sub_url = get_field(get_locale() . '_cdtt2_slug', 'option');
+	if (get_field(pll_current_language() . '_cdtt2_slug', 'option')) {
+		$sub_url = get_field(pll_current_language() . '_cdtt2_slug', 'option');
 	} else {
 		$sub_url = __('tin-tuc', 'bsc');
 	}
@@ -196,8 +196,8 @@ add_action('template_redirect', 'custom_template_redirect');
 // Thêm rewrite rule cho 'bao-cao'
 function custom_rewrite_rule_for_report()
 {
-	if (get_field(get_locale() . '_cdbcpt2_slug', 'option')) {
-		$sub_url = get_field(get_locale() . '_cdbcpt2_slug', 'option');
+	if (get_field(pll_current_language() . '_cdbcpt2_slug', 'option')) {
+		$sub_url = get_field(pll_current_language() . '_cdbcpt2_slug', 'option');
 	} else {
 		$sub_url = __('bao-cao', 'bsc');
 	}
@@ -255,8 +255,9 @@ add_action('template_redirect', 'custom_template_redirect_for_report');
 // Thêm rewrite rule cho 'ma-co-phieu'
 function custom_rewrite_rule_for_co_phieu()
 {
-	if (get_field(get_locale() . '_cdttcp1_slug', 'option')) {
-		$sub_url = get_field(get_locale() . '_cdttcp1_slug', 'option');
+
+	if (get_field(pll_current_language() . '_cdttcp1_slug', 'option')) {
+		$sub_url = get_field(pll_current_language() . '_cdttcp1_slug', 'option');
 	} else {
 		$sub_url = __('ma-co-phieu', 'bsc');
 	}
@@ -347,8 +348,8 @@ add_action('template_redirect', 'custom_template_redirect_for_tag_report');
  */
 function custom_rewrite_rule_for_bao_cao_phan_tich()
 {
-	if (get_field(get_locale() . '_cdttcp1_slug_mck', 'option')) {
-		$sub_url = get_field(get_locale() . '_cdttcp1_slug_mck', 'option');
+	if (get_field(pll_current_language() . '_cdttcp1_slug_mck', 'option')) {
+		$sub_url = get_field(pll_current_language() . '_cdttcp1_slug_mck', 'option');
 	} else {
 		$sub_url = __('bao-cao-ma-co-phieu', 'bsc');
 	}
@@ -385,8 +386,8 @@ add_action('template_redirect', 'custom_template_redirect_for_bao_cao_phan_tich'
 // Thêm rewrite rule cho 'lich-su-kien'
 function custom_rewrite_rule_for_calendar()
 {
-	if (get_field(get_locale() . '_cdltt1_slug_lich', 'option')) {
-		$sub_url = get_field(get_locale() . '_cdltt1_slug_lich', 'option');
+	if (get_field(pll_current_language() . '_cdltt1_slug_lich', 'option')) {
+		$sub_url = get_field(pll_current_language() . '_cdltt1_slug_lich', 'option');
 	} else {
 		$sub_url = __('lich-su-kien', 'bsc');
 	}
