@@ -1421,11 +1421,11 @@ function filter_details_symbol()
 																	<?php
 																	_e('NIM (%)', 'bsc');
 																	?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations1-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations1-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ NIM (biên lãi ròng) là chênh lệch phần trăm giữa thu nhập lãi và chi phí lãi phải trả, dùng để đo lường hiệu quả và khả năng sinh lời của ngân hàng', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -2286,11 +2286,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỷ lệ chi phí trên doanh thu (CIR)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations2-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations2-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Chỉ số CIR phản ánh tỷ lệ phần trăm chi phí hoạt động so với tổng doanh thu của ngân hàng, từ đó có thể đánh giá hiệu quả hoạt động của ngân hàng', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -2300,11 +2300,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỷ lệ Thu nhập từ lãi vay trên Tổng thu nhập hoạt động (NII/TOI)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations3-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations3-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ NII/TOI cho thấy tỷ trọng thu nhập từ lãi vay trên tổng thu nhập hoạt động của ngân hàng, từ đó cho thấy mức độ đa dạng thu nhập của ngân hàng đối với các nguồn thu nhập khác ngoài lãi vay', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -2314,11 +2314,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỉ lệ CASA  (%)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations4-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations4-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ CASA là tỷ lệ giữa tiền gửi thanh toán và tiết kiệm trên tổng tiền gửi, phản ánh khả năng huy động vốn chi phí thấp của ngân hàng.', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>

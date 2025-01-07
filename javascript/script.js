@@ -82,7 +82,6 @@ import { DataTable } from 'simple-datatables';
 		}
 	}
 
-
 	function backToTop() {
 		var $backToTop = $('.back-to-top');
 
@@ -2255,7 +2254,28 @@ import { DataTable } from 'simple-datatables';
 
 		return formattedDates;
 	}
+	window.reinitializeTooltips = function () {
+		const tooltipGroups = ['Q', 'Y'];
+		const tooltipNumbers = [1, 2, 3, 4];
 
+		tooltipGroups.forEach((group) => {
+			tooltipNumbers.forEach((number) => {
+				const id = `tooltip-animations${number}-${group}`;
+				const triggerEl = document.querySelector(
+					`[data-tooltip-target="${id}"]`
+				);
+				const tooltipEl = document.getElementById(id);
+
+				if (triggerEl && tooltipEl) {
+					new Tooltip(tooltipEl, triggerEl, {});
+				} else {
+					console.warn(
+						`Tooltip target or element not found for ID: ${id}`
+					);
+				}
+			});
+		});
+	};
 	window.profitChart = function () {
 		if ($('.bsc_chart-display').length) {
 			$('.bsc_chart-display').each(function () {
@@ -3787,13 +3807,13 @@ import { DataTable } from 'simple-datatables';
 			}
 		}
 	}
-	function transformText(){
-		$('.upper-first h3').each(function() {
+	function transformText() {
+		$('.upper-first h3').each(function () {
 			var htmlContent = $(this).html();
-		
-			var newHtml = htmlContent.replace(/>([^<]*)$/, function(_, text) {
+
+			var newHtml = htmlContent.replace(/>([^<]*)$/, function (_, text) {
 				var newText = text.trim().toLowerCase();
-		
+
 				newText = newText.charAt(0).toUpperCase() + newText.slice(1);
 				return '>' + newText;
 			});
