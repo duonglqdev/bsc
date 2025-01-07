@@ -109,11 +109,11 @@ get_header();
 							<?php
 							$hinh_anh_sidebar = get_field( 'hinh_anh_sidebar', get_queried_object() );
 							if ( $hinh_anh_sidebar ) { ?>
-								<div class="mt-12">
-									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>" target="_blank">
+								
+									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ); ?>" class="block" target="_blank">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ); ?>
 									</a>
-								</div>
+								
 							<?php } ?>
 							<div class="p-6 bg-gradient-blue-50 mb-10">
 								<h3 class="text-primary-300 font-bold text-xl mb-4">
