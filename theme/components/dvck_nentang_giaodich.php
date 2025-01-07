@@ -24,12 +24,12 @@ $generateRandomString = generateRandomString();
                             </div>
                     <?php } ?>    
                         <div class="col-span-1">
-                            <h3 class="flex items-center font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' 2xl:text-2xl text-xl 2xl:mb-8 mb-5 gap-4':'mb-4 gap-2' ?>">
+                            <h3 class="flex items-center font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' 2xl:text-2xl text-xl 2xl:mb-8 mb-5 gap-4':'mb-4 gap-2 text-lg' ?>">
                                 <?php echo svgClass_dir(get_sub_field('icon'), '', '', '2xl:w-10 lg:w-8 w-[30px]') ?>
                                 <?php the_sub_field('title') ?>
                             </h3>
                             <?php if (get_sub_field('mota')) { ?>
-                                <p class="font-bold text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-xl mb-6':'mb-4' ?>">
+                                <p class="font-bold text-justify font-Helvetica <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-xl mb-6':'mb-4' ?>">
                                     <?php the_sub_field('mota') ?>
                                 </p>
                             <?php } ?>
