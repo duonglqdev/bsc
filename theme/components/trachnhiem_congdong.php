@@ -1,6 +1,6 @@
 <section class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[130px] pb-[100px]':'bg-gradient-blue-50 py-10' ?> trachnhiem_congdong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'g:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
+        <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1 col-span-1' : 'order-2' ?>">
                 <?php if (get_sub_field('title')) { ?>
                     <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-4' ?>">
@@ -34,7 +34,7 @@
             <?php if (have_rows('content')) { ?>
                 <div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-2 col-span-1' : 'order-1 pb-[80px] relative' ?>">
                     <div
-                        class="community_nav lex flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full m-auto justify-between' : 'relative flex justify-around ' ?>">
+                        class="community_nav flex flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full m-auto justify-between' : 'relative flex justify-around ' ?>">
                         <?php
                         $i = 0;
                         while (have_rows('content')): the_row(); ?>

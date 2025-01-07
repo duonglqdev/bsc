@@ -1099,7 +1099,7 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$('.show-item-btn').click(function () {
-			$(this).prev('.grid').toggleClass('show-4-item');
+			$(this).prev('.grid,div').toggleClass('show-4-item');
 			$(this).find('span').toggle();
 		});
 		$('.toggle-next').click(function () {
