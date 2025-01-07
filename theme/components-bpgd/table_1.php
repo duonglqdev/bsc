@@ -53,7 +53,7 @@
         </table>
     </div>
     <?php if (get_sub_field('content')) { ?>
-        <div class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:!text-base':'' ?>">
+        <div class="mt-4 font-Helvetica prose-ul:pl-5 prose-ul:list-disc <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:!text-base':'text-xs' ?>">
             <?php the_sub_field('content') ?>
         </div>
     <?php } ?>
