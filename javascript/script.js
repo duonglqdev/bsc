@@ -729,11 +729,11 @@ import { DataTable } from 'simple-datatables';
 				{
 					breakpoint: 1024,
 					settings: {
-						slidesToShow: 5,
+						slidesToShow: 3,
 					},
 				},
 				{
-					breakpoint: 600,
+					breakpoint: 767,
 					settings: {
 						slidesToShow: 3,
 					},
