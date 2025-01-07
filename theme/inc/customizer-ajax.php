@@ -993,7 +993,7 @@ function filter_details_symbol()
 						</div>
 						<div class="md:ml-[30px] ml-4">
 							<p
-								class="lg:font-bold font-semibold leading-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg line-clamp-2 mb-2' : 'line-clamp-3' ?>  transition-all duration-500 hover:text-primary-300 main_title">
+								class="lg:font-bold font-semibold leading-normal lg:line-clamp-2 line-clamp-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg mb-2' : 'text-base' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars($news->title) ?>
 							</p>
 							<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>

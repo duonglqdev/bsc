@@ -54,7 +54,7 @@
 
             <div class="md:ml-[30px] ml-4">
                 <p
-                    class="main_title font-bold leading-normal mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
+                    class="main_title font-bold leading-normal lg:line-clamp-2 line-clamp-3 mb-2 transition-all duration-500 hover:text-primary-300 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-base' ?>">
                     <?php echo htmlspecialchars($news->title) ?>
                 </p>
                 <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>

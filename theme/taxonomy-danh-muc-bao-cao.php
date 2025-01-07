@@ -185,10 +185,10 @@ get_header();
 								<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 									<div class="w-[48%] px-1.5 ">
 										<div
-											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-4 flex gap-4 justify-between items-center">
-											<label for="" class="font-medium text-[12px]"><?php _e( 'Năm:', 'bsc' ) ?></label>
+											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-3 flex gap-4 justify-between items-center">
+											<label for="" class="font-medium text-[12px]"><?php _e( 'Thời gian:', 'bsc' ) ?></label>
 											<select id="select_year" name="years"
-												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-0 !pr-8">
+												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-2 !pr-5 !bg-right">
 												<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
 												<?php
 												$currentYear = date( 'Y' );
@@ -274,10 +274,33 @@ get_header();
 
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between">
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
 									<?php echo get_the_archive_title() ?>
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>
+								<?php
+								$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao' );
+								$terms = get_terms( array(
+									'taxonomy' => 'danh-muc-bao-cao',
+									'hide_empty' => false,
+									'parent' => 0,
+									'exclude' => $excluded_category_id,
+								) );
+								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+									?>
+									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+										<?php foreach ( $terms as $term ) :
+											$active_class = ( is_tax( 'danh-muc-bao-cao', $term->term_id ) ) ? 'active' : '';
+											?>
+											<li>
+												<a href="<?php echo get_term_link( $term ); ?>"
+													class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+													<?php echo esc_html( $term->name ); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
 								<?php
 								$parent_term_id = get_queried_object_id();
 								$child_terms = get_terms( array(
