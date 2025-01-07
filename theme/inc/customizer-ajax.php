@@ -1782,7 +1782,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -1801,9 +1801,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -1850,11 +1850,11 @@ function filter_details_symbol()
 												}, $industryData);
 												?>
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
-													data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-													data-2="<?php echo htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-													data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
-													data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
-													data-color-1="#235BA8" data-color-2="#FFB81C">
+													data-2="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+													data-1="<?php echo htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+													data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
+													data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
+													data-color-2="#235BA8" data-color-1="#FFB81C">
 												</div>
 											</div>
 										<?php } elseif ($check_linh_vuc == 'Insurance') { ?>
@@ -1867,7 +1867,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -1886,9 +1886,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -1953,7 +1953,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -1972,9 +1972,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
