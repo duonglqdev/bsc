@@ -207,7 +207,7 @@ get_header();
 							}
 							if ( $hinh_anh_sidebar ) { ?>
 								
-									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>">
+									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>" class="block">
 										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
 									</a>
 								
@@ -352,7 +352,7 @@ get_header();
 						</div>
 					<?php } ?>
 					<div
-						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : '!text-xs' ?>">
+						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 prose-h2:text-inherit <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : '!text-xs' ?>">
 						<?php echo $body ?>
 						<?php
 						if ( $news->attachedfileurl ) {

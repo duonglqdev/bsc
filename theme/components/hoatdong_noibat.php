@@ -20,10 +20,18 @@
 						</div>
 					<?php } ?>
 					<ul
-						class="overflow-y-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom  max-h-[180px] space-y-2' : 'absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:font-semibold prose-a:text-paragraph prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded text-xs' ?>">
+						class="overflow-y-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom  max-h-[180px] space-y-2' : 'absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:font-semibold  prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded text-xs' ?>">
 						<?php
 						for ( $year = $currentYear; $year >= 2015; $year-- ) :
 							?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+							<li>
+								<a href="#"
+									class="<?php echo ( $year == $selectedYear ) ? 'active' : ''; ?> block lg:px-5 px-4 py-3 font-semibold lg:text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
+									<?php _e('Tất cả', 'bsc') ?>
+								</a>
+							</li>		
+							<?php } ?>
 							<li>
 								<a href="<?php echo get_permalink( get_the_ID() ) ?>?years=<?php echo $year ?><?php if ( get_sub_field( 'id_class' ) ) { ?><?php echo '#' . get_sub_field( 'id_class' ) ?><?php } ?>"
 									class="<?php echo ( $year == $selectedYear ) ? 'active' : ''; ?> block lg:px-5 px-4 py-3 font-semibold lg:text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">

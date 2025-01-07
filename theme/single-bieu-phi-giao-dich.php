@@ -33,8 +33,8 @@ $id_post = get_the_ID();
                                 </ul>
                             <?php else : ?>
                                 <div
-                                    class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
-                                    <?php echo get_the_archive_title() ?>
+                                    class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
+                                    <?php echo get_the_title()() ?>
                                     <?php echo svg( 'down-white', '20' ) ?>
                                 </div>
                                 <ul
@@ -63,7 +63,7 @@ $id_post = get_the_ID();
                         <?php echo $title; ?>
                     </h1>
                     <div
-                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]':'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 text-xxs'?>">
+                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]':'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 prose-table:text-xxs'?>">
                         <?php
                         $page_id = get_the_ID();
                         if (have_rows('home_components_stgd', $page_id)) {

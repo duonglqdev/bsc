@@ -17,7 +17,7 @@ get_header();
 		<div class="container">
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-6' : '' ?>">
 				<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-80 lg:max-w-[35%] max-w-[30%] shrink-0' : '' ?>">
-					<div class="sticky top-5 z-10">
+					<div class="lg:sticky lg:top-5 lg:z-10">
 						<?php
 						$terms = get_terms( array(
 							'taxonomy' => 'danh-muc-kien-thuc',

@@ -43,6 +43,7 @@ import { DataTable } from 'simple-datatables';
 		bsc_need_crawl_price();
 		adjustFormSearchWidth();
 		transformText();
+		loadMoreJob();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -729,11 +730,11 @@ import { DataTable } from 'simple-datatables';
 				{
 					breakpoint: 1024,
 					settings: {
-						slidesToShow: 5,
+						slidesToShow: 3,
 					},
 				},
 				{
-					breakpoint: 600,
+					breakpoint: 767,
 					settings: {
 						slidesToShow: 3,
 					},
@@ -1099,7 +1100,11 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$('.show-item-btn').click(function () {
-			$(this).prev('.grid').toggleClass('show-4-item');
+			$(this).prev('.grid,div').toggleClass('show-4-item');
+			$(this).find('span').toggle();
+		});
+		$('.show-item-btn-2').click(function () {
+			$(this).prev().toggleClass('show-2-item');
 			$(this).find('span').toggle();
 		});
 		$('.toggle-next').click(function () {
@@ -1480,6 +1485,8 @@ import { DataTable } from 'simple-datatables';
 			load_jobs(1);
 		});
 
+		
+
 		function getMaxValue(dataSets) {
 			return (
 				Math.ceil(
@@ -1799,6 +1806,48 @@ import { DataTable } from 'simple-datatables';
 			}
 		);
 	});
+
+	function loadMoreJob() {
+		let page = 1;
+		const button = $('.show-more-recruitment');
+		const loading = $('#tuyen-dung-loading');
+		const container = $('#vi-tri-tuyen-dung');
+	
+		button.on('click', function () {
+			if (!button.hasClass('loading')) {
+				button.addClass('loading');
+				loading.removeClass('hidden');
+				page++;
+	
+				$.ajax({
+					url: ajaxurl.ajaxurl,
+					type: 'POST',
+					data: {
+						action: 'load_more_recruitment',
+						paged: page,
+					},
+					success: function (response) {
+						if (response.success && response.data) {
+							container.append(response.data.data);
+							if (!response.data.more_posts) {
+								button.hide();
+							}
+						} else {
+							button.hide();
+						}
+					},
+					complete: function () {
+						button.removeClass('loading');
+						loading.addClass('hidden');
+					},
+					error: function () {
+						console.error('Có lỗi xảy ra khi tải thêm dữ liệu.');
+					},
+				});
+			}
+		});
+	
+}
 
 	function handleScrollTable() {
 		function enableHorizontalScroll(element) {

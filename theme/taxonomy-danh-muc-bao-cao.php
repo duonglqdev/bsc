@@ -110,31 +110,98 @@ get_header();
 							}
 							$total_page = ceil( $total_post / $post_per_page );
 							?>
-							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-8' : 'mt-8'; ?>">
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
-									class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-4 grid-cols-2 gap-5' : 'grid-cols-2 gap-y-5 gap-x-4'; ?>">
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
 									<?php
-									$item_count = 0;
-									foreach ( $response->d as $news ) {
-										$item_count++;
-										get_template_part( 'template-parts/content_thumbnail-quan-he-co-dong', null, array(
-											'data' => $news,
-										) );
+									// Lấy thông tin danh mục cha
+									$term = get_queried_object();
+									if ( $term && isset( $term->taxonomy ) && isset( $term->parent ) && $term->parent != 0 ) {
+										$parent_term = get_term( $term->parent, $term->taxonomy );
+										echo esc_html( $parent_term->name ); 
+									} else {
+										echo esc_html( $term->name ); 
 									}
 									?>
+									<?php echo svg( 'down-white', '20' ) ?>
 								</div>
 								<?php
-
-								if ( $item_count > 4 && wp_is_mobile() && bsc_is_mobile() ) {
+								$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao' );
+								$terms = get_terms( array(
+									'taxonomy' => 'danh-muc-bao-cao',
+									'hide_empty' => false,
+									'parent' => 0,
+									'exclude' => $excluded_category_id,
+								) );
+								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
 									?>
+									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+										<?php foreach ( $terms as $term ) :
+											$active_class = ( is_tax( 'danh-muc-bao-cao', $term->term_id ) ) ? 'active' : '';
+											?>
+											<li>
+												<a href="<?php echo get_term_link( $term ); ?>"
+												class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+													<?php echo esc_html( $term->name ); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+								<?php
+								$parent_term_id = get_queried_object_id();
+								$child_terms = get_terms( array(
+									'taxonomy' => 'danh-muc-bao-cao',
+									'parent' => $parent_term_id,
+									'hide_empty' => false,
+								) );
+
+								if ( ! empty( $child_terms ) && ! is_wp_error( $child_terms ) ) : ?>
+									<ul class="flex overflow-x-auto mt-4 gap-1.5 category-child">
+										<?php foreach ( $child_terms as $child_term ) :
+											$child_active_class = ( is_tax( 'danh-muc-bao-cao', $child_term->term_id ) ) ? 'active' : '';
+											?>
+											<li>
+												<a href="<?php echo get_term_link( $child_term ); ?>"
+												class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+													<?php echo esc_html( $child_term->name ); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
+
+							<?php } ?>
+							<?php 
+								$item_count = 0; 
+								?>
+
+								<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-8' : 'mt-8'; ?>">
 									<div
-										class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
-										<span><?php _e( 'Xem tất cả', 'bsc' ); ?></span>
-										<span class="hidden"><?php _e( 'Thu gọn', 'bsc' ); ?></span>
-										<?php echo svg( 'arrow-btn-2' ); ?>
+										class="grid <?php 
+										echo ! wp_is_mobile() && ! bsc_is_mobile() 
+											? 'lg:grid-cols-4 grid-cols-2 gap-5' 
+											: 'grid-cols-2 gap-y-5 gap-x-4'; 
+										echo $item_count > 4 ? ' show-4' : ''; ?>">
+										<?php
+										foreach ( $response->d as $news ) {
+											$item_count++;
+											get_template_part( 'template-parts/content_thumbnail-quan-he-co-dong', null, array(
+												'data' => $news,
+											) );
+										}
+										?>
 									</div>
-								<?php } ?>
-							</div>
+									<?php if ( $item_count > 4 && wp_is_mobile() && bsc_is_mobile() ) : ?>
+										<div
+											class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
+											<span><?php _e( 'Xem tất cả', 'bsc' ); ?></span>
+											<span class="hidden"><?php _e( 'Thu gọn', 'bsc' ); ?></span>
+											<?php echo svg( 'arrow-btn-2' ); ?>
+										</div>
+									<?php endif; ?>
+								</div>
+
 
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="mt-12">
@@ -185,10 +252,10 @@ get_header();
 								<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 									<div class="w-[48%] px-1.5 ">
 										<div
-											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-4 flex gap-4 justify-between items-center">
-											<label for="" class="font-medium text-[12px]"><?php _e( 'Năm:', 'bsc' ) ?></label>
+											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-3 flex gap-4 justify-between items-center">
+											<label for="" class="font-medium text-[12px]"><?php _e( 'Thời gian:', 'bsc' ) ?></label>
 											<select id="select_year" name="years"
-												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-0 !pr-8">
+												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-2 !pr-5 !bg-right">
 												<option value=""><?php _e( 'Chọn năm', 'bsc' ); ?></option>
 												<?php
 												$currentYear = date( 'Y' );
@@ -274,10 +341,42 @@ get_header();
 
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between">
-									<?php echo get_the_archive_title() ?>
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
+									<?php
+									// Lấy thông tin danh mục cha
+									$term = get_queried_object();
+									if ( $term && isset( $term->taxonomy ) && isset( $term->parent ) && $term->parent != 0 ) {
+										$parent_term = get_term( $term->parent, $term->taxonomy );
+										echo esc_html( $parent_term->name ); 
+									} else {
+										echo esc_html( $term->name ); 
+									}
+									?>
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>
+								<?php
+								$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao' );
+								$terms = get_terms( array(
+									'taxonomy' => 'danh-muc-bao-cao',
+									'hide_empty' => false,
+									'parent' => 0,
+									'exclude' => $excluded_category_id,
+								) );
+								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+									?>
+									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+										<?php foreach ( $terms as $term ) :
+											$active_class = ( is_tax( 'danh-muc-bao-cao', $term->term_id ) ) ? 'active' : '';
+											?>
+											<li>
+												<a href="<?php echo get_term_link( $term ); ?>"
+												class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+													<?php echo esc_html( $term->name ); ?>
+												</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								<?php endif; ?>
 								<?php
 								$parent_term_id = get_queried_object_id();
 								$child_terms = get_terms( array(
@@ -293,16 +392,16 @@ get_header();
 											?>
 											<li>
 												<a href="<?php echo get_term_link( $child_term ); ?>"
-													class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+												class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
 													<?php echo esc_html( $child_term->name ); ?>
 												</a>
 											</li>
 										<?php endforeach; ?>
 									</ul>
-
 								<?php endif; ?>
 
 							<?php } ?>
+
 
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-8' : 'space-y-6 mt-6' ?>">
 								<?php
@@ -313,13 +412,15 @@ get_header();
 								}
 								?>
 							</div>
-							<div class="mt-12">
-								<?php get_template_part( 'components/pagination', '', array(
-									'get' => 'api',
-									'total_page' => $total_page,
-									'url' => get_term_link( get_queried_object_id() ),
-								) ) ?>
-							</div>
+							<?php if ( isset( $total_page ) && $total_page > 1 ) : ?>
+								<div class="mt-12">
+									<?php get_template_part( 'components/pagination', '', array(
+										'get' => 'api',
+										'total_page' => $total_page,
+										'url' => get_term_link( get_queried_object_id() ),
+									) ) ?>
+								</div>
+							<?php endif; ?>
 							<?php
 						else :
 							get_template_part( 'template-parts/content', 'none' );

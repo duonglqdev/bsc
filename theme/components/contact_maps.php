@@ -1206,7 +1206,7 @@ if ($file) {
                     <div class="w-[460px] max-w-[35%]">
                         <div class="w-full rounded-[10px] shadow-base py-2">
                             <div
-                                class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
+                                class="mx-4 mb-2 rounded-[10px] flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'px-[26px] h-[50px]':'px-4 h-[46px]' ?> gap-3 border border-[#DDE2EA]">
                                 <?php echo svg('search', '24', '24') ?>
                                 <input type="text" id="search-contact"
                                     class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]">
@@ -1309,7 +1309,7 @@ if ($file) {
 
             filteredLocations.forEach((loc, index) => {
                 const branchItem = document.createElement('div');
-                branchItem.className = 'map-address p-4 border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] [&.active]:bg-[#EAF8FE] relative group hover:pb-9 [&.active]hover:pb-9 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>';
+                branchItem.className = 'map-address <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'p-4':'p-[12px]' ?> border-b border-[#DDE2EA] font-Helvetica cursor-pointer transition-all duration-500 hover:bg-[#EAF8FE] [&.active]:bg-[#EAF8FE] relative group hover:pb-9 [&.active]hover:pb-9 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>';
                 branchItem.dataset.index = index;
 
                 branchItem.innerHTML = `

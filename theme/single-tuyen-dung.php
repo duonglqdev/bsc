@@ -134,7 +134,7 @@ get_header();
 				<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 					<?php $current_date = new DateTime(current_time('Y-m-d')); ?>
 					<button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-						class="btn-base-yellow w-full h-full rounded-lg text-xs text-center <?php if (get_field('check_tuyen_xong') || $deadline_date < $current_date) echo 'opacity-50' ?>" <?php if (get_field('check_tuyen_xong') || $deadline_date < $current_date) echo 'disabled' ?>>
+						class="btn-base-yellow w-full h-10 rounded-lg text-xs text-center <?php if (get_field('check_tuyen_xong') || $deadline_date < $current_date) echo 'opacity-50' ?>" <?php if (get_field('check_tuyen_xong') || $deadline_date < $current_date) echo 'disabled' ?>>
 						<?php _e('Ứng tuyển ngay', 'bsc') ?>
 					</button>
 				<?php } ?>
@@ -142,51 +142,56 @@ get_header();
 		</div>
 	</section>
 	<?php
-	$custom_taxterms = wp_get_object_terms($post->ID, 'nghiep-vu', array('fields' => 'ids'));
-	$args = array(
-		'post_type' => 'tuyen-dung',
-		'post_status' => 'publish',
-		'posts_per_page' => 4,
-		'orderby' => 'meta_value_num',
-		'meta_key' => 'deadline',
-		'order' => 'DESC',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'nghiep-vu',
-				'field' => 'id',
-				'terms' => $custom_taxterms
-			)
-		),
-		'post__not_in' => array($post->ID),
-	);
-	$related_items = new WP_Query($args);
-	if ($related_items->have_posts()) : ?>
-		<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:my-[100px] my-10' : 'my-[50px]' ?>">
-			<div class="container">
-				<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-primary-300 text-[32px]' : 'text-[22px]' ?>">
-					<?php _e('CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc') ?>
-				</h3>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10' : 'mt-6' ?>">
-					<?php
-					while ($related_items->have_posts()) :
-						$related_items->the_post();
-						get_template_part('template-parts/content', get_post_type());
-					endwhile;
-					?>
-
-				</div>
-				<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-					<div
-						class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
-						<?php echo svg('arrow-btn', '16', '16') ?>
-						<?php _e('Xem thêm', 'bsc') ?>
+		$custom_taxterms = wp_get_object_terms($post->ID, 'nghiep-vu', array('fields' => 'ids'));
+		$args = array(
+			'post_type' => 'tuyen-dung',
+			'post_status' => 'publish',
+			'posts_per_page' => 4,
+			'orderby' => 'meta_value_num',
+			'meta_key' => 'deadline',
+			'order' => 'DESC',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'nghiep-vu',
+					'field' => 'id',
+					'terms' => $custom_taxterms,
+				),
+			),
+			'post__not_in' => array($post->ID),
+		);
+		$related_items = new WP_Query($args);
+		if ($related_items->have_posts()) : ?>
+			<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:my-[100px] my-10' : 'my-[50px]' ?>">
+				<div class="container">
+					<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-primary-300 text-[32px]' : 'text-[22px]' ?>">
+						<?php _e('CÁC VỊ TRÍ TUYỂN DỤNG KHÁC', 'bsc') ?>
+					</h3>
+					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10' : 'mt-6 show-2-item' ?>">
+						<?php
+						while ($related_items->have_posts()) :
+							$related_items->the_post();
+							get_template_part('template-parts/content', get_post_type());
+						endwhile;
+						?>
 					</div>
+					<?php
+					if ($related_items->post_count > 2 && wp_is_mobile() && bsc_is_mobile()) { ?>
+						<div
+							class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn-2 mt-8">
+							<?php echo svg('arrow-btn', '16', '16') ?>
+							<span>
+								<?php _e('Xem thêm', 'bsc') ?>
+							</span>
+							<span class="hidden">
+								<?php _e('Ẩn bớt', 'bsc') ?>
+							</span>
+						</div>
+					<?php } ?>
+				</div>
+			</section>
+		<?php endif;
+		wp_reset_postdata(); ?>
 
-				<?php } ?>
-			</div>
-		</section>
-	<?php endif;
-	wp_reset_postdata(); ?>
 </main>
 <div id="popup-modal" tabindex="-1"
 	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">

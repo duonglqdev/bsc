@@ -88,23 +88,24 @@
 					get_template_part( 'template-parts/content', get_post_type() );
 				endwhile;
 				?>
-				<?php if ( wp_is_mobile() && bsc_is_mobile() )
-				{ ?>
-					<div
-						class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
-						<span>
-							<?php _e( 'Xem tất cả', 'bsc' ) ?>
-						</span>
-						<?php echo svg( 'arrow-btn-2' ) ?>
-					</div>
-
-				<?php } ?>
+				
 				<?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
 					<div class="bsc-pagination mt-12 flex justify-center">
 						<?php bsc_pagination_ajax( $filter_job, 1 ) ?>
 					</div>
 				<?php } ?>
 			</div>
+			<?php if ( wp_is_mobile() && bsc_is_mobile() )
+				{ ?>
+					<div
+						class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-more-recruitment mt-8">
+						<span>
+							<?php _e( 'Xem thêm', 'bsc' ) ?>
+						</span>
+						<?php echo svg( 'arrow-btn-2' ) ?>
+					</div>
+
+				<?php } ?>
 			<div id="tuyen-dung-loading" class="hidden">
 				<div role="status">
 					<svg aria-hidden="true"
