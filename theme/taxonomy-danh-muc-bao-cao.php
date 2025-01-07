@@ -274,8 +274,17 @@ get_header();
 
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div
-									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
-									<?php echo get_the_archive_title() ?>
+									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
+									<?php
+									// Lấy thông tin danh mục cha
+									$term = get_queried_object();
+									if ( $term && isset( $term->taxonomy ) && isset( $term->parent ) && $term->parent != 0 ) {
+										$parent_term = get_term( $term->parent, $term->taxonomy );
+										echo esc_html( $parent_term->name ); 
+									} else {
+										echo esc_html( $term->name ); 
+									}
+									?>
 									<?php echo svg( 'down-white', '20' ) ?>
 								</div>
 								<?php
@@ -294,7 +303,7 @@ get_header();
 											?>
 											<li>
 												<a href="<?php echo get_term_link( $term ); ?>"
-													class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+												class="<?php echo esc_attr( $active_class ); ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 													<?php echo esc_html( $term->name ); ?>
 												</a>
 											</li>
@@ -316,16 +325,16 @@ get_header();
 											?>
 											<li>
 												<a href="<?php echo get_term_link( $child_term ); ?>"
-													class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+												class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
 													<?php echo esc_html( $child_term->name ); ?>
 												</a>
 											</li>
 										<?php endforeach; ?>
 									</ul>
-
 								<?php endif; ?>
 
 							<?php } ?>
+
 
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-8' : 'space-y-6 mt-6' ?>">
 								<?php
@@ -336,13 +345,15 @@ get_header();
 								}
 								?>
 							</div>
-							<div class="mt-12">
-								<?php get_template_part( 'components/pagination', '', array(
-									'get' => 'api',
-									'total_page' => $total_page,
-									'url' => get_term_link( get_queried_object_id() ),
-								) ) ?>
-							</div>
+							<?php if ( isset( $total_page ) && $total_page > 1 ) : ?>
+								<div class="mt-12">
+									<?php get_template_part( 'components/pagination', '', array(
+										'get' => 'api',
+										'total_page' => $total_page,
+										'url' => get_term_link( get_queried_object_id() ),
+									) ) ?>
+								</div>
+							<?php endif; ?>
 							<?php
 						else :
 							get_template_part( 'template-parts/content', 'none' );
