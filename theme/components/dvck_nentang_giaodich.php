@@ -59,7 +59,7 @@ $generateRandomString = generateRandomString();
                             ?>
                             <?php if ( wp_is_mobile() && bsc_is_mobile() )
 						{ ?>
-							<div class="relative w-full pt-[76%] mt-[54px]">
+							<div class="relative w-full pt-[76%] lg:mt-[54px] mt-10">
                             <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-contain m-auto')) ?>
 							</div>
 						<?php } ?>
