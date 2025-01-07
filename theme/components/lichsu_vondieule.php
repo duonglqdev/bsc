@@ -125,7 +125,7 @@
 					<p class="mt-2 font-Helvetica font-medium text-xxs">
 						<?php _e( 'Đơn vị tính: Tỷ đồng', 'bsc' ) ?>
 					</p>
-					<div class="mt-4 text-right">
+					<div class="my-4 text-right">
 						<a href="<?php echo esc_url( wp_get_attachment_url( get_sub_field( 'image_mb' ) ) ); ?>"
 							data-fancybox
 							class="rounded-full px-[12px] gap-2 py-1 inline-flex items-center font-Helvetica text-xs font-medium bg-[#EBF4FA]">
