@@ -1272,4 +1272,8 @@ button#ib-button-messaging {
   @apply opacity-60 pointer-events-none cursor-default;
 }
 
+main {
+  @apply overflow-x-hidden;
+}
+
 /*# sourceMappingURL=base.css.map */

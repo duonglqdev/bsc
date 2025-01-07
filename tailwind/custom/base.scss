@@ -1365,4 +1365,6 @@ button#ib-button-messaging {
 .slick-disabled {
 	@apply opacity-60 pointer-events-none cursor-default;
 }
-
+main{
+	@apply overflow-x-hidden;
+}

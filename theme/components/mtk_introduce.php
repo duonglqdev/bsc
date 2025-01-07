@@ -12,7 +12,7 @@
                         <ul
                             class="list-icon font-Helvetica text-primary-300 font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pl-6 mb-8 space-y-[15px]' : 'mb-5 space-y-4' ?>">
                             <?php while (have_rows('danh_sach')): the_row(); ?>
-                                <li class="list-icon-item !gap-2">
+                                <li class="list-icon-item lg:!gap-2">
                                     <?php the_sub_field('content') ?>
                                 </li>
                             <?php endwhile; ?>
