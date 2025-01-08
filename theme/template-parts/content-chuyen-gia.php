@@ -20,7 +20,7 @@ $fullname = get_the_title();
 			?>
 			<div
 				class="expert-destiny <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '-mt-5' : '-mt-3' ?>">
-				<div class="rounded-[45px]  py-1 inline-flex gap-[6px] items-center font-semibold relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[12px] px-[14px]' : 'sm:text-[12px] text-[10px] px-[7px]' ?>"
+				<div class="rounded-[45px]  py-1 inline-flex gap-[6px] items-center font-semibold relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[12px] px-[14px]' : 'sm:text-[12px] text-[10px] pl-[7px] pr-3' ?>"
 					style="background-color:<?php the_field( 'background', $menh[0] ) ?>; color:<?php the_field( 'color', $menh[0] ) ?>;">
 					<div
 						class="bg-white rounded-full flex items-center justify-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-5 h-5' : 'w-4 h-4' ?>">
@@ -82,7 +82,7 @@ $fullname = get_the_title();
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 					<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 				<?php else : ?>
-					<?php echo svgClass( 'kn', '15', '15', 'shrink-0 translate-y-[1px]' ) ?>
+					<?php echo svgClass( 'kn', '18', '18', 'shrink-0 translate-y-[2px]' ) ?>
 				<?php endif; ?>
 				<p>
 					<?php _e( 'Kinh nghiệm', 'bsc' ) ?>:
@@ -100,7 +100,7 @@ $fullname = get_the_title();
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 					<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 				<?php else : ?>
-					<?php echo svgClass( 'hv', '15', '15', 'shrink-0 translate-y-[1px]' ) ?>
+					<?php echo svgClass( 'hv', '18', '18', 'shrink-0 translate-y-[1px]' ) ?>
 				<?php endif; ?>
 				<p>
 					<?php _e( 'Trình độ học vấn', 'bsc' ) ?>:
@@ -118,7 +118,7 @@ $fullname = get_the_title();
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 					<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 				<?php else : ?>
-					<?php echo svgClass( 'tpdt', '15', '15', 'shrink-0 translate-y-[1px]' ) ?>
+					<?php echo svgClass( 'tpdt', '18', '18', 'shrink-0 translate-y-[1px]' ) ?>
 				<?php endif; ?>
 				<p>
 					<?php _e( 'Trường phái đầu tư', 'bsc' ) ?>:
@@ -136,7 +136,7 @@ $fullname = get_the_title();
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 					<?php echo svgClass( 'triangle', '20', '20', 'shrink-0' ) ?>
 				<?php else : ?>
-					<?php echo svgClass( 'dc', '15', '15', 'shrink-0 translate-y-[1px]' ) ?>
+					<?php echo svgClass( 'dc', '18', '18', 'shrink-0 translate-y-[1px]' ) ?>
 				<?php endif; ?>
 				<p>
 					<?php _e( 'Địa chỉ', 'bsc' ) ?>: <strong><?php echo $dia_chi[0]->name; ?></strong>

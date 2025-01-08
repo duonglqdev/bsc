@@ -31,24 +31,27 @@
                                 class="prose-a:text-primary-300 prose-a:font-bold prose-a:text-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-lg mb-3':'mb-[12px]' ?>">
                                 <?php the_sub_field('content') ?>
                             </div>
-                            <?php if (have_rows('danh_sach_nut')) {
-                                while (have_rows('danh_sach_nut')): the_row();
-                                    if (have_rows('button')) {
-                                        while (have_rows('button')): the_row();
-                                            if (get_sub_field('title')) { ?>
-                                                <p>
-                                                    <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                                        class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 hover:scale-105 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
-                                                        <?php the_sub_field('title') ?>
-                                                        <?php echo svg('arrow-btn', '12', '12') ?>
-                                                    </a>
-                                                </p>
-                            <?php
-                                            }
-                                        endwhile;
-                                    }
-                                endwhile;
-                            } ?>
+                            <?php if (have_rows('danh_sach_nut')) : ?>
+                                <div class="lg:space-y-3 space-y-[12px]">
+                                    <?php while (have_rows('danh_sach_nut')) : the_row(); ?>
+                                        <?php if (have_rows('button')) : ?>
+                                            <?php while (have_rows('button')) : the_row(); ?>
+                                                <?php if (get_sub_field('title')) : ?>
+                                                    <p>
+                                                        <a rel="<?php the_sub_field('rel'); ?>" 
+                                                        <?php if (get_sub_field('open_tab')) echo 'target="_blank"'; ?> 
+                                                        href="<?php echo check_link(get_sub_field('link')); ?>"
+                                                        class="text-green font-semibold inline-flex gap-x-2 items-center transition-all duration-500 lg:hover:scale-105 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'text-xs'; ?>">
+                                                            <?php the_sub_field('title'); ?>
+                                                            <?php echo svg('arrow-btn', '12', '12'); ?>
+                                                        </a>
+                                                    </p>
+                                                <?php endif; ?>
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endwhile; ?>

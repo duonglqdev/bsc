@@ -145,7 +145,7 @@ get_header();
 							<div
 								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'min-w-full snap-start' ?>">
 								<div
-									class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
+									class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5 flex flex-col justify-center' ?>">
 									<p>
 										2023
 									</p>

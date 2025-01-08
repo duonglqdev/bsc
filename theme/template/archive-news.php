@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="pt-12 featured_news bg-gradient-blue-to-bottom-50">
+	<section class="pt-12 featured_news lg:bg-gradient-blue-to-bottom-50">
 		<div class="container">
 			<div class="featured_news-list block_slider-show-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'dots-blue' ?>"
 				data-flickity='{

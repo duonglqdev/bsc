@@ -5,7 +5,7 @@ $bg = !wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb;
 ?>
 <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> mgck_banner" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class="bg-no-repeat bg-cover rounded-3xl overflow-hidden  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'min-h-[438px] flex flex-col justify-center' : 'min-h-[472px] py-10 px-7' ?>"
+        <div class="bg-no-repeat bg-cover rounded-3xl overflow-hidden  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'min-h-[438px] flex flex-col justify-center' : 'min-h-[472px] py-10 px-7 bg-center' ?>"
             style="background-image:url(<?php echo wp_get_attachment_image_url($bg, 'full') ?>)">
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[507px] ml-[114px]' : '' ?>">
                 <?php if (get_sub_field('title_big')) { ?>

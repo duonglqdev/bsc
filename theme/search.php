@@ -539,7 +539,7 @@ if ( isset( $_GET['type_search'] ) ) {
 					$total_page = ceil( $total_post / $post_per_page );
 					?>
 					<p
-						class="font-Helvetica sm:text-base text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+						class="font-Helvetica text-base <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
 						<?php _e( 'Tìm thấy', 'bsc' ) ?> <?php echo number_format( $total_post ) ?>
 						<?php _e( 'kết quả cho từ khóa', 'bsc' ) ?>: <span
 							class="font-bold text-primary-300"><?php echo $search ?></span>

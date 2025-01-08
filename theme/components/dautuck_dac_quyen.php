@@ -6,9 +6,9 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('dac_quyen')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue sm:-mx-3' ?>">
                 <?php while (have_rows('dac_quyen')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item w-full' ?>">
+                    <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item sm:w-1/2 w-full sm:px-3' ?>">
                         <div class="relative pt-[121.25%]">
                             <div class="absolute w-full h-full inset-0 flex flex-col">
                                 <div
@@ -65,7 +65,7 @@
                 while (have_rows('benefit')): the_row();
                     $i++;
                     if ($i == 1) { ?>
-                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[660px]':'' ?> w-full">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[660px]':'' ?> w-full">
                             <div class="overflow-hidden relative group block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pt-[87.8787%] pt-[42.8%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
                                 <?php echo wp_get_attachment_image(get_sub_field('background'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
                                 <?php if (get_sub_field('title')) { ?>

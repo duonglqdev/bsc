@@ -123,11 +123,11 @@
 						class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold font-medium prose-a:text-primary-300 prose-a:font-normal prose-th:px-3 prose-th:py-2 prose-th:border prose-th:border-[#C9CCD2] prose-td:px-3 prose-td:py-2 border-collapse prose-td:border prose-td:border-[#C9CCD2] text-center  overflow-hidden border border-[#C9CCD2] rounded-lg shadow-[inset_0px_0px_0px_1px_#ccc]">
 						<thead>
 							<tr>
-								<th class="min-w-[130px]"><?php _e('Ngày GD KHQ', 'bsc') ?></th>
-								<th class="min-w-[130px]"><?php _e('Ngày đăng ký', 'bsc') ?></th>
-								<th class="min-w-[130px]"><?php _e('Ngày thực thi', 'bsc') ?></th>
-								<th class="min-w-[130px]"><?php _e('Mã ck', 'bsc') ?></th>
-								<th class="w-3/5"><?php _e('Sự kiện', 'bsc') ?></th>
+								<th class="min-w-[130px]"><?php _e( 'Ngày GD KHQ', 'bsc' ) ?></th>
+								<th class="min-w-[130px]"><?php _e( 'Ngày đăng ký', 'bsc' ) ?></th>
+								<th class="min-w-[130px]"><?php _e( 'Ngày thực thi', 'bsc' ) ?></th>
+								<th class="min-w-[130px]"><?php _e( 'Mã CK', 'bsc' ) ?></th>
+								<th class="w-3/5"><?php _e( 'Sự kiện', 'bsc' ) ?></th>
 							</tr>
 						</thead>
 						<tbody class="font-Helvetica" id="list-lich-su-kien">

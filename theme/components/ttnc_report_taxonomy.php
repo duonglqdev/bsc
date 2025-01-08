@@ -42,7 +42,7 @@ if ($term) {
             } ?>
                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
                     <a href="<?php echo get_term_link($term) ?>"
-                        class="flex items-center justify-center gap-3 py-3 px-5 btn-base-yellow text-xs font-bold min-h-[38px]">
+                        class="flex items-center justify-center mt-8 gap-3 py-3 px-5 btn-base-yellow text-xs font-bold min-h-[38px]">
                         <?php echo svg('arrow-btn', '16', '16') ?>
                         <?php _e('Xem tất cả', 'bsc') ?>
                     </a>

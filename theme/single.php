@@ -285,7 +285,7 @@ get_header();
 									</div>
 									<div
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[14px]' : 'mt-2' ?> font-Helvetica xl:max-w-[433px]">
-										<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+										<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden lg:h-[5px] h-[3px]">
 											<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 												style="width:<?php echo round($completionPercentage, 2) ?>%"></p>
 										</div>
@@ -399,10 +399,10 @@ get_header();
 			"groupid" => $groupid,
 			'index' => 1
 		);
-		$response = get_data_with_cache('GetNews', $array_data, $time_cache);
-		if ($response) {
-	?>
-			<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:pt-16 pt-10 lg:pb-[106px] pb-10' : 'my-12' ?>">
+		$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
+		if ( $response ) {
+			?>
+			<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:pt-16 pt-10 lg:pb-[106px] pb-10' : 'mt-[18px] mb-12' ?>">
 				<div class="container">
 					<h2 class="heading-title mb-6 normal-case">
 						<?php echo $title_lienquan . ' ' . __('liên quan', 'bsc') ?>

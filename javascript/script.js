@@ -1360,6 +1360,7 @@ import { DataTable } from 'simple-datatables';
 				success: function (response) {
 					$('#chuyen-gia-loading').addClass('hidden');
 					$('#list-chuyen-gia').html(response);
+					$('.expert-modal-close').trigger('click');
 				},
 			});
 		}

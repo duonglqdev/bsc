@@ -21,7 +21,7 @@
                         $style = 'linear-gradient(226deg, #E5F4FF 26.88%, #FAFAFA 107.34%)';
                     }
                 ?>
-                    <div class="rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:p-[34px] xl:pt-[43px] p-6 min-h-[414px] shadow-base':'min-h-[461px] py-10 px-7 w-full block_slider-item' ?>"
+                    <div class="rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:p-[34px] xl:pt-[43px] p-6 min-h-[414px] shadow-base':'min-h-[440px] py-10 px-7 w-full block_slider-item' ?>"
                         style="background: <?php echo $style ?>">
                         <div class="max-w-[155px] w-full mx-auto">
                             <div class="relative w-full pt-[100%]">

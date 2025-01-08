@@ -38,9 +38,9 @@
         ?>
         <div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat mt-10  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex 2xl:px-24 px-12 gap-5 lg:min-h-[350px] min-h-[290px]' : 'pt-[30px] px-[22px] min-h-[350px]' ?>"
             style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 lg:flex flex-col justify-center' : '' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 md:flex flex-col justify-center' : '' ?>">
                 <?php if (get_sub_field('title')) { ?>
-                    <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-8' : 'mb-6' ?>">
+                    <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-8' : 'mb-6 text-center' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
                 <?php } ?>
@@ -48,9 +48,11 @@
                     <?php if ($style == 'style1') {
                     ?>
                         <?php
-                        if (have_rows('button') && !wp_is_mobile() && !bsc_is_mobile()) {
+                        
+                        if (have_rows('button') ) {
                             while (have_rows('button')): the_row();
                                 if (get_sub_field('title')) { ?>
+                                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                                     <div class="ml-14">
                                         <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="btn-base-yellow py-[12px] pl-4 pr-6">
                                             <span
@@ -60,12 +62,28 @@
                                             </span>
                                         </a>
                                     </div>
+                                                    
+                                <?php } ?>
                         <?php
                                 }
                             endwhile;
                         }
                         ?>
-                        <!-- @todoreturn : đã thêm field, em xử lý giao diện sau -->
+                        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                            <?php if (have_rows('link_tai')) { ?>
+                               
+                                   <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex flex-col gap-[18px] w-[184px] max-w-[40%]' : 'grid grid-cols-2 gap-3' ?>">
+                                       <?php while (have_rows('link_tai')): the_row(); ?>
+                                           <a href="<?php echo check_link(get_sub_field('link')) ?>" rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>>
+                                               <?php echo wp_get_attachment_image(get_sub_field('icon'), 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
+                                           </a>
+                                       <?php endwhile; ?>
+                                   </div>
+                                   
+                               <?php } ?>
+                                            
+                        <?php } ?>
+                      
                     <?php
                     } else { ?>
                         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-[44px] items-center ' : '' ?>">
@@ -83,17 +101,20 @@
                             <?php } ?>
                             <?php
                             $qr_app_mobile = get_sub_field('qr_code_image');
-                            if ($qr_app_mobile && !wp_is_mobile() && !bsc_is_mobile()) { ?>
+                            if ($qr_app_mobile) { ?>
+                            <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                                 <div class="qr p-3 bg-white max-w-[134px] w-full">
                                     <?php echo wp_get_attachment_image($qr_app_mobile, 'medium', '', array('class' => 'transition-all duration-500 hover:scale-105')) ?>
                                 </div>
+                                                
+                            <?php } ?>
                             <?php
                             } ?>
                         </div>
                     <?php } ?>
                 </div>
             </div>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 flex pt-[54px]' : 'pt-6' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 flex pt-[54px]' : 'pt-6 mb-12' ?>">
                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'large') ?>
             </div>
         </div>

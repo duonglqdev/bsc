@@ -13,7 +13,7 @@ if ($chuong_trinh_khuyen_mai_id) {
     $response = get_data_with_cache('GetNews', $array_data, $time_cache);
     if ($response) {
 ?>
-        <section class="pt-12 featured_news bg-gradient-blue-to-bottom-50 featured_gift" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+        <section class="pt-12 featured_news lg:bg-gradient-blue-to-bottom-50 featured_gift" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
             <div class="container">
                 <div  class="featured_news-list block_slider-show-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'dots-blue' ?>" data-flickity='{
 				"draggable": true,
@@ -83,7 +83,7 @@ if ($chuong_trinh_khuyen_mai_id) {
                                         </div>
                                         <div class="font-Helvetica  xl:max-w-[433px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-[14px] mb-12':'mt-2' ?>">
                                             <div
-                                                class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+                                                class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden md:h-[5px] h-[3px] w-full">
                                                 <p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
                                                     style="width:<?php echo round($completionPercentage, 2)  ?>%"></p>
                                             </div>
