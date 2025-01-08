@@ -319,6 +319,111 @@ get_header();
 					if ( $type_danh_muc == 'thitruong' ) {
 						$class = '';
 						?>
+
+						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+							<?php
+							
+								if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
+									$current_term_id = get_queried_object_id();
+									$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
+
+									if ( $current_term && ! is_wp_error( $current_term ) ) {
+										$child_terms = get_terms( array(
+											'taxonomy'   => 'danh-muc-bao-cao-phan-tich',
+											'parent'     => $current_term_id,
+											'hide_empty' => false,
+										) );
+
+										$active_term_name = __( 'Tất cả', 'bsc' );
+										if ( ! empty( $child_terms ) ) {
+											foreach ( $child_terms as $child_term ) {
+												if ( $current_term_id === $child_term->term_id ) {
+													$active_term_name = $child_term->name;
+													break;
+												}
+											}
+										} else {
+											
+											$active_term_name = $current_term->name;
+										}
+										?>
+
+										
+										<div
+											class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cate_title">
+											<?php echo esc_html( $active_term_name ); ?>
+											<?php echo svg( 'down-white', '20' ); ?>
+										</div>
+										
+										<?php
+										
+										$excluded_category_id = get_array_id_taxonomy_hide( 'danh-muc-bao-cao-phan-tich' );
+										$child_terms = get_terms( array(
+											'taxonomy'   => 'danh-muc-bao-cao-phan-tich',
+											'parent'     => $current_term_id,
+											'hide_empty' => false,
+											'exclude'    => $excluded_category_id,
+										) );
+
+										if ( ! empty( $child_terms ) ) { ?>
+											<ul
+												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+												<li>
+													<a href="<?php echo get_term_link( $current_term ); ?>"
+														class="text-xs px-3 py-2 rounded-md font-medium text-white bg-primary-300">
+														<?php _e( 'Tất cả', 'bsc' ); ?>
+													</a>
+												</li>
+												<?php foreach ( $child_terms as $child_term ) {
+													$is_active = ( $current_term_id === $child_term->term_id ) ? 'active' : ''; ?>
+													<li>
+														<a href="<?php echo get_term_link( $child_term ); ?>"
+															class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+															<?php echo esc_html( $child_term->name ); ?>
+														</a>
+													</li>
+												<?php } ?>
+											</ul>
+										<?php } else {
+											
+											$parent_term_id = $current_term->parent;
+											if ( $parent_term_id ) {
+												$parent_term = get_term( $parent_term_id, 'danh-muc-bao-cao-phan-tich' );
+												$siblings = get_terms( array(
+													'taxonomy'   => 'danh-muc-bao-cao-phan-tich',
+													'parent'     => $parent_term_id,
+													'hide_empty' => false,
+													'exclude'    => $excluded_category_id,
+												) );
+
+												if ( ! empty( $siblings ) ) { ?>
+													<ul
+														class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+														<li>
+															<a href="<?php echo get_term_link( $parent_term ); ?>"
+																class="text-xs px-3 py-2 rounded-md font-medium text-white bg-primary-300">
+																<?php _e( 'Tất cả', 'bsc' ); ?>
+															</a>
+														</li>
+														<?php foreach ( $siblings as $sibling ) {
+															$is_active = ( $current_term_id === $sibling->term_id ) ? 'active' : ''; ?>
+															<li>
+																<a href="<?php echo get_term_link( $sibling ); ?>"
+																	class="<?php echo $is_active; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+																	<?php echo esc_html( $sibling->name ); ?>
+																</a>
+															</li>
+														<?php } ?>
+													</ul>
+												<?php }
+											}
+										}
+									}
+								}
+							?>
+
+						<?php } ?>
+
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px]' ?>">
 							<h3
 								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'mb-4 text-lg' ?>">
@@ -366,7 +471,7 @@ get_header();
 															</div>
 														</div>
 
-														<div class="flex items-end justify-between pb-2">
+														<div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
 															<div class="flex flex-col font-Helvetica">
 																<p class="text-paragraph text-xs">
 																	<?php _e( 'VN-index', 'bsc' ) ?>
@@ -380,7 +485,7 @@ get_header();
 																<?php _e( 'Cơ sở', 'bsc' ) ?>
 															</div>
 														</div>
-														<div class="flex items-end justify-between pb-2">
+														<div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-end justify-between pb-2' : 'flex-col gap-4 text-center' ?>">
 															<div class="flex flex-col font-Helvetica">
 																<p class="text-paragraph text-xs">
 																	<?php _e( 'VN-index', 'bsc' ) ?>
@@ -1106,7 +1211,8 @@ get_header();
 
 						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 							<?php
-								if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) ) {
+							$type_danh_muc = get_field( 'type_danh_muc', get_queried_object() );
+								if ( is_tax( 'danh-muc-bao-cao-phan-tich' ) && $type_danh_muc ==! 'thitruong' ) {
 									$current_term_id = get_queried_object_id();
 									$current_term = get_term( $current_term_id, 'danh-muc-bao-cao-phan-tich' );
 
@@ -1203,8 +1309,7 @@ get_header();
 										}
 									}
 								}
-								?>
-
+							?>
 
 						<?php } ?>
 
