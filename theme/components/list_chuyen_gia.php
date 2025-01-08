@@ -117,7 +117,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
             </form>
         <?php else : ?>
             <div class="flex gap-2 items-center mb-4 text-xs font-bold font-Helvetica">
-                <button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2]" data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
+                <button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2] expert-modal-close" data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
                     <?php echo svgClass('filter-icon', '', '', 'shrink-0') ?>
                     <?php _e('Bộ lọc', 'bsc') ?>
                 </button>
@@ -264,7 +264,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
         <div class="relative w-full max-w-[946px] max-h-full">
             <div class="relative bg-white shadow overflow-hidden p-5">
                 <div class="flex items-center justify-between mb-4 pb-5 border-b border-[#C9CCD2]">
-                    <button type="button" class="inline-flex gap-3 items-center font-Helvetica font-bold text-xs">
+                    <button type="button" class="inline-flex gap-3 items-center font-Helvetica font-bold text-xl">
                         <?php echo svgClass('filter-icon', '', '', 'shrink-0') ?>
                         <?php _e('Bộ lọc', 'bsc') ?>
                     </button>
@@ -304,7 +304,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                             <div id="kinh_nghiem" class="space-y-2 mb-6 pb-6 border-b border-[#C9CCD2]">
                                 <?php foreach ($kinh_nghiems as $kinh_nghiem) : ?>
                                     <div class="form-group flex items-center gap-4 font-Helvetica font-medium">
-                                        <input type="checkbox" value="<?php echo $kinh_nghiem->term_id ?>" id="<?php echo $kinh_nghiem->term_id ?>" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-0 focus:outline-0 focus:shadow-none ">
+                                        <input type="checkbox" value="<?php echo $kinh_nghiem->term_id ?>" id="<?php echo $kinh_nghiem->term_id ?>" class="w-4 h-4 text-primary-300 border-gray-300 rounded focus:ring-0 focus:outline-0 focus:shadow-none ">
                                         <label for="<?php echo $kinh_nghiem->term_id ?>"><?php echo esc_html($kinh_nghiem->name); ?></label>
                                     </div>
                                 <?php endforeach; ?>
@@ -333,7 +333,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                                     <div class="form-group flex items-center gap-4 font-Helvetica font-medium">
                                         <input type="checkbox" value="<?php echo $menh->term_id; ?>" id="<?php echo $menh->term_id; ?>" class="hidden peer">
                                         <label for="<?php echo $menh->term_id; ?>"
-                                            class="rounded-[45px] py-1 inline-flex gap-[6px] items-center font-semibold relative text-xs px-2 border-2 border-transparent peer-checked:border-black peer-checked:shadow-lg"
+                                            class="rounded-[45px] py-1 inline-flex gap-[6px] items-center font-medium relative text-xs pl-2 pr-[12px] border-2 border-transparent peer-checked:border-black peer-checked:shadow-lg"
                                             style="background-color: <?php echo esc_attr($background); ?>; color: <?php echo esc_attr($color); ?>;">
                                             <div class="bg-white rounded-full flex items-center justify-center w-4 h-4">
                                                 <?php if ($icon): ?>
