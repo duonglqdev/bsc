@@ -10,7 +10,7 @@ $array_data = array(
 $response = get_data_with_cache('GetNews', $array_data, $time_cache);
 if ($response) {
 ?>
-    <section class="pt-12 featured_news bg-gradient-blue-to-bottom-50" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+    <section class="pt-12 featured_news lg:bg-gradient-blue-to-bottom-50" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
         <div class="container">
             <div class="featured_news-list block_slider-show-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'dots-blue' ?>" data-flickity='{
 				"draggable": true,

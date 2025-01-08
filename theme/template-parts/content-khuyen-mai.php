@@ -52,7 +52,7 @@
 				<div class="font-medium"><?php echo $formattedStartDate ?> - <?php echo $formattedEndDate ?></div>
 			</div>
 			<div class="mt-[14px]">
-				<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden h-[5px]">
+				<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden lg:h-[5px] h-[3px]">
 					<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
 						style="width:<?php echo round( $completionPercentage, 2 ) ?>%"></p>
 				</div>
