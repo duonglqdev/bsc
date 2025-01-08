@@ -116,7 +116,7 @@ $time_cache = 3000;
 			</button>
 		</form>
 		<div class="flex flex-col">
-			<p class="italic mb-4 text-right"><?php _e( 'Đơn vị Vốn hóa, GTGD: Triệu đồng', 'bsc' ) ?></p>
+			<p class="italic mb-4 text-right sm:text-base text-xxs font-Helvetica"><?php _e( 'Đơn vị Vốn hóa, GTGD: Triệu đồng', 'bsc' ) ?></p>
 			<?php
 			$array_data = array(
 				'lang' => pll_current_language(),

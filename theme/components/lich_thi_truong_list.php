@@ -125,7 +125,7 @@
 								<th class="min-w-[130px]"><?php _e( 'Ngày GD KHQ', 'bsc' ) ?></th>
 								<th class="min-w-[130px]"><?php _e( 'Ngày đăng ký', 'bsc' ) ?></th>
 								<th class="min-w-[130px]"><?php _e( 'Ngày thực thi', 'bsc' ) ?></th>
-								<th class="min-w-[130px]"><?php _e( 'Mã ck', 'bsc' ) ?></th>
+								<th class="min-w-[130px]"><?php _e( 'Mã CK', 'bsc' ) ?></th>
 								<th class="w-3/5"><?php _e( 'Sự kiện', 'bsc' ) ?></th>
 							</tr>
 						</thead>
