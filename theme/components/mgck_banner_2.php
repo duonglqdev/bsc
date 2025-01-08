@@ -8,7 +8,7 @@
             $bg_mb = get_sub_field('background');
         }
         ?>
-        <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-7 2xl:px-[75px] px-10 min-h-80 lg:grid-cols-2 grid-cols-1 gap-10 items-center' : 'gap-6 pt-9 pl-6' ?>"
+        <div class="rounded-2xl overflow-hidden bg-no-repeat bg-cover grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-7 2xl:px-[75px] px-10 min-h-80 lg:grid-cols-2 grid-cols-1 gap-10 items-center' : 'gap-6 pt-9 pl-6 grid-cols-1' ?>"
             style="background-image:url(<?php echo wp_get_attachment_image_url(!wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb, 'full') ?>)">
             <div class="col">
                 <?php if (get_sub_field('title')) { ?>
@@ -31,8 +31,8 @@
                 }
                 ?>
             </div>
-            <div class="col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'max-w-[65%] ml-auto' ?>">
-                <?php echo wp_get_attachment_image(get_sub_field('image'), 'large', '', array('class' => 'mx-auto max-w-[480px]')) ?>
+            <div class="col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'max-w-[70%] ml-auto mb-6' ?>">
+                <?php echo wp_get_attachment_image(get_sub_field('image'), 'large', '', array('class' => 'mx-auto lg:w-[480px] max-w-full')) ?>
             </div>
         </div>
     </div>
