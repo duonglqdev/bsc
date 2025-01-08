@@ -1,191 +1,209 @@
 <?php
 $banner = wp_get_attachment_image_url(
-	wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile', 'option' )
-	? get_field( 'cdc1_background_banner_mobile', 'option' )
-	: get_field( 'cdc1_background_banner', 'option' ),
+	wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+		? get_field('cdc1_background_banner_mobile', 'option')
+		: get_field('cdc1_background_banner', 'option'),
 	'full'
 );
-if ( $args['data'] ) {
+if (isset($args['data']) && $args['data']) {
 	$news = $args['data'];
 	$title = $news->title;
 	$body = $news->body;
-	$postdate = new DateTime( $news->postdate );
-	$postdate = $postdate->format( 'd/m/Y' );
+	$postdate = new DateTime($news->postdate);
+	$postdate = $postdate->format('d/m/Y');
 	$groupid = $news->groupid;
-	$trach_nhiem_cong_dong_id = get_field( 'cdtnvcd2_id_danh_muc', 'option' );
-	$chuong_trinh_khuyen_mai_id = get_field( 'cdctkm1_id_danh_muc', 'option' );
+	$trach_nhiem_cong_dong_id = get_field('cdtnvcd2_id_danh_muc', 'option');
+	$chuong_trinh_khuyen_mai_id = get_field('cdctkm1_id_danh_muc', 'option');
 	$array_id_kien_thuc = array();
 	$id_current_post = $news->newsid;
-	$terms = get_terms( array(
+	$terms = get_terms(array(
 		'taxonomy' => 'danh-muc-kien-thuc',
 		'hide_empty' => false,
-	) );
-	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-		foreach ( $terms as $term ) :
-			if ( get_field( 'api_id_danh_muc', $term ) ) {
-				$array_id_kien_thuc[] = get_field( 'api_id_danh_muc', $term );
+	));
+	if (! empty($terms) && ! is_wp_error($terms)) {
+		foreach ($terms as $term) :
+			if (get_field('api_id_danh_muc', $term)) {
+				$array_id_kien_thuc[] = get_field('api_id_danh_muc', $term);
 			}
 		endforeach;
 	}
-	if ( $groupid == $trach_nhiem_cong_dong_id ) {
-		$title_lienquan = __( 'Bài viết', 'bsc' );
+	if ($groupid == $trach_nhiem_cong_dong_id) {
+		$title_lienquan = __('Bài viết', 'bsc');
 		$template_lienquan = '';
-		$tax_name = get_field( 'cdtnvcd1_title', 'option' );
+		$tax_name = get_field('cdtnvcd1_title', 'option');
 		$breadcrumb = 'congdong';
-		$time_cache = get_field( 'cdtnvcd2_time_cache', 'option' ) ?: 300;
-		if ( get_field( 'cdtnvcd1_background_banner', 'option' ) || get_field( 'cdtnvcd1_background_banner_mobile', 'option' ) ) {
+		$time_cache = get_field('cdtnvcd2_time_cache', 'option') ?: 300;
+		if (get_field('cdtnvcd1_background_banner', 'option') || get_field('cdtnvcd1_background_banner_mobile', 'option')) {
 			$banner = wp_get_attachment_image_url(
-				wp_is_mobile() && bsc_is_mobile() && get_field( 'cdtnvcd1_background_banner_mobile ', 'option' )
-				? get_field( 'cdtnvcd1_background_banner_mobile ', 'option' )
-				: get_field( 'cdtnvcd1_background_banner ', 'option' ),
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					? get_field('cdtnvcd1_background_banner_mobile ', 'option')
+					: get_field('cdtnvcd1_background_banner ', 'option'),
 				'full'
 			);
 		}
-		$style = get_field( 'cdtnvcd1_background_banner_display', 'option' ) ?: 'default';
-	} elseif ( $groupid == $chuong_trinh_khuyen_mai_id ) {
-		$title_lienquan = __( 'Khuyến mãi', 'bsc' );
+		$style = get_field('cdtnvcd1_background_banner_display', 'option') ?: 'default';
+	} elseif ($groupid == $chuong_trinh_khuyen_mai_id) {
+		$title_lienquan = __('Khuyến mãi', 'bsc');
 		$template_lienquan = '';
-		$tax_name = get_field( 'cdctkm1_title', 'option' );
+		$tax_name = get_field('cdctkm1_title', 'option');
 		$breadcrumb = 'khuyenmai';
-		$time_cache = get_field( 'cdctkm1_time_cache', 'option' ) ?: 300;
-		if ( get_field( 'cdctkm1_background_banner', 'option' ) || get_field( 'cdctkm1_background_banner_mobile', 'option' ) ) {
+		$time_cache = get_field('cdctkm1_time_cache', 'option') ?: 300;
+		if (get_field('cdctkm1_background_banner', 'option') || get_field('cdctkm1_background_banner_mobile', 'option')) {
 			$banner = wp_get_attachment_image_url(
-				wp_is_mobile() && bsc_is_mobile() && get_field( 'cdctkm1_background_banner_mobile ', 'option' )
-				? get_field( 'cdctkm1_background_banner_mobile ', 'option' )
-				: get_field( 'cdctkm1_background_banner ', 'option' ),
+				wp_is_mobile() && bsc_is_mobile() && get_field('cdctkm1_background_banner_mobile ', 'option')
+					? get_field('cdctkm1_background_banner_mobile ', 'option')
+					: get_field('cdctkm1_background_banner ', 'option'),
 				'full'
 			);
 		}
-		$style = get_field( 'cdctkm1_background_banner_display', 'option' ) ?: 'default';
+		$style = get_field('cdctkm1_background_banner_display', 'option') ?: 'default';
 	} else {
 		$template_lienquan = 'khuyen-mai';
-		if ( in_array( $groupid, $array_id_kien_thuc ) ) {
-			$title_lienquan = __( 'Kiến thức', 'bsc' );
+		if (in_array($groupid, $array_id_kien_thuc)) {
+			$title_lienquan = __('Kiến thức', 'bsc');
 			$check_cat = 'danh-muc-kien-thuc';
 			$breadcrumb = 'kienthuc';
-			$time_cache = get_field( 'cdktdt1_time_cache', 'option' ) ?: 300;
+			$time_cache = get_field('cdktdt1_time_cache', 'option') ?: 300;
+			$categories = get_terms(array(
+				'taxonomy' => $check_cat,
+				'hide_empty' => false,
+				'meta_query' => array(
+					array(
+						'key' => 'api_id_danh_muc',
+						'value' => $groupid,
+						'compare' => '='
+					)
+				)
+			));
+			if (! is_wp_error($categories) && ! empty($categories)) {
+				$tax = $categories[0];
+			} else {
+				$post_id = get_the_ID();
+				$taxonomy = get_the_terms($post->ID, $check_cat);
+				$tax = $taxonomy[0];
+			}
 		} else {
-			$title_lienquan = __( 'Bài viết', 'bsc' );
+			$title_lienquan = __('Bài viết', 'bsc');
 			$check_cat = 'category';
 			$breadcrumb = 'post';
-			$time_cache = get_field( 'cdtt2_time_cache', 'option' ) ?: 300;
+			$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
+			$all_categories = get_terms(array(
+				'taxonomy' => $check_cat,
+				'hide_empty' => false,
+			));
+
+			$filtered_categories = array_filter($all_categories, function ($term) use ($groupid) {
+				$api_ids = get_field('api_id_danh_muc', $term);
+				$api_ids_array = explode(',', $api_ids);
+				return in_array($groupid, $api_ids_array);
+			});
+			if (! is_wp_error($filtered_categories) && ! empty($filtered_categories)) {
+				$tax = reset($filtered_categories);
+			} else {
+				$post_id = get_the_ID();
+				$taxonomy = get_the_terms($post->ID, $check_cat);
+				$tax = $taxonomy[0];
+			}
 		}
-		$categories = get_terms( array(
-			'taxonomy' => $check_cat,
-			'hide_empty' => false,
-			'meta_query' => array(
-				array(
-					'key' => 'api_id_danh_muc',
-					'value' => $groupid,
-					'compare' => '='
-				)
-			)
-		) );
-		if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-			$tax = $categories[0];
-		} else {
-			$post_id = get_the_ID();
-			$taxonomy = get_the_terms( $post->ID, $check_cat );
-			$tax = $taxonomy[0];
-		}
+
 		$tax_name = $tax->name;
 		$tax_id = $tax->term_id;
-		if ( get_field( 'background_banner', $tax ) || get_field( 'background_banner_mobile', $tax ) ) {
+		if (get_field('background_banner', $tax) || get_field('background_banner_mobile', $tax)) {
 			$banner = wp_get_attachment_image_url(
-				wp_is_mobile() && bsc_is_mobile() && get_field( 'background_banner_mobile', $tax )
-				? get_field( 'background_banner_mobile', $tax )
-				: get_field( 'background_banner', $tax ),
+				wp_is_mobile() && bsc_is_mobile() && get_field('background_banner_mobile', $tax)
+					? get_field('background_banner_mobile', $tax)
+					: get_field('background_banner', $tax),
 				'full'
 			);
 		}
-		$style = get_field( 'background_banner_display', $tax ) ?: 'default';
+		$style = get_field('background_banner_display', $tax) ?: 'default';
 	}
 } else {
-	wp_redirect( home_url( '/404' ), 301 );
+	wp_redirect(home_url('/404'), 301);
 	exit;
 }
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner', null, array(
+	<?php get_template_part('components/page-banner', null, array(
 		'banner' => $banner,
 		'style' => $style,
 		'title' => $tax_name,
 		'breadcrumb' => $breadcrumb,
-	) ) ?>
+	)) ?>
 	<section
 		class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 lg:pb-16 pb-10 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-6' : '' ?>">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+				<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10 space-y-12">
-							<?php if ( $groupid != $chuong_trinh_khuyen_mai_id ) { ?>
-								<?php if ( $groupid == $trach_nhiem_cong_dong_id ) {
-									?>
+							<?php if ($groupid != $chuong_trinh_khuyen_mai_id) { ?>
+								<?php if ($groupid == $trach_nhiem_cong_dong_id) {
+								?>
 									<div class="sticky top-5 z-10">
-										<?php if ( get_field( 'cdtnvcd2_page', 'option' ) ) { ?>
+										<?php if (get_field('cdtnvcd2_page', 'option')) { ?>
 											<ul
 												class="shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom max-h-[180px] overflow-y-auto space-y-2">
 												<?php
-												$currentYear = date( 'Y' );
-												$selectedYear = ! empty( $_GET['years'] ) ? bsc_format_string( $_GET['years'], 'number' ) : $currentYear;
-												for ( $year = $currentYear; $year >= 2015; $year-- ) :
-													?>
+												$currentYear = date('Y');
+												$selectedYear = ! empty($_GET['years']) ? bsc_format_string($_GET['years'], 'number') : $currentYear;
+												for ($year = $currentYear; $year >= 2015; $year--) :
+												?>
 													<li>
-														<a href="<?php echo get_field( 'cdtnvcd2_page', 'option' ) ?>?years=<?php echo $year ?><?php if ( get_field( 'cdtnvcd2_pageid_class', 'option' ) ) { ?><?php echo '#' . get_field( 'cdtnvcd2_pageid_class', 'option' ) ?><?php } ?>"
-															class="<?php echo ( $year == $selectedYear ) ? 'active' : ''; ?> block px-5 py-3 font-semibold text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
-															<?php _e( 'Năm', 'bsc' ) ?> 					<?php echo $year; ?>
+														<a href="<?php echo get_field('cdtnvcd2_page', 'option') ?>?years=<?php echo $year ?><?php if (get_field('cdtnvcd2_pageid_class', 'option')) { ?><?php echo '#' . get_field('cdtnvcd2_pageid_class', 'option') ?><?php } ?>"
+															class="<?php echo ($year == $selectedYear) ? 'active' : ''; ?> block px-5 py-3 font-semibold text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
+															<?php _e('Năm', 'bsc') ?> <?php echo $year; ?>
 														</a>
 													</li>
 												<?php endfor; ?>
 											</ul>
 										<?php } ?>
 										<?php
-										$hinh_anh_sidebar = get_field( 'cdtnvcd1_hinh_anh_sidebar', 'option' );
-										if ( $hinh_anh_sidebar ) { ?>
+										$hinh_anh_sidebar = get_field('cdtnvcd1_hinh_anh_sidebar', 'option');
+										if ($hinh_anh_sidebar) { ?>
 											<div class="mt-12">
-												<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>">
-													<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
+												<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>">
+													<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
 												</a>
 											</div>
 										<?php } ?>
 									</div>
-									<?php
+								<?php
 								} else { ?>
 									<?php
-									$terms = get_terms( array(
+									$terms = get_terms(array(
 										'taxonomy' => $check_cat,
 										'hide_empty' => false,
 										'parent' => 0,
-									) );
-									if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
-										?>
+									));
+									if (! empty($terms) && ! is_wp_error($terms)) :
+									?>
 										<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
-											<?php foreach ( $terms as $term ) :
-												$active_class = ( $tax_id == $term->term_id ) ? 'active' : '';
-												?>
-												<li class="<?php echo esc_attr( $active_class ); ?>">
-													<a href="<?php echo get_term_link( $term ); ?>"
-														class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr( $active_class ); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
-														<?php echo esc_html( $term->name ); ?>
+											<?php foreach ($terms as $term) :
+												$active_class = ($tax_id == $term->term_id) ? 'active' : '';
+											?>
+												<li class="<?php echo esc_attr($active_class); ?>">
+													<a href="<?php echo get_term_link($term); ?>"
+														class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
+														<?php echo esc_html($term->name); ?>
 													</a>
 													<?php
-													$child_terms = get_terms( array(
+													$child_terms = get_terms(array(
 														'taxonomy' => $check_cat,
 														'parent' => $term->term_id,
 														'hide_empty' => false,
-													) );
+													));
 
-													if ( ! empty( $child_terms ) && ! is_wp_error( $child_terms ) ) : ?>
+													if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
 														<ul class="pl-5 hidden sub-menu w-full bg-white">
-															<?php foreach ( $child_terms as $child_term ) :
-																$child_active_class = ( $tax_id == $child_term->term_id ) ? 'active' : '';
-																?>
+															<?php foreach ($child_terms as $child_term) :
+																$child_active_class = ($tax_id == $child_term->term_id) ? 'active' : '';
+															?>
 																<li class="pl-5">
-																	<a href="<?php echo get_term_link( $child_term ); ?>"
-																		class="<?php echo esc_attr( $child_active_class ); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
-																		<?php echo esc_html( $child_term->name ); ?>
+																	<a href="<?php echo get_term_link($child_term); ?>"
+																		class="<?php echo esc_attr($child_active_class); ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+																		<?php echo esc_html($child_term->name); ?>
 																	</a>
 																</li>
 															<?php endforeach; ?>
@@ -198,21 +216,20 @@ get_header();
 								<?php } ?>
 							<?php } ?>
 							<?php
-							if ( $groupid == $trach_nhiem_cong_dong_id ) {
-								$hinh_anh_sidebar = get_field( 'cdtnvcd1_hinh_anh_sidebar', 'option' );
-							} elseif ( $groupid == $chuong_trinh_khuyen_mai_id ) {
-								$hinh_anh_sidebar = get_field( 'cdctkm1_hinh_anh_sidebar', 'option' );
-							} elseif ( $tax ) {
-								$hinh_anh_sidebar = get_field( 'hinh_anh_sidebar', $tax );
+							if ($groupid == $trach_nhiem_cong_dong_id) {
+								$hinh_anh_sidebar = get_field('cdtnvcd1_hinh_anh_sidebar', 'option');
+							} elseif ($groupid == $chuong_trinh_khuyen_mai_id) {
+								$hinh_anh_sidebar = get_field('cdctkm1_hinh_anh_sidebar', 'option');
+							} elseif ($tax) {
+								$hinh_anh_sidebar = get_field('hinh_anh_sidebar', $tax);
 							}
-							if ( $hinh_anh_sidebar ) { ?>
-								
-									<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>" class="block">
-										<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
-									</a>
-								
-							<?php }
-							;
+							if ($hinh_anh_sidebar) { ?>
+
+								<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>" class="block">
+									<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
+								</a>
+
+							<?php };
 							?>
 						</div>
 					</div>
@@ -223,42 +240,42 @@ get_header();
 						class="font-bold mb-6 !leading-snug <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-4xl lg:text-3xl text-2xl' : 'text-[22px]' ?>">
 						<?php echo $title ?>
 					</h1>
-					<?php if ( $groupid == $chuong_trinh_khuyen_mai_id ) {
-						?>
+					<?php if ($groupid == $chuong_trinh_khuyen_mai_id) {
+					?>
 						<div
 							class="flex items-center justify-between flex-wrap gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-8' : 'mb-6' ?>">
-							<?php if ( $news->promotionended ) {
+							<?php if ($news->promotionended) {
 								$remainingDays = 0;
 								$completionPercentage = 0;
-								$startDate = new DateTime( $news->promotionstarted );
-								$endDate = new DateTime( $news->promotionended );
-								$endDate = $endDate->setTime( 0, 0, 0 );
-								$formattedEndDate = $endDate->format( 'd/m/Y' );
-								if ( $news->promotionstarted ) {
-									$formattedStartDate = $startDate->format( 'd/m/Y' );
-									$interval = $startDate->diff( $endDate );
+								$startDate = new DateTime($news->promotionstarted);
+								$endDate = new DateTime($news->promotionended);
+								$endDate = $endDate->setTime(0, 0, 0);
+								$formattedEndDate = $endDate->format('d/m/Y');
+								if ($news->promotionstarted) {
+									$formattedStartDate = $startDate->format('d/m/Y');
+									$interval = $startDate->diff($endDate);
 									$daysDifference = $interval->days;
 									$today = new DateTime();
-									$today = $today->setTime( 0, 0, 0 );
-									$remainingInterval = $today->diff( $endDate );
+									$today = $today->setTime(0, 0, 0);
+									$remainingInterval = $today->diff($endDate);
 									$remainingDays = $remainingInterval->days;
 									$elapsedDays = $daysDifference - $remainingDays;
-									$completionPercentage = ( $elapsedDays / $daysDifference ) * 100;
-									if ( $today > $endDate ) {
+									$completionPercentage = ($elapsedDays / $daysDifference) * 100;
+									if ($today > $endDate) {
 										$remainingDays = 0;
 										$completionPercentage = 0;
 									}
 								} else {
 									$formattedStartDate = 'N/A';
 								}
-								?>
+							?>
 								<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-[65%]' ?>">
 									<div
 										class="flex items-center gap-2 font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'text-xs' ?>">
 										<div class="inline-flex items-center gap-2">
-											<?php echo svg( 'time' ) ?>
-											<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-												<?php _e( 'Thời gian chương trình', 'bsc' ) ?>:
+											<?php echo svg('time') ?>
+											<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
+												<?php _e('Thời gian chương trình', 'bsc') ?>:
 											<?php } ?>
 										</div>
 										<div
@@ -270,15 +287,15 @@ get_header();
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[14px]' : 'mt-2' ?> font-Helvetica xl:max-w-[433px]">
 										<div class="relative bg-[#D9D9D9] rounded-[28px] overflow-hidden lg:h-[5px] h-[3px]">
 											<p class="absolute max-w-full h-full bg-gradient-blue rounded-[28px]"
-												style="width:<?php echo round( $completionPercentage, 2 ) ?>%"></p>
+												style="width:<?php echo round($completionPercentage, 2) ?>%"></p>
 										</div>
 										<div class="mt-2 text-xs">
-											<?php if ( $today > $endDate ) {
-												_e( 'Chương trình đã kết thúc', 'bsc' );
+											<?php if ($today > $endDate) {
+												_e('Chương trình đã kết thúc', 'bsc');
 											} else { ?>
-												<?php _e( 'Thời gian khuyến mãi còn', 'bsc' ) ?> <strong
+												<?php _e('Thời gian khuyến mãi còn', 'bsc') ?> <strong
 													class="text-primary-300"><?php echo $remainingDays ?>
-													<?php _e( 'ngày', 'bsc' ) ?></strong>
+													<?php _e('ngày', 'bsc') ?></strong>
 											<?php } ?>
 										</div>
 									</div>
@@ -286,65 +303,65 @@ get_header();
 							<?php } ?>
 							<div
 								class="share flex items-center  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-[12px] lg:ml-12' : 'flex-1 justify-end' ?>">
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+								<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 									<strong>
-										<?php _e( 'Chia sẻ:', 'bsc' ) ?>
+										<?php _e('Chia sẻ:', 'bsc') ?>
 									</strong>
 								<?php } ?>
 								<ul
 									class="flex items-center  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-3' : 'gap-1.5' ?>">
 									<li>
 										<a href="" target="_blank">
-											<?php echo svgClass( 'ins', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6' ) ?>
+											<?php echo svgClass('ins', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6') ?>
 										</a>
 									</li>
 									<li>
-										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>"
+										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>"
 											target="_blank">
-											<?php echo svgClass( 'linkedin', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6' ) ?>
+											<?php echo svgClass('linkedin', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6') ?>
 										</a>
 									</li>
 									<li>
-										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
+										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>"
 											target="_blank">
-											<?php echo svgClass( 'fb', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6' ) ?>
+											<?php echo svgClass('fb', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6') ?>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<?php
+					<?php
 					} else { ?>
 						<div
 							class="flex items-center text-xs  gap-[12px] font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'justify-between mb-[26px]' ?>">
 							<div class="flex gap-[12px] items-center">
-								<?php echo svg( 'date' ) ?>
+								<?php echo svg('date') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
 
 							<div class="share flex items-center gap-[12px] ml-12">
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+								<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 									<strong>
-										<?php _e( 'Chia sẻ:', 'bsc' ) ?>
+										<?php _e('Chia sẻ:', 'bsc') ?>
 									</strong>
 
 								<?php } ?>
 								<ul class="flex items-center gap-3">
 									<li>
 										<a href="" target="_blank">
-											<?php echo svg( 'ins' ) ?>
+											<?php echo svg('ins') ?>
 										</a>
 									</li>
 									<li>
-										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>"
+										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>"
 											target="_blank">
-											<?php echo svg( 'linkedin' ) ?>
+											<?php echo svg('linkedin') ?>
 										</a>
 									</li>
 									<li>
-										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
+										<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>"
 											target="_blank">
-											<?php echo svg( 'fb' ) ?>
+											<?php echo svg('fb') ?>
 										</a>
 									</li>
 								</ul>
@@ -355,15 +372,15 @@ get_header();
 						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 prose-h2:text-inherit <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : '!text-xs' ?>">
 						<?php echo $body ?>
 						<?php
-						if ( $news->attachedfileurl ) {
-							?>
+						if ($news->attachedfileurl) {
+						?>
 							<a target="_blank" download href="<?php echo $news->attachedfileurl ?>"
 								class="bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 								<span class="block relative z-10">
-									<?php _e( 'Tải file đính kèm', 'bsc' ) ?>
+									<?php _e('Tải file đính kèm', 'bsc') ?>
 								</span>
 							</a>
-							<?php
+						<?php
 						}
 						?>
 					</div>
@@ -372,8 +389,8 @@ get_header();
 		</div>
 	</section>
 	<?php
-	if ( $args['data'] && $groupid ) {
-		if ( in_array( $groupid, [ 1, 2, 4, 5, 6 ] ) ) {
+	if ($args['data'] && $groupid) {
+		if (in_array($groupid, [1, 2, 4, 5, 6])) {
 			$groupid = 3;
 		}
 		$array_data = array(
@@ -388,28 +405,28 @@ get_header();
 			<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:pt-16 pt-10 lg:pb-[106px] pb-10' : 'mt-[18px] mb-12' ?>">
 				<div class="container">
 					<h2 class="heading-title mb-6 normal-case">
-						<?php echo $title_lienquan . ' ' . __( 'liên quan', 'bsc' ) ?>
+						<?php echo $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
 					</h2>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8' : 'block_slider-show-1 dots-blue' ?>"
-						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-							data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+						<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+						data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
 						<?php } ?>>
 						<?php
 						$check_p = 0;
-						foreach ( $response->d as $news ) {
-							if ( $check_p < 3 ) {
-								if ( $id_current_post != $news->newsid ) {
+						foreach ($response->d as $news) {
+							if ($check_p < 3) {
+								if ($id_current_post != $news->newsid) {
 									$check_p++;
-									get_template_part( 'template-parts/content', $template_lienquan, array(
+									get_template_part('template-parts/content', $template_lienquan, array(
 										'data' => $news,
-									) );
+									));
 								}
 							}
 						}
 						?>
 					</div>
 				</div>
-				<?php
+		<?php
 		}
 	} ?>
 </main>

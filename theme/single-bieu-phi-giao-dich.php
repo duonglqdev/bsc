@@ -7,11 +7,10 @@ $id_post = get_the_ID();
     <?php get_template_part('components/menu_navigation', '', array(
         'data' => 'bpgd',
     )) ?>
-    <h1 class="hidden"><?php the_title() ?></h1>
-    <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-14 xl:mb-[100px] mb-20':'my-[50px]' ?>">
+    <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-14 xl:mb-[100px] mb-20' : 'my-[50px]' ?>">
         <div class="container">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex lg:gap-20 gap-6':'' ?>">
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[340px] lg:max-w-[35%] max-w-[30%] shrink-0':'relative' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex lg:gap-20 gap-6' : '' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[340px] lg:max-w-[35%] max-w-[30%] shrink-0' : 'relative' ?>">
                     <?php $query = new WP_Query(array(
                         'post_type' => 'bieu-phi-giao-dich',
                         'post_status' => 'publish',
@@ -19,7 +18,7 @@ $id_post = get_the_ID();
                     ));
                     if ($query->have_posts()) { ?>
                         <div class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
-                            <?php if(! wp_is_mobile() && ! bsc_is_mobile()) : ?>
+                            <?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
                                 <ul
                                     class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report">
                                     <?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -35,7 +34,7 @@ $id_post = get_the_ID();
                                 <div
                                     class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
                                     <?php echo get_the_title()() ?>
-                                    <?php echo svg( 'down-white', '20' ) ?>
+                                    <?php echo svg('down-white', '20') ?>
                                 </div>
                                 <ul
                                     class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs">
@@ -53,7 +52,7 @@ $id_post = get_the_ID();
                     <?php };
                     wp_reset_postdata() ?>
                 </div>
-                <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-6' ?>">
+                <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'mt-6' ?>">
                     <?php if (get_field('title')) {
                         $title = get_field('title');
                     } else {
@@ -63,7 +62,7 @@ $id_post = get_the_ID();
                         <?php echo $title; ?>
                     </h1>
                     <div
-                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'prose-ul:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]':'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 prose-table:text-xxs'?>">
+                        class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'prose-ul:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]' : 'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 prose-table:text-xxs' ?>">
                         <?php
                         $page_id = get_the_ID();
                         if (have_rows('home_components_stgd', $page_id)) {
@@ -79,8 +78,8 @@ $id_post = get_the_ID();
                         ?>
                     </div>
                     <?php if (get_field('duong_dan_tai_file')) { ?>
-                        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 text-right':'mt-6' ?>">
-                            <a href="<?php the_field('duong_dan_tai_file') ?>" class=" px-6 py-3 btn-base-yellow <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'inline-block':'block text-xs' ?>" target="_blank">
+                        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10 text-right' : 'mt-6' ?>">
+                            <a href="<?php the_field('duong_dan_tai_file') ?>" class=" px-6 py-3 btn-base-yellow <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'inline-block' : 'block text-xs' ?>" target="_blank">
                                 <span class="inline-flex items-center gap-2 relative z-10">
                                     <?php _e('Tải xuống tài liệu', 'bsc') ?>
                                     <?php echo svgpath('download', '', '', 'fill-black') ?>

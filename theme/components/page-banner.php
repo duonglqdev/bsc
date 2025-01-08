@@ -24,7 +24,7 @@ if ((get_sub_field('background') || get_sub_field('background_mobile')) && (is_s
         );
     }
     $style = get_field('background_banner_display', get_queried_object()) ?: 'default';
-} elseif (isset($args['breadcrumb']) && ($args['breadcrumb'] == 'post') || ($args['breadcrumb'] == 'congdong') || ($args['breadcrumb'] == 'kienthuc') || ($args['breadcrumb'] == 'khuyenmai') || ($args['breadcrumb'] == 'baocao') || ($args['breadcrumb'] == 'cophieu') || ($args['breadcrumb'] == 'tagbaocao') || ($args['breadcrumb'] == 'lichthitruong')) {
+} elseif (isset($args['breadcrumb']) && (($args['breadcrumb'] == 'post') || ($args['breadcrumb'] == 'congdong') || ($args['breadcrumb'] == 'kienthuc') || ($args['breadcrumb'] == 'khuyenmai') || ($args['breadcrumb'] == 'baocao') || ($args['breadcrumb'] == 'cophieu') || ($args['breadcrumb'] == 'tagbaocao') || ($args['breadcrumb'] == 'lichthitruong'))) {
     $banner = $args['banner'] ?:  get_stylesheet_directory_uri() . '/assets/images/about.png';
     $style = $args['style'];
 } elseif (is_singular('tuyen-dung')) {
@@ -63,7 +63,7 @@ if ((get_sub_field('background') || get_sub_field('background_mobile')) && (is_s
 } else {
     $banner = get_stylesheet_directory_uri() . '/assets/images/about.png';
 };
-if ($args['title']) {
+if (isset($args['title']) && $args['title']) {
     $title = $args['title'];
 } elseif (get_sub_field('title') && (is_single() || is_page())) {
     $title = get_sub_field('title');
@@ -93,7 +93,7 @@ if ($args['title']) {
 } else {
     $title = get_the_title();
 }
-if ($args['breadcrumb']) {
+if (isset($args['breadcrumb']) && $args['breadcrumb']) {
     $breadcrumb  = $args['breadcrumb'];
 } else {
     $breadcrumb = '';
@@ -107,7 +107,7 @@ if ($args['breadcrumb']) {
             <div class="mb-5">
                 <?php get_template_part('components/breadcrumb', null, array(
                     'custom' => $breadcrumb,
-                    'title' => $args['title']
+                    'title' => $title
                 )) ?>
             </div>
 

@@ -240,9 +240,9 @@
             "label": "ID danh mục",
             "name": "api_id_danh_muc",
             "aria-label": "",
-            "type": "number",
+            "type": "text",
             "instructions": "",
-            "required": false,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -250,9 +250,7 @@
                 "id": ""
             },
             "default_value": "",
-            "min": "",
-            "max": "",
-            "step": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -313,5 +311,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734426503
+    "modified": 1736221200
 }

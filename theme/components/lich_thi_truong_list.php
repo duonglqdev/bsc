@@ -1,19 +1,19 @@
 <section
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mt-[86px] mt-20 lg:mb-[100px] mb-20' : 'mt-8 mb-[50px]' ?> mb-20 lich_thi_truong_list"
-	<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
+	<?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div class="container">
-		<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+		<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 			<div class="toggle-form mb-[12px] inline-block">
 				<div class="">
 					<p class="inline-flex items-baseline gap-2 font-medium">
-						<?php _e( 'Bộ lọc', 'bsc' ) ?>
-						<?php echo svgClass( 'down', '', '', 'rotate-180' ) ?>
+						<?php _e('Bộ lọc', 'bsc') ?>
+						<?php echo svgClass('down', '', '', 'rotate-180') ?>
 					</p>
 				</div>
 				<div class="hidden">
 					<p class="inline-flex items-baseline gap-2 font-medium">
-						<?php _e( 'Ẩn bộ lọc', 'bsc' ) ?>
-						<?php echo svg( 'down' ) ?>
+						<?php _e('Ẩn bộ lọc', 'bsc') ?>
+						<?php echo svg('down') ?>
 					</p>
 				</div>
 			</div>
@@ -24,32 +24,33 @@
 				<div
 					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:w-80 md:max-w-1/3' : 'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-						<?php _e( 'Mã cổ phiếu', 'bsc' ) ?>
+						<?php _e('Mã cổ phiếu', 'bsc') ?>
 					</p>
-					<input type="text" name="mck" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
+					<input type="text" name="mck" placeholder="<?php _e('Nhập mã chứng khoán', 'bsc') ?>"
 						class="mck w-full rounded-[10px]  border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-5 h-[50px]' : 'text-xs px-5 h-11' ?>">
 				</div>
 				<div
 					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'md:w-80 md:max-w-1/3' : 'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-						<?php _e( 'Loại sự kiện', 'bsc' ) ?>
+						<?php _e('Loại sự kiện', 'bsc') ?>
 					</p>
 					<select
 						class="select_custom w-full rounded-[10px]  border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] pl-5' : 'h-11 pl-4 text-xs' ?> eventcode"
 						name="eventcode">
-						<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
+						<option value=""><?php _e('Tất cả', 'bsc') ?></option>
 						<?php
+						$time_cache = 300;
 						$array_data_GetListEventType = array(
 							'lang' => pll_current_language(),
 						);
-						$response_GetListEventType = get_data_with_cache( 'GetListEventType', $array_data_GetListEventType, $time_cache );
-						if ( $response_GetListEventType ) {
-							foreach ( $response_GetListEventType->d as $GetListEventType ) {
-								if ( $GetListEventType->eventtype ) {
-									?>
+						$response_GetListEventType = get_data_with_cache('GetListEventType', $array_data_GetListEventType, $time_cache);
+						if ($response_GetListEventType) {
+							foreach ($response_GetListEventType->d as $GetListEventType) {
+								if ($GetListEventType->eventtype) {
+						?>
 									<option value="<?php echo $GetListEventType->code ?>"><?php echo $GetListEventType->eventtype ?>
 									</option>
-									<?php
+						<?php
 								}
 							}
 						} ?>
@@ -58,7 +59,7 @@
 				<div
 					class="font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[433px] max-w-[40%]' : 'w-full px-2' ?>">
 					<p class="font-medium mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-						<?php _e( 'Lọc theo ngày', 'bsc' ) ?>
+						<?php _e('Lọc theo ngày', 'bsc') ?>
 					</p>
 					<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 						datepicker-orientation="bottom right"
@@ -67,28 +68,28 @@
 							class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 							<input id="datepicker-range-start" name="fromdate" type="text"
 								class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-                                autocomplete="off"
-								placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
-							<?php echo svgClass( 'day', '', '', 'sm:w-5 w-4 sm:h-5 h-4' ) ?>
+								autocomplete="off"
+								placeholder="<?php _e('Từ ngày', 'bsc') ?>">
+							<?php echo svgClass('day', '', '', 'sm:w-5 w-4 sm:h-5 h-4') ?>
 						</div>
 						<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 						<div
 							class="flex items-center 2xl:gap-5 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1 justify-between' ?>">
 							<input id="datepicker-range-end" name="todate" type="text"
 								class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-                                autocomplete="off"
-								placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
-							<?php echo svgClass( 'day', '', '', 'sm:w-5 w-4 sm:h-5 h-4' ) ?>
+								autocomplete="off"
+								placeholder="<?php _e('Đến ngày', 'bsc') ?>">
+							<?php echo svgClass('day', '', '', 'sm:w-5 w-4 sm:h-5 h-4') ?>
 						</div>
 					</div>
 				</div>
 				<button type="submit" id="lich-su_kien_submit"
-					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]  px-6 py-3 font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[50px] rounded-xl inline-block lg:min-w-[155px]':'h-10 rounded-lg text-xs flex-1 ml-2' ?>">
-					<?php _e( 'Tìm kiếm', 'bsc' ) ?>
+					class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547]  px-6 py-3 font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'h-[50px] rounded-xl inline-block lg:min-w-[155px]' : 'h-10 rounded-lg text-xs flex-1 ml-2' ?>">
+					<?php _e('Tìm kiếm', 'bsc') ?>
 				</button>
 				<button type="button" id="lich-su_kien_reset"
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10 mr-2 ml-4' ?> shrink-0 rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
-					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+					<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 				</button>
 			</div>
 			<ul class="flex items-center gap-5">
@@ -96,19 +97,19 @@
 					<input type="radio" name="sortfield" class="hidden peer" value="ex_date" id="ex_date" checked>
 					<label
 						class="sortfield cursor-pointer peer-checked:text-white bg-transparent peer-checked:bg-primary-300 inline-block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] py-2' : 'rounded-md py-1.5' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-4 text-center font-bold transition-all duration-500 hover:!bg-primary-300 hover:!text-white text-xs"
-						for="ex_date"><?php _e( 'GDKHQ', 'bsc' ) ?></label>
+						for="ex_date"><?php _e('GDKHQ', 'bsc') ?></label>
 				</li>
 				<li>
 					<input type="radio" name="sortfield" class="hidden peer" value="last_reg_date" id="last_reg_date">
 					<label
 						class="cursor-pointer peer-checked:text-white bg-transparent peer-checked:bg-primary-300 inline-block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] py-2' : 'rounded-md py-1.5' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-4 text-center font-bold transition-all duration-500 hover:!bg-primary-300 hover:!text-white text-xs"
-						for="last_reg_date"><?php _e( 'Đăng ký', 'bsc' ) ?></label>
+						for="last_reg_date"><?php _e('Đăng ký', 'bsc') ?></label>
 				</li>
 				<li>
 					<input type="radio" name="sortfield" class="hidden peer" value="effective_date" id="effective_date">
 					<label
 						class="cursor-pointer peer-checked:text-white bg-transparent peer-checked:bg-primary-300 inline-block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] py-2' : 'rounded-md py-1.5' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-4 text-center font-bold transition-all duration-500 hover:!bg-primary-300 hover:!text-white text-xs"
-						for="effective_date"><?php _e( 'Thực thi', 'bsc' ) ?></label>
+						for="effective_date"><?php _e('Thực thi', 'bsc') ?></label>
 				</li>
 			</ul>
 		</form>
@@ -137,20 +138,20 @@
 								'index' => 1,
 								'sortField' => 'ex_date'
 							);
-							$response_GetEvents = get_data_with_cache( 'GetEvents', $array_data_GetEvents, $time_cache );
-							if ( $response_GetEvents ) {
-								if ( $response_GetEvents->totalrecord ) {
+							$response_GetEvents = get_data_with_cache('GetEvents', $array_data_GetEvents, $time_cache);
+							if ($response_GetEvents) {
+								if ($response_GetEvents->totalrecord) {
 									$total_post = $response_GetEvents->totalrecord;
 								} else {
 									$total_post = $post_per_page;
 								}
-								$total_page = ceil( $total_post / $post_per_page );
-								?>
+								$total_page = ceil($total_post / $post_per_page);
+							?>
 								<?php
-								foreach ( $response_GetEvents->d as $GetEvents ) {
-									get_template_part( 'template-parts/content-lich-thi-truong', '', array(
+								foreach ($response_GetEvents->d as $GetEvents) {
+									get_template_part('template-parts/content-lich-thi-truong', '', array(
 										'data' => $GetEvents,
-									) );
+									));
 								}
 								?>
 							<?php } ?>
@@ -159,11 +160,11 @@
 				</div>
 			</div>
 			<div class="mt-8 pagination-center" id="list-lich-su-kien_pagination">
-				<?php get_template_part( 'components/pagination', '', array(
+				<?php get_template_part('components/pagination', '', array(
 					'get' => 'ajax_api',
 					'total_page' => $total_page,
 					'post_per_page' => 'hide'
-				) ) ?>
+				)) ?>
 			</div>
 		</div>
 		<div id="lich-su-kien-loading" class="hidden">
