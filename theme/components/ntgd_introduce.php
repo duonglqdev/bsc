@@ -38,7 +38,7 @@
         ?>
         <div class="relative rounded-2xl shadow-base overflow-hidden bg-cover bg-no-repeat mt-10  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex 2xl:px-24 px-12 gap-5 lg:min-h-[350px] min-h-[290px]' : 'pt-[30px] px-[22px] min-h-[350px]' ?>"
             style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 lg:flex flex-col justify-center' : '' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-1/2 md:flex flex-col justify-center' : '' ?>">
                 <?php if (get_sub_field('title')) { ?>
                     <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-8' : 'mb-6 text-center' ?>">
                         <?php the_sub_field('title') ?>

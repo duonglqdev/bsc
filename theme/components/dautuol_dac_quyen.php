@@ -6,14 +6,14 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('dac_quyen')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid grid-cols-2 gap-5':'' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-2 grid-cols-1 lg:gap-5 gap-4':'' ?>">
                 <?php
                 $i = 0;
                 while (have_rows('dac_quyen')): the_row();
                     $i++;
                     if ($i == 1) {
                 ?>
-                        <div class="w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[660px]':'' ?>">
+                        <div class="w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[660px]':'' ?>">
                             <div
                                 class="rounded-2xl overflow-hidden relative  group block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[87.8787%]':'pt-[67%]' ?>">
                                 <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105 rounded-[20px]')) ?>
