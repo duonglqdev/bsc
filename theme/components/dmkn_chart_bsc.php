@@ -1,80 +1,81 @@
 <?php
+$time_cache = 300;
 $array_data_GetAllDanhMuc = array();
 $response_GetAllDanhMuc = get_data_with_cache(
 	'GetAllDanhMuc',
 	$array_data_GetAllDanhMuc,
 	$time_cache,
-	get_field( 'cdapi_ip_address_quanlydanhmuc', 'option' )
+	get_field('cdapi_ip_address_quanlydanhmuc', 'option')
 );
 
-if ( $response_GetAllDanhMuc ) {
-	?>
+if ($response_GetAllDanhMuc) {
+?>
 	<section
 		class="chart <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'mt-8 mb-[50px]' ?> dmkn_chart_bsc"
-		<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
+		<?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 		<div class="container">
 			<?php
-			$todate = date( 'Y-m-d' );
+			$todate = date('Y-m-d');
 			?>
 			<?php
-			if ( isset( $_GET['mck'] ) && trim( $_GET['mck'] ) !== '' ) {
-				$current_bsc = bsc_format_string( $_GET['mck'] );
+			if (isset($_GET['mck']) && trim($_GET['mck']) !== '') {
+				$current_bsc = bsc_format_string($_GET['mck']);
 			} else {
 				$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
 			}
-			if ( get_sub_field( 'title' ) ) { ?>
+			if (get_sub_field('title')) { ?>
 				<h2
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[32px] text-2xl' : 'text-[22px]' ?>">
-					<?php the_sub_field( 'title' ) ?>
+					<?php the_sub_field('title') ?>
 				</h2>
 			<?php } ?>
 			<ul
 				class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6 mb-10 gap-6' : 'mt-4 mb-6 gap-2' ?> btn-chart">
 				<?php
 				$i = 0;
-				foreach ( $response_GetAllDanhMuc->d as $news ) {
+				foreach ($response_GetAllDanhMuc->d as $news) {
 					$i++; ?>
 					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:flex-auto flex-1' ?>">
 						<button data-chart="<?php echo $news->tendanhmuc ?>" data-stt="<?php echo $i ?>"
-							class="<?php if ( $current_bsc == $news->tendanhmuc )
-								echo 'active' ?>  lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block font-bold' : 'block font-semibold w-full' ?>">
+							class="<?php if ($current_bsc == $news->tendanhmuc)
+										echo 'active' ?>  lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block font-bold' : 'block font-semibold w-full' ?>">
 							<?php echo $news->tendanhmuc ?>
 						</button>
 					</li>
 				<?php } ?>
 				<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload"
 					class="rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-12 h-12' : 'w-11 h-11' ?>">
-					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+					<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 				</button>
 			</ul>
 			<h2
 				class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[32px] text-2xl' : 'text-[22px]' ?>">
-				<?php _e( 'Hiệu suất danh mục', 'bsc' ) ?>
+				<?php _e('Hiệu suất danh mục', 'bsc') ?>
 			</h2>
 			<div
 				class="rounded-2xl shadow-base performance-chart  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-6 px-7 mt-12' : 'px-5 py-4 mt-4 -mx-5' ?>">
 				<div id="date-performance-picker" date-rangepicker datepicker-format="yyyy-mm-dd" datepicker-autohide
 					datepicker-orientation="bottom left"
 					class="flex items-center text-xs gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-6' ?>">
-					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+					<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 						<p class="font-semibold mr-6">
-							<?php _e( 'Thời gian:', 'gnws' ) ?>
+							<?php _e('Thời gian:', 'gnws') ?>
 						</p>
 					<?php } ?>
 					<div
 						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-start" name="start" type="text"
 							class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-							placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="" autocomplete="off">
-						<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
+							placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="" autocomplete="off">
+						<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
 					</div>
-					<?php $todate = date( 'Y-m-d' ); ?>
+					<?php $todate = date('Y-m-d'); ?>
 					<div
 						class="flex items-center 2xl:gap-4 gap-3 border border-[#EAEEF4] rounded-[10px]  px-4 py-[12px] justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-12' : 'flex-1 h-[46px]' ?>">
 						<input id="datepicker-performance-end" name="end" type="text"
 							class="todate border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>"
-							placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php echo $todate ?>" autocomplete="off">
-						<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
+							placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php echo $todate ?>" autocomplete="off">
+						<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
 					</div>
 				</div>
 				<div class="bsc-ajax-api" data-api="dmkn_chart_bsc" data-chart="running_chart">
@@ -94,7 +95,7 @@ if ( $response_GetAllDanhMuc ) {
 						</div>
 					</div>
 				</div>
-				<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+				<?php echo do_shortcode('[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]') ?>
 			</div>
 		</div>
 	</section>
@@ -102,57 +103,57 @@ if ( $response_GetAllDanhMuc ) {
 	$check_logout = bsc_is_user_logged_out();
 	$class_login = $check_logout ? $check_logout['class'] : '';
 	$i = 0;
-	foreach ( $response_GetAllDanhMuc->d as $news ) {
+	foreach ($response_GetAllDanhMuc->d as $news) {
 		$i++;
 		$ic = $news->id;
 		$single_bsc = $news->tendanhmuc;
 		$public = $news->ispublic;
-		?>
+	?>
 		<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> dmkn_chart_bsc_details 
 	<?php
-			if ( $current_bsc == $single_bsc ) {
-				echo 'block';
-			} else {
-				echo 'hidden';
-			}
-			?>" data-chart-tab='<?php echo $single_bsc ?>'>
+		if ($current_bsc == $single_bsc) {
+			echo 'block';
+		} else {
+			echo 'hidden';
+		}
+	?>" data-chart-tab='<?php echo $single_bsc ?>'>
 			<div class="container">
 				<h2
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-[32px] text-2xl' : 'text-[22px]' ?> mb-6">
-					<?php _e( 'Chi tiết danh mục', 'bsc' ) ?>
+					<?php _e('Chi tiết danh mục', 'bsc') ?>
 				</h2>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex xl:gap-14 gap-10 lg:space-y-0 space-y-10' : 'space-y-8' ?>">
 					<div
 						class="relative rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[887px] lg:max-w-[66%]' : '' ?>">
-						<div class="overflow-x-auto scroll-bar-custom scroll-bar-x text-center border border-[#EAEEF4] <?php if ( $public == 'N' ) {
-							echo $class_login;
-						} ?>">
+						<div class="overflow-x-auto scroll-bar-custom scroll-bar-x text-center border border-[#EAEEF4] <?php if ($public == 'N') {
+																															echo $class_login;
+																														} ?>">
 							<div
 								class="flex text-white bg-primary-300 font-semibold items-center leading-[1.125] gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[58px]' : 'w-max min-h-[46px]' ?>">
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
-									<?php _e( 'Mã', 'bsc' ) ?>
+									<?php _e('Mã', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
-									<?php _e( 'Khuyến nghị', 'bsc' ) ?>
+									<?php _e('Khuyến nghị', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
-									<?php _e( 'Giá', 'bsc' ) ?>
+									<?php _e('Giá', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
-									<?php _e( 'Mục tiêu', 'bsc' ) ?>
+									<?php _e('Mục tiêu', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
-									<?php _e( 'Upside', 'bsc' ) ?>
+									<?php _e('Upside', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap">
-									<?php _e( 'Sàn', 'bsc' ) ?>
+									<?php _e('Sàn', 'bsc') ?>
 								</div>
 								<div class="flex-1 min-w-[110px] whitespace-nowrap text-right pr-10">
-									<?php _e( 'KL', 'bsc' ) ?>
+									<?php _e('KL', 'bsc') ?>
 
 								</div>
 							</div>
-							<?php if ( ! $check_logout || $public == 'Y' ) { ?>
+							<?php if (! $check_logout || $public == 'Y') { ?>
 								<div class="bsc-ajax-api" data-api="dmkn_chart_bsc_details-left" data-symbol="<?php echo $ic ?>"
 									data-chart="bsc_need_crawl_price_display">
 									<div class="hidden">
@@ -171,23 +172,23 @@ if ( $response_GetAllDanhMuc ) {
 										</div>
 									</div>
 								</div>
-								<?php
+							<?php
 							} else {
-								?>
+							?>
 								<!-- Data Demo -->
 								<div
 									class="scroll-bar-custom overflow-y-auto max-h-[600px] prose-a:text-primary-300 prose-a:font-bold font-medium">
-									<?php for ( $i = 0; $i < 9; $i++ ) { ?>
+									<?php for ($i = 0; $i < 9; $i++) { ?>
 										<div class="flex items-center bg-[#EBF4FA]">
 											<div
 												class="flex-1 min-w-[110px] flex items-center justify-center leading-[1.125]  px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?>">
-												<?php _e( 'CTG', 'bsc' ) ?>
+												<?php _e('CTG', 'bsc') ?>
 											</div>
 											<div
 												class="flex-1 min-w-[110px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
 												<span class="inline-block px-4 py-0.5 font-semibold rounded-full"
 													style=" background-color:#D6F6DE; color:#30D158">
-													<?php _e( 'Mua', 'bsc' ) ?> </span>
+													<?php _e('Mua', 'bsc') ?> </span>
 											</div>
 											<div
 												class="flex-1 min-w-[110px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 text-[#1CCD83]">
@@ -208,11 +209,11 @@ if ( $response_GetAllDanhMuc ) {
 										</div>
 									<?php } ?>
 								</div>
-								<?php
+							<?php
 							}
 							?>
 						</div>
-						<?php if ( $check_logout && $public == 'N' ) {
+						<?php if ($check_logout && $public == 'N') {
 							echo $check_logout['html'];
 						} ?>
 					</div>
@@ -237,7 +238,7 @@ if ( $response_GetAllDanhMuc ) {
 				</div>
 			</div>
 		</section>
-		<?php
+	<?php
 	}
-?>
+	?>
 <?php } ?>

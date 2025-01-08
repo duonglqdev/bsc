@@ -9,11 +9,7 @@ function bsccustom_wpcf7_form_elements($form)
 function create_shortcode_email_admin()
 {
     ob_start();
-    if (get_sub_field('email')) {
-        $email = get_sub_field('email');
-    } elseif (get_field('email')) {
-        $email = get_field('email');
-    }
+    $email = get_sub_field('email') ?: get_field('email');
     if ($email) {
 ?>
         <div class="hidden">

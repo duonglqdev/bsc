@@ -5,7 +5,7 @@ $banner = wp_get_attachment_image_url(
 		: get_field('cdc1_background_banner', 'option'),
 	'full'
 );
-if ($args['data']) {
+if (isset($args['data']) && $args['data']) {
 	$news = $args['data'];
 	$title = $news->title;
 	$body = $news->body;

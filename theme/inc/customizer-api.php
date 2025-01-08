@@ -1,40 +1,40 @@
 <?php
 function callApi($url, $data = false, $method = "GET")
 {
-	// $curl = curl_init();
-	// curl_setopt_array($curl, array(
-	// 	CURLOPT_URL => $url,
-	// 	CURLOPT_RETURNTRANSFER => true,
-	// 	CURLOPT_ENCODING => '',
-	// 	CURLOPT_MAXREDIRS => 10,
-	// 	CURLOPT_TIMEOUT => 0,
-	// 	CURLOPT_FOLLOWLOCATION => true,
-	// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	// 	CURLOPT_CUSTOMREQUEST => $method,
-	// 	CURLOPT_POSTFIELDS => $data,
-	// 	CURLOPT_HTTPHEADER => array(
-	// 		'Content-Type: application/json'
-	// 	),
-	// ));
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => $method,
+		CURLOPT_POSTFIELDS => $data,
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json'
+		),
+	));
 
-	// $response = curl_exec($curl);
-	// $error = curl_error($curl); // Lấy lỗi nếu có
-	// $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
-	// curl_close($curl);
+	$response = curl_exec($curl);
+	$error = curl_error($curl); // Lấy lỗi nếu có
+	$http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
+	curl_close($curl);
 
-	// if ($error) {
-	// 	// Ghi log lỗi
-	// 	error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
-	// 	return null;
-	// }
+	if ($error) {
+		// Ghi log lỗi
+		error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
+		return null;
+	}
 
-	// // Nếu mã HTTP không phải 2xx, ghi log lỗi
-	// if ($http_code < 200 || $http_code >= 300) {
-	// 	error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
-	// 	return null;
-	// }
+	// Nếu mã HTTP không phải 2xx, ghi log lỗi
+	if ($http_code < 200 || $http_code >= 300) {
+		error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
+		return null;
+	}
 
-	// return json_decode($response);
+	return json_decode($response);
 }
 
 
@@ -173,8 +173,8 @@ function custom_template_redirect()
 			global $custom_meta_data;
 			$custom_meta_data = array(
 				'title' => $news->title,
-				'description' => $news->content,
-				'thumbnail' => $news->imageurl
+				'description' => $news->description,
+				'thumbnail' => $news->imagethumbnail
 			);
 			get_template_part('single', null, array(
 				'data' => $news,
@@ -233,8 +233,8 @@ function custom_template_redirect_for_report()
 			global $custom_meta_data;
 			$custom_meta_data = array(
 				'title' => $report->title,
-				'description' => $report->description,
-				'thumbnail' => $report->imagethumbnail
+				'description' => $report->content,
+				'thumbnail' => $report->imageurl
 			);
 			get_template_part('single-bao-cao-phan-tich', null, array(
 				'data' => $report,
@@ -294,8 +294,7 @@ function custom_template_redirect_for_co_phieu()
 			update_co_phieu_view_count_option($co_phieu_id);
 			$custom_meta_data = array(
 				'title' => __('Cổ phiếu', 'bsc') . ' ' . strtoupper($co_phieu_id),
-				'description' => $co_phieu->description,
-				'thumbnail' => $co_phieu->imagethumbnail
+				'description' => __('Cổ phiếu', 'bsc') . ' ' . strtoupper($co_phieu_id),
 			);
 			get_template_part('single-ma-co-phieu', null, array(
 				'data' => $co_phieu,
@@ -423,8 +422,7 @@ function custom_template_redirect_for_calendar()
 			global $custom_meta_data;
 			$custom_meta_data = array(
 				'title' => $calendar->title,
-				'description' => $calendar->description,
-				'thumbnail' => $calendar->imagethumbnail
+				'description' => $calendar->title,
 			);
 			get_template_part('single-lich-thi-truong', null, array(
 				'data' => $calendar,
