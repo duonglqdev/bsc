@@ -604,7 +604,7 @@ get_header();
 												<?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>-<?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
 											</h4>
 											<div
-												class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex overflow-x-auto snap-x' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md overflow-hidden' ?>">
+												class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex overflow-x-auto snap-x' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 rounded-md' ?>">
 												<div
 													class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-1/3 lg:min-w-0 min-w-full snap-start' : 'w-full block_slider-item' ?>">
 													<div
