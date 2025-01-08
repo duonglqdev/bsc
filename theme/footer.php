@@ -432,10 +432,8 @@
 
 					<span class="sr-only"><?php _e('Close modal', 'bsc') ?></span>
 				</button>
-				<h3 class="text-xl text-black document-modal-title text-left font-bold">
-
-				</h3>
-
+				<p class="text-xl text-black document-modal-title text-left font-bold">
+				</p>
 			</div>
 
 			<div

@@ -220,9 +220,9 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                                 </div>
                             </div>
                             <div class="space-y-2 mr-2">
-                                <h4 class="font-bold mt-1 expert-name <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'text-base' ?>">
+                                <p class="font-bold mt-1 expert-name <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'text-base' ?>">
 
-                                </h4>
+                                </p>
                                 <div class="expert-destiny">
 
 

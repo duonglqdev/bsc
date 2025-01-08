@@ -15,10 +15,10 @@
 			?>
 			<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
 				<?php if (get_sub_field('title')) { ?>
-					<h2 class="border-l-2 border-primary-300 2xl:text-[28px] font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl mb-7 pl-6' : 'text-lg mb-6 pl-[12px]' ?>"
+					<h3 class="border-l-2 border-primary-300 2xl:text-[28px] font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl mb-7 pl-6' : 'text-lg mb-6 pl-[12px]' ?>"
 						data-wow-duration="2s">
 						<?php the_sub_field('title') ?>
-					</h2>
+					</h3>
 				<?php } ?>
 				<div
 					class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-84px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-90px)]' : '' ?>">
@@ -46,8 +46,8 @@
 									<button data-chart="<?php echo $news->tendanhmuc ?>" data-stt="<?php echo $i ?>"
 										class="<?php if ($i == 1)
 													echo 'active' ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																	? 'px-4 2xl:py-2 py-1 2xl:text-base font-normal'
-																	: 'px-2 py-3 md:text-sm text-xs flex-1 font-semibold'; ?> bg-primary-700 text-white rounded-[10px] [&:not(.active)]:bg-transparent [&:not(.active)]:text-black">
+																			? 'px-4 2xl:py-2 py-1 2xl:text-base font-normal'
+																			: 'px-2 py-3 md:text-sm text-xs flex-1 font-semibold'; ?> bg-primary-700 text-white rounded-[10px] [&:not(.active)]:bg-transparent [&:not(.active)]:text-black">
 										<?php echo $news->tendanhmuc ?>
 									</button>
 								<?php } ?>
@@ -123,10 +123,10 @@
 				<div
 					class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-7' : 'mb-6' ?>">
 					<?php if (get_sub_field('title_2')) { ?>
-						<h2 class="border-l-2 border-primary-300 font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pl-6 2xl:text-[28px] text-xl' : 'pl-4 text-lg' ?>"
+						<h3 class="border-l-2 border-primary-300 font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pl-6 2xl:text-[28px] text-xl' : 'pl-4 text-lg' ?>"
 							data-wow-duration="2s">
 							<?php the_sub_field('title_2') ?>
-						</h2>
+						</h3>
 					<?php } ?>
 					<?php if (have_rows('button_xem_tat_ca')) {
 						while (have_rows('button_xem_tat_ca')) :

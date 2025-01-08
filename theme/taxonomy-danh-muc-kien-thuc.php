@@ -204,6 +204,8 @@ $time_cache = 300;
 		</div>
 	</section>
 </main>
-
+<h1 class="hidden">
+	<?php echo get_the_archive_title() ?>
+</h1>
 <?php
 get_footer();

@@ -80,7 +80,7 @@ get_header();
     <section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-14 xl:mb-[100px] mb-20' : 'mt-8 mb-[50px]' ?>">
         <div class="container">
             <h1 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:text-[32px] text-2xl mb-8' : 'text-xl mb-6' ?>">
-                <?php echo $title ?>
+                <?php echo htmlspecialchars($news->title) ?>
             </h1>
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex 2xl:gap-[70px] gap-10' : '' ?>">
                 <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-80 lg:max-w-[35%] shrink-0' : '' ?>">

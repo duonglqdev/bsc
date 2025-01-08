@@ -156,7 +156,7 @@ $time_cache = 300;
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key']))
-																										echo bsc_format_string($_GET['key'], 'all') ?>">
+																									echo bsc_format_string($_GET['key'], 'all') ?>">
 							</div>
 							<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 								datepicker-orientation="bottom right"
@@ -176,7 +176,7 @@ $time_cache = 300;
 									<input id="datepicker-range-end" name="todate" type="text"
 										class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 										autocomplete="off" placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
-																														echo bsc_format_string($_GET['todate'], 'all') ?>">
+																													echo bsc_format_string($_GET['todate'], 'all') ?>">
 									<?php echo svg('day', '20', '20') ?>
 								</div>
 							</div>
@@ -198,7 +198,7 @@ $time_cache = 300;
 								<input type="text" name="key"
 									class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 									placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>" value="<?php if (isset($_GET['key']))
-																										echo bsc_format_string($_GET['key'], 'all') ?>">
+																									echo bsc_format_string($_GET['key'], 'all') ?>">
 							</div>
 							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 								<div
@@ -250,7 +250,7 @@ $time_cache = 300;
 										<input id="datepicker-range-start" name="fromdate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e('Từ ngày', 'bsc') ?>" value="<?php if (isset($_GET['fromdate']))
-																										echo bsc_format_string($_GET['fromdate'], 'all') ?>">
+																									echo bsc_format_string($_GET['fromdate'], 'all') ?>">
 										<?php echo svg('day', '20', '20') ?>
 									</div>
 									<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
@@ -258,7 +258,7 @@ $time_cache = 300;
 										<input id="datepicker-range-end" name="todate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 											placeholder="<?php _e('Đến ngày', 'bsc') ?>" value="<?php if (isset($_GET['todate']))
-																										echo bsc_format_string($_GET['todate'], 'all') ?>">
+																									echo bsc_format_string($_GET['todate'], 'all') ?>">
 										<?php echo svg('day', '20', '20') ?>
 									</div>
 								</div>
@@ -1246,5 +1246,8 @@ $time_cache = 300;
 		</div>
 	</section>
 </main>
+<h1 class="hidden">
+	<?php echo get_the_archive_title() ?>
+</h1>
 <?php
 get_footer();

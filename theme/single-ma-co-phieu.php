@@ -39,11 +39,11 @@ get_header();
 	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
 			<?php if ($news->FULLNAME) { ?>
-				<h2
+				<h1
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' xl:text-[32px] text-2xl' : 'md:text-xl text-lg' ?> mb-2 leading-normal uppercase">
 					<?php echo $news->FULLNAME ?>
-				</h2>
-			<?php } ?>
+				</h1>
+			<?php }  ?>
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
 				<div

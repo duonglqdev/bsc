@@ -179,7 +179,7 @@ $time_cache = 300;
 									$current_year = $year;
 
 									echo '<div class="list_news-service">';
-									echo '<h2 class="text-xl font-bold mb-6">' . sprintf(__('Tháng %1$s năm %2$s', 'bsc'), $month, $year) . '</h2>';
+									echo '<p class="text-xl font-bold mb-6">' . sprintf(__('Tháng %1$s năm %2$s', 'bsc'), $month, $year) . '</p>';
 									echo '<div class="space-y-8">';
 								}
 
@@ -206,6 +206,8 @@ $time_cache = 300;
 		</div>
 	</section>
 </main>
-
+<h1 class="hidden">
+	<?php echo get_the_archive_title() ?>
+</h1>
 <?php
 get_footer();
