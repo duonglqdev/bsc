@@ -3835,11 +3835,11 @@ function filter_details_symbol()
 		if ($response_GetForecastMacro) {
 			?>
 			<div
-				class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider block_slider-show-1 fli-dots-blue dot-30 mb-10' ?>">
+				class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'flex overflow-x-auto snap-x snap-mandatory' ?>">
 				<div
-					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
+					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'min-w-full snap-start' ?>">
 					<div
-						class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[34px] pb-[9px] mb-1.5 pr-3' : 'py-1.5 px-5' ?>">
+						class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[34px] pb-[9px] mb-1.5 pr-3' : 'py-1.5 px-5 flex flex-col justify-center' ?>">
 						<p>
 							<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 						</p>
@@ -3905,7 +3905,7 @@ function filter_details_symbol()
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'min-w-full snap-start' ?>' ?>">
 					<div class="grid grid-cols-2 text-center">
 						<div class="text-[#FF0017]">
 							<div
