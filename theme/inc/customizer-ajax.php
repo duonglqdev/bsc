@@ -1457,11 +1457,11 @@ function filter_details_symbol()
 																	<?php
 																	_e('NIM (%)', 'bsc');
 																	?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations1-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations1-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ NIM (biên lãi ròng) là chênh lệch phần trăm giữa thu nhập lãi và chi phí lãi phải trả, dùng để đo lường hiệu quả và khả năng sinh lời của ngân hàng', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -1818,7 +1818,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -1837,9 +1837,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -1886,11 +1886,11 @@ function filter_details_symbol()
 												}, $industryData);
 												?>
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
-													data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-													data-2="<?php echo htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
-													data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
-													data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
-													data-color-1="#235BA8" data-color-2="#FFB81C">
+													data-2="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+													data-1="<?php echo htmlspecialchars(json_encode($industry_data_TY_LE_THANH_TOAN_LAI_VAY)) ?>"
+													data-title-2="<?php _e('Tỷ lệ thanh toán Lãi vay', 'bsc') ?>"
+													data-title-1="<?php _e('Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc') ?>"
+													data-color-2="#235BA8" data-color-1="#FFB81C">
 												</div>
 											</div>
 										<?php } elseif ($check_linh_vuc == 'Insurance') { ?>
@@ -1903,7 +1903,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -1922,9 +1922,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -1989,7 +1989,7 @@ function filter_details_symbol()
 												$business_data_CHI_SO_THANH_TOAN_NHANH = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->CHI_SO_THANH_TOAN_NHANH,
+														'value' => $item->CHI_SO_THANH_TOAN_HIEN_THOI,
 													];
 												}, $businessData);
 												$industry_data_CHI_SO_THANH_TOAN_HIEN_THOI = array_map(function ($item) {
@@ -2008,9 +2008,9 @@ function filter_details_symbol()
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_CHI_SO_THANH_TOAN_NHANH)) ?>"
 													data-2="<?php echo htmlspecialchars(json_encode($industry_data_CHI_SO_THANH_TOAN_HIEN_THOI)) ?>"
-													data-title-1="<?php _e('Chỉ số thanh toán nhanh', 'bsc') ?>"
-													data-title-2="<?php _e('Chỉ số thanh toán hiện thời', 'bsc') ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php _e('Chỉ số thanh toán hiện thời của mã', 'bsc') ?>"
+													data-title-2="<?php _e('Chỉ số thanh toán hiện thời của ngành', 'bsc') ?>" data-color-2="#FFB81C"
+													data-color-1="#235BA8">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -2322,11 +2322,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỷ lệ chi phí trên doanh thu (CIR)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations2-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations2-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Chỉ số CIR phản ánh tỷ lệ phần trăm chi phí hoạt động so với tổng doanh thu của ngân hàng, từ đó có thể đánh giá hiệu quả hoạt động của ngân hàng', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -2336,11 +2336,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỷ lệ Thu nhập từ lãi vay trên Tổng thu nhập hoạt động (NII/TOI)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations3-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations3-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ NII/TOI cho thấy tỷ trọng thu nhập từ lãi vay trên tổng thu nhập hoạt động của ngân hàng, từ đó cho thấy mức độ đa dạng thu nhập của ngân hàng đối với các nguồn thu nhập khác ngoài lãi vay', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
@@ -2350,11 +2350,11 @@ function filter_details_symbol()
 															<th>
 																<div class="flex items-center justify-center">
 																	<?php _e('Tỉ lệ CASA  (%)', 'bsc') ?>
-																	<button data-tooltip-target="tooltip-animations"
+																	<button data-tooltip-target="tooltip-animations4-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
 																	</button>
-																	<div id="tooltip-animations" role="tooltip" data-popper-placement="top"
+																	<div id="tooltip-animations4-<?php echo $freq ?>" role="tooltip" data-popper-placement="top"
 																		class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-base opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px] text-wrap">
 																		<?php _e('Tỷ lệ CASA là tỷ lệ giữa tiền gửi thanh toán và tiết kiệm trên tổng tiền gửi, phản ánh khả năng huy động vốn chi phí thấp của ngân hàng.', 'bsc') ?>
 																		<div class="tooltip-arrow" data-popper-arrow></div>
