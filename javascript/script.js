@@ -486,7 +486,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function setHeightBanner() {
-		if ($('.home__banner').hasClass('pc')) {
+		if ($(window).width() > 1024) {
 			function updateBannerHeight() {
 				var headerHeight = $('header').outerHeight();
 				var bannerHeight = $(window).height() - headerHeight;
@@ -1046,9 +1046,9 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.sidebar-report').on('click', '.li-plus', function () {
-			$(this).toggleClass('active');
-			$(this).next('ul.sub-menu').slideToggle(200);
+		$('.sidebar-report').on('click', '.has-child', function () {
+			$(this).find('.li-plus').toggleClass('active');
+			$(this).find('ul.sub-menu').slideToggle(200);
 		});
 		$('.utilities_button').addClass('show');
 		$('.utilities_button').click(function (e) {
@@ -2170,6 +2170,7 @@ import { DataTable } from 'simple-datatables';
 							y: kb2Value,
 							borderColor: '#30D158',
 							borderWidth: 3,
+							strokeDashArray: 0, // Đường liền mạch
 							label: {
 								borderColor: '#30D158',
 								style: {
@@ -2183,6 +2184,7 @@ import { DataTable } from 'simple-datatables';
 							y: kbcoso,
 							borderColor: '#FEAF00',
 							borderWidth: 3,
+							strokeDashArray: 0, // Đường liền mạch
 							label: {
 								borderColor: '#FEAF00',
 								style: {
@@ -2199,6 +2201,7 @@ import { DataTable } from 'simple-datatables';
 							y: kb1Value,
 							borderColor: '#FF0017',
 							borderWidth: 3,
+							strokeDashArray: 0, // Đường liền mạch
 							label: {
 								borderColor: '#FF0017',
 								style: {

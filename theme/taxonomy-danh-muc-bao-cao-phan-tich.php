@@ -131,13 +131,13 @@ $time_cache = 300;
 				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'relative' ?>">
 					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 						<div class="toggle-form mb-[12px] inline-block">
-							<div class="">
+							<div class="hidden">
 								<p class="inline-flex items-baseline gap-2 font-medium">
 									<?php _e('Thu gọn', 'bsc') ?>
 									<?php echo svgClass('down', '', '', 'rotate-180') ?>
 								</p>
 							</div>
-							<div class="hidden">
+							<div class="">
 								<p class="inline-flex items-baseline gap-2 font-medium">
 									<?php _e('Mở rộng', 'bsc') ?>
 									<?php echo svg('down') ?>
@@ -148,7 +148,7 @@ $time_cache = 300;
 					<?php $search_template = get_field('search_template', get_queried_object()) ?: 'default';
 					if ($search_template == 'default') { ?>
 						<form method="get"
-							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-nowrap flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap gap-[12px]' ?>"
+							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-nowrap flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap gap-[12px] hidden' ?>"
 							action="<?php echo get_term_link(get_queried_object()); ?>">
 							<div
 								class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[270px] lg:max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0">
@@ -181,7 +181,7 @@ $time_cache = 300;
 								</div>
 							</div>
 							<button type="submit"
-								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg' ?>">
+								class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg text-xs' ?>">
 								<?php _e('Tìm kiếm', 'bsc') ?>
 							</button>
 							<a href="<?php echo get_term_link(get_queried_object()) ?>"
@@ -319,10 +319,10 @@ $time_cache = 300;
 
 										if ( ! empty( $child_terms ) ) { ?>
 											<ul
-												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs mt-2">
 												<li>
 													<a href="<?php echo get_term_link( $current_term ); ?>"
-														class="text-xs px-3 py-2 rounded-md font-medium text-white bg-primary-300">
+														class="text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 														<?php _e( 'Tất cả', 'bsc' ); ?>
 													</a>
 												</li>
@@ -421,7 +421,7 @@ $time_cache = 300;
 					if ($type_danh_muc == 'thitruong') {
 						$class = '';
 						?>
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px]' ?>">
+						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px] mt-6' ?>">
 							<h3
 								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'mb-4 text-lg' ?>">
 								<?php _e('Dự báo thị trường', 'bsc') ?>

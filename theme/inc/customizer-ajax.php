@@ -1152,7 +1152,7 @@ function filter_details_symbol()
 											</thead>
 											<tbody class="text-right">
 												<tr>
-													<td colspan="<?php echo $total_colspan ?>" class="bg-primary-300 text-white text-left rounded-tl-lg rounded-tr-lg">
+													<td colspan="10" class="bg-primary-300 text-white text-left rounded-tl-lg rounded-tr-lg">
 														<?php _e('Kết quả kinh doanh', 'bsc'); ?>
 													</td>
 												</tr>
@@ -1248,7 +1248,7 @@ function filter_details_symbol()
 								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 											<thead>
 												<tr>
-													<th class="lg:min-w-[231px] lg:!w-1/4">
+													<th class="lg:min-w-[231px] lg:!w-1/4" colspan="10">
 														<?php _e('Cân đối kế toán', 'bsc') ?>
 													</th>
 													<?php

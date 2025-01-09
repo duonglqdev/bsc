@@ -74,15 +74,15 @@ $class = $check_logout['class'];
                                 <div
                                     class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
                                     <div
-                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[180px]' ?> min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap ' ?> min-w-[180px] min-h-[34px] flex items-center leading-[1.5] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
                                         <?php echo $nganh->name  ?>
                                     </div>
                                     <div
-                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[180px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap ' ?> min-w-[180px] min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd1 ?> border-r border-[#C9CCD2]">
                                         <?php echo $title_qd1 ?>
                                     </div>
                                     <div
-                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap min-w-[180px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
+                                        class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'whitespace-nowrap ' ?> min-w-[180px] min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 <?php echo $class_qd2 ?> ">
                                         <?php echo $title_qd2 ?>
                                     </div>
                                 </div>

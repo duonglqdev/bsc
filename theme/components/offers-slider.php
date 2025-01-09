@@ -18,7 +18,7 @@
 					</p>
 				<?php } ?>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'block' : 'flex flex items-center gap-6' ?>">
+					class=" md:flex items-center gap-6">
 					<?php if ( have_rows( 'button' ) ) {
 						while ( have_rows( 'button' ) ) :
 							the_row();
@@ -41,7 +41,7 @@
 							the_row();
 							if ( get_sub_field( 'title' ) ) {
 								?>
-								<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : '' ?>">
+								<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mt-4' : 'mt-4' ?>">
 									<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
 											echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 										class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>"

@@ -81,7 +81,7 @@ get_header();
 						</div>
 					</div>
 				<?php } ?>
-				<div class="flex-1">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex-1':'relative' ?>">
 					<?php if (get_field('type_danh_muc', get_queried_object()) == 'avatar') { ?>
 						<?php
 						$time_cache = get_field('cdqhcd2_time_cache', 'option') ?: 300;
@@ -135,7 +135,7 @@ get_header();
 								));
 								if (! empty($terms) && ! is_wp_error($terms)) :
 								?>
-									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 lg:bg-[#F3FBFE] bg-white p-2 prose-a:block rounded text-xs mt-2">
 										<?php foreach ($terms as $term) :
 											$active_class = (is_tax('danh-muc-bao-cao', $term->term_id)) ? 'active' : '';
 										?>
@@ -363,7 +363,7 @@ get_header();
 								));
 								if (!empty($terms) && !is_wp_error($terms)) :
 								?>
-									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 lg:bg-[#F3FBFE] bg-white p-2 prose-a:block rounded text-xs mt-2">
 										<?php foreach ($terms as $term) :
 											$active_class = (is_tax('danh-muc-bao-cao', $term->term_id)) ? 'active' : '';
 										?>

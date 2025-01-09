@@ -12,19 +12,19 @@ if (have_rows('slider')) {
 		?>
 				<div class="w-full relative block_slider-item" data-play="4000">
 					<a href="<?php echo check_link(get_sub_field('link')) ?>"
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'relative w-full block pt-[110.4%]' ?>">
+						class="relative w-full block lg:pt-0 pt-[110.4%]">
 						<?php
-						if (! wp_is_mobile() && ! bsc_is_mobile()) :
-							$image_id = get_sub_field('image'); ?>
-							<?php echo wp_get_attachment_image($image_id, 'full', '', array('class' => 'w-full h-full object-cover')); ?>
-						<?php else :
-							if (get_sub_field('image_mobile')) {
-								$image_id = get_sub_field('image_mobile');
-							} else {
-								$image_id = get_sub_field('image');
-							} ?>
-							<?php echo wp_get_attachment_image($image_id, 'full', '', array('class' => 'w-full h-full object-cover absolute inset-0')); ?>
-						<?php endif; ?>
+						$image_id_desktop = get_sub_field('image'); // ID của ảnh desktop
+						$image_id_mobile = get_sub_field('image_mobile') ?: $image_id_desktop; // ID của ảnh mobile (mặc định lấy ảnh desktop nếu không có)
+
+						$mobile_image_url = wp_get_attachment_image_url($image_id_mobile, 'full'); // Lấy URL của ảnh mobile
+						?>
+
+						<picture>
+							<source media="(max-width: 1024px)" srcset="<?php echo esc_url($mobile_image_url); ?>">
+							<?php echo wp_get_attachment_image($image_id_desktop, 'full', '', array('class' => 'w-full h-full object-cover lg:static absolute inset-0')); ?>
+						</picture>
+
 					</a>
 				</div>
 				<?php
@@ -36,9 +36,9 @@ if (have_rows('slider')) {
 				?>
 					<div class="w-full block_slider-item" data-play="10000">
 						<div
-							class="w-full relative max-h-full h-full after:absolute lg:after:w-3/4 after:w-full after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'pt-[110.4%]' ?>">
+							class="w-full relative max-h-full h-full after:absolute lg:after:w-3/4 after:w-full after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none lg:pt-0 pt-[110.4%]">
 							<video preload="none" id="video-banner"
-								class="object-cover w-full max-w-full h-full max-h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'absolute inset-0' ?>"
+								class="object-cover w-full max-w-full h-full max-h-full lg:static absolute inset-0"
 								autoplay="" muted="" playsinline="" loop=""
 								src="<?php echo $video_play ?>"></video>
 							<div class="absolute w-full h-full inset-0">

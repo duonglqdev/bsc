@@ -911,6 +911,9 @@ header {
 	}
 	.apexcharts-legend {
 		@apply gap-5;
+		@media(max-width:767px){
+			padding: 0 !important;
+		}
 	}
 	.apexcharts-legend-text {
 		font-size: 14px !important;
@@ -984,7 +987,7 @@ header {
 		}
 
 		.li-plus {
-			@apply absolute top-[14px] 2xl:right-3 right-1.5;
+			@apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
 		}
 		.li-plus.active {
 			@apply rotate-180;
@@ -1357,7 +1360,10 @@ button#ib-button-messaging {
 .performance-chart {
 	.apexcharts-legend-text {
 		@apply pl-5;
-		font-size: 16px !important;
+		font-size: 14px !important;
+		@media only screen and (min-width: 480px) {
+			font-size: 16px !important;
+		}
 		font-family: "Barlow", sans-serif !important;
 	}
 }
@@ -1365,9 +1371,7 @@ button#ib-button-messaging {
 .slick-disabled {
 	@apply opacity-60 pointer-events-none cursor-default;
 }
-main{
-	@apply overflow-x-hidden;
-}
+
 .slider-tooltip {
     position: absolute;
     top: -30px; /* Điều chỉnh khoảng cách tooltip và slider */
@@ -1379,4 +1383,8 @@ main{
     white-space: nowrap;
     transform: translateX(-50%);
     z-index: 10;
+}
+
+.text-mb *{
+	font-size: 14px !important;
 }

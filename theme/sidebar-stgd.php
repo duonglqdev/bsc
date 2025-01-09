@@ -109,7 +109,7 @@ $current_post_id = get_the_ID();
 			</div>
 
 			<ul
-				class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs">
+				class="overflow-y-auto absolute py-2 z-30 w-full max-h-72 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs sidebar-report">
 				<?php foreach ($categories as $category) : ?>
 					<?php
 					$posts_in_category = get_posts([
@@ -131,17 +131,47 @@ $current_post_id = get_the_ID();
 						}
 					}
 					?>
-					<li class="<?php echo $has_active_post ? 'active' : ''; ?>">
+					<li class="<?php echo $has_active_post ? 'active' : ''; ?> !rounded-xl">
 						<a href="<?php echo count($posts_in_category) > 1 ? 'javascript:void(0)' : get_permalink($posts_in_category[0]->ID); ?>"
 							class="<?php echo $has_active_post ? 'active' : ''; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 							<?php echo esc_html($category->name); ?>
 						</a>
 					</li>
+
+
+					<li class="<?php if ( $has_active_post )
+					echo 'active' ?>">
+					<?php if ( count( $posts_in_category ) > 1 ) : ?>
+						<a href="javascript:void(0)"
+							class="<?php if ( $has_active_post )
+								echo 'active' ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+							<?php echo esc_html( $category->name ); ?>
+						</a>
+						<ul class="sub-menu w-full bg-white py-2"
+							style="<?php echo $has_active_post ? '' : 'display: none;'; ?>">
+							<?php foreach ( $posts_in_category as $post ) : ?>
+								<li>
+									<a href="<?php echo get_permalink( $post->ID ); ?>"
+										class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white hover:!text-primary-300 block">
+										<?php echo get_the_title( $post->ID ); ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					<?php else : ?>
+						<a href="<?php echo ! empty( $posts_in_category ) ? get_permalink( $posts_in_category[0]->ID ) : '#'; ?>"
+							class="<?php if ( $has_active_post )
+								echo 'active' ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+							<?php echo esc_html( $category->name ); ?>
+						</a>
+					<?php endif; ?>
+				</li>
+
 				<?php endforeach; ?>
 				<?php if ($video_page_link) : ?>
 					<li>
 						<a href="<?php echo esc_url($video_page_link); ?>"
-							class="<?php echo $video_page_link == get_permalink() ? 'active' : ''; ?> flex items-baseline gap-4 2xl:text-lg text-base font-bold [&:not(.active)]:text-black text-white relative py-[12px] px-5 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
+							class="<?php echo $video_page_link == get_permalink() ? 'active' : ''; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 							<?php _e('Video hướng dẫn', 'bsc'); ?>
 						</a>
 					</li>

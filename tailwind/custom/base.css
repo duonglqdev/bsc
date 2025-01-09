@@ -884,6 +884,11 @@ header.active {
 .legend-gap .apexcharts-legend {
   @apply gap-5;
 }
+@media (max-width: 767px) {
+  .legend-gap .apexcharts-legend {
+    padding: 0 !important;
+  }
+}
 .legend-gap .apexcharts-legend-text {
   font-size: 14px !important;
 }
@@ -944,7 +949,7 @@ header.active {
   @apply w-full 2xl:pr-10 pr-8;
 }
 .sidebar-report .has-child .li-plus {
-  @apply absolute top-[14px] 2xl:right-3 right-1.5;
+  @apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;
@@ -1264,16 +1269,17 @@ button#ib-button-messaging {
 
 .performance-chart .apexcharts-legend-text {
   @apply pl-5;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-family: "Barlow", sans-serif !important;
+}
+@media only screen and (min-width: 480px) {
+  .performance-chart .apexcharts-legend-text {
+    font-size: 16px !important;
+  }
 }
 
 .slick-disabled {
   @apply opacity-60 pointer-events-none cursor-default;
-}
-
-main {
-  @apply overflow-x-hidden;
 }
 
 .slider-tooltip {
@@ -1287,6 +1293,10 @@ main {
   white-space: nowrap;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+.text-mb * {
+  font-size: 14px !important;
 }
 
 /*# sourceMappingURL=base.css.map */

@@ -44,7 +44,7 @@ $generateRandomString = generateRandomString();
 							<div
 								class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 								<div
-									class="text-primary-300 group-hover:text-white transition-all duration-500">
+									class="text-primary-300 group-hover:text-white lg:transition-all lg:duration-500">
 									<?php echo svg_dir(get_sub_field('icon')) ?>
 								</div>
 								<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">

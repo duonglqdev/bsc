@@ -40,7 +40,7 @@ $time_cache = 300;
 								class="text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-r-[4px] border-white lg:w-1/3 w-1/2 snap-start lg:min-w-0 min-w-[50%]' : ' w-full block_slider-item' ?>">
 								<div
 									class="flex justify-end items-center pr-5 bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-b-[4px] border-white pt-[37px] pb-[9px] min-h-[71px]' : 'py-2 min-h-[58px]' ?>">
-									<p>
+									<p class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-auto leading-[1.2]' ?>">
 										<?php echo $response_GetForecastMacro->d->A[0][0]->year; ?>
 									</p>
 								</div>

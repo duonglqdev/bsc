@@ -66,9 +66,11 @@ if ($response) {
 												<?php echo htmlspecialchars($news->title) ?>
 											</a>
 										</h3>
-										<p class="line-clamp-1">
-											<?php echo htmlspecialchars($news->description) ?>
-										</p>
+										<div class="lg:block hidden">
+											<p class="line-clamp-1">
+												<?php echo htmlspecialchars($news->description) ?>
+											</p>
+										</div>
 									</li>
 							<?php
 								}
