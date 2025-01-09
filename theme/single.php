@@ -369,7 +369,7 @@ get_header();
 						</div>
 					<?php } ?>
 					<div
-						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 prose-h2:text-inherit <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-mb' ?>">
+						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 prose-h2:text-[length:inherit] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-mb' ?>">
 						<?php echo $body ?>
 						<?php
 						if ($news->attachedfileurl) {
