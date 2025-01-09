@@ -319,10 +319,10 @@ $time_cache = 300;
 
 										if ( ! empty( $child_terms ) ) { ?>
 											<ul
-												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
+												class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs mt-2">
 												<li>
 													<a href="<?php echo get_term_link( $current_term ); ?>"
-														class="text-xs px-3 py-2 rounded-md font-medium text-white bg-primary-300">
+														class="text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 														<?php _e( 'Tất cả', 'bsc' ); ?>
 													</a>
 												</li>
@@ -421,7 +421,7 @@ $time_cache = 300;
 					if ($type_danh_muc == 'thitruong') {
 						$class = '';
 						?>
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px]' ?>">
+						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px] mt-6' ?>">
 							<h3
 								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'mb-4 text-lg' ?>">
 								<?php _e('Dự báo thị trường', 'bsc') ?>

@@ -20,11 +20,11 @@ get_header();
 				BIDV Securities Joint Stock
 				Company</p>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5 flex-wrap' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 block_sameheight' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5 flex-wrap' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30 ' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[547px] lg:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[547px] lg:max-w-[41%] w-full' : 'w-full block_slider-item ' ?>">
 					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6' ?>">
+						class="bg-gradient-blue-to-bottom-100 rounded-xl h-full space-y-6 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6 min-h-[254px]' ?>">
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex items-center justify-between' ?>">
 							<div
@@ -154,9 +154,9 @@ get_header();
 					</div>
 				</div>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[433px] lg:max-w-[33%] w-1/2' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[433px] lg:max-w-[33%] w-1/2' : 'w-full block_slider-item ' ?>">
 					<div
-						class="bg-[#E8F5FF] rounded-xl h-full font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4' ?>">
+						class="bg-[#E8F5FF] rounded-xl h-full font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4 min-h-[254px]' ?>">
 						<div
 							class="border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex items-center justify-between mb-6 pb-6' : 'mb-3 pb-3' ?>">
 							<p class="text-paragraph text-opacity-70 text-xs">
@@ -237,9 +237,9 @@ get_header();
 					</div>
 				</div>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
 					<div
-						class="bg-[#E8F5FF] rounded-xl lg:px-8 px-5 lg:py-6 py-5 font-Helvetica flex flex-col h-full">
+						class="bg-[#E8F5FF] rounded-xl lg:px-8 px-5 lg:py-6 py-5 font-Helvetica flex flex-col h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'min-h-[254px]' ?>">
 						<div class="flex items-center justify-between mb-6">
 							<h3 class="font-bold">
 								KHUYẾN NGHỊ
