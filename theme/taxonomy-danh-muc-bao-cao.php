@@ -181,8 +181,7 @@ get_header();
 									class="grid <?php
 												echo ! wp_is_mobile() && ! bsc_is_mobile()
 													? 'lg:grid-cols-4 grid-cols-2 gap-5'
-													: 'grid-cols-2 gap-y-5 gap-x-4';
-												echo $item_count > 4 ? ' show-4' : ''; ?>">
+													: 'grid-cols-2 gap-y-5 gap-x-4 show-4-item'; ?>">
 									<?php
 									foreach ($response->d as $news) {
 										$item_count++;
