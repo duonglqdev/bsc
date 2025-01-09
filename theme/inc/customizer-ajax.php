@@ -1097,64 +1097,65 @@ function filter_details_symbol()
 						if ($response_GetSummaryFinanceReportBySymbol) {
 							$industryname = $response_GetSummaryFinanceReportBySymbol->industryname;
 						?>
-							<ul
-								class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-6 mb-6 mr-5' : 'overflow-x-auto whitespace-nowrap gap-8 pb-4 pt-4 sticky top-0 z-[52] text-xs -mx-5' ?>">
-								<li class="lg:w-1/4"></li>
-								<?php
-								// Lấy dữ liệu từ đối tượng phản hồi
-								$yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
-								$kiemToanData = $response_GetSummaryFinanceReportBySymbol->d1[2];
-
-								// Chuyển đổi đối tượng thành mảng kết hợp
-								$yearDataArray = (array) $yearData;
-								$kiemToanDataArray = (array) $kiemToanData;
-
-								// Loại bỏ phần tử đầu tiên (TITLE)
-								$yearDataValues = array_slice($yearDataArray, 1, null, true);
-								$kiemToanDataValues = array_slice($kiemToanDataArray, 1, null, true);
-
-								// Đảo ngược thứ tự của mảng
-								$yearDataValues = array_reverse($yearDataValues, true);
-								$kiemToanDataValues = array_reverse($kiemToanDataValues, true);
-
-								// Vòng lặp qua các phần tử đã đảo ngược
-								$check_year = 0;
-								foreach ($yearDataValues as $key => $year) {
-									$check_year++;
-									// Lấy giá trị kiểm toán tương ứng
-									$kiem_toan = isset($kiemToanDataValues[$key]) ? $kiemToanDataValues[$key] : '';
-								?>
-									<li class="lg:min-w-[200px] md:min-w-[120px] font-bold">
-										<p><?php echo htmlspecialchars($year); ?></p>
-										<p class="text-[#1CCD83]">
-											<?php
-											if ($kiem_toan === 'N') {
-												echo __('(Chưa kiểm toán)', 'bsc');
-											} else {
-												echo __('(Đã kiểm toán)', 'bsc');
-											}
-											?>
-										</p>
-									</li>
-								<?php
-								}
-								?>
-							</ul>
+							
 							<?php $total_colspan = $check_year + 2; ?>
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-16' : 'space-y-10' ?>">
-								<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+								<div class="overflow-hidden">
 									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 										<table
-											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
+											class="w-full max-w-full prose-thead:font-bold prose-th:text-left font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 											<thead>
-												<tr>
-													<th colspan="<?php echo $total_colspan ?>">
-														<?php _e('Kết quả kinh doanh', 'bsc'); ?>
-													</th>
-												</tr>
+											<tr>
+												<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
+												<?php
+													// Lấy dữ liệu từ đối tượng phản hồi
+													$yearData = $response_GetSummaryFinanceReportBySymbol->d1[0];
+													$kiemToanData = $response_GetSummaryFinanceReportBySymbol->d1[2];
+
+													// Chuyển đổi đối tượng thành mảng kết hợp
+													$yearDataArray = (array) $yearData;
+													$kiemToanDataArray = (array) $kiemToanData;
+
+													// Loại bỏ phần tử đầu tiên (TITLE)
+													$yearDataValues = array_slice($yearDataArray, 1, null, true);
+													$kiemToanDataValues = array_slice($kiemToanDataArray, 1, null, true);
+
+													// Đảo ngược thứ tự của mảng
+													$yearDataValues = array_reverse($yearDataValues, true);
+													$kiemToanDataValues = array_reverse($kiemToanDataValues, true);
+
+													// Vòng lặp qua các phần tử đã đảo ngược
+													$check_year = 0;
+													foreach ($yearDataValues as $key => $year) {
+														$check_year++;
+														// Lấy giá trị kiểm toán tương ứng
+														$kiem_toan = isset($kiemToanDataValues[$key]) ? $kiemToanDataValues[$key] : '';
+													?>
+														<th class="lg:min-w-[140px] font-bold flex-1 ">
+															<p class="text-right"><?php echo htmlspecialchars($year); ?></p>
+															<p class="text-[#1CCD83] text-right">
+																<?php
+																if ($kiem_toan === 'N') {
+																	echo __('(Chưa kiểm toán)', 'bsc');
+																} else {
+																	echo __('(Đã kiểm toán)', 'bsc');
+																}
+																?>
+															</p>
+														</th>
+													<?php
+													}
+													?>
+											
+											</tr>
+												
 											</thead>
 											<tbody class="text-right">
+												<tr>
+													<td colspan="<?php echo $total_colspan ?>" class="bg-primary-300 text-white text-left rounded-tl-lg rounded-tr-lg">
+														<?php _e('Kết quả kinh doanh', 'bsc'); ?>
+													</td>
+												</tr>
 												<?php
 												$check_kqkd = 0;
 												foreach ($response_GetSummaryFinanceReportBySymbol->d2 as $data) {
@@ -1247,9 +1248,19 @@ function filter_details_symbol()
 								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 											<thead>
 												<tr>
-													<th colspan="<?php echo $total_colspan ?>">
+													<th class="lg:min-w-[231px] lg:!w-1/4">
 														<?php _e('Cân đối kế toán', 'bsc') ?>
 													</th>
+													<?php
+															$data_tsArray = (array) $data_ts;
+															$data_tsValues = array_slice($data_tsArray, 1, null, true);
+															$data_tsValues = array_reverse($data_tsValues, true);
+															$check_dat_ts = 0;
+															foreach ($data_tsValues as $key => $dat_ts) {
+																$check_dat_ts++; ?>
+																<th></th>
+															<?php
+															} ?>
 												</tr>
 											</thead>
 											<tbody class="text-right">

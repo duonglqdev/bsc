@@ -481,7 +481,7 @@ get_header();
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'g:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
 						<div
 							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[386px] lg:max-w-[29%]' : 'w-full' ?>">
 							<h2
@@ -806,39 +806,41 @@ get_header();
 							</a>
 						<?php } ?>
 					</div>
-					<ul
-						class="flex items-center text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-end gap-[27px] mb-6 mr-6' : 'overflow-x-auto whitespace-nowrap gap-8 mb-4 text-xs' ?>">
-						<li class="lg:w-1/4"></li>
-						<?php
-						for ( $i = 18; $i < 24; $i++ )
-						{
-							?>
-							<li class="lg:min-w-[140px] font-bold flex-1">
-								<p>
-									Năm 20<?= $i ?>
-								</p>
-								<p class="text-[#1CCD83]">
-									(Đã kiểm toán)
-								</p>
-							</li>
-							<?php
-						}
-						?>
-					</ul>
+
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-16' : 'space-y-10' ?>">
-						<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+						<div class="overflow-hidden">
 							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 								<table
-									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
+									class="w-full max-w-full prose-thead:font-bold prose-th:text-left
 								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
-											<th colspan="7">Kết quả kinh doanh</th>
+											<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
+											<?php
+											for ( $i = 18; $i < 23; $i++ )
+											{
+												?>
+												<th class="lg:min-w-[140px] font-bold flex-1 ">
+													<p class="text-right">
+														Năm 20<?= $i ?>
+													</p>
+													<p class="text-[#1CCD83] text-right">
+														(Đã kiểm toán)
+													</p>
+												</th>
+												<?php
+											}
+											?>
 										</tr>
 									</thead>
 									<tbody class="text-right">
-										<?php
+										<tr>
+											<td colspan="7" class="bg-primary-300 text-white text-left rounded-tl-lg rounded-tr-lg">
+												Kết quả kinh doanh
+											</td>
+										</tr>
+										<!-- <?php
 										for ( $i = 0; $i < 2; $i++ )
 										{
 											?>
@@ -875,7 +877,50 @@ get_header();
 											</tr>
 											<?php
 										}
-										?>
+										?> -->
+
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Doanh thu bán hàng và CCDV </td>
+											<td>20,244,809</td>
+											<td>20,860,307</td>
+											<td>18,942,352</td>
+											<td>20,203,516</td>
+											<td>21,574,637</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Tổng lợi nhuận KT trước thuế </td>
+											<td>582,905</td>
+											<td>947,833</td>
+											<td>633,663</td>
+											<td>1,168,760</td>
+											<td>1,565,750</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Lợi nhuận KT sau thuế TNDN </td>
+											<td>484,513</td>
+											<td>516,776</td>
+											<td>478,851</td>
+											<td>945,962</td>
+											<td>1,301,013</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Lợi nhuận sau thuế của công ty mẹ </td>
+											<td>48,376</td>
+											<td>50,110</td>
+											<td>104,356</td>
+											<td>502,577</td>
+											<td>701,071</td>
+										</tr>
+
+
 									</tbody>
 								</table>
 							</div>
@@ -887,7 +932,17 @@ get_header();
 								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
 									<thead>
 										<tr>
-											<th colspan="7">Cân đối kế toán</th>
+											<th class="lg:min-w-[231px] lg:!w-1/4 ">Cân đối kế toán</th>
+											<?php
+											for ( $i = 18; $i < 23; $i++ )
+											{
+												?>
+												<th>
+													
+												</th>
+												<?php
+											}
+											?>
 										</tr>
 									</thead>
 									<tbody class="text-right">
@@ -903,7 +958,7 @@ get_header();
 												<td>608,349,810</td>
 												<td>912,577,380</td>
 												<td>1,333,024,980</td>
-												<td>1,089,005,390</td>
+												
 												<td>1,258,998,059</td>
 											</tr>
 											<?php

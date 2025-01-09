@@ -138,7 +138,7 @@ $class = $check_logout['class'];
 										?>
 									</ul>
 								</div>
-								<div class="min-w-[110px]">
+								<div class="min-w-[108px]">
 									<div
 										class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 										<?php _e( 'P/E FWD', 'bsc' ) ?> <br>
