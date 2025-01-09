@@ -275,7 +275,7 @@ add_action('init', function () {
 					'groupid' => $categoryid_kn,
 					'maxitem' => 100000,
 				);
-				$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews);
+				$response_GetNews = get_data_with_cache('GetNews', $array_data);
 				if ($response_GetNews && $response_GetNews->d) {
 					foreach ($response_GetNews->d as $news) {
 			?>
@@ -307,7 +307,7 @@ add_action('init', function () {
 					'groupid' => $categoryid_kn,
 					'maxitem' => 100000,
 				);
-				$response_GetNews = get_data_with_cache('GetNews', $array_data_GetNews);
+				$response_GetNews = get_data_with_cache('GetNews', $array_data);
 				if ($response_GetNews && $response_GetNews->d) {
 					foreach ($response_GetNews->d as $news) {
 			?>
@@ -372,7 +372,7 @@ add_action('init', function () {
 					'maxitem' => '100000',
 					'index' => 1
 				);
-				$response = get_data_with_cache('GetReportsBySymbol', $array_data);
+				$response = get_data_with_cache('GetReportsBySymbol', $array_data_GetNews);
 				if ($response) {
 					foreach ($response->d as $news) {
 			?>
