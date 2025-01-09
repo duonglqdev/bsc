@@ -1226,7 +1226,8 @@ import { DataTable } from 'simple-datatables';
 
 	function livechat() {
 		jQuery(document).ready(function () {
-			jQuery("a[href='#livechat']").click(function () {
+			jQuery("a[href='#livechat']").click(function (e) {
+				e.preventDefault();
 				if ($('#ib-button-messaging').length) {
 					liveChat('show');
 					jQuery('#ib-button-messaging').show();
@@ -1484,8 +1485,6 @@ import { DataTable } from 'simple-datatables';
 			$('#search_job')[0].reset();
 			load_jobs(1);
 		});
-
-		
 
 		function getMaxValue(dataSets) {
 			return (
@@ -1812,13 +1811,13 @@ import { DataTable } from 'simple-datatables';
 		const button = $('.show-more-recruitment');
 		const loading = $('#tuyen-dung-loading');
 		const container = $('#vi-tri-tuyen-dung');
-	
+
 		button.on('click', function () {
 			if (!button.hasClass('loading')) {
 				button.addClass('loading');
 				loading.removeClass('hidden');
 				page++;
-	
+
 				$.ajax({
 					url: ajaxurl.ajaxurl,
 					type: 'POST',
@@ -1846,8 +1845,7 @@ import { DataTable } from 'simple-datatables';
 				});
 			}
 		});
-	
-}
+	}
 
 	function handleScrollTable() {
 		function enableHorizontalScroll(element) {
