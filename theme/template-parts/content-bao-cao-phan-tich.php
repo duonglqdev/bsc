@@ -56,7 +56,7 @@
 				</div>
 			<?php } else { ?>
 				<a href="<?php echo $link ?>"
-					class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold max-w-[40%]">
+					class="inline-block bg-primary-300 text-white px-3 py-1 rounded transition-all duration-500 hover:bg-primary-600 text-xs font-semibold max-w-[60%]">
 					<?php echo htmlspecialchars( $news->categoryname ) ?>
 				</a>
 			<?php } ?>
