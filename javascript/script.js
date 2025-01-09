@@ -486,7 +486,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function setHeightBanner() {
-		if ($('.home__banner').hasClass('pc')) {
+		if ($(window).width() > 1024) {
 			function updateBannerHeight() {
 				var headerHeight = $('header').outerHeight();
 				var bannerHeight = $(window).height() - headerHeight;

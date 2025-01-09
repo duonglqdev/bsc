@@ -28,7 +28,7 @@
 								<?php if (have_rows('qr_code')) {
 									while (have_rows('qr_code')) :
 										the_row(); ?>
-										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-11 items-center lg:my-20' : '' ?>">
+										<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex gap-11 items-center lg:my-20 lg:justify-start justify-center' : '' ?>">
 											<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
 												<div class="qr w-52 max-w-[40%]">
 													<?php
@@ -40,7 +40,7 @@
 												</div>
 											<?php } ?>
 											<ul
-												class="flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4 block' : 'flex flex-wrap gap-y-3 px-3 -mx-1 space-y-0.5 justify-between' ?>">
+												class="lg:flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4 block' : 'flex flex-wrap gap-y-3 px-3 -mx-1 space-y-0.5 justify-between' ?>">
 												<?php if (have_rows('mota')) {
 													while (have_rows('mota')) :
 														the_row(); ?>
@@ -75,7 +75,7 @@
 								}
 								?>
 								<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mt-10' : '' ?>">
-									<ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center gap-3 min-h-[54px]' : '' ?>">
+									<ul class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center gap-3 min-h-[54px] lg:justify-start justify-center' : '' ?>">
 										<?php if (have_rows('icon_app')) {
 											while (have_rows('icon_app')) :
 												the_row() ?>

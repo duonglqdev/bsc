@@ -318,23 +318,21 @@
 								<?php if ( get_sub_field( 'title' ) )
 								{ ?>
 									<div
-										class="lg:flex lg:items-center lg:justify-between lg:gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
-										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-										{ ?>
+										class="md:flex md:items-center md:justify-between md:gap-3 custom_arrow_slick pb-3 mb-3 border-b border-[#D9D9D9] lg:px-4">
+										
 											<button
-												class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg( 'prev-slick' ) ?>
+												class="prev-btn text-primary-300 transition-all duration-500 hover:text-primary-600 md:inline-block hidden"><?php echo svg( 'prev-slick' ) ?>
 											</button>
 
-										<?php } ?>
+										
 										<p class="font-bold lg:text-lg lg:text-center line-clamp-1">
 											<?php the_sub_field( 'title' ) ?>
 										</p>
-										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-										{ ?>
+										
 											<button
-												class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600"><?php echo svg( 'next-slick' ) ?></button>
+												class="next-btn text-primary-300 transition-all duration-500 hover:text-primary-600 md:inline-block hidden"><?php echo svg( 'next-slick' ) ?></button>
 
-										<?php } ?>
+										
 									</div>
 								<?php } ?>
 								<?php
