@@ -38,20 +38,36 @@ $class = $check_logout['class'];
 									class="text-white bg-primary-300 font-semibold flex items-center justify-center flex-col min-h-[60px] leading-[1.5] py-2 border-r-[0.1px] border-[#c3c3c3]">
 									<?php _e( 'Mã CK', 'bsc' ) ?>
 								</div>
-								<ul>
-									<?php
-									foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-										?>
-										<li class="text-primary-300 font-bold">
-											<?php if ( $GetForecastBussinessResults->symbol ) { ?>
-												<a
-													href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
-											<?php } ?>
-										</li>
-										<?php
-									}
+								<?php
+									$count = 0;
+									$total = count($response_GetForecastBussinessResults->d);
 									?>
-								</ul>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li class="text-primary-300 font-bold">
+											<?php if ( $GetForecastBussinessResults->symbol ) : ?>
+												<a href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ); ?>">
+													<?php echo $GetForecastBussinessResults->symbol; ?>
+												</a>
+											<?php endif; ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) : ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
+
 							</div>
 							<div
 								class="flex-1 scroll-bar-custom scroll-container [&:not(.active)]:cursor-default cursor-grab scroll-bar-x overflow-x-auto flex text-center prose-a:font-bold prose-a:text-primary-300 prose-li:flex prose-li:items-center prose-li:justify-end  prose-p:font-normal <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-li:min-h-10 prose-li:pr-3' : 'prose-li:min-h-[30px] prose-li:pr-4' ?>">
@@ -60,17 +76,32 @@ $class = $check_logout['class'];
 										class="text-white bg-primary-300 font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5] py-2 pl-4 relative shadow-[1px_1px_2px_#ccc]">
 										<?php _e( 'Ngành', 'bsc' ) ?>
 									</div>
-									<ul class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo $GetForecastBussinessResults->industryname ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul class="prose-li:!justify-start prose-li:pl-3 prose-li:whitespace-nowrap">
+										<?php endif; ?>
+
+										<li>
+											<?php echo $GetForecastBussinessResults->industryname; ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
+
 								</div>
 								<div class="min-w-[120px]">
 									<div
@@ -78,17 +109,32 @@ $class = $check_logout['class'];
 										<?php _e( 'DTT', 'bsc' ) ?> 		<?php echo date( 'Y' ) ?>
 										<p>(<?php _e( 'tỷ VND', 'bsc' ) ?>)</p>
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+											<?php echo $GetForecastBussinessResults->revenue; ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="min-w-[110px]">
 									<div
@@ -106,19 +152,34 @@ $class = $check_logout['class'];
 										</div>
 
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
+								
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
 												<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
 													<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
 												<?php } ?>
 											</li>
-											<?php
-										}
-										?>
-									</ul>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="lg:min-w-[90px] min-w-[110px]">
 									<div
@@ -126,17 +187,32 @@ $class = $check_logout['class'];
 										<?php _e( 'EPS', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>
 									</div>
-									<ul class="prose-li:!lg:pr-8">
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
 											</li>
-											<?php
-										}
-										?>
-									</ul>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="min-w-[108px]">
 									<div
@@ -144,18 +220,32 @@ $class = $check_logout['class'];
 										<?php _e( 'P/E FWD', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->pe ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+											<?php echo bsc_number_format( $GetForecastBussinessResults->pe ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="min-w-[110px]">
 									<div
@@ -163,17 +253,32 @@ $class = $check_logout['class'];
 										<?php _e( 'P/B FWD', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->pb ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+											<?php echo bsc_number_format( $GetForecastBussinessResults->pb ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="lg:min-w-[90px] min-w-[110px]">
 									<div
@@ -181,17 +286,32 @@ $class = $check_logout['class'];
 										<?php _e( 'ROA', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>
 									</div>
-									<ul class="prose-li:!lg:pr-8">
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->roa, false ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo bsc_number_format( $GetForecastBussinessResults->roa, false ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="lg:min-w-[90px] min-w-[110px]">
 									<div
@@ -199,17 +319,32 @@ $class = $check_logout['class'];
 										<?php _e( 'ROE', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>
 									</div>
-									<ul class="prose-li:!lg:pr-8">
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->roe, false ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo bsc_number_format( $GetForecastBussinessResults->roe, false ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="min-w-[130px]">
 									<div
@@ -230,17 +365,32 @@ $class = $check_logout['class'];
 											<div class="tooltip-arrow" data-popper-arrow></div>
 										</div>
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->closeprice ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+								
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo bsc_number_format( $GetForecastBussinessResults->closeprice ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 								<div class="min-w-[110px]">
 									<div
@@ -248,17 +398,32 @@ $class = $check_logout['class'];
 										<?php _e( 'Giá mục tiêu', 'bsc' ) ?> <br>
 										<?php echo date( 'Y' ) ?>/<?php echo date( 'Y' ) + 1 ?>
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 
 								</div>
 								<div class="2xl:min-w-[110px] min-w-[90px]">
@@ -267,17 +432,32 @@ $class = $check_logout['class'];
 										<?php _e( 'Upside', 'bsc' ) ?> <br>
 										(%)
 									</div>
-									<ul>
-										<?php
-										foreach ( $response_GetForecastBussinessResults->d as $GetForecastBussinessResults ) {
-											?>
-											<li>
-												<?php echo $GetForecastBussinessResults->upside ?>
-											</li>
-											<?php
-										}
-										?>
-									</ul>
+									
+									<?php
+									$count = 0; 
+									$total = count($response_GetForecastBussinessResults->d); 
+									?>
+
+									<?php foreach ( $response_GetForecastBussinessResults->d as $index => $GetForecastBussinessResults ) : ?>
+
+										<?php if ( $count % 6 === 0 ) : ?>
+											<?php if ( $count > 0 ) : ?>
+												<hr class="my-1 h-[1px] border-t-0 bg-[#C9CCD2]">
+											<?php endif; ?>
+											<ul>
+										<?php endif; ?>
+
+										<li>
+										<?php echo $GetForecastBussinessResults->upside ?>
+										</li>
+
+										<?php $count++; ?>
+
+										<?php if ( $count % 6 === 0 || $count === $total ) :  ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endforeach; ?>
 								</div>
 							</div>
 						</div>
