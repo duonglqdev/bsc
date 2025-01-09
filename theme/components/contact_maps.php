@@ -1224,7 +1224,7 @@ if ($file) {
                             <div class="absolute z-[2] w-[90%] left-1/2 -translate-x-1/2 bottom-4">
                             <div class="w-full rounded-[10px] shadow-base py-2 bg-white">
                                 <div
-                                    class="mx-4 mb-2 rounded-[10px] flex items-center px-[26px] h-[50px] gap-3 border border-[#DDE2EA]">
+                                    class="mx-4 mb-2 rounded-[10px] flex items-center px-4 h-[46px] gap-3 border border-[#DDE2EA]">
                                     <?php echo svgClass('search', '','',!wp_is_mobile() && !bsc_is_mobile() ?'w-6 h-6':'w-5 h-5 shrink-0') ?>
                                     <input type="text" id="search-contact"
                                         class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] p-0">

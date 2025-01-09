@@ -181,8 +181,7 @@ get_header();
 									class="grid <?php
 												echo ! wp_is_mobile() && ! bsc_is_mobile()
 													? 'lg:grid-cols-4 grid-cols-2 gap-5'
-													: 'grid-cols-2 gap-y-5 gap-x-4';
-												echo $item_count > 4 ? ' show-4' : ''; ?>">
+													: 'grid-cols-2 gap-y-5 gap-x-4 show-4-item'; ?>">
 									<?php
 									foreach ($response->d as $news) {
 										$item_count++;
@@ -343,7 +342,7 @@ get_header();
 								<div
 									class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next cat_title">
 									<?php
-									// Lấy thông tin danh mục cha
+									// Lấy thông tin danh mục hiện tại
 									$term = get_queried_object();
 									if ($term && isset($term->taxonomy) && isset($term->parent) && $term->parent != 0) {
 										$parent_term = get_term($term->parent, $term->taxonomy);
@@ -362,7 +361,7 @@ get_header();
 									'parent' => 0,
 									'exclude' => $excluded_category_id,
 								));
-								if (! empty($terms) && ! is_wp_error($terms)) :
+								if (!empty($terms) && !is_wp_error($terms)) :
 								?>
 									<ul class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs mt-2">
 										<?php foreach ($terms as $term) :
@@ -378,14 +377,18 @@ get_header();
 									</ul>
 								<?php endif; ?>
 								<?php
-								$parent_term_id = get_queried_object_id();
+								// Kiểm tra nếu đang ở danh mục con
+								$current_term = get_queried_object();
+								$parent_term_id = $current_term && $current_term->parent != 0 ? $current_term->parent : $current_term->term_id;
+
+								// Lấy danh sách danh mục con
 								$child_terms = get_terms(array(
 									'taxonomy' => 'danh-muc-bao-cao',
 									'parent' => $parent_term_id,
 									'hide_empty' => false,
 								));
 
-								if (! empty($child_terms) && ! is_wp_error($child_terms)) : ?>
+								if (!empty($child_terms) && !is_wp_error($child_terms)) : ?>
 									<ul class="flex overflow-x-auto mt-4 gap-1.5 category-child">
 										<?php foreach ($child_terms as $child_term) :
 											$child_active_class = (is_tax('danh-muc-bao-cao', $child_term->term_id)) ? 'active' : '';
@@ -399,7 +402,6 @@ get_header();
 										<?php endforeach; ?>
 									</ul>
 								<?php endif; ?>
-
 							<?php } ?>
 
 
