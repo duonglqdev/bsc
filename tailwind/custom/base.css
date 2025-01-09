@@ -1299,4 +1299,8 @@ main {
   z-index: 10;
 }
 
+.text-mb * {
+  font-size: 14px !important;
+}
+
 /*# sourceMappingURL=base.css.map */
