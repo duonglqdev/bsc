@@ -1371,9 +1371,7 @@ button#ib-button-messaging {
 .slick-disabled {
 	@apply opacity-60 pointer-events-none cursor-default;
 }
-main{
-	@apply overflow-x-hidden;
-}
+
 .slider-tooltip {
     position: absolute;
     top: -30px; /* Điều chỉnh khoảng cách tooltip và slider */
