@@ -64,7 +64,7 @@
                                     <?php  } ?>
                                     <?php if (have_rows('danh_sach_content')) {
                                         while (have_rows('danh_sach_content')): the_row(); ?>
-                                            <div class="flex items-center before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3 font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+                                            <div class="flex items-center before:w-2 before:h-2 before:shrink-0 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3 font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                                 <?php the_sub_field('info') ?>
                                             </div>
                                     <?php
@@ -133,7 +133,7 @@
                         </div>
                     </a>
                 <?php } else { ?>
-                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[100%]':'rounded-lg md:pt-[100%] pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
+                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[120%]':'rounded-lg md:pt-[120%] pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
                         <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
                     </div>
                 <?php } ?>
