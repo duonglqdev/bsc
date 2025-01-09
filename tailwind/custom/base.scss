@@ -984,7 +984,7 @@ header {
 		}
 
 		.li-plus {
-			@apply absolute top-[14px] 2xl:right-3 right-1.5;
+			@apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
 		}
 		.li-plus.active {
 			@apply rotate-180;

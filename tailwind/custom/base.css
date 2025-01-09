@@ -944,7 +944,7 @@ header.active {
   @apply w-full 2xl:pr-10 pr-8;
 }
 .sidebar-report .has-child .li-plus {
-  @apply absolute top-[14px] 2xl:right-3 right-1.5;
+  @apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;

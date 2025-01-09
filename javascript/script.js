@@ -1046,9 +1046,9 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.sidebar-report').on('click', '.li-plus', function () {
-			$(this).toggleClass('active');
-			$(this).next('ul.sub-menu').slideToggle(200);
+		$('.sidebar-report').on('click', '.has-child', function () {
+			$(this).find('.li-plus').toggleClass('active');
+			$(this).find('ul.sub-menu').slideToggle(200);
 		});
 		$('.utilities_button').addClass('show');
 		$('.utilities_button').click(function (e) {

@@ -117,11 +117,26 @@ get_header();
 						</div>
 
 						<ul
-							class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 prose-a:block rounded text-xs">
-							<li>
+							class="overflow-y-auto absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs sidebar-report ">
+							<li class="active !rounded-xl">
 								<a href="#"
 									class="active text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">Mở
 									tài khoản giao dịch</a>
+
+									<ul class="sub-menu w-full bg-white py-2 hidden">
+										<li class="">
+											<a href="#"
+												class="active [&:not(.active)]:text-black text-primary-300 transition-all relative px-3 py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Mở tài khoản chứng khoán
+											</a>
+										</li>
+										<li>
+											<a href="#"
+												class=" [&:not(.active)]:text-black text-primary-300 transition-all relative px-3 py-2 [&:not(.active)]:bg-white  hover:!text-primary-300 block">
+												Bộ điều khoản và điều kiện
+											</a>
+										</li>
+									</ul>
 								
 							</li>
 							<li>
