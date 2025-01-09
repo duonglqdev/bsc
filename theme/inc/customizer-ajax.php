@@ -3705,25 +3705,25 @@ function filter_details_symbol()
 							}
 							?>">
 							<ul
-								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] w-max' ?>">
+								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 ' : 'gap-[12px] sm:w-full w-fit px-5' ?>">
 								<li
-									class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'min-w-[60px]' ?>">
+									class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
 									<?php _e('Mã', 'bsc') ?>
 								</li>
 								<li
-									class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
+									class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[96px]' ?>">
 									<?php _e('Khuyến nghị', 'bsc') ?>
 								</li>
 								<li
-									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
+									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[70px]' ?>">
 									<?php _e('Giá', 'bsc') ?>
 								</li>
 								<li
-									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[70px]' ?>">
+									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[70px]' ?>">
 									<?php _e('Mục tiêu', 'bsc') ?>
 								</li>
 								<li
-									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'min-w-[96px]' ?>">
+									class="whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] min-w-[96px]' ?>">
 									<?php _e('Upside', 'bsc') ?>
 								</li>
 							</ul>
@@ -3744,7 +3744,7 @@ function filter_details_symbol()
 												<ul class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?> bsc_need_crawl_price"
 													data-symbol="<?php echo $symbol ?>">
 													<li
-														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'p-3 min-w-[60px]' ?> font-medium">
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'w-[8%] p-3 min-w-[60px]' ?> font-medium">
 														<a
 															href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
 													</li>
@@ -3756,7 +3756,7 @@ function filter_details_symbol()
 													$background_status = $check_status['background_status'];
 													?>
 													<li
-														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-medium">
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] p-3 min-w-[96px]' ?> font-medium">
 														<?php if ($list_bsc->hinhthuc) { ?>
 															<span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
 																style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
@@ -3767,17 +3767,17 @@ function filter_details_symbol()
 														<?php } ?>
 													</li>
 													<li
-														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-closePrice">
+														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] p-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-closePrice">
 													</li>
 													<li
-														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[70px]' ?> font-medium">
+														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] p-3 min-w-[70px]' ?> font-medium">
 														<?php
 														if ($list_bsc->giakyvong) {
 															echo bsc_number_format(($list_bsc->giakyvong));
 														}
 														?>
 													</li>
-													<li class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'p-3 min-w-[96px]' ?> font-bold bsc_need_crawl_price-text_color-closePrice"
+													<li class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] p-3 min-w-[96px]' ?> font-bold bsc_need_crawl_price-text_color-closePrice"
 														data-giakyvong="<?php echo $list_bsc->giakyvong ?>">
 													</li>
 												</ul>
@@ -3916,7 +3916,7 @@ function filter_details_symbol()
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'min-w-full snap-start' ?>' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'min-w-full snap-start' ?>">
 					<div class="grid grid-cols-2 text-center">
 						<div class="text-[#FF0017]">
 							<div

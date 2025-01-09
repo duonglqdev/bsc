@@ -52,7 +52,7 @@ get_header();
 								<div
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?>">
 									<ul
-										class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 justify-between' : 'gap-[12px] sm:w-full w-max' ?>">
+										class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 ' : 'gap-[12px] sm:w-full w-fit px-5' ?>">
 										<li
 											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
 											Mã</li>

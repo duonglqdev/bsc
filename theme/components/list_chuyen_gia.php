@@ -117,7 +117,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
             </form>
         <?php else : ?>
             <div class="flex gap-2 items-center mb-4 text-xs font-bold font-Helvetica">
-                <button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2] expert-modal-close" data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
+                <button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2]" data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
                     <?php echo svgClass('filter-icon', '', '', 'shrink-0') ?>
                     <?php _e('Bộ lọc', 'bsc') ?>
                 </button>
@@ -199,7 +199,7 @@ if (! empty($thanh_phos) && ! is_wp_error($thanh_phos)) :
                     <?php _e('CHI TIẾT CHUYÊN GIA TƯ VẤN', 'bsc') ?>
                 </h3>
                 <button type="button"
-                    class="text-primary-300  flex items-center justify-center rounded-full bg-white shadow-base <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-9 h-9' : 'w-8 h-8' ?>"
+                    class="text-primary-300 flex items-center justify-center rounded-full bg-white shadow-base expert-modal-close <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-9 h-9' : 'w-8 h-8 ' ?>"
                     data-modal-toggle="expert-modal">
                     <svg class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-[14px] h-[14px]' : 'w-[12px] h-[12px]' ?>" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
