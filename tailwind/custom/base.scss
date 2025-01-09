@@ -911,6 +911,9 @@ header {
 	}
 	.apexcharts-legend {
 		@apply gap-5;
+		@media(max-width:767px){
+			padding: 0 !important;
+		}
 	}
 	.apexcharts-legend-text {
 		font-size: 14px !important;
@@ -1357,7 +1360,10 @@ button#ib-button-messaging {
 .performance-chart {
 	.apexcharts-legend-text {
 		@apply pl-5;
-		font-size: 16px !important;
+		font-size: 14px !important;
+		@media only screen and (min-width: 480px) {
+			font-size: 16px !important;
+		}
 		font-family: "Barlow", sans-serif !important;
 	}
 }
