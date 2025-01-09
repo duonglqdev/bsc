@@ -1276,4 +1276,17 @@ main {
   @apply overflow-x-hidden;
 }
 
+.slider-tooltip {
+  position: absolute;
+  top: -30px; /* Điều chỉnh khoảng cách tooltip và slider */
+  background: #007bff; /* Màu nền */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
 /*# sourceMappingURL=base.css.map */
