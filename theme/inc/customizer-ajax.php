@@ -4129,7 +4129,7 @@ function filter_details_symbol()
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 w-fit">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 lg:w-full w-max">
 										<p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4139,7 +4139,7 @@ function filter_details_symbol()
 										foreach ($yearDataValues as $key => $year) {
 										?>
 											<p
-												class="min-w-[135px] text-right lg:pr-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												class="min-w-[135px] text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
 												<?php echo htmlspecialchars($year); ?>
 											</p>
 										<?php
