@@ -3216,7 +3216,7 @@ function filter_details_symbol() {
 						<?php _e( 'KLGD trung bình 10 ngày', 'bsc' ) ?>
 					</p>
 					<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
-						<?php echo $response_securityBasicInfo->data[0]->VolPerAVG10d ?>
+						<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->VolPerAVG10d ) ?>
 					</p>
 				</div>
 				<div class="grid grid-cols-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
