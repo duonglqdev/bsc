@@ -150,7 +150,8 @@
 								class="flex flex-col p-4 bg-white rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
 								<div class="flex items-center gap-6">
 									<div class="flex">
-										<input type="radio" id="cp" name="investment" class="hidden peer" checked>
+										<input type="radio" id="cp" name="investment" class="hidden peer" value="co_phieu" checked>
+										
 										<label for="cp"
 											class="font-semibold cursor-pointer pl-5 relative after:absolute after:w-[13px] after:h-[13px] after:border-2 after:border-black after:transition-all after:duration-500 after:left-0 after:bg-transparent after:rounded-full before:absolute before:w-[13px] before:h-[13px] before:bg-black before:border-black before:border-2 before:rounded-full before:left-0 before:transition-all before:duration-500 before:scale-0 peer-checked:after:border-black peer-checked:before:scale-50 text-xs after:top-1 before:top-1">
 											<?php _e( 'Cổ phiếu', 'bsc' ) ?>
