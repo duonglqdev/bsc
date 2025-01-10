@@ -46,7 +46,6 @@ import { DataTable } from 'simple-datatables';
 		transformText();
 		loadMoreJob();
 		// datePickerSlider();
-
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -57,19 +56,24 @@ import { DataTable } from 'simple-datatables';
 		const fromdate = $('#chart').attr('data-fromdate'); // Lấy giá trị fromdate
 		const currentDate = new Date(); // Ngày hiện tại
 		const fromDateObj = new Date(fromdate); // Chuyển đổi fromdate sang đối tượng Date
-		const daysDifference = Math.ceil((currentDate - fromDateObj) / (1000 * 60 * 60 * 24)); // Tính số ngày
-	
+		const daysDifference = Math.ceil(
+			(currentDate - fromDateObj) / (1000 * 60 * 60 * 24)
+		); // Tính số ngày
+
 		// Hàm định dạng ngày
 		const formatDate = (dateObj) => dateObj.toISOString().split('T')[0];
-	
+
 		// Tạo tooltip
-		const createTooltip = (id) => $(`<div class="slider-tooltip" id="${id}"></div>`).appendTo("#date-slider");
-	
+		const createTooltip = (id) =>
+			$(`<div class="slider-tooltip" id="${id}"></div>`).appendTo(
+				'#date-slider'
+			);
+
 		// Khởi tạo tooltip
-		const startTooltip = createTooltip("start-tooltip");
-		const endTooltip = createTooltip("end-tooltip");
-	
-		$("#date-slider").slider({
+		const startTooltip = createTooltip('start-tooltip');
+		const endTooltip = createTooltip('end-tooltip');
+
+		$('#date-slider').slider({
 			range: true,
 			min: 0,
 			max: daysDifference, // Giới hạn số ngày
@@ -77,43 +81,44 @@ import { DataTable } from 'simple-datatables';
 			slide: function (event, ui) {
 				const startDate = new Date(fromDateObj);
 				startDate.setDate(startDate.getDate() + ui.values[0]);
-	
+
 				const endDate = new Date(fromDateObj);
 				endDate.setDate(endDate.getDate() + ui.values[1]);
-	
-				$("#start-tooltip").text(formatDate(startDate));
-				$("#end-tooltip").text(formatDate(endDate));
-	
-				const positions = $("#date-slider .ui-slider-handle").map(function () {
-					return $(this).position().left;
-				}).get();
-	
-				$("#start-tooltip").css("left", positions[0]);
-				$("#end-tooltip").css("left", positions[1]);
+
+				$('#start-tooltip').text(formatDate(startDate));
+				$('#end-tooltip').text(formatDate(endDate));
+
+				const positions = $('#date-slider .ui-slider-handle')
+					.map(function () {
+						return $(this).position().left;
+					})
+					.get();
+
+				$('#start-tooltip').css('left', positions[0]);
+				$('#end-tooltip').css('left', positions[1]);
 			},
 		});
-	
+
 		// Hiển thị giá trị ban đầu
-		const initialValues = $("#date-slider").slider("values");
+		const initialValues = $('#date-slider').slider('values');
 		const startDate = new Date(fromDateObj);
 		startDate.setDate(startDate.getDate() + initialValues[0]);
-	
+
 		const endDate = new Date(fromDateObj);
 		endDate.setDate(endDate.getDate() + initialValues[1]);
-	
-		$("#start-tooltip").text(formatDate(startDate));
-		$("#end-tooltip").text(formatDate(endDate));
-	
-		const initialPositions = $("#date-slider .ui-slider-handle").map(function () {
-			return $(this).position().left;
-		}).get();
-	
-		$("#start-tooltip").css("left", initialPositions[0]);
-		$("#end-tooltip").css("left", initialPositions[1]);
+
+		$('#start-tooltip').text(formatDate(startDate));
+		$('#end-tooltip').text(formatDate(endDate));
+
+		const initialPositions = $('#date-slider .ui-slider-handle')
+			.map(function () {
+				return $(this).position().left;
+			})
+			.get();
+
+		$('#start-tooltip').css('left', initialPositions[0]);
+		$('#end-tooltip').css('left', initialPositions[1]);
 	}
-	
-	
-	
 
 	function menuMobile() {
 		$('.bar_mobile').click(function () {
@@ -1426,7 +1431,9 @@ import { DataTable } from 'simple-datatables';
 				success: function (response) {
 					$('#chuyen-gia-loading').addClass('hidden');
 					$('#list-chuyen-gia').html(response);
-					$('.expert-modal-close').trigger('click');
+					$(
+						'#expert-modal-filter:not(.hidden) .expert-modal-filter_btn-close'
+					).trigger('click');
 				},
 			});
 		}
@@ -3593,24 +3600,24 @@ import { DataTable } from 'simple-datatables';
 		// Khi keyup trên input
 		$('#search-shares').on('keyup', function () {
 			if (!isCheckboxChecked()) return;
-		
+
 			const searchValue = $(this).val().toLowerCase().trim();
 			const sharesResult = $('.shares-result');
 			const noResults = sharesResult.find('.no-results');
 			const listItems = sharesResult.find('li').not('.no-results');
 			let hasResults = false;
-		
+
 			// Xóa khoảng trắng hoặc kiểm tra chuỗi rỗng
 			if (searchValue === '') {
 				listItems.hide();
 				noResults.removeClass('hidden');
 				return;
 			}
-		
+
 			// Hiển thị kết quả chỉ bắt đầu bằng searchValue
 			listItems.each(function () {
 				const shareName = $(this).text().toLowerCase().trim();
-		
+
 				if (shareName.startsWith(searchValue)) {
 					$(this).show(); // Hiển thị các kết quả phù hợp
 					hasResults = true;
@@ -3618,7 +3625,7 @@ import { DataTable } from 'simple-datatables';
 					$(this).hide(); // Ẩn các kết quả không phù hợp
 				}
 			});
-		
+
 			// Hiển thị hoặc ẩn thông báo "không có kết quả"
 			noResults.toggleClass('hidden', hasResults);
 		});
