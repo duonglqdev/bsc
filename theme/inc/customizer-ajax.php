@@ -17,8 +17,8 @@ function filter_jobs_ajax() {
 		'meta_key' => 'deadline',
 		'order' => 'DESC',
 		'tax_query' => array(
-				'relation' => 'AND',
-			),
+			'relation' => 'AND',
+		),
 	);
 
 	if ( ! empty( $nghiep_vu ) ) {
@@ -128,8 +128,8 @@ function filter_chuyengia_ajax() {
 		'order' => 'ASC',
 		'paged' => $paged,
 		'tax_query' => array(
-				'relation' => 'AND',
-			),
+			'relation' => 'AND',
+		),
 	);
 	if ( ! empty( $thanh_pho ) ) {
 		$args['tax_query'][] = array(
@@ -1555,10 +1555,10 @@ function filter_details_symbol() {
 												];
 											}, $industryData );
 											?>
-											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%" <?php if ( $check_linh_vuc == 'Bank' ) { ?> data-title-1="<?php _e( 'Nim', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Nim trung bình ngành', 'bsc' ) ?>" <?php } else { ?>
-													data-title-1="<?php _e( 'Biên lợi nhuận gộp', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Biên lợi nhuận gộp trung bình ngành', 'bsc' ) ?>" <?php } ?>
+											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%" <?php if ( $check_linh_vuc == 'Bank' ) { ?> data-title-1="<?php echo $symbol ?>"
+													data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>" <?php } else { ?>
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+												<?php } ?>
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_BIEN_LOI_NHUAN_GOP ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_BIEN_LOI_NHUAN_GOP ) ) ?>"
 												data-color-1="#235BA8" data-color-2="#FFB81C">
@@ -1593,9 +1593,8 @@ function filter_details_symbol() {
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_BIEN_LOI_NHUAN_SAU_THUE ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_BIEN_LOI_NHUAN_SAU_THUE ) ) ?>"
-												data-title-1="<?php _e( 'Biên lợi nhuận sau thuế', 'bsc' ) ?>" data-color-1="#235BA8"
-												data-title-2="<?php _e( 'Biên lợi nhuận sau thuế trung bình ngành', 'bsc' ) ?>"
-												data-color-2="#FFB81C">
+												data-title-1="<?php echo $symbol ?>" data-color-1="#235BA8"
+												data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>" data-color-2="#FFB81C">
 											</div>
 										</div>
 										<div class="flex flex-col">
@@ -1627,8 +1626,8 @@ function filter_details_symbol() {
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_ROE ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_ROE ) ) ?>"
-												data-title-1="<?php _e( 'ROE', 'bsc' ) ?>" data-color-1="#009e87"
-												data-title-2="<?php _e( 'ROE trung bình ngành', 'bsc' ) ?>" data-color-2="#FFB81C">
+												data-title-1="<?php echo $symbol ?>" data-color-1="#009e87"
+												data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>" data-color-2="#FFB81C">
 											</div>
 										</div>
 									</div>
@@ -1760,9 +1759,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_NO_XAU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_NO_XAU ) ) ?>"
-													data-title-1="<?php _e( 'Tỷ lệ nợ  xấu', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Tỷ lệ nợ  xấu trung bình ngành', 'bsc' ) ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#235BA8" data-color-2="#FFB81C">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -1811,9 +1809,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DU_PHONG_NO_XAU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_DU_PHONG_NO_XAU ) ) ?>"
-													data-title-1="<?php _e( 'TLDP nợ xấu', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'TLDP nợ xấu trung bình ngành', 'bsc' ) ?>" data-color-1="#235BA8"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#235BA8" data-color-2="#FFB81C">
 												</div>
 											</div>
 										<?php } elseif ( $check_linh_vuc == 'Securities' ) { ?>
@@ -1845,8 +1842,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_CHI_SO_THANH_TOAN_NHANH ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI ) ) ?>"
-													data-title-1="<?php _e( 'Chỉ số thanh toán hiện thời của mã', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Chỉ số thanh toán hiện thời của ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-2="#FFB81C" data-color-1="#235BA8">
 												</div>
 											</div>
@@ -1894,11 +1890,10 @@ function filter_details_symbol() {
 												}, $industryData );
 												?>
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
-													data-2="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
-													data-1="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
-													data-title-2="<?php _e( 'Tỷ lệ thanh toán Lãi vay', 'bsc' ) ?>"
-													data-title-1="<?php _e( 'Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc' ) ?>"
-													data-color-2="#235BA8" data-color-1="#FFB81C">
+													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
+													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#235BA8" data-color-2="#FFB81C">
 												</div>
 											</div>
 										<?php } elseif ( $check_linh_vuc == 'Insurance' ) { ?>
@@ -1930,8 +1925,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_CHI_SO_THANH_TOAN_NHANH ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI ) ) ?>"
-													data-title-1="<?php _e( 'Chỉ số thanh toán hiện thời của mã', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Chỉ số thanh toán hiện thời của ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-2="#FFB81C" data-color-1="#235BA8">
 												</div>
 											</div>
@@ -1981,8 +1975,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_BIEN_LOI_NHUAN_GOP_BAO_HIEM ) ) ?>"
-													data-title-1="<?php _e( 'BLN gộp bảo hiểm', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'BLN gộp bảo hiểm trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#235BA8" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2016,8 +2009,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_CHI_SO_THANH_TOAN_NHANH ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_CHI_SO_THANH_TOAN_HIEN_THOI ) ) ?>"
-													data-title-1="<?php _e( 'Chỉ số thanh toán hiện thời của mã', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Chỉ số thanh toán hiện thời của ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-2="#FFB81C" data-color-1="#235BA8">
 												</div>
 											</div>
@@ -2067,8 +2059,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_THANH_TOAN_LAI_VAY ) ) ?>"
-													data-title-1="<?php _e( 'Tỷ lệ thanh toán Lãi vay', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Tỷ lệ thanh toán Lãi vay trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#235BA8" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2211,8 +2202,8 @@ function filter_details_symbol() {
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_TANG_TRUONG_CHO_VAY ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TANG_TRUONG_CHO_VAY ) ) ?>"
 												<?php if ( $check_linh_vuc == 'Bank' ) { ?> data-title-1="<?php _e( 'TTCV', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'TTCV trung bình ngành', 'bsc' ) ?>" <?php } else { ?>
-													data-title-1="<?php _e( 'TTDTT', 'bsc' ) ?>"
+													data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>" <?php } else { ?>
+													data-title-1="<?php echo $symbol ?>"
 													data-title-2="<?php _e( 'TTDTT trung bình ngành', 'bsc' ) ?>" <?php } ?>
 												data-color-1="#009e87" data-color-2="#FFB81C">
 											</div>
@@ -2245,9 +2236,8 @@ function filter_details_symbol() {
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_TANG_TRUONG_EPS ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TANG_TRUONG_EPS ) ) ?>"
-												data-title-1="<?php _e( 'Tăng trưởng EPS', 'bsc' ) ?>"
-												data-title-2="<?php _e( 'Tăng trưởng EPS trung bình ngành', 'bsc' ) ?>" data-color-1="#009e87"
-												data-color-2="#FFB81C">
+												data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+												data-color-1="#009e87" data-color-2="#FFB81C">
 											</div>
 										</div>
 										<div class="flex flex-col">
@@ -2278,8 +2268,7 @@ function filter_details_symbol() {
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
 												data-1="<?php echo htmlspecialchars( json_encode( $business_data_TANG_TRUONG_LOI_NHUAN ) ) ?>"
 												data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TANG_TRUONG_LOI_NHUAN ) ) ?>"
-												data-title-1="<?php _e( 'Tăng trưởng Lợi nhuận', 'bsc' ) ?>"
-												data-title-2="<?php _e( 'Tăng trưởng Lợi nhuận trung bình ngành', 'bsc' ) ?>"
+												data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 												data-color-1="#009e87" data-color-2="#FFB81C">
 											</div>
 										</div>
@@ -2476,9 +2465,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_CHI_PHI_TREN_DOANH_THU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_CHI_PHI_TREN_DOANH_THU ) ) ?>"
-													data-title-1="<?php _e( 'Tỷ lệ chi phí', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Tỷ lệ chi phí trung bình ngành', 'bsc' ) ?>" data-color-1="#009e87"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -2509,9 +2497,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_THU_NHAP_TU_LAI_VAY ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_THU_NHAP_TU_LAI_VAY ) ) ?>"
-													data-title-1="<?php _e( 'TN từ Lãi vay', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'TN từ Lãi vay trung bình ngành', 'bsc' ) ?>" data-color-1="#009e87"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -2542,9 +2529,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_CASA ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_CASA ) ) ?>"
-													data-title-1="<?php _e( 'CASA', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'CASA trung bình ngành', 'bsc' ) ?>" data-color-1="#009e87"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
 										<?php } elseif ( $check_linh_vuc == 'Securities' ) { ?>
@@ -2576,8 +2562,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ) ?>"
-													data-title-1="<?php _e( 'Tỷ lệ DT môi giới trên DTT', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Tỷ lệ DT môi giới trên DTT trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2609,8 +2594,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay khoản phải thu', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay khoản phải thu trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2642,8 +2626,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_TONG_TAI_SAN ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_TONG_TAI_SAN ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay tổng tài sản trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2676,9 +2659,8 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET ) ) ?>"
-													data-title-1="<?php _e( 'TLCP BH trên DT', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'TLCP BH trên DT trung bình ngành', 'bsc' ) ?>" data-color-1="#009e87"
-													data-color-2="#FFB81C">
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
+													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -2709,8 +2691,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay khoản phải thu', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay khoản phải thu trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2742,8 +2723,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_TONG_TAI_SAN ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_TONG_TAI_SAN ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay tổng tài sản', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay tổng tài sản trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2777,8 +2757,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_KHOAN_PHAI_THU ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay khoản phải thu', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay khoản phải thu trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2810,8 +2789,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_KHOAN_PHAI_TRA ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_KHOAN_PHAI_TRA ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay khoản phải trả', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay khoản phải trả trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -2843,8 +2821,7 @@ function filter_details_symbol() {
 												<div class="legend-gap bsc_chart-display mt-auto" data-load="false"
 													data-1="<?php echo htmlspecialchars( json_encode( $business_data_VONG_QUAY_HANG_TON_KHO ) ) ?>"
 													data-2="<?php echo htmlspecialchars( json_encode( $industry_data_VONG_QUAY_HANG_TON_KHO ) ) ?>"
-													data-title-1="<?php _e( 'Vòng quay hàng tồn kho', 'bsc' ) ?>"
-													data-title-2="<?php _e( 'Vòng quay hàng tồn kho trung bình ngành', 'bsc' ) ?>"
+													data-title-1="<?php echo $symbol ?>" data-title-2="<?php _e( 'Trung bình ngành', 'bsc' ) ?>"
 													data-color-1="#009e87" data-color-2="#FFB81C">
 												</div>
 											</div>
@@ -4521,7 +4498,8 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					</div>
 				</div>
 				<?php if ( ! empty( $item['children'] ) ) { ?>
-					<div class="sub-collapse hidden text-xs upper-first" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
+					<div class="sub-collapse hidden text-xs upper-first"
+						style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
 						<?php renderMenu( $item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1 ); ?>
 					</div>
 				<?php } ?>

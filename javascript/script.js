@@ -2391,10 +2391,6 @@ import { DataTable } from 'simple-datatables';
 
 				if (triggerEl && tooltipEl) {
 					new Tooltip(tooltipEl, triggerEl, {});
-				} else {
-					console.warn(
-						`Tooltip target or element not found for ID: ${id}`
-					);
 				}
 			});
 		});
@@ -2530,7 +2526,11 @@ import { DataTable } from 'simple-datatables';
 								intersect: false,
 								y: {
 									formatter: function (val) {
-										return val.toFixed(2) + end_ch;
+										if (val != null) {
+											return val.toFixed(2) + end_ch;
+										} else {
+											return 'N/A' + end_ch; // Thay thế giá trị null/undefined bằng "N/A" hoặc một thông báo phù hợp
+										}
 									},
 								},
 							},
