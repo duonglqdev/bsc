@@ -10,28 +10,32 @@
 				<div class="sticky top-5 z-10">
 					<?php
 					$currentYear = date( 'Y' );
-					$selectedYear = ! empty( $_GET['years'] ) ? bsc_format_string( $_GET['years'], 'number' ) : $currentYear;
-
+					$selectedYear = ! empty( $_GET['years'] ) ? bsc_format_string( $_GET['years'], 'number' ) : '';
 					if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div
 							class="py-[12px] px-4 text-base font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next">
-							<?php echo 'Năm ' . $selectedYear; ?>
+							<?php
+							if ( $selectedYear ) {
+								echo __( 'Năm', 'bsc' ) . ' ' . $selectedYear;
+							} else {
+								echo __( 'Tất cả', 'bsc' );
+							}
+							?>
 							<?php echo svg( 'down-white', '20' ); ?>
 						</div>
 					<?php } ?>
 					<ul
 						class="overflow-y-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'shadow-base p-3 rounded-[10px] bg-white scroll-bar-custom  max-h-[180px] space-y-2' : 'absolute py-2 z-30 w-full max-h-64 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:font-semibold  prose-a:rounded-md prose-a:py-3 prose-a:font-Helvetica rounded text-xs' ?>">
+						<li>
+							<a href="<?php echo get_permalink( get_the_ID() ) ?><?php if ( get_sub_field( 'id_class' ) ) { ?><?php echo '#' . get_sub_field( 'id_class' ) ?><?php } ?>"
+								class="<?php if ( ! $selectedYear )
+									echo 'active'; ?> block lg:px-5 px-4 py-3 font-semibold lg:text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
+								<?php _e( 'Tất cả', 'bsc' ) ?>
+							</a>
+						</li>
 						<?php
 						for ( $year = $currentYear; $year >= 2015; $year-- ) :
 							?>
-							<?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
-							<li>
-								<a href="#"
-									class="<?php echo ( $year == $selectedYear ) ? 'active' : ''; ?> block lg:px-5 px-4 py-3 font-semibold lg:text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
-									<?php _e('Tất cả', 'bsc') ?>
-								</a>
-							</li>		
-							<?php } ?>
 							<li>
 								<a href="<?php echo get_permalink( get_the_ID() ) ?>?years=<?php echo $year ?><?php if ( get_sub_field( 'id_class' ) ) { ?><?php echo '#' . get_sub_field( 'id_class' ) ?><?php } ?>"
 									class="<?php echo ( $year == $selectedYear ) ? 'active' : ''; ?> block lg:px-5 px-4 py-3 font-semibold lg:text-lg [&:not(.active)]:bg-white bg-primary-300 rounded-md [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-[#ebf4fa]">
