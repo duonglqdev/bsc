@@ -1027,7 +1027,7 @@ function filter_details_symbol() {
 								class="lg:font-bold font-semibold leading-normal lg:line-clamp-2 line-clamp-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg mb-2' : 'text-base' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars( $news->title ) ?>
 							</p>
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() && $news->description ) { ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() && isset( $news->description ) && $news->description ) { ?>
 								<div class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
 									<?php echo $news->description ?>
 								</div>
@@ -1547,7 +1547,7 @@ function filter_details_symbol() {
 													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												} else {
-													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													$date = sprintf( '%d', trim( $item->YEAR ) );
 												}
 												return [ 
 													'date' => $date,
@@ -1582,7 +1582,7 @@ function filter_details_symbol() {
 													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												} else {
-													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													$date = sprintf( '%d', trim( $item->YEAR ) );
 												}
 												return [ 
 													'date' => $date,
@@ -1615,7 +1615,7 @@ function filter_details_symbol() {
 													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												} else {
-													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													$date = sprintf( '%d', trim( $item->YEAR ) );
 												}
 												return [ 
 													'date' => $date,
@@ -1748,7 +1748,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1798,7 +1798,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1831,7 +1831,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1881,7 +1881,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1914,7 +1914,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1964,7 +1964,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -1998,7 +1998,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2048,7 +2048,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2165,7 +2165,7 @@ function filter_details_symbol() {
 															$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 															$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 														} else {
-															$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+															$date = sprintf( '%d', trim( $item->YEAR ) );
 														}
 														return [ 
 															'date' => $date,
@@ -2187,7 +2187,7 @@ function filter_details_symbol() {
 															$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 															$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 														} else {
-															$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+															$date = sprintf( '%d', trim( $item->YEAR ) );
 														}
 														return [ 
 															'date' => $date,
@@ -2225,7 +2225,7 @@ function filter_details_symbol() {
 													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												} else {
-													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													$date = sprintf( '%d', trim( $item->YEAR ) );
 												}
 												return [ 
 													'date' => $date,
@@ -2257,7 +2257,7 @@ function filter_details_symbol() {
 													$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 													$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 												} else {
-													$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+													$date = sprintf( '%d', trim( $item->YEAR ) );
 												}
 												return [ 
 													'date' => $date,
@@ -2454,7 +2454,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2486,7 +2486,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2518,7 +2518,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2551,7 +2551,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2583,7 +2583,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2615,7 +2615,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2648,7 +2648,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2680,7 +2680,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2712,7 +2712,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2746,7 +2746,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2778,7 +2778,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
@@ -2810,7 +2810,7 @@ function filter_details_symbol() {
 														$month = ( trim( $item->QUARTER ) - 1 ) * 3 + 1;
 														$date = sprintf( '%d-%02d-01', trim( $item->YEAR ), $month );
 													} else {
-														$date = sprintf( '%d-Q%d', trim( $item->YEAR ), trim( $item->QUARTER ) );
+														$date = sprintf( '%d', trim( $item->YEAR ) );
 													}
 													return [ 
 														'date' => $date,
