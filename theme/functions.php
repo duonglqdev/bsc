@@ -137,7 +137,6 @@ function bsc_scripts() {
 	if ( is_404() ) {
 		wp_enqueue_style( 'bsc-404', get_template_directory_uri() . '/css/404.min.css', array(), bsc_VERSION );
 	}
-
 	wp_enqueue_style( 'bsc-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css' );
 	wp_enqueue_style( 'bsc-animate', get_template_directory_uri() . '/assets/libs/animate.min.css' );
 	wp_enqueue_style( 'bsc-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css' );
@@ -219,4 +218,4 @@ require get_template_directory() . '/inc/customizer-sitemap.php';
  * Hide Custom Theme
  */
 define( 'DISALLOW_FILE_EDIT', true );
-add_filter( 'acf/settings/show_admin', '__return_false' );
+// add_filter( 'acf/settings/show_admin', '__return_false' );
