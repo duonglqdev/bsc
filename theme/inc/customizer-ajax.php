@@ -1247,16 +1247,6 @@ function filter_details_symbol() {
 													<th class="lg:min-w-[231px] lg:!w-1/4" colspan="10">
 														<?php _e( 'Cân đối kế toán', 'bsc' ) ?>
 													</th>
-													<?php
-													$data_tsArray = (array) $data_ts;
-													$data_tsValues = array_slice( $data_tsArray, 1, null, true );
-													$data_tsValues = array_reverse( $data_tsValues, true );
-													$check_dat_ts = 0;
-													foreach ( $data_tsValues as $key => $dat_ts ) {
-														$check_dat_ts++; ?>
-														<th></th>
-														<?php
-													} ?>
 												</tr>
 											</thead>
 											<tbody class="text-right">

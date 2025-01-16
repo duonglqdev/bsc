@@ -48,7 +48,7 @@ get_header();
 							<?php if ( wp_is_mobile() && bsc_is_mobile() )
 							{ ?>
 								<div class="flex-col gap-2">
-									<div class="flex gap-[12px] data_number">
+									<div class="flex gap-[12px] data_number items-center">
 										<div class="text-2xl font-bold text-[#FE5353]">
 											43.30
 										</div>
@@ -297,7 +297,7 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-16 mb-[50px]' ?>">
 		<div class="container">
 			<ul
-				class="flex items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white whitespace-nowrap overflow-x-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:gap-[100px] gap-10' : 'gap-8' ?>">
+				class="flex items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white whitespace-nowrap overflow-x-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:gap-[100px] gap-10' : 'gap-8 no-scrollbar' ?>">
 				<li
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#tab-1"

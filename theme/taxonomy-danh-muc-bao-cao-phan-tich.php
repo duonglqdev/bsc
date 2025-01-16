@@ -15,7 +15,7 @@ $time_cache = 300;
 			class="bg-primary-50 sticky z-50 top-0 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:py-4 py-3' : 'py-[12px]' ?>">
 			<div class="container">
 				<ul
-					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 lg:gap-5 gap-4 lg:overflow-x-hidden overflow-x-auto lg:whitespace-normal whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap' ?>">
+					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 lg:gap-5 gap-4 lg:overflow-x-hidden overflow-x-auto lg:whitespace-normal whitespace-nowrap' : 'gap-4 nav-scroll-mb overflow-x-auto whitespace-nowrap no-scrollbar' ?>">
 					<?php while ( have_rows( 'menu_navigation', get_queried_object() ) ) :
 						the_row(); ?>
 						<li class="flex-1">

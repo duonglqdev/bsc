@@ -583,27 +583,45 @@ import { DataTable } from 'simple-datatables';
 			'.customtab-nav li button,.customtab-nav li a:not(.none-tab)',
 			function (e) {
 				e.preventDefault();
-				var target = $(this).attr('data-tabs');
-				var check_ajax = $(this).attr('data-ajax');
-				var check_api = $(this).attr('data-api');
-				var symbol = $(this).attr('data-symbol');
-				$(this)
+		
+				var $this = $(this);
+				var target = $this.attr('data-tabs');
+				var check_ajax = $this.attr('data-ajax');
+				var check_api = $this.attr('data-api');
+				var symbol = $this.attr('data-symbol');
+		
+				// Xử lý tab
+				$this
 					.closest('.customtab-nav')
 					.find('button')
 					.removeClass('active');
-				$(this).addClass('active');
+				$this.addClass('active');
 				$(target).fadeIn('slow').siblings('.tab-content').hide();
-
-				if ($(this).closest('.customtab-nav').hasClass('has-line')) {
-					moveLine($(this));
+		
+				// Cuộn nút đang active ra phía đầu container
+				var navContainer = $this.closest('.customtab-nav'); // Container của thanh nav
+				var buttonOffset = $this.position().left; // Vị trí nút bấm so với container
+				var currentScroll = navContainer.scrollLeft(); // Vị trí scroll hiện tại của container
+		
+				// Tính toán vị trí cuộn mới
+				var newScrollPosition = currentScroll + buttonOffset;
+				navContainer.animate({ scrollLeft: newScrollPosition }, 300); // Cuộn mượt
+		
+				// Xử lý has-line
+				if (navContainer.hasClass('has-line')) {
+					moveLine($this);
 				}
+		
+				// Xử lý AJAX
 				if (check_ajax === 'true') {
 					filter_details_symbol(target, check_api, symbol);
-					$(this).removeAttr('data-ajax');
+					$this.removeAttr('data-ajax');
 				}
+		
 				return false;
 			}
 		);
+		
 
 		$('.bank-nav-tab button').on('click', function () {
 			var targetTab = $(this).data('tabs');

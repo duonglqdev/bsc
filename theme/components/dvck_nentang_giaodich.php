@@ -1,7 +1,7 @@
 <?php
 $generateRandomString = generateRandomString();
 ?>
-<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px]' ?> dvck_nentang_giaodich" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:my-[100px] my-20':'my-[50px] relative pb-[70px]' ?> dvck_nentang_giaodich" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
             <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-center mb-10':'mb-[26px]' ?>">
@@ -48,7 +48,7 @@ $generateRandomString = generateRandomString();
                                     if (get_sub_field('title')) {
                             ?>
                                         <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>"
-                                            class="btn-base-yellow text-xs font-bold  items-center gap-x-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[12px] pl-4 pr-6 inline-flex':'flex justify-center' ?>">
+                                            class="btn-base-yellow text-xs font-bold  items-center gap-x-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[12px] pl-4 pr-6 inline-flex':'flex justify-center absolute bottom-0 w-[calc(100%-40px)]' ?>">
                                             <?php echo svg('arrow-btn', '20') ?>
                                             <?php the_sub_field('title') ?>
                                         </a>

@@ -1361,10 +1361,11 @@ button#ib-button-messaging {
 	.apexcharts-legend-text {
 		@apply pl-5;
 		font-size: 14px !important;
+		font-family: "Barlow", sans-serif !important;
 		@media only screen and (min-width: 480px) {
 			font-size: 16px !important;
 		}
-		font-family: "Barlow", sans-serif !important;
+		
 	}
 }
 
@@ -1387,4 +1388,16 @@ button#ib-button-messaging {
 
 .text-mb *{
 	font-size: 14px !important;
+}
+
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+   /* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+  }
 }
