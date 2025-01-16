@@ -25,7 +25,7 @@
 							class="flex-1 list-icon <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-[12px]' ?>">
 							<?php while ( have_rows( 'list_content' ) ) :
 								the_row(); ?>
-								<li class="font-semibold list-icon-item">
+								<li class="font-semibold list-icon-item !items-start">
 									<?php the_sub_field( 'content' ) ?>
 								</li>
 							<?php endwhile; ?>
