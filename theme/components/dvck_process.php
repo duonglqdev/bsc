@@ -66,7 +66,7 @@ $generateRandomString = generateRandomString();
 			<?php } ?>
 			<?php if (have_rows('product')) { ?>
 				<ul
-					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:gap-[100px] lg:gap-12 gap-6' : 'gap-8' ?>">
+					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:gap-[100px] lg:gap-12 gap-6' : 'gap-8 no-scrollbar' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('product')) :

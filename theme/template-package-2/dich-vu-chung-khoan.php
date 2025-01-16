@@ -85,7 +85,7 @@ get_header();
 					SẢN PHẨM DỊCH VỤ
 				</h2>
 				<ul
-					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-[100px] gap-12' : 'gap-8' ?>">
+					class="customtab-nav flex items-center relative border-b border-[#B8B8B8] overflow-x-auto whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-[100px] gap-12' : 'gap-8 no-scrollbar' ?>">
 					<li class="shrink-0">
 						<button data-tabs="#tab-1"
 							class="active inline-flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pb-6 text-xl' : 'pb-4' ?> uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
