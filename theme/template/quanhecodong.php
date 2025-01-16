@@ -7,7 +7,7 @@ Template Name: Quan hệ cổ đông
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
+	<?php get_template_part( 'components/page-banner' ) ?>
 	<section class="2xl:my-[100px] my-12">
 		<div class="container">
 			<h2 class="heading-title lg:mb-[42px] mb-9">
@@ -15,16 +15,14 @@ get_header();
 			</h2>
 			<div class="flex md:flex-row flex-col md:gap-[38px] gap-8">
 				<div class="md:max-w-80 w-full">
-					<div
-						class="bg-gradient-[#D1ECFF] lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
+					<div class="bg-gradient-[#D1ECFF] lg:p-6 p-5 shadow-base space-y-8 rounded-2xl h-full">
 						<div class="flex gap-6">
 							<div
 								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
-								<?php echo svgClass('icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9') ?>
+								<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
 							</div>
 							<div class="flex flex-col">
-								<h4
-									class="font-bold lg:text-[40px] text-4xl uppercase leading-normal">
+								<h4 class="font-bold lg:text-[40px] text-4xl uppercase leading-normal">
 									BSI
 								</h4>
 								<p class="uppercase text-2xl text-paragraph">
@@ -48,7 +46,7 @@ get_header();
 								</div>
 							</div>
 							<p class="time-update mt-1">
-								Cập nhật lúc 14:45 UTC_7
+								Cập nhật lúc 14:45 UTC+7
 							</p>
 
 						</div>
@@ -77,8 +75,9 @@ get_header();
 					<picture>
 						<source media="(max-width:767px)"
 							srcset="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_ls.svg">
-						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_ls.svg"
-							alt="" class="w-full h-auto">
+						<img loading="lazy"
+							src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/chart_ls.svg" alt=""
+							class="w-full h-auto">
 					</picture>
 				</div>
 			</div>
@@ -91,16 +90,15 @@ get_header();
 			</h2>
 			<div class="md:flex md:gap-8">
 				<div class="flex flex-col gap-8">
-					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/tyle.svg"
-						alt="" class="w-full">
+					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/tyle.svg" alt=""
+						class="w-full">
 					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/ttcdl.svg"
 						alt="" class="w-full">
 				</div>
 				<div class="flex-1 w-full overflow-x-auto">
 
 					<div class="table_custom rounded-[10px] overflow-hidden">
-						<div
-							class="table_custom-header grid grid-cols-7 gap-5 bg-[#E6F2FA] font-bold lg:leading-loose">
+						<div class="table_custom-header grid grid-cols-7 gap-5 bg-[#E6F2FA] font-bold lg:leading-loose">
 							<div class="col-span-1 py-6 px-4 text-center">
 								STT
 							</div>
@@ -299,18 +297,17 @@ get_header();
 					<div id="public_infomation">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold">Công bố thông tin</h2>
-							<a href=""
-								class="px-5 py-3 btn-base-yellow">
+							<a href="" class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem tất cả', 'bsc' ) ?>
 								</span>
 							</a>
 						</div>
 						<div class="mb-10 pb-10 space-y-6 border-b border-[#E1E1E1]">
 							<?php
-							for ($i = 0; $i < 4; $i++) {
-							?>
+							for ( $i = 0; $i < 4; $i++ ) {
+								?>
 								<div
 									class="news_service-item md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6">
 									<div class="flex items-center">
@@ -342,10 +339,10 @@ get_header();
 									<a href="" download=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Tải xuống
-										<?php echo svg('download') ?>
+										<?php echo svg( 'download' ) ?>
 									</a>
 								</div>
-							<?php
+								<?php
 							}
 							?>
 						</div>
@@ -353,18 +350,17 @@ get_header();
 					<div id="shareholders">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold">Đại hội đồng cổ đông</h2>
-							<a href=""
-								class="px-5 py-3 btn-base-yellow">
+							<a href="" class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem tất cả', 'bsc' ) ?>
 								</span>
 							</a>
 						</div>
 						<div class="mb-10 pb-10 space-y-6 border-b border-[#E1E1E1]">
 							<?php
-							for ($i = 0; $i < 3; $i++) {
-							?>
+							for ( $i = 0; $i < 3; $i++ ) {
+								?>
 								<div
 									class="news_service-item md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6">
 									<div class="flex items-center">
@@ -406,10 +402,10 @@ get_header();
 									<a href="" download=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Tải xuống
-										<?php echo svg('download') ?>
+										<?php echo svg( 'download' ) ?>
 									</a>
 								</div>
-							<?php
+								<?php
 							}
 							?>
 						</div>
@@ -417,18 +413,17 @@ get_header();
 					<div id="report_finance">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold">Báo cáo tài chính</h2>
-							<a href=""
-								class="px-5 py-3 btn-base-yellow">
+							<a href="" class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem tất cả', 'bsc' ) ?>
 								</span>
 							</a>
 						</div>
 						<div class="mb-10 pb-10 space-y-6 border-b border-[#E1E1E1]">
 							<?php
-							for ($i = 0; $i < 3; $i++) {
-							?>
+							for ( $i = 0; $i < 3; $i++ ) {
+								?>
 								<div
 									class="news_service-item md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6">
 									<div class="flex items-center">
@@ -460,10 +455,10 @@ get_header();
 									<a href="" download=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Tải xuống
-										<?php echo svg('download') ?>
+										<?php echo svg( 'download' ) ?>
 									</a>
 								</div>
-							<?php
+								<?php
 							}
 							?>
 						</div>
@@ -471,23 +466,22 @@ get_header();
 					<div id="annual_report">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold ">Báo cáo thường niên</h2>
-							<a href=""
-								class="px-5 py-3 btn-base-yellow">
+							<a href="" class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem tất cả', 'bsc' ) ?>
 								</span>
 							</a>
 						</div>
 						<div class="mb-10 pb-10 space-y-6 border-b border-[#E1E1E1]">
 							<div class="grid grid-cols-4 gap-5">
 								<?php
-								for ($i = 0; $i < 4; $i++) {
-								?>
+								for ( $i = 0; $i < 4; $i++ ) {
+									?>
 									<div class="flex flex-col">
-										<a href=""
-											class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
-											<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
+										<a href="" class="block overflow-hidden w-full pt-[139%] rounded-lg group relative">
+											<img loading="lazy"
+												src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/report.png"
 												alt=""
 												class="absolute w-full h-full inset-0 object-cover group-hover:scale-105  transition-all duration-500">
 										</a>
@@ -500,10 +494,10 @@ get_header();
 										<a href="" download=""
 											class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 											Tải xuống
-											<?php echo svg('download') ?>
+											<?php echo svg( 'download' ) ?>
 										</a>
 									</div>
-								<?php
+									<?php
 								}
 								?>
 
@@ -513,18 +507,17 @@ get_header();
 					<div id="corporate_governance">
 						<div class="flex justify-between items-center mb-[26px]">
 							<h2 class="2xl:text-2xl text-xl font-bold">Quản trị doanh nghiệp</h2>
-							<a href=""
-								class="px-5 py-3 btn-base-yellow">
+							<a href="" class="px-5 py-3 btn-base-yellow">
 								<span class="inline-flex items-center gap-3 relative z-10">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem tất cả', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem tất cả', 'bsc' ) ?>
 								</span>
 							</a>
 						</div>
 						<div class="space-y-6">
 							<?php
-							for ($i = 0; $i < 3; $i++) {
-							?>
+							for ( $i = 0; $i < 3; $i++ ) {
+								?>
 								<div
 									class="news_service-item md:flex items-center justify-between md:gap-20 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1] [&:not(:last-child)]:pb-6">
 									<div class="flex items-center">
@@ -557,10 +550,10 @@ get_header();
 									<a href="" download=""
 										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
 										Tải xuống
-										<?php echo svg('download') ?>
+										<?php echo svg( 'download' ) ?>
 									</a>
 								</div>
-							<?php
+								<?php
 							}
 							?>
 						</div>

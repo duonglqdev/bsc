@@ -902,7 +902,7 @@ function filter_details_symbol() {
 								<?php _e( 'Room nước ngoài', 'bsc' ) ?>
 							</p>
 							<strong>
-								<?php echo bsc_number_format( $response_GetShareholderRelations->d[0]->froom ) ?>%
+								<?php echo bsc_number_format( $response_GetShareholderRelations->d[0]->froom ) ?>
 							</strong>
 						</li>
 					<?php } ?>

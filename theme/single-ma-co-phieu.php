@@ -1,28 +1,28 @@
 <?php
-if ($args['data']) {
+if ( $args['data'] ) {
 	$news = $args['data'];
-	$symbol = strtoupper($args['symbol']);
-	$first_symbol = substr($symbol, 0, 1);
-	$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
+	$symbol = strtoupper( $args['symbol'] );
+	$first_symbol = substr( $symbol, 0, 1 );
+	$time_cache = get_field( 'cdttcp1_time_cache', 'option' ) ?: 300;
 	$banner = wp_get_attachment_image_url(
-		wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
-			? get_field('cdc1_background_banner_mobile', 'option')
-			: get_field('cdc1_background_banner', 'option'),
+		wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile', 'option' )
+		? get_field( 'cdc1_background_banner_mobile', 'option' )
+		: get_field( 'cdc1_background_banner', 'option' ),
 		'full'
 	);
-	if (get_field('cdttcp1_background_banner', 'option') || get_field('cdttcp1_background_banner_mobile', 'option')) {
+	if ( get_field( 'cdttcp1_background_banner', 'option' ) || get_field( 'cdttcp1_background_banner_mobile', 'option' ) ) {
 		$banner = wp_get_attachment_image_url(
-			wp_is_mobile() && bsc_is_mobile() && get_field('cdttcp1_background_banner_mobile ', 'option')
-				? get_field('cdttcp1_background_banner_mobile ', 'option')
-				: get_field('cdttcp1_background_banner ', 'option'),
+			wp_is_mobile() && bsc_is_mobile() && get_field( 'cdttcp1_background_banner_mobile ', 'option' )
+			? get_field( 'cdttcp1_background_banner_mobile ', 'option' )
+			: get_field( 'cdttcp1_background_banner ', 'option' ),
 			'full'
 		);
 	}
-	$style = get_field('cdttcp1_background_banner_display', 'option') ?: 'default';
-	$title_breadcrumb = get_field('cdttcp1_title', 'option');
+	$style = get_field( 'cdttcp1_background_banner_display', 'option' ) ?: 'default';
+	$title_breadcrumb = get_field( 'cdttcp1_title', 'option' );
 	$breadcrumb = 'cophieu';
 } else {
-	wp_redirect(home_url('/404'), 301);
+	wp_redirect( home_url( '/404' ), 301 );
 	exit;
 }
 $check_logout = bsc_is_user_logged_out();
@@ -30,20 +30,20 @@ $class = $check_logout['class'];
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner', null, array(
+	<?php get_template_part( 'components/page-banner', null, array(
 		'banner' => $banner,
 		'style' => $style,
 		'title' => $title_breadcrumb,
 		'breadcrumb' => $breadcrumb,
-	)) ?>
+	) ) ?>
 	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
-			<?php if ($news->FULLNAME) { ?>
+			<?php if ( $news->FULLNAME ) { ?>
 				<h1
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' xl:text-[32px] text-2xl' : 'md:text-xl text-lg' ?> mb-2 leading-normal uppercase">
 					<?php echo $news->FULLNAME ?>
 				</h1>
-			<?php }  ?>
+			<?php } ?>
 			<div
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
 				<div
@@ -67,7 +67,7 @@ get_header();
 									</p>
 								</div>
 							</div>
-							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div class="flex-col gap-2">
 									<div class="flex gap-[12px] data_number bsc_need_crawl_price-text-color items-center">
 										<div class="text-2xl font-bold text-[#FE5353] bsc_need_crawl_price-bidPrice1">
@@ -80,15 +80,15 @@ get_header();
 										</div>
 									</div>
 									<p class="time-update mt-1 sm:text-xs text-xxs">
-										<?php _e('Cập nhật lúc', 'bsc') ?>
+										<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
 										<span class="bsc_need_crawl_date"></span>
-										<?php _e('UTC_7', 'bsc') ?>
+										<?php _e( 'UTC+7', 'bsc' ) ?>
 									</p>
 								</div>
 							<?php } ?>
 						</div>
 						<div class="flex items-center 2xl:gap-7 gap-5">
-							<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="lg:w-[176px] lg:max-w-[37%]">
 									<div class="flex-col gap-2">
 										<div class="flex gap-[14px] data_number bsc_need_crawl_price-text-color">
@@ -102,9 +102,9 @@ get_header();
 											</div>
 										</div>
 										<p class="time-update mt-1">
-											<?php _e('Cập nhật lúc', 'bsc') ?>
+											<?php _e( 'Cập nhật lúc', 'bsc' ) ?>
 											<span class="bsc_need_crawl_date"></span>
-											<?php _e('UTC_7', 'bsc') ?>
+											<?php _e( 'UTC+7', 'bsc' ) ?>
 										</p>
 									</div>
 								</div>
@@ -114,7 +114,7 @@ get_header();
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Trần', 'bsc') ?>
+											<?php _e( 'Trần', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-[#7F1CCD] bsc_need_crawl_price-ceiling <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -122,7 +122,7 @@ get_header();
 									</div>
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Cao nhất', 'bsc') ?>
+											<?php _e( 'Cao nhất', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-black bsc_need_crawl_price-high <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -132,7 +132,7 @@ get_header();
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Tham chiếu', 'bsc') ?>
+											<?php _e( 'Tham chiếu', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-[#FFB81C] bsc_need_crawl_price--reference <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -140,7 +140,7 @@ get_header();
 									</div>
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Thấp nhất', 'bsc') ?>
+											<?php _e( 'Thấp nhất', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-black bsc_need_crawl_price-low <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -150,7 +150,7 @@ get_header();
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Sàn', 'bsc') ?>
+											<?php _e( 'Sàn', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-[#1ABAFE] bsc_need_crawl_price-floor <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -158,7 +158,7 @@ get_header();
 									</div>
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-											<?php _e('Trung bình', 'bsc') ?>
+											<?php _e( 'Trung bình', 'bsc' ) ?>
 										</p>
 										<p
 											class="font-bold text-black bsc_need_crawl_price-averagePrice <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-lg' : '' ?>">
@@ -217,7 +217,7 @@ get_header();
 					class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
 					<button data-tabs="#details_symbol_tab-1"
 						class="active inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-1 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('TỔNG QUAN', 'bsc') ?>
+						<?php _e( 'TỔNG QUAN', 'bsc' ) ?>
 					</button>
 				</li>
 				<li
@@ -225,7 +225,7 @@ get_header();
 					<button data-tabs="#details_symbol_tab-2" data-ajax="true" data-api="details_symbol_tab-2"
 						data-symbol="<?php echo $symbol ?>"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('BÁO CÁO TÀI CHÍNH', 'bsc') ?>
+						<?php _e( 'BÁO CÁO TÀI CHÍNH', 'bsc' ) ?>
 					</button>
 				</li>
 				<li
@@ -233,46 +233,47 @@ get_header();
 					<button data-tabs="#details_symbol_tab-3" data-ajax="true" data-api="details_symbol_tab-3"
 						data-symbol="<?php echo $symbol ?>"
 						class="inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-						<?php _e('CHỈ TIÊU TÀI CHÍNH', 'bsc') ?>
+						<?php _e( 'CHỈ TIÊU TÀI CHÍNH', 'bsc' ) ?>
 					</button>
 				</li>
 				<?php $array_data_GetForecastBussiness = array(
 					'lang' => pll_current_language(),
 					'symbol' => $symbol,
 				);
-				$response_GetForecastBussiness = get_data_with_cache('GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache);
-				if ($response_GetForecastBussiness) {
-					if (isset($response_GetForecastBussiness->d2) && ! empty($response_GetForecastBussiness->d2)) { ?>
+				$response_GetForecastBussiness = get_data_with_cache( 'GetForecastBussiness', $array_data_GetForecastBussiness, $time_cache );
+				if ( $response_GetForecastBussiness ) {
+					if ( isset( $response_GetForecastBussiness->d2 ) && ! empty( $response_GetForecastBussiness->d2 ) ) { ?>
 						<li
 							class="[&:last-child]:relative [&:last-child]:after:absolute [&:last-child]:after:w-0.5 [&:last-child]:after:h-6 [&:last-child]:after:top-1 [&:last-child]:after:bg-[#C9CCD2] [&:last-child]:after:lg:-left-[50px] [&:last-child]:after:-left-5">
-							<?php if ($check_logout) {
-							?>
+							<?php if ( $check_logout ) {
+								?>
 								<a href="<?php echo bsc_url_sso() ?>"
 									class="none-tab has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-									<?php echo svgClass('star', '', '', 'w-6 h-6 shrink-0') ?>
-									<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									<?php echo svgClass( 'star', '', '', 'w-6 h-6 shrink-0' ) ?>
+									<?php _e( 'BSC DỰ PHÓNG', 'bsc' ) ?>
 								</a>
-							<?php
+								<?php
 							} else { ?>
 								<button data-tabs="#details_symbol_tab-4" data-ajax="true" data-api="details_symbol_tab-4"
 									data-symbol="<?php echo $symbol ?>"
 									class="has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
-									<?php echo svgClass('star', '', '', 'w-6 h-6 shrink-0') ?>
-									<?php _e('BSC DỰ PHÓNG', 'bsc') ?>
+									<?php echo svgClass( 'star', '', '', 'w-6 h-6 shrink-0' ) ?>
+									<?php _e( 'BSC DỰ PHÓNG', 'bsc' ) ?>
 								</button>
 							<?php } ?>
 						</li>
-				<?php
+						<?php
 					}
 				} ?>
 			</ul>
 			<div class="tab-content block" id="details_symbol_tab-1">
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-[90px] lg:space-y-0 space-y-10' : '' ?> mt-10">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-[90px] lg:space-y-0 space-y-10' : '' ?> mt-10">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[744px] lg:max-w-[56%] w-full' : 'w-full' ?>">
 						<h2
 							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
-							<?php _e('BIỂU ĐỒ GIÁ', 'bsc') ?>
+							<?php _e( 'BIỂU ĐỒ GIÁ', 'bsc' ) ?>
 						</h2>
 						<div
 							class="rounded-2xl bg-[#F5FCFF] relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
@@ -284,20 +285,20 @@ get_header();
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 						<h2
 							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-							<?php _e('LỊCH SỬ GIAO DỊCH', 'bsc') ?>
+							<?php _e( 'LỊCH SỬ GIAO DỊCH', 'bsc' ) ?>
 						</h2>
 						<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 customtab-nav text-xs">
 							<li>
 								<button data-tabs="#lichsugiaodich"
 									class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									<?php _e('Lịch sử GD', 'bsc') ?>
+									<?php _e( 'Lịch sử GD', 'bsc' ) ?>
 								</button>
 							</li>
 							<li>
 								<button data-tabs="#ndtnn" data-ajax="true" data-api="ndtnn"
 									data-symbol="<?php echo $symbol ?>"
 									class="inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
-									<?php _e('NĐTNN', 'bsc') ?>
+									<?php _e( 'NĐTNN', 'bsc' ) ?>
 								</button>
 							</li>
 						</ul>
@@ -339,12 +340,13 @@ get_header();
 					</div>
 				</div>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[386px] lg:max-w-[29%]' : 'w-full' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('BÁO CÁO PHÂN TÍCH', 'bsc') ?>
+								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
@@ -368,7 +370,7 @@ get_header();
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[414px] lg:max-w-[31%]' : 'mt-[50px]' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('CƠ CẤU CỔ ĐÔNG', 'bsc') ?>
+								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
 							</h2>
 							<div class="space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
@@ -391,7 +393,7 @@ get_header();
 						<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-14' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
-								<?php _e('DOANH NGHIỆP CÙNG NGÀNH', 'bsc') ?>
+								<?php _e( 'DOANH NGHIỆP CÙNG NGÀNH', 'bsc' ) ?>
 							</h2>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative bsc-ajax-api"
 								data-api="sg_dncn" data-symbol="<?php echo $symbol ?>">
@@ -412,7 +414,7 @@ get_header();
 								</div>
 							</div>
 							<p class="text-right mt-4 italic text-xs pr-7 font-Helvetica">
-								<?php _e('Đơn vị Vốn hóa (Triệu đồng)', 'bsc') ?>
+								<?php _e( 'Đơn vị Vốn hóa (Triệu đồng)', 'bsc' ) ?>
 							</p>
 						</div>
 					</div>
@@ -420,14 +422,14 @@ get_header();
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div
 						class="flex justify-between items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-						<h2 class="heading-title"><?php _e('TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc') ?>
+						<h2 class="heading-title"><?php _e( 'TIN TỨC VỀ MÃ CỔ PHIẾU', 'bsc' ) ?>
 						</h2>
-						<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-							<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
-								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+							<?php if ( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) { ?>
+								<a href="<?php echo check_link( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) ?>?mck=<?php echo $symbol ?>"
 									class="inline-flex items-center gap-3 pl-5 pr-4 py-2 btn-base-yellow text-xs font-bold min-h-[38px]">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem thêm', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem thêm', 'bsc' ) ?>
 								</a>
 							<?php } ?>
 
@@ -451,13 +453,13 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-						<?php if (get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) { ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+						<?php if ( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) { ?>
 							<div class="mt-8">
-								<a href="<?php echo check_link(get_field('cdc7_page_tin_tuc_ma_co_phan', 'option')) ?>?mck=<?php echo $symbol ?>"
+								<a href="<?php echo check_link( get_field( 'cdc7_page_tin_tuc_ma_co_phan', 'option' ) ) ?>?mck=<?php echo $symbol ?>"
 									class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
-									<?php echo svg('arrow-btn', '16', '16') ?>
-									<?php _e('Xem thêm', 'bsc') ?>
+									<?php echo svg( 'arrow-btn', '16', '16' ) ?>
+									<?php _e( 'Xem thêm', 'bsc' ) ?>
 								</a>
 							</div>
 						<?php } ?>
