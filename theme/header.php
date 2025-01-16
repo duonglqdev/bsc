@@ -134,7 +134,7 @@
 
 		<?php } ?>
 		<div
-			class="bg-white 2xl:py-[14px] py-3 shadow-base lg:static relative">
+			class="bg-white 2xl:py-[14px] py-[12px] shadow-base lg:static relative">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
 						<div class="flex items-center gap-2 relative lg:hidden">
