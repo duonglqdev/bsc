@@ -17,16 +17,14 @@ get_header();
 				Company</p>
 			<div class="mt-10 lg:flex lg:gap-5">
 				<div class="lg:w-[547px] max-w-[41%]">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
+					<div class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
 						<div class="flex gap-6 items-center">
 							<div
 								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
 								<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
 							</div>
 							<div class="flex flex-col">
-								<h4
-									class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+								<h4 class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
 									BSI
 								</h4>
 								<p class="uppercase text-lg text-paragraph">
@@ -52,7 +50,7 @@ get_header();
 										</div>
 									</div>
 									<p class="time-update mt-1">
-										Cập nhật lúc 14:45 UTC_7
+										Cập nhật lúc 14:45 UTC+7
 									</p>
 
 								</div>
@@ -118,10 +116,8 @@ get_header();
 				</div>
 
 				<div class="lg:w-[433px] max-w-[33%]">
-					<div
-						class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-6 lg:py-6 py-5 h-full font-Helvetica">
-						<div
-							class="lg:flex lg:items-center lg:justify-between mb-6 pb-6 border-b border-[#C9CCD2]">
+					<div class="bg-[#E8F5FF] rounded-xl 2xl:px-8 px-6 lg:py-6 py-5 h-full font-Helvetica">
+						<div class="lg:flex lg:items-center lg:justify-between mb-6 pb-6 border-b border-[#C9CCD2]">
 							<p class="text-paragraph text-opacity-70 text-xs">
 								<?php _e( 'Ngành', 'bsc' ) ?>
 							</p>
@@ -156,7 +152,7 @@ get_header();
 								</p>
 							</div>
 							<div class="space-y-2">
-								
+
 							</div>
 							<div class="space-y-2">
 								<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
@@ -306,8 +302,7 @@ get_header();
 					</thead>
 					<tbody>
 						<?php
-						for ( $i = 0; $i < 11; $i++ )
-						{
+						for ( $i = 0; $i < 11; $i++ ) {
 							?>
 							<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 								<td class="font-bold !pl-[30px]">Doanh thu (tỷ đồng)</td>
@@ -323,8 +318,7 @@ get_header();
 					</tbody>
 				</table>
 				<!-- Nếu đã đăng nhập thì bỏ khối nút đăng nhập -->
-				<div
-					class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
+				<div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
 					<a href="#"
 						class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold rounded-xl">
 						Đăng nhập

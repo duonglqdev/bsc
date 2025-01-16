@@ -17,16 +17,14 @@ get_header();
 				Company</p>
 			<div class="mt-10 lg:flex lg:gap-5">
 				<div class="lg:w-[547px] max-w-[41%]">
-					<div
-						class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
+					<div class="bg-gradient-blue-to-bottom-100 rounded-xl lg:px-10 px-5 lg:py-6 py-5 space-y-6 h-full">
 						<div class="flex gap-6 items-center">
 							<div
 								class="lg:w-[90px] w-16 lg:h-[90px] h-16 bg-white rounded-full flex items-center justify-center p-5">
 								<?php echo svgClass( 'icon-heading', '', '', 'lg:w-10 w-8 lg:h-11 h-9' ) ?>
 							</div>
 							<div class="flex flex-col">
-								<h4
-									class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+								<h4 class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
 									BSI
 								</h4>
 								<p class="uppercase text-lg text-paragraph">
@@ -52,7 +50,7 @@ get_header();
 										</div>
 									</div>
 									<p class="time-update mt-1">
-										Cập nhật lúc 14:45 UTC_7
+										Cập nhật lúc 14:45 UTC+7
 									</p>
 
 								</div>
@@ -287,8 +285,7 @@ get_header();
 				</div>
 				<ul class="flex items-center justify-end gap-[27px] flex-wrap lg:mr-6 mb-6">
 					<?php
-					for ( $i = 18; $i < 24; $i++ )
-					{
+					for ( $i = 18; $i < 24; $i++ ) {
 						?>
 						<li class="lg:min-w-[140px] font-bold">
 							<p>
@@ -304,8 +301,7 @@ get_header();
 				</ul>
 				<div class="space-y-16">
 					<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-						<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
+						<table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
 							 prose-td:p-4 font-medium">
 							<thead>
 								<tr>
@@ -313,27 +309,26 @@ get_header();
 								</tr>
 							</thead>
 							<tbody>
-								<?php 
-								 for ($i = 0; $i < 4; $i++) {
-								 ?>
-								 <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-									 <td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV</td>
-									 <td>911,959,220</td>
-									 <td>608,349,810</td>
-									 <td>912,577,380</td>
-									 <td>1,333,024,980</td>
-									 <td>1,089,005,390</td>
-									 <td>1,258,998,059</td>
-								 </tr>
-								  <?php 
-								 } 
+								<?php
+								for ( $i = 0; $i < 4; $i++ ) {
+									?>
+									<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+										<td class="lg:min-w-[231px]">Doanh thu bán hàng và CCDV</td>
+										<td>911,959,220</td>
+										<td>608,349,810</td>
+										<td>912,577,380</td>
+										<td>1,333,024,980</td>
+										<td>1,089,005,390</td>
+										<td>1,258,998,059</td>
+									</tr>
+								<?php
+								}
 								?>
 							</tbody>
 						</table>
 					</div>
 					<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-					<table
-							class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
+						<table class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:p-4 prose-th:text-left
 							 prose-td:p-4 font-medium">
 							<thead>
 								<tr>
@@ -341,20 +336,20 @@ get_header();
 								</tr>
 							</thead>
 							<tbody>
-								<?php 
-								 for ($i = 0; $i < 4; $i++) {
-								 ?>
-								 <tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
-									 <td class="lg:min-w-[231px]">Tổng tài sản</td>
-									 <td>911,959,220</td>
-									 <td>608,349,810</td>
-									 <td>912,577,380</td>
-									 <td>1,333,024,980</td>
-									 <td>1,089,005,390</td>
-									 <td>1,258,998,059</td>
-								 </tr>
-								  <?php 
-								 } 
+								<?php
+								for ( $i = 0; $i < 4; $i++ ) {
+									?>
+									<tr class="[&:nth-child(even)]:bg-[#EBF4FA]">
+										<td class="lg:min-w-[231px]">Tổng tài sản</td>
+										<td>911,959,220</td>
+										<td>608,349,810</td>
+										<td>912,577,380</td>
+										<td>1,333,024,980</td>
+										<td>1,089,005,390</td>
+										<td>1,258,998,059</td>
+									</tr>
+								<?php
+								}
 								?>
 							</tbody>
 						</table>
