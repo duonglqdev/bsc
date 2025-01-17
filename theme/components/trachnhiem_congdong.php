@@ -43,7 +43,7 @@
                                 <div class="relative w-full pt-[100%]">
                                     <?php echo svgClass('comunity') ?>
                                     <div class="icon absolute <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'top-3 right-5 lg:w-auto lg:h-auto w-2/5 h-2/5' : 'w-[36%] h-[36%] flex items-center justify-center top-4 right-4' ?>">
-                                        <?php echo svg_dir(get_sub_field('icon')) ?>
+                                        <img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain">
                                     </div>
 
                                 </div>

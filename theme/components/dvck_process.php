@@ -45,7 +45,7 @@ $generateRandomString = generateRandomString();
 								class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 								<div
 									class="text-primary-300 group-hover:text-white lg:transition-all lg:duration-500">
-									<?php echo svg_dir(get_sub_field('icon')) ?>
+									<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain">
 								</div>
 								<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 									<?php the_sub_field('title') ?>
@@ -76,7 +76,7 @@ $generateRandomString = generateRandomString();
 							<button data-tabs="#<?php echo $generateRandomString ?>-<?php echo $i ?>"
 								class="<?php if ($i == 1)
 											echo 'active' ?> inline-flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pb-6 text-xl' : 'pb-4' ?> uppercase relative after:absolute after:w-full after:bottom-0 after:left-0 after:h-[4px] [&:not(.active)]:text-black text-[#000] after:bg-yellow-100 after:transition-all after:duration-500 hover:after:!opacity-100 hover:after:!visible font-bold items-center gap-2 [&:not(.active)]:opacity-70 opacity-100 [&:not(.active)]:after:opacity-0 after:opacity-100 [&:not(.active)]:after:invisible after:visible hover:!opacity-100 transition-all duration-500">
-								<?php echo svg_dir(get_sub_field('icon'), '30', '30', 'shrink-0') ?>
+								<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain shrink-0 w-[30px] h-[30px]">
 								<?php the_sub_field('title') ?>
 							</button>
 						</li>

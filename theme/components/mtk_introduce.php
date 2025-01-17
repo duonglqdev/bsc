@@ -61,7 +61,7 @@
         </div>
         <?php if (get_sub_field('keyvisual')&&! wp_is_mobile() && ! bsc_is_mobile()) { ?>
             <div class="absolute top-0 right-0 pointer-events-none">
-                <?php echo svg_dir(get_sub_field('keyvisual')) ?>
+                <img src="<?= the_sub_field('keyvisual') ?>" alt="icon" loading="lazy" class="object-contain">
             </div>
         <?php } ?>
     </div>
