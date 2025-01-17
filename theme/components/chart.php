@@ -17,31 +17,14 @@
 			?>
 			<div
 				class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
-				<?php if ( get_sub_field( 'title' ) )
-				{ ?>
-					<h3 class="border-l-2 border-primary-300 2xl:text-[28px] font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl mb-7 pl-6' : 'text-lg mb-6 pl-[12px]' ?>"
-						data-wow-duration="2s">
-						<?php the_sub_field( 'title' ) ?>
-					</h3>
-				<?php } ?>
-				<div
-					class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-84px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-90px)]' : '' ?>">
-					<?php
-					$time_cache = 300;
-					$array_data_GetAllDanhMuc = array();
-					$response_GetAllDanhMuc = get_data_with_cache(
-						'GetAllDanhMuc',
-						$array_data_GetAllDanhMuc,
-						$time_cache,
-						get_field( 'cdapi_ip_address_quanlydanhmuc', 'option' )
-					);
-
-					if ( $response_GetAllDanhMuc )
-					{
-						?>
-						<div
-							class="mb-6 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center' : '' ?>">
-							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+				<div class="lg:flex lg:gap-6 lg:items-center lg:space-y-0 space-y-5 lg:mb-7 mb-6 wow fadeIn" data-wow-duration="2s">
+					<?php if ( get_sub_field( 'title' ) )
+					{ ?>
+						<h3 class="border-l-2 border-primary-300 2xl:text-[28px] font-bold text-primary-300 leading-none  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl pl-6' : 'text-lg pl-[12px]' ?>"
+							>
+							<?php the_sub_field( 'title' ) ?>
+						</h3>
+						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 								? 'space-x-2 px-[6px] py-[2px] bg-[#F8F8FF] block mb-0 font-normal'
 								: 'space-x-4 px-[13px] py-[7px] bg-white flex mb-4'; ?> rounded-xl btn-chart">
 								<?php
@@ -59,54 +42,92 @@
 									</button>
 								<?php } ?>
 							</div>
-							<!-- <div id="date-slider"></div> -->
-							<div class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-								? 'gap-6 2xl:gap-6 items-center'
-								: 'gap-4 items-end'; ?>">
-								<div id="date-performance-picker" date-rangepicker
-									datepicker-orientation="bottom" datepicker-format="yyyy-mm-dd"
-									datepicker-autohide>
-									<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-										? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
-										: 'flex-wrap flex-1 justify-between'; ?>">
-										<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'w-auto mb-0'
-											: 'w-full mb-2'; ?>">
-											<?php _e( 'Thời gian:', 'gnws' ) ?>
-										</p>
-										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
-											<input id="datepicker-performance-start" name="start"
-												type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-													? 'max-w-[100px] w-full p-0'
-													: 'max-w-full w-full p-0 text-xs'; ?>"
-												placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value=""
-												autocomplete="off">
-											<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
-										</div>
-										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
-											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
-											<input id="datepicker-performance-end" name="end"
-												type="text" class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-													? 'max-w-[100px] w-full p-0'
-													: 'max-w-full w-full p-0 text-xs'; ?>"
-												placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
-												value="<?php echo $todate ?>" autocomplete="off">
-											<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
-										</div>
+							
+					<?php } ?>
 
+				</div>
+				<div
+					class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-84px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-90px)]' : '' ?>">
+					<?php
+					$time_cache = 300;
+					$array_data_GetAllDanhMuc = array();
+					$response_GetAllDanhMuc = get_data_with_cache(
+						'GetAllDanhMuc',
+						$array_data_GetAllDanhMuc,
+						$time_cache,
+						get_field( 'cdapi_ip_address_quanlydanhmuc', 'option' )
+					);
+
+					if ( $response_GetAllDanhMuc )
+					{
+						?>
+
+
+					<div
+						class="mb-6 flex md:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
+						<div class="flex md:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+							? 'gap-6 2xl:gap-6 items-center'
+							: ''; ?>">
+							<div id="date-performance-picker" date-rangepicker
+								datepicker-orientation="bottom" datepicker-format="yyyy-mm-dd"
+								datepicker-autohide>
+								<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+									? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
+									: 'flex-wrap flex-1 justify-between'; ?>">
+									<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+										? 'w-auto mb-0'
+										: 'w-full mb-2'; ?>">
+										<?php _e( 'Thời gian:', 'gnws' ) ?>
+									</p>
+									<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+										<input id="datepicker-performance-start" name="start"
+											type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+												? 'max-w-[100px] w-full p-0'
+												: 'max-w-full w-full p-0 text-xs'; ?>"
+											placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value=""
+											autocomplete="off">
+										<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 									</div>
+									<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+										? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+										: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
+										<input id="datepicker-performance-end" name="end"
+											type="text" class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+												? 'max-w-[100px] w-full p-0'
+												: 'max-w-full w-full p-0 text-xs'; ?>"
+											placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>"
+											value="<?php echo $todate ?>" autocomplete="off">
+										<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
+									</div>
+
 								</div>
-								<button type="button" data-todate="<?php echo $todate ?>"
-									id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-										? 'bg-[#E8F5FF] group'
-										: 'bg-white group'; ?>">
-									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
-								</button>
 							</div>
 						</div>
+						<!-- @todo: Xử lý dữ liệu các tháng -->
+						<div class="flex items-center gap-2">
+							<button type="button" class="active inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							1 Th
+							</button>
+							<button type="button" class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							3 Th
+							</button>
+							<button type="button" class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							6 Th
+							</button>
+							<button type="button" class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							1 Năm
+							</button>
+						</div>
+						<button type="button" data-todate="<?php echo $todate ?>"
+							id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+								? 'bg-[#E8F5FF] group'
+								: 'bg-white group'; ?>">
+							<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+						</button>
+					</div>
+
 					<?php } ?>
 					<div class="flex-1 chart-info flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 						? 'min-h-0 bg-none rounded-none py-0 px-0'
