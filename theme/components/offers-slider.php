@@ -102,9 +102,9 @@
 				}
 				if ( $response ) {
 					?>
-					<div class="block_slider block_slider-show-2 no-dots -mx-4 block_sameheight">
+					<div class="block_slider block_slider-show-2 no-dots md:-mx-4 -mx-2 block_sameheight">
 						<?php foreach ( $response->d as $news ) { ?>
-							<div class="block_slider-item md:w-3/5 w-4/5 px-4">
+							<div class="block_slider-item md:w-3/5 w-4/5 md:px-4 px-2">
 								<div
 									class="bg-white sameheight_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'p-5' ?> rounded-lg ">
 									<div class="max-h-44 overflow-hidden">
