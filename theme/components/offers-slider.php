@@ -41,16 +41,14 @@
 							the_row();
 							if ( get_sub_field( 'title' ) ) {
 								?>
-								<p class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mt-4' : 'mt-4' ?>">
 									<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
 											echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>"
+										class="flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs md:mt-0 mt-4' ?>"
 										data-wow-duration="2s">
 										<?php echo svg( 'keyvisual', '24', '24' ) ?>
 										<?php the_sub_field( 'title' ) ?>
 										<?php echo svg( 'arrow-btn', '14', '14' ) ?>
 									</a>
-								</p>
 								<?php
 							}
 						endwhile;

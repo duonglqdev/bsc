@@ -40,13 +40,18 @@
 						</ul>
 					</div>
 				<?php } ?>
+				<!-- @todo: Thêm ảnh banner -->
+				<div class="sticky lg:top-28 top-5 z-[9]">
+					<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/img.png" alt="">
+				</div>
+
 			</div>
 			<div class="lg:col-span-3 col-span-full">
 				<h1 class="text-xl font-bold mb-5 text-primary-300">
 					<?php the_sub_field( 'title' ) ?>
 				</h1>
 				<div
-					class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:inline-block prose-strong:mb-4 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-4 prose-ol:mb-3 prose-table:border-none prose-table:mt-10 prose-p:mb-5">
+					class="font-Helvetica content_prose prose-a:text-primary-300 prose-a:italic prose-strong:inline-block prose-strong:mb-4 prose-ul:pl-5 prose-ul:list-disc prose-ol:pl-6 prose-ol:list-decimal prose-ul:mb-4 prose-ol:mb-3 prose-table:border-none prose-table:mt-10 prose-p:mb-5 custom-table">
 					<?php
 					$button = get_field( 'content' );
 					if ( have_rows( 'content' ) )
