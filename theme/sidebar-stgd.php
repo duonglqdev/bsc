@@ -5,7 +5,8 @@ $categories = get_terms( [
 ] );
 $current_post_id = get_the_ID();
 ?>
-<div class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
+<div
+	class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
 	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 		<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
 			<?php foreach ( $categories as $category ) : ?>
@@ -22,8 +23,10 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 				$has_active_post = false;
-				foreach ( $posts_in_category as $post ) {
-					if ( $post->ID == $current_post_id ) {
+				foreach ( $posts_in_category as $post )
+				{
+					if ( $post->ID == $current_post_id )
+					{
 						$has_active_post = true;
 						break;
 					}
@@ -58,7 +61,8 @@ $current_post_id = get_the_ID();
 				</li>
 			<?php endforeach;
 			wp_reset_postdata() ?>
-			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) ) {
+			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) )
+			{
 				$link = check_link( get_field( 'cdstgg2_page_video', 'option' ) );
 				$is_active = ( $link == get_permalink() ) ? 'active' : '';
 				?>
@@ -71,83 +75,82 @@ $current_post_id = get_the_ID();
 		</ul>
 	<?php else : ?>
 		<?php
-			$active_category_name = '';
-			$active_category_posts = [];
+		$active_category_name = '';
+		$active_category_posts = [];
 
-			$video_page_link = get_field('cdstgg2_page_video', 'option');
-			if ($video_page_link && $video_page_link == get_permalink()) {
-				$active_category_name = __('Video hướng dẫn', 'bsc');
-			} else {
-				foreach ($categories as $category) {
-					$posts_in_category = get_posts([
-						'post_type' => 'so-tay-giao-dich',
-						'tax_query' => [
-							[
-								'taxonomy' => 'danh-muc-so-tay',
-								'field' => 'term_id',
-								'terms' => $category->term_id,
-							],
+		$video_page_link = get_field( 'cdstgg2_page_video', 'option' );
+		if ( $video_page_link && $video_page_link == get_permalink() )
+		{
+			$active_category_name = __( 'Video hướng dẫn', 'bsc' );
+		} else
+		{
+			foreach ( $categories as $category )
+			{
+				$posts_in_category = get_posts( [ 
+					'post_type' => 'so-tay-giao-dich',
+					'tax_query' => [ 
+						[ 
+							'taxonomy' => 'danh-muc-so-tay',
+							'field' => 'term_id',
+							'terms' => $category->term_id,
 						],
-						'numberposts' => -1,
-					]);
+					],
+					'numberposts' => -1,
+				] );
 
-					foreach ($posts_in_category as $post) {
-						if ($post->ID == $current_post_id) {
-							$active_category_name = $category->name;
-							$active_category_posts = $posts_in_category;
-							break 2;
-						}
+				foreach ( $posts_in_category as $post )
+				{
+					if ( $post->ID == $current_post_id )
+					{
+						$active_category_name = $category->name;
+						$active_category_posts = $posts_in_category;
+						break 2;
 					}
 				}
 			}
-			?>
+		}
+		?>
 
-			<div
-				class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next title">
-				<?php echo esc_html($active_category_name); ?>
-				<?php echo svg('down-white', '20'); ?>
-			</div>
+		<div
+			class="p-[12px] text-xs font-bold text-white bg-primary-300 rounded-lg flex items-center justify-between toggle-next title">
+			<?php echo esc_html( $active_category_name ); ?>
+			<?php echo svg( 'down-white', '20' ); ?>
+		</div>
 
-			<ul
-				class="overflow-y-auto absolute py-2 z-30 w-full max-h-72 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs sidebar-report">
-				<?php foreach ($categories as $category) : ?>
-					<?php
-					$posts_in_category = get_posts([
-						'post_type' => 'so-tay-giao-dich',
-						'tax_query' => [
-							[
-								'taxonomy' => 'danh-muc-so-tay',
-								'field' => 'term_id',
-								'terms' => $category->term_id,
-							],
+		<ul
+			class="overflow-y-auto absolute py-2 z-30 w-full max-h-72 scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-white shadow-base p-2 prose-a:block rounded-lg text-xs sidebar-report">
+			<?php foreach ( $categories as $category ) : ?>
+				<?php
+				$posts_in_category = get_posts( [ 
+					'post_type' => 'so-tay-giao-dich',
+					'tax_query' => [ 
+						[ 
+							'taxonomy' => 'danh-muc-so-tay',
+							'field' => 'term_id',
+							'terms' => $category->term_id,
 						],
-						'numberposts' => -1,
-					]);
-					$has_active_post = false;
-					foreach ($posts_in_category as $post) {
-						if ($post->ID == $current_post_id) {
-							$has_active_post = true;
-							break;
-						}
+					],
+					'numberposts' => -1,
+				] );
+				$has_active_post = false;
+				foreach ( $posts_in_category as $post )
+				{
+					if ( $post->ID == $current_post_id )
+					{
+						$has_active_post = true;
+						break;
 					}
-					?>
-					<li class="<?php echo $has_active_post ? 'active' : ''; ?> !rounded-xl">
-						<a href="<?php echo count($posts_in_category) > 1 ? 'javascript:void(0)' : get_permalink($posts_in_category[0]->ID); ?>"
-							class="<?php echo $has_active_post ? 'active' : ''; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-							<?php echo esc_html($category->name); ?>
-						</a>
-					</li>
-
-
-					<li class="<?php if ( $has_active_post )
-					echo 'active' ?>">
+				}
+				?>
+				
+				<li class="<?php if ( $has_active_post )echo 'active' ?>">
 					<?php if ( count( $posts_in_category ) > 1 ) : ?>
 						<a href="javascript:void(0)"
 							class="<?php if ( $has_active_post )
 								echo 'active' ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 							<?php echo esc_html( $category->name ); ?>
 						</a>
-						<ul class="sub-menu w-full bg-white py-2"
+						<ul class="sub-menu w-full bg-white pl-5"
 							style="<?php echo $has_active_post ? '' : 'display: none;'; ?>">
 							<?php foreach ( $posts_in_category as $post ) : ?>
 								<li>
@@ -166,28 +169,28 @@ $current_post_id = get_the_ID();
 						</a>
 					<?php endif; ?>
 				</li>
+			<?php endforeach; ?>
 
-				<?php endforeach; ?>
-				<?php if ($video_page_link) : ?>
-					<li>
-						<a href="<?php echo esc_url($video_page_link); ?>"
-							class="<?php echo $video_page_link == get_permalink() ? 'active' : ''; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
-							<?php _e('Video hướng dẫn', 'bsc'); ?>
-						</a>
-					</li>
-				<?php endif; ?>
-			</ul>
-
-			<ul class="flex overflow-x-auto mt-6 gap-1.5 sub_menu">
-				<?php foreach ($active_category_posts as $post) : ?>
-					<li>
-						<a href="<?php echo get_permalink($post->ID); ?>"
-							class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
-							<?php echo get_the_title($post->ID); ?>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
+			<?php if ( $video_page_link ) : ?>
+				<li>
+					<a href="<?php echo esc_url( $video_page_link ); ?>"
+						class="<?php echo $video_page_link == get_permalink() ? 'active' : ''; ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
+						<?php _e( 'Video hướng dẫn', 'bsc' ); ?>
+					</a>
+				</li>
 			<?php endif; ?>
-	 
+		</ul>
+
+		<ul class="flex overflow-x-auto mt-6 gap-1.5 sub_menu">
+			<?php foreach ( $active_category_posts as $post ) : ?>
+				<li>
+					<a href="<?php echo get_permalink( $post->ID ); ?>"
+						class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 font-bold transition-all relative py-2 px-[12px] bg-[#EBF4FA] block whitespace-nowrap rounded-md text-xs [&:not(.active)]:border-transparent border-primary-300 border">
+						<?php echo get_the_title( $post->ID ); ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+
 </div>
