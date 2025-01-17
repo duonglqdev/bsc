@@ -293,7 +293,7 @@
 				<a <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> rel="<?php the_sub_field('rel') ?>" href="<?php echo check_link(get_sub_field('link')) ?>"
 					class="utilities_button-item 2xl:leading-normal leading-tight utilities_button-hover transition-all duration-500 w-full text-center flex flex-col justify-center items-center 2xl:py-4 py-2 2xl:px-3 px-1 relative after:absolute after:w-10 after:h-[1px] after:bg-yellow-100 after:bottom-0 after:left-1/2 after:-translate-x-1/2">
 					<?php if (get_sub_field('icon')) { ?>
-						<?php echo svgClass_dir(get_sub_field('icon'), '', '', 'w-8 h-8') ?>
+						<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="w-8 h-8 object-contain">
 					<?php } ?>
 					<?php the_sub_field('title') ?>
 				</a>
@@ -355,7 +355,7 @@
 						the_row(); ?>
 						<a href="<?php echo check_link(get_sub_field('link')) ?>" rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?>
 							class="flex flex-col items-center  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-4 p-5' : 'gap-1' ?> text-black transition-all duration-500 text-center hover:shadow-[inset_0px_4px_24px_0px_rgba(0,0,0,0.12)]">
-							<?php echo svg_dir(get_sub_field('icon'), '', '', !wp_is_mobile() && !bsc_is_mobile() ? 'w-10 h-10' : 'w-6 h-6') ?>
+							<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-10 h-10':'w-6 h-6' ?> shrink-0 object-contain">
 							<?php if (get_sub_field('title')) { ?>
 								<div class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xs' : 'text-xxs' ?>">
 									<?php the_sub_field('title') ?>

@@ -77,7 +77,7 @@
 						<div
 							class="flex items-center  font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 2xl:text-2xl text-xl':'text-lg gap-2' ?>">
 							<div class="text-green group-hover:text-white">
-								<?php echo svg_dir(get_sub_field('icon'), '30') ?>
+								<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain w-[30px]">
 							</div>
 							<?php the_sub_field('title') ?>
 						</div>

@@ -41,7 +41,7 @@
 	<?php if ( get_sub_field( 'image_bg' ) )
 	{ ?>
 		<div class="absolute lg:block hidden top-16 right-0 pointer-events-none">
-			<?php echo svg_dir( get_sub_field( 'image_bg' ) ) ?>
+			<img src="<?= the_sub_field('image_bg') ?>" alt="icon" loading="lazy" class="object-contain">
 		</div>
 	<?php } ?>
 </section>

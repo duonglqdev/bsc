@@ -39,12 +39,9 @@
                                         </h3>
                                     <?php } ?>
                                     <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'max-w-[45px]' ?>">
-                                    <?php
-                                    if (get_sub_field('icon')) {
-                                        echo svg_dir(get_sub_field('icon'));
-                                    }
-                                    ?>
-
+                                    <?php if( get_sub_field('icon') ): ?>
+                                        <img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="shrink-0 object-contain">
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php if (get_sub_field('mota')) { ?>

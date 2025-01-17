@@ -19,7 +19,7 @@ $bg = !wp_is_mobile() && !bsc_is_mobile() ? $bg_pc : $bg_mb;
                             <a href="<?php echo check_link(get_sub_field('link')) ?>"
                                 class="flex items-center justify-between text-primary-300 font-bold transition-all duration-500 hover:text-primary-300">
                                 <span class="inline-flex items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-2' : 'gap-1.5' ?>">
-                                    <?php echo svgClass_dir(get_sub_field('icon'), '30', '30', 'shrink-0') ?>
+                                    <img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="w-[30px] h-[30px] shrink-0 object-contain">
                                     <?php the_sub_field('title') ?>
                                 </span>
                                 <?php echo svgpath('arrow-btn', '18', '18', 'fill-green') ?>

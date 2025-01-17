@@ -91,7 +91,7 @@ get_header();
 					</div>
 				</div>
 				<div class="flex-1">
-					<form action=""
+					<!-- <form action=""
 						class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2">
 						<?php echo svg( 'search', '24', '24' ) ?>
 						<input type="text" name="s"
@@ -132,7 +132,7 @@ get_header();
 							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
 							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</button>
-					</div>
+					</div> -->
 
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 mb-[82px]' : 'mt-6 mb-[50px]' ?>">
