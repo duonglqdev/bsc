@@ -917,6 +917,9 @@ header {
 	}
 	.apexcharts-legend-text {
 		font-size: 14px !important;
+		@media(max-width:375px){
+			font-size: 12px !important;
+		}
 	}
 }
 .subscribe {
