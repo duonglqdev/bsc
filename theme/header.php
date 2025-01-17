@@ -121,7 +121,7 @@
 							?>
 						</ul>
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-							<button data-dropdown-toggle="dropdownLanguage"
+							<button data-dropdown-toggle="dropdownLanguage-pc"
 								class="text-white flex items-center gap-2 lg:ml-6 uppercase" type="button">
 								<?php echo svg( 'global', '24', '24' ) ?>
 								<?php echo pll_current_language(); ?>
@@ -205,7 +205,7 @@
 						<a class="block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>"
 							href="<?php echo get_bloginfo( 'url' ); ?>"
 							title="<?php echo get_bloginfo( 'description' ); ?>">
-							<img class="object-contain <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-24' : 'sm:max-w-24 max-w-16 max-h-12' ?>"
+							<img class="object-contain <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:max-w-24 max-w-20' : 'sm:max-w-24 max-w-16 max-h-12' ?>"
 								src="<?php echo esc_url( $image[0] ); ?>" loading="lazy">
 						</a>
 						<?php
@@ -217,7 +217,7 @@
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 							<div class="main_menu">
 								<ul
-									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 lg:gap-4 md:gap-3 font-semibold text-paragraph">
+									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 gap-3 font-semibold text-paragraph xl:text-base text-xs">
 									<li class="menu-home">
 										<a href="<?php echo get_home_url() ?>"
 											class="block transition-all duration-500 hover:scale-110">
@@ -250,7 +250,7 @@
 											<?php echo svg( 'global', '24', '24' ) ?>
 											<?php echo svg( 'down' ) ?>
 										</button>
-										<div id="dropdownLanguage-bsc"
+										<div id="dropdownLanguage"
 											class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
 											<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 												aria-labelledby="change_language">
@@ -293,7 +293,7 @@
 							?>
 						</ul>
 						<?php if ( have_rows( 'h1_button', 'option' ) && ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-							<div class="flex items-center gap-x-4 2xl:ml-[60px] lg:ml-8">
+							<div class="flex items-center xl:gap-x-4 gap-x-3 2xl:ml-[60px] xl:ml-8 ml-3">
 								<?php
 								$i = 1;
 								while ( have_rows( 'h1_button', 'option' ) ) :
@@ -305,7 +305,7 @@
 											echo 'target="_blank"' ?>
 												rel="<?php the_sub_field( 'rel' ) ?>"
 											href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs">
+											class="<?php echo ( $i % 2 == 0 ) ? 'bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] lg:inline-block hidden' : 'bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block'; ?>  2xl:px-6 xl:px-4 px-3 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500 xl:text-base sm:text-xs text-xxs">
 											<span class="block relative z-10 ">
 												<?php the_sub_field( 'title' ) ?>
 											</span>
@@ -323,7 +323,7 @@
 								if ( $i == 2 && get_sub_field( 'title' ) ) {
 									?>
 									<a href="<?php echo check_link( get_sub_field( 'link' ) ); ?>"
-										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-4  py-2 rounded-md font-semibold relative transition-all duration-500 sm:text-base text-xxs !leading-[1.667;]">
+										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-4  py-2 rounded-md font-semibold relative transition-all duration-500 xl:text-base sm:text-xs text-xxs !leading-[1.667;]">
 										<?php the_sub_field( 'title' ); ?>
 									</a>
 									<?php
@@ -340,9 +340,9 @@
 			</div>
 		</div>
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-			<div id="dropdownLanguage-bsc"
+			<div id="dropdownLanguage-pc"
 				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-				<ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="change_language">
+				<ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="change_language">
 					<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 				</ul>
 			</div>

@@ -3,14 +3,14 @@ $id_class = get_sub_field('id_class');
 if (have_rows('slider')) {
 ?>
 	<section
-		class="home__banner <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pc dots-white' : 'mb dots-blue' ?> block_slider-show-1"
+		class="home__banner <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pc dots-white' : 'mb dots-blue' ?> block_slider-show-1 block_sameheight"
 		<?php if ($id_class) { ?> id="<?php echo $id_class ?>" <?php } ?>>
 		<?php while (have_rows('slider')) :
 			the_row();
 			$type_slider = get_sub_field('type_slider');
 			if ($type_slider == 'image') {
 		?>
-				<div class="w-full relative block_slider-item" data-play="4000">
+				<div class="w-full relative block_slider-item sameheight_item" data-play="4000">
 					<a href="<?php echo check_link(get_sub_field('link')) ?>"
 						class="relative w-full block lg:pt-0 pt-[110.4%]">
 						<?php
@@ -34,7 +34,7 @@ if (have_rows('slider')) {
 						? get_sub_field('video_mobile')
 						: get_sub_field('video');
 				?>
-					<div class="w-full block_slider-item" data-play="10000">
+					<div class="w-full block_slider-item sameheight_item" data-play="10000">
 						<div
 							class="w-full relative max-h-full h-full after:absolute lg:after:w-3/4 after:w-full after:top-0 after:left-0 after:bg-gradient-banner after:h-full after:pointer-events-none lg:pt-0 pt-[110.4%]">
 							<video preload="none" id="video-banner"
