@@ -5,7 +5,7 @@
 		<div
 			class="grid overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-2 2xl:gap-32 lg:gap-20 gap-10' : 'gap-10' ?>">
 			<div
-				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-1 order-2' : 'order-2' ?>">
+				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-1 order-2 lg:flex flex-col' : 'order-2' ?>">
 				<?php if ( get_sub_field( 'title' ) ) { ?>
 					<h2 class="heading-title mb-4 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'title' ) ?>
@@ -18,7 +18,7 @@
 					</p>
 				<?php } ?>
 				<div
-					class=" md:flex items-center gap-6">
+					class="md:flex items-center gap-6 mb-7 relative z-[2]">
 					<?php if ( have_rows( 'button' ) ) {
 						while ( have_rows( 'button' ) ) :
 							the_row();
@@ -59,7 +59,7 @@
 				</div>
 
 
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-8' : 'mt-[82px]' ?> relative z-10">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto' : 'mt-[82px]' ?> relative z-[1]">
 					<?php if ( get_sub_field( 'icon' ) ) { ?>
 						<div
 							class="absolute -z-[1] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-auto -top-28 right-0' : 'w-1/2 -top-4 right-4' ?>  pointer-events-none">
@@ -157,7 +157,7 @@
 						the_row();
 						if ( get_sub_field( 'title' ) ) {
 							?>
-							<p class="mt-4">
+							<p class="mt-4 lg:mb-6">
 								<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
 										echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 									class="inline-flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs' ?>"

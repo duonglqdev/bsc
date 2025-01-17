@@ -3333,7 +3333,7 @@ function filter_details_symbol() {
 							<p class="text-xs">
 								<?php _e( 'Danh mục', 'bsc' ) ?>:
 							</p>
-							<p class="inline-block rounded-full px-4 py-0.5  font-semibold">
+							<p class="inline-block rounded-full px-4 py-0.5 font-semibold text-right">
 								<?php echo $response_GetRecommendedInstrument->d[0]->categorynames ?>
 							</p>
 						</div>
