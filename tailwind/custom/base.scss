@@ -430,6 +430,15 @@
 			}
 		}
 	}
+	.blue{
+		.flickity-page-dots {
+			.dot {
+				&.is-selected {
+					@apply bg-primary-300 bg-opacity-100;
+				}
+			}
+		}
+	}
 	.expert-item{
 		&:hover{
 			img{

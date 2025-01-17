@@ -237,24 +237,24 @@ get_header();
 						<?php } ?>
 						<form method="get" action="<?php echo get_term_link(get_queried_object()); ?>">
 							<div
-								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap' ?>">
+								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap justify-between' ?>">
 								<div
-									class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full 2xl:max-w-[50%] lg:max-w-[40%] px-5 gap-4' : 'w-[52%] pl-4 gap-3 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
+									class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full 2xl:max-w-[50%] lg:max-w-[40%] px-5 gap-4' : 'w-[48%] pl-3 gap-2 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
 									<div
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-5 h-5' ?> shrink-0">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-4 h-4' ?> shrink-0">
 										<?php echo svgClass('search', '',) ?>
 									</div>
 									<input type="text" name="key" value="<?php if (isset($_GET['key']))
 																				echo bsc_format_string($_GET['key'], 'all') ?>" placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>"
-										class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'max-w-[75%] text-xs' ?>">
+										class="placeholder:text-[#898A8D] border-none focus:border-none focus:outline-0 flex-1 p-[2px] focus:shadow-transparent focus:ring-transparent <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 								</div>
 								<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
-									<div class="w-[48%] px-1.5 ">
+									<div class="w-[48%]">
 										<div
-											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-3 flex gap-4 justify-between items-center">
+											class="bg-white rounded-[10px] border border-[##EAEEF4] py-3 px-3 flex justify-between items-center">
 											<label for="" class="font-medium text-[12px]"><?php _e('Thời gian:', 'bsc') ?></label>
 											<select id="select_year" name="years"
-												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-2 !pr-5 !bg-right">
+												class="select_custom py-0 border-0 focus:ring-0 sm:text-xs text-[12px] pl-0 !pr-5 !bg-right">
 												<option value=""><?php _e('Chọn năm', 'bsc'); ?></option>
 												<?php
 												$currentYear = date('Y');

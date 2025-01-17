@@ -143,9 +143,13 @@ get_header();
 
 					<div class="flex flex-col">
 						<div
-							class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'flex overflow-x-auto snap-x snap-mandatory' ?>">
+							class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue' ?>"
+							<?php if (wp_is_mobile() && bsc_is_mobile() ) { ?> 
+								data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false}'
+							<?php } ?>
+							>
 							<div
-								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'min-w-full snap-start' ?>">
+								class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 								<div
 									class="text-right font-medium bg-[#EBF4FA] min-h-[58px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[30px] pb-[13px] mb-1.5 pr-3' : 'py-1.5 px-5 flex flex-col justify-center' ?>">
 									<p>
@@ -215,7 +219,7 @@ get_header();
 								</div>
 							</div>
 							<div
-								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'min-w-full snap-start' ?>">
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'w-full block_slider-item' ?>">
 								<div class="grid grid-cols-2 text-center">
 									<div class="text-[#FF0017]">
 										<div

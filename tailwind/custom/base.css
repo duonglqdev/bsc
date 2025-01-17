@@ -468,6 +468,9 @@
 .is-mobile .fli-dots-blue .flickity-page-dots .dot.is-selected {
   @apply w-10 bg-primary-300 bg-opacity-100;
 }
+.is-mobile .blue .flickity-page-dots .dot.is-selected {
+  @apply bg-primary-300 bg-opacity-100;
+}
 .is-mobile .expert-item:hover img {
   object-position: 0 -24px;
 }
