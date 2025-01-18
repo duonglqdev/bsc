@@ -1318,17 +1318,24 @@ import { DataTable } from 'simple-datatables';
 				if ($('#ib-button-messaging').length) {
 					liveChat('show');
 					jQuery('#ib-button-messaging').show();
+					jQuery('.lc-widget-wrapper').show();
+					if ($('#ib-button-messaging').length) {
+						jQuery(document).on(
+							'click',
+							'#ib-button-messaging',
+							function () {
+								jQuery('#ib-button-messaging').css(
+									'display',
+									'none'
+								);
+							}
+						);
+					}
 				} else if ($('#custom-chatroom-widget-wrapper').length) {
 					chatroom_widget_toggle();
 				}
 			});
 		});
-		if ($('#ib-button-messaging').length) {
-			liveChat('hide');
-			jQuery(document).on('click', '#ib-button-messaging', function () {
-				jQuery('#ib-button-messaging').css('display', 'none');
-			});
-		}
 	}
 
 	function marqueeSlider() {
