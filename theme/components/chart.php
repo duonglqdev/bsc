@@ -93,23 +93,22 @@
 									</div>
 								</div>
 							</div>
-							<!-- @todo: Xử lý dữ liệu các tháng -->
-							<div class="flex items-center gap-2">
-								<button type="button"
-									class="active inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									1 Th
-								</button>
-								<button type="button"
+							<div class="flex items-center gap-2 btn-chart_date">
+								<button type="button" data-month="1"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									3 Th
+									<?php _e( '1 Th', 'bsc' ) ?>
 								</button>
-								<button type="button"
+								<button type="button" data-month="3"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									6 Th
+									<?php _e( '3 Th', 'bsc' ) ?>
 								</button>
-								<button type="button"
+								<button type="button" data-month="6"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									1 Năm
+									<?php _e( '6 Th', 'bsc' ) ?>
+								</button>
+								<button type="button" data-month="12"
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									<?php _e( '1 Năm', 'bsc' ) ?>
 								</button>
 							</div>
 							<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()

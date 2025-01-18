@@ -1815,6 +1815,58 @@ import { DataTable } from 'simple-datatables';
 				}
 			}
 		);
+		$(document).on(
+			'click',
+			'section.chart .btn-chart_date button',
+			function (e) {
+				const chart_name = jQuery(
+					'section.chart .btn-chart button.active'
+				).attr('data-chart');
+				const chart_motnh = parseInt(jQuery(this).attr('data-month'));
+				if (chart_name && chart_motnh) {
+					jQuery('section.chart .btn-chart_date button').removeClass(
+						'active'
+					);
+					jQuery(this).addClass('active');
+					const todayDate = new Date();
+					const fromdate = new Date(todayDate);
+					fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					const formatDate = (date) => {
+						const day = date.getDate();
+						const month = date.getMonth() + 1; // Tháng trong JS bắt đầu từ 0
+						const year = date.getFullYear();
+						return `${day}/${month}/${year}`;
+					};
+					const fromdateFormatted = formatDate(fromdate);
+					const todayFormatted = formatDate(todayDate);
+					jQuery('#datepicker-performance-start').val(
+						fromdateFormatted
+					);
+					jQuery('#datepicker-performance-end').val(todayFormatted);
+					var stocksData = $('#chart').attr('data-stock');
+					if (typeof stocksData === 'string') {
+						stocksData = JSON.parse(stocksData);
+					} else {
+						stocksData = stocksData;
+					}
+					var maxYAxisValue = parseInt(
+						$('#chart').attr('data-maxvalue'),
+						10
+					);
+					var minYAxisValue = parseInt(
+						$('#chart').attr('data-minvalue'),
+						10
+					);
+					updateChart(
+						chart_name,
+						get_current_date_chart(),
+						stocksData,
+						maxYAxisValue,
+						minYAxisValue
+					);
+				}
+			}
+		);
 		function convertToYMD(dateString) {
 			const [day, month, year] = dateString.split('/').map(Number);
 			return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -1827,6 +1879,9 @@ import { DataTable } from 'simple-datatables';
 				var todate = jQuery(this).attr('data-todate');
 				fromdate = formatToDMY(fromdate);
 				todate = formatToDMY(todate);
+				jQuery('section.chart .btn-chart_date button').removeClass(
+					'active'
+				);
 				jQuery('section.chart .fromdate').val(fromdate);
 				jQuery('section.chart .todate').val(todate);
 				jQuery('section.chart .btn-chart button[data-stt="1"]').trigger(
