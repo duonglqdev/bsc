@@ -583,13 +583,13 @@ import { DataTable } from 'simple-datatables';
 			'.customtab-nav li button,.customtab-nav li a:not(.none-tab)',
 			function (e) {
 				e.preventDefault();
-		
+
 				var $this = $(this);
 				var target = $this.attr('data-tabs');
 				var check_ajax = $this.attr('data-ajax');
 				var check_api = $this.attr('data-api');
 				var symbol = $this.attr('data-symbol');
-		
+
 				// Xử lý tab
 				$this
 					.closest('.customtab-nav')
@@ -597,31 +597,30 @@ import { DataTable } from 'simple-datatables';
 					.removeClass('active');
 				$this.addClass('active');
 				$(target).fadeIn('slow').siblings('.tab-content').hide();
-		
+
 				// Cuộn nút đang active ra phía đầu container
 				var navContainer = $this.closest('.customtab-nav'); // Container của thanh nav
 				var buttonOffset = $this.position().left; // Vị trí nút bấm so với container
 				var currentScroll = navContainer.scrollLeft(); // Vị trí scroll hiện tại của container
-		
+
 				// Tính toán vị trí cuộn mới
 				var newScrollPosition = currentScroll + buttonOffset;
 				navContainer.animate({ scrollLeft: newScrollPosition }, 300); // Cuộn mượt
-		
+
 				// Xử lý has-line
 				if (navContainer.hasClass('has-line')) {
 					moveLine($this);
 				}
-		
+
 				// Xử lý AJAX
 				if (check_ajax === 'true') {
 					filter_details_symbol(target, check_api, symbol);
 					$this.removeAttr('data-ajax');
 				}
-		
+
 				return false;
 			}
 		);
-		
 
 		$('.bank-nav-tab button').on('click', function () {
 			var targetTab = $(this).data('tabs');
@@ -1319,17 +1318,24 @@ import { DataTable } from 'simple-datatables';
 				if ($('#ib-button-messaging').length) {
 					liveChat('show');
 					jQuery('#ib-button-messaging').show();
+					jQuery('.lc-widget-wrapper').show();
+					if ($('#ib-button-messaging').length) {
+						jQuery(document).on(
+							'click',
+							'#ib-button-messaging',
+							function () {
+								jQuery('#ib-button-messaging').css(
+									'display',
+									'none'
+								);
+							}
+						);
+					}
 				} else if ($('#custom-chatroom-widget-wrapper').length) {
 					chatroom_widget_toggle();
 				}
 			});
 		});
-		if ($('#ib-button-messaging').length) {
-			liveChat('hide');
-			jQuery(document).on('click', '#ib-button-messaging', function () {
-				jQuery('#ib-button-messaging').css('display', 'none');
-			});
-		}
 	}
 
 	function marqueeSlider() {
@@ -1723,10 +1729,15 @@ import { DataTable } from 'simple-datatables';
 			const day = String(date.getDate()).padStart(2, '0');
 			return `${year}-${month}-${day}`;
 		}
-
+		function convertToDate(dateString) {
+			const [day, month, year] = dateString.split('/').map(Number);
+			return new Date(year, month - 1, day); // Lưu ý: Tháng bắt đầu từ 0
+		}
 		function get_current_date_chart() {
-			const fromDate = new Date(jQuery('section.chart .fromdate').val());
-			const toDate = new Date(jQuery('section.chart .todate').val());
+			const fromDate = convertToDate(
+				jQuery('section.chart .fromdate').val()
+			);
+			const toDate = convertToDate(jQuery('section.chart .todate').val());
 			const dateRange = [];
 			let currentDate = new Date(fromDate);
 
@@ -1739,7 +1750,10 @@ import { DataTable } from 'simple-datatables';
 			}
 			return dateRange;
 		}
-
+		function formatToDMY(dateString) {
+			const [year, month, day] = dateString.split('-'); // Tách năm, tháng, ngày
+			return `${day}/${month}/${year}`; // Định dạng lại
+		}
 		window.running_chart = function () {
 			if ($('#chart').length) {
 				const initialDateRange = get_current_date_chart();
@@ -1749,7 +1763,8 @@ import { DataTable } from 'simple-datatables';
 					'section.chart .btn-chart button[data-stt="1"]'
 				).attr('data-chart');
 				if (fromdate) {
-					jQuery('#datepicker-performance-start').val(fromdate);
+					const formattedDate = formatToDMY(fromdate);
+					jQuery('#datepicker-performance-start').val(formattedDate);
 				}
 				if (typeof stocksData === 'string') {
 					stocksData = JSON.parse(stocksData);
@@ -1809,10 +1824,71 @@ import { DataTable } from 'simple-datatables';
 		);
 		$(document).on(
 			'click',
+			'section.chart .btn-chart_date button',
+			function (e) {
+				const chart_name = jQuery(
+					'section.chart .btn-chart button.active'
+				).attr('data-chart');
+				const chart_motnh = parseInt(jQuery(this).attr('data-month'));
+				if (chart_name && chart_motnh) {
+					jQuery('section.chart .btn-chart_date button').removeClass(
+						'active'
+					);
+					jQuery(this).addClass('active');
+					const todayDate = new Date();
+					const fromdate = new Date(todayDate);
+					fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					const formatDate = (date) => {
+						const day = date.getDate();
+						const month = date.getMonth() + 1; // Tháng trong JS bắt đầu từ 0
+						const year = date.getFullYear();
+						return `${day}/${month}/${year}`;
+					};
+					const fromdateFormatted = formatDate(fromdate);
+					const todayFormatted = formatDate(todayDate);
+					jQuery('#datepicker-performance-start').val(
+						fromdateFormatted
+					);
+					jQuery('#datepicker-performance-end').val(todayFormatted);
+					var stocksData = $('#chart').attr('data-stock');
+					if (typeof stocksData === 'string') {
+						stocksData = JSON.parse(stocksData);
+					} else {
+						stocksData = stocksData;
+					}
+					var maxYAxisValue = parseInt(
+						$('#chart').attr('data-maxvalue'),
+						10
+					);
+					var minYAxisValue = parseInt(
+						$('#chart').attr('data-minvalue'),
+						10
+					);
+					updateChart(
+						chart_name,
+						get_current_date_chart(),
+						stocksData,
+						maxYAxisValue,
+						minYAxisValue
+					);
+				}
+			}
+		);
+		function convertToYMD(dateString) {
+			const [day, month, year] = dateString.split('/').map(Number);
+			return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+		}
+		$(document).on(
+			'click',
 			'section.chart #chart_btn-reload',
 			function (e) {
 				var fromdate = jQuery('#chart').attr('data-fromdate');
 				var todate = jQuery(this).attr('data-todate');
+				fromdate = formatToDMY(fromdate);
+				todate = formatToDMY(todate);
+				jQuery('section.chart .btn-chart_date button').removeClass(
+					'active'
+				);
 				jQuery('section.chart .fromdate').val(fromdate);
 				jQuery('section.chart .todate').val(todate);
 				jQuery('section.chart .btn-chart button[data-stt="1"]').trigger(
@@ -1834,8 +1910,12 @@ import { DataTable } from 'simple-datatables';
 						jQuery('section.chart .btn-chart button.active').data(
 							'chart'
 						) || first_bsc;
-					const fromDate = jQuery('section.chart .fromdate').val();
-					const toDate = jQuery('section.chart .todate').val();
+					const fromDateInput = jQuery(
+						'section.chart .fromdate'
+					).val();
+					const toDateInput = jQuery('section.chart .todate').val();
+					const fromDate = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+					const toDate = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
 					const portcodeAttr = jQuery('#chart').attr('data-array');
 					let portcode;
 					try {

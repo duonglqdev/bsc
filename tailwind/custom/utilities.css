@@ -116,3 +116,6 @@ pre.wp-block-code {
 .wp-block-image.is-resized > figcaption {
     text-align: center;
 }
+.lc-widget-wrapper{
+    display: none;
+}
