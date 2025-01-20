@@ -306,6 +306,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_678e5f73f0223",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_6776aadd608fb",
                             "label": "Hình ảnh",
                             "name": "image",
@@ -315,7 +335,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -340,7 +360,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -378,5 +398,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737349902
+    "modified": 1737383825
 }
