@@ -56,7 +56,7 @@ if ( $response_GetAllDanhMuc ) {
 					class="flex items-center text-xs gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-6' ?>">
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 						<p class="font-semibold mr-6">
-							<?php _e( 'Thời gian:', 'gnws' ) ?>
+							<?php _e( 'Thời gian:', 'bsc' ) ?>
 						</p>
 					<?php } ?>
 					<div

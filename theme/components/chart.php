@@ -69,7 +69,7 @@
 										<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 											? 'w-auto mb-0'
 											: 'w-full mb-2'; ?>">
-											<?php _e( 'Thời gian:', 'gnws' ) ?>
+											<?php _e( 'Thời gian:', 'bsc' ) ?>
 										</p>
 										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'

@@ -53,8 +53,7 @@ get_header();
 				CHUYÊN MỤC
 			</h2>
 			<div class="flex 2xl:gap-[70px] lg:gap-10 gap-6">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-				{ ?>
+				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 							<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
@@ -86,8 +85,8 @@ get_header();
 								</li>
 							</ul>
 							<img loading="lazy"
-								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
-								alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
+								src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png" alt=""
+								class="rounded-lg transition-all duration-500 hover:scale-105">
 							<div class="p-6 bg-gradient-blue-50 mb-10">
 								<h3 class="text-primary-300 font-bold text-xl mb-4">
 									Đăng ký nhận báo cáo từ BSC
@@ -100,8 +99,7 @@ get_header();
 					</div>
 				<?php } ?>
 				<div class="flex-1 relative">
-					<?php if ( wp_is_mobile() && bsc_is_mobile() )
-					{ ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div class="toggle-form mb-[12px] inline-block">
 							<div class="">
 								<p class="inline-flex items-baseline gap-2 font-medium">Thu gọn
@@ -125,8 +123,7 @@ get_header();
 								placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
 										 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
 							</div>
-						<?php if ( wp_is_mobile() && bsc_is_mobile() )
-									 { ?>
+						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 							<div
 								class="flex items-center justify-between h-[46px] pl-3 border border-[#EAEEF4] rounded-[10px] col-span-2 text-xs overflow-hidden">
 								<p class="mr-1 font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
@@ -146,8 +143,7 @@ get_header();
 						<?php } ?>
 						<div
 							class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:gap-5 gap-4 mb-10 mt-4 flex-wrap' : 'col-span-5 flex-wrap' ?>">
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-							{ ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div
 									class="lg:w-1/5 w-2/5 flex items-center justify-between h-[50px] 2xl:pl-5 pl-4 border border-[#EAEEF4] rounded-[10px]">
 									<p class="mr-2 text-xs font-medium"><?php _e( 'Năm', 'bsc' ) ?>:</p>
@@ -166,12 +162,12 @@ get_header();
 								</div>
 
 							<?php } ?>
-							<div id="date-range-picker" date-rangepicker
-								datepicker-format="dd/mm/yyyy" datepicker-autohide
-								datepicker-orientation="bottom right"
+							<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
+								datepicker-autohide datepicker-orientation="bottom right"
 								class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[50%] w-[55%] px-5 h-[50px]' : 'w-full h-[46px] px-[12px] mb-[12px]' ?>">
-								<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap lg:inline-block md:hidden">
-									<?php _e( 'Thời gian:', 'gnws' ) ?>
+								<p
+									class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap lg:inline-block md:hidden">
+									<?php _e( 'Thời gian:', 'bsc' ) ?>
 								</p>
 								<div class="flex items-center 2xl:gap-5 gap-3">
 									<input id="datepicker-range-start" name="fromdate" type="text"
@@ -200,13 +196,11 @@ get_header();
 						</div>
 					</form>
 
-					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[60px]' : 'mt-6 mb-16' ?>">
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[60px]' : 'mt-6 mb-16' ?>">
 						<h3
 							class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
 							Dự báo vĩ mô</h3>
-						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-6' ?>">
+						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-4' : 'mt-6' ?>">
 							<h4
 								class="font-bold text-primary-300 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center' : '' ?>">
 								Dự báo kinh tế vĩ mô Việt Nam 2024-2025</h4>
@@ -220,8 +214,7 @@ get_header();
 											2023
 										</p>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											GDP (YoY%)
 										</div>
@@ -229,8 +222,7 @@ get_header();
 											<p>5.25</p>
 										</div>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											CPI trung bình (YoY%)
 										</div>
@@ -238,8 +230,7 @@ get_header();
 											<p>3.26</p>
 										</div>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											Xuất khẩu (YoY%)
 										</div>
@@ -247,8 +238,7 @@ get_header();
 											<p>3.26</p>
 										</div>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											Nhập khẩu (YoY%)
 										</div>
@@ -256,8 +246,7 @@ get_header();
 											<p>3.26</p>
 										</div>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											LSĐH (YoY%)
 										</div>
@@ -265,8 +254,7 @@ get_header();
 											<p>3.26</p>
 										</div>
 									</div>
-									<div
-										class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
+									<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 										<div class="w-[70%] px-2 py-1">
 											USD/VND LNH trung bình
 										</div>
@@ -289,8 +277,7 @@ get_header();
 											</div>
 										</div>
 										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
+										for ( $i = 0; $i < 5; $i++ ) {
 											?>
 											<div
 												class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
@@ -318,8 +305,7 @@ get_header();
 											</div>
 										</div>
 										<?php
-										for ( $i = 0; $i < 5; $i++ )
-										{
+										for ( $i = 0; $i < 5; $i++ ) {
 											?>
 											<div
 												class="grid grid-cols-2 gap-3 items-center min-h-[30px] [&:nth-child(even)]:bg-white pr-4">
@@ -350,11 +336,9 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
+									for ( $i = 0; $i < 3; $i++ ) {
 										?>
-										<div
-											class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+										<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
@@ -380,11 +364,9 @@ get_header();
 										</div>
 									</div>
 									<?php
-									for ( $i = 0; $i < 3; $i++ )
-									{
+									for ( $i = 0; $i < 3; $i++ ) {
 										?>
-										<div
-											class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
+										<div class="grid grid-cols-3 gap-2 text-right items-center min-h-[30px] pr-5">
 											<p>6.1</p>
 											<p>5.25</p>
 											<p>5.25</p>
@@ -403,8 +385,7 @@ get_header();
 
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
-						for ( $i = 0; $i < 3; $i++ )
-						{
+						for ( $i = 0; $i < 3; $i++ ) {
 							?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
