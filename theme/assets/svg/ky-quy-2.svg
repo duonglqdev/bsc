@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36" fill="none">
+<g id="Layer 1">
+<path id="Vector" opacity="0.2" d="M30.9997 18.8398V24.3998L20.9997 34.4998H15.1797V26.6698C15.1797 21.4498 17.8164 18.8398 23.0897 18.8398H30.9997Z" fill="#009E87"/>
+<path id="Vector_2" d="M7.67 1.50002H4.33C3.4512 1.49735 2.6072 1.84322 1.98299 2.46181C1.35878 3.08039 1.00529 3.92123 1 4.80002V8.10002" stroke="#FFB81C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M7.67188 15.6504H16.0019" stroke="#009E87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M7.67188 9.05078H21.0019" stroke="#009E87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M7.67188 22.25H16.0019" stroke="#009E87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M31 24.5996L21 34.4996V29.5496C21 26.2496 22.6667 24.5996 26 24.5996H31Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_7" d="M12.6719 1.5H27.0019C28.0627 1.5 29.0802 1.92143 29.8303 2.67157C30.5804 3.42172 31.0019 4.43913 31.0019 5.5V24.6" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+<path id="Vector_8" d="M1 8.1V5.5C1 4.43913 1.42143 3.42172 2.17157 2.67157C2.92172 1.92143 3.93913 1.5 5 1.5H7.67" stroke="#FFB81C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_9" d="M21 34.5003H5C3.93913 34.5003 2.92172 34.0789 2.17157 33.3287C1.42143 32.5786 1 31.5612 1 30.5003V13.0703" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"/>
+</g>
+</svg>
