@@ -103,26 +103,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_671b70eca8e00",
-            "label": "Đường dẫn phụ trợ chi tiết tin tức",
-            "name": "cdtt2_slug",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "VD: tin-tuc",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6720a22b0edeb",
             "label": "Time Cache",
             "name": "cdtt2_time_cache",
@@ -163,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730191943
+    "modified": 1737341558
 }
