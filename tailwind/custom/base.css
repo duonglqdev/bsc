@@ -1326,4 +1326,8 @@ button#ib-button-messaging {
   @apply bg-[#EBF4FA];
 }
 
+.current-lang a {
+  @apply bg-primary-300 text-white;
+}
+
 /*# sourceMappingURL=base.css.map */

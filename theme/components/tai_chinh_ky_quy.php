@@ -70,14 +70,32 @@
 		<?php } ?>
 		<?php if (have_rows('menu_dieu_huong')) { ?>
 			<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-8 grid grid-cols-2 gap-5':'mt-6 space-y-[12px]' ?>">
-				<?php while (have_rows('menu_dieu_huong')) :
-					the_row(); ?>
+				<?php
+				$i=0;
+				while (have_rows('menu_dieu_huong')) :
+					the_row();
+					$i++;
+					if($display == 'kyquy'){
+						if ($i==1) {
+							$icon='ky-quy-1';
+						}elseif ($i==2){
+							$icon='ky-quy-2';
+						}
+
+					}else{
+						if ($i==1) {
+							$icon='ung-tien-1';
+						}elseif ($i==2){
+							$icon='ung-tien-2';
+						}
+					}
+					?>
 					<div
 						class="rounded-xl flex items-center justify-between relative group bg-[#D8F1F3] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:p-8 p-5':'p-4' ?>">
 						<div
 							class="flex items-center  font-bold text-primary-300 relative z-[2] group-hover:text-white transition-all duration-500 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-4 2xl:text-2xl text-xl':'text-lg gap-2' ?>">
-							<div class="text-green group-hover:text-white">
-								<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain w-[30px]">
+							<div class="text-primary-300 group-hover:text-white">
+								 <?php echo svgClass($icon,'','','transition-all duration-500') ?>
 							</div>
 							<?php the_sub_field('title') ?>
 						</div>

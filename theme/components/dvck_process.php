@@ -37,6 +37,20 @@ $generateRandomString = generateRandomString();
 									break;
 							}
 						}
+						switch ($i) {
+							case 1:
+								$icon = 'step-1';
+								break;
+							case 2:
+								$icon = 'step-2';
+								break;
+							case 3:
+								$icon = 'step-3';
+								break;
+							case 4:
+								$icon = 'step-4';
+								break;
+						}
 
 					?>
 						<a href="<?php echo check_link(get_sub_field('link')) ?>"
@@ -45,7 +59,7 @@ $generateRandomString = generateRandomString();
 								class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 								<div
 									class="text-primary-300 group-hover:text-white lg:transition-all lg:duration-500">
-									<img src="<?= the_sub_field('icon') ?>" alt="icon" loading="lazy" class="object-contain">
+									 <?php echo svg($icon) ?>
 								</div>
 								<div class="mt-[7px] text-center 2xl:text-xl text-lg font-bold">
 									<?php the_sub_field('title') ?>
