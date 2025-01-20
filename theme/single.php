@@ -340,6 +340,11 @@ get_header();
 									<?php echo $news->sourcename ?>
 								</a>
 							<?php } ?>
+
+							<?php if ( $news->sourcename ) { ?>
+								-
+							<?php } ?>
+
 							<div class="flex gap-[12px] items-center">
 								<?php echo svg( 'date' ) ?>
 								<span><?php echo $postdate ?></span>
