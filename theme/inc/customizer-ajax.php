@@ -1099,7 +1099,7 @@ function filter_details_symbol() {
 									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 										<table
 											class="w-full max-w-full prose-thead:font-bold prose-th:text-left font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
-											<thead>
+											<thead class="sticky z-[99] bg-white top-0">
 												<tr>
 													<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
 													<?php
@@ -1232,24 +1232,10 @@ function filter_details_symbol() {
 													}
 												}
 												?>
-											</tbody>
-										</table>
-
-									</div>
-								</div>
-								<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
-										<table
-											class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
-								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
-											<thead>
-												<tr>
-													<th class="lg:min-w-[231px] lg:!w-1/4" colspan="10">
-														<?php _e( 'Cân đối kế toán', 'bsc' ) ?>
-													</th>
-												</tr>
-											</thead>
-											<tbody class="text-right">
+												<tr class="h-10"></tr>
+												<td class="lg:min-w-[231px] lg:!w-1/4 bg-primary-300 text-white font-bold text-left rounded-tl-lg rounded-tr-lg" colspan="10">
+													<?php _e( 'Cân đối kế toán', 'bsc' ) ?>
+												</td>
 												<?php
 												$check_ts = 0;
 												foreach ( $response_GetSummaryFinanceReportBySymbol->d1 as $data_ts ) {
@@ -1334,8 +1320,8 @@ function filter_details_symbol() {
 										</table>
 
 									</div>
-
 								</div>
+								
 							</div>
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 

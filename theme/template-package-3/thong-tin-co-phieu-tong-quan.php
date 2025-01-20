@@ -8,7 +8,8 @@ get_header();
 ?>
 <main>
 	<?php get_template_part( 'components/page-banner' ) ?>
-	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
+	<section
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
 			<h2
 				class="font-bold mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' xl:text-[32px] text-2xl' : 'md:text-xl text-lg' ?>">
@@ -33,7 +34,8 @@ get_header();
 									M
 								</div>
 								<div class="flex flex-col">
-									<h4 class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
+									<h4
+										class="font-bold lg:text-[32px] text-2xl uppercase leading-normal">
 										BSI
 									</h4>
 									<p
@@ -43,7 +45,8 @@ get_header();
 
 								</div>
 							</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() )
+							{ ?>
 								<div class="flex-col gap-2">
 									<div class="flex gap-[12px] data_number items-center">
 										<div class="text-2xl font-bold text-[#FE5353]">
@@ -66,7 +69,8 @@ get_header();
 							<?php } ?>
 						</div>
 						<div class="flex items-center gap-7">
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+							{ ?>
 								<div class="lg:w-[172px] lg:max-w-[37%]">
 									<div class="flex-col gap-2">
 										<div class="flex gap-[14px] data_number">
@@ -167,7 +171,8 @@ get_header();
 							<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 								<?php _e( 'KLGD trung bình 10 ngày', 'bsc' ) ?>
 							</p>
-							<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
+							<p
+								class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
 								6,800
 							</p>
 						</div>
@@ -288,7 +293,8 @@ get_header();
 			</div>
 		</div>
 	</section>
-	<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[80px] my-20' : 'mt-16 mb-[50px]' ?>">
+	<section
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[80px] my-20' : 'mt-16 mb-[50px]' ?>">
 		<div class="container">
 			<ul
 				class="flex items-center border-b border-[#D3D3D3] nav-ttcp customtab-nav sticky top-0 z-20 bg-white whitespace-nowrap overflow-x-auto <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:gap-[100px] gap-10' : 'gap-8 no-scrollbar' ?>">
@@ -333,7 +339,8 @@ get_header();
 						</h2>
 						<div
 							class="rounded-2xl bg-[#F5FCFF] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5' : 'p-4 -mx-5' ?>">
-							<ul class="flex items-center justify-between font-Helvetica font-medium mb-6 px-4">
+							<ul
+								class="flex items-center justify-between font-Helvetica font-medium mb-6 px-4">
 								<li>
 									<button type="button"
 										class="active [&:not(.active)]:opacity-50 opacity-100 transition-all duration-500 hover:!opacity-100">
@@ -376,12 +383,14 @@ get_header();
 							</div>
 						</div>
 					</div>
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 						<h2
 							class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
 							LỊCH SỬ GIAO DỊCH
 						</h2>
-						<ul class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 text-xs">
+						<ul
+							class="flex items-center flex-wrap gap-[12px] font-semibold mb-4 text-xs">
 							<li>
 								<a href=""
 									class="active inline-block rounded-md [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 px-[15px] py-2 transition-all duration-500 hover:!bg-primary-300 hover:!text-white">
@@ -395,11 +404,13 @@ get_header();
 								</a>
 							</li>
 						</ul>
-						<div class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center">
+						<div
+							class="rounded-lg border border-[#C9CCD2] overflow-hidden text-xs font-medium text-center">
 							<div class="overflow-x-auto scroll-bar-custom scroll-bar-x">
 								<div
 									class="flex bg-primary-300 text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:w-full w-max' ?>">
-									<div class="min-w-[90px] pl-4 pr-3 py-2 text-left sm:max-w-[19%]">
+									<div
+										class="min-w-[90px] pl-4 pr-3 py-2 text-left sm:max-w-[19%]">
 										Nhóm
 									</div>
 									<div class="min-w-[152px] px-3 py-2 sm:max-w-[30%]">
@@ -415,7 +426,8 @@ get_header();
 								</div>
 								<ul>
 									<?php
-									for ( $i = 0; $i < 7; $i++ ) {
+									for ( $i = 0; $i < 7; $i++ )
+									{
 										?>
 										<li
 											class="flex items-center [&:nth-child(odd)]:bg-white bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:w-full w-max' ?>">
@@ -428,7 +440,8 @@ get_header();
 												<p class="min-w-[30px] text-right">
 													46.7
 												</p>
-												<p class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
+												<p
+													class="flex items-center gap-1 text-[#1CCD83] font-Helvetica">
 													<?php echo svg( 'up', '17', '17' ) ?>
 													+0.98%
 												</p>
@@ -465,7 +478,8 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
 						<div
@@ -476,9 +490,11 @@ get_header();
 							</h2>
 							<div class="space-y-4">
 								<?php
-								for ( $i = 0; $i < 3; $i++ ) {
+								for ( $i = 0; $i < 3; $i++ )
+								{
 									?>
-									<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
+									<div
+										class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 										<div class="flex items-center justify-between mb-4">
 											<div class="flex items-center gap-4">
 												<a href=""
@@ -538,15 +554,18 @@ get_header();
 											</p>
 											<p class="font-bold">223.060.701</p>
 										</div>
-										<svg id="progress-ring" class="mx-auto" width="166" height="166"
-											viewBox="0 0 166 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg id="progress-ring" class="mx-auto" width="166"
+											height="166" viewBox="0 0 166 167" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
 
-											<circle cx="83.0342" cy="83.6479" r="72.3521" stroke="#295CA9"
-												stroke-width="21" stroke-linecap="round" stroke-linejoin="round" />
+											<circle cx="83.0342" cy="83.6479" r="72.3521"
+												stroke="#295CA9" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round" />
 
-											<circle id="progress-circle" cx="83.0342" cy="83.6479" r="72.3521"
-												stroke="#F2B122" stroke-width="21" stroke-linecap="round"
-												stroke-linejoin="round" stroke-dasharray="454" stroke-dashoffset="0"
+											<circle id="progress-circle" cx="83.0342" cy="83.6479"
+												r="72.3521" stroke="#F2B122" stroke-width="21"
+												stroke-linecap="round" stroke-linejoin="round"
+												stroke-dasharray="454" stroke-dashoffset="0"
 												transform="rotate(90 83.0342 83.6479)" />
 										</svg>
 
@@ -574,16 +593,15 @@ get_header();
 									</div>
 									<script>
 
-										function setProgress( percent )
-										{
-											const circle = document.getElementById( 'progress-circle' );
+										function setProgress(percent) {
+											const circle = document.getElementById('progress-circle');
 											const circumference = 454;
-											const offset = circumference - ( percent / 100 ) * circumference;
+											const offset = circumference - (percent / 100) * circumference;
 											circle.style.strokeDashoffset = offset;
 										}
 
 
-										setProgress( 13 ); // 13% đường tròn là màu vàng
+										setProgress(13); // 13% đường tròn là màu vàng
 									</script>
 								</div>
 								<div
@@ -625,7 +643,8 @@ get_header();
 								</div>
 							</div>
 						</div>
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
+						<div
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-4' ?>">
 								CƠ CẤU CỔ ĐÔNG
@@ -640,24 +659,29 @@ get_header();
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table text-right">
+											<th
+												class="filter-table cursor-pointer filter-table text-right">
 												Vốn hóa
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 
-											<th class="filter-table cursor-pointer filter-table text-right">
+											<th
+												class="filter-table cursor-pointer filter-table text-right">
 												PE
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
-											<th class="filter-table cursor-pointer filter-table text-right !pl-5">
+											<th
+												class="filter-table cursor-pointer filter-table text-right !pl-5">
 												PB
 												<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
 											</th>
 										</tr>
 									</thead>
-									<tbody class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
+									<tbody
+										class="prose-tr:border-b prose-tr:border-[#C9CCD2] text-right prose-td:pr-5">
 										<?php
-										for ( $i = 0; $i < 3; $i++ ) {
+										for ( $i = 0; $i < 3; $i++ )
+										{
 											?>
 											<tr>
 												<td class="!pl-5 text-left w-1/4"><a href="">A32</a>
@@ -686,14 +710,17 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+					<h2
+						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
 						TIN TỨC VỀ MÃ CỔ PHIẾU
 					</h2>
 					<div
 						class="grid lg:grid-cols-2 grid-cols-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-x-9 gap-y-[46px]' : 'gap-4' ?>">
 						<?php
-						for ( $i = 0; $i < 6; $i++ ) {
+						for ( $i = 0; $i < 6; $i++ )
+						{
 							?>
 							<div class="news_service-item">
 								<div class="flex items-center">
@@ -717,8 +744,10 @@ get_header();
 											Thông báo về ngày đăng ký cuối cùng để thực hiện quyền
 											trả lãi, gốc trái phiếu mã BSI32301
 										</a>
-										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-											<div class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
+										<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+										{ ?>
+											<div
+												class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
 												BSC đã khẳng định vị thế dẫn đầu về thị phần môi giới
 												trái phiếu chính phủ trên HNX. Năm 2020, BSC giữ vững vị
 												thế Top 10 công ty chứng khoán có thị phần môi giới cổ
@@ -735,7 +764,8 @@ get_header();
 						?>
 					</div>
 
-					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
 						<div class="mt-8">
 							<a href="#"
 								class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
@@ -767,7 +797,8 @@ get_header();
 								</a>
 							</li>
 						</ul>
-						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
+						{ ?>
 							<a href=""
 								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 								Xem chi tiết
@@ -776,9 +807,11 @@ get_header();
 						<?php } ?>
 					</div>
 
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-16' : 'space-y-10' ?>">
+
+
+					<!-- <div class="wrapper-scroll <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-16' : 'space-y-10' ?>">
 						<div class="overflow-hidden">
-							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
+							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs scroll-item">
 								<table
 									class="w-full max-w-full prose-thead:font-bold prose-th:text-left
 								 font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
@@ -786,7 +819,8 @@ get_header();
 										<tr>
 											<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
 											<?php
-											for ( $i = 18; $i < 23; $i++ ) {
+											for ( $i = 18; $i < 23; $i++ )
+											{
 												?>
 												<th class="lg:min-w-[140px] font-bold flex-1 ">
 													<p class="text-right">
@@ -808,42 +842,7 @@ get_header();
 												Kết quả kinh doanh
 											</td>
 										</tr>
-										<!-- <?php
-										for ( $i = 0; $i < 2; $i++ ) {
-											?>
-											<tr
-												class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
-												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Lợi
-													nhuận sau thuế của công ty mẹ
-												</td>
-												<td>911,959,220</td>
-												<td>608,349,810</td>
-												<td>912,577,380</td>
-												<td>1,333,024,980</td>
-												<td>1,089,005,390</td>
-												<td>1,258,998,059</td>
-											</tr>
-											<?php
-										}
-										?>
-										<?php
-										for ( $i = 0; $i < 2; $i++ ) {
-											?>
-											<tr
-												class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
-												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng
-													lợi nhuận KT trước
-													thuế</td>
-												<td>2,174,230,121.89</td>
-												<td>3,384,568,877.75</td>
-												<td>3,261,215,356.87</td>
-												<td>3,733,225,669.77</td>
-												<td>3,412,385,133.84</td>
-												<td>912,577,380</td>
-											</tr>
-											<?php
-										}
-										?> -->
+										
 
 										<tr class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
 											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
@@ -888,7 +887,7 @@ get_header();
 							</div>
 						</div>
 						<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
+							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs scroll-item">
 								<table
 									class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:font-bold prose-th:text-left
 								  font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
@@ -896,7 +895,8 @@ get_header();
 										<tr>
 											<th class="lg:min-w-[231px] lg:!w-1/4 ">Cân đối kế toán</th>
 											<?php
-											for ( $i = 18; $i < 23; $i++ ) {
+											for ( $i = 18; $i < 23; $i++ )
+											{
 												?>
 												<th>
 
@@ -908,7 +908,8 @@ get_header();
 									</thead>
 									<tbody class="text-right">
 										<?php
-										for ( $i = 0; $i < 4; $i++ ) {
+										for ( $i = 0; $i < 4; $i++ )
+										{
 											?>
 											<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
 												<td class="lg:min-w-[231px] lg:!w-1/4 text-left">Tổng
@@ -927,8 +928,155 @@ get_header();
 								</table>
 							</div>
 						</div>
+					</div> -->
+
+					<div class="space-y-10 wrapper-scroll">
+						<div class="overflow-hidden">
+							<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs scroll-item">
+								<table
+									class="w-full max-w-full prose-thead:font-bold prose-th:text-left font-medium prose-th:p-[12px] prose-td:p-[12px]">
+									<thead class="sticky z-[99] bg-white top-0">
+										<tr>
+											<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
+											<th class="lg:min-w-[140px] font-bold flex-1 ">
+												<p class="text-right">Q3/2023</p>
+												<p class="text-[#1CCD83] text-right">
+													(Chưa kiểm toán) </p>
+											</th>
+											<th class="lg:min-w-[140px] font-bold flex-1 ">
+												<p class="text-right">Q4/2023</p>
+												<p class="text-[#1CCD83] text-right">
+													(Chưa kiểm toán) </p>
+											</th>
+											<th class="lg:min-w-[140px] font-bold flex-1 ">
+												<p class="text-right">Q1/2024</p>
+												<p class="text-[#1CCD83] text-right">
+													(Chưa kiểm toán) </p>
+											</th>
+											<th class="lg:min-w-[140px] font-bold flex-1 ">
+												<p class="text-right">Q2/2024</p>
+												<p class="text-[#1CCD83] text-right">
+													(Đã kiểm toán) </p>
+											</th>
+											<th class="lg:min-w-[140px] font-bold flex-1 ">
+												<p class="text-right">Q3/2024</p>
+												<p class="text-[#1CCD83] text-right">
+													(Chưa kiểm toán) </p>
+											</th>
+
+										</tr>
+
+									</thead>
+									<tbody class="text-right">
+										<tr>
+											<td colspan="10"
+												class="bg-primary-300 text-white text-left rounded-tl-lg rounded-tr-lg">
+												Kết quả kinh doanh </td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Doanh thu bán hàng và CCDV </td>
+											<td>20,244,809</td>
+											<td>20,860,307</td>
+											<td>18,942,352</td>
+											<td>20,203,516</td>
+											<td>21,574,637</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Tổng lợi nhuận KT trước thuế </td>
+											<td>582,905</td>
+											<td>947,833</td>
+											<td>633,663</td>
+											<td>1,168,760</td>
+											<td>1,565,750</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Lợi nhuận KT sau thuế TNDN </td>
+											<td>484,513</td>
+											<td>516,776</td>
+											<td>478,851</td>
+											<td>945,962</td>
+											<td>1,301,013</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Lợi nhuận sau thuế của công ty mẹ </td>
+											<td>48,376</td>
+											<td>50,110</td>
+											<td>104,356</td>
+											<td>502,577</td>
+											<td>701,071</td>
+										</tr>
+										<tr class="h-10"></tr>
+										<tr>
+											<td class="lg:min-w-[231px] lg:!w-1/4 bg-primary-300 text-white font-bold text-left rounded-tl-lg rounded-tr-lg" colspan="10">
+												Cân đối kế toán </td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Tổng tài sản </td>
+											<td>145,072,630</td>
+											<td>147,383,472</td>
+											<td>146,522,417</td>
+											<td>157,465,855</td>
+											<td>154,291,445</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Tài sản ngắn hạn </td>
+											<td>47,845,660</td>
+											<td>43,763,477</td>
+											<td>42,629,110</td>
+											<td>48,982,369</td>
+											<td>43,529,968</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Nợ ngắn hạn </td>
+											<td>54,028,721</td>
+											<td>50,422,500</td>
+											<td>49,428,183</td>
+											<td>51,329,961</td>
+											<td>53,667,186</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Tổng nợ </td>
+											<td>106,999,415</td>
+											<td>109,146,231</td>
+											<td>107,688,924</td>
+											<td>111,259,745</td>
+											<td>113,111,142</td>
+										</tr>
+										<tr
+											class="[&amp;:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+											<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
+												Vốn chủ sở hữu </td>
+											<td>38,073,215</td>
+											<td>38,237,241</td>
+											<td>38,833,493</td>
+											<td>46,206,110</td>
+											<td>41,180,303</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+						
 					</div>
-					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+					<?php if ( wp_is_mobile() && bsc_is_mobile() )
+					{ ?>
 						<div class="mt-8">
 							<a href="#"
 								class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
@@ -941,15 +1089,18 @@ get_header();
 			</div>
 			<div class="tab-content hidden" id="tab-3">
 				<div class="list__content">
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
+					<div
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-6' ?>">
 						<ul class="flex items-center sm:gap-5 gap-2">
-							<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+							<li
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
 								<a href=""
 									class="active sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
 									Quý
 								</a>
 							</li>
-							<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+							<li
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
 								<a href=""
 									class="sm:inline-block block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px]' : 'rounded-lg' ?> [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
 									Năm
@@ -1261,7 +1412,8 @@ get_header();
 							</thead>
 							<tbody>
 								<?php
-								for ( $i = 0; $i < 11; $i++ ) {
+								for ( $i = 0; $i < 11; $i++ )
+								{
 									?>
 									<tr class="[&:nth-child(odd)]:bg-[#EBF4FA]">
 										<td
