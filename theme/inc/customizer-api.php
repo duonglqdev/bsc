@@ -104,13 +104,19 @@ function slug_calendar( $postid ) {
 // Thêm rewrite rule cho 'tin-tuc' vào functions.php
 function custom_rewrite_rule_for_news() {
 	$sub_url = __( 'tin-tuc', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule(
-		'^' . $lang_prefix . $sub_url . '/([0-9]+)-',
-		'index.php?news_id=$matches[1]',
-		'top'
-	);
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+
+		add_rewrite_rule(
+			'^' . $lang_prefix . $sub_url . '/([0-9]+)-',
+			'index.php?news_id=$matches[1]',
+			'top'
+		);
+	}
+
 }
 add_action( 'init', 'custom_rewrite_rule_for_news' );
 
@@ -171,9 +177,14 @@ add_action( 'template_redirect', 'custom_template_redirect' );
 // Thêm rewrite rule cho 'bao-cao'
 function custom_rewrite_rule_for_report() {
 	$sub_url = __( 'bao-cao', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([0-9]+)-', 'index.php?report_id=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([0-9]+)-', 'index.php?report_id=$matches[1]', 'top' );
+	}
+
 }
 add_action( 'init', 'custom_rewrite_rule_for_report' );
 
@@ -225,9 +236,14 @@ add_action( 'template_redirect', 'custom_template_redirect_for_report' );
 // Thêm rewrite rule cho 'cong-ty/tong-quan'
 function custom_rewrite_rule_for_co_phieu() {
 	$sub_url = __( 'cong-ty/tong-quan', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?co_phieu_id=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?co_phieu_id=$matches[1]', 'top' );
+	}
+
 }
 add_action( 'init', 'custom_rewrite_rule_for_co_phieu' );
 
@@ -279,9 +295,14 @@ add_action( 'template_redirect', 'custom_template_redirect_for_co_phieu' );
  */
 function custom_rewrite_rule_for_tag_report() {
 	$sub_url = __( 'tag-report', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?tag_report_slug=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?tag_report_slug=$matches[1]', 'top' );
+	}
+
 }
 add_action( 'init', 'custom_rewrite_rule_for_tag_report' );
 
@@ -310,9 +331,13 @@ add_action( 'template_redirect', 'custom_template_redirect_for_tag_report' );
  */
 function custom_rewrite_rule_for_bao_cao_phan_tich() {
 	$sub_url = __( 'bao-cao-ma-co-phieu', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?bao_cao_phan_tich_slug=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?bao_cao_phan_tich_slug=$matches[1]', 'top' );
+	}
 }
 add_action( 'init', 'custom_rewrite_rule_for_bao_cao_phan_tich' );
 
@@ -343,9 +368,14 @@ add_action( 'template_redirect', 'custom_template_redirect_for_bao_cao_phan_tich
 // Thêm rewrite rule cho 'lich-su-kien'
 function custom_rewrite_rule_for_calendar() {
 	$sub_url = __( 'lich-su-kien', 'bsc' );
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?calendar_slug=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?calendar_slug=$matches[1]', 'top' );
+	}
+
 }
 add_action( 'init', 'custom_rewrite_rule_for_calendar' );
 
@@ -748,9 +778,14 @@ function bsc_proxy_pdf_content() {
 }
 
 function bsc_register_pdf_proxy_route() {
-	$current_language = pll_current_language();
-	$lang_prefix = $current_language !== pll_default_language() ? $current_language . '/' : '';
-	add_rewrite_rule( '^' . $lang_prefix . 'Report/ReportFile/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . 'Report/ReportFile/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top' );
+	}
+
 }
 add_action( 'init', 'bsc_register_pdf_proxy_route' );
 
