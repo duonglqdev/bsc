@@ -7,7 +7,7 @@ Template Name: [Package 3] Báo cáo ngành #3
 get_header();
 ?>
 <main>
-	<?php get_template_part('components/page-banner') ?>
+	<?php get_template_part( 'components/page-banner' ) ?>
 	<!-- <section class="2xl:py-4 py-3 bg-primary-50 sticky z-10 top-0">
 		<div class="container">
 			<ul class="flex justify-between gap-10">
@@ -77,14 +77,15 @@ get_header();
 							</li>
 
 						</ul>
-						<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
-							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
+						<img loading="lazy"
+							src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png" alt=""
+							class="rounded-lg transition-all duration-500 hover:scale-105">
 						<div class="p-6 bg-gradient-blue-50 mb-10">
 							<h3 class="text-primary-300 font-bold text-xl mb-4">
 								Đăng ký nhận báo cáo từ BSC
 							</h3>
 							<div class="form_report">
-								<?php echo do_shortcode('[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]') ?>
+								<?php echo do_shortcode( '[contact-form-7 id="5cd9f30" title="Đăng ký nhận báo cáo từ BSC"]' ) ?>
 							</div>
 						</div>
 					</div>
@@ -92,10 +93,10 @@ get_header();
 				<div class="flex-1">
 					<form action=""
 						class="h-[50px] rounded-[10px] border border-[#EAEEF4] px-[26px] flex items-center gap-2">
-						<?php echo svg('search', '24', '24') ?>
+						<?php echo svg( 'search', '24', '24' ) ?>
 						<input type="text" name="s"
 							class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 font-Helvetica placeholder:text-[#898A8D]"
-							placeholder="<?php _e('Từ khóa tìm kiếm', 'bsc') ?>">
+							placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>">
 					</form>
 					<div class="flex gap-5 mb-10 mt-4">
 						<div
@@ -107,87 +108,90 @@ get_header();
 							</select>
 
 						</div>
-						<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
-							datepicker-autohide datepicker-orientation="bottom right"
+						<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
+							datepicker-orientation="bottom right"
 							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
 							<p class="font-medium mr-5 2xl:min-w-[94px]">
-								<?php _e('Thời gian:', 'gnws') ?>
+								<?php _e( 'Thời gian:', 'bsc' ) ?>
 							</p>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0"
-									placeholder="<?php _e('Từ ngày', 'bsc') ?>">
-								<?php echo svg('day', '20', '20') ?>
+									placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>">
+								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
 							<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-end" name="end" type="text"
 									class="border-none focus:border-none focus:outline-0 focus:ring-0 max-w-[100px] p-0"
-									placeholder="<?php _e('Đến ngày', 'bsc') ?>">
-								<?php echo svg('day', '20', '20') ?>
+									placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>">
+								<?php echo svg( 'day', '20', '20' ) ?>
 							</div>
 						</div>
 						<button type="submit"
 							class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-xl h-[50px]">
-							<?php _e('Tìm kiếm', 'bsc') ?>
+							<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 						</button>
 					</div>
 
-					<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-10 mb-[82px]':'mt-6 mb-[50px]' ?>">
-						<h2 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">Dự báo triển vọng ngành</h2>
-						<div class="relative rounded-[10px] overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mt-6':'mt-4' ?>">
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 mb-[82px]' : 'mt-6 mb-[50px]' ?>">
+						<h2 class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">Dự
+							báo triển vọng ngành</h2>
+						<div
+							class="relative rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 							<!-- Nếu đã đăng nhập thì bỏ class blur-sm -->
 							<div
-								class="text-center border border-[#EAEEF4] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?>">
+								class="text-center border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?>">
 								<div
-									class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'w-max' ?>">
-									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+									class="flex text-white bg-primary-300 font-semibold items-center min-h-[34px] leading-[1.125] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+									<div
+										class="py-2 px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Ngành
 									</div>
-									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+									<div
+										class="py-2 px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Quan điểm Q1/224
 									</div>
-									<div class="py-2 px-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+									<div
+										class="py-2 px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 										Quan điểm Q2/224
 									</div>
 
 								</div>
 								<div
-									class=" prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'scroll-bar-custom overflow-y-auto max-h-[340px]':'sm:w-full w-max' ?>">
+									class=" prose-a:text-primary-300 prose-a:font-bold font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'scroll-bar-custom overflow-y-auto max-h-[340px]' : 'sm:w-full w-max' ?>">
 									<?php
-									for ($i = 0; $i < 9; $i++) {
-									?>
-										<div
-											class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+									for ( $i = 0; $i < 9; $i++ ) {
+										?>
+										<div class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 											<div
-												class=" min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+												class=" min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												CNTT - Viễn thông
 											</div>
 											<div
-												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												Tích cực
 											</div>
 											<div
-												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
+												class="min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?>">
 												Tích cực
 											</div>
 										</div>
 
-									<?php
+										<?php
 									}
 									?>
-									<div
-										class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
+									<div class="flex items-center <?php echo $i % 2 == 0 ? 'bg-[#EBF4FA]' : '' ?>">
 										<div
-											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center leading-[1.125] py-1 px-3 font-bold border-r border-[#C9CCD2] text-left">
 											Vận tải & Cảng biển
 										</div>
 										<div
-											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-[#30D158] border-r border-[#C9CCD2]">
 											Tích cực
 										</div>
 										<div
-											class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-1/3':'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
+											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'sm:w-1/3 w-1/2 min-w-[166px]' ?> min-h-[34px] flex items-center justify-center leading-[1.125] py-1 px-3 text-black">
 											Trung lập
 										</div>
 									</div>
@@ -208,8 +212,8 @@ get_header();
 					</div>
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
-						for ($i = 0; $i < 2; $i++) {
-						?>
+						for ( $i = 0; $i < 2; $i++ ) {
+							?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">
 									<div class="flex items-center gap-4">
@@ -233,7 +237,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -245,8 +250,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e('Tải xuống', 'bsc') ?>
-										<?php echo svg('download', '20', '20') ?>
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
 									</a>
 								</div>
 							</div>
@@ -273,7 +278,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -285,8 +291,8 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e('Tải xuống', 'bsc') ?>
-										<?php echo svg('download', '20', '20') ?>
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
 									</a>
 								</div>
 							</div>
@@ -313,7 +319,8 @@ get_header();
 										<p class="text-paragraph text-xs font-Helvetica">22/10/2024</p>
 									</div>
 								</div>
-								<h3 class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
+								<h3
+									class="font-bold mb-6 transition-all duration-500 hover:text-primary-300 font-Helvetica">
 									<a href="" class="line-clamp-2">
 										Daily Morning_VHM công bố sẽ mua 370 triệu Cổ phiếu
 										quỹ_20240808
@@ -325,16 +332,16 @@ get_header();
 									</p>
 									<a href=""
 										class="inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
-										<?php _e('Tải xuống', 'bsc') ?>
-										<?php echo svg('download', '20', '20') ?>
+										<?php _e( 'Tải xuống', 'bsc' ) ?>
+										<?php echo svg( 'download', '20', '20' ) ?>
 									</a>
 								</div>
 							</div>
-						<?php
+							<?php
 						}
 						?>
 					</div>
-					<?php get_template_part('components/pagination') ?>
+					<?php get_template_part( 'components/pagination' ) ?>
 				</div>
 			</div>
 		</div>

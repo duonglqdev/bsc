@@ -735,10 +735,10 @@
         {
             "key": "field_6711158ca8a16",
             "label": "Iframe Live Chat",
-            "name": "cdc5_iframe_live_chat",
+            "name": "",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "Chèn đường dẫn \"#livechat\" để bật livechat.",
+            "type": "message",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -746,11 +746,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "message": "",
+            "esc_html": 0,
+            "new_lines": "wpautop"
         },
         {
             "key": "field_672d08446cc29",
@@ -1050,5 +1048,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1736524383
+    "modified": 1737341356
 }

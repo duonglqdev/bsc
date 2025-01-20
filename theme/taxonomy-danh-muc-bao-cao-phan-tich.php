@@ -164,7 +164,7 @@ $time_cache = 300;
 										datepicker-autohide datepicker-orientation="bottom right"
 										class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 lg:w-auto w-full px-5' : 'px-[12px] w-full text-xs' ?>">
 									<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
-										<?php _e( 'Thời gian:', 'gnws' ) ?>
+										<?php _e( 'Thời gian:', 'bsc' ) ?>
 									</p>
 									<div class="flex items-center gap-5">
 										<input id="datepicker-range-start" name="fromdate" type="text"
@@ -248,7 +248,7 @@ $time_cache = 300;
 										class="flex items-center rounded-[10px] border border-[#EAEEF4]  text-xs justify-around <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[50%] w-[55%] px-5 h-[50px]' : 'w-full h-[46px] px-[12px] mb-[12px]' ?>">
 										<p
 											class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap lg:inline-block md:hidden">
-											<?php _e( 'Thời gian:', 'gnws' ) ?>
+											<?php _e( 'Thời gian:', 'bsc' ) ?>
 										</p>
 										<div class="flex items-center 2xl:gap-5 gap-3">
 											<input id="datepicker-range-start" name="fromdate" type="text"

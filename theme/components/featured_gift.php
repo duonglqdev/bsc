@@ -11,7 +11,7 @@ if ($chuong_trinh_khuyen_mai_id) {
         'hot' => 1
     );
     $response = get_data_with_cache('GetNews', $array_data, $time_cache);
-    if ($response) {
+    if ($response && isset($response->d) && !empty($response->d)) {
 ?>
         <section class="pt-12 featured_news lg:bg-gradient-blue-to-bottom-50 featured_gift" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
             <div class="container">

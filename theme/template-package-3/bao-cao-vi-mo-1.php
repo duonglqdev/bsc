@@ -127,7 +127,7 @@ get_header();
 								datepicker-orientation="bottom right"
 								class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 px-5 lg:w-auto w-full' : 'px-[12px] w-full text-xs' ?>">
 							<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
-								<?php _e( 'Thời gian:', 'gnws' ) ?>
+								<?php _e( 'Thời gian:', 'bsc' ) ?>
 							</p>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="fromdate" type="text"

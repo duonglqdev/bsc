@@ -3,6 +3,26 @@
     "title": "Thông tin sổ tay",
     "fields": [
         {
+            "key": "field_678ddaf930869",
+            "label": "Tiêu đề hiển thị cho khách hàng",
+            "name": "title_customer",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_672c9c6425dfa",
             "label": "Giao diện sổ tay",
             "name": "home_components_stgd",
@@ -358,5 +378,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1735830298
+    "modified": 1737349902
 }

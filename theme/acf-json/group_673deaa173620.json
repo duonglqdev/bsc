@@ -103,26 +103,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_673dec9707fb6",
-            "label": "Đường dẫn phụ trợ chi tiết báo cáo",
-            "name": "cdbcpt2_slug",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "VD: bao-cao",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "bao-cao",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_673deaa238ce4",
             "label": "Time Cache",
             "name": "cdbcpt2_time_cache",
@@ -342,5 +322,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734081215
+    "modified": 1737341592
 }

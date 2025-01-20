@@ -197,43 +197,6 @@
                     "parent_repeater": "field_674c962b20ff9"
                 }
             ]
-        },
-        {
-            "key": "field_674c9675ac5a0",
-            "label": "API",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_674c9679ac5a1",
-            "label": "Đường dẫn phụ trợ lịch thị trường",
-            "name": "cdltt1_slug_lich",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -254,5 +217,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734080953
+    "modified": 1737341802
 }

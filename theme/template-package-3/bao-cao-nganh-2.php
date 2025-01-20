@@ -78,8 +78,8 @@ get_header();
 
 						</ul>
 						<img loading="lazy"
-							src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png"
-							alt="" class="rounded-lg transition-all duration-500 hover:scale-105">
+							src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/banner-sidebar.png" alt=""
+							class="rounded-lg transition-all duration-500 hover:scale-105">
 						<div class="p-6 bg-gradient-blue-50 mb-10">
 							<h3 class="text-primary-300 font-bold text-xl mb-4">
 								Đăng ký nhận báo cáo từ BSC
@@ -112,7 +112,7 @@ get_header();
 							datepicker-autohide datepicker-orientation="bottom right"
 							class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] px-5 text-xs lg:w-[52%] w-full">
 							<p class="font-medium mr-5 2xl:min-w-[94px]">
-								<?php _e( 'Thời gian:', 'gnws' ) ?>
+								<?php _e( 'Thời gian:', 'bsc' ) ?>
 							</p>
 							<div class="flex items-center 2xl:gap-5 gap-3">
 								<input id="datepicker-range-start" name="start" type="text"
@@ -185,8 +185,7 @@ get_header();
 								<div
 									class=" prose-a:text-primary-300 prose-a:font-bold font-medium whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'scroll-bar-custom overflow-y-auto max-h-[300px] ' : 'sm:w-full w-max' ?>">
 									<?php
-									for ( $i = 0; $i < 12; $i++ )
-									{
+									for ( $i = 0; $i < 12; $i++ ) {
 										?>
 										<div class="flex items-center min-h-[30px] gap-5">
 											<div
@@ -225,8 +224,7 @@ get_header();
 					</div>
 					<div class="grid lg:grid-cols-2 gap-6">
 						<?php
-						for ( $i = 0; $i < 2; $i++ )
-						{
+						for ( $i = 0; $i < 2; $i++ ) {
 							?>
 							<div class="rounded-[10px] bg-white shadow-base-sm px-6 py-4 flex flex-col">
 								<div class="flex items-center justify-between mb-4">

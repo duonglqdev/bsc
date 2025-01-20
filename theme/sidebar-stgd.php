@@ -5,8 +5,7 @@ $categories = get_terms( [
 ] );
 $current_post_id = get_the_ID();
 ?>
-<div
-	class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
+<div class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
 	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 		<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report sidebar-base">
 			<?php foreach ( $categories as $category ) : ?>
@@ -23,10 +22,8 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 				$has_active_post = false;
-				foreach ( $posts_in_category as $post )
-				{
-					if ( $post->ID == $current_post_id )
-					{
+				foreach ( $posts_in_category as $post ) {
+					if ( $post->ID == $current_post_id ) {
 						$has_active_post = true;
 						break;
 					}
@@ -46,7 +43,13 @@ $current_post_id = get_the_ID();
 								<li class="pl-5">
 									<a href="<?php echo get_permalink( $post->ID ); ?>"
 										class="<?php echo $post->ID == $current_post_id ? 'active' : ''; ?> [&:not(.active)]:text-black text-primary-300 transition-all relative py-2 [&:not(.active)]:bg-white hover:!text-primary-300 block">
-										<?php echo get_the_title( $post->ID ); ?>
+										<?php
+										if ( get_field( 'title_customer', $post->ID ) ) {
+											the_field( 'title_customer', $post->ID );
+										} else {
+											echo get_the_title( $post->ID );
+										}
+										?>
 									</a>
 								</li>
 							<?php endforeach; ?>
@@ -61,8 +64,7 @@ $current_post_id = get_the_ID();
 				</li>
 			<?php endforeach;
 			wp_reset_postdata() ?>
-			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) )
-			{
+			<?php if ( get_field( 'cdstgg2_page_video', 'option' ) ) {
 				$link = check_link( get_field( 'cdstgg2_page_video', 'option' ) );
 				$is_active = ( $link == get_permalink() ) ? 'active' : '';
 				?>
@@ -79,13 +81,10 @@ $current_post_id = get_the_ID();
 		$active_category_posts = [];
 
 		$video_page_link = get_field( 'cdstgg2_page_video', 'option' );
-		if ( $video_page_link && $video_page_link == get_permalink() )
-		{
+		if ( $video_page_link && $video_page_link == get_permalink() ) {
 			$active_category_name = __( 'Video hướng dẫn', 'bsc' );
-		} else
-		{
-			foreach ( $categories as $category )
-			{
+		} else {
+			foreach ( $categories as $category ) {
 				$posts_in_category = get_posts( [ 
 					'post_type' => 'so-tay-giao-dich',
 					'tax_query' => [ 
@@ -98,10 +97,8 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 
-				foreach ( $posts_in_category as $post )
-				{
-					if ( $post->ID == $current_post_id )
-					{
+				foreach ( $posts_in_category as $post ) {
+					if ( $post->ID == $current_post_id ) {
 						$active_category_name = $category->name;
 						$active_category_posts = $posts_in_category;
 						break 2;
@@ -133,25 +130,23 @@ $current_post_id = get_the_ID();
 					'numberposts' => -1,
 				] );
 				$has_active_post = false;
-				foreach ( $posts_in_category as $post )
-				{
-					if ( $post->ID == $current_post_id )
-					{
+				foreach ( $posts_in_category as $post ) {
+					if ( $post->ID == $current_post_id ) {
 						$has_active_post = true;
 						break;
 					}
 				}
 				?>
-				
-				<li class="<?php if ( $has_active_post )echo 'active' ?>">
+
+				<li class="<?php if ( $has_active_post )
+					echo 'active' ?>">
 					<?php if ( count( $posts_in_category ) > 1 ) : ?>
 						<a href="javascript:void(0)"
 							class="<?php if ( $has_active_post )
 								echo 'active' ?> text-xs px-3 py-2 rounded-md font-medium [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300">
 							<?php echo esc_html( $category->name ); ?>
 						</a>
-						<ul class="sub-menu w-full bg-white pl-5"
-							style="<?php echo $has_active_post ? '' : 'display: none;'; ?>">
+						<ul class="sub-menu w-full bg-white pl-5" style="<?php echo $has_active_post ? '' : 'display: none;'; ?>">
 							<?php foreach ( $posts_in_category as $post ) : ?>
 								<li>
 									<a href="<?php echo get_permalink( $post->ID ); ?>"
