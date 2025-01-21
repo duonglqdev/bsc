@@ -27,7 +27,7 @@
 				$todate_format = date( 'd/m/Y' );
 				?>
 				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
-					<div class="lg:flex lg:gap-6 lg:items-center lg:space-y-0 space-y-5 lg:mb-7 mb-6 wow fadeIn"
+					<div class="md:flex md:gap-6 md:items-center md:space-y-0 space-y-5 md:mb-7 mb-6 wow fadeIn"
 						data-wow-duration="2s">
 						<?php if ( get_sub_field( 'title' ) ) { ?>
 							<h3
@@ -35,7 +35,7 @@
 								<?php the_sub_field( 'title' ) ?>
 							</h3>
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-								? 'space-x-2 px-[6px] py-[2px] bg-[#F8F8FF] block mb-0 font-normal'
+								? 'space-x-2 px-[6px] py-1 bg-[#F8F8FF] block mb-0 font-normal'
 								: 'space-x-4 px-[13px] py-[7px] bg-white flex mb-4'; ?> rounded-xl btn-chart">
 								<?php
 								$i = 0;
@@ -57,7 +57,7 @@
 					<div
 						class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-98px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-106px)]' : '' ?>">
 						<div
-							class="mb-6 flex md:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
+							class="mb-6 flex xl:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
 							<div class="flex md:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 								? 'gap-6 2xl:gap-6 items-center'
 								: ''; ?>">
@@ -137,7 +137,15 @@
 									</div>
 								</div>
 							</div>
-							<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+							<div class="grid md:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
+								<div class="apexcharts-legend">
+
+								</div>
+								<div class="">
+									<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+								</div>
+							</div>
+							
 						</div>
 
 					</div>
@@ -176,7 +184,7 @@
 							<div
 								class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' font-Helvetica' : '' ?>">
 								<?php if ( get_sub_field( 'title' ) ) { ?>
-									<p class="font-bold lg:text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
+									<p class="font-bold md:text-xl pb-3 mb-3 border-b border-[#D9D9D9] lg:text-left text-center">
 										<?php the_sub_field( 'title' ) ?>
 									</p>
 								<?php } ?>
@@ -341,7 +349,7 @@
 											</button>
 
 
-											<p class="font-bold lg:text-lg lg:text-center line-clamp-1">
+											<p class="font-bold lg:text-lg md:text-xl lg:text-center line-clamp-1">
 												<?php the_sub_field( 'title' ) ?>
 											</p>
 

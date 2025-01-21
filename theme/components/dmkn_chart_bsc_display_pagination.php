@@ -2,9 +2,9 @@
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'my-[68px]' : 'mt-8 mb-[50px]' ?> dmkn_chart_bsc_display_pagination"
 	<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 	<div class="container">
-		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex gap-[70px]' : '' ?>">
+		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex xl:gap-[70px] gap-8' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-				<div class="lg:w-80 lg:max-w-[35%] shrink-0">
+				<div class="w-80 lg:max-w-[35%] max-w-[30%] shrink-0">
 					<?php $hinh_anh_sidebar = get_sub_field( 'hinh_anh_sidebar' );
 					if ( $hinh_anh_sidebar ) { ?>
 						<div class="sticky top-5 z-10">

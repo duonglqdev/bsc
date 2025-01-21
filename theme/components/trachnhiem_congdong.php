@@ -1,4 +1,4 @@
-<section class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[130px] pb-[100px]':'bg-gradient-blue-50 py-10' ?> trachnhiem_congdong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
+<section class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pt-[130px] lg:pb-[100px] py-16':'bg-gradient-blue-50 py-10' ?> trachnhiem_congdong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1 col-span-1' : 'order-2' ?>">
@@ -68,7 +68,7 @@
             <div class="community_content-bg pc block_slider-show-1">
                 <?php while (have_rows('content')): the_row(); ?>
                     <div class="item block_slider-item">
-                        <?php echo wp_get_attachment_image(get_sub_field('background'), 'large', '', array('class' => 'w-full h-full object-cover max-h-[714px] object-center')) ?>
+                        <?php echo wp_get_attachment_image(get_sub_field('background'), 'large', '', array('class' => 'w-full h-full object-cover lg:max-h-[714px] object-center')) ?>
                     </div>
                 <?php endwhile; ?>
             </div>

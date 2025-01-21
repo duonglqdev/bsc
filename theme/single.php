@@ -333,7 +333,7 @@ get_header();
 					<?php
 					} else { ?>
 						<div
-							class="flex items-center text-xs gap-[12px] font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'justify-between mb-[26px]' ?>">
+							class="flex items-center text-xs gap-[12px] font-Helvetica lg:flex-nowrap flex-wrap justify-start <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : ' mb-[26px]' ?>">
 							<?php if ($news->sourcename) { ?>
 								<a href="<?php echo $news->sourcelink ?>" class="font-medium inline-block transition-all duration-500 hover:text-primary-300" target="_blank">
 									<?php echo $news->sourcename ?>
@@ -345,11 +345,11 @@ get_header();
 							<?php } ?>
 
 							<div class="flex gap-[12px] items-center">
-								<?php echo svg('date') ?>
+								<?php echo svgClass('date', '', '', 'shrink-0') ?>
 								<span><?php echo $postdate ?></span>
 							</div>
 
-							<div class="share flex items-center gap-[12px] ml-12">
+							<div class="share flex items-center gap-[12px] lg:ml-12 lg:w-auto w-full">
 								<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 									<strong>
 										<?php _e('Chia sẻ:', 'bsc') ?>

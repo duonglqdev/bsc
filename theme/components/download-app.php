@@ -192,7 +192,7 @@
 								$i++;
 							?>
 								<li>
-									<button type="button" data-tab-download="<?php echo $i ?>" class="font-bold text-black [&:not(.active)]:text-opacity-70 transition-all duration-500 hover:scale-105 <?php if ($i == 1)
+									<button type="button" data-tab-download="<?php echo $i ?>" class="font-bold text-black [&:not(.active)]:text-opacity-70 transition-all duration-500 hover:scale-105 btn-autoclick <?php if ($i == 1)
 																																																			echo 'active' ?>">
 										<?php the_sub_field('title') ?>
 									</button>

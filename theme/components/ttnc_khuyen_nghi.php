@@ -75,7 +75,10 @@
 					?>
 				</div>
 				<div class="bsc-ajax-api <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : '' ?>"
-					data-api="ttnc_khuyen_nghi_GetForecastMacro">
+					data-api="ttnc_khuyen_nghi_GetForecastMacro" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+						data-chart="ttnc_khuyen_nghi_slider"	
+					<?php } ?>>
+					
 					<div class="hidden">
 						<div role="status">
 							<svg aria-hidden="true"

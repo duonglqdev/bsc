@@ -22,15 +22,15 @@ $time_cache = 300;
 			</div>
 		<?php } ?>
 		<form
-			class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>"
+			class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-4 gap-3 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>"
 			id="form-search-cophieu">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
 				<p class="font-medium mb-2 lg:text-base text-xs">
 					<?php _e( 'Tìm theo tên', 'bsc' ) ?>
 				</p>
 				<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
-					class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] px-5' : 'h-[42px] rounded-lg px-4 text-xs' ?>"
+					class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:px-5 px-3 xl:text-base text-xs' : 'h-[42px] rounded-lg px-4 text-xs' ?>"
 					id="search-name" value="<?php if ( isset( $_GET['mcp'] ) )
 						echo bsc_format_string( $_GET['mcp'] ) ?>">
 				</div>
@@ -46,12 +46,12 @@ $time_cache = 300;
 						if ( $codes ) {
 							?>
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?> flex flex-col font-Helvetica">
 						<p class="font-medium mb-2 lg:text-base text-xs">
 							<?php _e( 'Tìm mã cổ phiếu', 'bsc' ) ?>
 						</p>
 						<select
-							class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+							class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 							id="search-code">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $codes as $code ) { ?>
@@ -72,12 +72,12 @@ $time_cache = 300;
 			if ( $response_GetIndustryLv2 ) {
 				?>
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[243px]' : 'w-1/2 px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[243px]' : 'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 lg:text-base text-xs">
 						<?php _e( 'Tìm theo ngành', 'bsc' ) ?>
 					</p>
 					<select
-						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 						id="search-major">
 						<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 						<?php foreach ( $response_GetIndustryLv2->d as $GetIndustryLv2 ) { ?>
@@ -88,12 +88,12 @@ $time_cache = 300;
 				</div>
 			<?php } ?>
 			<div
-				class="lflex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[241px]' : 'w-1/2 px-2' ?>">
+				class="lflex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[241px]' : 'w-1/2 px-2' ?>">
 				<p class="font-medium mb-2 lg:text-base text-xs">
 					<?php _e( 'Tìm theo sàn', 'bsc' ) ?>
 				</p>
 				<select
-					class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+					class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 					id="search-trading">
 					<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 					<option value="HOSE">HOSE</option>
@@ -103,7 +103,7 @@ $time_cache = 300;
 				<input type="hidden" id="filter-trading">
 			</div>
 			<button type="button" id="search_cophieu"
-				class="btn-base-yellow flex-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-xl' : 'h-10 rounded-lg mr-4' ?>">
+				class="btn-base-yellow flex-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-xl max-w-[120px] xl:text-base text-xs' : 'h-10 rounded-lg mr-4' ?>">
 				<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 			</button>
 			<button type="reset" id="reset-ttcp"
