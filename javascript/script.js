@@ -734,7 +734,24 @@ import { DataTable } from 'simple-datatables';
 				},
 			};
 			var chart = new ApexCharts(chartElement, options);
-			chart.render();
+			chart.render().then(function () {
+		  
+		  var $legend = $("#chart .apexcharts-legend");
+		  var $customLegend = $(".apexcharts-legend-custom .apexcharts-legend");
+  
+		  if ($legend.length && $customLegend.length) {
+			$customLegend.html($legend.html());
+  
+			$customLegend.find('.apexcharts-legend-series').each(function (index) {
+			  var seriesIndex = index;
+  
+			  $(this).on('click', function () {
+				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
+			  });
+			});
+			// $legend.css('opacity', 0);
+		  }
+		});
 		}
 	}
 

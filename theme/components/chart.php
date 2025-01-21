@@ -137,7 +137,15 @@
 									</div>
 								</div>
 							</div>
-							<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+							<div class="grid md:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
+								<div class="apexcharts-legend">
+
+								</div>
+								<div class="">
+									<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+								</div>
+							</div>
+							
 						</div>
 
 					</div>

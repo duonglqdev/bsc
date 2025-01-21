@@ -869,11 +869,12 @@ header.active {
   @apply w-[50px] bg-opacity-100;
 }
 
-.chart .apexcharts-legend {
-  @apply xl:max-w-[50%];
-}
 .chart .apexcharts-legend .apexcharts-legend-series {
   @apply rounded-lg bg-[#F8F8FF] uppercase 2xl:px-4 px-2 2xl:py-[12px] py-2;
+}
+
+#chart .apexcharts-canvas .apexcharts-legend {
+  display: none !important;
 }
 
 .legend-gap .apexcharts-legend-series {
@@ -897,7 +898,7 @@ header.active {
 }
 
 .subscribe {
-  @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative xl:max-w-[50%] xl:-mt-14 mt-5 xl:ml-auto;
+  @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative xl:ml-auto;
 }
 .subscribe input {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black lg:font-normal font-medium flex-1 md:text-base text-xs;
