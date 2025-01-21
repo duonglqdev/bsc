@@ -1331,4 +1331,15 @@ button#ib-button-messaging {
   @apply bg-primary-300 text-white;
 }
 
+.flickity-watch::after {
+  content: "flickity";
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .flickity-watch:after {
+    content: "";
+  }
+}
+
 /*# sourceMappingURL=base.css.map */
