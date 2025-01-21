@@ -509,6 +509,26 @@ import { DataTable } from 'simple-datatables';
 
 			moveLine($(this));
 		});
+
+		   // Chọn tất cả các nút có class "btn-autoclick"
+		   const buttons = $(".btn-autoclick");
+		   let currentIndex = 0;
+	   
+		   // Hàm thực hiện tự động click
+		   function autoClick() {
+			   // Trigger click cho nút hiện tại
+			   buttons.eq(currentIndex).trigger("click");
+	   
+			   // Tính chỉ số nút tiếp theo
+			   currentIndex = (currentIndex + 1) % buttons.length;
+	   
+			   // Lặp lại sau 3 giây
+			   setTimeout(autoClick, 3500);
+		   }
+	   
+		   // Bắt đầu chu trình auto click
+		   autoClick();
+
 		$(document).on(
 			'click',
 			'.customtab-nav li button,.customtab-nav li a:not(.none-tab)',
