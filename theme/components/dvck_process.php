@@ -111,14 +111,14 @@ $generateRandomString = generateRandomString();
 									the_row();
 									$y++;
 									if ($y % 2 == 1) {
-										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 lg:flex-row flex-col gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 md:flex-row flex-col gap-8 items-center';
 									} else {
-										$class = 'bg-white p-8 rounded-3xl flex lg:flex-row-reverse flex-col lg:gap-16 gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex md:flex-row-reverse flex-col lg:gap-16 gap-8 items-center';
 									}
 							?>
 									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? $class : 'bg-white p-4 rounded-2xl' ?>">
 										<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-											<div class="w-[563px] max-w-[50%]">
+											<div class="lg:w-[563px] lg:max-w-[50%] w-full">
 												<div class="relative w-full pt-[62.166%] rounded-2xl overflow-hidden">
 													<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105')) ?>
 												</div>
@@ -127,7 +127,7 @@ $generateRandomString = generateRandomString();
 										<div class="flex-1 text-justify">
 											<?php if (get_sub_field('title')) { ?>
 												<h3
-													class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-lg mb-6' : 'text-xl mb-4' ?> text-primary-300">
+													class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-lg lg:mb-6 mb-4' : 'text-xl mb-4' ?> text-primary-300">
 													<?php the_sub_field('title') ?>
 												</h3>
 											<?php } ?>

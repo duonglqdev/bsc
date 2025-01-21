@@ -134,7 +134,7 @@
 
 		<?php } ?>
 		<div
-			class="bg-white 2xl:py-[14px] py-[12px] shadow-base lg:static relative">
+			class="bg-white 2xl:py-[14px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[18px]':'py-[12px]' ?>  shadow-base lg:static relative">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
 						<div class="flex items-center gap-2 relative lg:hidden">
@@ -202,7 +202,7 @@
 					if ( $custom_logo_id ) {
 						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
 						?>
-						<a class="block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>"
+						<a class="block <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:static absolute left-1/2 lg:translate-x-0 -translate-x-1/2 top-1/2 lg:translate-y-0 -translate-y-1/2' : 'absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2' ?>"
 							href="<?php echo get_bloginfo( 'url' ); ?>"
 							title="<?php echo get_bloginfo( 'description' ); ?>">
 							<img class="object-contain <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:max-w-24 max-w-20' : 'sm:max-w-24 max-w-16 max-h-12' ?>"
