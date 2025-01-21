@@ -27,7 +27,7 @@
 				$todate_format = date( 'd/m/Y' );
 				?>
 				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
-					<div class="lg:flex lg:gap-6 lg:items-center lg:space-y-0 space-y-5 lg:mb-7 mb-6 wow fadeIn"
+					<div class="md:flex md:gap-6 md:items-center md:space-y-0 space-y-5 md:mb-7 mb-6 wow fadeIn"
 						data-wow-duration="2s">
 						<?php if ( get_sub_field( 'title' ) ) { ?>
 							<h3
@@ -35,7 +35,7 @@
 								<?php the_sub_field( 'title' ) ?>
 							</h3>
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-								? 'space-x-2 px-[6px] py-[2px] bg-[#F8F8FF] block mb-0 font-normal'
+								? 'space-x-2 px-[6px] py-1 bg-[#F8F8FF] block mb-0 font-normal'
 								: 'space-x-4 px-[13px] py-[7px] bg-white flex mb-4'; ?> rounded-xl btn-chart">
 								<?php
 								$i = 0;
@@ -176,7 +176,7 @@
 							<div
 								class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' font-Helvetica' : '' ?>">
 								<?php if ( get_sub_field( 'title' ) ) { ?>
-									<p class="font-bold lg:text-xl pb-3 mb-3 border-b border-[#D9D9D9]">
+									<p class="font-bold md:text-xl pb-3 mb-3 border-b border-[#D9D9D9] lg:text-left text-center">
 										<?php the_sub_field( 'title' ) ?>
 									</p>
 								<?php } ?>
@@ -341,7 +341,7 @@
 											</button>
 
 
-											<p class="font-bold lg:text-lg lg:text-center line-clamp-1">
+											<p class="font-bold lg:text-lg md:text-xl lg:text-center line-clamp-1">
 												<?php the_sub_field( 'title' ) ?>
 											</p>
 

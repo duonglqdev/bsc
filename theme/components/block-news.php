@@ -19,7 +19,7 @@ if ($response) {
 				</h2>
 			<?php } ?>
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
-				<div class="grid grid-cols-5 gap-5">
+				<div class="lg:grid lg:grid-cols-5 lg:gap-5 lg:space-y-0 space-y-5">
 					<?php
 					$i = 0;
 					foreach ($response->d as $news) {
