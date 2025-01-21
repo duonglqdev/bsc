@@ -866,14 +866,14 @@ function bsc_proxy_newspdf_content()
 	if ($id) {
 		$time_cache = get_field('cdtt2_time_cache', 'option') ?: 300;
 		$array_data = array(
-			"id" => $news_id,
+			"id" => $id,
 			"newstype" => "0"
 		);
 		$get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
 		if ($get_news_detail) {
 		} else {
 			$array_data = array(
-				"id" => $news_id,
+				"id" => $id,
 				"newstype" => "1"
 			);
 			$get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
