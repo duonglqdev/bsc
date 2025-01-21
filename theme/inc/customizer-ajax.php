@@ -1233,7 +1233,8 @@ function filter_details_symbol() {
 												}
 												?>
 												<tr class="h-10"></tr>
-												<td class="lg:min-w-[231px] lg:!w-1/4 bg-primary-300 text-white font-bold text-left rounded-tl-lg rounded-tr-lg" colspan="10">
+												<td class="lg:min-w-[231px] lg:!w-1/4 bg-primary-300 text-white font-bold text-left rounded-tl-lg rounded-tr-lg"
+													colspan="10">
 													<?php _e( 'Cân đối kế toán', 'bsc' ) ?>
 												</td>
 												<?php
@@ -1321,7 +1322,7 @@ function filter_details_symbol() {
 
 									</div>
 								</div>
-								
+
 							</div>
 							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 
@@ -3798,12 +3799,10 @@ function filter_details_symbol() {
 		$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
 		if ( $response_GetForecastMacro ) {
 			?>
-			<div
-				class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue' ?>" #
-				<?php if (wp_is_mobile() && bsc_is_mobile() ) { ?> 
-								data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false}'
-							<?php } ?>
-				>
+			<div class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue' ?>"
+				# <?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false}'
+				<?php } ?>>
 				<div
 					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 					<div
@@ -3878,7 +3877,7 @@ function filter_details_symbol() {
 						<div class="text-[#FF0017]">
 							<div
 								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
-								<p class="font-medium  mb-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-right' ?>">
+								<p class="font-medium  mb-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-right' ?>">
 									<?php
 									if ( $response_GetForecastMacro->d->F[1][0]->scenario ) {
 										echo $response_GetForecastMacro->d->F[1][0]->scenario;
@@ -3887,7 +3886,8 @@ function filter_details_symbol() {
 									}
 									?>
 								</p>
-								<div class="grid grid-cols-2 font-medium text-right gap-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-6':'' ?>">
+								<div
+									class="grid grid-cols-2 font-medium text-right gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-6' : '' ?>">
 									<p><?php echo $response_GetForecastMacro->d->F[1][0]->year; ?>
 									</p>
 									<p><?php echo $response_GetForecastMacro->d->F[3][0]->year; ?>
@@ -3918,7 +3918,7 @@ function filter_details_symbol() {
 						<div class="text-[#30D158]">
 							<div
 								class="min-h-[58px] bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[9px] mb-1.5' : 'py-1.5 px-5' ?>">
-								<p class="font-medium mb-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-right' ?>">
+								<p class="font-medium mb-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-right' ?>">
 									<?php
 									if ( $response_GetForecastMacro->d->F[0][0]->scenario ) {
 										echo $response_GetForecastMacro->d->F[0][0]->scenario;
@@ -3927,7 +3927,8 @@ function filter_details_symbol() {
 									}
 									?>
 								</p>
-								<div class="grid grid-cols-2 font-medium  [&:nth-child(odd)]:bg-[#EBF4FA] text-right <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pr-6':'' ?>">
+								<div
+									class="grid grid-cols-2 font-medium  [&:nth-child(odd)]:bg-[#EBF4FA] text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-6' : '' ?>">
 									<p><?php echo $response_GetForecastMacro->d->F[0][0]->year; ?>
 									</p>
 									<p><?php echo $response_GetForecastMacro->d->F[2][0]->year; ?>
@@ -4410,6 +4411,88 @@ function filter_details_symbol() {
 			} ?>
 		</div>
 		<?php
+	} elseif ( $type_form == 'co_phieu_list' ) {
+		$array_data = array(
+			'lang' => pll_current_language(),
+			'maxitem' => 100000,
+		);
+		$response = get_data_with_cache( 'GetInstrumentInfo', $array_data, $time_cache );
+		if ( $response ) {
+			?>
+			<div class="rounded-tl-lg rounded-tr-lg overflow-hidden relative block-loading">
+				<table id="ttcp-table"
+					class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
+					<thead>
+						<tr>
+							<th
+								class="!pl-5 cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
+								<?php _e( 'Mã CK', 'bsc' ) ?>
+								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+							</th>
+							<th
+								class="w-1/5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[140px]' ?>">
+								<?php _e( 'Tên công ty', 'bsc' ) ?>
+							</th>
+							<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								<?php _e( 'Sàn', 'bsc' ) ?>
+							</th>
+							<th
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[150px]' ?>">
+								<?php _e( 'Ngành', 'bsc' ) ?>
+							</th>
+							<th
+								class="cursor-pointer text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[130px]' ?>">
+								<?php _e( 'Vốn hóa', 'bsc' ) ?>
+								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+							</th>
+							<th
+								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								<?php _e( 'KLGD', 'bsc' ) ?>
+							</th>
+							<th
+								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								<?php _e( 'GTGD', 'bsc' ) ?>
+							</th>
+							<th
+								class=" cursor-pointer filter-table text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
+								<?php _e( 'PE', 'bsc' ) ?>
+								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+							</th>
+							<th
+								class="cursor-pointer filter-table text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								<?php _e( 'PB', 'bsc' ) ?>
+								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach ( $response->d as $news ) {
+							?>
+							<tr class="border-b border-[#C9CCD2]">
+								<td class="!pl-5" data-code>
+									<?php if ( $news->SYMBOL ) { ?>
+										<a href="<?php echo slug_co_phieu( $news->SYMBOL ) ?>"><?php echo $news->SYMBOL ?></a>
+									<?php } ?>
+								</td>
+								<td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>
+								<td><?php echo $news->EXCHANGE; ?></td>
+								<td><?php echo $news->INDUSTRYNAME ?></td>
+								<td class="text-right !pr-8"><?php echo bsc_number_format( $news->MC ); ?></td>
+								<td class="text-right"><?php echo bsc_number_format( $news->TOTALVOLUME ) ?></td>
+								<td class="text-right"><?php echo bsc_number_format( $news->TOTALVALUE ) ?></td>
+								<td class="text-right"><?php echo bsc_number_format( $news->PE ) ?></td>
+								<td class="text-right"><?php echo bsc_number_format( $news->PB ) ?></td>
+							</tr>
+							<?php
+						}
+						?>
+					</tbody>
+				</table>
+			</div>
+		<?php } else {
+			get_template_part( 'template-parts/content', 'none' );
+		}
 	}
 	die();
 }

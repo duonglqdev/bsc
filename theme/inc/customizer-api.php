@@ -95,7 +95,16 @@ function slug_calendar( $postid ) {
 	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
 	return $url;
 }
-
+function slug_file_report( $postid ) {
+	$sub_url = __( 'Report/ReportFile', 'bsc' );
+	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
+	return $url;
+}
+function slug_file_news( $postid ) {
+	$sub_url = __( 'News/NewsAttachedFile', 'bsc' );
+	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
+	return $url;
+}
 
 /**
  * News
@@ -736,7 +745,7 @@ function bsc_proxy_pdf_content() {
 		$get_report_detail = get_data_with_cache( 'GetReportsDetail', $array_data, $time_cache );
 		if ( $get_report_detail ) {
 			$news = $get_report_detail->d[0];
-			$pdf_url = $news->reporturl;
+			$pdf_url = slug_file_report( htmlspecialchars( $news->id ) );
 			$viewerpermission = $news->viewerpermission;
 			if ( $viewerpermission == 'USER_BSC' ) {
 				$datetimeopen = $news->datetimeopen;
@@ -783,7 +792,8 @@ function bsc_register_pdf_proxy_route() {
 	foreach ( $languages as $lang ) {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
-		add_rewrite_rule( '^' . $lang_prefix . 'Report/ReportFile/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top' );
+		$sub_url = __( 'Report/ReportFile', 'bsc' );
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top' );
 	}
 
 }

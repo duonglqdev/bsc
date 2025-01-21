@@ -89,7 +89,7 @@
 				</p>
 				<?php if ( $news->reporturl ) {
 					$count_download = true;
-					$url_download = $news->reporturl;
+					$url_download = slug_file_report( htmlspecialchars( $news->id ) );
 					$viewerpermission = $news->viewerpermission;
 					if ( $viewerpermission == 'USER_BSC' ) {
 						$datetimeopen = $news->datetimeopen;

@@ -1,4 +1,7 @@
 <div class="lg:my-6 my-4">
+	<?php if ( get_sub_field( 'title' ) ) { ?>
+		<p><?php the_sub_field( 'title' ) ?></p>
+	<?php } ?>
 	<a href="<?php echo check_link( get_sub_field( 'video_link' ) ) ?>"
 		class="block relative w-full pt-[52%] mb-6 overflow-hidden rounded-[10px] after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-40"
 		data-fancybox="">

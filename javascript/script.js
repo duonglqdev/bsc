@@ -51,7 +51,6 @@ import { DataTable } from 'simple-datatables';
 		adjustFormSearchWidth();
 	});
 
-
 	function menuMobile() {
 		$('.bar_mobile').click(function () {
 			$('.main_menu-navbar').toggleClass('active');
@@ -2767,8 +2766,7 @@ import { DataTable } from 'simple-datatables';
 			chart.render();
 		}
 	};
-
-	function handleDatatables() {
+	window.handleDatatables = function () {
 		const tableElement = document.querySelector('#ttcp-table');
 		if (!tableElement) {
 			// Thoát khỏi hàm nếu không tìm thấy #ttcp-table
@@ -2919,7 +2917,7 @@ import { DataTable } from 'simple-datatables';
 				}
 			});
 		}
-	}
+	};
 
 	let isAjaxInProgress = false;
 	let globalShares = [];

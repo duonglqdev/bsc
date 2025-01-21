@@ -227,13 +227,29 @@
 														class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 														<?php _e( 'Hot', 'bsc' ) ?>
 													</p>
-													<p class="min-w-5">
-														<?php if ( $news->reporturl ) { ?>
-															<a href="<?php echo $news->reporturl ?>" target="_blank">
+													<?php if ( $news->reporturl ) {
+														$count_download = true;
+														$url_download = slug_file_report( htmlspecialchars( $news->id ) );
+														$viewerpermission = $news->viewerpermission;
+														if ( $viewerpermission == 'USER_BSC' ) {
+															$datetimeopen = $news->datetimeopen;
+															if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
+																if ( bsc_is_user_logged_out() ) {
+																	$count_download = false;
+																	$url_download = bsc_url_sso();
+																}
+															}
+														}
+														?>
+														<p class="min-w-5">
+															<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
+															}
+															?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
+																	echo 'bsc_up-download' ?>" target="_blank">
 																<?php echo svg( 'download', '20', '20' ) ?>
 															</a>
-														<?php } ?>
-													</p>
+														</p>
+													<?php } ?>
 												</li>
 												<?php
 											}
@@ -257,13 +273,29 @@
 															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 															<?php _e( 'Hot', 'bsc' ) ?>
 														</p>
-														<p class="min-w-5">
-															<?php if ( $news->reporturl ) { ?>
-																<a href="<?php echo $news->reporturl ?>" target="_blank">
+														<?php if ( $news->reporturl ) {
+															$count_download = true;
+															$url_download = slug_file_report( htmlspecialchars( $news->id ) );
+															$viewerpermission = $news->viewerpermission;
+															if ( $viewerpermission == 'USER_BSC' ) {
+																$datetimeopen = $news->datetimeopen;
+																if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
+																	if ( bsc_is_user_logged_out() ) {
+																		$count_download = false;
+																		$url_download = bsc_url_sso();
+																	}
+																}
+															}
+															?>
+															<p class="min-w-5">
+																<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
+																}
+																?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
+																		echo 'bsc_up-download' ?>" target="_blank">
 																	<?php echo svg( 'download', '20', '20' ) ?>
 																</a>
-															<?php } ?>
-														</p>
+															</p>
+														<?php } ?>
 													</li>
 													<?php
 												}
@@ -344,13 +376,30 @@
 																class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
 																<?php _e( 'Hot', 'bsc' ) ?>
 															</p>
-															<p class="min-w-5">
-																<?php if ( $news->reporturl ) { ?>
-																	<a href="<?php echo $news->reporturl ?>">
+															<?php if ( $news->reporturl ) {
+																$count_download = true;
+																$url_download = slug_file_report( htmlspecialchars( $news->id ) );
+																$viewerpermission = $news->viewerpermission;
+																if ( $viewerpermission == 'USER_BSC' ) {
+																	$datetimeopen = $news->datetimeopen;
+																	if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
+																		if ( bsc_is_user_logged_out() ) {
+																			$count_download = false;
+																			$url_download = bsc_url_sso();
+																		}
+																	}
+																}
+																?>
+																<p class="min-w-5">
+																	<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
+																	}
+																	?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
+																			echo 'bsc_up-download' ?>" target="_blank">
 																		<?php echo svg( 'download', '20', '20' ) ?>
 																	</a>
-																<?php } ?>
-															</p>
+																</p>
+															<?php } ?>
+
 														</li>
 														<?php
 													}

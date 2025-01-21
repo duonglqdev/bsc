@@ -5637,7 +5637,7 @@
                                         "id": ""
                                     },
                                     "return_format": "id",
-                                    "library": "all",
+                                    "library": "",
                                     "min_width": "",
                                     "min_height": "",
                                     "min_size": "",
@@ -6680,7 +6680,7 @@
                         },
                         {
                             "key": "field_6731d93534aa1",
-                            "label": "Menu",
+                            "label": "Sidebar",
                             "name": "",
                             "aria-label": "",
                             "type": "tab",
@@ -6757,6 +6757,69 @@
                                     "prepend": "",
                                     "append": "",
                                     "parent_repeater": "field_6731d9b134aa2"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_678e5eb71262d",
+                            "label": "Hình ảnh Sidebar",
+                            "name": "hinh_anh_sidebar",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_678e5eb71262e",
+                                    "label": "Đường dẫn",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_678e5eb71262f",
+                                    "label": "Hình ảnh",
+                                    "name": "img",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "thumbnail"
                                 }
                             ]
                         },
@@ -17155,5 +17218,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1735832045
+    "modified": 1737383643
 }
