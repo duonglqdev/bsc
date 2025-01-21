@@ -4036,7 +4036,7 @@ function filter_details_symbol() {
 			$minValue = floor( $minValue / 10 ) * 10;
 			$listArrayJson = htmlspecialchars( json_encode( $list_array_chart ), ENT_QUOTES, 'UTF-8' );
 			?>
-			<div id="chart" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
+			<div id="chart" data-height="100%" data-fromdate="<?php echo $fromdate ?>" data-time_cache="<?php echo $time_cache ?>"
 				data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>"
 				data-stock='<?php echo $stocksDataJson ?>' data-array="<?php echo $listArrayJson; ?>"></div>
 			<?php

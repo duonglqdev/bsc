@@ -950,11 +950,7 @@ header {
 		@apply shrink-0;
 	}
 }
-.chart-info {
-	.subscribe {
-		@apply lg:-mt-10;
-	}
-}
+
 #leader-modal .main__content {
 	ul {
 		@apply max-h-[270px] overflow-y-auto space-y-[12px] pr-4;
