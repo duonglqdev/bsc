@@ -83,10 +83,10 @@
 </section>
 <div id="leader-modal" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[99] justify-center items-center w-full md:inset-0 h-full max-h-full bg-black bg-opacity-20">
-    <div class="relative w-full max-h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'p-4 max-w-2xl lg:max-w-[1094px] max-h-full' : 'md:max-w-[80%] max-w-[90%]' ?>">
+    <div class="relative w-full max-h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'p-4 max-w-3xl lg:max-w-[1094px] max-h-full' : 'md:max-w-[80%] max-w-[90%]' ?>">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div
-                class=" leader_popup-content <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid md:grid-cols-5 lg:gap-12 p-[50px]' : 'p-4' ?>">
+                class="leader_popup-content <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid md:grid-cols-5 lg:gap-12 gap-6 lg:p-[50px] p-8' : 'p-4' ?>">
                 <div class="md:col-span-2">
                     <div class="leader_img w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:max-w-[349px]' : '' ?>">
                         <div class="relative w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[122%]' : 'pt-[75%]' ?>">
