@@ -810,7 +810,7 @@ import { DataTable } from 'simple-datatables';
 		var $aboutHistoryNav = $('.about_history-nav');
 		var totalItems = $aboutHistoryNav.slick('getSlick').slideCount;
 
-		if ($aboutHistoryNav.hasClass('mb')) {
+		if ($(window).width() <= 1024) {
 			if (totalItems <= 3) {
 				$aboutHistoryNav.find('.slick-track').addClass('no-transform');
 			}
