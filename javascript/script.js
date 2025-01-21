@@ -686,7 +686,7 @@ import { DataTable } from 'simple-datatables';
 				stroke: {
 					curve: 'smooth',
 					width: 2,
-					width: 2,
+					
 				},
 				markers: {
 					size: 0, // Ẩn các dấu tròn

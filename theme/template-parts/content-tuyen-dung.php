@@ -26,7 +26,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 		<?php } ?>
 		<h4
 			class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg transition-all duration-500 hover:text-primary-300' : 'text-base text-primary-400 mb-[12px]' ?>">
-			<a href="<?php the_permalink() ?>" class="line-clamp-3">
+			<a href="<?php the_permalink() ?>" class="line-clamp-2">
 				<?php the_title() ?>
 			</a>
 		</h4>
@@ -112,14 +112,14 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	</div>
 
 	<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-		<div class="lg:col-span-1 col-span-2 job_status mx-auto mt-6">
+		<div class="lg:col-span-1 col-span-2 job_status mx-auto lg:mt-6 my-auto">
 			<div
 				class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
 				<?php echo $label ?>
 			</div>
 		</div>
 	<?php } ?>
-	<div class="lg:col-span-1 col-span-2 ml-auto lg:my-auto mt-auto">
+	<div class="lg:col-span-1 col-span-2 ml-auto my-auto">
 		<a href="<?php the_permalink() ?>"
 			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 			<?php _e('Xem chi tiết', 'bsc') ?>
