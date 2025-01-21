@@ -109,7 +109,7 @@
 								</ul>
 							</div>
 						</form>
-						<ul class="lg:flex menu_top items-center text-sm font-semibold xl:ml-12 lg:ml-10">
+						<ul class="lg:flex menu_top items-center text-sm font-semibold xl:ml-12 lg:ml-10 gap-1">
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-top-header',

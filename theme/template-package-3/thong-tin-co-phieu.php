@@ -27,24 +27,24 @@ get_header();
 				</div>
 			<?php } ?>
 			<form
-				class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>"
+				class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-4 gap-3 items-end mb-10' : 'flex-wrap mb-6 -mx-2 gap-y-[12px]' ?>"
 				id="form-search-cophieu">
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?>">
 					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo tên
 					</p>
 					<input type="text" placeholder="<?php _e( 'Nhập mã chứng khoán', 'bsc' ) ?>"
-						class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] px-5' : 'h-[42px] rounded-lg px-4 text-xs' ?>"
+						class="w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:px-5 px-3 xl:text-base text-xs' : 'h-[42px] rounded-lg px-4 text-xs' ?>"
 						id="search-name">
 				</div>
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[300px]' : 'sm:w-1/2 w-full px-2' ?>">
 					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm mã cổ phiếu
 					</p>
 					<select
-						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 						id="search-code">
 						<option value="">Tất cả</option>
 						<option value="A32">A32</option>
@@ -53,12 +53,12 @@ get_header();
 					<input type="hidden" id="filter-code">
 				</div>
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[243px]' : 'w-1/2 px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[243px]' : 'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo ngành
 					</p>
 					<select
-						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 						id="search-major">
 						<option value="">Tất cả</option>
 						<option value="Tài chính">Tài chính</option>
@@ -68,12 +68,12 @@ get_header();
 					<input type="hidden" id="filter-major">
 				</div>
 				<div
-					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[20%] w-1/6 max-w-[241px]' : 'w-1/2 px-2' ?>">
+					class="flex flex-col font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[20%] flex-1 max-w-[241px]' : 'w-1/2 px-2' ?>">
 					<p class="font-medium mb-2 lg:text-base text-xs">
 						Tìm theo sàn
 					</p>
 					<select
-						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] pl-5' : 'pl-4 rounded-lg text-xs' ?>"
+						class="select_custom w-full bg-[#F3F4F6] border-[#E4E4E4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-[10px] xl:pl-5 pl-4 xl:text-base text-xs' : 'pl-4 rounded-lg text-xs' ?>"
 						id="search-trading">
 						<option value="">Tất cả</option>
 						<option value="HOSE">HOSE</option>
@@ -84,7 +84,7 @@ get_header();
 				</div>
 
 				<button type="button" id="search_cophieu"
-					class="btn-base-yellow flex-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-xl' : 'h-10 rounded-lg mr-4' ?>">
+					class="btn-base-yellow flex-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'h-[50px] rounded-xl max-w-[120px] xl:text-base text-xs' : 'h-10 rounded-lg mr-4' ?>">
 					<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 				</button>
 				<button type="reset" id="reset-ttcp"
@@ -101,8 +101,10 @@ get_header();
 							<tr>
 								<th
 									class="!pl-5 cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
-									Mã CK
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<p class="flex items-center gap-1 whitespace-nowrap">
+										Mã CK
+										<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+									</p>
 								</th>
 								<th
 									class="w-1/5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[140px]' ?>">
@@ -115,8 +117,11 @@ get_header();
 									Ngành</th>
 								<th
 									class="cursor-pointer <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[130px]' ?>">
-									Vốn hóa
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+
+										Vốn hóa
+										<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+									</p>
 								</th>
 								<th
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
@@ -126,17 +131,23 @@ get_header();
 									GTGD</th>
 								<th
 									class="cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
-									PE
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+										PE
+										<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+
+									</p>
 								</th>
 								<th
 									class="cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
-									PB
-									<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+									<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+										PB
+										<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+
+									</p>
 								</th>
 							</tr>
 						</thead>
-						<tbody>
+						<!-- <tbody>
 							<?php
 							for ( $i = 0; $i < 50; $i++ )
 							{
@@ -219,7 +230,10 @@ get_header();
 								<?php
 							}
 							?>
-						</tbody>
+						</tbody> -->
+						<tbody><tr class="border-b border-[#C9CCD2]" data-index="1513"><td class="!pl-5" data-code="">
+																			<a href="https://website-uat.bsc.com.vn/cong-ty/tong-quan/vnm">VNM</a>
+																	</td><td class="lg:whitespace-nowrap">VINAMILK</td><td>HOSE</td><td>Thực phẩm và đồ uống</td><td class="text-right !pr-8">129,159,246.5</td><td class="text-right">470,600</td><td class="text-right">29,139.29</td><td class="text-right">13.46</td><td class="text-right">3.66</td></tr></tbody>
 					</table>
 					<div role="status"
 						class="absolute w-full h-full inset-0 bg-white bg-opacity-90 flex items-center justify-center">

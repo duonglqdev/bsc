@@ -45,9 +45,9 @@ get_header();
 				</h1>
 			<?php } ?>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5 flex-wrap' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[547px] lg:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[547px] xl:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
 					<div class="bg-gradient-blue-to-bottom-100 rounded-xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-10 py-6' : 'p-6 min-h-[250px]' ?> space-y-6 h-full bsc_need_crawl_price"
 						data-symbol="<?php echo $symbol ?>" data-socket="true">
 						<div
@@ -169,7 +169,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[433px] lg:max-w-[33%] w-1/2' : 'w-full block_slider-item min-h-[250px]' ?> bsc-ajax-api"
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[433px] xl:max-w-[33%] w-1/2' : 'w-full block_slider-item min-h-[250px]' ?> bsc-ajax-api"
 					data-api="securityBasicInfo-symbol" data-symbol="<?php echo $symbol ?>">
 					<div class="hidden">
 						<div role="status" class="mt-10">

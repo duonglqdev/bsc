@@ -57,7 +57,7 @@
 					<div
 						class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-98px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-106px)]' : '' ?>">
 						<div
-							class="mb-6 flex md:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
+							class="mb-6 flex xl:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
 							<div class="flex md:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 								? 'gap-6 2xl:gap-6 items-center'
 								: ''; ?>">
