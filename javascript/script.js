@@ -167,6 +167,9 @@ import { DataTable } from 'simple-datatables';
 					$('.main_menu > ul > li:not(.menu-home)').removeClass(
 						'active'
 					);
+					$('.main_menu > ul > li:not(.menu-home)').removeClass(
+						'active'
+					);
 					$('.submenu-wrapper > li').removeClass('active');
 					$('.submenu-content').css('max-height', '0');
 				}, 200);
@@ -682,6 +685,7 @@ import { DataTable } from 'simple-datatables';
 				yaxis: yAxisOptions,
 				stroke: {
 					curve: 'smooth',
+					width: 2,
 					width: 2,
 				},
 				markers: {
