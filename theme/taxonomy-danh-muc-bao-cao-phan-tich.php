@@ -943,7 +943,7 @@ $time_cache = 300;
 											<?php _e( 'Mã CK', 'bsc' ) ?>
 										</div>
 										<div
-											class="w-[15%] whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[96px]' ?>">
+											class="w-[15%] whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[130px]' ?>">
 											<?php _e( 'Ngành', 'bsc' ) ?>
 										</div>
 										<div
