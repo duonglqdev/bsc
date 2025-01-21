@@ -2832,7 +2832,7 @@ import { DataTable } from 'simple-datatables';
 			perPageSelect: [10, 20, 30, 40],
 			sortable: false,
 		});
-
+		$('.block-loading').addClass('active');
 		// Ẩn input mặc định của searchable bằng CSS
 		const searchableInput = document.querySelector('.datatable-input');
 		if (searchableInput) {

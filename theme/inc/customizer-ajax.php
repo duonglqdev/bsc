@@ -4416,7 +4416,7 @@ function filter_details_symbol() {
 		$response = get_data_with_cache( 'GetInstrumentInfo', $array_data, $time_cache );
 		if ( $response ) {
 			?>
-			<div class="rounded-tl-lg rounded-tr-lg overflow-hidden relative block-loading">
+			<div class="rounded-tl-lg rounded-tr-lg relative block-loading">
 				<table id="ttcp-table"
 					class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
 					<thead>
