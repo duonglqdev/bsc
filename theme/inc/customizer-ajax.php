@@ -3800,7 +3800,7 @@ function filter_details_symbol() {
 		if ( $response_GetForecastMacro ) {
 			?>
 			<div class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue' ?>"
-				# <?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+				 <?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false}'
 				<?php } ?>>
 				<div
