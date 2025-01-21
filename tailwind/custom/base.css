@@ -448,7 +448,7 @@
     background-size: 46% 100%;
   }
   .is-mobile .page__banner.page__banner-haft::after {
-    background: linear-gradient(270deg, rgba(27, 70, 141, 0) 24.22%, #252D69 46.45%);
+    background: linear-gradient(270deg, rgba(27, 70, 141, 0) 24.22%, #252d69 46.45%);
   }
 }
 @media only screen and (max-width: 600px) {
@@ -456,7 +456,7 @@
     background-size: 67% 100%;
   }
   .is-mobile .page__banner.page__banner-haft::after {
-    background: linear-gradient(270deg, rgba(27, 70, 141, 0) 20.22%, #252D69 65.45%);
+    background: linear-gradient(270deg, rgba(27, 70, 141, 0) 20.22%, #252d69 65.45%);
   }
 }
 .is-mobile .fli-dots-blue .flickity-page-dots {
@@ -706,6 +706,10 @@ header.active {
   @apply absolute right-0 top-3;
 }
 
+.wpcf7-spinner {
+  @apply absolute right-0 top-3;
+}
+
 .home__banner .flickity-viewport {
   @apply max-h-full;
 }
@@ -855,7 +859,7 @@ header.active {
   @apply h-full;
 }
 
-.community_content-list .slick-dots {
+.community_content-list .slick-dots .community_content-list .slick-dots {
   @apply mt-9;
 }
 
