@@ -10,10 +10,8 @@
         if (have_rows('doi_ngu')) { ?>
             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid lg:grid-cols-4 2xl:gap-[50px] gap-9 lg:space-y-0 space-y-5' : '' ?>">
                 <div class="col-span-1">
-                    <ul class="flex about_leadership-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3' : 'justify-between shadow-none pb-6 mb-6 border-b border-[#C9CCD2]' ?>"
-                        data-tabs-toggle="#about_leadership-tab" role="tablist"
-                        data-tabs-active-classes="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-white bg-primary-400 rounded-tr-xl rounded-br-xl' : 'text-primary-300 after:w-full' ?>"
-                        data-tabs-inactive-classes="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-black' : 'text-[#31333F]' ?>">
+                    <ul class="flex about_leadership-nav customtab-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex-col py-[15px] pr-[15px] rounded-[15px] space-y-3' : 'justify-between shadow-none pb-6 mb-6 border-b border-[#C9CCD2]' ?>"
+                        >
                         <?php
                         $i = 0;
                         while (have_rows('doi_ngu')): the_row();
@@ -22,11 +20,11 @@
                         ?>
                             <li role="presentation">
                                 <button
-                                    class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 hover:rounded-tr-xl hover:rounded-br-xl' : 'text-xs font-bold relative after:w-0 after:h-[3px] after:-bottom-[26px] after:bg-primary-300 after:left-0 after:absolute' ?>"
-                                    id="<?php echo $title_tab_muc ?>-tab" data-tabs-target="#<?php echo $title_tab_muc ?>" type="button"
+                                    class="<?php echo $i==1?'active':''  ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 rounded-tr-xl rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300' : 'text-xs font-bold relative after:w-0 after:h-[3px] after:-bottom-[26px] after:bg-primary-300 after:left-0 after:absolute [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:after:w-0 after:w-full' ?>"
+                                    id="<?php echo $title_tab_muc ?>-tab" data-tabs="#<?php echo $title_tab_muc ?>" type="button"
                                     role="tab" aria-controls="<?php echo $title_tab_muc ?>" aria-selected="false"><?php echo get_sub_field('title') ?>
                                     <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-                                        <div class="hidden svg-container">
+                                        <div class="svg-container">
                                             <?php echo svg('arrow-right-tab') ?>
                                         </div>
                                     <?php } ?>
@@ -43,7 +41,7 @@
                             $i++;
                             $title_tab_muc = $title_tab . $i;
                         ?>
-                            <div class="hidden" id="<?php echo $title_tab_muc ?>" role="tabpanel"
+                            <div class="tab-content <?php echo $i == 1?'block':'hidden' ?>" id="<?php echo $title_tab_muc ?>" role="tabpanel"
                                 aria-labelledby="<?php echo $title_tab_muc ?>-tab">
                                 <?php if (have_rows('member')) { ?>
                                     <div class="flex flex-wrap justify-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '-mx-3 gap-y-10' : '-mx-2 gap-y-4' ?>">

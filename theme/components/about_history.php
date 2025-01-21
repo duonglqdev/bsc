@@ -1,7 +1,7 @@
 <section class="about_history bg-primary-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-14':'pt-6 pb-[30px]' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
         <?php if (get_sub_field('title')) { ?>
-            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-12 text-primary-700':'mb-4 text-center' ?>">
+            <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:mb-12 mb-6 xl:text-left text-center text-primary-700':'mb-4 text-center' ?>">
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
@@ -11,18 +11,18 @@
                 while (have_rows('history')): the_row();
                 ?>
                     <div class="w-full block_slider-item">
-                        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'items-center lg:flex-row flex-col-reverse':'flex-col flex-col-reverse' ?>">
+                        <div class="flex <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'items-center xl:flex-row flex-col-reverse':'flex-col flex-col-reverse' ?>">
                             <?php if (get_sub_field('img')) { ?>
-                                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[547px] w-full lg:mt-0 mt-6':'mt-6' ?>">
+                                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:max-w-[547px] w-full xl:mt-0 mt-6':'mt-6' ?>">
                                     <div class="rounded-[20px] overflow-hidden relative pt-[70.21%] group">
                                         <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-110')) ?>
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:ml-20 lg:ml-10 flex-1 ':'mt-0' ?>">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:ml-20 xl:ml-10 flex-1 xl:w-auto w-full':'mt-0' ?>">
                                 <?php if (get_sub_field('nam')) { ?>
                                     <h3
-                                        class="text-primary-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[75px] md:text-5xl mb-5':'text-[35px] mb-4 text-center leading-none' ?>">
+                                        class="text-primary-500 font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-[75px] md:text-5xl mb-5 xl:text-left text-center':'text-[35px] mb-4 text-center leading-none' ?>">
                                         <?php the_sub_field('nam') ?>
                                     </h3>
                                 <?php } ?>
