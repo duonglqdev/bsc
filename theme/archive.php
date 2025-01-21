@@ -84,7 +84,7 @@ $time_cache = 300;
 						</div>
 					</div>
 				<?php } ?>
-				<div class="flex-1">
+				<div class="flex-1 relative">
 					<?php
 					if (isset($_GET['posts_to_show'])) {
 						$post_per_page = bsc_format_string($_GET['posts_to_show'], 'number');
