@@ -4,7 +4,7 @@
 	<?php } ?>>
 	<div class="container">
 		<div
-			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-[110px] gap-10 lg:grid lg:grid-cols-2 lg:space-y-0 space-y-5 flex flex-col-reverse' : '' ?>">
+			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:gap-[110px] gap-10 xl:grid xl:grid-cols-2 xl:space-y-0 space-y-5 flex flex-col' : '' ?>">
 			<div class="col-span-1">
 				<?php if (get_sub_field('title')) { ?>
 					<h2

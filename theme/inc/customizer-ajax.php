@@ -3799,10 +3799,7 @@ function filter_details_symbol() {
 		$response_GetForecastMacro = get_data_with_cache( 'GetForecastMacro', $array_data_GetForecastMacro, $time_cache );
 		if ( $response_GetForecastMacro ) {
 			?>
-			<div class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue' ?>"
-				# <?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false}'
-				<?php } ?>>
+			<div class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue slider' ?>">
 				<div
 					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 					<div
@@ -4419,49 +4416,59 @@ function filter_details_symbol() {
 		$response = get_data_with_cache( 'GetInstrumentInfo', $array_data, $time_cache );
 		if ( $response ) {
 			?>
-			<div class="rounded-tl-lg rounded-tr-lg overflow-hidden relative block-loading">
+			<div class="rounded-tl-lg rounded-tr-lg relative block-loading">
 				<table id="ttcp-table"
 					class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
 					<thead>
 						<tr>
 							<th
 								class="!pl-5 cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
-								<?php _e( 'Mã CK', 'bsc' ) ?>
-								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+								<p class="flex items-center gap-1 whitespace-nowrap">
+									<?php _e( 'Mã CK', 'bsc' ) ?>
+									<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+								</p>
 							</th>
 							<th
-								class="w-1/5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[140px]' ?>">
+								class="w-1/5 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
 								<?php _e( 'Tên công ty', 'bsc' ) ?>
 							</th>
-							<th class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+							<th class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
 								<?php _e( 'Sàn', 'bsc' ) ?>
 							</th>
 							<th
-								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[150px]' ?>">
+								class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[150px]' ?>">
 								<?php _e( 'Ngành', 'bsc' ) ?>
 							</th>
 							<th
-								class="cursor-pointer text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[130px]' ?>">
-								<?php _e( 'Vốn hóa', 'bsc' ) ?>
-								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+								class="cursor-pointer text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[130px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e( 'Vốn hóa', 'bsc' ) ?>
+									<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+								</p>
 							</th>
 							<th
-								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
 								<?php _e( 'KLGD', 'bsc' ) ?>
 							</th>
 							<th
-								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
+								class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
 								<?php _e( 'GTGD', 'bsc' ) ?>
 							</th>
 							<th
-								class=" cursor-pointer filter-table text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
-								<?php _e( 'PE', 'bsc' ) ?>
-								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+								class=" cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e( 'PE', 'bsc' ) ?>
+									<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+
+								</p>
 							</th>
 							<th
-								class="cursor-pointer filter-table text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[80px]' ?>">
-								<?php _e( 'PB', 'bsc' ) ?>
-								<?php echo svgClass( 'filter', '20', '20', 'inline-block' ) ?>
+								class="cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e( 'PB', 'bsc' ) ?>
+									<?php echo svgClass( 'filter', '20', '20', 'inline-block shrink-0' ) ?>
+
+								</p>
 							</th>
 						</tr>
 					</thead>

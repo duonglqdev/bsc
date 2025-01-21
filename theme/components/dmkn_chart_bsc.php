@@ -53,7 +53,7 @@ if ( $response_GetAllDanhMuc ) {
 				class="rounded-2xl shadow-base performance-chart  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-6 px-7 mt-12' : 'px-5 py-4 mt-4 -mx-5' ?>">
 				<div id="date-performance-picker" date-rangepicker datepicker-format="dd/mm/yyyy" datepicker-autohide
 					datepicker-orientation="bottom left"
-					class="flex items-center text-xs gap-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-6' ?>">
+					class="flex items-center text-xs gap-4 flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mb-6' ?>">
 					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 						<p class="font-semibold mr-6">
 							<?php _e( 'Thời gian:', 'bsc' ) ?>
@@ -75,21 +75,21 @@ if ( $response_GetAllDanhMuc ) {
 							autocomplete="off">
 						<?php echo svgClass( 'date-blue', '', '', 'shrink-0' ) ?>
 					</div>
-					<div class="flex items-center gap-2 btn-chart_date">
+					<div class="flex items-center gap-2 btn-chart_date flex-1">
 						<button type="button" data-month="1"
-							class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
 							<?php _e( '1 Th', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="3"
-							class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
 							<?php _e( '3 Th', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="6"
-							class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
 							<?php _e( '6 Th', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="12"
-							class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
 							<?php _e( '1 Năm', 'bsc' ) ?>
 						</button>
 					</div>
@@ -115,7 +115,15 @@ if ( $response_GetAllDanhMuc ) {
 						</div>
 					</div>
 				</div>
-				<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+				<div class="grid md:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
+					<div class="apexcharts-legend">
+
+					</div>
+					<div class="">
+						<?php echo do_shortcode( '[contact-form-7 id="ba63d7e" title="Nhận tư vấn phân tích BSC"]' ) ?>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</section>

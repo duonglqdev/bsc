@@ -392,7 +392,7 @@
   @apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden transition-all duration-500 [&:not(.active)]:-translate-x-full translate-x-0 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none;
 }
 .is-mobile .main_menu-navbar > li {
-  @apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-5 before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
+  @apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-[22px] before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
 }
 .is-mobile .main_menu-navbar li.active > a, .is-mobile .main_menu-navbar li.current-menu-item > a {
   @apply text-primary-300 text-lg;
@@ -767,12 +767,6 @@ header.active {
 .about_leadership-nav {
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
 }
-.about_leadership-nav [aria-selected=true] .svg-container {
-  display: block;
-}
-.about_leadership-nav [aria-selected=false] .svg-container {
-  display: none;
-}
 
 .bg-full {
   background-size: 100% 100%;
@@ -875,11 +869,12 @@ header.active {
   @apply w-[50px] bg-opacity-100;
 }
 
-.chart .apexcharts-legend {
-  @apply lg:max-w-[50%];
-}
 .chart .apexcharts-legend .apexcharts-legend-series {
   @apply rounded-lg bg-[#F8F8FF] uppercase 2xl:px-4 px-2 2xl:py-[12px] py-2;
+}
+
+#chart .apexcharts-canvas .apexcharts-legend {
+  display: none !important;
 }
 
 .legend-gap .apexcharts-legend-series {
@@ -903,7 +898,7 @@ header.active {
 }
 
 .subscribe {
-  @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative lg:max-w-[50%] lg:-mt-14 lg:ml-auto;
+  @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative xl:ml-auto;
 }
 .subscribe input {
   @apply border-none focus:outline-0 focus:ring-transparent max-w-full pl-0 placeholder:text-black lg:font-normal font-medium flex-1 md:text-base text-xs;
@@ -1278,7 +1273,7 @@ button#ib-button-messaging {
 
 .performance-chart .apexcharts-legend-text {
   @apply pl-5;
-  font-size: 14px !important;
+  font-size: 12px !important;
   font-family: "Barlow", sans-serif !important;
 }
 @media only screen and (min-width: 480px) {

@@ -509,6 +509,26 @@ import { DataTable } from 'simple-datatables';
 
 			moveLine($(this));
 		});
+
+		   // Chọn tất cả các nút có class "btn-autoclick"
+		   const buttons = $(".btn-autoclick");
+		   let currentIndex = 0;
+	   
+		   // Hàm thực hiện tự động click
+		   function autoClick() {
+			   // Trigger click cho nút hiện tại
+			   buttons.eq(currentIndex).trigger("click");
+	   
+			   // Tính chỉ số nút tiếp theo
+			   currentIndex = (currentIndex + 1) % buttons.length;
+	   
+			   // Lặp lại sau 3 giây
+			   setTimeout(autoClick, 3500);
+		   }
+	   
+		   // Bắt đầu chu trình auto click
+		   autoClick();
+
 		$(document).on(
 			'click',
 			'.customtab-nav li button,.customtab-nav li a:not(.none-tab)',
@@ -714,7 +734,24 @@ import { DataTable } from 'simple-datatables';
 				},
 			};
 			var chart = new ApexCharts(chartElement, options);
-			chart.render();
+			chart.render().then(function () {
+		  
+		  var $legend = $("#chart .apexcharts-legend");
+		  var $customLegend = $(".apexcharts-legend-custom .apexcharts-legend");
+  
+		  if ($legend.length && $customLegend.length) {
+			$customLegend.html($legend.html());
+  
+			$customLegend.find('.apexcharts-legend-series').each(function (index) {
+			  var seriesIndex = index;
+  
+			  $(this).on('click', function () {
+				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
+			  });
+			});
+			// $legend.css('opacity', 0);
+		  }
+		});
 		}
 	}
 
@@ -1135,6 +1172,21 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent().siblings('.sub-collapse').slideToggle();
 			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
 		});
+	};
+	window.ttnc_khuyen_nghi_slider = function () {
+		var $slider = $('[data-chart="ttnc_khuyen_nghi_slider"] .slider');
+		if ($slider.length > 0) {
+			$slider.flickity({
+				pageDots: true,
+				prevNextButtons: false,
+				contain: true,
+				cellAlign: 'left',
+				imagesLoaded: true,
+				draggable: true,
+				wrapAround: true,
+				autoPlay: 3000,
+			});
+		}
 	};
 
 	function handlePhoneCf7() {
@@ -2780,7 +2832,7 @@ import { DataTable } from 'simple-datatables';
 			perPageSelect: [10, 20, 30, 40],
 			sortable: false,
 		});
-
+		$('.block-loading').addClass('active');
 		// Ẩn input mặc định của searchable bằng CSS
 		const searchableInput = document.querySelector('.datatable-input');
 		if (searchableInput) {
