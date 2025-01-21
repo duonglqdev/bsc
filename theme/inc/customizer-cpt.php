@@ -16,23 +16,28 @@ function bsc_cat_permalink($url, $term, $taxonomy)
 // Thêm quy tắc rewrite cho quan-he-co-dong category
 function bsc_category_rewrite_rules($flush = false)
 {
-    $terms = get_terms(array(
-        'taxonomy' => 'danh-muc-bao-cao',
-        'post_type' => 'quan-he-co-dong',
-        'hide_empty' => false,
-    ));
+    $languages = pll_languages_list('slug');
+    foreach ($languages as $lang) {
+        $terms = get_terms(array(
+            'taxonomy' => 'danh-muc-bao-cao',
+            'post_type' => 'quan-he-co-dong',
+            'hide_empty' => false,
+            'lang' => $lang
+        ));
 
-    if (!is_wp_error($terms)) {
-        $siteurl = esc_url(home_url('/'));
-        foreach ($terms as $term) {
-            $term_slug = $term->slug;
-            $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-bao-cao'));
-            add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-bao-cao=' . $term_slug, 'top');
-            add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-bao-cao=' . $term_slug . '&paged=$matches[1]', 'top');
-            add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-bao-cao=' . $term_slug . '&feed=$matches[1]', 'top');
+        if (!is_wp_error($terms)) {
+            $siteurl = esc_url(home_url('/'));
+            $i = 0;
+            foreach ($terms as $term) {
+                $i++;
+                $term_slug = $term->slug;
+                $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-bao-cao'));
+                add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-bao-cao=' . $term_slug, 'top');
+                add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-bao-cao=' . $term_slug . '&paged=$matches[1]', 'top');
+                add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-bao-cao=' . $term_slug . '&feed=$matches[1]', 'top');
+            }
         }
     }
-
     if ($flush) {
         flush_rewrite_rules(false);
     }
@@ -194,23 +199,26 @@ function bsc_danh_muc_kien_thuc_permalink($url, $term, $taxonomy)
 // Thêm quy tắc rewrite cho kien-thuc-dau-tu category
 function bsc_danh_muc_kien_thucegory_rewrite_rules($flush = false)
 {
-    $terms = get_terms(array(
-        'taxonomy' => 'danh-muc-kien-thuc',
-        'post_type' => 'kien-thuc-dau-tu',
-        'hide_empty' => false,
-    ));
+    $languages = pll_languages_list('slug');
+    foreach ($languages as $lang) {
+        $terms = get_terms(array(
+            'taxonomy' => 'danh-muc-kien-thuc',
+            'post_type' => 'kien-thuc-dau-tu',
+            'hide_empty' => false,
+            'lang' => $lang
+        ));
 
-    if (!is_wp_error($terms)) {
-        $siteurl = esc_url(home_url('/'));
-        foreach ($terms as $term) {
-            $term_slug = $term->slug;
-            $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-kien-thuc'));
-            add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-kien-thuc=' . $term_slug, 'top');
-            add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&paged=$matches[1]', 'top');
-            add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&feed=$matches[1]', 'top');
+        if (!is_wp_error($terms)) {
+            $siteurl = esc_url(home_url('/'));
+            foreach ($terms as $term) {
+                $term_slug = $term->slug;
+                $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-kien-thuc'));
+                add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-kien-thuc=' . $term_slug, 'top');
+                add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&paged=$matches[1]', 'top');
+                add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-kien-thuc=' . $term_slug . '&feed=$matches[1]', 'top');
+            }
         }
     }
-
     if ($flush) {
         flush_rewrite_rules(false);
     }
@@ -243,22 +251,25 @@ function bsc_danh_muc_bao_cao_phan_tich_permalink($url, $term, $taxonomy)
 // Thêm quy tắc rewrite cho bao-cao-phan-tich category
 function bsc_danh_muc_bao_cao_phan_tichegory_rewrite_rules($flush = false)
 {
-    $terms = get_terms(array(
-        'taxonomy' => 'danh-muc-bao-cao-phan-tich',
-        'hide_empty' => false,
-    ));
+    $languages = pll_languages_list('slug');
+    foreach ($languages as $lang) {
+        $terms = get_terms(array(
+            'taxonomy' => 'danh-muc-bao-cao-phan-tich',
+            'hide_empty' => false,
+            'lang' => $lang
+        ));
 
-    if (!is_wp_error($terms)) {
-        $siteurl = esc_url(home_url('/'));
-        foreach ($terms as $term) {
-            $term_slug = $term->slug;
-            $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-bao-cao-phan-tich'));
-            add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug, 'top');
-            add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&paged=$matches[1]', 'top');
-            add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&feed=$matches[1]', 'top');
+        if (!is_wp_error($terms)) {
+            $siteurl = esc_url(home_url('/'));
+            foreach ($terms as $term) {
+                $term_slug = $term->slug;
+                $baseterm = str_replace($siteurl, '', get_term_link($term->term_id, 'danh-muc-bao-cao-phan-tich'));
+                add_rewrite_rule($baseterm . '?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug, 'top');
+                add_rewrite_rule($baseterm . 'page/([0-9]{1,})/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&paged=$matches[1]', 'top');
+                add_rewrite_rule($baseterm . '(?:feed/)?(feed|rdf|rss|rss2|atom)/?$', 'index.php?danh-muc-bao-cao-phan-tich=' . $term_slug . '&feed=$matches[1]', 'top');
+            }
         }
     }
-
     if ($flush) {
         flush_rewrite_rules(false);
     }
