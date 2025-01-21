@@ -750,6 +750,7 @@ import { DataTable } from 'simple-datatables';
 			  var seriesIndex = index;
   
 			  $(this).on('click', function () {
+				$(this).toggleClass('apexcharts-inactive-legend');
 				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
 			  });
 			});
