@@ -87,6 +87,14 @@
 			}
 		}
 	}
+	.page__banner{
+		&:not(.page__banner-haft) {
+			@apply bg-right-top;
+			&::after {
+				background-image: linear-gradient(251deg, rgba(27, 70, 141, 0.00) 8.87%, rgba(34, 52, 114, 0.74) 43.96%, #252D69 98.08%);
+			}
+		}
+	}
 	.page__banner-haft {
 		@apply bg-right-top;
 		background-size: 70% 100% !important;
@@ -999,7 +1007,7 @@ header {
 		}
 
 		.li-plus {
-			@apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
+			@apply absolute top-[14px] 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-5 h-5;
 		}
 		.li-plus.active {
 			@apply rotate-180;

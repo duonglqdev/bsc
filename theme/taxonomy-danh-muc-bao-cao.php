@@ -20,7 +20,7 @@ get_header();
 	<section
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-gradient-blue-to-bottom-50 pt-12 pb-16' : 'bg-gradient-blue-to-bottom-150 py-[50px]' ?>">
 		<div class="container">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] gap-10' : '' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] lg:gap-10 gap-8' : '' ?>">
 				<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10">
@@ -34,13 +34,13 @@ get_header();
 							));
 							if (! empty($terms) && ! is_wp_error($terms)) :
 							?>
-								<ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
+								<ul class="shadow-base py-6 lg:pr-4 pr-3 rounded-lg bg-white sidebar-report space-y-2">
 									<?php foreach ($terms as $term) :
 										$active_class = (is_tax('danh-muc-bao-cao', $term->term_id)) ? 'active' : '';
 									?>
 										<li class="<?php echo esc_attr($active_class); ?>">
 											<a href="<?php echo get_term_link($term); ?>"
-												class="flex items-center gap-4 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+												class="flex items-center lg:gap-4 gap-3 md:text-lg font-bold <?php echo esc_attr($active_class); ?> [&:not(.active)]:text-black text-white relative py-[12px] lg:px-5 px-3 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
 												<?php echo esc_html($term->name); ?>
 											</a>
 											<?php
