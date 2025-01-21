@@ -51,7 +51,7 @@ get_header();
 					<h2 class="heading-title"><?php _e('Ưu đãi từ BSC', 'bsc') ?></h2>
 					<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 						<a href="<?php echo check_link(get_field('cdctkm1_page', 'option')) ?><?php if ($class = get_field('cdctkm1_pageid_class', 'option')) :
-																									echo $class;
+																									echo '#' . $class;
 																								endif; ?>"
 							class="inline-block px-5 py-2 btn-base-yellow">
 							<span class="inline-flex items-center gap-2 relative z-10">
