@@ -1156,6 +1156,21 @@ import { DataTable } from 'simple-datatables';
 			$(this).toggleClass('active').find('svg').toggleClass('rotate-180');
 		});
 	};
+	window.ttnc_khuyen_nghi_slider = function () {
+		var $slider = $('[data-chart="ttnc_khuyen_nghi_slider"] .slider');
+		if ($slider.length > 0) {
+			$slider.flickity({
+				pageDots: true,
+				prevNextButtons: false,
+				contain: true,
+				cellAlign: 'left',
+				imagesLoaded: true,
+				draggable: true,
+				wrapAround: true,
+				autoPlay: 3000,
+			});
+		}
+	};
 
 	function handlePhoneCf7() {
 		const input = document.querySelector('#phone_number');
