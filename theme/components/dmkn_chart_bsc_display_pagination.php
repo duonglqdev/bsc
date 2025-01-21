@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex xl:gap-[70px] gap-8' : '' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-				<div class="w-80 max-w-[35%] shrink-0">
+				<div class="w-80 lg:max-w-[35%] max-w-[30%] shrink-0">
 					<?php $hinh_anh_sidebar = get_sub_field( 'hinh_anh_sidebar' );
 					if ( $hinh_anh_sidebar ) { ?>
 						<div class="sticky top-5 z-10">
