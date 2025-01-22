@@ -607,7 +607,7 @@ function filter_details_symbol()
 										<p class="min-w-[30px] text-right">
 											<?php
 											if ($record['CLOSE_PRICE']) {
-												echo bsc_number_format(($record['CLOSE_PRICE'] - $record['REF_PRICE']) / 1000);
+												echo bsc_number_format(($record['CLOSE_PRICE']) / 1000);
 											}
 											?>
 										</p>
