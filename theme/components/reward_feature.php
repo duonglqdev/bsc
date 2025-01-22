@@ -21,7 +21,7 @@ $icon_global = get_sub_field('icon');
                     }
                 ?>
                     <div
-                        class="<?php if ($i == 1) echo 'active' ?> bg-gradient-blue-<?php echo $color ?> grow cursor-pointer award__item font-Helvetica  transition-all <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[398px] flex gap-10 justify-center items-center py-10':'py-9 px-6' ?>">
+                        class="<?php if ($i == 1) echo 'active' ?> bg-gradient-blue-<?php echo $color ?> grow cursor-pointer award__item font-Helvetica  transition-all <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[398px] flex lg:gap-10 gap-5 justify-center items-center py-10':'py-9 px-6' ?>">
                         <div
                             class="flex flex-col items-center justify-center w-full award__item-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mx-auto ' ?>">
                             <?php if ($icon_global) { ?>
@@ -30,7 +30,7 @@ $icon_global = get_sub_field('icon');
                                 </div>
                             <?php } ?>
                             <div
-                                class="<?php if ($i == 1) echo 'active' ?> main-img w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:mx-auto ml-10 max-w-[190px] [&:not(.active)]:pl-0 [&:not(.active)]:max-w-[98px]':'max-w-[124px] [&:not(.active)]:max-w-[82px] [&:not(.active)]:mb-0 mb-8' ?>">
+                                class="<?php if ($i == 1) echo 'active' ?> main-img w-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:mx-auto lg:ml-10 ml-4 max-w-[190px] [&:not(.active)]:pl-0 [&:not(.active)]:max-w-[98px]':'max-w-[124px] [&:not(.active)]:max-w-[82px] [&:not(.active)]:mb-0 mb-8' ?>">
                                 <div class="relative w-full pt-[124%]">
                                     <?php echo wp_get_attachment_image(get_sub_field('img'), 'medium', '', array('class' => 'absolute w-full h-full inset-0 object-contain transition-all')) ?>
                                 </div>
@@ -43,7 +43,7 @@ $icon_global = get_sub_field('icon');
                         </div>
                         <div
                             class="award__item-content cursor-default transition-all w-0 overflow-hidden opacity-0 invisible <?php if ($i !== 1) echo 'hidden' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
-                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[470px]':'w-full' ?>">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[470px] lg:pr-0 pr-4':'w-full' ?>">
                                 <?php if (get_sub_field('title')) { ?>
                                     <h3 class="font-bold mb-4 font-body <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl':'text-lg text-center' ?>">
                                         <?php the_sub_field('title') ?>

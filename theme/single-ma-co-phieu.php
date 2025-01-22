@@ -276,7 +276,7 @@ get_header();
 							<?php _e( 'BIỂU ĐỒ GIÁ', 'bsc' ) ?>
 						</h2>
 						<div
-							class="rounded-2xl bg-[#F5FCFF] relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%]' : 'p-4 -mx-5 min-h-[340px]' ?>">
+							class="rounded-2xl bg-[#F5FCFF] relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%] lg:min-h-0 min-h-[400px] ' : 'p-4 -mx-5 min-h-[340px]' ?>">
 							<iframe width='100%' height='100%' class="lg:static absolute inset-0 w-full h-full"
 								src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light'
 								frameBorder='0' allowFullScreen></iframe>
@@ -372,7 +372,7 @@ get_header();
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
 							</h2>
-							<div class="space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
+							<div class="lg:space-y-4 md:space-y-0 lg:block md:grid md:grid-cols-2 md:gap-5 space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
 									<div role="status" class="mt-10">
 										<svg aria-hidden="true"

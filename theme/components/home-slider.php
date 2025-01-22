@@ -12,7 +12,7 @@ if (have_rows('slider')) {
 		?>
 				<div class="w-full relative block_slider-item sameheight_item" data-play="4000">
 					<a href="<?php echo check_link(get_sub_field('link')) ?>"
-						class="relative w-full block lg:pt-0 pt-[110.4%]">
+						class="relative w-full block lg:pt-0 pt-[110.4%] h-full">
 						<?php
 						$image_id_desktop = get_sub_field('image'); // ID của ảnh desktop
 						$image_id_mobile = get_sub_field('image_mobile') ?: $image_id_desktop; // ID của ảnh mobile (mặc định lấy ảnh desktop nếu không có)

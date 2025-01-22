@@ -45,10 +45,12 @@ import { DataTable } from 'simple-datatables';
 		adjustFormSearchWidth();
 		transformText();
 		loadMoreJob();
+		handleUnwrap();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
 		adjustFormSearchWidth();
+		handleUnwrap();
 	});
 
 	function menuMobile() {
@@ -4115,4 +4117,29 @@ import { DataTable } from 'simple-datatables';
 			$(this).html(newHtml);
 		});
 	}
+	function handleUnwrap() {
+        var screenWidth = $(window).width();
+
+        if (screenWidth < 1024 && screenWidth > 767) {
+            $(".unwrap").each(function () {
+                $(this).children().unwrap();
+            });
+			$('.slider-benefit').flickity({
+				pageDots: true,
+				prevNextButtons: false,
+				contain: true,
+				cellAlign: 'left',
+				imagesLoaded: true,
+				draggable: true,
+				wrapAround: true,
+				autoPlay: 3000,
+				watchCss: true,
+			});
+        }
+    }
+
+ 
+
+    
+  
 })(jQuery);

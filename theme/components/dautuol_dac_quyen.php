@@ -59,9 +59,9 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-3 grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue' ?>">
+            <div class="flickity-watch fli-dots-blue <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-3 lg:gap-5':'block_slider-show-1' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000,"watchCSS": true}'>
                 <?php while (have_rows('benefit')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden min-h-[320px] text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px]':'px-4 pt-8 pb-11 block_slider-item w-full' ?>"
+                    <div class="rounded-2xl overflow-hidden min-h-[320px] text-center group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:px-12 px-8 pt-9 pb-[46px] lg:w-full w-1/2 lg:mx-0 mx-2':'px-4 pt-8 pb-11 block_slider-item w-full' ?>"
                         style="background-color:<?php the_sub_field('color') ?>;">
                         <div class="lg:max-w-[330px] mx-auto">
                             <div class="relative w-full pt-[47%]">

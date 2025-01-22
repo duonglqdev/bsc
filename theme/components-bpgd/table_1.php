@@ -12,7 +12,7 @@
                 while (have_rows('table_title')): the_row(); ?>
                     <thead>
                         <tr>
-                            <th rowspan="2" class="<?php echo get_locale() !== 'vi' ?'lg:w-[10.313%] w-[70px] lg:px-0 px-2':'lg:w-[7.313%] sm:w-14 lg:px-0 px-2 w-[50px]' ?>"><?php _e('STT', 'bsc') ?></th>
+                            <th rowspan="2" class="<?php echo get_locale() !== 'vi' ?'lg:w-[10.313%] w-[70px] !lg:px-0 !px-2':'lg:w-[7.313%] sm:w-14 lg:px-0 px-2 w-[50px]' ?>"><?php _e('STT', 'bsc') ?></th>
                             <th rowspan="2" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[36.72%]':'w-[158px]' ?>"><?php the_sub_field('cot_1') ?></th>
                             <th colspan="2" class="!py-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'w-[55.93%]':'w-[320px]' ?>"><?php the_sub_field('cot_2_title') ?></th>
                         </tr>

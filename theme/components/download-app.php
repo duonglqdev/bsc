@@ -142,7 +142,7 @@
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-2 order-1 lg:-mt-20' : 'col-span-full order-1' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-2 order-1 lg:-mt-20 relative' : 'col-span-full order-1' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('trai_nghiem')) :

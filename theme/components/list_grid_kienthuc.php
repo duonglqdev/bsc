@@ -23,7 +23,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                 ?>
                                     <li class="">
                                         <a href="#<?php echo $term->slug ?>"
-                                            class="flex items-center gap-4 2xl:text-lg text-base font-bold <?php if ($i == 1) echo 'active' ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa]">
+                                            class="flex items-center lg:gap-4 gap-3 2xl:text-lg text-base font-bold <?php if ($i == 1) echo 'active' ?> [&:not(.active)]:text-black text-white relative py-[12px] lg:px-5 px-4 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl group-hover:!bg-[#ebf4fa] before:shrink-0">
                                             <?php echo esc_html($term->name); ?>
                                         </a>
                                         <?php
@@ -69,11 +69,11 @@ if (!empty($terms) && !is_wp_error($terms)) :
                         $y++;
                     ?>
                         <div class="<?php if ($y != $total) echo 'pb-10 mb-10 border-b border-[#E1E1E1]' ?>" id="<?php echo $term->slug ?>">
-                            <div class="flex items-center justify-between mb-6">
-                                <h2 class="heading-title "><?php echo esc_html($term->name); ?></h2>
+                            <div class="flex items-center justify-between mb-6 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[32px] text-xl':'' ?>">
+                                <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:text-[length:inherit] !text-[22px]':'' ?>"><?php echo esc_html($term->name); ?></h2>
                                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
                                     <a href="<?php echo get_term_link($term) ?>" class="inline-block pl-5 pr-4 py-2 btn-base-yellow">
-                                        <span class="inline-flex items-center gap-2 relative z-10">
+                                        <span class="inline-flex items-center gap-2 relative z-10 text-base">
                                             <?php _e('Xem tất cả', 'bsc') ?>
                                             <?php echo svg('arrow-btn-2') ?>
                                         </span>

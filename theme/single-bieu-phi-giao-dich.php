@@ -19,9 +19,9 @@ $id_post = get_the_ID();
 					) );
 					if ( $query->have_posts() ) { ?>
 						<div
-							class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28' : 'top-5' ?>">
+							class="sticky z-[9] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:top-28 top-[70px]' : 'top-5' ?>">
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-								<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2 sidebar-report">
+								<ul class="shadow-base lg:py-6 py-4 pr-4 rounded-lg bg-white space-y-2 sidebar-report">
 									<?php while ( $query->have_posts() ) :
 										$query->the_post(); ?>
 										<li>
@@ -68,7 +68,7 @@ $id_post = get_the_ID();
 						<?php echo $title; ?>
 					</h1>
 					<div
-						class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-ul:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]' : 'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 prose-table:text-xxs' ?>">
+						class="prose-table:border-collapse prose-td:border-[4px] prose-th:border-[4px] prose-td:border-white prose-th:border-white prose-table:rounded-3xl prose-table:overflow-hidden prose-table:max-w-full prose-table:w-full prose-table:text-center custom-table prose-ul:pl-5 prose-ul:list-disc prose-ul:mb-6 prose-table:font-Helvetica prose-table:font-medium prose-thead:font-bold prose-table:table-fixed <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-ul:lg:text-xl prose-th:py-5 prose-th:px-5 prose-td:py-5 prose-td:px-[29px]' : 'prose-th:py-4 prose-th:px-3 prose-td:py-[12px] prose-td:px-3 prose-table:text-xxs' ?>">
 						<?php
 						$page_id = get_the_ID();
 						if ( have_rows( 'home_components_stgd', $page_id ) ) {
