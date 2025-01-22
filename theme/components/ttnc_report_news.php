@@ -161,7 +161,7 @@ $time_cache = 300;
 						<?php } ?>
 					<?php } ?>
 					<?php if (have_rows('tien_ich')) { ?>
-						<div class="space-y-[14px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto' : 'hidden tab-content' ?>"
+						<div class="lg:space-y-[14px] md:space-y-0 space-y-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto lg:block grid grid-cols-2 gap-4' : 'hidden tab-content' ?>"
 							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?> id="ttnc-2" <?php } ?>>
 							<?php while (have_rows('tien_ich')) :
 								the_row(); ?>
