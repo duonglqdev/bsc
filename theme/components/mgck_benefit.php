@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider-show-1 block_slider fli-dots-blue dot-bottom-40' ?>">
+            <div class="flickity-watch fli-dots-blue  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 lg:gap-5':'dot-bottom-40' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000,"watchCSS": true}'>
                 <?php
                 $i = 3;
                 while (have_rows('benefit')): the_row();
@@ -21,7 +21,7 @@
                         $style = 'linear-gradient(226deg, #E5F4FF 26.88%, #FAFAFA 107.34%)';
                     }
                 ?>
-                    <div class="rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:p-[34px] xl:pt-[43px] p-6 min-h-[414px] shadow-base':'min-h-[440px] py-10 px-7 w-full block_slider-item' ?>"
+                    <div class="rounded-2xl <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' xl:p-[34px] xl:pt-[43px] p-6 min-h-[414px] shadow-base lg:w-full w-1/2 lg:mx-0 mx-2':'min-h-[440px] py-10 px-7 w-full block_slider-item' ?>"
                         style="background: <?php echo $style ?>">
                         <div class="max-w-[155px] w-full mx-auto">
                             <div class="relative w-full pt-[100%]">

@@ -8,10 +8,10 @@
 		<?php $display = get_sub_field('display') ?: 'kyquy';
 		if ($display == 'kyquy') { ?>
 			<?php if (have_rows('benefit')) { ?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':' block_slider block_slider-show-1 fli-dots-blue' ?>">
+				<div class="flickity-watch fli-dots-blue <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 lg:gap-5':' block_slider-show-1' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000,"watchCSS": true}'>
 					<?php while (have_rows('benefit')) :
 						the_row(); ?>
-						<div class="rounded-2xl<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 min-h-[414px] shadow-base':'min-h-[388px] pt-9 px-11 pb-14 block_slider-item w-full' ?>"
+						<div class="rounded-2xl  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:p-[34px] xl:pt-14 p-6 min-h-[414px] shadow-base lg:w-full w-1/2 lg:mx-0 mx-2':'min-h-[388px] pt-9 px-11 pb-14 block_slider-item w-full' ?>"
 							style="background-color:<?php the_sub_field('color') ?>;">
 							<div class="max-w-[155px] w-full mx-auto">
 								<div class="relative w-full pt-[100%]">

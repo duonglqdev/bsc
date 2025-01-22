@@ -6,9 +6,9 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('dac_quyen')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-4 grid-cols-2 gap-5':'block_slider block_slider-show-1 fli-dots-blue sm:-mx-3' ?>">
+            <div class="flickity-watch fli-dots-blue <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 lg:gap-5':'block_slider-show-1 sm:-mx-3' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000,"watchCSS": true}'>
                 <?php while (have_rows('dac_quyen')): the_row(); ?>
-                    <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'block_slider-item sm:w-1/2 w-full sm:px-3' ?>">
+                    <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-full w-1/2 lg:mx-0 mx-2':'block_slider-item sm:w-1/2 w-full sm:px-3' ?>">
                         <div class="relative pt-[121.25%]">
                             <div class="absolute w-full h-full inset-0 flex flex-col">
                                 <div
@@ -59,13 +59,13 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('benefit')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-2 grid-cols-1 lg:gap-5 gap-4':'' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-2 lg:gap-5 fli-dots-blue slider-benefit flickity-watch':'' ?>">
                 <?php
                 $i = 0;
                 while (have_rows('benefit')): the_row();
                     $i++;
                     if ($i == 1) { ?>
-                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[660px]':'' ?> w-full">
+                        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:max-w-[660px] lg:mx-0 mx-2':'' ?> w-full">
                             <div class="overflow-hidden relative group block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pt-[87.8787%] pt-[42.8%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
                                 <?php echo wp_get_attachment_image(get_sub_field('background'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
                                 <?php if (get_sub_field('title')) { ?>
@@ -80,13 +80,14 @@
                         </div>
                 <?php };
                 endwhile; ?>
-                <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-[18px]':'gap-4 mt-4' ?>">
+                
+                <div class="flex flex-col unwrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'gap-[18px]':'gap-4 mt-4' ?>">
                     <?php
                     $i = 0;
                     while (have_rows('benefit')): the_row();
                         $i++;
                         if ($i > 1) { ?>
-                            <div class="relative block w-full overflow-hidden  group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[42.8%] rounded-2xl':'pt-[66.86%] rounded-lg' ?>">
+                            <div class="relative block w-full overflow-hidden group <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[42.8%] rounded-2xl lg:mx-0 mx-2':'pt-[66.86%] rounded-lg' ?>">
                                 <?php echo wp_get_attachment_image(get_sub_field('background'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 group-hover:scale-105')) ?>
                                 <?php if (get_sub_field('title')) { ?>
                                     <h4
