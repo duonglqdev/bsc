@@ -754,7 +754,7 @@ import { DataTable } from 'simple-datatables';
 				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
 			  });
 			});
-			// $legend.css('opacity', 0);
+			
 		  }
 		});
 		}
