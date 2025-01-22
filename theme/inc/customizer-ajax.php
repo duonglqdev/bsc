@@ -607,7 +607,7 @@ function filter_details_symbol()
 										<p class="min-w-[30px] text-right">
 											<?php
 											if ($record['CLOSE_PRICE']) {
-												echo bsc_number_format(($record['CLOSE_PRICE'] - $record['REF_PRICE']) / 1000);
+												echo bsc_number_format(($record['CLOSE_PRICE']) / 1000);
 											}
 											?>
 										</p>
@@ -2185,10 +2185,8 @@ function filter_details_symbol()
 											<div class="legend-gap bsc_chart-display mt-auto" data-load="false" data-end="%"
 												data-1="<?php echo htmlspecialchars(json_encode($business_data_TANG_TRUONG_CHO_VAY)) ?>"
 												data-2="<?php echo htmlspecialchars(json_encode($industry_data_TANG_TRUONG_CHO_VAY)) ?>"
-												<?php if ($check_linh_vuc == 'Bank') { ?> data-title-1="<?php _e('TTCV', 'bsc') ?>"
-												data-title-2="<?php _e('Trung bình ngành', 'bsc') ?>" <?php } else { ?>
 												data-title-1="<?php echo $symbol ?>"
-												data-title-2="<?php _e('TTDTT trung bình ngành', 'bsc') ?>" <?php } ?>
+												data-title-2="<?php _e('Trung bình ngành', 'bsc') ?>"
 												data-color-1="#009e87" data-color-2="#FFB81C">
 											</div>
 										</div>

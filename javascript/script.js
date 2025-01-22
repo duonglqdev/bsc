@@ -515,24 +515,24 @@ import { DataTable } from 'simple-datatables';
 			moveLine($(this));
 		});
 
-		   // Chọn tất cả các nút có class "btn-autoclick"
-		   const buttons = $(".btn-autoclick");
-		   let currentIndex = 0;
-	   
-		   // Hàm thực hiện tự động click
-		   function autoClick() {
-			   // Trigger click cho nút hiện tại
-			   buttons.eq(currentIndex).trigger("click");
-	   
-			   // Tính chỉ số nút tiếp theo
-			   currentIndex = (currentIndex + 1) % buttons.length;
-	   
-			   // Lặp lại sau 3 giây
-			   setTimeout(autoClick, 3500);
-		   }
-	   
-		   // Bắt đầu chu trình auto click
-		   autoClick();
+		// Chọn tất cả các nút có class "btn-autoclick"
+		const buttons = $('.btn-autoclick');
+		let currentIndex = 0;
+
+		// Hàm thực hiện tự động click
+		function autoClick() {
+			// Trigger click cho nút hiện tại
+			buttons.eq(currentIndex).trigger('click');
+
+			// Tính chỉ số nút tiếp theo
+			currentIndex = (currentIndex + 1) % buttons.length;
+
+			// Lặp lại sau 3 giây
+			setTimeout(autoClick, 3500);
+		}
+
+		// Bắt đầu chu trình auto click
+		autoClick();
 
 		$(document).on(
 			'click',
@@ -688,7 +688,6 @@ import { DataTable } from 'simple-datatables';
 				stroke: {
 					curve: 'smooth',
 					width: 2,
-					
 				},
 				markers: {
 					size: 0, // Ẩn các dấu tròn
@@ -741,24 +740,30 @@ import { DataTable } from 'simple-datatables';
 			};
 			var chart = new ApexCharts(chartElement, options);
 			chart.render().then(function () {
-		  
-		  var $legend = $("#chart .apexcharts-legend");
-		  var $customLegend = $(".apexcharts-legend-custom .apexcharts-legend");
-  
-		  if ($legend.length && $customLegend.length) {
-			$customLegend.html($legend.html());
-  
-			$customLegend.find('.apexcharts-legend-series').each(function (index) {
-			  var seriesIndex = index;
-  
-			  $(this).on('click', function () {
-				$(this).toggleClass('apexcharts-inactive-legend');
-				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
-			  });
+				var $legend = $('#chart .apexcharts-legend');
+				var $customLegend = $(
+					'.apexcharts-legend-custom .apexcharts-legend'
+				);
+
+				if ($legend.length && $customLegend.length) {
+					$customLegend.html($legend.html());
+
+					$customLegend
+						.find('.apexcharts-legend-series')
+						.each(function (index) {
+							var seriesIndex = index;
+
+							$(this).on('click', function () {
+								$(this).toggleClass(
+									'apexcharts-inactive-legend'
+								);
+								chart.toggleSeries(
+									chart.w.globals.seriesNames[seriesIndex]
+								);
+							});
+						});
+				}
 			});
-			
-		  }
-		});
 		}
 	}
 
@@ -3056,6 +3061,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-bidPrice1')
 						.html(bidPrice1_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-bidPrice1')
+						.attr('data-number', share.B1);
 				}
 				if (
 					share.CL &&
@@ -3067,6 +3075,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-ceiling')
 						.html(ceiling_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-ceiling')
+						.attr('data-number', share.CL);
 				}
 				if (
 					share.RE &&
@@ -3081,6 +3092,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price--reference')
 						.html(reference_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price--reference')
+						.attr('data-number', share.RE);
 				}
 				if (
 					share.HI &&
@@ -3091,6 +3105,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-high')
 						.html(high_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-high')
+						.attr('data-number', share.HI);
 				}
 				if (
 					share.LO &&
@@ -3101,6 +3118,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-low')
 						.html(low_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-low')
+						.attr('data-number', share.LO);
 				}
 				if (
 					share.FL &&
@@ -3111,6 +3131,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-floor')
 						.html(floor_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-floor')
+						.attr('data-number', share.FL);
 				}
 				if (
 					share.AP &&
@@ -3125,6 +3148,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-averagePrice')
 						.html(averagePrice_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-averagePrice')
+						.attr('data-number', share.AP);
 				}
 				if (
 					share.CP &&
@@ -3139,6 +3165,9 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-closePrice')
 						.html(closePrice_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-closePrice')
+						.attr('data-number', share.CP);
 				}
 				if (
 					share.CV &&
@@ -3153,17 +3182,67 @@ import { DataTable } from 'simple-datatables';
 					wrapper_price
 						.find('.bsc_need_crawl_price-closeVol')
 						.html(closeVol_title);
+					wrapper_price
+						.find('.bsc_need_crawl_price-closeVol')
+						.attr('data-number', share.CV);
+				}
+				if (share.CHP) {
+					if (
+						wrapper_price.find(
+							'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+						).length > 0
+					) {
+						const formattedPercentage = bsc_number_format(
+							share.CHP,
+							2
+						);
+						wrapper_price
+							.find(
+								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+							)
+							.html(formattedPercentage + '%');
+						wrapper_price
+							.find(
+								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+							)
+							.attr('data-number', share.CHP);
+					}
 				}
 				let text_color_class = '';
-				if (
-					share.CH ||
-					(share.B1 && share.CE) ||
-					(share.B1 && share.FL)
-				) {
-					const difference = share.CHP;
-					if (share.CP && share.CE && share.CP === share.CE) {
+				if (share.CH || share.CHP) {
+					if (share.CHP) {
+						const difference = share.CHP;
+					} else {
+						const difference = wrapper_price
+							.find(
+								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+							)
+							.attr('data-number');
+					}
+					if (share.CP) {
+						const sharecp = share.CP;
+					} else {
+						const sharecp = wrapper_price
+							.find('.bsc_need_crawl_price-closePrice')
+							.attr('data-number');
+					}
+					if (share.CL) {
+						const sharecl = share.CL;
+					} else {
+						const sharecl = wrapper_price
+							.find('.bsc_need_crawl_price-ceiling')
+							.attr('data-number');
+					}
+					if (share.FL) {
+						const sharefl = share.FL;
+					} else {
+						const sharefl = wrapper_price
+							.find('.bsc_need_crawl_price-floor')
+							.attr('data-number');
+					}
+					if (sharecp && sharecl && sharecp === sharecl) {
 						text_color_class = 'text-[#7F1CCD]';
-					} else if (share.CP && share.FL && share.CP === share.FL) {
+					} else if (sharecp && sharefl && sharecp === sharefl) {
 						text_color_class = 'text-[#1ABAFE]';
 					} else if (difference > 0) {
 						text_color_class = 'text-[#1CCD83]';
@@ -3204,23 +3283,6 @@ import { DataTable } from 'simple-datatables';
 						wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
 							.html(formattedDifference);
-					}
-				}
-				if (share.CHP) {
-					if (
-						wrapper_price.find(
-							'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-						).length > 0
-					) {
-						const formattedPercentage = bsc_number_format(
-							share.CHP,
-							2
-						);
-						wrapper_price
-							.find(
-								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-							)
-							.html(formattedPercentage + '%');
 					}
 				}
 				if (wrapper_price.find('.bsc_need_crawl_date').length > 0) {
@@ -3285,6 +3347,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-bidPrice1')
 								.html(bidPrice1_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-bidPrice1')
+								.attr('data-number', share.closePrice);
 						}
 						if (
 							share.ceiling &&
@@ -3299,6 +3364,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-ceiling')
 								.html(ceiling_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-ceiling')
+								.attr('data-number', share.ceiling);
 						}
 						if (
 							share.high &&
@@ -3313,6 +3381,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-high')
 								.html(high_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-high')
+								.attr('data-number', share.high);
 						}
 						if (
 							share.reference &&
@@ -3328,6 +3399,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price--reference')
 								.html(reference_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price--reference')
+								.attr('data-number', share.reference);
 						}
 						if (
 							share.low &&
@@ -3339,6 +3413,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-low')
 								.html(low_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-low')
+								.attr('data-number', share.low);
 						}
 						if (
 							share.floor &&
@@ -3353,6 +3430,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-floor')
 								.html(floor_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-floor')
+								.attr('data-number', share.floor);
 						}
 						if (
 							share.averagePrice &&
@@ -3368,6 +3448,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-averagePrice')
 								.html(averagePrice_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-averagePrice')
+								.attr('data-number', share.averagePrice);
 						}
 						if (
 							share.closePrice &&
@@ -3383,6 +3466,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-closePrice')
 								.html(closePrice_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-closePrice')
+								.attr('data-number', share.closePrice);
 						}
 						if (
 							share.closeVol &&
@@ -3397,6 +3483,9 @@ import { DataTable } from 'simple-datatables';
 							wrapper_price
 								.find('.bsc_need_crawl_price-closeVol')
 								.html(closeVol_title);
+							wrapper_price
+								.find('.bsc_need_crawl_price-closeVol')
+								.attr('data-number', share.closeVol);
 						}
 						let text_color_class = '';
 						if (share.closeprice == share.ceiling) {
@@ -3419,35 +3508,37 @@ import { DataTable } from 'simple-datatables';
 								.find('.bsc_need_crawl_price-text-color')
 								.addClass(text_color_class);
 						}
-						if (
-							wrapper_price.find(
-								'.bsc_need_crawl_price-bidPrice1-reference'
-							).length > 0
-						) {
-							const formattedDifference = bsc_number_format(
-								share.change / 1000,
-								2
-							);
-							wrapper_price
-								.find(
+						if (share.closePrice) {
+							if (
+								wrapper_price.find(
 									'.bsc_need_crawl_price-bidPrice1-reference'
-								)
-								.html(formattedDifference);
-						}
-						if (
-							wrapper_price.find(
-								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-							).length > 0
-						) {
-							const formattedPercentage = bsc_number_format(
-								share.changePercent,
-								2
-							);
-							wrapper_price
-								.find(
+								).length > 0
+							) {
+								const formattedDifference = bsc_number_format(
+									share.change / 1000,
+									2
+								);
+								wrapper_price
+									.find(
+										'.bsc_need_crawl_price-bidPrice1-reference'
+									)
+									.html(formattedDifference);
+							}
+							if (
+								wrapper_price.find(
 									'.bsc_need_crawl_price-bidPrice1-reference-phantram'
-								)
-								.html(formattedPercentage + '%');
+								).length > 0
+							) {
+								const formattedPercentage = bsc_number_format(
+									share.changePercent,
+									2
+								);
+								wrapper_price
+									.find(
+										'.bsc_need_crawl_price-bidPrice1-reference-phantram'
+									)
+									.html(formattedPercentage + '%');
+							}
 						}
 						let text_color_class_price_changePercent = '';
 
