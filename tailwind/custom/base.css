@@ -187,6 +187,12 @@
 .is-desktop .footer-item li a {
   @apply transition-all duration-500 hover:text-yellow-100;
 }
+.is-desktop .page__banner:not(.page__banner-haft) {
+  @apply bg-right-top;
+}
+.is-desktop .page__banner:not(.page__banner-haft)::after {
+  background-image: linear-gradient(251deg, rgba(27, 70, 141, 0) 8.87%, rgba(34, 52, 114, 0.74) 43.96%, #252D69 98.08%);
+}
 .is-desktop .page__banner-haft {
   @apply bg-right-top;
   background-size: 70% 100% !important;
@@ -533,7 +539,7 @@
   @apply bg-primary-300;
 }
 .is-mobile .chart-info .subscribe {
-  @apply h-[42px] mt-[12px];
+  @apply h-[50px];
 }
 .is-mobile .chart-info .subscribe input {
   @apply p-0;
@@ -911,7 +917,7 @@ header.active {
   @apply flex-1 2xl:max-w-[64%] lg:max-w-[50%] max-w-[calc(100%-120px)] lg:text-base text-xs;
 }
 .subscribe button {
-  @apply whitespace-nowrap px-4 md:min-w-[97px] lg:h-[38px] h-[30px] py-1 ml-auto sm:text-base text-xs;
+  @apply whitespace-nowrap px-4 md:min-w-[97px] h-10 py-1 ml-auto sm:text-base text-xs;
 }
 .subscribe svg {
   @apply shrink-0;
@@ -953,7 +959,7 @@ header.active {
   @apply w-full 2xl:pr-10 pr-8;
 }
 .sidebar-report .has-child .li-plus {
-  @apply absolute lg:top-[14px] top-3 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-[18px] h-[18px];
+  @apply absolute top-[14px] 2xl:right-3 right-1.5 lg:w-6 lg:h-6 w-5 h-5;
 }
 .sidebar-report .has-child .li-plus.active {
   @apply rotate-180;
@@ -975,7 +981,7 @@ header.active {
   @apply rounded-[10px] border border-[#999999] focus:outline-0 focus:border-primary-400 focus:ring-transparent text-xs 2xl:h-14 h-10 px-5 text-[#000] font-medium placeholder:font-medium;
 }
 .form_cv .upload_file-wrapper {
-  background-image: url("data:image/svg+xml,%3Csvg width='500' height='171' viewBox='0 0 500 171' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' fill='%23F9F9F9'/%3E%3Crect x='0.5' y='0.5' width='499' height='170' rx='9.5' stroke='%23295CA9' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
+  border: 2px dashed #235ba8;
   @apply relative rounded-[10px] 2xl:min-h-[170px] min-h-[120px] flex justify-center items-center flex-col cursor-pointer bg-no-repeat bg-full;
 }
 .form_cv .upload_file-wrapper input[type=file] {
@@ -1323,6 +1329,17 @@ button#ib-button-messaging {
 
 .current-lang a {
   @apply bg-primary-300 text-white;
+}
+
+.flickity-watch::after {
+  content: "flickity";
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .flickity-watch:after {
+    content: "";
+  }
 }
 
 /*# sourceMappingURL=base.css.map */

@@ -5,7 +5,7 @@ $generateRandomString = generateRandomString();
 	id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 	<div
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:py-[100px] py-20' : 'py-[50px]' ?>">
-		<div class="container overflow-hidden">
+		<div class="container lg:overflow-hidden">
 			<?php if (get_sub_field('title')) { ?>
 				<h2
 					class="heading-title text-center hidden-br-pc <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'sm:text-[22px] text-lg mb-6' ?>">
@@ -14,13 +14,14 @@ $generateRandomString = generateRandomString();
 			<?php } ?>
 			<?php if (have_rows('hanh_trinh')) { ?>
 				<div
-					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:translate-x-[120px] grid-cols-4' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
+					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:translate-x-[120px] lg:grid-cols-4 grid-cols-2 lg:bg-transparent bg-white lg:p-0 p-5 lg:rounded-none lg:shadow-none shadow-base rounded-xl relative lg:after:hidden lg:before:hidden after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('hanh_trinh')) :
 						the_row();
 						$i++;
 						$mobileClass = '';
+						$pcClass='';
 						if (wp_is_mobile() && bsc_is_mobile()) {
 							switch ($i) {
 								case 1:
@@ -37,6 +38,23 @@ $generateRandomString = generateRandomString();
 									break;
 							}
 						}
+						if (!wp_is_mobile() && !bsc_is_mobile()) {
+							switch ($i) {
+								case 1:
+									$pcClass = 'lg:mb-0 mb-2 lg:mr-0 mr-2';
+									break;
+								case 2:
+									$pcClass = 'lg:mb-0 mb-2 lg:ml-0 ml-2';
+									break;
+								case 3:
+									$pcClass = 'lg:mt-0 mt-2 lg:mr-0 mr-2';
+									break;
+								case 4:
+									$pcClass = 'lg:ml-0 ml-2 lg:mt-0 mt-2';
+									break;
+							}
+						}
+
 						switch ($i) {
 							case 1:
 								$icon = 'step-1';
@@ -54,7 +72,7 @@ $generateRandomString = generateRandomString();
 
 					?>
 						<a href="<?php echo check_link(get_sub_field('link')) ?>"
-							class="col-span-1 step-item transition-all duration-500 relative bg-no-repeat bg-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[187px]' : 'min-h-[165px] rounded-lg hover:bg-gradient-blue hover:text-white'; ?> <?php echo esc_attr($mobileClass); ?>">
+							class="col-span-1 step-item transition-all duration-500 relative bg-no-repeat bg-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[187px]' : 'min-h-[165px] rounded-lg hover:bg-gradient-blue hover:text-white'; ?> <?php echo esc_attr($mobileClass); ?> <?php echo esc_attr($pcClass); ?>">
 							<div
 								class="flex flex-col items-center relative group z-10 justify-center w-full h-full cursor-pointer">
 								<div
@@ -111,14 +129,14 @@ $generateRandomString = generateRandomString();
 									the_row();
 									$y++;
 									if ($y % 2 == 1) {
-										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 lg:flex-row flex-col gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 md:flex-row flex-col gap-8 items-center';
 									} else {
-										$class = 'bg-white p-8 rounded-3xl flex lg:flex-row-reverse flex-col lg:gap-16 gap-10 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex md:flex-row-reverse flex-col lg:gap-16 gap-8 items-center';
 									}
 							?>
 									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? $class : 'bg-white p-4 rounded-2xl' ?>">
 										<?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
-											<div class="w-[563px] max-w-[50%]">
+											<div class="lg:w-[563px] lg:max-w-[50%] w-full">
 												<div class="relative w-full pt-[62.166%] rounded-2xl overflow-hidden">
 													<?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'absolute w-full h-full inset-0 object-cover transition-all duration-500 hover:scale-105')) ?>
 												</div>
@@ -127,7 +145,7 @@ $generateRandomString = generateRandomString();
 										<div class="flex-1 text-justify">
 											<?php if (get_sub_field('title')) { ?>
 												<h3
-													class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-lg mb-6' : 'text-xl mb-4' ?> text-primary-300">
+													class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-lg lg:mb-6 mb-4' : 'text-xl mb-4' ?> text-primary-300">
 													<?php the_sub_field('title') ?>
 												</h3>
 											<?php } ?>

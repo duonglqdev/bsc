@@ -686,7 +686,7 @@ import { DataTable } from 'simple-datatables';
 				stroke: {
 					curve: 'smooth',
 					width: 2,
-					width: 2,
+					
 				},
 				markers: {
 					size: 0, // Ẩn các dấu tròn
@@ -754,7 +754,7 @@ import { DataTable } from 'simple-datatables';
 				chart.toggleSeries(chart.w.globals.seriesNames[seriesIndex]);
 			  });
 			});
-			// $legend.css('opacity', 0);
+			
 		  }
 		});
 		}
@@ -810,7 +810,7 @@ import { DataTable } from 'simple-datatables';
 		var $aboutHistoryNav = $('.about_history-nav');
 		var totalItems = $aboutHistoryNav.slick('getSlick').slideCount;
 
-		if ($aboutHistoryNav.hasClass('mb')) {
+		if ($(window).width() <= 1024) {
 			if (totalItems <= 3) {
 				$aboutHistoryNav.find('.slick-track').addClass('no-transform');
 			}

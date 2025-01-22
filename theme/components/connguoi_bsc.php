@@ -11,7 +11,7 @@
 		<?php if ( have_rows( 'danh_gia' ) )
 		{ ?>
 			<div
-				class="relative bg-gradient-blue-50 rounded-2xl items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:px-32 px-20 py-2 grid grid-cols-2 gap-16':'px-4 pt-[26px] ' ?>">
+				class="relative bg-gradient-blue-50 rounded-2xl items-center <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:px-32 lg:px-20 px-5 py-2 grid grid-cols-2 lg:gap-16 gap-10':'px-4 pt-[26px] ' ?>">
 				<div class="staff_content data-slick block_slider-show-1"
 					data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots":<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'true':'false' ?>, "arrows": false, "fade": true, "asNavFor": ".staff_image"}'>
 					<?php

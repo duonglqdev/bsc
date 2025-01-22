@@ -63,15 +63,33 @@ get_header();
 					<?php } ?>
 				</div>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid lg:grid-cols-3 grid-cols-1 gap-[21px]' : 'block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
+					class="lg:grid lg:grid-cols-3 lg:gap-[21px] fli-dots-blue dot-30 flickity-watch lg:mx-0 -mx-3"
+					data-flickity='{ 
+						"draggable": true,
+						"wrapAround": true,
+						"imagesLoaded": true,
+						"prevNextButtons": false, 
+						"pageDots": true, 
+						"cellAlign": "left",
+						"contain": true, 
+						"autoPlay": 3000,
+						"watchCSS": true 
+					}'>
 					<?php
 					foreach ($response->d as $news) {
-						get_template_part('template-parts/content', 'khuyen-mai', array(
-							'data' => $news,
-						));
+						?>
+						<div class="lg:w-full md:w-1/2 w-full lg:px-0 px-3 block_slider-item">
+							<?php
+							get_template_part('template-parts/content', 'khuyen-mai', array(
+								'data' => $news,
+							));
+							?>
+						</div>
+						<?php
 					}
 					?>
 				</div>
+
 			</div>
 		</section>
 	<?php } ?>

@@ -137,7 +137,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="grid md:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
+							<div class="grid lg:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
 								<div class="apexcharts-legend">
 
 								</div>

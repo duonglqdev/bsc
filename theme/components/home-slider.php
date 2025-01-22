@@ -49,7 +49,7 @@ if (have_rows('slider')) {
 												while (have_rows('title')) :
 													the_row(); ?>
 													<h2
-														class="uppercase text-white font-extrabold !leading-tight <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:text-[50px] lg:text-4xl mb-6' : 'text-2xl mb-4' ?>">
+														class="uppercase text-white font-extrabold !leading-tight <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:text-[50px] text-4xl mb-6' : 'text-2xl mb-4' ?>">
 														<?php if (get_sub_field('title_1')) { ?>
 															<p>
 																<?php the_sub_field('title_1') ?>
