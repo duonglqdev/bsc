@@ -313,14 +313,7 @@
 		@apply mt-20;
 	}
 }
-.form_report {
-	input {
-		@apply w-full px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
-	}
-	button {
-		@apply relative left-1/2 -translate-x-1/2;
-	}
-}
+
 .is-mobile {
 	.container {
 		@apply px-5;
@@ -350,12 +343,15 @@
 		@apply fixed w-full h-full max-h-full overflow-y-auto top-0 left-0 bg-gradient-blue-50 z-[99] overflow-x-hidden transition-all duration-500 [&:not(.active)]:-translate-x-full translate-x-0  [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:invisible visible [&:not(.active)]:pointer-events-none;
 		> li {
 			@apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-[22px] before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
+			a{
+				@apply md:text-2xl;
+			}
 		}
 		li {
 			&.active,
 			&.current-menu-item {
 				> a {
-					@apply text-primary-300 text-lg;
+					@apply text-primary-300 md:text-[26px] text-lg;
 				}
 			}
 		}
@@ -655,6 +651,14 @@
 }
 #custom-chatroom-widget-wrapper.collapsed .chat-bar-heading {
 	display: none !important;
+}
+.form_report {
+	input {
+		@apply w-full px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
+	}
+	button {
+		@apply relative left-1/2 -translate-x-1/2;
+	}
 }
 .custom-table {
 	thead {

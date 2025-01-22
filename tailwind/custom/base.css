@@ -365,13 +365,6 @@
   @apply mt-20;
 }
 
-.form_report input {
-  @apply w-full px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
-}
-.form_report button {
-  @apply relative left-1/2 -translate-x-1/2;
-}
-
 .is-mobile .container {
   @apply px-5;
 }
@@ -400,8 +393,11 @@
 .is-mobile .main_menu-navbar > li {
   @apply font-bold relative pl-5 before:absolute before:w-2 before:h-2 before:bg-primary-300 before:rounded-sm before:left-0 before:top-[22px] before:transition-all before:duration-500 text-black [&:not(.current-menu-item,.active)]:text-opacity-70 text-opacity-100 py-[12px] [&:not(.current-menu-item,.active)]:before:opacity-0;
 }
+.is-mobile .main_menu-navbar > li a {
+  @apply md:text-2xl;
+}
 .is-mobile .main_menu-navbar li.active > a, .is-mobile .main_menu-navbar li.current-menu-item > a {
-  @apply text-primary-300 text-lg;
+  @apply text-primary-300 md:text-[26px] text-lg;
 }
 .is-mobile .main_menu-navbar > .menu-item-has-children {
   @apply pr-8;
@@ -651,6 +647,13 @@
 
 #custom-chatroom-widget-wrapper.collapsed .chat-bar-heading {
   display: none !important;
+}
+
+.form_report input {
+  @apply w-full px-5 rounded-[10px] font-Helvetica placeholder:text-black border placeholder:text-opacity-45 border-[#aaa];
+}
+.form_report button {
+  @apply relative left-1/2 -translate-x-1/2;
 }
 
 .custom-table thead th {
