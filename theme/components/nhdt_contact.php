@@ -1,7 +1,7 @@
 <div class="bg-gradient-blue-250 nhdt_contact <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-20':'py-8' ?>" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
-        <div class=" <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex':'' ?>">
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pr-[50px] pr-10 lg:w-[575px] lg:max-w-[43%] shrink-0':'' ?>">
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'md:flex':'' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pr-[50px] lg:pr-10 pr-5 lg:w-[575px] lg:max-w-[43%] w-[43%] shrink-0':'' ?>">
                 <?php if (get_sub_field('title')) {
                     $title = get_sub_field('title');
                 } else {
@@ -23,7 +23,7 @@
                     </div>
                 <?php } ?>
             </div>
-            <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pl-[50px] pl-10 lg:border-l border-[#D2D2D2]':'' ?>">
+            <div class="flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:pl-[50px] lg:pl-10 pl-5 md:border-l border-[#D2D2D2]':'' ?>">
                 <?php if (get_sub_field('title_contact')) {
                     $title_form = get_sub_field('title_contact');
                 } else {
