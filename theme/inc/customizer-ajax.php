@@ -1052,7 +1052,7 @@ function filter_details_symbol()
 	?>
 		<div class="list__content">
 			<div
-				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-16 mb-10' : 'mt-[38px] mb-2' ?>">
+				class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mt-16 mt-8 lg:mb-10' : 'mt-[38px] mb-2' ?>">
 				<ul
 					class="flex items-center sm:gap-5 gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?> customtab-nav">
 					<li>
@@ -1498,7 +1498,7 @@ function filter_details_symbol()
 										</div>
 									</div>
 									<div
-										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
+										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-3 grid-cols-1 gap-5 lg:text-base text-xs' : 'gap-8' ?>">
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
@@ -1713,7 +1713,7 @@ function filter_details_symbol()
 										</div>
 									</div>
 									<div
-										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-3 gap-5' : 'gap-8' ?>">
+										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-3 grid-cols-1 gap-5' : 'gap-8' ?>">
 										<?php if ($check_linh_vuc == 'Bank') { ?>
 											<div class="flex flex-col">
 												<h4
