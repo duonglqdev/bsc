@@ -6,9 +6,9 @@
 				<?php the_sub_field( 'title' ) ?>
 			</h2>
 		<?php } ?>
-		<div class="flex md:flex-row flex-col md:gap-[38px] gap-8 bsc_need_crawl_price" data-symbol="BSI"
+		<div class="flex lg:flex-row flex-col md:gap-[38px] gap-8 bsc_need_crawl_price" data-symbol="BSI"
 			data-socket="true">
-			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-80 w-full ' : 'w-full' ?>">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:max-w-80 max-w-96 w-full lg:mx-0 mx-auto' : 'w-full' ?>">
 				<div
 					class="bg-gradient-blue-50 shadow-base rounded-2xl h-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-6 2xl:space-y-8 space-y-4' : 'p-4' ?>">
 					<div
