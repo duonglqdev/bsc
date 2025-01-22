@@ -6,13 +6,13 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('content')) { ?>
-            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid lg:grid-cols-2 grid-cols-1 gap-5':'space-y-5' ?>">
+            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid md:grid-cols-2 grid-cols-1 gap-5':'space-y-5' ?>">
                 <?php while (have_rows('content')): the_row(); ?>
-                    <div class="rounded-xl overflow-hidden bg-no-repeat bg-cover flex  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[228px] px-11 py-5':'min-h-[184px] pl-5 py-3' ?>"
+                    <div class="rounded-xl overflow-hidden bg-no-repeat bg-cover flex  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[228px] lg:px-11 px-5 py-5':'min-h-[184px] pl-5 py-3' ?>"
                         style="background-image:url(<?php echo wp_get_attachment_image_url(get_sub_field('background'), 'full') ?>)">
                         <div class="w-1/2 h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mt-auto pb-5' ?>">
                             <div
-                                class="h-full font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pb-[43px] ml-10 flex flex-col justify-end':'' ?>">
+                                class="h-full font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pb-[43px] lg:ml-10 ml-5 flex flex-col justify-end':'' ?>">
                                 <?php if (get_sub_field('title')) { ?>
                                     <p class="font-bold mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-2xl':'text-lg' ?>">
                                         <?php the_sub_field('title') ?>
