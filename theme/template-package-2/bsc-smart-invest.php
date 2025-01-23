@@ -130,7 +130,7 @@ get_header();
 			</h2>
 			<div class="slider-tutorial <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'block_slider-show-2':'block_slider-show-1 dots-left fli-dots-blue' ?>"
 				data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'true':'false' ?>, "pageDots": <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'false':'true' ?>, "cellAlign": "left","contain": true, "autoPlay":false}'>
-				<div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-[57.686567%] w-full lg:mr-[23px]':'w-full' ?>">
+				<div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:w-[57.686567%] md:w-[70%] w-full lg:mr-[23px]':'w-full' ?>">
 					<div class="relative rounded-[20px] overflow-hidden h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'pt-[54.33376%]':'pt-[125.373%]' ?>">
 						
 					<img loading="lazy" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/slide1.png"
