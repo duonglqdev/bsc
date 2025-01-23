@@ -79,7 +79,7 @@ $generateRandomString = generateRandomString();
 									class="text-primary-300 group-hover:text-white lg:transition-all lg:duration-500">
 									 <?php echo svg($icon) ?>
 								</div>
-								<div class="mt-[7px] text-center 2xl:text-xl xl:text-lg font-bold">
+								<div class="mt-[7px] text-center 2xl:text-xl xl:text-lg lg:text-base md:text-xl font-bold">
 									<?php the_sub_field('title') ?>
 								</div>
 							</div>

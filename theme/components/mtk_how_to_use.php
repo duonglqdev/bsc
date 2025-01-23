@@ -49,7 +49,7 @@
                                     </h3>
                                 <?php } ?>
                                 <?php if (get_sub_field('content')) { ?>
-                                    <div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs text-justify">
+                                    <div class="prose-ul:pl-5 prose-ul:list-disc font-Helvetica marker:text-xs text-justify prose-ul:lg:ml-0 prose-ul:ml-8">
                                         <?php the_sub_field('content') ?>
                                     </div>
                                 <?php } ?>

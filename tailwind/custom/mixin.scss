@@ -92,3 +92,38 @@
     @apply bg-green;
     @include btn-base(rgba(0, 158, 135, 0.4));
 }
+
+.shake-animation{
+    display: inline-block;
+    -webkit-animation: shake-animation 3.5s linear infinite; 
+    animation: shake-animation 3.5s linear infinite;
+    -webkit-transform-origin: center; 
+    transform-origin: center;
+}
+@-webkit-keyframes shake-animation {
+    0% { -webkit-transform: rotate(0); transform: rotate(0); }
+    10% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    20% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    30% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    40% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    50% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    60% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    70% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    80% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    90% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    100% { -webkit-transform: rotate(0); transform: rotate(0); }
+}
+
+@keyframes shake-animation {
+    0% { -webkit-transform: rotate(0); transform: rotate(0); }
+    10% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    20% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    30% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    40% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    50% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    60% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    70% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    80% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+    90% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+    100% { -webkit-transform: rotate(0); transform: rotate(0); }
+}

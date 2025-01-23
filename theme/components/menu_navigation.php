@@ -88,7 +88,7 @@ if ($style == 'nhdt') {
 			id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
 			<div class="container">
 				<ul
-					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
+					class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10 overflow-x-auto nav-scroll-mb' : 'overflow-x-auto gap-4 nav-scroll-mb' ?>">
 					<?php while (have_rows('menu_navigation')) :
 						the_row(); ?>
 						<li class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap' ?>">
