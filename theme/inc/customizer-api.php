@@ -2,7 +2,7 @@
 function callApi($url, $data = false, $method = "GET")
 {
 	// $curl = curl_init();
-	// curl_setopt_array( $curl, array(
+	// curl_setopt_array($curl, array(
 	// 	CURLOPT_URL => $url,
 	// 	CURLOPT_RETURNTRANSFER => true,
 	// 	CURLOPT_ENCODING => '',
@@ -15,26 +15,26 @@ function callApi($url, $data = false, $method = "GET")
 	// 	CURLOPT_HTTPHEADER => array(
 	// 		'Content-Type: application/json'
 	// 	),
-	// ) );
+	// ));
 
-	// $response = curl_exec( $curl );
-	// $error = curl_error( $curl ); // Lấy lỗi nếu có
-	// $http_code = curl_getinfo( $curl, CURLINFO_HTTP_CODE ); // Mã HTTP trả về
-	// curl_close( $curl );
+	// $response = curl_exec($curl);
+	// $error = curl_error($curl); // Lấy lỗi nếu có
+	// $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
+	// curl_close($curl);
 
-	// if ( $error ) {
+	// if ($error) {
 	// 	// Ghi log lỗi
-	// 	error_log( "API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode( $data ) );
+	// 	error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
 	// 	return null;
 	// }
 
 	// // Nếu mã HTTP không phải 2xx, ghi log lỗi
-	// if ( $http_code < 200 || $http_code >= 300 ) {
-	// 	error_log( "API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response );
+	// if ($http_code < 200 || $http_code >= 300) {
+	// 	error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
 	// 	return null;
 	// }
 
-	// return json_decode( $response );
+	// return json_decode($response);
 }
 
 
@@ -796,30 +796,74 @@ function bsc_proxy_pdf_content()
 	}
 	// Tạo URL PDF dựa trên ID
 
-	if (preg_match('/\.pdf($|[\/?])/i', $pdf_url)) {
-		// Gửi yêu cầu đến URL PDF gốc
-		$args = array(
-			'timeout' => 60,
-			'sslverify' => false,
-			'headers' => array(
-				'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
-			),
-		);
-		$response = wp_remote_get($pdf_url, $args);
-		if (is_wp_error($response)) {
-			$error_message = $response->get_error_message();
-			wp_die('Không thể tải nội dung tệp PDF. Lỗi: ' . $error_message);
-		}
-
-		// Gửi nội dung PDF tới trình duyệt
-		header('Content-Type: application/pdf');
-		header('Content-Disposition: inline; filename="report-' . $id . '.pdf"');
-		echo wp_remote_retrieve_body($response);
-		exit;
-	} else {
-		wp_redirect($pdf_url);
-		exit;
+	// Gửi yêu cầu đến URL PDF gốc
+	$args = array(
+		'timeout' => 60,
+		'sslverify' => false,
+		'headers' => array(
+			'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+		),
+	);
+	$response = wp_remote_get($pdf_url, $args);
+	if (is_wp_error($response)) {
+		$error_message = $response->get_error_message();
+		wp_die('Không thể tải nội dung file. Lỗi: ' . $error_message);
 	}
+
+	// 5. Lấy Content-Type từ header trả về
+	$content_type = wp_remote_retrieve_header($response, 'content-type');
+	// Nếu rỗng -> gán mặc định application/octet-stream
+	if (empty($content_type)) {
+		$content_type = 'application/octet-stream';
+	}
+
+	// 6. Lấy nội dung file
+	$body = wp_remote_retrieve_body($response);
+	if (!$body) {
+		wp_die('Nội dung file trống hoặc không khả dụng.');
+	}
+
+	// 7. Lấy extension từ URL (dùng parse_url + pathinfo)
+	$extension = pathinfo(parse_url($pdf_url, PHP_URL_PATH), PATHINFO_EXTENSION);
+	// Nếu không có extension, ta fallback là .dat
+	if (empty($extension)) {
+		$extension = 'dat';
+	}
+	// Nên chuyển extension về chữ thường
+	$extension = strtolower($extension);
+
+	// 8. Xác định các extension buộc tải xuống
+	$force_download_exts = ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar'];
+
+	// 9. Quy tắc xác định "inline" hay "attachment"
+	//    - PDF (.pdf) => inline
+	//    - Ảnh (bắt đầu bằng "image/") => inline
+	//    - .txt => inline
+	//    - doc, docx, xls, xlsx, zip, rar => attachment
+	//    - còn lại => inline (bạn có thể thay đổi cho phù hợp)
+	if (in_array($extension, $force_download_exts)) {
+		// Bắt buộc tải về
+		$disposition = 'attachment';
+	} elseif ($extension === 'pdf') {
+		$disposition = 'inline';
+	} elseif (stripos($content_type, 'image/') === 0) {
+		$disposition = 'inline';
+	} elseif ($extension === 'txt') {
+		$disposition = 'inline';
+	} else {
+		// Mặc định, những file khác (chưa liệt kê) -> inline (có thể đổi thành attachment)
+		$disposition = 'inline';
+	}
+
+	// 10. Gửi header phản hồi cho trình duyệt
+	header('Content-Type: ' . $content_type);
+	header('Content-Disposition: ' . $disposition . '; filename="report-' . $id . '.' . $extension . '"');
+	header('Content-Transfer-Encoding: binary');
+	// Nếu file lớn và bạn muốn hỗ trợ resume:
+	// header('Accept-Ranges: bytes');
+
+	// 11. Xuất nội dung file
+	echo $body;
 }
 
 function bsc_register_pdf_proxy_route()
@@ -889,30 +933,75 @@ function bsc_proxy_newspdf_content()
 	}
 	// Tạo URL PDF dựa trên ID
 
-	if (preg_match('/\.pdf($|[\/?])/i', $pdf_url)) {
-		// Gửi yêu cầu đến URL PDF gốc
-		$args = array(
-			'timeout' => 60,
-			'sslverify' => false,
-			'headers' => array(
-				'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
-			),
-		);
-		$response = wp_remote_get($pdf_url, $args);
-		if (is_wp_error($response)) {
-			$error_message = $response->get_error_message();
-			wp_die('Không thể tải nội dung tệp PDF. Lỗi: ' . $error_message);
-		}
-
-		// Gửi nội dung PDF tới trình duyệt
-		header('Content-Type: application/pdf');
-		header('Content-Disposition: inline; filename="report-' . $id . '.pdf"');
-		echo wp_remote_retrieve_body($response);
-		exit;
-	} else {
-		wp_redirect($pdf_url);
-		exit;
+	// Gửi yêu cầu đến URL PDF gốc
+	$args = array(
+		'timeout' => 60,
+		'sslverify' => false,
+		'headers' => array(
+			'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+		),
+	);
+	$response = wp_remote_get($pdf_url, $args);
+	if (is_wp_error($response)) {
+		$error_message = $response->get_error_message();
+		wp_die('Không thể tải nội dung file. Lỗi: ' . $error_message);
 	}
+
+	// 5. Lấy Content-Type từ header trả về
+	$content_type = wp_remote_retrieve_header($response, 'content-type');
+	// Nếu rỗng -> gán mặc định application/octet-stream
+	if (empty($content_type)) {
+		$content_type = 'application/octet-stream';
+	}
+
+	// 6. Lấy nội dung file
+	$body = wp_remote_retrieve_body($response);
+	if (!$body) {
+		wp_die('Nội dung file trống hoặc không khả dụng.');
+	}
+
+	// 7. Lấy extension từ URL (dùng parse_url + pathinfo)
+	$extension = pathinfo(parse_url($pdf_url, PHP_URL_PATH), PATHINFO_EXTENSION);
+	// Nếu không có extension, ta fallback là .dat
+	if (empty($extension)) {
+		$extension = 'dat';
+	}
+	// Nên chuyển extension về chữ thường
+	$extension = strtolower($extension);
+
+	// 8. Xác định các extension buộc tải xuống
+	$force_download_exts = ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar'];
+
+	// 9. Quy tắc xác định "inline" hay "attachment"
+	//    - PDF (.pdf) => inline
+	//    - Ảnh (bắt đầu bằng "image/") => inline
+	//    - .txt => inline
+	//    - doc, docx, xls, xlsx, zip, rar => attachment
+	//    - còn lại => inline (bạn có thể thay đổi cho phù hợp)
+	if (in_array($extension, $force_download_exts)) {
+		// Bắt buộc tải về
+		$disposition = 'attachment';
+	} elseif ($extension === 'pdf') {
+		$disposition = 'inline';
+	} elseif (stripos($content_type, 'image/') === 0) {
+		$disposition = 'inline';
+	} elseif ($extension === 'txt') {
+		$disposition = 'inline';
+	} else {
+		// Mặc định, những file khác (chưa liệt kê) -> inline (có thể đổi thành attachment)
+		$disposition = 'inline';
+	}
+
+	// 10. Gửi header phản hồi cho trình duyệt
+	header('Content-Type: ' . $content_type);
+	header('Content-Disposition: ' . $disposition . '; filename="report-' . $id . '.' . $extension . '"');
+	header('Content-Transfer-Encoding: binary');
+	// Nếu file lớn và bạn muốn hỗ trợ resume:
+	// header('Accept-Ranges: bytes');
+
+	// 11. Xuất nội dung file
+	echo $body;
+	exit;
 }
 
 function bsc_register_pdf_proxy_newsroute()
