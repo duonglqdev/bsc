@@ -12,11 +12,11 @@ get_header();
 		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-14 xl:mb-pb-[110px] mb-20' : 'mt-8 mb-[50px]' ?>">
 		<div class="container">
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-12 gap-10 lg:space-y-0 space-y-10' : '' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-12 xl:gap-10 gap-6 lg:space-y-0 space-y-10' : '' ?>">
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[745px] lg:max-w-[56%]' : 'w-full' ?>">
 					<h2
-						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : 'mb-6' ?>">
+						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:mb-8 mb-10 2xl:!text-[32px] xl:!text-[28px] !text-[22px]' : 'mb-6' ?>">
 						Danh mục khuyến nghị
 					</h2>
 					<ul
@@ -123,14 +123,14 @@ get_header();
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1' : 'mt-[50px]' ?>">
 					<h2
-						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mb-14 mb-6' : 'mb-6' ?>">
+						class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:mb-14 mb-6 2xl:!text-[32px] xl:!text-[28px] !text-[22px]' : 'mb-6' ?>">
 						Thông tin phân tích mới nhất
 					</h2>
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center mb-4' : 'text-right mb-1' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-4' : 'text-right mb-1' ?>">
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 						{ ?>
-							<p class="uppercase text-primary-300 font-bold">
+							<p class="uppercase text-primary-300 font-bold xl:mb-0 mb-2">
 								Dự báo kinh tế vĩ mô Việt Nam 2024-2025
 							</p>
 						<?php } ?>
