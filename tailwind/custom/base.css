@@ -1257,10 +1257,10 @@ button#ib-button-messaging {
 }
 
 .datatable-pagination-list {
-  @apply flex items-center gap-[11px] h-9 text-base overflow-x-auto sm:justify-center no-scrollbar;
+  @apply flex items-center sm:gap-[11px] gap-1 text-base overflow-x-auto sm:justify-center no-scrollbar;
 }
 .datatable-pagination-list li {
-  @apply flex items-center justify-center min-w-9 h-9 rounded text-xs font-bold leading-tight [&:not(.datatable-active)]:border border-transparent [&:not(.datatable-active)]:border-[#898A8D] [&:not(.datatable-active)]:bg-white bg-primary-300 [&:not(.datatable-active)]:text-black text-white hover:bg-primary-300 hover:text-white hover:border-transparent transition-all duration-500;
+  @apply flex items-center justify-center sm:min-w-9 sm:h-9 min-w-6 h-6 rounded text-xs sm:font-bold font-medium leading-tight [&:not(.datatable-active)]:border border-transparent [&:not(.datatable-active)]:border-[#898A8D] [&:not(.datatable-active)]:bg-white bg-primary-300 [&:not(.datatable-active)]:text-black text-white hover:bg-primary-300 hover:text-white hover:border-transparent transition-all duration-500;
 }
 .datatable-pagination-list li button {
   @apply block w-full h-full;
