@@ -19,8 +19,8 @@
                         $color2 = '';
                     }
                 ?>
-                    <div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[57.686567%] w-full lg:mr-[23px]' : 'w-full' ?>">
-                        <div class="relative rounded-[20px] overflow-hidden h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'pt-[54.33376%]' : 'pt-[125.373%]' ?>">
+                    <div class="block_slider-item min-h-[420px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:w-[57.686567%] lg:w-[70%] w-[80%] w-full md:mr-[23px]' : 'sm:w-[80%] w-full sm:mr-5' ?>">
+                        <div class="relative rounded-[20px] overflow-hidden h-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:pt-[54.33376%] pt-[70%]' : 'md:pt-[66%] pt-[125.373%]' ?>">
                             <?php if (!wp_is_mobile() && !bsc_is_mobile()) : ?>
                                 <?php echo wp_get_attachment_image(get_sub_field('background'), 'full', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
                             <?php else :
@@ -33,7 +33,7 @@
                                 <?php echo wp_get_attachment_image($background_mobile, 'full', '', array('class' => 'absolute w-full h-full inset-0 object-cover')) ?>
                             <?php endif; ?>
                             <div
-                                class="absolute w-full h-full inset-0 z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-8' : 'py-10 px-5' ?>">
+                                class="absolute w-full h-full inset-0 z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '2xl:pt-[75px] pt-10 2xl:pb-[65px] pb-10 2xl:px-[53px] px-11' : 'py-10 px-5' ?>">
                                 <div class="desc h-full flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'max-w-[60%]' : '' ?>">
                                     <?php if (get_sub_field('title')) { ?>
                                         <h3 class="font-bold hidden-br-mb <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-2xl mb-4' : 'text-lg' ?> <?php echo $color1 ?>">
