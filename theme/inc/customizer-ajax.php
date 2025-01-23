@@ -1498,7 +1498,7 @@ function filter_details_symbol()
 										</div>
 									</div>
 									<div
-										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-3 grid-cols-1 gap-5 lg:text-base text-xs' : 'gap-8' ?>">
+										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:grid-cols-3 grid-cols-1 gap-5 lg:text-base text-xs' : 'gap-8' ?>">
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
@@ -1713,7 +1713,7 @@ function filter_details_symbol()
 										</div>
 									</div>
 									<div
-										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-3 grid-cols-1 gap-5' : 'gap-8' ?>">
+										class="grid font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:grid-cols-3 grid-cols-1 gap-5' : 'gap-8' ?>">
 										<?php if ($check_linh_vuc == 'Bank') { ?>
 											<div class="flex flex-col">
 												<h4
@@ -2133,7 +2133,7 @@ function filter_details_symbol()
 
 										</div>
 									</div>
-									<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+									<div class="grid xl:grid-cols-3 grid-cols-1 gap-5 font-Helvetica">
 										<div class="flex flex-col">
 											<h4
 												class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
@@ -2417,7 +2417,7 @@ function filter_details_symbol()
 
 										</div>
 									</div>
-									<div class="grid lg:grid-cols-3 gap-5 font-Helvetica">
+									<div class="grid xl:grid-cols-3 grid-cols-1 gap-5 font-Helvetica">
 										<?php if ($check_linh_vuc == 'Bank') { ?>
 											<div class="flex flex-col">
 												<h4
@@ -3325,7 +3325,7 @@ function filter_details_symbol()
 							<p class="text-xs">
 								<?php _e('Danh mục', 'bsc') ?>:
 							</p>
-							<p class="inline-block rounded-full px-4 py-0.5 font-semibold text-right">
+							<p class="inline-block rounded-full font-semibold text-right">
 								<?php echo $response_GetRecommendedInstrument->d[0]->categorynames ?>
 							</p>
 						</div>
