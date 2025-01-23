@@ -29,13 +29,13 @@
 			</div>
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 flex flex-col' : 'mt-[50px]' ?>">
 				<?php if ( get_sub_field( 'title_phan_tich' ) ) { ?>
-					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mb-14 mb-6' : 'mb-6' ?>">
+					<h2 class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mb-14 mb-6' : 'md:mb-6 mb-4' ?>">
 						<?php the_sub_field( 'title_phan_tich' ) ?>
 					</h2>
 				<?php } ?>
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center mb-4' : 'text-right mb-1' ?>">
-					<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+					
 						<div class="uppercase text-primary-300 font-bold bsc-ajax-api"
 							data-api="ttnc_khuyen_nghi_GetForecastMacro_title">
 							<div class="hidden">
@@ -54,7 +54,7 @@
 								</div>
 							</div>
 						</div>
-					<?php } ?>
+					
 					<?php
 					if ( have_rows( 'button' ) ) {
 						while ( have_rows( 'button' ) ) :
