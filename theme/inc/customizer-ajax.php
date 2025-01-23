@@ -4434,7 +4434,7 @@ function filter_details_symbol()
 								</p>
 							</th>
 							<th
-								class="w-1/5 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[140px]' ?>">
+								class="w-1/5 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[20%]' : 'min-w-[140px]' ?>">
 								<?php _e('Tên công ty', 'bsc') ?>
 							</th>
 							<th class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
@@ -4489,7 +4489,7 @@ function filter_details_symbol()
 								</td>
 								<td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>
 								<td><?php echo $news->EXCHANGE; ?></td>
-								<td><?php echo $news->INDUSTRYNAME ?></td>
+								<td class="whitespace-nowrap"><?php echo $news->INDUSTRYNAME ?></td>
 								<td class="text-right !pr-8"><?php echo bsc_number_format($news->MC); ?></td>
 								<td class="text-right"><?php echo bsc_number_format($news->TOTALVOLUME) ?></td>
 								<td class="text-right"><?php echo bsc_number_format($news->TOTALVALUE) ?></td>
