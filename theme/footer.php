@@ -318,14 +318,14 @@
 		$current_date = current_time('timestamp');
 		$cdc3_youtube_open_time_value = strtotime($cdc3_youtube_open_time_value);
 		if ($cdc3_youtube_open_time_value && $current_date >= $cdc3_youtube_open_time_value) {
-	?>
+		?>
 			<a <?php if (get_field('cdc3_open_tab', 'option'))
 					echo 'target="_blank"' ?>
 				rel="<?php the_field('cdc3_open_tab_rel', 'option') ?>"
 				href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>" class="relative group block">
 				<div
 					class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center open-ytb [&:not(.active)]:pointer-events-auto pointer-events-none">
-					<?php echo svg('ytb', '20') ?>
+					<?php echo svgClass('ytb', '20','', 'shake-animation') ?>
 				</div>
 				<?php if (get_field('cdc3_title', 'option')) { ?>
 					<div

@@ -124,6 +124,106 @@
   transition: all 0.4s ease-in-out;
 }
 
+.shake-animation {
+  display: inline-block;
+  -webkit-animation: shake-animation 3.5s linear infinite;
+  animation: shake-animation 3.5s linear infinite;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+@-webkit-keyframes shake-animation {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  10% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  20% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  30% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  40% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  60% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  70% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  80% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  90% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+@keyframes shake-animation {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  10% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  20% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  30% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  40% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  60% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  70% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  80% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  90% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
 .is-desktop .menu_top li {
   @apply [&:not(:last-child)]:mr-6 [&:not(:last-child)]:pr-6 leading-none relative [&:not(:last-child)]:after:absolute after:w-[1px] [&:not(:last-child)]:after:bg-white [&:not(:last-child)]:after:h-[10px] [&:not(:last-child)]:after:top-1/2 [&:not(:last-child)]:after:-translate-y-1/2 [&:not(:last-child)]:after:right-0;
 }
