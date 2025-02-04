@@ -3197,7 +3197,8 @@ function filter_details_symbol()
 						<?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
 					</p>
 					<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
-						<?php echo bsc_number_format($response_securityBasicInfo->data[0]->VolPerAVG10d) ?>
+						<?php
+						echo bsc_number_format($response_securityBasicInfo->data[0]->TotalVolume / 10) ?>
 					</p>
 				</div>
 				<div class="grid grid-cols-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
@@ -3208,6 +3209,14 @@ function filter_details_symbol()
 						</p>
 						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
 							<?php echo $response_securityBasicInfo->data[0]->PE ?>
+						</p>
+					</div>
+					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+							<?php _e('ROA (%)', 'bsc') ?>
+						</p>
+						<p class="font-medium text-lg">
+							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->ROA, false) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3223,9 +3232,6 @@ function filter_details_symbol()
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-
-					</div>
-					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
 						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 							<?php _e('P/B', 'bsc') ?>
 						</p>
@@ -3235,7 +3241,7 @@ function filter_details_symbol()
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
 						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-							<?php _e('ROE', 'bsc') ?>
+							<?php _e('ROE (%)', 'bsc') ?>
 						</p>
 						<p class="font-medium text-lg">
 							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->ROE, false) ?>
@@ -3243,10 +3249,10 @@ function filter_details_symbol()
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
 						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
-							<?php _e('ROA', 'bsc') ?>
+							<?php _e('EPS (đồng)', 'bsc') ?>
 						</p>
 						<p class="font-medium text-lg">
-							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->ROA, false) ?>
+							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->EPS, false) ?>
 						</p>
 					</div>
 				</div>
