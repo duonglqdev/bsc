@@ -268,7 +268,7 @@ get_header();
 			</ul>
 			<div class="tab-content block" id="details_symbol_tab-1">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-[90px] lg:space-y-0 space-y-10' : '' ?> mt-10">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex 2xl:gap-[90px] xl:gap-10 gap-6 lg:space-y-0 space-y-10' : '' ?> mt-10">
 					<div
 						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[744px] lg:max-w-[56%] w-full' : 'w-full' ?>">
 						<h2
@@ -341,14 +341,14 @@ get_header();
 				</div>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div
-						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5' : '' ?>">
+						class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-5 lg:space-y-0 space-y-5 flex-wrap' : '' ?>">
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[386px] lg:max-w-[29%]' : 'w-full' ?>">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[386px] xl:max-w-[29%] w-full xl:mb-0 mb-5' : 'w-full' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
 							</h2>
-							<div class="space-y-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
+							<div class="xl:space-y-4 md:space-y-0 space-y-4 xl:block md:grid md:grid-cols-2 gap-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
 									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
@@ -367,7 +367,7 @@ get_header();
 							</div>
 						</div>
 						<div
-							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[414px] lg:max-w-[31%]' : 'mt-[50px]' ?>">
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[414px] xl:max-w-[31%] lg:w-1/2' : 'mt-[50px]' ?>">
 							<h2
 								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
