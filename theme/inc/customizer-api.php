@@ -485,11 +485,15 @@ add_filter('rank_math/opengraph/image', function ($image) {
  * Xử lý login  BSC
  */
 //Check login
-function bsc_url_sso()
+function bsc_url_sso($current_url_default = false)
 {
 	$redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
 	$client_id = get_field('cdapi_ip_address_clientid', 'option');
-	$current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
+	if (! $current_url_default) {
+		$current_url = urlencode(home_url($_SERVER['REQUEST_URI']));
+	} else {
+		$current_url = urlencode($current_url_default);
+	}
 	$url = get_field('cdapi_ip_address_apilogin', 'option') . "sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
 	return $url;
 }
