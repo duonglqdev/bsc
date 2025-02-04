@@ -6,26 +6,26 @@
             </h2>
         <?php } ?>
         <?php if (have_rows('dac_quyen')) { ?>
-            <div class="flickity-watch fli-dots-blue <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 lg:gap-5':'block_slider-show-1 sm:-mx-3' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000,"watchCSS": true}'>
+            <div class="flickity-watch fli-dots-blue <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:grid lg:grid-cols-4 lg:gap-5':'block_slider-show-1 sm:-mx-3' ?>" data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":false,"watchCSS": true}'>
                 <?php while (have_rows('dac_quyen')): the_row(); ?>
                     <div class="rounded-2xl overflow-hidden group expert-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:w-full w-1/2 lg:mx-0 mx-2':'block_slider-item sm:w-1/2 w-full sm:px-3' ?>">
                         <div class="relative pt-[121.25%]">
                             <div class="absolute w-full h-full inset-0 flex flex-col">
                                 <div
-                                    class="transition-all duration-300  overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[78%] group-hover:h-[53%]':'h-[70%] group-hover:h-[50%]' ?>">
+                                    class="transition-all duration-300  overflow-hidden <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[78%] 2xl:group-hover:h-[53%] group-hover:h-[40%]':'h-[70%] group-hover:h-[50%]' ?>">
                                     <?php echo wp_get_attachment_image(get_sub_field('img'), 'large', '', array('class' => 'w-full h-full object-cover group-hover:scale-100 transition-all duration-300 scale-105')) ?>
                                 </div>
                                 <div style="background-color: <?php the_sub_field('color') ?>"
-                                    class="transition-all duration-300  flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[12%] group-hover:h-[47%]':'h-[20%] group-hover:h-[50%]' ?>">
+                                    class="transition-all duration-300  flex-1 relative expert-item-desc before:absolute before:w-full before:h-10 group-hover:before:h-16 before:transition-all before:-top-10 group-hover:before:-top-16 before:z-10 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'h-[12%] 2xl:group-hover:h-[47%] group-hover:h-[60%]':'h-[20%] group-hover:h-[50%]' ?>">
                                     <?php if (get_sub_field('title')) { ?>
                                         <h3
-                                            class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 px-9 pt-[6px] pb-[18px] group-hover:pt-4">
+                                            class="text-primary-300 font-bold text-lg h-full left-0 w-full transition-all duration-300 group-hover:opacity-0 opacity-100 group-hover:invisible visible group-hover:absolute text-center line-clamp-2 2xl:px-9 px-6 pt-[6px] pb-[18px] group-hover:pt-4">
                                             <?php the_sub_field('title') ?>
                                         </h3>
                                     <?php } ?>
                                     <?php if (get_sub_field('mota')) { ?>
                                         <div
-                                            class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica px-9 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
+                                            class="transition-all duration-300 opacity-0 invisible absolute w-full group-hover:opacity-100 group-hover:visible group-hover:static font-Helvetica 2xl:px-9 px-6 pt-[6px] pb-[18px] group-hover:pt-4 line-clamp-6 text-justify">
                                             <?php the_sub_field('mota') ?>
                                         </div>
                                     <?php } ?>

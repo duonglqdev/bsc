@@ -45,12 +45,12 @@
                                         </div>
                                     <?php  } ?>
                                     <?php if (have_rows('danh_sach_nut_ngang')) { ?>
-                                        <div class="mt-1 mb-3 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'flex items-center before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px]':'space-y-2' ?>">
+                                        <div class="lg:mt-1 lg:mb-3 mb-2 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex items-center before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] lg:before:inline-block before:hidden before:mr-[12px] lg:space-y-0 space-y-2':'space-y-2' ?>">
                                             <?php while (have_rows('danh_sach_nut_ngang')): the_row();
                                                 if (have_rows('button')) {
                                                     while (have_rows('button')): the_row();
                                                         if (get_sub_field('title')) { ?>
-                                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' inline-flex [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] [&:not(:last-child)]:border-r [&:not(:last-child)]:border-green':'flex before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block text-xs' ?>">
+                                                            <a rel="<?php the_sub_field('rel') ?>" <?php if (get_sub_field('open_tab')) echo 'target="_blank"' ?> href="<?php echo check_link(get_sub_field('link')) ?>" class="leading-tight text-green font-bold gap-x-2 items-center transition-all duration-500 hover:scale-105 font-Helvetica  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?' inline-flex [&:not(:last-child)]:pr-[12px] [&:not(:last-child)]:mr-[12px] lg:[&:not(:last-child)]:border-r lg:[&:not(:last-child)]:border-green lg:before:hidden before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block':'flex before:shrink-0 before:w-2 before:h-2 before:bg-primary-300 before:rounded-[2px] before:inline-block text-xs' ?>">
                                                                 <?php the_sub_field('title') ?>
                                                                 <?php echo svg('arrow-btn', '12', '12') ?>
                                                             </a>
@@ -64,7 +64,7 @@
                                     <?php  } ?>
                                     <?php if (have_rows('danh_sach_content')) {
                                         while (have_rows('danh_sach_content')): the_row(); ?>
-                                            <div class="flex items-center before:w-2 before:h-2 before:shrink-0 before:bg-primary-300 before:rounded-[2px] before:inline-block before:mr-[12px] mt-1 mb-3 font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
+                                            <div class="flex items-baseline before:w-2 before:h-2 before:shrink-0 before:bg-primary-300 before:rounded-[2px] before:inline-block lg:gap-[12px] gap-2 lg:mt-1 lg:mb-3 mb-2 font-medium <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
                                                 <?php the_sub_field('info') ?>
                                             </div>
                                     <?php
@@ -121,10 +121,10 @@
                     ?>
                 </div>
             </div>
-            <div class="lg:col-span-1 md:col-span-1 col-span-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:-ml-[185px] -ml-24':'md:w-full w-[85%] md:-ml-4 md:mx-0 mx-auto md:static md:mt-0 relative md:z-0 z-10 -mt-10' ?>">
+            <div class="lg:col-span-1 md:col-span-1 col-span-full <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:-ml-[185px] lg:-ml-24 -ml-40':'md:w-full w-[85%] md:-ml-4 md:mx-0 mx-auto md:static md:mt-0 relative md:z-0 z-10 -mt-10' ?>">
                 <?php if (get_sub_field('link_youtube')) { ?>
                     <a href="<?php the_sub_field('link_youtube') ?>" data-fancybox
-                        class="relative block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[100%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
+                        class="relative block <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[80%]':'rounded-lg pt-[66.67%]' ?> overflow-hidden rounded-2xl group after:absolute after:inset-0 after:w-full after:h-full after:bg-[#000] after:bg-opacity-35">
                         <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
 
                         <div
@@ -133,7 +133,7 @@
                         </div>
                     </a>
                 <?php } else { ?>
-                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[120%]':'rounded-lg md:pt-[120%] pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
+                    <div class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'rounded-2xl lg:pt-[59.64%] pt-[80%]':'rounded-lg md:pt-[80%] pt-[66.67%]' ?> overflow-hidden rounded-2xl group">
                         <?php echo wp_get_attachment_image(get_sub_field('image'), 'full', '', array('class' => 'absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105')) ?>
                     </div>
                 <?php } ?>

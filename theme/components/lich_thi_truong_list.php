@@ -6,13 +6,13 @@
 			<div class="toggle-form mb-[12px] inline-block">
 				<div class="">
 					<p class="inline-flex items-baseline gap-2 font-medium">
-						<?php _e('Bộ lọc', 'bsc') ?>
+						<?php _e('Ẩn bộ lọc', 'bsc') ?>
 						<?php echo svgClass('down', '', '', 'rotate-180') ?>
 					</p>
 				</div>
 				<div class="hidden">
 					<p class="inline-flex items-baseline gap-2 font-medium">
-						<?php _e('Ẩn bộ lọc', 'bsc') ?>
+					<?php _e('Bộ lọc', 'bsc') ?>
 						<?php echo svg('down') ?>
 					</p>
 				</div>
