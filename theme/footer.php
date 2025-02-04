@@ -330,8 +330,7 @@
 				<?php if (get_field('cdc3_title', 'option')) { ?>
 					<div
 						class="rounded-full absolute bg-white shadow-blue whitespace-nowrap h-10 flex flex-col justify-center pl-5 font-bold text-sm transition-all duration-500 top-0 right-0 opacity-0 group-hover:opacity-100 group-hover:w-auto w-10 group-hover:pr-12">
-						<?php the_field('cdc3_title', 'option');
-						echo $current_date; ?>
+						<?php the_field('cdc3_title', 'option'); ?>
 					</div>
 				<?php } ?>
 			</a>
