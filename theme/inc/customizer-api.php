@@ -129,13 +129,14 @@ function custom_rewrite_rule_for_news()
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 
 		add_rewrite_rule(
-			'^' . $lang_prefix . $sub_url . '/([0-9]+)-',
+			'^' . $lang_prefix . $sub_url . '/([0-9]+)(?:-[^/]+)?/?$',
 			'index.php?news_id=$matches[1]',
 			'top'
 		);
 	}
 }
 add_action('init', 'custom_rewrite_rule_for_news');
+
 
 // Thêm query var 'news_id' vào hệ thống query vars của WordPress
 function custom_query_vars($vars)
@@ -202,7 +203,7 @@ function custom_rewrite_rule_for_report()
 	foreach ($languages as $lang) {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
-		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([0-9]+)-', 'index.php?report_id=$matches[1]', 'top');
+		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([0-9]+)(?:-[^/]+)?/?$', 'index.php?report_id=$matches[1]', 'top');
 	}
 }
 add_action('init', 'custom_rewrite_rule_for_report');
