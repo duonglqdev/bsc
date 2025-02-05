@@ -485,7 +485,7 @@ add_filter('rank_math/opengraph/image', function ($image) {
  * Xử lý login  BSC
  */
 //Check login
-function bsc_url_sso($current_url_default = false)
+function bsc_url_sso($current_url_default = null)
 {
 	$redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
 	$client_id = get_field('cdapi_ip_address_clientid', 'option');
@@ -497,23 +497,23 @@ function bsc_url_sso($current_url_default = false)
 	$url = get_field('cdapi_ip_address_apilogin', 'option') . "sso/oauth/authorize?client_id=" . $client_id . "&response_type=code&redirect_uri=" . $redirect_uri . "&scope=general&ui_locales=" . pll_current_language() . "&state=" . $current_url . "";
 	return $url;
 }
-function bsc_is_user_logged_out()
+function bsc_is_user_logged_out($custom_url = null)
 {
 	if (isset($_COOKIE['access_token'])) {
 		$access_token = sanitize_text_field($_COOKIE['access_token']);
 		$user_logged_in_key = 'user_logged_in_' . md5($access_token);
-
 		// Kiểm tra transient
 		if (get_transient($user_logged_in_key)) {
 			// Người dùng đang đăng nhập
 			return null;
 		}
 	}
+	$current_url = !empty($custom_url) ? urlencode($custom_url) : '';
 	return [
 		'class' => 'blur-sm',
 		'html' => '
             <div class="absolute w-full h-full inset-0 z-10 flex flex-col justify-center items-center">
-                <a href="' . bsc_url_sso() . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold lg:rounded-xl rounded-md">
+                <a href="' . bsc_url_sso($current_url) . '" class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block 2xl:px-8 px-4 2xl:py-4 py-2  relative transition-all duration-500 font-bold lg:rounded-xl rounded-md">
                     ' . __('Đăng nhập', 'bsc') . '
 
                 </a>

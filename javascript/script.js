@@ -450,6 +450,7 @@ import { DataTable } from 'simple-datatables';
 				action: 'filter_details_symbol',
 				symbol: symbol,
 				type_form: type_form,
+				current_url: window.location.href,
 				security: ajaxurl.security,
 			},
 			beforeSend: function () {
@@ -3210,35 +3211,35 @@ import { DataTable } from 'simple-datatables';
 				let difference;
 				if (share.CH || share.CHP) {
 					if (share.CHP) {
-						 difference = share.CHP;
+						difference = share.CHP;
 					} else {
-						 difference = wrapper_price
+						difference = wrapper_price
 							.find(
 								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
 							)
 							.attr('data-number');
 					}
-					let sharecp; 
+					let sharecp;
 					if (share.CP) {
-						 sharecp = share.CP;
+						sharecp = share.CP;
 					} else {
-						 sharecp = wrapper_price
+						sharecp = wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1')
 							.attr('data-number');
 					}
-					let sharecl; 
+					let sharecl;
 					if (share.CL) {
-						 sharecl = share.CL;
+						sharecl = share.CL;
 					} else {
-						 sharecl = wrapper_price
+						sharecl = wrapper_price
 							.find('.bsc_need_crawl_price-ceiling')
 							.attr('data-number');
 					}
-					let sharefl; 
+					let sharefl;
 					if (share.FL) {
-						 sharefl = share.FL;
+						sharefl = share.FL;
 					} else {
-						 sharefl = wrapper_price
+						sharefl = wrapper_price
 							.find('.bsc_need_crawl_price-floor')
 							.attr('data-number');
 					}
@@ -3689,7 +3690,7 @@ import { DataTable } from 'simple-datatables';
 								bg_color_class = 'bg-[#1CCD83]';
 								title_symbol = `+${upside}%`;
 							} else if (share.changePercent < 0) {
-								bg_color_class = 'bg-[#FE5353]';
+								bg_color_class = 'wcgr-FE5353';
 								title_symbol = `${upside}%`;
 							} else if (share.changePercent === 0) {
 								bg_color_class = 'bg-yellow-100';
