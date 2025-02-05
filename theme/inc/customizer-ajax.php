@@ -3731,7 +3731,7 @@ function filter_details_symbol()
 														<?php } ?>
 													</li>
 													<li
-														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-bidPrice1">
+														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-bidPrice1 bsc_need_crawl_price-text-color">
 													</li>
 													<li
 														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-medium">
@@ -3741,7 +3741,7 @@ function filter_details_symbol()
 														}
 														?>
 													</li>
-													<li class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 pr-3 min-w-[96px]' ?> font-bold bsc_need_crawl_price-text_color-closePrice"
+													<li class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 pr-3 min-w-[96px]' ?> font-bold bsc_need_crawl_price-text_color-closePrice "
 														data-giakyvong="<?php echo $list_bsc->giakyvong ?>">
 													</li>
 												</ul>
