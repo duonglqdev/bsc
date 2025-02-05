@@ -78,19 +78,19 @@ if ( $response_GetAllDanhMuc ) {
 					<div class="flex items-center gap-2 btn-chart_date flex-1">
 						<button type="button" data-month="1"
 							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-							<?php _e( '1 Th', 'bsc' ) ?>
+							<?php _e( '1M', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="3"
 							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-							<?php _e( '3 Th', 'bsc' ) ?>
+							<?php _e( '3M', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="6"
 							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-							<?php _e( '6 Th', 'bsc' ) ?>
+							<?php _e( '6M', 'bsc' ) ?>
 						</button>
 						<button type="button" data-month="12"
 							class="inline-block lg:h-11 h-10 lg:px-4 px-3 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-							<?php _e( '1 Năm', 'bsc' ) ?>
+							<?php _e( '1M', 'bsc' ) ?>
 						</button>
 					</div>
 					<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload"

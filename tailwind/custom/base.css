@@ -1449,6 +1449,9 @@ button#ib-button-messaging {
   .main_menu > ul {
     @apply gap-5 mr-5;
   }
+  .main_menu > ul.ja {
+    @apply gap-12;
+  }
 }
 
 /*# sourceMappingURL=base.css.map */

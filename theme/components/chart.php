@@ -96,19 +96,19 @@
 							<div class="flex items-center gap-2 btn-chart_date">
 								<button type="button" data-month="1"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '1 Th', 'bsc' ) ?>
+									<?php _e( '1M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="3"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '3 Th', 'bsc' ) ?>
+									<?php _e( '3M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="6"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '6 Th', 'bsc' ) ?>
+									<?php _e( '6M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="12"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '1 Năm', 'bsc' ) ?>
+									<?php _e( '1Y', 'bsc' ) ?>
 								</button>
 							</div>
 							<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
