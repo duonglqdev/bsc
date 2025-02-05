@@ -25,7 +25,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Vị trí ứng tuyển', 'bsc') ?></p>
 		<?php } ?>
 		<h4
-			class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg transition-all duration-500 hover:text-primary-300 min-h-14' : 'text-base text-primary-400 mb-[12px]' ?>">
+			class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg transition-all duration-500 hover:text-primary-300' : 'text-base text-primary-400 mb-[12px]' ?>">
 			<a href="<?php the_permalink() ?>" class="line-clamp-2">
 				<?php the_title() ?>
 			</a>
