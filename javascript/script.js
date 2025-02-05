@@ -796,7 +796,7 @@ import { DataTable } from 'simple-datatables';
 			infinite: false,
 			responsive: [
 				{
-					breakpoint: 1024,
+					breakpoint: 1025,
 					settings: {
 						slidesToShow: 3,
 					},

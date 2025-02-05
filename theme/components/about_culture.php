@@ -49,7 +49,7 @@
 								{ ?>
 									<div class="swiper-slide <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'px-2' ?>">
 										<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-											class="about_culture-item block  overflow-hidden  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35 rounded-[15px]' : 'mb-10 rounded-md shadow-[0px_2.832px_8.092px_0px_rgba(0,0,0,0.10)]' ?>">
+											class="about_culture-item block overflow-hidden  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'relative after:absolute after:w-full after:h-full after:inset-0 after:bg-[#000] after:bg-opacity-35 rounded-[15px]' : 'mb-10 rounded-md shadow-[0px_2.832px_8.092px_0px_rgba(0,0,0,0.10)]' ?>">
 											<div class="relative w-full pt-[58%]">
 												<img class="absolute w-full h-full inset-0 object-cover <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'rounded-md' ?>" src="<?php echo bsc_set_thumbnail( $news, 'thumbnail' ) ?>" alt="<?php echo htmlspecialchars( $news->title ) ?>" loading="lazy">
 											</div>

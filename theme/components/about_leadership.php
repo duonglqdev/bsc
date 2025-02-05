@@ -20,7 +20,7 @@
                         ?>
                             <li role="presentation">
                                 <button
-                                    class="<?php echo $i==1?'active':''  ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 rounded-tr-xl rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300' : 'text-xs font-bold relative after:w-0 after:h-[3px] after:-bottom-[26px] after:bg-primary-300 after:left-0 after:absolute [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:after:w-0 after:w-full' ?>"
+                                    class="<?php echo $i==1?'active':''  ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'flex items-center justify-between w-full px-5 py-[15px] xl:text-lg font-semibold transition-all text-left text-black hover:text-white hover:bg-primary-400 rounded-tr-xl rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-300' : 'text-xs font-bold relative after:w-0 after:h-[3px] after:-bottom-[26px] after:bg-primary-300 after:left-0 after:absolute [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:after:w-0 after:w-full' ?>"
                                     id="<?php echo $title_tab_muc ?>-tab" data-tabs="#<?php echo $title_tab_muc ?>" type="button"
                                     role="tab" aria-controls="<?php echo $title_tab_muc ?>" aria-selected="false"><?php echo get_sub_field('title') ?>
                                     <?php if (!wp_is_mobile() && !bsc_is_mobile()) { ?>
@@ -59,10 +59,10 @@
                                                 <?php } ?>
                                                 <div class="mt-[15px] font-Helvetica about_leadership-title">
                                                     <h4
-                                                        class="font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl mb-2' : 'md:text-lg text-xs mb-0.5' ?>  text-black group-hover:text-primary-400 transition-all">
+                                                        class="font-bold  <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl mb-2' : 'xl:text-lg md:text-base text-xs mb-0.5' ?>  text-black group-hover:text-primary-400 transition-all">
                                                         <?php the_sub_field('name') ?>
                                                     </h4>
-                                                    <p class="font-medium text-black text-opacity-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'md:text-base text text-xxs' ?>">
+                                                    <p class="font-medium text-black text-opacity-50 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-base text-xs' : 'md:text-base text text-xxs' ?>">
                                                         <?php the_sub_field('position') ?>
                                                     </p>
                                                 </div>
