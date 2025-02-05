@@ -302,7 +302,7 @@ $class = $check_logout['class'];
 											<?php endif; ?>
 
 											<li>
-												<?php echo bsc_number_format($GetForecastBussinessResults->roa * 100, false) . '%'; ?>
+												<?php echo bsc_number_format($GetForecastBussinessResults->roa, false) . '%'; ?>
 											</li>
 
 											<?php $count++; ?>
@@ -335,7 +335,7 @@ $class = $check_logout['class'];
 											<?php endif; ?>
 
 											<li>
-												<?php echo bsc_number_format($GetForecastBussinessResults->roe * 100, false) . '%' ?>
+												<?php echo bsc_number_format($GetForecastBussinessResults->roe, false) . '%' ?>
 											</li>
 
 											<?php $count++; ?>
