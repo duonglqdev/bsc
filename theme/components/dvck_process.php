@@ -129,9 +129,9 @@ $generateRandomString = generateRandomString();
 									the_row();
 									$y++;
 									if ($y % 2 == 1) {
-										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 md:flex-row flex-col gap-8 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:gap-16 lg:flex-row flex-col gap-8 items-center';
 									} else {
-										$class = 'bg-white p-8 rounded-3xl flex md:flex-row-reverse flex-col lg:gap-16 gap-8 items-center';
+										$class = 'bg-white p-8 rounded-3xl flex lg:flex-row-reverse flex-col lg:gap-16 gap-8 items-center';
 									}
 							?>
 									<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? $class : 'bg-white p-4 rounded-2xl' ?>">
