@@ -3052,20 +3052,20 @@ import { DataTable } from 'simple-datatables';
 						.find('.bsc_need_crawl_price-exchange')
 						.html(exchange_title);
 				}
-				if (
-					share.B1 &&
-					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
-						.length > 0
-				) {
-					var bidPrice1_title = share.B1;
-					bidPrice1_title = bsc_number_format(bidPrice1_title / 1000);
-					wrapper_price
-						.find('.bsc_need_crawl_price-bidPrice1')
-						.html(bidPrice1_title);
-					wrapper_price
-						.find('.bsc_need_crawl_price-bidPrice1')
-						.attr('data-number', share.B1);
-				}
+				// if (
+				// 	share.B1 &&
+				// 	wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
+				// 		.length > 0
+				// ) {
+				// 	var bidPrice1_title = share.B1;
+				// 	bidPrice1_title = bsc_number_format(bidPrice1_title / 1000);
+				// 	wrapper_price
+				// 		.find('.bsc_need_crawl_price-bidPrice1')
+				// 		.html(bidPrice1_title);
+				// 	wrapper_price
+				// 		.find('.bsc_need_crawl_price-bidPrice1')
+				// 		.attr('data-number', share.B1);
+				// }
 				if (
 					share.CL &&
 					wrapper_price.find('.bsc_need_crawl_price-ceiling').length >
@@ -3155,7 +3155,7 @@ import { DataTable } from 'simple-datatables';
 				}
 				if (
 					share.CP &&
-					wrapper_price.find('.bsc_need_crawl_price-closePrice')
+					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
 						.length > 0
 				) {
 					var closePrice_title = share.CP;
@@ -3164,10 +3164,10 @@ import { DataTable } from 'simple-datatables';
 						2
 					);
 					wrapper_price
-						.find('.bsc_need_crawl_price-closePrice')
+						.find('.bsc_need_crawl_price-bidPrice1')
 						.html(closePrice_title);
 					wrapper_price
-						.find('.bsc_need_crawl_price-closePrice')
+						.find('.bsc_need_crawl_price-bidPrice1')
 						.attr('data-number', share.CP);
 				}
 				if (
@@ -3224,7 +3224,7 @@ import { DataTable } from 'simple-datatables';
 						const sharecp = share.CP;
 					} else {
 						const sharecp = wrapper_price
-							.find('.bsc_need_crawl_price-closePrice')
+							.find('.bsc_need_crawl_price-bidPrice1')
 							.attr('data-number');
 					}
 					if (share.CL) {
@@ -3335,23 +3335,23 @@ import { DataTable } from 'simple-datatables';
 								.find('.bsc_need_crawl_price-exchange')
 								.html(exchange_title);
 						}
-						if (
-							share.closePrice &&
-							wrapper_price.find(
-								'.bsc_need_crawl_price-bidPrice1'
-							).length > 0
-						) {
-							var bidPrice1_title = share.closePrice;
-							bidPrice1_title = bsc_number_format(
-								bidPrice1_title / 1000
-							);
-							wrapper_price
-								.find('.bsc_need_crawl_price-bidPrice1')
-								.html(bidPrice1_title);
-							wrapper_price
-								.find('.bsc_need_crawl_price-bidPrice1')
-								.attr('data-number', share.closePrice);
-						}
+						// if (
+						// 	share.closePrice &&
+						// 	wrapper_price.find(
+						// 		'.bsc_need_crawl_price-bidPrice1'
+						// 	).length > 0
+						// ) {
+						// 	var bidPrice1_title = share.closePrice;
+						// 	bidPrice1_title = bsc_number_format(
+						// 		bidPrice1_title / 1000
+						// 	);
+						// 	wrapper_price
+						// 		.find('.bsc_need_crawl_price-bidPrice1')
+						// 		.html(bidPrice1_title);
+						// 	wrapper_price
+						// 		.find('.bsc_need_crawl_price-bidPrice1')
+						// 		.attr('data-number', share.closePrice);
+						// }
 						if (
 							share.ceiling &&
 							wrapper_price.find('.bsc_need_crawl_price-ceiling')
@@ -3456,7 +3456,7 @@ import { DataTable } from 'simple-datatables';
 						if (
 							share.closePrice &&
 							wrapper_price.find(
-								'.bsc_need_crawl_price-closePrice'
+								'.bsc_need_crawl_price-bidPrice1'
 							).length > 0
 						) {
 							var closePrice_title = share.closePrice;
@@ -3465,10 +3465,10 @@ import { DataTable } from 'simple-datatables';
 								2
 							);
 							wrapper_price
-								.find('.bsc_need_crawl_price-closePrice')
+								.find('.bsc_need_crawl_price-bidPrice1')
 								.html(closePrice_title);
 							wrapper_price
-								.find('.bsc_need_crawl_price-closePrice')
+								.find('.bsc_need_crawl_price-bidPrice1')
 								.attr('data-number', share.closePrice);
 						}
 						if (
@@ -3541,53 +3541,53 @@ import { DataTable } from 'simple-datatables';
 									.html(formattedPercentage + '%');
 							}
 						}
-						let text_color_class_price_changePercent = '';
+						// let text_color_class_price_changePercent = '';
 
-						// Kiểm tra nếu share.changePercent tồn tại
-						if (share.changePercent) {
-							if (share.changePercent > 0) {
-								// Nếu closeprice bằng ceiling
-								if (share.closeprice === share.ceiling) {
-									text_color_class_price_changePercent =
-										'text-[#7F1CCD]';
-								} else {
-									text_color_class_price_changePercent =
-										'text-[#1CCD83]';
-								}
-							} else if (share.changePercent < 0) {
-								// Nếu closeprice bằng ceiling
-								if (share.closeprice === share.ceiling) {
-									text_color_class_price_changePercent =
-										'text-[#1ABAFE]';
-								} else {
-									text_color_class_price_changePercent =
-										'text-[#FE5353]';
-								}
-							} else {
-								text_color_class_price_changePercent =
-									'text-[#EB0]';
-							}
-						} else {
-							text_color_class_price_changePercent =
-								'text-[#EB0]';
-						}
-						if (
-							wrapper_price.find('.bsc_need_crawl_price-closeVol')
-								.length > 0
-						) {
-							wrapper_price
-								.find('.bsc_need_crawl_price-closeVol')
-								.addClass(text_color_class_price_changePercent);
-						}
-						if (
-							wrapper_price.find(
-								'.bsc_need_crawl_price-closePrice'
-							).length > 0
-						) {
-							wrapper_price
-								.find('.bsc_need_crawl_price-closePrice')
-								.addClass(text_color_class_price_changePercent);
-						}
+						// // Kiểm tra nếu share.changePercent tồn tại
+						// if (share.changePercent) {
+						// 	if (share.changePercent > 0) {
+						// 		// Nếu closeprice bằng ceiling
+						// 		if (share.closeprice === share.ceiling) {
+						// 			text_color_class_price_changePercent =
+						// 				'text-[#7F1CCD]';
+						// 		} else {
+						// 			text_color_class_price_changePercent =
+						// 				'text-[#1CCD83]';
+						// 		}
+						// 	} else if (share.changePercent < 0) {
+						// 		// Nếu closeprice bằng ceiling
+						// 		if (share.closeprice === share.ceiling) {
+						// 			text_color_class_price_changePercent =
+						// 				'text-[#1ABAFE]';
+						// 		} else {
+						// 			text_color_class_price_changePercent =
+						// 				'text-[#FE5353]';
+						// 		}
+						// 	} else {
+						// 		text_color_class_price_changePercent =
+						// 			'text-[#EB0]';
+						// 	}
+						// } else {
+						// 	text_color_class_price_changePercent =
+						// 		'text-[#EB0]';
+						// }
+						// if (
+						// 	wrapper_price.find('.bsc_need_crawl_price-closeVol')
+						// 		.length > 0
+						// ) {
+						// 	wrapper_price
+						// 		.find('.bsc_need_crawl_price-closeVol')
+						// 		.addClass(text_color_class_price_changePercent);
+						// }
+						// if (
+						// 	wrapper_price.find(
+						// 		'.bsc_need_crawl_price-bidPrice1'
+						// 	).length > 0
+						// ) {
+						// 	wrapper_price
+						// 		.find('.bsc_need_crawl_price-bidPrice1')
+						// 		.addClass(text_color_class_price_changePercent);
+						// }
 						if (
 							wrapper_price.find(
 								'.bsc_need_crawl_price-text_color-closePrice'

@@ -3198,7 +3198,7 @@ function filter_details_symbol()
 					</p>
 					<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
 						<?php
-						echo bsc_number_format($response_securityBasicInfo->data[0]->TotalVolume / 10) ?>
+						echo bsc_number_format($response_securityBasicInfo->data[0]->SumVol10d / 10) ?>
 					</p>
 				</div>
 				<div class="grid grid-cols-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
