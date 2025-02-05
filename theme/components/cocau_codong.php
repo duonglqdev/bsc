@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex lg:gap-8' : '' ?>">
-            <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-8' : 'gap-4' ?>">
+            <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-8 lg:w-[530px] max-w-[45%]' : 'gap-4' ?>">
                 <?php if (wp_is_mobile() && bsc_is_mobile()) : ?>
                     <?php
                     if (get_sub_field('img_1_mobile')) {
