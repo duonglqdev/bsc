@@ -3268,7 +3268,7 @@ function filter_details_symbol()
 		?>
 			<div class="bg-[#E8F5FF] rounded-xl 2xl:px-6 px-5 lg:py-6 py-5 h-full font-Helvetica flex flex-col">
 				<div class="flex items-center justify-between mb-6 -mt-1">
-					<h3 class="font-bold 2xl:text-lg">
+					<h3 class="font-bold <?php echo (get_locale() == 'en_GB') ? '' : '2xl:text-lg'; ?>">
 						<?php _e('KHUYẾN NGHỊ', 'bsc') ?>
 					</h3>
 					<?php
@@ -3288,7 +3288,7 @@ function filter_details_symbol()
 						}
 					?>
 						<p
-							class="inline-flex items-center px-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
+							class="inline-flex items-center  <?php echo get_locale() == 'en_GB' ? 'text-xs px-3 en' : 'px-4 vi'; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-1.5' : 'text-xs py-1' ?> font-bold gap-1.5 rounded-full <?php echo $class_rank ?>">
 							<?php echo svg($medal_rank, '24', '24') ?>
 							<?php _e('Hạng', 'bsc') ?>
 							<?php echo $response_GetRecommendedInstrument->rank ?>
