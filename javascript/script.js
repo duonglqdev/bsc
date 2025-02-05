@@ -46,6 +46,7 @@ import { DataTable } from 'simple-datatables';
 		transformText();
 		loadMoreJob();
 		handleUnwrap();
+		searchAddress();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -4118,12 +4119,12 @@ import { DataTable } from 'simple-datatables';
 		});
 	}
 	function handleUnwrap() {
-        var screenWidth = $(window).width();
+		var screenWidth = $(window).width();
 
-        if (screenWidth < 1024 && screenWidth > 767) {
-            $(".unwrap").each(function () {
-                $(this).children().unwrap();
-            });
+		if (screenWidth < 1024 && screenWidth > 767) {
+			$('.unwrap').each(function () {
+				$(this).children().unwrap();
+			});
 			$('.slider-benefit').flickity({
 				pageDots: true,
 				prevNextButtons: false,
@@ -4135,11 +4136,34 @@ import { DataTable } from 'simple-datatables';
 				autoPlay: 3000,
 				watchCss: true,
 			});
-        }
-    }
+		}
+	}
+	function searchAddress() {
+		$('#search-contact').on('keyup', function () {
+			let searchText = $(this).val().toLowerCase();
+			let hasResult = false;
 
- 
+			$('.map-address').each(function () {
+				let content = $(this).text().toLowerCase();
+				if (content.includes(searchText)) {
+					$(this).show();
+					hasResult = true;
+				} else {
+					$(this).hide();
+				}
+			});
 
-    
-  
+			// Kiểm tra nếu không có kết quả
+			let $noResult = $('#no-result');
+			if (!hasResult) {
+				if ($noResult.length === 0) {
+					$('.address-list').append(
+						'<p class="text-center font-bold mt-5">No result !</p>'
+					);
+				}
+			} else {
+				$noResult.remove(); // Xóa thông báo nếu có kết quả
+			}
+		});
+	}
 })(jQuery);
