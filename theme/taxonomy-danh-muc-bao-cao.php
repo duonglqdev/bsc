@@ -239,7 +239,7 @@ get_header();
 							<div
 								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap justify-between' ?>">
 								<div
-									class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full 2xl:max-w-[50%] lg:max-w-[40%] px-5 gap-4' : 'w-[48%] pl-3 gap-2 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
+									class="max-w-full flex items-center  bg-white rounded-[10px] border border-[##EAEEF4] py-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[518px] w-full lg:max-w-[40%] px-5 gap-4' : 'w-[48%] pl-3 gap-2 text-xs overflow-hidden px-1.5 h-[46px]' ?>">
 									<div
 										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-4 h-4' ?> shrink-0">
 										<?php echo svgClass('search', '',) ?>
