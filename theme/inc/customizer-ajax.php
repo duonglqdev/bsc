@@ -4095,9 +4095,12 @@ function filter_details_symbol()
 							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
 						?>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+								</p>
 								<div class="overflow-x-auto">
-									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 lg:w-full w-max">
-										<p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
+									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 lg:w-full w-max text-right">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4106,18 +4109,18 @@ function filter_details_symbol()
 										foreach ($yearDataValues as $key => $year) {
 										?>
 											<p
-												class="min-w-[135px] text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
 												<?php echo htmlspecialchars($year); ?>
 											</p>
 										<?php
 										}
 										?>
 										<p
-											class="min-w-[175px] text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
+											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium">
+									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
@@ -4134,7 +4137,7 @@ function filter_details_symbol()
 											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
 										}
 										?>
-									</div>
+									<trv>
 
 								</div>
 							</div>
@@ -4186,10 +4189,13 @@ function filter_details_symbol()
 							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
 						?>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+							<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+								</p> 
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4209,7 +4215,7 @@ function filter_details_symbol()
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium">
+									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
@@ -4278,10 +4284,13 @@ function filter_details_symbol()
 							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
 						?>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+							<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+								</p> 
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4301,7 +4310,7 @@ function filter_details_symbol()
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium">
+									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
@@ -4370,10 +4379,13 @@ function filter_details_symbol()
 							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
 						?>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+							<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+								</p> 
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px]"><?php _e('Danh sách', 'bsc') ?></p>
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4393,7 +4405,7 @@ function filter_details_symbol()
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium">
+									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';

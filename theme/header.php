@@ -217,7 +217,8 @@
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 							<div class="main_menu ">
 								<ul
-									class="lg:flex hidden lg:items-center  font-semibold text-paragraph xl:text-base text-xs <?php echo get_locale() == 'ja' || 'ko' ?'2xl:gap-16 xl:gap-14 gap-8 ja':'2xl:gap-8 xl:gap-5 gap-3' ?>">
+									class="lg:flex hidden lg:items-center  font-semibold text-paragraph xl:text-base text-xs <?php echo (get_locale() == 'ja' || get_locale() == 'ko') ? '2xl:gap-16 xl:gap-14 gap-8 ja' : '2xl:gap-8 xl:gap-5 gap-3'; ?>
+">
 									<li class="menu-home">
 										<a href="<?php echo get_home_url() ?>"
 											class="block transition-all duration-500 hover:scale-110">
