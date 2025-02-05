@@ -5,14 +5,14 @@
                 <?php the_sub_field('title') ?>
             </h2>
         <?php } ?>
-        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex 2xl:gap-[90px] gap-12 l':'' ?>">
+        <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:flex 2xl:gap-[90px] gap-5':'' ?>">
             <?php if (have_rows('content')) { ?>
-                <div class="flex-1">
-                    <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 2xl:gap-x-[70px] gap-x-10 2xl:gap-y-[50px] gap-y-5':'gap-y-6' ?>">
+                <div class="flex-1 pb-5">
+                    <div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'grid-cols-2 2xl:gap-x-[70px] gap-x-5 2xl:gap-y-[50px] gap-y-5':'gap-y-6' ?>">
                         <?php while (have_rows('content')): the_row(); ?>
                             <div class="col-auto">
                                 <?php if (get_sub_field('title')) { ?>
-                                    <h3 class="uppercase font-bold mb-4 text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'text-xl':'text-lg' ?>">
+                                    <h3 class="uppercase font-bold  text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:text-xl text-base xl:mb-4 mb-3':'text-lg mb-4' ?>">
                                         <?php the_sub_field('title') ?>
                                     </h3>
                                 <?php } ?>
