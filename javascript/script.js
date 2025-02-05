@@ -3175,10 +3175,7 @@ import { DataTable } from 'simple-datatables';
 						.length > 0
 				) {
 					var closeVol_title = share.CV;
-					closeVol_title = bsc_number_format(
-						closeVol_title / 1000,
-						2
-					);
+					closeVol_title = bsc_number_format(closeVol_title, 2);
 					wrapper_price
 						.find('.bsc_need_crawl_price-closeVol')
 						.html(closeVol_title);
@@ -3477,7 +3474,7 @@ import { DataTable } from 'simple-datatables';
 						) {
 							var closeVol_title = share.closeVol;
 							closeVol_title = bsc_number_format(
-								closeVol_title / 1000,
+								closeVol_title,
 								2
 							);
 							wrapper_price

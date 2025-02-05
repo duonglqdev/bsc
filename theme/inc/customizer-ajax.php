@@ -3467,7 +3467,7 @@ function filter_details_symbol()
 								<?php } ?>
 							</div>
 							<div
-								class="flex-1 min-w-[110px] bsc_need_crawl_price-closePrice <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125] px-3 font-bold ">
+								class="flex-1 min-w-[110px] bsc_need_crawl_price-bidPrice1 bsc_need_crawl_price-text-color <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125] px-3 font-bold ">
 							</div>
 							<div
 								class="flex-1 min-w-[110px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125] px-3">
@@ -3485,7 +3485,7 @@ function filter_details_symbol()
 								<?php echo $list_bsc->san ?>
 							</div>
 							<div
-								class="flex-1 min-w-[110px] bsc_need_crawl_price-closeVol <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125] px-3  ">
+								class="flex-1 min-w-[110px] bsc_need_crawl_price-closeVol bsc_need_crawl_price-text-color <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-end pr-10 leading-[1.125] px-3  ">
 							</div>
 						</div>
 				<?php
@@ -3731,7 +3731,7 @@ function filter_details_symbol()
 														<?php } ?>
 													</li>
 													<li
-														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-closePrice">
+														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-bold bsc_need_crawl_price-bidPrice1">
 													</li>
 													<li
 														class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[70px]' ?> font-medium">
