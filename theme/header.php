@@ -343,7 +343,7 @@
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 			<div id="dropdownLanguage-pc"
 				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-				<ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="change_language">
+				<ul class="p-2 text-sm text-gray-700 dark:text-gray-200 space-y-1" aria-labelledby="change_language">
 					<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 				</ul>
 			</div>
