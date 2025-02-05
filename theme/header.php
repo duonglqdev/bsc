@@ -147,7 +147,7 @@
 
 
 							<form action="<?php echo get_home_url() ?>"
-								class="flex flex-col p-4 bg-white rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
+								class="flex flex-col p-4 bg-white grid-cols-6 rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
 								<div class="flex items-center gap-6">
 									<div class="flex">
 										<input type="radio" id="cp" name="investment" class="hidden peer" value="co_phieu" checked>
