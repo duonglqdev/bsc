@@ -46,6 +46,7 @@ import { DataTable } from 'simple-datatables';
 		transformText();
 		loadMoreJob();
 		handleUnwrap();
+		searchAddress();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -3206,34 +3207,38 @@ import { DataTable } from 'simple-datatables';
 					}
 				}
 				let text_color_class = '';
+				let difference;
 				if (share.CH || share.CHP) {
 					if (share.CHP) {
-						const difference = share.CHP;
+						 difference = share.CHP;
 					} else {
-						const difference = wrapper_price
+						 difference = wrapper_price
 							.find(
 								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
 							)
 							.attr('data-number');
 					}
+					let sharecp; 
 					if (share.CP) {
-						const sharecp = share.CP;
+						 sharecp = share.CP;
 					} else {
-						const sharecp = wrapper_price
+						 sharecp = wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1')
 							.attr('data-number');
 					}
+					let sharecl; 
 					if (share.CL) {
-						const sharecl = share.CL;
+						 sharecl = share.CL;
 					} else {
-						const sharecl = wrapper_price
+						 sharecl = wrapper_price
 							.find('.bsc_need_crawl_price-ceiling')
 							.attr('data-number');
 					}
+					let sharefl; 
 					if (share.FL) {
-						const sharefl = share.FL;
+						 sharefl = share.FL;
 					} else {
-						const sharefl = wrapper_price
+						 sharefl = wrapper_price
 							.find('.bsc_need_crawl_price-floor')
 							.attr('data-number');
 					}
@@ -4133,5 +4138,33 @@ import { DataTable } from 'simple-datatables';
 				watchCss: true,
 			});
 		}
+	}
+	function searchAddress() {
+		$('#search-contact').on('keyup', function () {
+			let searchText = $(this).val().toLowerCase();
+			let hasResult = false;
+
+			$('.map-address').each(function () {
+				let content = $(this).text().toLowerCase();
+				if (content.includes(searchText)) {
+					$(this).show();
+					hasResult = true;
+				} else {
+					$(this).hide();
+				}
+			});
+
+			// Kiểm tra nếu không có kết quả
+			let $noResult = $('#no-result');
+			if (!hasResult) {
+				if ($noResult.length === 0) {
+					$('.address-list').append(
+						'<p class="text-center font-bold mt-5">No result !</p>'
+					);
+				}
+			} else {
+				$noResult.remove(); // Xóa thông báo nếu có kết quả
+			}
+		});
 	}
 })(jQuery);

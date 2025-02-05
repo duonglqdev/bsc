@@ -96,19 +96,19 @@
 							<div class="flex items-center gap-2 btn-chart_date">
 								<button type="button" data-month="1"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '1 Th', 'bsc' ) ?>
+									<?php _e( '1M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="3"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '3 Th', 'bsc' ) ?>
+									<?php _e( '3M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="6"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '6 Th', 'bsc' ) ?>
+									<?php _e( '6M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="12"
 									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
-									<?php _e( '1 Năm', 'bsc' ) ?>
+									<?php _e( '1Y', 'bsc' ) ?>
 								</button>
 							</div>
 							<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
@@ -182,7 +182,7 @@
 							the_row();
 							$time_cache = get_sub_field( 'time_cache' ) ?: 300; ?>
 							<div
-								class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' font-Helvetica' : '' ?>">
+								class="bg-white rounded-[10px] lg:px-6 px-4 py-4 mb-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' font-Helvetica lg:min-h-[311px]' : '' ?>">
 								<?php if ( get_sub_field( 'title' ) ) { ?>
 									<p class="font-bold md:text-xl pb-3 mb-3 border-b border-[#D9D9D9] lg:text-left text-center">
 										<?php the_sub_field( 'title' ) ?>
@@ -331,7 +331,7 @@
 					}
 					?>
 					<?php if ( have_rows( 'nganh_doanh_nghiep' ) ) : ?>
-						<div class="data-slick block_slider-show-1 slick-dots-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'font-Helvetica' : '' ?>"
+						<div class="data-slick block_slider-show-1 slick-dots-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'font-Helvetica min-h-[305px]' : '' ?>"
 							data-slick='{"slidesToShow": 1, "slidesToScroll": 1, "autoplay": true, "autoplaySpeed": 3000, "dots": true, "arrows": false, "fade": false}'>
 							<?php
 							$i = 0;

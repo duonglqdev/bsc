@@ -215,9 +215,9 @@
 					<div
 						class="<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?> relative flex items-center<?php } ?>">
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
-							<div class="main_menu">
+							<div class="main_menu ">
 								<ul
-									class="lg:flex hidden lg:items-center 2xl:gap-8 xl:gap-5 gap-3 font-semibold text-paragraph xl:text-base text-xs">
+									class="lg:flex hidden lg:items-center  font-semibold text-paragraph xl:text-base text-xs <?php echo (get_locale() == 'ja' || get_locale() == 'ko_KR') ? '2xl:gap-16 xl:gap-14 gap-8 ja' : '2xl:gap-8 xl:gap-5 gap-3'; ?>">
 									<li class="menu-home">
 										<a href="<?php echo get_home_url() ?>"
 											class="block transition-all duration-500 hover:scale-110">
@@ -252,7 +252,7 @@
 										</button>
 										<div id="dropdownLanguage"
 											class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-											<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+											<ul class="py-2 text-sm text-gray-700 dark:text-gray-200 space-y-1"
 												aria-labelledby="change_language">
 												<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 											</ul>
@@ -342,7 +342,7 @@
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 			<div id="dropdownLanguage-pc"
 				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-				<ul class="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="change_language">
+				<ul class="p-2 text-sm text-gray-700 dark:text-gray-200 space-y-1" aria-labelledby="change_language">
 					<?php add_custom_class_to_current_lang( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
 				</ul>
 			</div>

@@ -1211,7 +1211,7 @@ if ($file) {
                                 <input type="text" id="search-contact"
                                     class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D]">
                             </div>
-                            <div class="scroll-bar-custom overflow-y-auto max-h-[566px]" id="branch-list">
+                            <div class="scroll-bar-custom overflow-y-auto min-h-[566px] address-list" id="branch-list">
                             </div>
                         </div>
                     </div>
@@ -1229,7 +1229,7 @@ if ($file) {
                                     <input type="text" id="search-contact"
                                         class="flex-1 border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] p-0">
                                 </div>
-                                <div class="scroll-bar-custom overflow-y-auto max-h-[140px]" id="branch-list">
+                                <div class="scroll-bar-custom overflow-y-auto max-h-[140px] min-h-[140px] address-list" id="branch-list">
                                 </div>
                             </div>
                             </div>     
