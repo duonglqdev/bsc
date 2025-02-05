@@ -137,7 +137,7 @@
 			class="bg-white 2xl:py-[14px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[18px]':'py-[12px]' ?>  shadow-base lg:static relative">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
-						<div class="flex items-center gap-2 relative lg:hidden">
+						<div class="flex items-center sm:gap-5 gap-3 relative lg:hidden">
 							<div class="bar_mobile ">
 								<?php echo svg( 'bar' ) ?>
 							</div>
