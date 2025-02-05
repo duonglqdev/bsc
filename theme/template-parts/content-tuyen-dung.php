@@ -40,7 +40,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 		</div>
 	<?php } ?>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center lg:flex flex-col' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs md:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
@@ -50,12 +50,12 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Kinh nghiệm:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_exp <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
+		<p class="font-bold job_exp <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
 			<?php the_field('kinh_nghiem_td') ?>
 		</p>
 	</div>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center lg:flex flex-col' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs md:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
@@ -66,7 +66,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 			<?php endif; ?>
 
 		</p>
-		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg ' : 'text-xs' ?>">
+		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
 			<?php
 			$post_id = get_the_ID();
 			$noi_lam_viec = get_the_terms($post->ID, 'noi-lam-viec');
@@ -77,7 +77,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 		</p>
 	</div>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center lg:flex flex-col' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs md:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
@@ -87,12 +87,12 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Số lượng tuyển:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_number <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
+		<p class="font-bold job_number <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
 			<?php the_field('so_luong') ?>
 		</p>
 	</div>
 	<div
-		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center' : 'flex items-center gap-2 mb-[12px]' ?>">
+		class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2 text-center lg:flex flex-col' : 'flex items-center gap-2 mb-[12px]' ?>">
 		<p
 			class="text-gray-100 font-medium text-xs md:block flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-4' : '' ?>">
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) : ?>
@@ -102,7 +102,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Hạn nộp hồ sơ:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_date <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
+		<p class="font-bold job_date <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
 			<?php
 			if ($deadline_date) {
 				echo $deadline_date->format('d/m/Y');
