@@ -34,7 +34,7 @@
 					</h2>
 				<?php } ?>
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex justify-between items-center mb-4' : 'mb-2' ?>">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-4' : 'mb-2' ?>">
 					
 						<div class="uppercase text-primary-300 font-bold bsc-ajax-api <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'xl:mb-0 mb-2':'mb-2' ?>"
 							data-api="ttnc_khuyen_nghi_GetForecastMacro_title">
