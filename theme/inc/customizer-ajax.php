@@ -2260,7 +2260,7 @@ function filter_details_symbol()
 									<div
 										class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 										<h2 class="heading-title">
-											<?php _e('KẾT QUẢ HOẠT ĐỘNG', 'bsc') ?>
+											<?php _e('HIỆU QUẢ HOẠT ĐỘNG', 'bsc') ?>
 										</h2>
 										<?php
 										if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG) {
@@ -2356,9 +2356,9 @@ function filter_details_symbol()
 																<th><?php _e('Vòng quay tổng tài sản (lần)', 'bsc') ?></th>
 															<?php } else {
 															?>
-																<th><?php _e('Tỷ lệ chi phí bảo hiểm trên Doanh thu (%)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay khoản phải thu (lần)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay khoản phải trả (lần)', 'bsc') ?></th>
+																<th><?php _e('Vòng quay hàng tồn kho (lần)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay tổng tài sản (lần)', 'bsc') ?></th>
 															<?php
 															} ?>
