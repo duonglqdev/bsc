@@ -3791,7 +3791,7 @@ import { DataTable } from 'simple-datatables';
 			// Xóa khoảng trắng hoặc kiểm tra chuỗi rỗng
 			if (searchValue === '') {
 				listItems.hide();
-				noResults.removeClass('hidden');
+				noResults.addClass('hidden');
 				return;
 			}
 
