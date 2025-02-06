@@ -55,10 +55,10 @@
 
 					</div>
 					<div
-						class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl h-[calc(100%-102px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-110px)]' : '' ?>">
+						class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl xl:h-[calc(100%-102px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-110px)]' : '' ?>">
 						<div
 							class="mb-6 flex xl:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
-							<div class="flex md:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+							<div class="flex xl:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 								? 'gap-6 2xl:gap-6 items-center'
 								: ''; ?>">
 								<div id="date-performance-picker" date-rangepicker datepicker-orientation="bottom"
@@ -137,7 +137,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="grid lg:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom mt-5">
+							<div class="grid lg:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom xl:mt-5">
 								<div class="apexcharts-legend">
 
 								</div>
