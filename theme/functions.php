@@ -15,7 +15,7 @@ if (! defined('bsc_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('bsc_VERSION', '0.1.1');
+	define('bsc_VERSION', '0.1.2');
 }
 
 if (! defined('bsc_TYPOGRAPHY_CLASSES')) {
@@ -206,4 +206,4 @@ require get_template_directory() . '/inc/customizer-sitemap.php';
  * Hide Custom Theme
  */
 define('DISALLOW_FILE_EDIT', true);
-// add_filter( 'acf/settings/show_admin', '__return_false' );
+add_filter('acf/settings/show_admin', '__return_false');
