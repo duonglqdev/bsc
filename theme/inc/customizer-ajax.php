@@ -4100,7 +4100,7 @@ function filter_details_symbol()
 									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
 								</p>
 								<div class="overflow-x-auto">
-									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 lg:w-full w-max text-right">
+									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 xl:w-full w-max text-right">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4121,7 +4121,7 @@ function filter_details_symbol()
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
@@ -4138,7 +4138,7 @@ function filter_details_symbol()
 											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
 										}
 										?>
-										<trv>
+										
 
 									</div>
 								</div>
@@ -4216,7 +4216,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
@@ -4311,7 +4311,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
@@ -4406,7 +4406,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
@@ -4546,7 +4546,7 @@ function filter_details_symbol()
 						}
 					?>
 						<div class="<?php if (! empty($item['children']))
-										echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
+										echo 'collapse-item has-children' ?> relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1] after:bg-white">
 							<div
 								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs ">
 								<h3
