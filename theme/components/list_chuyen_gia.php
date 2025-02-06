@@ -36,7 +36,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14' : 'my-[30px]' ?>">
 	<div class="container">
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-			<form class="flex gap-6 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc" data-paged="1">
+			<form class="flex xl:gap-6 gap-4 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc" data-paged="1">
 				<?php
 				$kinh_nghiems = get_terms( array(
 					'taxonomy' => 'kinh-nghiem',
@@ -50,7 +50,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 							<?php _e( 'Kinh nghiệm', 'bsc' ) ?>
 						</p>
 						<select id="kinh_nghiem"
-							class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $kinh_nghiems as $kinh_nghiem ) :
 								?>
@@ -74,7 +74,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 							<?php _e( 'Mệnh', 'bsc' ) ?>
 						</p>
 						<select id="menh"
-							class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $menhs as $menh ) :
 								?>
@@ -98,7 +98,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 							<?php _e( 'Trình độ học vấn', 'bsc' ) ?>
 						</p>
 						<select id="trinh_do_hoc_van"
-							class="select_custom w-[190px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $trinh_do_hoc_vans as $trinh_do_hoc_van ) :
 								?>
@@ -114,7 +114,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 						<?php _e( 'Tên chuyên gia', 'bsc' ) ?>
 					</p>
 					<input id="name_chuyen_gia" type="text" placeholder="<?php _e( 'Nhập họ tên chuyên gia', 'bsc' ) ?>"
-						class="w-[273px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
+						class="xl:w-[273px] w-[220px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
 				</div>
 				<button type="submit" id="chuyen_gia_submit"
 					class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e( 'Tìm kiếm', 'bsc' ) ?></button>

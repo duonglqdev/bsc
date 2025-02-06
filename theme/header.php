@@ -137,7 +137,7 @@
 			class="bg-white 2xl:py-[14px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'py-[18px]':'py-[12px]' ?>  shadow-base lg:static relative">
 			<div class="container">
 				<div class="flex justify-between items-center gap-3">
-						<div class="flex items-center gap-2 relative lg:hidden">
+						<div class="flex items-center sm:gap-5 gap-3 relative lg:hidden">
 							<div class="bar_mobile ">
 								<?php echo svg( 'bar' ) ?>
 							</div>
@@ -147,7 +147,7 @@
 
 
 							<form action="<?php echo get_home_url() ?>"
-								class="flex flex-col p-4 bg-white rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
+								class="flex flex-col p-4 bg-white grid-cols-6 rounded-bl-lg rounded-br-lg gap-4 mb-4 absolute top-11 [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 [&:not(.active)]:invisible visible form-search-mb origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 shadow-base">
 								<div class="flex items-center gap-6">
 									<div class="flex">
 										<input type="radio" id="cp" name="investment" class="hidden peer" value="co_phieu" checked>
@@ -170,8 +170,8 @@
 										class="bg-transparent border-none focus:outline-0 focus:ring-transparent pb-2 font-medium min-w-36 h-9 peer text-black placeholder:text-paragraph focus:shadow-none placeholder:transition-all placeholder:duration-700 max-h-full w-full py-2 transition-all duration-500 px-0 focus:px-3 focus:rounded-md focus:border focus:border-solid focus:border-gray-100 text-xs"
 										autocomplete="off">
 									<ul
-										class="shares-result absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-xs prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-2 prose-a:font-Helvetica rounded-lg prose-a:before:top-4">
-										<li class="no-results text-center p-4 font-bold hidden text-black">
+										class="shares-result lg:hidden absolute py-2 z-30 w-full h-64 overflow-y-auto scroll-bar-custom block [&:not(.active)]:opacity-0 opacity-100 [&:not(.active)]:pointer-events-none transition-all duration-500 origin-top-left scale-x-100 [&:not(.active)]:scale-y-0 scale-100 bg-[#F3FBFE] p-2 text-white prose-a:block prose-a:px-[14px] prose-a:text-xs prose-a:font-semibold prose-a:uppercase prose-a:text-paragraph prose-a:rounded-md prose-a:py-2 prose-a:font-Helvetica rounded-lg prose-a:before:top-4">
+										<li class="no-results lg:!hidden text-center p-4 font-bold hidden text-black">
 											<?php _e( 'Không thấy kết quả!', 'bsc' ) ?>
 										</li>
 										<div class="text-center loader hidden w-full h-full">

@@ -796,7 +796,7 @@ import { DataTable } from 'simple-datatables';
 			infinite: false,
 			responsive: [
 				{
-					breakpoint: 1024,
+					breakpoint: 1025,
 					settings: {
 						slidesToShow: 3,
 					},
@@ -3791,7 +3791,7 @@ import { DataTable } from 'simple-datatables';
 			// Xóa khoảng trắng hoặc kiểm tra chuỗi rỗng
 			if (searchValue === '') {
 				listItems.hide();
-				noResults.removeClass('hidden');
+				noResults.addClass('hidden');
 				return;
 			}
 
@@ -3969,7 +3969,7 @@ import { DataTable } from 'simple-datatables';
 				paginationContainer.append(`
 					<li>
 						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPageDlls - 1}">
-							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+							<svg class="rtl:rotate-180" width="10" height="10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
 									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"></path>
 								</svg>
 						</a>
@@ -3994,7 +3994,7 @@ import { DataTable } from 'simple-datatables';
 				paginationContainer.append(`
 					<li>
 						<a href="#" class="flex items-center justify-center px-2 min-w-9 h-9 rounded text-xs font-bold leading-tight border border-transparent bg-white text-black hover:!bg-primary-300 hover:!text-white hover:!border-transparent transition-all duration-500" data-page="${currentPageDlls + 1}">
-							<svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+							<svg width="10" height="10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
 									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
 								</svg>
 						</a>
