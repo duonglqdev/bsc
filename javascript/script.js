@@ -1834,7 +1834,13 @@ import { DataTable } from 'simple-datatables';
 					jQuery(this).addClass('active');
 					const todayDate = new Date();
 					const fromdate = new Date(todayDate);
-					fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					if (chart_motnh === 0) {
+						// Nếu chart_motnh là 0, lấy ngày đầu năm
+						fromdate = new Date(todayDate.getFullYear(), 0, 1); // 01/01/yyyy
+					} else {
+						// Nếu không, trừ đi số tháng tương ứng
+						fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					}
 					const formatDate = (date) => {
 						const day = date.getDate();
 						const month = date.getMonth() + 1; // Tháng trong JS bắt đầu từ 0
