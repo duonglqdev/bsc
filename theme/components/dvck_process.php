@@ -14,7 +14,7 @@ $generateRandomString = generateRandomString();
 			<?php } ?>
 			<?php if (have_rows('hanh_trinh')) { ?>
 				<div
-					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:translate-x-[120px] xl:translate-x-3 lg:grid-cols-4 grid-cols-2 lg:bg-transparent bg-white lg:p-0 p-5 lg:rounded-none lg:shadow-none shadow-base rounded-xl relative lg:after:hidden lg:before:hidden after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
+					class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'custom-tranx xl:translate-x-[120px] xl:grid-cols-4 grid-cols-2 lg:bg-transparent bg-white lg:p-0 p-5 lg:rounded-none lg:shadow-none shadow-base rounded-xl relative lg:after:hidden lg:before:hidden after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' : 'grid-cols-2 bg-white p-5 rounded-xl relative after:absolute after:w-[90%] after:h-[1px] after:bg-[#C9CCD2] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 before:absolute before:h-[90%] before:w-[1px] before:bg-[#C9CCD2] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('hanh_trinh')) :
@@ -142,7 +142,7 @@ $generateRandomString = generateRandomString();
 												</div>
 											</div>
 										<?php } ?>
-										<div class="flex-1 text-justify">
+										<div class="flex-1 text-justify w-full">
 											<?php if (get_sub_field('title')) { ?>
 												<h3
 													class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:text-2xl text-lg lg:mb-6 mb-4' : 'text-xl mb-4' ?> text-primary-300">
