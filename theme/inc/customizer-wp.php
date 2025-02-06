@@ -397,3 +397,17 @@ add_action('template_redirect', function () {
 		exit;
 	}
 });
+
+/**
+ * Lưu log 404
+ */
+function log_404_errors()
+{
+	if (is_404()) {
+		// Ghi log thông báo 404
+		// Bạn có thể tùy chỉnh nội dung này tùy theo nhu cầu
+		$current_url = home_url(add_query_arg(array(), $GLOBALS['wp']->request));
+		error_log('Trang 404 - URL: ' . $current_url);
+	}
+}
+add_action('template_redirect', 'log_404_errors');
