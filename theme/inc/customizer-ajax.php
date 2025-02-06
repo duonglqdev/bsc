@@ -836,7 +836,7 @@ function filter_details_symbol()
 
 				</div>
 				<div
-					class="mt-5 mx-auto max-w-[215px] space-y-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+					class="mt-5 mx-auto <?php echo (get_locale() == 'en_GB') ? '' : 'max-w-[215px]'; ?>  space-y-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 					<?php if ($response_GetShareholderRelations->d[0]->bigholderpct) { ?>
 						<div
 							class="rounded-[43px] flex justify-between items-center font-bold px-[17px] py-[5px] text-white bg-primary-300">
@@ -1215,7 +1215,7 @@ function filter_details_symbol()
 															);
 														}
 												?>
-														<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+														<tr class="relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1] lg:prose-td:w-[calc(100%/8)]">
 															<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
 																<?php echo $data_title[$check_kqkd] ?>
 															</td>
@@ -1300,7 +1300,7 @@ function filter_details_symbol()
 															);
 														}
 												?>
-														<tr class="[&:nth-child(even)]:bg-[#EBF4FA] lg:prose-td:w-[calc(100%/8)]">
+														<tr class="lg:prose-td:w-[calc(100%/8)] relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1]">
 															<td class="lg:min-w-[231px] lg:!w-1/4 text-left">
 																<?php echo $data_ts_title[$check_ts] ?>
 															</td>
@@ -3197,34 +3197,34 @@ function filter_details_symbol()
 					<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
 						<?php _e('KLGD trung bình 10 ngày', 'bsc') ?>
 					</p>
-					<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
+					<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-lg' : '' ?>">
 						<?php
 						echo bsc_number_format($response_securityBasicInfo->data[0]->SumVol10d / 10) ?>
 					</p>
 				</div>
-				<div class="grid grid-cols-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-3' ?>">
+				<div class="grid grid-cols-3 gap-3">
 
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('P/E', 'bsc') ?>
 						</p>
-						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
+						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-lg' : '' ?>">
 							<?php echo $response_securityBasicInfo->data[0]->PE ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('ROA (%)', 'bsc') ?>
 						</p>
-						<p class="font-medium text-lg">
+						<p class="font-medium 2xl:text-lg">
 							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->ROA, false) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('Vốn hóa (tỷ đồng)', 'bsc') ?>
 						</p>
-						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : '' ?>">
+						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-lg' : '' ?>">
 							<?php
 							if ($response_securityBasicInfo->data[0]->MarketCapital) {
 								echo bsc_number_format($response_securityBasicInfo->data[0]->MarketCapital);
@@ -3233,26 +3233,26 @@ function filter_details_symbol()
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('P/B', 'bsc') ?>
 						</p>
-						<p class="font-medium text-lg">
+						<p class="font-medium 2xl:text-lg">
 							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->PB) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('ROE (%)', 'bsc') ?>
 						</p>
-						<p class="font-medium text-lg">
+						<p class="font-medium 2xl:text-lg">
 							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->ROE, false) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
-						<p class="text-paragraph text-opacity-70 2xl:text-xs text-[13px]">
+						<p class="text-paragraph text-opacity-70 2xl:text-xs text-xxs">
 							<?php _e('EPS (đồng)', 'bsc') ?>
 						</p>
-						<p class="font-medium text-lg">
+						<p class="font-medium 2xl:text-lg">
 							<?php echo bsc_number_format($response_securityBasicInfo->data[0]->EPS, false) ?>
 						</p>
 					</div>
@@ -4100,7 +4100,7 @@ function filter_details_symbol()
 									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
 								</p>
 								<div class="overflow-x-auto">
-									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 lg:w-full w-max text-right">
+									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 xl:w-full w-max text-right">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4121,7 +4121,7 @@ function filter_details_symbol()
 											<?php _e('Thay đổi', 'bsc') ?>
 										</p>
 									</div>
-									<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
 											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
@@ -4138,7 +4138,7 @@ function filter_details_symbol()
 											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
 										}
 										?>
-										<trv>
+										
 
 									</div>
 								</div>
@@ -4216,7 +4216,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
@@ -4311,7 +4311,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
@@ -4406,7 +4406,7 @@ function filter_details_symbol()
 														<?php _e('Thay đổi', 'bsc') ?>
 													</p>
 												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom max-h-[600px] overflow-y-auto">
+												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
 														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
@@ -4546,7 +4546,7 @@ function filter_details_symbol()
 						}
 					?>
 						<div class="<?php if (! empty($item['children']))
-										echo 'collapse-item has-children' ?> [&:nth-child(even)]:bg-[#EBF4FA] bg-white">
+										echo 'collapse-item has-children' ?> relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1] after:bg-white">
 							<div
 								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs ">
 								<h3

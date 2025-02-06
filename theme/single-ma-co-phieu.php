@@ -110,7 +110,7 @@ get_header();
 								</div>
 							<?php } ?>
 							<div
-								class="flex-1 grid grid-cols-3 font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-6' ?>">
+								class="flex-1 flex gap-3 justify-between font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-6' ?>">
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
 										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?>">
@@ -345,7 +345,7 @@ get_header();
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[386px] xl:max-w-[29%] w-full xl:mb-0 mb-5' : 'w-full' ?>">
 							<h2
-								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
 							</h2>
 							<div class="xl:space-y-4 md:space-y-0 space-y-4 xl:block md:grid md:grid-cols-2 gap-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
@@ -369,7 +369,7 @@ get_header();
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[414px] xl:max-w-[31%] lg:w-1/2' : 'mt-[50px]' ?>">
 							<h2
-								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?>  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
 							</h2>
 							<div class="lg:space-y-4 md:space-y-0 lg:block md:grid md:grid-cols-2 md:gap-5 space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
@@ -392,7 +392,7 @@ get_header();
 						</div>
 						<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-14' ?>">
 							<h2
-								class="heading-title <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'DOANH NGHIỆP CÙNG NGÀNH', 'bsc' ) ?>
 							</h2>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative bsc-ajax-api"
