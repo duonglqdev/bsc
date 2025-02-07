@@ -3051,7 +3051,7 @@ import { DataTable } from 'simple-datatables';
 				const share = msg.d[0];
 				console.log(share);
 				if (
-					share.EX &&
+					typeof share.EX === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-exchange')
 						.length > 0
 				) {
@@ -3075,7 +3075,7 @@ import { DataTable } from 'simple-datatables';
 				// 		.attr('data-number', share.B1);
 				// }
 				if (
-					share.CL &&
+					typeof share.CL === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-ceiling').length >
 						0
 				) {
@@ -3089,7 +3089,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.CL);
 				}
 				if (
-					share.RE &&
+					typeof share.RE === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price--reference')
 						.length > 0
 				) {
@@ -3106,7 +3106,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.RE);
 				}
 				if (
-					share.HI &&
+					typeof share.HI === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-high').length > 0
 				) {
 					var high_title = share.HI;
@@ -3119,7 +3119,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.HI);
 				}
 				if (
-					share.LO &&
+					typeof share.LO === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-low').length > 0
 				) {
 					var low_title = share.LO;
@@ -3132,7 +3132,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.LO);
 				}
 				if (
-					share.FL &&
+					typeof share.FL === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-floor').length > 0
 				) {
 					var floor_title = share.FL;
@@ -3145,7 +3145,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.FL);
 				}
 				if (
-					share.AP &&
+					typeof share.AP === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-averagePrice')
 						.length > 0
 				) {
@@ -3162,7 +3162,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.AP);
 				}
 				if (
-					share.CP &&
+					typeof share.CP === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-bidPrice1')
 						.length > 0
 				) {
@@ -3179,7 +3179,7 @@ import { DataTable } from 'simple-datatables';
 						.attr('data-number', share.CP);
 				}
 				if (
-					share.CV &&
+					typeof share.CV === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-closeVol')
 						.length > 0
 				) {
@@ -3192,13 +3192,13 @@ import { DataTable } from 'simple-datatables';
 						.find('.bsc_need_crawl_price-closeVol')
 						.attr('data-number', share.CV);
 				}
-				if (share.CHP) {
+				if (typeof share.CHP === 'number') {
 					if (
 						wrapper_price.find(
 							'.bsc_need_crawl_price-bidPrice1-reference-phantram'
 						).length > 0
 					) {
-						const formattedPercentage = bsc_number_format(
+						var formattedPercentage = bsc_number_format(
 							share.CHP,
 							2
 						);
@@ -3214,10 +3214,32 @@ import { DataTable } from 'simple-datatables';
 							.attr('data-number', share.CHP);
 					}
 				}
+				if (typeof share.CH === 'number') {
+					if (
+						wrapper_price.find(
+							'.bsc_need_crawl_price-bidPrice1-reference'
+						).length > 0
+					) {
+						var formattedPercentage_Ch = bsc_number_format(
+							share.CH,
+							2
+						);
+						wrapper_price
+							.find('.bsc_need_crawl_price-bidPrice1-reference')
+							.html(formattedPercentage_Ch + '%');
+						wrapper_price
+							.find('.bsc_need_crawl_price-bidPrice1-reference')
+							.attr('data-number', share.CH);
+					}
+				}
 				let text_color_class = '';
 				let difference;
-				if (share.CH || share.CHP) {
-					if (share.CHP) {
+				if (
+					typeof share.CH === 'number' ||
+					typeof share.CHP === 'number' ||
+					typeof share.CP === 'number'
+				) {
+					if (typeof share.CHP === 'number') {
 						difference = share.CHP;
 					} else {
 						difference = wrapper_price
@@ -3227,7 +3249,7 @@ import { DataTable } from 'simple-datatables';
 							.attr('data-number');
 					}
 					let sharecp;
-					if (share.CP) {
+					if (typeof share.CP === 'number') {
 						sharecp = share.CP;
 					} else {
 						sharecp = wrapper_price
@@ -3235,7 +3257,7 @@ import { DataTable } from 'simple-datatables';
 							.attr('data-number');
 					}
 					let sharecl;
-					if (share.CL) {
+					if (typeof share.CL === 'number') {
 						sharecl = share.CL;
 					} else {
 						sharecl = wrapper_price
@@ -3243,16 +3265,24 @@ import { DataTable } from 'simple-datatables';
 							.attr('data-number');
 					}
 					let sharefl;
-					if (share.FL) {
+					if (typeof share.FL === 'number') {
 						sharefl = share.FL;
 					} else {
 						sharefl = wrapper_price
 							.find('.bsc_need_crawl_price-floor')
 							.attr('data-number');
 					}
-					if (sharecp && sharecl && sharecp === sharecl) {
+					if (
+						typeof share.sharecp === 'number' &&
+						typeof share.sharecl === 'number' &&
+						sharecp === sharecl
+					) {
 						text_color_class = 'text-[#7F1CCD]';
-					} else if (sharecp && sharefl && sharecp === sharefl) {
+					} else if (
+						typeof share.sharecp === 'number' &&
+						typeof share.sharefl === 'number' &&
+						sharecp === sharefl
+					) {
 						text_color_class = 'text-[#1ABAFE]';
 					} else if (difference > 0) {
 						text_color_class = 'text-[#1CCD83]';
