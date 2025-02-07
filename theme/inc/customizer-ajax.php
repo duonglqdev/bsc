@@ -1666,7 +1666,11 @@ function filter_details_symbol()
 														?>
 															<th><?php _e('Chỉ số thanh toán hiện tại', 'bsc') ?></th>
 															<th><?php _e('Chỉ số thanh toán nhanh', 'bsc') ?></th>
-															<th><?php _e('Chỉ số thanh toán lãi vay', 'bsc') ?></th>
+															<?php if ($check_linh_vuc == 'Insurance') { ?>
+																<th><?php _e('Biên lợi nhuận gộp bảo hiểm', 'bsc') ?></th>
+															<?php } else { ?>
+																<th><?php _e('Chỉ số thanh toán lãi vay', 'bsc') ?></th>
+															<?php } ?>
 															<?php if ($check_linh_vuc == 'Company') { ?>
 																<th><?php _e('Nợ vay/Tổng tài sản', 'bsc') ?></th>
 															<?php } else { ?>
@@ -1696,16 +1700,20 @@ function filter_details_symbol()
 															</td>
 															<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->CHI_SO_THANH_TOAN_NHANH)); ?>
 															</td>
-															<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_THANH_TOAN_LAI_VAY)); ?>
-															</td>
-															<?php if ($check_linh_vuc == 'Company') { ?>
-																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NO_VAY_TONG_TAI_SAN)); ?>
+															<?php if ($check_linh_vuc == 'Insurance') { ?>
+																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP_BAO_HIEM)); ?>
+																<?php } else { ?>
+																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_THANH_TOAN_LAI_VAY)); ?>
+																<?php } ?>
 																</td>
-															<?php } else { ?>
-																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY)); ?>
-																</td>
+																<?php if ($check_linh_vuc == 'Company') { ?>
+																	<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NO_VAY_TONG_TAI_SAN)); ?>
+																	</td>
+																<?php } else { ?>
+																	<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DON_BAY)); ?>
+																	</td>
+																<?php } ?>
 															<?php } ?>
-														<?php } ?>
 													</tr>
 
 												</tbody>
@@ -1929,7 +1937,7 @@ function filter_details_symbol()
 												?>
 												<div class="legend-gap bsc_chart-display mt-auto" data-type="bar" data-load="false"
 													data-1="<?php echo htmlspecialchars(json_encode($business_data_TY_LE_DON_BAY)) ?>"
-													data-title-1="<?php _e('TN từ Lãi vay', 'bsc') ?>" data-color-1="#009E87">
+													data-title-1="<?php _e('Tỷ lệ đòn bẩy', 'bsc') ?>" data-color-1="#009E87">
 												</div>
 											</div>
 											<div class="flex flex-col">
@@ -2260,7 +2268,7 @@ function filter_details_symbol()
 									<div
 										class="flex items-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6 mb-[30px]' : 'gap-[12px] mb-6' ?>">
 										<h2 class="heading-title">
-											<?php _e('KẾT QUẢ HOẠT ĐỘNG', 'bsc') ?>
+											<?php _e('HIỆU QUẢ HOẠT ĐỘNG', 'bsc') ?>
 										</h2>
 										<?php
 										if ($response_GetFinanceDetail->d->Rank[0][0]->RANK_KET_QUA_HOAT_DONG) {
@@ -2356,9 +2364,9 @@ function filter_details_symbol()
 																<th><?php _e('Vòng quay tổng tài sản (lần)', 'bsc') ?></th>
 															<?php } else {
 															?>
-																<th><?php _e('Tỷ lệ chi phí bảo hiểm trên Doanh thu (%)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay khoản phải thu (lần)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay khoản phải trả (lần)', 'bsc') ?></th>
+																<th><?php _e('Vòng quay hàng tồn kho (lần)', 'bsc') ?></th>
 																<th><?php _e('Vòng quay tổng tài sản (lần)', 'bsc') ?></th>
 															<?php
 															} ?>

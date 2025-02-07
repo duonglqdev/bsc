@@ -125,6 +125,7 @@ function custom_rewrite_rule_for_news()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('tin-tuc', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 
@@ -201,6 +202,7 @@ function custom_rewrite_rule_for_report()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('bao-cao', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([0-9]+)(?:-[^/]+)?/?$', 'index.php?report_id=$matches[1]', 'top');
@@ -262,6 +264,7 @@ function custom_rewrite_rule_for_co_phieu()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('cong-ty/tong-quan', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?co_phieu_id=$matches[1]', 'top');
@@ -323,6 +326,7 @@ function custom_rewrite_rule_for_tag_report()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('tag-report', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?tag_report_slug=$matches[1]', 'top');
@@ -361,6 +365,7 @@ function custom_rewrite_rule_for_bao_cao_phan_tich()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('bao-cao-ma-co-phieu', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?bao_cao_phan_tich_slug=$matches[1]', 'top');
@@ -401,6 +406,7 @@ function custom_rewrite_rule_for_calendar()
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
+		$sub_url = pll_translate_string('lich-su-kien', $lang);
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?calendar_slug=$matches[1]', 'top');
@@ -873,12 +879,13 @@ function bsc_proxy_pdf_content()
 
 function bsc_register_pdf_proxy_route()
 {
+	$sub_url = __('Report/ReportFile', 'bsc');
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
-		$sub_url = __('Report/ReportFile', 'bsc');
+		$sub_url = pll_translate_string('Report/ReportFile', $lang);
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([0-9]+)$', 'index.php?report_pdf_id=$matches[1]', 'top');
 	}
 }
@@ -1011,12 +1018,13 @@ function bsc_proxy_newspdf_content()
 
 function bsc_register_pdf_proxy_newsroute()
 {
+	$sub_url = __('News/NewsAttachedFile', 'bsc');
 	$languages = pll_languages_list('slug'); // Lấy tất cả các ngôn ngữ
 	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
 	foreach ($languages as $lang) {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
-		$sub_url = __('News/NewsAttachedFile', 'bsc');
+		$sub_url = pll_translate_string('News/NewsAttachedFile', $lang);
 		add_rewrite_rule('^' . $lang_prefix . $sub_url . '/([0-9]+)$', 'index.php?news_pdf_id=$matches[1]', 'top');
 	}
 }

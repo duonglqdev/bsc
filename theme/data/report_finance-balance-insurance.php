@@ -1,7 +1,7 @@
 <?php
 return [
     [
-        'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'BSC'),
+        'title' => 'I. ' . __('TÀI SẢN NGẮN HẠN', 'bsc'),
         'order' => 3,
         'children' => [
             [
@@ -160,7 +160,7 @@ return [
         ]
     ],
     [
-        'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'BSC'),
+        'title' => 'II. ' . __('TÀI SẢN DÀI HẠN', 'bsc'),
         'order' => 33,
         'children' => [
             [
@@ -330,95 +330,95 @@ return [
         ]
     ],
     [
-        'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'BSC'),
+        'title' => 'III. ' . __('NỢ PHẢI TRẢ', 'bsc'),
         'order' => 66,
         'children' => [
             [
-                'title' => '1. ' . __('Nợ ngắn hạn', 'BSC'),
+                'title' => '1. ' . __('Nợ ngắn hạn', 'bsc'),
                 'order' => 67,
                 'children' => [
                     [
-                        'title' => '- ' . __('Vay và nợ ngắn hạn', 'BSC'),
+                        'title' => '- ' . __('Vay và nợ ngắn hạn', 'bsc'),
                         'order' => 68,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Phải trả cho người bán', 'BSC'),
+                        'title' => '- ' . __('Phải trả cho người bán', 'bsc'),
                         'order' => 69,
                         'children' => [
                             [
-                                'title' => __('Phải trả về hợp đồng bảo hiểm', 'BSC'),
+                                'title' => __('Phải trả về hợp đồng bảo hiểm', 'bsc'),
                                 'order' => 70,
                                 'children' => []
                             ],
                             [
-                                'title' => __('Phải trả khác cho người bán', 'BSC'),
+                                'title' => __('Phải trả khác cho người bán', 'bsc'),
                                 'order' => 71,
                                 'children' => []
                             ]
                         ]
                     ],
                     [
-                        'title' => '- ' . __('Người mua trả tiền trước', 'BSC'),
+                        'title' => '- ' . __('Người mua trả tiền trước', 'bsc'),
                         'order' => 72,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'BSC'),
+                        'title' => '- ' . __('Thuế và các khoản phải nộp Nhà nước', 'bsc'),
                         'order' => 73,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Phải trả người lao động', 'BSC'),
+                        'title' => '- ' . __('Phải trả người lao động', 'bsc'),
                         'order' => 74,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Chi phí phải trả', 'BSC'),
+                        'title' => '- ' . __('Chi phí phải trả', 'bsc'),
                         'order' => 75,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Phải trả nội bộ', 'BSC'),
+                        'title' => '- ' . __('Phải trả nội bộ', 'bsc'),
                         'order' => 76,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'BSC'),
+                        'title' => '- ' . __('Các khoản phải trả, phải nộp khác', 'bsc'),
                         'order' => 77,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'BSC'),
+                        'title' => '- ' . __('Dự phòng phải trả ngắn hạn', 'bsc'),
                         'order' => 78,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'BSC'),
+                        'title' => '- ' . __('Quỹ khen thưởng, phúc lợi', 'bsc'),
                         'order' => 79,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'BSC'),
+                        'title' => '- ' . __('Giao dịch mua bán lại trái phiếu Chính phủ', 'bsc'),
                         'order' => 80,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Dự phòng nghiệp vụ', 'BSC'),
+                        'title' => '- ' . __('Dự phòng nghiệp vụ', 'bsc'),
                         'order' => 81,
                         'children' => [
                             [
-                                'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                'title' => __('Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm', 'bsc'),
                                 'order' => 82,
                                 'children' => []
                             ],
                             [
-                                'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'BSC'),
+                                'title' => __('Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm', 'bsc'),
                                 'order' => 83,
                                 'children' => []
                             ],
                             [
-                                'title' => __('Dự phòng dao động lớn', 'BSC'),
+                                'title' => __('Dự phòng dao động lớn', 'bsc'),
                                 'order' => 84,
                                 'children' => []
                             ],
@@ -427,67 +427,67 @@ return [
                 ]
             ],
             [
-                'title' => '2. ' . __('Nợ dài hạn', 'BSC'),
+                'title' => '2. ' . __('Nợ dài hạn', 'bsc'),
                 'order' => 85,
                 'children' => [
                     [
-                        'title' => '- ' . __('Phải trả dài hạn người bán', 'BSC'),
+                        'title' => '- ' . __('Phải trả dài hạn người bán', 'bsc'),
                         'order' => 86,
                         'children' => [
                             [
-                                'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'BSC'),
+                                'title' => '- ' . __('Người mua trả tiền trước dài hạn', 'bsc'),
                                 'order' => 87,
                                 'children' => []
                             ],
                             [
-                                'title' => '- ' . __('Chi phí phải trả dài hạn', 'BSC'),
+                                'title' => '- ' . __('Chi phí phải trả dài hạn', 'bsc'),
                                 'order' => 88,
                                 'children' => []
                             ],
                             [
-                                'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'BSC'),
+                                'title' => '- ' . __('Phải trả nội bộ về vốn kinh doanh', 'bsc'),
                                 'order' => 89,
                                 'children' => []
                             ],
                         ]
                     ],
                     [
-                        'title' => '- ' . __('Phải trả dài hạn nội bộ', 'BSC'),
+                        'title' => '- ' . __('Phải trả dài hạn nội bộ', 'bsc'),
                         'order' => 90,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Phải trả dài hạn khác', 'BSC'),
+                        'title' => '- ' . __('Phải trả dài hạn khác', 'bsc'),
                         'order' => 91,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Vay và nợ dài hạn', 'BSC'),
+                        'title' => '- ' . __('Vay và nợ dài hạn', 'bsc'),
                         'order' => 92,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'BSC'),
+                        'title' => '- ' . __('Thuế thu nhập hoãn lại phải trả', 'bsc'),
                         'order' => 93,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'BSC'),
+                        'title' => '- ' . __('Dự phòng trợ cấp mất việc làm', 'bsc'),
                         'order' => 94,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Dự phòng phải trả dài hạn', 'BSC'),
+                        'title' => '- ' . __('Dự phòng phải trả dài hạn', 'bsc'),
                         'order' => 95,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Doanh thu chưa thực hiện', 'BSC'),
+                        'title' => '- ' . __('Doanh thu chưa thực hiện', 'bsc'),
                         'order' => 96,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'BSC'),
+                        'title' => '- ' . __('Quỹ phát triển khoa học và công nghệ', 'bsc'),
                         'order' => 97,
                         'children' => []
                     ],
@@ -497,85 +497,85 @@ return [
         ]
     ],
     [
-        'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'BSC'),
+        'title' => 'IV. ' . __('VỐN CHỦ SỞ HỮU', 'bsc'),
         'order' => 98,
         'children' => [
             [
-                'title' => '1. ' . __('Vốn chủ sở hữu', 'BSC'),
+                'title' => '1. ' . __('Vốn chủ sở hữu', 'bsc'),
                 'order' => 99,
                 'children' => [
                     [
-                        'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'BSC'),
+                        'title' => '- ' . __('Vốn đầu tư của chủ sở hữu', 'bsc'),
                         'order' => 100,
                         'children' => [
                             [
-                                'title' => __('Cổ phiếu phổ thông', 'BSC'),
+                                'title' => __('Cổ phiếu phổ thông', 'bsc'),
                                 'order' => 101,
                                 'children' => []
                             ],
                             [
-                                'title' => __('Cổ phiếu ưu đãi', 'BSC'),
+                                'title' => __('Cổ phiếu ưu đãi', 'bsc'),
                                 'order' => 102,
                                 'children' => []
                             ],
                         ]
                     ],
                     [
-                        'title' => '- ' . __('Thặng dư vốn cổ phần', 'BSC'),
+                        'title' => '- ' . __('Thặng dư vốn cổ phần', 'bsc'),
                         'order' => 103,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Cổ phiếu quỹ', 'BSC'),
+                        'title' => '- ' . __('Cổ phiếu quỹ', 'bsc'),
                         'order' => 104,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Vốn khác của chủ sở hữu', 'BSC'),
+                        'title' => '- ' . __('Vốn khác của chủ sở hữu', 'bsc'),
                         'order' => 105,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'BSC'),
+                        'title' => '- ' . __('Chênh lệch đánh giá lại tài sản', 'bsc'),
                         'order' => 106,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'BSC'),
+                        'title' => '- ' . __('Chênh lệch tỷ giá hối đoái', 'bsc'),
                         'order' => 107,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ đầu tư phát triển', 'BSC'),
+                        'title' => '- ' . __('Quỹ đầu tư phát triển', 'bsc'),
                         'order' => 108,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ dự phòng tài chính', 'BSC'),
+                        'title' => '- ' . __('Quỹ dự phòng tài chính', 'bsc'),
                         'order' => 109,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'BSC'),
+                        'title' => '- ' . __('Quỹ dự trữ bắt buộc', 'bsc'),
                         'order' => 110,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'BSC'),
+                        'title' => '- ' . __('Quỹ khác thuộc vốn chủ sở hữu', 'bsc'),
                         'order' => 111,
                         'children' => []
                     ],
                     [
-                        'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'BSC'),
+                        'title' => '- ' . __('Lợi nhuận sau thuế chưa phân phối', 'bsc'),
                         'order' => 112,
                         'children' => [
                             [
-                                'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'BSC'),
+                                'title' => '- ' . __('LNST chưa phân phối lũy kế đến cuối kỳ trước', 'bsc'),
                                 'order' => 113,
                                 'children' => []
                             ],
                             [
-                                'title' => '- ' . __('LNST chưa phân phối kỳ này', 'BSC'),
+                                'title' => '- ' . __('LNST chưa phân phối kỳ này', 'bsc'),
                                 'order' => 114,
                                 'children' => []
                             ],

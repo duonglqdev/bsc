@@ -1827,14 +1827,20 @@ import { DataTable } from 'simple-datatables';
 					'section.chart .btn-chart button.active'
 				).attr('data-chart');
 				const chart_motnh = parseInt(jQuery(this).attr('data-month'));
-				if (chart_name && chart_motnh) {
+				if (chart_name && (chart_motnh === 0 || chart_motnh)) {
 					jQuery('section.chart .btn-chart_date button').removeClass(
 						'active'
 					);
 					jQuery(this).addClass('active');
 					const todayDate = new Date();
-					const fromdate = new Date(todayDate);
-					fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					let fromdate = new Date(todayDate);
+					if (chart_motnh === 0) {
+						// Nếu chart_motnh là 0, lấy ngày đầu năm
+						fromdate = new Date(todayDate.getFullYear(), 0, 1); // 01/01/yyyy
+					} else {
+						// Nếu không, trừ đi số tháng tương ứng
+						fromdate.setMonth(todayDate.getMonth() - chart_motnh);
+					}
 					const formatDate = (date) => {
 						const day = date.getDate();
 						const month = date.getMonth() + 1; // Tháng trong JS bắt đầu từ 0
@@ -3043,6 +3049,7 @@ import { DataTable } from 'simple-datatables';
 		socket.on('i', function (msg) {
 			if (Array.isArray(msg.d) && msg.d.length > 0) {
 				const share = msg.d[0];
+				console.log(share);
 				if (
 					share.EX &&
 					wrapper_price.find('.bsc_need_crawl_price-exchange')

@@ -313,19 +313,19 @@
 <div
 	class="inline-flex flex-col fixed <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:bottom-8 bottom-[6px]' : 'bottom-14' ?> right-3 2xl:gap-4 gap-2 z-[99]">
 	<?php
-	if (get_field('cdc3_link', 'option') && ! wp_is_mobile() && ! bsc_is_mobile()) {
+	if (get_field('cdc3_link', 'option') && get_field('cdc3_youtube_open_time', 'option') && ! wp_is_mobile() && ! bsc_is_mobile()) {
 		$cdc3_youtube_open_time_value = get_field('cdc3_youtube_open_time', 'option');
 		$current_date = current_time('timestamp');
 		$cdc3_youtube_open_time_value = strtotime($cdc3_youtube_open_time_value);
 		if ($cdc3_youtube_open_time_value && $current_date >= $cdc3_youtube_open_time_value) {
-		?>
+	?>
 			<a <?php if (get_field('cdc3_open_tab', 'option'))
 					echo 'target="_blank"' ?>
 				rel="<?php the_field('cdc3_open_tab_rel', 'option') ?>"
 				href="<?php echo check_link(get_field('cdc3_link', 'option')) ?>" class="relative group block">
 				<div
 					class="w-10 h-10 rounded-full bg-white shadow-blue relative z-10 flex items-center justify-center open-ytb [&:not(.active)]:pointer-events-auto pointer-events-none">
-					<?php echo svgClass('ytb', '20','', 'shake-animation') ?>
+					<?php echo svgClass('ytb', '20', '', 'shake-animation') ?>
 				</div>
 				<?php if (get_field('cdc3_title', 'option')) { ?>
 					<div
