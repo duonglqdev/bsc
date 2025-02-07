@@ -66,8 +66,8 @@
 									<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 										? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
 										: 'flex-wrap flex-1 justify-between'; ?>">
-										<p class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-											? 'w-auto mb-0'
+										<p class="font-bold whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+											? 'w-auto mb-0 2xl:text-base text-sm'
 											: 'w-full mb-2'; ?>">
 											<?php _e( 'Thời gian:', 'bsc' ) ?>
 										</p>
@@ -152,7 +152,7 @@
 				</div>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[33.181%] w-full' : 'w-full' ?>">
 					<div
-						class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-7' : 'mb-6' ?>">
+						class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-12' : 'mb-6' ?>">
 						<?php if ( get_sub_field( 'title_2' ) ) { ?>
 							<h3 class="border-l-2 border-primary-300 font-bold text-primary-300 leading-none wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pl-6 2xl:text-[28px] text-xl' : 'pl-4 text-lg' ?>"
 								data-wow-duration="2s">
