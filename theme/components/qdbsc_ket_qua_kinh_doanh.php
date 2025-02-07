@@ -19,12 +19,13 @@ $class = $check_logout['class'];
 				</h3>
 			<?php } ?>
 		<?php } ?>
-		<div class="relative">
+		<div class="relative max-h-[600px] overflow-y-auto scroll-bar-custom">
 			<?php
 			if (! $check_logout) {
 				$array_data_GetForecastBussinessResults = array(
 					'lang' => 'VI',
-					'forecastperiod' => date('Y')
+					'forecastperiod' => date('Y'),
+					'maxitem' => 200
 				);
 				$response_GetForecastBussinessResults = get_data_with_cache('GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache);
 				if ($response_GetForecastBussinessResults) {

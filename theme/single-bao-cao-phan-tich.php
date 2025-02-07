@@ -173,9 +173,9 @@ get_header();
 							}
 						?>
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
-								<a <?php if ($count_download) { ?> data-id="<?php echo $news->id; ?>" <?php
-																									}
-																										?> href="<?php echo $url_download ?>"
+								<a target="_blank" <?php if ($count_download) { ?> data-id="<?php echo $news->id; ?>" <?php
+																													}
+																														?> href="<?php echo $url_download ?>"
 									class=" <?php if ($count_download)
 												echo 'bsc_up-download' ?> bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-lg w-full h-10 text-center text-xs">
 									<?php _e('Tải xuống', 'bsc') ?>
