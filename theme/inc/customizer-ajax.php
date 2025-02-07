@@ -4105,7 +4105,7 @@ function filter_details_symbol()
 						?>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-									<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+									<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
 								</p>
 								<div class="overflow-x-auto">
 									<div class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 xl:w-full w-max text-right">
@@ -4198,7 +4198,7 @@ function filter_details_symbol()
 									?>
 										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
 											</p>
 											<div class="overflow-x-auto">
 												<div
@@ -4292,7 +4292,7 @@ function filter_details_symbol()
 									?>
 										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
 											</p>
 											<div class="overflow-x-auto">
 												<div
@@ -4386,7 +4386,7 @@ function filter_details_symbol()
 									?>
 										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
 											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo tỷ VNĐ', 'bsc') ?>
+												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
 											</p>
 											<div class="overflow-x-auto">
 												<div
