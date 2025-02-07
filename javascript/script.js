@@ -3197,10 +3197,14 @@ import { DataTable } from 'simple-datatables';
 							'.bsc_need_crawl_price-bidPrice1-reference-phantram'
 						).length > 0
 					) {
+						var numericCHP = share.CHP;
 						var formattedPercentage = bsc_number_format(
 							share.CHP,
 							2
 						);
+						if (numericCHP > 0) {
+							formattedPercentage = '+' + formattedPercentage;
+						}
 						wrapper_price
 							.find(
 								'.bsc_need_crawl_price-bidPrice1-reference-phantram'
@@ -3219,10 +3223,15 @@ import { DataTable } from 'simple-datatables';
 							'.bsc_need_crawl_price-bidPrice1-reference'
 						).length > 0
 					) {
+						var numericCH = share.CH;
 						var formattedPercentage_ch = bsc_number_format(
 							share.CH / 1000,
 							2
 						);
+						if (numericCH > 0) {
+							formattedPercentage_ch =
+								'+' + formattedPercentage_ch;
+						}
 						wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
 							.html(formattedPercentage_ch);
@@ -3540,10 +3549,15 @@ import { DataTable } from 'simple-datatables';
 									'.bsc_need_crawl_price-bidPrice1-reference'
 								).length > 0
 							) {
-								const formattedDifference = bsc_number_format(
+								var numericCH = share.change;
+								var formattedDifference = bsc_number_format(
 									share.change / 1000,
 									2
 								);
+								if (numericCH > 0) {
+									formattedDifference =
+										'+' + formattedDifference;
+								}
 								wrapper_price
 									.find(
 										'.bsc_need_crawl_price-bidPrice1-reference'
@@ -3555,10 +3569,15 @@ import { DataTable } from 'simple-datatables';
 									'.bsc_need_crawl_price-bidPrice1-reference-phantram'
 								).length > 0
 							) {
-								const formattedPercentage = bsc_number_format(
+								var numericCHP = share.changePercent;
+								var formattedPercentage = bsc_number_format(
 									share.changePercent,
 									2
 								);
+								if (numericCHP > 0) {
+									formattedPercentage =
+										'+' + formattedPercentage;
+								}
 								wrapper_price
 									.find(
 										'.bsc_need_crawl_price-bidPrice1-reference-phantram'
