@@ -3048,7 +3048,6 @@ import { DataTable } from 'simple-datatables';
 
 		socket.on('i', function (msg) {
 			if (Array.isArray(msg.d) && msg.d.length > 0) {
-				const share = msg.d[0];
 				console.log(share);
 				if (
 					typeof share.EX === 'number' &&
