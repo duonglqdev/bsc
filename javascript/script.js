@@ -3048,7 +3048,7 @@ import { DataTable } from 'simple-datatables';
 
 		socket.on('i', function (msg) {
 			if (Array.isArray(msg.d) && msg.d.length > 0) {
-				console.log(share);
+				const share = msg.d[0];
 				if (
 					typeof share.EX === 'number' &&
 					wrapper_price.find('.bsc_need_crawl_price-exchange')
@@ -3219,13 +3219,13 @@ import { DataTable } from 'simple-datatables';
 							'.bsc_need_crawl_price-bidPrice1-reference'
 						).length > 0
 					) {
-						var formattedPercentage_Ch = bsc_number_format(
-							share.CH,
+						var formattedPercentage_ch = bsc_number_format(
+							share.CH / 1000,
 							2
 						);
 						wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
-							.html(formattedPercentage_Ch + '%');
+							.html(formattedPercentage_ch);
 						wrapper_price
 							.find('.bsc_need_crawl_price-bidPrice1-reference')
 							.attr('data-number', share.CH);
@@ -3309,19 +3309,6 @@ import { DataTable } from 'simple-datatables';
 						wrapper_price
 							.find('.bsc_need_crawl_price-text-color')
 							.addClass(text_color_class);
-					}
-					if (
-						wrapper_price.find(
-							'.bsc_need_crawl_price-bidPrice1-reference'
-						).length > 0
-					) {
-						const formattedDifference = bsc_number_format(
-							difference / 1000,
-							2
-						);
-						wrapper_price
-							.find('.bsc_need_crawl_price-bidPrice1-reference')
-							.html(formattedDifference);
 					}
 				}
 				if (wrapper_price.find('.bsc_need_crawl_date').length > 0) {

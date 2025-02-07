@@ -4131,7 +4131,6 @@ function filter_details_symbol()
 									</div>
 									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ($industryname == 'Insurance') {
-											require get_template_directory() . '/report_finance-insurance.php';
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
 										} elseif ($industryname == 'Security') {
 											$menuData = require get_template_directory() . '/data/report_finance-balance-security.php';
@@ -4146,7 +4145,7 @@ function filter_details_symbol()
 											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
 										}
 										?>
-										
+
 
 									</div>
 								</div>
@@ -4226,7 +4225,6 @@ function filter_details_symbol()
 												</div>
 												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
-														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
 													} elseif ($industryname == 'Security') {
 														$menuData = require get_template_directory() . '/data/report_finance-income-security.php';
@@ -4321,7 +4319,6 @@ function filter_details_symbol()
 												</div>
 												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
-														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
 													} elseif ($industryname == 'Security') {
 														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-security.php';
@@ -4416,7 +4413,6 @@ function filter_details_symbol()
 												</div>
 												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 													<?php if ($industryname == 'Insurance') {
-														require get_template_directory() . '/report_finance-insurance.php';
 														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
 													} elseif ($industryname == 'Security') {
 														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-security.php';
