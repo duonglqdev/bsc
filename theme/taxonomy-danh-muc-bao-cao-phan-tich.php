@@ -130,7 +130,7 @@ $time_cache = 300;
 					</div>
 				<?php } ?>
 				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[65%]' : 'relative' ?>">
-					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
+					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
 						<div class="toggle-form mb-[12px] inline-block">
 							<div class="hidden">
 								<p class="inline-flex items-baseline gap-2 font-medium">
@@ -940,20 +940,20 @@ $time_cache = 300;
 										class="flex gap-5 text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-full w-max' : 'w-max' ?>">
 										<div
 											class="w-[15%] whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[64px]' : 'min-w-[64px]' ?>">
-											<?php _e( 'Mã CK', 'bsc' ) ?>
+											<?php _e('Mã CK', 'bsc') ?>
 										</div>
 										<div
 											class="w-[15%] whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[130px]' : 'min-w-[130px]' ?>">
-											<?php _e( 'Ngành', 'bsc' ) ?>
+											<?php _e('Ngành', 'bsc') ?>
 										</div>
 										<div
 											class="w-[16%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
-											<?php _e( 'DTT', 'bsc' ) ?> 	<?php echo date( 'Y' ) ?>
-											<p>(<?php _e( 'tỷ VND', 'bsc' ) ?>)</p>
+											<?php _e('DTT', 'bsc') ?> <?php echo date('Y') ?>
+											<p>(<?php _e('tỷ VND', 'bsc') ?>)</p>
 										</div>
 										<div
 											class="w-[20%] whitespace-nowrap flex items-center justify-end gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
-											<?php _e( 'LNST CĐTS', 'bsc' ) ?>
+											<?php _e('LNST CĐTS', 'bsc') ?>
 											<button data-tooltip-target="tooltip-animations" data-tooltip-placement="top"
 												class="ml-1" type="button">
 												<?php echo svg('tooltip', '20', '20') ?>
@@ -966,18 +966,19 @@ $time_cache = 300;
 										</div>
 										<div
 											class="w-[15%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
-											<?php _e( 'EPS', 'bsc' ) ?>
+											<?php _e('EPS', 'bsc') ?>
 										</div>
 										<div
 											class="w-[19%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-10 lg:min-w-0 min-w-[120px]' : 'min-w-[120px] pr-5' ?>">
-											<?php _e( 'Giá mục tiêu', 'bsc' ) ?>
+											<?php _e('Giá mục tiêu', 'bsc') ?>
 										</div>
 									</div>
 									<?php
 									if (! $check_logout) {
 										$array_data_GetForecastBussinessResults = array(
 											'lang' => 'VI',
-											'forecastperiod' => date('Y')
+											'forecastperiod' => date('Y'),
+											'maxitem' => 200
 										);
 										$response_GetForecastBussinessResults = get_data_with_cache('GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache);
 										if ($response_GetForecastBussinessResults) {
@@ -990,7 +991,7 @@ $time_cache = 300;
 													<div class=" flex items-center min-h-[30px] gap-5">
 														<div
 															class="w-[15%] py-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[64px]' : 'min-w-[64px]' ?>">
-															<?php if ( $GetForecastBussinessResults->symbol ) { ?>
+															<?php if ($GetForecastBussinessResults->symbol) { ?>
 																<a
 																	href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
 															<?php } ?>
@@ -1001,21 +1002,21 @@ $time_cache = 300;
 														</div>
 														<div
 															class="w-[16%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
-															<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ) ?>
+															<?php echo bsc_number_format($GetForecastBussinessResults->revenue) ?>
 														</div>
 														<div
 															class="w-[20%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
-															<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
-																<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
+															<?php if ($GetForecastBussinessResults->npatmi) { ?>
+																<?php echo bsc_number_format($GetForecastBussinessResults->npatmi) ?>
 															<?php } ?>
 														</div>
 														<div
 															class="w-[15%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
-															<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
+															<?php echo bsc_number_format($GetForecastBussinessResults->eps) ?>
 														</div>
 														<div
 															class="w-[19%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-10 lg:min-w-0 min-w-[120px]' : 'pr-5 min-w-[120px]' ?>">
-															<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
+															<?php echo bsc_number_format($GetForecastBussinessResults->pricerecommended) ?>
 														</div>
 													</div>
 												<?php
@@ -1138,18 +1139,18 @@ $time_cache = 300;
 													} elseif ($response_nganh->d[5]->colnamE2) {
 														echo $response_nganh->d[5]->colnamE2;
 													} ?>/<?php if ($response_nganh->d[0]->forecastyeaR2) {
-												echo $response_nganh->d[0]->forecastyeaR2;
-											} elseif ($response_nganh->d[1]->forecastyeaR2) {
-												echo $response_nganh->d[1]->forecastyeaR2;
-											} elseif ($response_nganh->d[2]->forecastyeaR2) {
-												echo $response_nganh->d[2]->forecastyeaR2;
-											} elseif ($response_nganh->d[3]->forecastyeaR2) {
-												echo $response_nganh->d[3]->forecastyeaR2;
-											} elseif ($response_nganh->d[4]->forecastyeaR2) {
-												echo $response_nganh->d[4]->forecastyeaR2;
-											} elseif ($response_nganh->d[5]->forecastyeaR2) {
-												echo $response_nganh->d[5]->forecastyeaR2;
-											} ?>
+																echo $response_nganh->d[0]->forecastyeaR2;
+															} elseif ($response_nganh->d[1]->forecastyeaR2) {
+																echo $response_nganh->d[1]->forecastyeaR2;
+															} elseif ($response_nganh->d[2]->forecastyeaR2) {
+																echo $response_nganh->d[2]->forecastyeaR2;
+															} elseif ($response_nganh->d[3]->forecastyeaR2) {
+																echo $response_nganh->d[3]->forecastyeaR2;
+															} elseif ($response_nganh->d[4]->forecastyeaR2) {
+																echo $response_nganh->d[4]->forecastyeaR2;
+															} elseif ($response_nganh->d[5]->forecastyeaR2) {
+																echo $response_nganh->d[5]->forecastyeaR2;
+															} ?>
 												</div>
 											</div>
 											<div

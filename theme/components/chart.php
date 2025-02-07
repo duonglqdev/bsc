@@ -253,7 +253,7 @@
 															if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
 																if (bsc_is_user_logged_out()) {
 																	$count_download = false;
-																	$url_download = bsc_url_sso();
+																	$url_download = bsc_url_sso($url_download);
 																}
 															}
 														}
@@ -299,7 +299,7 @@
 																if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
 																	if (bsc_is_user_logged_out()) {
 																		$count_download = false;
-																		$url_download = bsc_url_sso();
+																		$url_download = bsc_url_sso($url_download);
 																	}
 																}
 															}
@@ -402,7 +402,7 @@
 																	if (is_null($datetimeopen) || strtotime($datetimeopen) > time()) {
 																		if (bsc_is_user_logged_out()) {
 																			$count_download = false;
-																			$url_download = bsc_url_sso();
+																			$url_download = bsc_url_sso($url_download);
 																		}
 																	}
 																}
