@@ -96,27 +96,27 @@
 							</div>
 							<div class="flex items-center gap-2 btn-chart_date">
 								<button type="button" data-month="1"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="3"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="6"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('6M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="12"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="36"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="0"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-300 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('YTD', 'bsc') ?>
 								</button>
 							</div>
