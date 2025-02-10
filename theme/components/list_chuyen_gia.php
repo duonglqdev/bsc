@@ -36,7 +36,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14' : 'my-[30px]' ?>">
 	<div class="container">
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-			<form class="flex xl:gap-6 gap-4 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc" data-paged="1">
+			<form class="flex xl:gap-6 lg:gap-4 gap-3 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc" data-paged="1">
 				<?php
 				$kinh_nghiems = get_terms( array(
 					'taxonomy' => 'kinh-nghiem',
@@ -46,11 +46,11 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 				if ( ! empty( $kinh_nghiems ) && ! is_wp_error( $kinh_nghiems ) ) :
 					?>
 					<div class="flex flex-col font-Helvetica">
-						<p class="font-semibold mb-2">
+						<p class="font-semibold mb-2 max-[991px]:text-sm">
 							<?php _e( 'Kinh nghiệm', 'bsc' ) ?>
 						</p>
 						<select id="kinh_nghiem"
-							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] min-[992px:]w-[140px] w-[118px] bg-[#F3F4F6] h-[50px] rounded-[10px] lg:pl-5 pl-3 max-[991px]:text-sm border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $kinh_nghiems as $kinh_nghiem ) :
 								?>
@@ -70,11 +70,11 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 				if ( ! empty( $menhs ) && ! is_wp_error( $menhs ) ) :
 					?>
 					<div class="flex flex-col font-Helvetica">
-						<p class="font-semibold mb-2">
+						<p class="font-semibold mb-2 max-[991px]:text-sm">
 							<?php _e( 'Mệnh', 'bsc' ) ?>
 						</p>
 						<select id="menh"
-							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] min-[992px:]w-[140px] w-[118px] bg-[#F3F4F6] h-[50px] rounded-[10px] lg:pl-5 pl-3 max-[991px]:text-sm border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $menhs as $menh ) :
 								?>
@@ -94,11 +94,11 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 				if ( ! empty( $trinh_do_hoc_vans ) && ! is_wp_error( $trinh_do_hoc_vans ) ) :
 					?>
 					<div class="flex flex-col font-Helvetica">
-						<p class="font-semibold mb-2">
+						<p class="font-semibold mb-2 max-[991px]:text-sm">
 							<?php _e( 'Trình độ học vấn', 'bsc' ) ?>
 						</p>
 						<select id="trinh_do_hoc_van"
-							class="select_custom xl:w-[190px] w-[140px] bg-[#F3F4F6] h-[50px] rounded-[10px] pl-5 border-[#E4E4E4]">
+							class="select_custom xl:w-[190px] min-[992px:]w-[140px] w-[118px] bg-[#F3F4F6] h-[50px] rounded-[10px] lg:pl-5 pl-3 max-[991px]:text-sm border-[#E4E4E4]">
 							<option value=""><?php _e( 'Tất cả', 'bsc' ) ?></option>
 							<?php foreach ( $trinh_do_hoc_vans as $trinh_do_hoc_van ) :
 								?>
@@ -110,14 +110,14 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 					</div>
 				<?php endif; ?>
 				<div class="flex flex-col font-Helvetica">
-					<p class="font-semibold mb-2">
+					<p class="font-semibold mb-2 max-[991px]:text-sm">
 						<?php _e( 'Tên chuyên gia', 'bsc' ) ?>
 					</p>
 					<input id="name_chuyen_gia" type="text" placeholder="<?php _e( 'Nhập họ tên chuyên gia', 'bsc' ) ?>"
-						class="xl:w-[273px] w-[220px] bg-[#F3F4F6] h-[50px] rounded-[10px] px-5 border-[#E4E4E4]">
+						class="xl:w-[273px] min-[992px]:w-[220px] w-[186px] bg-[#F3F4F6] h-[50px] rounded-[10px] lg:px-5 px-3 max-[991px]:text-sm border-[#E4E4E4]">
 				</div>
 				<button type="submit" id="chuyen_gia_submit"
-					class="cursor-pointer btn-base-yellow h-[50px] rounded-xl min-w-[128px]"><?php _e( 'Tìm kiếm', 'bsc' ) ?></button>
+					class="cursor-pointer btn-base-yellow h-[50px] rounded-xl lg:min-w-[128px] max-[991px]:px-3 max-[991px]:text-sm"><?php _e( 'Tìm kiếm', 'bsc' ) ?></button>
 				<button type="button" id="chuyen_gia_btn-reload"
 					class="w-[50px] h-[50px] rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group">
 					<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>

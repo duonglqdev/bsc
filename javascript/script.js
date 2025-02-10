@@ -3808,6 +3808,7 @@ import { DataTable } from 'simple-datatables';
 			const sharesResult = $('.shares-result');
 
 			sharesResult.addClass('active');
+			
 			running_api_price();
 		});
 
@@ -3862,12 +3863,12 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		// Khi rời chuột khỏi .shares-result
-		$('.shares-result').on('mouseleave', function () {
-			if (!isCheckboxChecked()) return;
+		// $('.shares-result').on('mouseleave', function () {
+		// 	if (!isCheckboxChecked()) return;
 
-			$(this).removeClass('active');
-			$('#search-shares').val('');
-		});
+		// 	$(this).removeClass('active');
+		// 	$('#search-shares').val('');
+		// });
 
 		// Xử lý hover và focusin
 		$(document).on('focus', '#search-shares', function () {
@@ -3878,7 +3879,7 @@ import { DataTable } from 'simple-datatables';
 
 		// Xử lý mouseleave và focusout
 		$(document).on(
-			'mouseleave focusout',
+			'focusout',
 			'.shares-result, #search-shares',
 			function (e) {
 				if (!isCheckboxChecked()) return;
@@ -3889,6 +3890,7 @@ import { DataTable } from 'simple-datatables';
 					).length
 				) {
 					$('.shares-result').removeClass('active');
+					$('#search-shares').val('');
 				}
 			}
 		);
