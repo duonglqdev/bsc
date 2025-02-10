@@ -50,7 +50,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Kinh nghiệm:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_exp <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
+		<p class="font-bold job_exp <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
 			<?php the_field('kinh_nghiem_td') ?>
 		</p>
 	</div>
@@ -66,7 +66,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 			<?php endif; ?>
 
 		</p>
-		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
+		<p class="font-bold job_location <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
 			<?php
 			$post_id = get_the_ID();
 			$noi_lam_viec = get_the_terms($post->ID, 'noi-lam-viec');
@@ -87,7 +87,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Số lượng tuyển:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_number <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
+		<p class="font-bold job_number <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
 			<?php the_field('so_luong') ?>
 		</p>
 	</div>
@@ -102,7 +102,7 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 				<?php _e('Hạn nộp hồ sơ:', 'bsc') ?>
 			<?php endif; ?>
 		</p>
-		<p class="font-bold job_date <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg mt-auto' : 'text-xs' ?>">
+		<p class="font-bold job_date <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-lg' : 'text-xs' ?>">
 			<?php
 			if ($deadline_date) {
 				echo $deadline_date->format('d/m/Y');
@@ -112,14 +112,14 @@ if (get_field('check_tuyen_xong') || $deadline_date < $current_date) {
 	</div>
 
 	<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-		<div class="xl:col-span-1 col-span-2 job_status mx-auto lg:mt-6 my-auto">
+		<div class="xl:col-span-1 col-span-2 job_status mx-auto lg:mt-9 my-auto">
 			<div
 				class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
 				<?php echo $label ?>
 			</div>
 		</div>
 	<?php } ?>
-	<div class="xl:col-span-1 col-span-2 ml-auto my-auto">
+	<div class="xl:col-span-1 col-span-2 ml-auto lg:mt-10">
 		<a href="<?php the_permalink() ?>"
 			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 			<?php _e('Xem chi tiết', 'bsc') ?>
