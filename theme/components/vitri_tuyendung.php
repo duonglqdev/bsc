@@ -9,7 +9,7 @@
 			</h2>
 		<?php } ?>
 		<form id="search_job"
-			class="grid gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' grid-cols-5 grid-cols-4' : 'grid-cols-1' ?>">
+			class="grid gap-5 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' lg:grid-cols-5 grid-cols-6' : 'grid-cols-1' ?>">
 			<?php
 			$nghiep_vus = get_terms( array(
 				'taxonomy' => 'nghiep-vu',
@@ -55,7 +55,7 @@
 				</div>
 			<?php endif; ?>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'col-span-1' : 'col-span-full' ?> flex items-center gap-3">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:col-span-1 col-span-2' : 'col-span-full' ?> flex items-center gap-3">
 				<button type="button" id="tuyen-dung-tim-kiem"
 					class="btn-base-yellow w-full h-full rounded-xl">
 					<span class="block relative z-10">
