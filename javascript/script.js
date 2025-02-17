@@ -1090,6 +1090,7 @@ import { DataTable } from 'simple-datatables';
 			$('.open-utilities').removeClass('active');
 		});
 		$(document).click(function (e) {
+			if (e.isTrigger) return;
 			if (
 				!$(e.target).closest('.open-utilities, .open-utilities-box')
 					.length
