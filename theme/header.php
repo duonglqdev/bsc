@@ -281,7 +281,11 @@
 									</div>
 								</div>
 
-							
+							<li class="lg:hidden">
+								<a href="<?php echo get_home_url() ?>">
+									<?php _e('Trang chủ', 'bsc') ?>
+								</a>
+							</li>
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',

@@ -14,14 +14,10 @@ $icon_global = get_sub_field('icon');
                 $i = 0;
                 while (have_rows('reward')): the_row();
                     $i++;
-                    if ($i == 2) {
-                        $color = '200';
-                    } else {
-                        $color = '150';
-                    }
+                    $color = ($i == 2) ? 'bg-gradient-blue-200' : 'bg-gradient-blue-150';
                 ?>
                     <div
-                        class="<?php if ($i == 1) echo 'active' ?> bg-gradient-blue-<?php echo $color ?> grow cursor-pointer award__item font-Helvetica  transition-all <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[398px] flex lg:gap-10 gap-5 justify-center items-center py-10':'py-9 px-6' ?>">
+                        class="<?php if ($i == 1) echo 'active' ?> <?php echo $color ?> grow cursor-pointer award__item font-Helvetica  transition-all <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'min-h-[398px] flex lg:gap-10 gap-5 justify-center items-center py-10':'py-9 px-6' ?>">
                         <div
                             class="flex flex-col items-center justify-center w-full award__item-nav <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'mx-auto ' ?>">
                             <?php if ($icon_global) { ?>
