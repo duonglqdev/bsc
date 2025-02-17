@@ -1107,7 +1107,7 @@ function filter_details_symbol()
 									<div class="overflow-x-auto whitespace-nowrap sm:text-base text-xs">
 										<table
 											class="w-full max-w-full prose-thead:font-bold prose-th:text-left font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-th:p-4 prose-td:py-4 prose-td:px-5' : 'prose-th:p-[12px] prose-td:p-[12px]' ?>">
-											<thead class="sticky z-[99] bg-white top-0">
+											<thead>
 												<tr>
 													<th class="lg:min-w-[231px] lg:!w-1/4 "></th>
 													<?php
@@ -1131,10 +1131,18 @@ function filter_details_symbol()
 													$check_year = 0;
 													foreach ($yearDataValues as $key => $year) {
 														$check_year++;
+														$class = '';
+														if ($check_year == 5) {
+															$class = 'w-[calc(75%/5)]';
+														}elseif($check_year == 4){
+															$class = 'w-[calc(75%/4)]';
+														}elseif($check_year == 3){
+															$class = 'w-[calc(75%/3)]';
+														}
 														// Lấy giá trị kiểm toán tương ứng
 														$kiem_toan = isset($kiemToanDataValues[$key]) ? $kiemToanDataValues[$key] : '';
 													?>
-														<th class="lg:min-w-[140px] font-bold flex-1 ">
+														<th class="lg:min-w-[140px] font-bold flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?$class:'' ?>">
 															<p class="text-right"><?php echo htmlspecialchars($year); ?></p>
 															<p class="text-[#1CCD83] text-right">
 																<?php
@@ -1163,7 +1171,7 @@ function filter_details_symbol()
 												<?php
 												$check_kqkd = 0;
 												foreach ($response_GetSummaryFinanceReportBySymbol->d2 as $data) {
-													$check_kqkd++;
+													$check_kqkd++;	
 													if ($check_kqkd > 4) {
 														if ($industryname == 'Security') {
 															$data_title = array(
