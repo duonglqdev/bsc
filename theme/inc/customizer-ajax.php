@@ -3193,7 +3193,7 @@ function filter_details_symbol()
 			<div
 				class="bg-[#E8F5FF] rounded-xl  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-8 px-6 lg:py-6 py-5' : 'p-4' ?> h-full font-Helvetica">
 				<div
-					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex items-center justify-between mb-6 pb-6' : 'mb-3 pb-3' ?> border-b border-[#C9CCD2]">
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex items-baseline justify-between gap-4 mb-6 pb-6' : 'mb-3 pb-3' ?> border-b border-[#C9CCD2]">
 					<p class="text-paragraph text-opacity-70 text-xs">
 						<?php _e('Ngành', 'bsc') ?>
 					</p>
