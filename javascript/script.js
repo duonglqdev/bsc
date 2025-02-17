@@ -1170,10 +1170,7 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent('.news-dropdown__list').toggleClass('active');
 		});
 
-		$('.show-item-btn').click(function () {
-			$(this).prev('.grid,div').toggleClass('show-4-item');
-			$(this).find('span').toggle();
-		});
+		
 		$('.show-item-btn-2').click(function () {
 			$(this).prev().toggleClass('show-2-item');
 			$(this).find('span').toggle();

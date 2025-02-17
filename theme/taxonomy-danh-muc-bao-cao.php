@@ -172,33 +172,23 @@ get_header();
 								<?php endif; ?>
 
 							<?php } ?>
-							<?php
-							$item_count = 0;
-							?>
+							
 
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-8' : 'mt-8'; ?>">
 								<div
 									class="grid <?php
 												echo ! wp_is_mobile() && ! bsc_is_mobile()
 													? 'lg:grid-cols-4 grid-cols-2 gap-5'
-													: 'grid-cols-2 gap-y-5 gap-x-4 show-4-item'; ?>">
+													: 'grid-cols-2 gap-y-5 gap-x-4'; ?>">
 									<?php
 									foreach ($response->d as $news) {
-										$item_count++;
 										get_template_part('template-parts/content_thumbnail-quan-he-co-dong', null, array(
 											'data' => $news,
 										));
 									}
 									?>
 								</div>
-								<?php if ($item_count > 4 && wp_is_mobile() && bsc_is_mobile()) : ?>
-									<div
-										class="px-6 py-[12px] btn-base-yellow text-xs font-bold text-center flex items-center justify-center gap-2 show-item-btn mt-8">
-										<span><?php _e('Xem tất cả', 'bsc'); ?></span>
-										<span class="hidden"><?php _e('Thu gọn', 'bsc'); ?></span>
-										<?php echo svg('arrow-btn-2'); ?>
-									</div>
-								<?php endif; ?>
+								
 							</div>
 
 
