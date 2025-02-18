@@ -179,7 +179,7 @@ get_header();
 									));
 									if (! empty($terms) && ! is_wp_error($terms)) :
 									?>
-										<ul class="shadow-base py-6 pr-4 rounded-lg bg-white space-y-2">
+										<ul class="shadow-base py-6 pr-4 rounded-lg bg-white sidebar-report space-y-2">
 											<?php foreach ($terms as $term) :
 												$active_class = ($tax_id == $term->term_id) ? 'active' : '';
 											?>
