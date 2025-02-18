@@ -57,7 +57,7 @@
 					<div
 						class="flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'bg-white rounded-2xl xl:h-[calc(100%-102px)] min-h-[480px] p-5 2xl:p-7 2xl:h-[calc(100%-110px)]' : '' ?>">
 						<div
-							class="mb-6 flex xl:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
+							class="xl:mb-6 mb-4 flex xl:flex-nowrap flex-wrap md:gap-4 gap-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'items-center' : '' ?>">
 
 							<div class="flex md:w-auto w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 																	? 'gap-6 2xl:gap-6 items-center'
@@ -65,7 +65,7 @@
 								<div id="date-performance-picker" date-rangepicker datepicker-orientation="bottom"
 									datepicker-format="dd/mm/yyyy" datepicker-autohide>
 									<div class="flex items-center relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-										? 'space-x-4 2xl:space-x-4 flex-nowrap flex-1 justify-between'
+										? 'space-x-3 2xl:space-x-4 flex-nowrap flex-1 justify-between'
 										: 'flex-wrap flex-1 justify-between'; ?>">
 										<p class="font-bold whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 											? 'w-auto mb-0 2xl:text-base text-sm'
@@ -73,19 +73,19 @@
 											<?php _e( 'Thời gian:', 'bsc' ) ?>
 										</p>
 										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+																											? 'gap-3 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
 																											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
 											<input id="datepicker-performance-start" name="start" type="text" class="fromdate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																																																					? 'max-w-[100px] w-full p-0'
+																																																					? 'max-w-[100px] w-full p-0 2xl:text-base text-xs'
 																																																					: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e('Từ ngày', 'bsc') ?>" value=""
 												autocomplete="off">
 											<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
 										</div>
 										<div class="flex items-center border border-[#ECE9F1] bg-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																											? 'gap-4 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
+																											? 'gap-3 2xl:gap-4 rounded-[10px] h-11 py-3 px-3 w-auto'
 																											: 'gap-3 rounded-xl h-11 py-[12px] px-4 w-[48%]'; ?>">
 											<input id="datepicker-performance-end" name="end" type="text" class="todate border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-black <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-																																																				? 'max-w-[100px] w-full p-0'
+																																																				? 'max-w-[100px] w-full p-0 2xl:text-base text-xs'
 																																																				: 'max-w-full w-full p-0 text-xs'; ?>" placeholder="<?php _e('Đến ngày', 'bsc') ?>"
 												value="<?php echo $todate_format ?>" autocomplete="off">
 											<?php echo svgClass('date-blue', '', '', 'shrink-0') ?>
@@ -96,27 +96,27 @@
 							</div>
 							<div class="flex items-center gap-2 btn-chart_date">
 								<button type="button" data-month="1"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="3"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="6"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('6M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="12"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="36"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="0"
-									class="inline-block h-11 px-4 rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg [&:not(.active)]:bg-[#F8F8FF] bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('YTD', 'bsc') ?>
 								</button>
 							</div>
@@ -146,7 +146,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="grid lg:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom xl:mt-5">
+							<div class="grid xl:grid-cols-2 grid-cols-1 gap-4 apexcharts-legend-custom xl:mt-5">
 								<div class="apexcharts-legend">
 
 								</div>
