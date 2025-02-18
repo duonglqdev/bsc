@@ -1012,6 +1012,10 @@ header.active {
   }
 }
 
+.chart .apexcharts-legend {
+  @apply md:flex grid grid-cols-3 gap-2;
+}
+
 .subscribe {
   @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative xl:ml-auto;
 }
