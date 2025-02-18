@@ -72,7 +72,7 @@
 			.sub-menu {
 				@apply grid grid-cols-3 gap-3 pl-9 pt-4 mt-1 border-t border-[#E1E1E1];
 				a {
-					@apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px] text-[#6B6F78];
+					@apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px] text-[#6B6F78] text-sm;
 					img {
 						@apply w-6 h-6;
 					}
@@ -1472,3 +1472,6 @@ button#ib-button-messaging {
 	}
 }
 
+.grecaptcha-badge {
+    display: none !important;
+}
