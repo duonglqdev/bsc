@@ -14,19 +14,7 @@ if (isset($args['data']) && $args['data']) {
 	$groupid = $news->groupid;
 	$trach_nhiem_cong_dong_id = get_field('cdtnvcd2_id_danh_muc', 'option');
 	$chuong_trinh_khuyen_mai_id = get_field('cdctkm1_id_danh_muc', 'option');
-	$array_id_kien_thuc = array();
 	$id_current_post = $news->newsid;
-	$terms = get_terms(array(
-		'taxonomy' => 'danh-muc-kien-thuc',
-		'hide_empty' => false,
-	));
-	if (! empty($terms) && ! is_wp_error($terms)) {
-		foreach ($terms as $term) :
-			if (get_field('api_id_danh_muc', $term)) {
-				$array_id_kien_thuc[] = get_field('api_id_danh_muc', $term);
-			}
-		endforeach;
-	}
 	if ($groupid == $trach_nhiem_cong_dong_id) {
 		$title_lienquan = __('Bài viết', 'bsc');
 		$template_lienquan = '';
@@ -58,11 +46,58 @@ if (isset($args['data']) && $args['data']) {
 		}
 		$style = get_field('cdctkm1_background_banner_display', 'option') ?: 'default';
 	} else {
+		$array_id_kien_thuc = array();
+		$terms = get_terms(array(
+			'taxonomy' => 'danh-muc-kien-thuc',
+			'hide_empty' => false,
+		));
+		if (! empty($terms) && ! is_wp_error($terms)) {
+			foreach ($terms as $term) :
+				if (get_field('api_id_danh_muc', $term)) {
+					$array_id_kien_thuc[] = get_field('api_id_danh_muc', $term);
+				}
+			endforeach;
+		}
+		$array_id_bao_cao = array();
+		$terms = get_terms(array(
+			'taxonomy' => 'danh-muc-bao-cao',
+			'hide_empty' => false,
+		));
+		if (! empty($terms) && ! is_wp_error($terms)) {
+			foreach ($terms as $term) :
+				if (get_field('api_id_danh_muc', $term)) {
+					$array_id_bao_cao[] = get_field('api_id_danh_muc', $term);
+				}
+			endforeach;
+		}
 		$template_lienquan = 'khuyen-mai';
 		if (in_array($groupid, $array_id_kien_thuc)) {
 			$title_lienquan = __('Kiến thức', 'bsc');
 			$check_cat = 'danh-muc-kien-thuc';
 			$breadcrumb = 'kienthuc';
+			$time_cache = get_field('cdktdt1_time_cache', 'option') ?: 300;
+			$categories = get_terms(array(
+				'taxonomy' => $check_cat,
+				'hide_empty' => false,
+				'meta_query' => array(
+					array(
+						'key' => 'api_id_danh_muc',
+						'value' => $groupid,
+						'compare' => '='
+					)
+				)
+			));
+			if (! is_wp_error($categories) && ! empty($categories)) {
+				$tax = $categories[0];
+			} else {
+				$post_id = get_the_ID();
+				$taxonomy = get_the_terms($post->ID, $check_cat);
+				$tax = $taxonomy[0];
+			}
+		} elseif (in_array($groupid, $array_id_bao_cao)) {
+			$title_lienquan = __('Quan hệ cổ đông', 'bsc');
+			$check_cat = 'danh-muc-bao-cao';
+			$breadcrumb = 'quanhe';
 			$time_cache = get_field('cdktdt1_time_cache', 'option') ?: 300;
 			$categories = get_terms(array(
 				'taxonomy' => $check_cat,
