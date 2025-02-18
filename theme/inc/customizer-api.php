@@ -600,7 +600,13 @@ function bsc_handle_sso_callback()
 		]);
 
 		if (is_wp_error($response)) {
-			wp_die('Lỗi khi kết nối đến API: ' . $response->get_error_message());
+			$error_message = 'Lỗi khi kết nối đến API: ' . $response->get_error_message();
+			// Ghi vào debug.log
+			error_log($error_message);
+			// wp_die('Lỗi khi kết nối đến API: ' . $response->get_error_message());
+			$redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
+			wp_redirect($redirect_url);
+			exit;
 		}
 
 		$body = wp_remote_retrieve_body($response);

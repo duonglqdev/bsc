@@ -1050,10 +1050,14 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		$('.sidebar-report').on('click', '.has-child > a,.has-child .li-plus', function () {
-			$(this).parent().find('.li-plus').toggleClass('active');
-			$(this).parent().find('ul.sub-menu').slideToggle(200);
-		});
+		$('.sidebar-report').on(
+			'click',
+			'.has-child > a,.has-child .li-plus',
+			function () {
+				$(this).parent().find('.li-plus').toggleClass('active');
+				$(this).parent().find('ul.sub-menu').slideToggle(200);
+			}
+		);
 		$('.utilities_button').addClass('show');
 		$('.utilities_button').click(function (e) {
 			e.stopPropagation();
@@ -1170,7 +1174,6 @@ import { DataTable } from 'simple-datatables';
 			$(this).parent('.news-dropdown__list').toggleClass('active');
 		});
 
-		
 		$('.show-item-btn-2').click(function () {
 			$(this).prev().toggleClass('show-2-item');
 			$(this).find('span').toggle();
@@ -1753,16 +1756,16 @@ import { DataTable } from 'simple-datatables';
 		}
 		window.running_chart = function () {
 			if ($('#chart').length) {
-				const initialDateRange = get_current_date_chart();
-				var stocksData = $('#chart').attr('data-stock');
 				var fromdate = $('#chart').attr('data-fromdate');
-				var first_bsc = $(
-					'section.chart .btn-chart button[data-stt="1"]'
-				).attr('data-chart');
 				if (fromdate) {
 					const formattedDate = formatToDMY(fromdate);
 					jQuery('#datepicker-performance-start').val(formattedDate);
 				}
+				const initialDateRange = get_current_date_chart();
+				var stocksData = $('#chart').attr('data-stock');
+				var first_bsc = $(
+					'section.chart .btn-chart button[data-stt="1"]'
+				).attr('data-chart');
 				if (typeof stocksData === 'string') {
 					stocksData = JSON.parse(stocksData);
 				} else {
@@ -1819,15 +1822,100 @@ import { DataTable } from 'simple-datatables';
 				}
 			}
 		);
+
+		function convertToYMD(dateString) {
+			const [day, month, year] = dateString.split('/').map(Number);
+			return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+		}
+		$(document).on(
+			'click',
+			'section.chart #chart_btn-reload',
+			function (e) {
+				var fromdateymd = jQuery('#chart').attr('data-fromdate');
+				var todateymd = jQuery(this).attr('data-todate');
+				fromdate = formatToDMY(fromdateymd);
+				todate = formatToDMY(todateymd);
+				jQuery('section.chart .btn-chart_date button').removeClass(
+					'active'
+				);
+				jQuery('section.chart .fromdate').val(fromdate);
+				jQuery('section.chart .todate').val(todate);
+				jQuery('section.chart .btn-chart button[data-stt="1"]').trigger(
+					'click'
+				);
+				check_when_date_change(fromdateymd, todateymd);
+			}
+		);
+		let debounceTimer;
+		const debounceDelay = 1000;
+		function check_when_date_change(fromDate, toDate) {
+			var first_bsc = $(
+				'section.chart .btn-chart button[data-stt="1"]'
+			).attr('data-chart');
+			const activeChart =
+				jQuery('section.chart .btn-chart button.active').data(
+					'chart'
+				) || first_bsc;
+			const portcodeAttr = jQuery('#chart').attr('data-array');
+			let portcode;
+			try {
+				portcode = JSON.parse(portcodeAttr); // Giải mã chuỗi JSON
+			} catch (error) {
+				portcode = []; // Mặc định là mảng rỗng nếu lỗi
+			}
+			portcode = Array.isArray(portcode) ? portcode.join(',') : portcode;
+
+			const time_cache = jQuery('#chart').attr('data-time_cache');
+			jQuery.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'fetch_portfolio_data',
+					fromdate: fromDate,
+					todate: toDate,
+					portcode: portcode,
+					time_cache: time_cache,
+					security: ajaxurl.security,
+				},
+				success: function (response) {
+					const data_new = JSON.parse(response);
+					let parsedData;
+					if (typeof data_new.data === 'string') {
+						parsedData = JSON.parse(data_new.data);
+					} else {
+						parsedData = data_new.data;
+					}
+					const dateRange = get_current_date_chart();
+					let newinitialDateRange;
+					if (typeof dateRange === 'string') {
+						newinitialDateRange = JSON.parse(dateRange);
+					} else {
+						newinitialDateRange = dateRange;
+					}
+					var maxYAxisValue = parseInt(data_new.maxvalue, 10);
+					var minYAxisValue = parseInt(data_new.minvalue, 10);
+					$('#chart').attr('data-stock', data_new.data);
+					$('#chart').attr('data-maxvalue', maxYAxisValue);
+					$('#chart').attr('data-minvalue', minYAxisValue);
+					updateChart(
+						activeChart,
+						newinitialDateRange,
+						parsedData,
+						maxYAxisValue,
+						minYAxisValue
+					);
+				},
+				error: function (error) {
+					console.error('Error fetching data:', error);
+				},
+			});
+		}
 		$(document).on(
 			'click',
 			'section.chart .btn-chart_date button',
 			function (e) {
-				const chart_name = jQuery(
-					'section.chart .btn-chart button.active'
-				).attr('data-chart');
 				const chart_motnh = parseInt(jQuery(this).attr('data-month'));
-				if (chart_name && (chart_motnh === 0 || chart_motnh)) {
+				if (chart_motnh === 0 || chart_motnh) {
 					jQuery('section.chart .btn-chart_date button').removeClass(
 						'active'
 					);
@@ -1853,130 +1941,93 @@ import { DataTable } from 'simple-datatables';
 						fromdateFormatted
 					);
 					jQuery('#datepicker-performance-end').val(todayFormatted);
-					var stocksData = $('#chart').attr('data-stock');
-					if (typeof stocksData === 'string') {
-						stocksData = JSON.parse(stocksData);
-					} else {
-						stocksData = stocksData;
-					}
-					var maxYAxisValue = parseInt(
-						$('#chart').attr('data-maxvalue'),
-						10
-					);
-					var minYAxisValue = parseInt(
-						$('#chart').attr('data-minvalue'),
-						10
-					);
-					updateChart(
-						chart_name,
-						get_current_date_chart(),
-						stocksData,
-						maxYAxisValue,
-						minYAxisValue
-					);
+					const from_Date = convertToYMD(fromdateFormatted);
+					const toDate = convertToYMD(todayFormatted);
+					check_when_date_change(from_Date, toDate);
 				}
 			}
 		);
-		function convertToYMD(dateString) {
-			const [day, month, year] = dateString.split('/').map(Number);
-			return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-		}
-		$(document).on(
-			'click',
-			'section.chart #chart_btn-reload',
-			function (e) {
-				var fromdate = jQuery('#chart').attr('data-fromdate');
-				var todate = jQuery(this).attr('data-todate');
-				fromdate = formatToDMY(fromdate);
-				todate = formatToDMY(todate);
-				jQuery('section.chart .btn-chart_date button').removeClass(
-					'active'
-				);
-				jQuery('section.chart .fromdate').val(fromdate);
-				jQuery('section.chart .todate').val(todate);
-				jQuery('section.chart .btn-chart button[data-stt="1"]').trigger(
-					'click'
-				);
-			}
-		);
-		let debounceTimer;
-		const debounceDelay = 1000;
-		jQuery('section.chart .fromdate,section.chart  .todate').on(
-			'changeDate',
-			function () {
-				var first_bsc = $(
-					'section.chart .btn-chart button[data-stt="1"]'
-				).attr('data-chart');
-				clearTimeout(debounceTimer);
-				debounceTimer = setTimeout(function () {
-					const activeChart =
-						jQuery('section.chart .btn-chart button.active').data(
-							'chart'
-						) || first_bsc;
+		jQuery('section.chart .fromdate').on('changeDate', function () {
+			clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(function () {
+				const chart_motnh = jQuery(
+					'section.chart .btn-chart_date button.active'
+				).data('month');
+				if (chart_motnh === 0) {
+					jQuery('section.chart .btn-chart_date button').removeClass(
+						'active'
+					);
+				}
+				if (chart_motnh) {
+					const fromDateInput = jQuery(
+						'section.chart .fromdate'
+					).val();
+					// Chuyển đổi fromDateInput từ d/m/y thành Date object
+					const fromDateParts = fromDateInput.split('/');
+					const fromDate = new Date(
+						fromDateParts[2],
+						fromDateParts[1] - 1,
+						fromDateParts[0]
+					); // Y-m-d
+
+					// Tính toán toDate bằng cách thêm số tháng từ chart_motnh
+					const toDate = new Date(fromDate);
+					toDate.setMonth(toDate.getMonth() + chart_motnh);
+					// Định dạng lại thành d/m/y
+					const toDateInput = `${toDate.getDate()}/${toDate.getMonth() + 1}/${toDate.getFullYear()}`;
+					jQuery('#datepicker-performance-end').val(toDateInput);
+					fromDate_new = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+					toDate_new = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+				} else {
 					const fromDateInput = jQuery(
 						'section.chart .fromdate'
 					).val();
 					const toDateInput = jQuery('section.chart .todate').val();
-					const fromDate = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
-					const toDate = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
-					const portcodeAttr = jQuery('#chart').attr('data-array');
-					let portcode;
-					try {
-						portcode = JSON.parse(portcodeAttr); // Giải mã chuỗi JSON
-					} catch (error) {
-						portcode = []; // Mặc định là mảng rỗng nếu lỗi
-					}
-					portcode = Array.isArray(portcode)
-						? portcode.join(',')
-						: portcode;
-
-					const time_cache = jQuery('#chart').attr('data-time_cache');
-					jQuery.ajax({
-						url: ajaxurl.ajaxurl,
-						type: 'POST',
-						data: {
-							action: 'fetch_portfolio_data',
-							fromdate: fromDate,
-							todate: toDate,
-							portcode: portcode,
-							time_cache: time_cache,
-							security: ajaxurl.security,
-						},
-						success: function (response) {
-							const data_new = JSON.parse(response);
-							let parsedData;
-							if (typeof data_new.data === 'string') {
-								parsedData = JSON.parse(data_new.data);
-							} else {
-								parsedData = data_new.data;
-							}
-							const dateRange = get_current_date_chart();
-							let newinitialDateRange;
-							if (typeof dateRange === 'string') {
-								newinitialDateRange = JSON.parse(dateRange);
-							} else {
-								newinitialDateRange = dateRange;
-							}
-							var maxYAxisValue = parseInt(data_new.maxvalue, 10);
-							var minYAxisValue = parseInt(data_new.minvalue, 10);
-							$('#chart').attr('data-stock', data_new.data);
-							$('#chart').attr('data-maxvalue', maxYAxisValue);
-							$('#chart').attr('data-minvalue', minYAxisValue);
-							updateChart(
-								activeChart,
-								newinitialDateRange,
-								parsedData,
-								maxYAxisValue,
-								minYAxisValue
-							);
-						},
-						error: function (error) {
-							console.error('Error fetching data:', error);
-						},
-					});
-				}, debounceDelay);
-			}
-		);
+					fromDate_new = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+					toDate_new = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+				}
+				check_when_date_change(fromDate_new, toDate_new);
+			}, debounceDelay);
+		});
+		jQuery('section.chart  .todate').on('changeDate', function () {
+			clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(function () {
+				const chart_motnh = jQuery(
+					'section.chart .btn-chart_date button.active'
+				).data('month');
+				if (chart_motnh === 0) {
+					jQuery('section.chart .btn-chart_date button').removeClass(
+						'active'
+					);
+				}
+				if (chart_motnh) {
+					const toDateInput = jQuery('section.chart .todate').val();
+					// Chuyển đổi fromDateInput từ d/m/y thành Date object
+					const toDateParts = toDateInput.split('/');
+					const toDate = new Date(
+						toDateParts[2],
+						toDateParts[1] - 1,
+						toDateParts[0]
+					); // Y-m-d
+					// Tính toán toDate bằng cách thêm số tháng từ chart_motnh
+					const fromDate = new Date(toDate);
+					fromDate.setMonth(fromDate.getMonth() - chart_motnh);
+					// Định dạng lại thành d/m/y
+					const fromDateInput = `${fromDate.getDate()}/${fromDate.getMonth() + 1}/${fromDate.getFullYear()}`;
+					jQuery('#datepicker-performance-start').val(fromDateInput);
+					fromDate_new = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+					toDate_new = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+				} else {
+					const fromDateInput = jQuery(
+						'section.chart .fromdate'
+					).val();
+					const toDateInput = jQuery('section.chart .todate').val();
+					fromDate_new = convertToYMD(fromDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+					toDate_new = convertToYMD(toDateInput); // Chuyển đổi từ d/m/y sang Y-m-d
+				}
+				check_when_date_change(fromDate_new, toDate_new);
+			}, debounceDelay);
+		});
 	});
 
 	function loadMoreJob() {
@@ -3808,7 +3859,7 @@ import { DataTable } from 'simple-datatables';
 			const sharesResult = $('.shares-result');
 
 			sharesResult.addClass('active');
-			
+
 			running_api_price();
 		});
 
