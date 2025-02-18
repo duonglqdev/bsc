@@ -279,7 +279,7 @@
   @apply grid grid-cols-3 gap-3 pl-9 pt-4 mt-1 border-t border-[#E1E1E1];
 }
 .is-desktop .main_menu-navbar > .submenu-content .sub-menu a {
-  @apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px] text-[#6B6F78];
+  @apply transition-all duration-500 hover:text-yellow-100 font-medium flex gap-[12px] text-[#6B6F78] text-sm;
 }
 .is-desktop .main_menu-navbar > .submenu-content .sub-menu a img {
   @apply w-6 h-6;
@@ -1012,6 +1012,10 @@ header.active {
   }
 }
 
+.chart .apexcharts-legend {
+  @apply md:flex grid grid-cols-3 gap-2;
+}
+
 .subscribe {
   @apply flex lg:justify-between items-center gap-x-2 py-1 px-2 rounded-[10px] border border-[#4A5568] border-opacity-30 bg-white relative xl:ml-auto;
 }
@@ -1459,6 +1463,9 @@ button#ib-button-messaging {
     @apply translate-x-[120px];
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
+}
+.grecaptcha-badge {
+  display: none !important;
 }
 
 /*# sourceMappingURL=base.css.map */

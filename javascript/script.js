@@ -2056,6 +2056,10 @@ import { DataTable } from 'simple-datatables';
 		document.querySelectorAll('.scroll-container').forEach((el) => {
 			enableHorizontalScroll(el);
 		});
+		$(".scroll-container-content, .scroll-container-header").on("scroll", function () {
+			let scrollLeft = $(this).scrollLeft();
+			$(".scroll-container-content, .scroll-container-header").not(this).scrollLeft(scrollLeft);
+		});
 	}
 
 	function filterTable() {
