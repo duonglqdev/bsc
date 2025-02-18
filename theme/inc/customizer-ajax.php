@@ -1134,15 +1134,15 @@ function filter_details_symbol()
 														$class = '';
 														if ($check_year == 5) {
 															$class = 'w-[calc(75%/5)]';
-														}elseif($check_year == 4){
+														} elseif ($check_year == 4) {
 															$class = 'w-[calc(75%/4)]';
-														}elseif($check_year == 3){
+														} elseif ($check_year == 3) {
 															$class = 'w-[calc(75%/3)]';
 														}
 														// Lấy giá trị kiểm toán tương ứng
 														$kiem_toan = isset($kiemToanDataValues[$key]) ? $kiemToanDataValues[$key] : '';
 													?>
-														<th class="lg:min-w-[140px] font-bold flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ?$class:'' ?>">
+														<th class="lg:min-w-[140px] font-bold flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? $class : '' ?>">
 															<p class="text-right"><?php echo htmlspecialchars($year); ?></p>
 															<p class="text-[#1CCD83] text-right">
 																<?php
@@ -1171,7 +1171,7 @@ function filter_details_symbol()
 												<?php
 												$check_kqkd = 0;
 												foreach ($response_GetSummaryFinanceReportBySymbol->d2 as $data) {
-													$check_kqkd++;	
+													$check_kqkd++;
 													if ($check_kqkd > 4) {
 														if ($industryname == 'Security') {
 															$data_title = array(
@@ -3688,7 +3688,7 @@ function filter_details_symbol()
 							<ul
 								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 ' : 'gap-[12px] sm:w-full w-fit' ?>">
 								<li
-									class="whitespace-nowrap <?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB'? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
+									class="whitespace-nowrap <?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
 									<?php _e('Mã', 'bsc') ?>
 								</li>
 								<li
@@ -3990,7 +3990,7 @@ function filter_details_symbol()
 		$array_data_GetForecastMacro = array();
 		$response_GetForecastMacro = get_data_with_cache('GetForecastMacro', $array_data_GetForecastMacro, $time_cache);
 		if ($response_GetForecastMacro) {
-			echo _e('Dự báo kinh tế vĩ mô Việt Nam', 'bsc') . ' ' . $response_GetForecastMacro->d->F[1][0]->year . '-' . $response_GetForecastMacro->d->F[3][0]->year;;
+			echo __('Dự báo kinh tế vĩ mô Việt Nam', 'bsc') . ' ' . $response_GetForecastMacro->d->F[1][0]->year . '-' . $response_GetForecastMacro->d->F[3][0]->year;;
 		}
 	} elseif ($type_form == 'chart') {
 		$time_cache = 300;
