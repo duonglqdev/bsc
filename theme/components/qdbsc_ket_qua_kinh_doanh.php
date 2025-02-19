@@ -37,11 +37,11 @@ $class = $check_logout['class'];
 					<div
 						class="text-white bg-primary-300 font-semibold flex items-center min-h-[60px] leading-[1.5] text-center sticky top-0 z-10 overflow-x-auto overflow-y-hidden no-scrollbar scroll-container-header">
 						<div
-							class="w-[120px] shrink-0 text-center border-r border-[#c3c3c3] flex justify-center flex-col min-h-[60px]">
+							class="w-20 shrink-0 text-center border-r border-[#c3c3c3] flex justify-center flex-col min-h-[60px]">
 							<?php _e('Mã CK', 'bsc') ?>
 						</div>
 						<div
-							class="min-w-[150px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+							class="min-w-[190px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
 							<?php _e('Ngành', 'bsc') ?>
 						</div>
 						<div
@@ -131,7 +131,7 @@ $class = $check_logout['class'];
 							<ul
 								class="flex items-center text-right w-max <?php echo $i % 6 == 0 ? 'border-b border-[#C9CCD2]' : '' ?>">
 								<li
-									class="w-[120px] text-primary-300 shrink-0 font-bold pl-4 pr-3 text-left border-r-[0.1px] border-[#c3c3c3] min-h-10 flex items-center">
+									class="w-20 text-primary-300 shrink-0 font-bold px-2 text-left border-r-[0.1px] border-[#c3c3c3] min-h-10 flex items-center justify-center">
 									<?php if ($GetForecastBussinessResults->symbol) : ?>
 										<a
 											href="<?php echo slug_co_phieu($GetForecastBussinessResults->symbol); ?>">
@@ -139,7 +139,7 @@ $class = $check_logout['class'];
 										</a>
 									<?php endif; ?>
 								</li>
-								<li class="w-[150px] text-left px-3 line-clamp-1">
+								<li class="w-[190px] text-left pl-3 line-clamp-1">
 									<?php echo $GetForecastBussinessResults->industryname; ?>
 								</li>
 								<li class="min-w-[120px] flex items-center justify-end pr-3 min-h-10"><?php echo bsc_number_format($GetForecastBussinessResults->revenue); ?></li>
