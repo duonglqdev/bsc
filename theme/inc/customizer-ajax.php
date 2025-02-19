@@ -1126,17 +1126,17 @@ function filter_details_symbol()
 													// Đảo ngược thứ tự của mảng
 													$yearDataValues = array_reverse($yearDataValues, true);
 													$kiemToanDataValues = array_reverse($kiemToanDataValues, true);
-
+													$totalItems = count($yearDataValues);
 													// Vòng lặp qua các phần tử đã đảo ngược
 													$check_year = 0;
 													foreach ($yearDataValues as $key => $year) {
 														$check_year++;
 														$class = '';
-														if ($check_year == 5) {
+														if ($totalItems == 5) {
 															$class = 'w-[calc(75%/5)]';
-														} elseif ($check_year == 4) {
+														} elseif ($totalItems == 4) {
 															$class = 'w-[calc(75%/4)]';
-														} elseif ($check_year == 3) {
+														} elseif ($totalItems == 3) {
 															$class = 'w-[calc(75%/3)]';
 														}
 														// Lấy giá trị kiểm toán tương ứng
@@ -3838,7 +3838,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][0]->col . ' (' . $response_GetForecastMacro->d->A[0][0]->comparison . $response_GetForecastMacro->d->A[0][0]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
@@ -3848,7 +3848,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][1]->col . ' (' . $response_GetForecastMacro->d->A[0][1]->comparison . $response_GetForecastMacro->d->A[0][1]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
@@ -3858,7 +3858,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][2]->col . ' (' . $response_GetForecastMacro->d->A[0][2]->comparison . $response_GetForecastMacro->d->A[0][2]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
@@ -3868,7 +3868,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][3]->col . ' (' . $response_GetForecastMacro->d->A[0][3]->comparison . $response_GetForecastMacro->d->A[0][3]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
@@ -3878,7 +3878,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][4]->col . ' (' . $response_GetForecastMacro->d->A[0][4]->comparison . $response_GetForecastMacro->d->A[0][4]->unit . ')' ?>
 						</div>
 						<div class="flex-1 text-right pr-3">
@@ -3888,7 +3888,7 @@ function filter_details_symbol()
 					</div>
 					<div class="flex gap-1 items-center min-h-[30px] [&:nth-child(odd)]:bg-[#EBF4FA]">
 						<div
-							class="w-[72%] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
+							class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-2 py-1' : 'pl-2 py-2' ?> font-medium ">
 							<?php echo $response_GetForecastMacro->d->A[0][5]->col ?>
 						</div>
 						<div class="flex-1 text-right pr-3 font-medium ">
