@@ -1126,17 +1126,17 @@ function filter_details_symbol()
 													// Đảo ngược thứ tự của mảng
 													$yearDataValues = array_reverse($yearDataValues, true);
 													$kiemToanDataValues = array_reverse($kiemToanDataValues, true);
-
+													$totalItems = count($yearDataValues);
 													// Vòng lặp qua các phần tử đã đảo ngược
 													$check_year = 0;
 													foreach ($yearDataValues as $key => $year) {
 														$check_year++;
 														$class = '';
-														if ($check_year == 5) {
+														if ($totalItems == 5) {
 															$class = 'w-[calc(75%/5)]';
-														} elseif ($check_year == 4) {
+														} elseif ($totalItems == 4) {
 															$class = 'w-[calc(75%/4)]';
-														} elseif ($check_year == 3) {
+														} elseif ($totalItems == 3) {
 															$class = 'w-[calc(75%/3)]';
 														}
 														// Lấy giá trị kiểm toán tương ứng
