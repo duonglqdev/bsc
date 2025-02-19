@@ -2136,7 +2136,8 @@ function filter_details_symbol()
 														?>
 															<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TANG_TRUONG_DOANH_THU)); ?>
 															</td>
-															<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TT_TNHĐ)); ?>
+															<td><?php
+																echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TT_TNHD)); ?>
 															</td>
 														<?php
 														} ?>
@@ -2422,7 +2423,7 @@ function filter_details_symbol()
 																</td>
 																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_HANG_TON_KHO)); ?>
 																</td>
-																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN)); ?>
+																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TTS)); ?>
 																</td>
 															<?php
 															} ?>
