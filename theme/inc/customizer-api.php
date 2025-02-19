@@ -577,13 +577,25 @@ add_action('init', function () {
 
 function bsc_handle_sso_callback()
 {
+	// Lấy state từ query string
+	if (isset($_GET['state'])) {
+		$state = $_GET['state'] ?? '';
+		// Kiểm tra và giải mã URL đúng cách
+		if (strpos($state, '%25') !== false) {
+			$redirect_url = urldecode(urldecode($state));
+		} else {
+			$redirect_url = urldecode($state);
+		}
+	} else {
+		$redirect_url = home_url();
+	}
+	error_log($redirect_url);
 	if (isset($_GET['code'])) {
 		$code = sanitize_text_field($_GET['code']);
 		$redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
 		$client_id = get_field('cdapi_ip_address_clientid', 'option');
 		$client_secret = get_field('cdapi_ip_address_clientsecret', 'option');
 		$token_url = get_field('cdapi_ip_address_apiurl', 'option') . 'sso/oauth/token';
-
 		// Gửi yêu cầu lấy access_token
 		$response = wp_remote_post($token_url, [
 			'method' => 'POST',
@@ -604,7 +616,6 @@ function bsc_handle_sso_callback()
 			// Ghi vào debug.log
 			error_log($error_message);
 			// wp_die('Lỗi khi kết nối đến API: ' . $response->get_error_message());
-			$redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
 			wp_redirect($redirect_url);
 			exit;
 		}
@@ -618,14 +629,21 @@ function bsc_handle_sso_callback()
 			set_transient($user_logged_in_key, true, 60 * MINUTE_IN_SECONDS);
 			// Lưu vào cookie
 			setcookie('access_token', $access_token, time() + 60 * 60, COOKIEPATH, COOKIE_DOMAIN);
-			$redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
 			wp_redirect($redirect_url);
 			exit;
 		} else {
+			$error_message = 'Lỗi khi lấy token: ' . $body;
+			error_log($error_message);
 			// wp_die('Lỗi khi lấy token: ' . $body);
+			wp_redirect($redirect_url);
+			exit;
 		}
 	} else {
 		// wp_die('Code không hợp lệ hoặc không tồn tại.');
+		$error_message = 'Code không hợp lệ hoặc không tồn tại.';
+		error_log($error_message);
+		wp_redirect($redirect_url);
+		exit;
 	}
 }
 
