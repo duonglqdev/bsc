@@ -1486,15 +1486,15 @@ function filter_details_symbol()
 															<a
 																href="<?php echo slug_co_phieu($response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE) ?>"><?php echo $response_GetFinanceDetail->d->Rank[0][0]->SECURITY_CODE ?></a>
 														</td>
-														<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP)); ?>%
-														</td>
 														<td><?php
 															if ($check_linh_vuc == 'Bank') {
 																echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->NIM)) . '%';
 															} else {
-																echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_TRUOC_THUE)) . '%';
+																echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_GOP)) . '%';
 															}
 															?>
+														</td>
+														<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_TRUOC_THUE)); ?>%
 														</td>
 														<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->BIEN_LOI_NHUAN_SAU_THUE)); ?>%
 														</td>
