@@ -960,7 +960,7 @@ function filter_details_symbol()
 									href="<?php echo slug_co_phieu($record->SYMBOL) ?>"><?php echo $record->SYMBOL ?></a>
 							</td>
 							<td class="w-1/4"><?php
-												echo bsc_number_format($record->MC) ?></td>
+												echo bsc_number_format($record->MC, false, true) ?></td>
 							<td class="w-1/4"><?php echo bsc_number_format($record->PE) ?></td>
 							<td class="w-1/4"><?php echo bsc_number_format($record->PB) ?></td>
 						</tr>
