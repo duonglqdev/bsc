@@ -1010,7 +1010,7 @@ function filter_details_symbol()
 					$month_name = date('F', strtotime($day));
 				}
 			?>
-				<div class="news_service-item document_item-popup">
+				<div class="news_service-item ">
 					<div class="flex items-center">
 						<div
 							class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -4156,496 +4156,497 @@ function filter_details_symbol()
 
 									</div>
 								</div>
-							<?php } ?>
 							</div>
-					<?php }
+						<?php } ?>
+					</div>
+			<?php }
 			} ?>
-					</div>
-				<?php
-			} elseif ($type_form == 'report_finance_list-2') {
-				?>
-					<div class="container">
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-							<ul class="flex items-center gap-5 customtab-nav">
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-2-Q"
-										class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Quý', 'bsc') ?>
-									</button>
-								</li>
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-2-Y"
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Năm', 'bsc') ?>
-									</button>
-								</li>
-							</ul>
-						</div>
+		</div>
+	<?php
+	} elseif ($type_form == 'report_finance_list-2') {
+	?>
+		<div class="container">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+				<ul class="flex items-center gap-5 customtab-nav">
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-2-Q"
+							class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Quý', 'bsc') ?>
+						</button>
+					</li>
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-2-Y"
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Năm', 'bsc') ?>
+						</button>
+					</li>
+				</ul>
+			</div>
+			<?php
+			$freq_cttc = array('Q', 'Y');
+			if ($freq_cttc) {
+				$i = 0;
+				foreach ($freq_cttc as $freq) {
+					$i++;
+			?>
+					<div class="tab-content <?php if ($i == 1)
+												echo 'block';
+											else
+												echo 'hidden' ?>" id="tab-2-<?php echo $freq ?>">
 						<?php
-						$freq_cttc = array('Q', 'Y');
-						if ($freq_cttc) {
-							$i = 0;
-							foreach ($freq_cttc as $freq) {
-								$i++;
+						$array_data_GetDetailFinanceReportBySymbol = array(
+							'lang' => pll_current_language(),
+							'symbol' => $symbol,
+							'freq' => $freq,
+							'rptype' => 'INCOME'
+						);
+						$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
+						if ($response_GetDetailFinanceReportBySymbol) {
+							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
 						?>
-								<div class="tab-content <?php if ($i == 1)
-															echo 'block';
-														else
-															echo 'hidden' ?>" id="tab-2-<?php echo $freq ?>">
-									<?php
-									$array_data_GetDetailFinanceReportBySymbol = array(
-										'lang' => pll_current_language(),
-										'symbol' => $symbol,
-										'freq' => $freq,
-										'rptype' => 'INCOME'
-									);
-									$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
-									if ($response_GetDetailFinanceReportBySymbol) {
-										$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
-									?>
-										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
-											</p>
-											<div class="overflow-x-auto">
-												<div
-													class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-													<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
-													<?php
-													$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
-													$yearDataArray = (array) $yearData;
-													$yearDataValues = array_slice($yearDataArray, 1, null, true);
-													$yearDataValues = array_reverse($yearDataValues, true);
-													foreach ($yearDataValues as $key => $year) {
-													?>
-														<p
-															class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
-															<?php echo htmlspecialchars($year); ?>
-														</p>
-													<?php
-													}
-													?>
-													<p
-														class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-														<?php _e('Thay đổi', 'bsc') ?>
-													</p>
-												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
-													<?php if ($industryname == 'Insurance') {
-														$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
-													} elseif ($industryname == 'Security') {
-														$menuData = require get_template_directory() . '/data/report_finance-income-security.php';
-													} elseif ($industryname == 'Bank') {
-														$menuData = require get_template_directory() . '/data/report_finance-income-bank.php';
-													} else {
-														$menuData = require get_template_directory() . '/data/report_finance-income-company.php';
-													}
-													?>
-													<?php
-													if ($menuData && $response_GetDetailFinanceReportBySymbol) {
-														renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
-													}
-													?>
-												</div>
-
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-						<?php }
-						} ?>
-					</div>
-				<?php
-			} elseif ($type_form == 'report_finance_list-3') {
-				?>
-					<div class="container">
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-							<ul class="flex items-center gap-5 customtab-nav">
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-3-Q"
-										class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Quý', 'bsc') ?>
-									</button>
-								</li>
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-3-Y"
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Năm', 'bsc') ?>
-									</button>
-								</li>
-							</ul>
-						</div>
-						<?php
-						$freq_cttc = array('Q', 'Y');
-						if ($freq_cttc) {
-							$i = 0;
-							foreach ($freq_cttc as $freq) {
-								$i++;
-						?>
-								<div class="tab-content <?php if ($i == 1)
-															echo 'block';
-														else
-															echo 'hidden' ?>" id="tab-3-<?php echo $freq ?>">
-									<?php
-									$array_data_GetDetailFinanceReportBySymbol = array(
-										'lang' => pll_current_language(),
-										'symbol' => $symbol,
-										'freq' => $freq,
-										'rptype' => 'CFINDRIRECT'
-									);
-									$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
-									if ($response_GetDetailFinanceReportBySymbol) {
-										$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
-									?>
-										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
-											</p>
-											<div class="overflow-x-auto">
-												<div
-													class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-													<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
-													<?php
-													$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
-													$yearDataArray = (array) $yearData;
-													$yearDataValues = array_slice($yearDataArray, 1, null, true);
-													$yearDataValues = array_reverse($yearDataValues, true);
-													foreach ($yearDataValues as $key => $year) {
-													?>
-														<p
-															class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
-															<?php echo htmlspecialchars($year); ?>
-														</p>
-													<?php
-													}
-													?>
-													<p
-														class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-														<?php _e('Thay đổi', 'bsc') ?>
-													</p>
-												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
-													<?php if ($industryname == 'Insurance') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
-													} elseif ($industryname == 'Security') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-security.php';
-													} elseif ($industryname == 'Bank') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-bank.php';
-													} else {
-														$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-company.php';
-													}
-													?>
-													<?php
-													if ($menuData && $response_GetDetailFinanceReportBySymbol) {
-														renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
-													}
-													?>
-												</div>
-
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-						<?php }
-						} ?>
-					</div>
-				<?php
-			} elseif ($type_form == 'report_finance_list-4') {
-				?>
-					<div class="container">
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
-							<ul class="flex items-center gap-5 customtab-nav">
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-4-Q"
-										class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Quý', 'bsc') ?>
-									</button>
-								</li>
-								<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-									<button data-tabs="#tab-4-Y"
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
-										<?php _e('Năm', 'bsc') ?>
-									</button>
-								</li>
-							</ul>
-						</div>
-						<?php
-						$freq_cttc = array('Q', 'Y');
-						if ($freq_cttc) {
-							$i = 0;
-							foreach ($freq_cttc as $freq) {
-								$i++;
-						?>
-								<div class="tab-content <?php if ($i == 1)
-															echo 'block';
-														else
-															echo 'hidden' ?>" id="tab-4-<?php echo $freq ?>">
-									<?php
-									$array_data_GetDetailFinanceReportBySymbol = array(
-										'lang' => pll_current_language(),
-										'symbol' => $symbol,
-										'freq' => $freq,
-										'rptype' => 'CFDRIRECT'
-									);
-									$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
-									if ($response_GetDetailFinanceReportBySymbol) {
-										$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
-									?>
-										<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
-											<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
-												<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
-											</p>
-											<div class="overflow-x-auto">
-												<div
-													class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-													<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
-													<?php
-													$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
-													$yearDataArray = (array) $yearData;
-													$yearDataValues = array_slice($yearDataArray, 1, null, true);
-													$yearDataValues = array_reverse($yearDataValues, true);
-													foreach ($yearDataValues as $key => $year) {
-													?>
-														<p
-															class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
-															<?php echo htmlspecialchars($year); ?>
-														</p>
-													<?php
-													}
-													?>
-													<p
-														class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
-														<?php _e('Thay đổi', 'bsc') ?>
-													</p>
-												</div>
-												<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
-													<?php if ($industryname == 'Insurance') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
-													} elseif ($industryname == 'Security') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-security.php';
-													} elseif ($industryname == 'Bank') {
-														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-bank.php';
-													} else {
-														$menuData = require get_template_directory() . '/data/report_finance-cfdirect-company.php';
-													}
-													?>
-													<?php
-													if ($menuData && $response_GetDetailFinanceReportBySymbol) {
-														renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
-													}
-													?>
-												</div>
-
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-						<?php }
-						} ?>
-					</div>
-					<?php
-				} elseif ($type_form == 'co_phieu_list') {
-					$array_data = array(
-						'lang' => pll_current_language(),
-						'maxitem' => 100000,
-					);
-					$response = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
-					if ($response) {
-					?>
-						<div class="rounded-tl-lg rounded-tr-lg relative block-loading">
-							<table id="ttcp-table"
-								class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
-								<thead>
-									<tr>
-										<th
-											class="!pl-5 cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
-											<p class="flex items-center gap-1 whitespace-nowrap">
-												<?php _e('Mã CK', 'bsc') ?>
-												<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
-											</p>
-										</th>
-										<th
-											class="w-1/5 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[20%]' : 'min-w-[140px]' ?>">
-											<?php _e('Tên công ty', 'bsc') ?>
-										</th>
-										<th class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
-											<?php _e('Sàn', 'bsc') ?>
-										</th>
-										<th
-											class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[150px]' ?>">
-											<?php _e('Ngành', 'bsc') ?>
-										</th>
-										<th
-											class="cursor-pointer text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[130px]' ?>">
-											<p class="flex items-center gap-1 whitespace-nowrap justify-end">
-												<?php _e('Vốn hóa', 'bsc') ?>
-												<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
-											</p>
-										</th>
-										<th
-											class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
-											<?php _e('KLGD', 'bsc') ?>
-										</th>
-										<th
-											class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
-											<?php _e('GTGD', 'bsc') ?>
-										</th>
-										<th
-											class=" cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
-											<p class="flex items-center gap-1 whitespace-nowrap justify-end">
-												<?php _e('PE', 'bsc') ?>
-												<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
-
-											</p>
-										</th>
-										<th
-											class="cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
-											<p class="flex items-center gap-1 whitespace-nowrap justify-end">
-												<?php _e('PB', 'bsc') ?>
-												<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
-
-											</p>
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									foreach ($response->d as $news) {
-									?>
-										<tr class="border-b border-[#C9CCD2]">
-											<td class="!pl-5" data-code>
-												<?php if ($news->SYMBOL) { ?>
-													<a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"><?php echo $news->SYMBOL ?></a>
-												<?php } ?>
-											</td>
-											<td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>
-											<td><?php echo $news->EXCHANGE; ?></td>
-											<td class="whitespace-nowrap"><?php echo $news->INDUSTRYNAME ?></td>
-											<td class="text-right !pr-8"><?php echo bsc_number_format($news->MC); ?></td>
-											<td class="text-right"><?php echo bsc_number_format($news->TOTALVOLUME) ?></td>
-											<td class="text-right"><?php echo bsc_number_format($news->TOTALVALUE) ?></td>
-											<td class="text-right"><?php echo bsc_number_format($news->PE) ?></td>
-											<td class="text-right"><?php echo bsc_number_format($news->PB) ?></td>
-										</tr>
-									<?php
-									}
-									?>
-								</tbody>
-							</table>
-						</div>
-					<?php } else {
-						get_template_part('template-parts/content', 'none');
-					}
-				}
-				die();
-			}
-
-			/**
-			 * Render Menu Report 
-			 */
-			function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null, $level = 0)
-			{
-				if ($menuData && $response_GetDetailFinanceReportBySymbol) {
-					foreach ($menuData as $item) {
-						$Data = $response_GetDetailFinanceReportBySymbol->d[$item['order']];
-						$Array = (array) $Data;
-						$Values = array_slice($Array, 1, null, true);
-						$Values = array_reverse($Values, true);
-						// Kiểm tra nếu $Values trống hoặc toàn bộ giá trị bên trong là 0
-						if (empty($Values) || array_sum($Values) == 0) {
-							continue; // Bỏ qua item này nếu điều kiện thỏa mãn
-						}
-					?>
-						<div class="<?php if (! empty($item['children']))
-										echo 'collapse-item has-children' ?> relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1] after:bg-white">
-							<div
-								class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs ">
-								<h3
-									class="flex-1 font-bold flex items-baseline gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 text-left min-w-[200px]">
-									<?php
-									if (! empty($item['children'])) {
-										if (($level === 0)) {
-											echo svgClass('icon-up', '16', '16', 'transition-all shrink-0 rotate-180');
-										} else {
-											echo svgClass('icon-up', '16', '16', 'transition-all shrink-0');
-										}
-									} ?>
-									<?php echo $item['title'] ?>
-								</h3>
-								<?php
-								$Values_chart = implode(',', $Values);
-								$lastTwoValues = array_slice($Values, -2, 2, true);
-								$dataColor = '#007bff';
-								if (count($lastTwoValues) === 2) {
-									$valuesArray = array_values($lastTwoValues); // Chuyển thành mảng chỉ số liên tiếp
-									if ($valuesArray[1] > $valuesArray[0]) {
-										$dataColor = '#007bff'; // Màu xanh nếu số cuối lớn hơn
-									} elseif ($valuesArray[1] < $valuesArray[0]) {
-										$dataColor = '#A82323'; // Màu đỏ nếu số cuối nhỏ hơn
-									}
-								}
-								foreach ($Values as $key => $Val) {
-								?>
+							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
+								</p>
+								<div class="overflow-x-auto">
 									<div
-										class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
 										<?php
-										if (is_numeric($Val)) {
-											echo bsc_number_format($Val);
+										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
+										$yearDataArray = (array) $yearData;
+										$yearDataValues = array_slice($yearDataArray, 1, null, true);
+										$yearDataValues = array_reverse($yearDataValues, true);
+										foreach ($yearDataValues as $key => $year) {
+										?>
+											<p
+												class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												<?php echo htmlspecialchars($year); ?>
+											</p>
+										<?php
+										}
+										?>
+										<p
+											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
+											<?php _e('Thay đổi', 'bsc') ?>
+										</p>
+									</div>
+									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										<?php if ($industryname == 'Insurance') {
+											$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
+										} elseif ($industryname == 'Security') {
+											$menuData = require get_template_directory() . '/data/report_finance-income-security.php';
+										} elseif ($industryname == 'Bank') {
+											$menuData = require get_template_directory() . '/data/report_finance-income-bank.php';
+										} else {
+											$menuData = require get_template_directory() . '/data/report_finance-income-company.php';
+										}
+										?>
+										<?php
+										if ($menuData && $response_GetDetailFinanceReportBySymbol) {
+											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
 										}
 										?>
 									</div>
-								<?php
-								}
-								?>
-								<div
-									class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?> h-10">
-									<div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false"
-										data-color="<?php echo $dataColor ?>">
-									</div>
+
 								</div>
 							</div>
-							<?php if (! empty($item['children'])) { ?>
-								<div class="sub-collapse hidden text-xs upper-first" style="<?php echo ($level === 0) ? 'display: block;' : '' ?>">
-									<?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1); ?>
-								</div>
-							<?php } ?>
-						</div>
+						<?php } ?>
+					</div>
+			<?php }
+			} ?>
+		</div>
+	<?php
+	} elseif ($type_form == 'report_finance_list-3') {
+	?>
+		<div class="container">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+				<ul class="flex items-center gap-5 customtab-nav">
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-3-Q"
+							class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Quý', 'bsc') ?>
+						</button>
+					</li>
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-3-Y"
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Năm', 'bsc') ?>
+						</button>
+					</li>
+				</ul>
+			</div>
 			<?php
+			$freq_cttc = array('Q', 'Y');
+			if ($freq_cttc) {
+				$i = 0;
+				foreach ($freq_cttc as $freq) {
+					$i++;
+			?>
+					<div class="tab-content <?php if ($i == 1)
+												echo 'block';
+											else
+												echo 'hidden' ?>" id="tab-3-<?php echo $freq ?>">
+						<?php
+						$array_data_GetDetailFinanceReportBySymbol = array(
+							'lang' => pll_current_language(),
+							'symbol' => $symbol,
+							'freq' => $freq,
+							'rptype' => 'CFINDRIRECT'
+						);
+						$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
+						if ($response_GetDetailFinanceReportBySymbol) {
+							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
+						?>
+							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
+								</p>
+								<div class="overflow-x-auto">
+									<div
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
+										<?php
+										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
+										$yearDataArray = (array) $yearData;
+										$yearDataValues = array_slice($yearDataArray, 1, null, true);
+										$yearDataValues = array_reverse($yearDataValues, true);
+										foreach ($yearDataValues as $key => $year) {
+										?>
+											<p
+												class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												<?php echo htmlspecialchars($year); ?>
+											</p>
+										<?php
+										}
+										?>
+										<p
+											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
+											<?php _e('Thay đổi', 'bsc') ?>
+										</p>
+									</div>
+									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										<?php if ($industryname == 'Insurance') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
+										} elseif ($industryname == 'Security') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-security.php';
+										} elseif ($industryname == 'Bank') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-bank.php';
+										} else {
+											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-company.php';
+										}
+										?>
+										<?php
+										if ($menuData && $response_GetDetailFinanceReportBySymbol) {
+											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
+										}
+										?>
+									</div>
+
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+			<?php }
+			} ?>
+		</div>
+	<?php
+	} elseif ($type_form == 'report_finance_list-4') {
+	?>
+		<div class="container">
+			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-10' : 'mb-6' ?>">
+				<ul class="flex items-center gap-5 customtab-nav">
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-4-Q"
+							class="active <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Quý', 'bsc') ?>
+						</button>
+					</li>
+					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<button data-tabs="#tab-4-Y"
+							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'w-full block' ?> rounded-[10px] [&:not(.active)]:text-paragraph text-white [&:not(.active)]:bg-primary-50 bg-primary-300 lg:px-[60px] px-5 text-center lg:min-w-[207px] font-bold py-3 transition-all duration-500 hover:!bg-primary-300 hover:!text-white lg:text-lg">
+							<?php _e('Năm', 'bsc') ?>
+						</button>
+					</li>
+				</ul>
+			</div>
+			<?php
+			$freq_cttc = array('Q', 'Y');
+			if ($freq_cttc) {
+				$i = 0;
+				foreach ($freq_cttc as $freq) {
+					$i++;
+			?>
+					<div class="tab-content <?php if ($i == 1)
+												echo 'block';
+											else
+												echo 'hidden' ?>" id="tab-4-<?php echo $freq ?>">
+						<?php
+						$array_data_GetDetailFinanceReportBySymbol = array(
+							'lang' => pll_current_language(),
+							'symbol' => $symbol,
+							'freq' => $freq,
+							'rptype' => 'CFDRIRECT'
+						);
+						$response_GetDetailFinanceReportBySymbol = get_data_with_cache('GetDetailFinanceReportBySymbol', $array_data_GetDetailFinanceReportBySymbol, $time_cache);
+						if ($response_GetDetailFinanceReportBySymbol) {
+							$industryname = $response_GetDetailFinanceReportBySymbol->industryname;
+						?>
+							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden">
+								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+									<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
+								</p>
+								<div class="overflow-x-auto">
+									<div
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										<p class="flex-1 min-w-[200px] text-left"><?php _e('Danh sách', 'bsc') ?></p>
+										<?php
+										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
+										$yearDataArray = (array) $yearData;
+										$yearDataValues = array_slice($yearDataArray, 1, null, true);
+										$yearDataValues = array_reverse($yearDataValues, true);
+										foreach ($yearDataValues as $key => $year) {
+										?>
+											<p
+												class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+												<?php echo htmlspecialchars($year); ?>
+											</p>
+										<?php
+										}
+										?>
+										<p
+											class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?>">
+											<?php _e('Thay đổi', 'bsc') ?>
+										</p>
+									</div>
+									<div class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										<?php if ($industryname == 'Insurance') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
+										} elseif ($industryname == 'Security') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-security.php';
+										} elseif ($industryname == 'Bank') {
+											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-bank.php';
+										} else {
+											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-company.php';
+										}
+										?>
+										<?php
+										if ($menuData && $response_GetDetailFinanceReportBySymbol) {
+											renderMenu($menuData, $response_GetDetailFinanceReportBySymbol);
+										}
+										?>
+									</div>
+
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+			<?php }
+			} ?>
+		</div>
+		<?php
+	} elseif ($type_form == 'co_phieu_list') {
+		$array_data = array(
+			'lang' => pll_current_language(),
+			'maxitem' => 100000,
+		);
+		$response = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
+		if ($response) {
+		?>
+			<div class="rounded-tl-lg rounded-tr-lg relative block-loading">
+				<table id="ttcp-table"
+					class="w-full max-w-full prose-thead:bg-primary-300 prose-thead:text-white prose-thead:text-left prose-thead:font-bold prose-th:p-3 prose-a:text-primary-300 prose-a:font-bold  font-medium prose-td:px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'prose-td:py-4' : 'prose-td:py-3' ?>">
+					<thead>
+						<tr>
+							<th
+								class="!pl-5 cursor-pointer filter-table <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'whitespace-nowrap min-w-[100px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap">
+									<?php _e('Mã CK', 'bsc') ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
+								</p>
+							</th>
+							<th
+								class="w-1/5 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[20%]' : 'min-w-[140px]' ?>">
+								<?php _e('Tên công ty', 'bsc') ?>
+							</th>
+							<th class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
+								<?php _e('Sàn', 'bsc') ?>
+							</th>
+							<th
+								class="whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[150px]' ?>">
+								<?php _e('Ngành', 'bsc') ?>
+							</th>
+							<th
+								class="cursor-pointer text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[130px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e('Vốn hóa', 'bsc') ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
+								</p>
+							</th>
+							<th
+								class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
+								<?php _e('KLGD', 'bsc') ?>
+							</th>
+							<th
+								class="text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
+								<?php _e('GTGD', 'bsc') ?>
+							</th>
+							<th
+								class=" cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[100px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e('PE', 'bsc') ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
+
+								</p>
+							</th>
+							<th
+								class="cursor-pointer filter-table text-right whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[80px]' ?>">
+								<p class="flex items-center gap-1 whitespace-nowrap justify-end">
+									<?php _e('PB', 'bsc') ?>
+									<?php echo svgClass('filter', '20', '20', 'inline-block shrink-0') ?>
+
+								</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach ($response->d as $news) {
+						?>
+							<tr class="border-b border-[#C9CCD2]">
+								<td class="!pl-5" data-code>
+									<?php if ($news->SYMBOL) { ?>
+										<a href="<?php echo slug_co_phieu($news->SYMBOL) ?>"><?php echo $news->SYMBOL ?></a>
+									<?php } ?>
+								</td>
+								<td class="lg:whitespace-nowrap"><?php echo $news->FULLNAME ?></td>
+								<td><?php echo $news->EXCHANGE; ?></td>
+								<td class="whitespace-nowrap"><?php echo $news->INDUSTRYNAME ?></td>
+								<td class="text-right !pr-8"><?php echo bsc_number_format($news->MC); ?></td>
+								<td class="text-right"><?php echo bsc_number_format($news->TOTALVOLUME) ?></td>
+								<td class="text-right"><?php echo bsc_number_format($news->TOTALVALUE) ?></td>
+								<td class="text-right"><?php echo bsc_number_format($news->PE) ?></td>
+								<td class="text-right"><?php echo bsc_number_format($news->PB) ?></td>
+							</tr>
+						<?php
+						}
+						?>
+					</tbody>
+				</table>
+			</div>
+		<?php } else {
+			get_template_part('template-parts/content', 'none');
+		}
+	}
+	die();
+}
+
+/**
+ * Render Menu Report 
+ */
+function renderMenu($menuData, $response_GetDetailFinanceReportBySymbol = null, $level = 0)
+{
+	if ($menuData && $response_GetDetailFinanceReportBySymbol) {
+		foreach ($menuData as $item) {
+			$Data = $response_GetDetailFinanceReportBySymbol->d[$item['order']];
+			$Array = (array) $Data;
+			$Values = array_slice($Array, 1, null, true);
+			$Values = array_reverse($Values, true);
+			// Kiểm tra nếu $Values trống hoặc toàn bộ giá trị bên trong là 0
+			if (empty($Values) || array_sum($Values) == 0) {
+				continue; // Bỏ qua item này nếu điều kiện thỏa mãn
+			}
+		?>
+			<div class="<?php if (! empty($item['children']))
+							echo 'collapse-item has-children' ?> relative after:absolute after:w-full after:h-full after:top-0 after:left-0 [&:nth-child(even)]:after:bg-[#EBF4FA] after:-z-[1] after:bg-white">
+				<div
+					class="text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'px-[30px]' : 'px-5' ?> py-4 flex 2xl:gap-x-10 gap-x-5 items-center text-xs ">
+					<h3
+						class="flex-1 font-bold flex items-baseline gap-1 cursor-pointer [&:not(.active)]:text-black text-primary-300 text-left min-w-[200px]">
+						<?php
+						if (! empty($item['children'])) {
+							if (($level === 0)) {
+								echo svgClass('icon-up', '16', '16', 'transition-all shrink-0 rotate-180');
+							} else {
+								echo svgClass('icon-up', '16', '16', 'transition-all shrink-0');
+							}
+						} ?>
+						<?php echo $item['title'] ?>
+					</h3>
+					<?php
+					$Values_chart = implode(',', $Values);
+					$lastTwoValues = array_slice($Values, -2, 2, true);
+					$dataColor = '#007bff';
+					if (count($lastTwoValues) === 2) {
+						$valuesArray = array_values($lastTwoValues); // Chuyển thành mảng chỉ số liên tiếp
+						if ($valuesArray[1] > $valuesArray[0]) {
+							$dataColor = '#007bff'; // Màu xanh nếu số cuối lớn hơn
+						} elseif ($valuesArray[1] < $valuesArray[0]) {
+							$dataColor = '#A82323'; // Màu đỏ nếu số cuối nhỏ hơn
+						}
 					}
-				}
-			}
+					foreach ($Values as $key => $Val) {
+					?>
+						<div
+							class="min-w-[135px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[11%]' : 'max-w-[135px] break-words' ?>">
+							<?php
+							if (is_numeric($Val)) {
+								echo bsc_number_format($Val);
+							}
+							?>
+						</div>
+					<?php
+					}
+					?>
+					<div
+						class="min-w-[175px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[14%]' : 'max-w-[175px]' ?> h-10">
+						<div class="collapse-item-chart" data-stock="<?php echo $Values_chart ?>" data-load="false"
+							data-color="<?php echo $dataColor ?>">
+						</div>
+					</div>
+				</div>
+				<?php if (! empty($item['children'])) { ?>
+					<div class="sub-collapse hidden text-xs upper-first" style="<?php echo ($level === 0) ? 'display: block;' : '' ?>">
+						<?php renderMenu($item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1); ?>
+					</div>
+				<?php } ?>
+			</div>
+<?php
+		}
+	}
+}
 
 
-			/**
-			 * Count Download Report
-			 */
-			add_action('wp_ajax_bsc_count_download', 'bsc_count_download_ajax');
-			add_action('wp_ajax_nopriv_bsc_count_download', 'bsc_count_download_ajax');
+/**
+ * Count Download Report
+ */
+add_action('wp_ajax_bsc_count_download', 'bsc_count_download_ajax');
+add_action('wp_ajax_nopriv_bsc_count_download', 'bsc_count_download_ajax');
 
-			function bsc_count_download_ajax()
-			{
-				check_ajax_referer('common_nonce', 'security');
-				$id_report = isset($_POST['id_report']) ? intval($_POST['id_report']) : '';
-				$url = get_field('cdapi_ip_address_default', 'option') . "IncrementReportDownloads?id=" . $id_report;
+function bsc_count_download_ajax()
+{
+	check_ajax_referer('common_nonce', 'security');
+	$id_report = isset($_POST['id_report']) ? intval($_POST['id_report']) : '';
+	$url = get_field('cdapi_ip_address_default', 'option') . "IncrementReportDownloads?id=" . $id_report;
 
-				// Khởi tạo cURL
-				$ch = curl_init();
+	// Khởi tạo cURL
+	$ch = curl_init();
 
-				// Cấu hình cURL
-				curl_setopt($ch, CURLOPT_URL, $url);
-				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH"); // Phương thức PATCH
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Trả về dữ liệu thay vì in ra
-				curl_setopt($ch, CURLOPT_HTTPHEADER, [
-					'Content-Type: application/json', // Header nếu cần (có thể bỏ nếu API không yêu cầu)
-				]);
+	// Cấu hình cURL
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH"); // Phương thức PATCH
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Trả về dữ liệu thay vì in ra
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+		'Content-Type: application/json', // Header nếu cần (có thể bỏ nếu API không yêu cầu)
+	]);
 
-				// Nếu cần gửi dữ liệu trong body (JSON)
-				$data = [
-					"key" => "value"
-				];
-				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+	// Nếu cần gửi dữ liệu trong body (JSON)
+	$data = [
+		"key" => "value"
+	];
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-				// Thực thi cURL
-				$response = curl_exec($ch);
-				die();
-			}
+	// Thực thi cURL
+	$response = curl_exec($ch);
+	die();
+}
