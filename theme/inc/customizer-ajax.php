@@ -1010,9 +1010,7 @@ function filter_details_symbol()
 					$month_name = date('F', strtotime($day));
 				}
 			?>
-				<div class="news_service-item document_item-popup" data-newstype="1" data-modal-target="document-modal"
-					data-modal-toggle="document-modal" data-doccument="<?php echo slug_file_news(htmlspecialchars($news->newsid)) ?>"
-					data-id="<?php echo $news->newsid ?>">
+				<div class="news_service-item document_item-popup">
 					<div class="flex items-center">
 						<div
 							class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -1031,10 +1029,10 @@ function filter_details_symbol()
 							</div>
 						</div>
 						<div class="lg:ml-[30px] ml-4">
-							<p
+							<a href="<?php echo slug_news(htmlspecialchars($news->newsid), htmlspecialchars($news->title)); ?>"
 								class="lg:font-bold font-semibold leading-normal lg:line-clamp-2 line-clamp-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg mb-2' : 'text-base' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars($news->title) ?>
-							</p>
+							</a>
 							<?php if (! wp_is_mobile() && ! bsc_is_mobile() && isset($news->description) && $news->description) { ?>
 								<div class="line-clamp-2 font-Helvetica leading-normal text-paragraph">
 									<?php echo $news->description ?>
