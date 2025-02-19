@@ -36,9 +36,9 @@ $time_cache = 300;
 				<?php _e('CHUYÊN MỤC', 'bsc') ?>
 			</h2>
 			<div
-				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] lg:gap-10 gap-6' : '' ?>">
+				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex 2xl:gap-[70px] xl:gap-10 gap-6' : '' ?>">
 				<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-					<div class="md:w-80 max-w-[35%] shrink-0">
+					<div class="md:w-80 max-w-[25%] shrink-0">
 						<div class="sticky lg:top-28 top-5 z-[9] space-y-12">
 							<?php
 							$current_term_id = get_queried_object_id();
@@ -434,7 +434,7 @@ $time_cache = 300;
 							</h3>
 							<div class="relative">
 								<div
-									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex lg:gap-8 lg:space-y-0 space-y-5' : 'grid gap-4' ?> <?php echo $class ?>">
+									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex xl:gap-8 gap-5 lg:space-y-0 space-y-5' : 'grid gap-4' ?> <?php echo $class ?>">
 									<?php if (! $check_logout || 1 == 1) {
 										$array_data_thitruong = array();
 										$response_thitruong = get_data_with_cache('GetVNIChart', $array_data_thitruong, $time_cache);
@@ -448,9 +448,9 @@ $time_cache = 300;
 											$nam_period = $response_thitruong->d->F[0][1]->period;
 											$stocksDataJson = json_encode($vnIndexData); ?>
 											<div
-												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[255px] lg:max-w-[27%]' : 'w-full' ?>">
+												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[255px] lg:max-w-[35%]' : 'w-full' ?>">
 												<div
-													class="bg-white shadow-base rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:p-8 p-6' : 'p-4' ?>">
+													class="bg-white shadow-base rounded-2xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:p-8 xl:p-6 p-4' : 'p-4' ?>">
 													<h4
 														class="font-bold text-primary-300 border-b border-[#C9CCD2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl pb-6 mb-6' : 'text-lg pb-[12px] mb-[12px]' ?>">
 														<?php _e('Năm', 'bsc') ?> <?php echo $nam_period ?>
@@ -469,7 +469,7 @@ $time_cache = 300;
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-3 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-[13px]">
+																class="min-w-[84px] mb-1 text-center py-0.5 px-3 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Tích cực', 'bsc') ?>
 															</div>
 														</div>
@@ -485,7 +485,7 @@ $time_cache = 300;
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-3 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-[13px]">
+																class="min-w-[84px] mb-1 text-center py-0.5 px-3 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Cơ sở', 'bsc') ?>
 															</div>
 														</div>
@@ -500,7 +500,7 @@ $time_cache = 300;
 																</h4>
 															</div>
 															<div
-																class="min-w-[84px] text-center py-0.5 px-3 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-[13px]">
+																class="min-w-[84px] mb-1 text-center py-0.5 px-3 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-[13px]">
 																<?php _e('Tiêu cực', 'bsc') ?>
 															</div>
 														</div>
@@ -539,7 +539,7 @@ $time_cache = 300;
 																---- </h4>
 														</div>
 														<div
-															class="min-w-[84px] text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
+															class="min-w-[84px] mb-1 text-center py-0.5 px-4 text-[#30D158] bg-[#D6F6DE] rounded-[45px] font-semibold text-xs">
 															<?php _e('Tích cực', 'bsc') ?>
 														</div>
 													</div>
@@ -553,7 +553,7 @@ $time_cache = 300;
 																---- </h4>
 														</div>
 														<div
-															class="min-w-[84px] text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
+															class="min-w-[84px] mb-1 text-center py-0.5 px-4 text-[#FFB81C] bg-[#FFF1D2] rounded-[45px] font-semibold text-xs">
 															<?php _e('Cơ sở', 'bsc') ?>
 														</div>
 													</div>
@@ -566,7 +566,7 @@ $time_cache = 300;
 																---- </h4>
 														</div>
 														<div
-															class="min-w-[84px] text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
+															class="min-w-[84px] mb-1 text-center py-0.5 px-4 text-[#FF0017] bg-[#FFD9DC] rounded-[45px] font-semibold text-xs">
 															<?php _e('Tiêu cực', 'bsc') ?>
 														</div>
 													</div>
