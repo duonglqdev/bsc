@@ -21,12 +21,12 @@
 		if ($response_GetAllDanhMuc) {
 		?>
 			<div
-				class="relative z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:space-y-0 space-y-10 lg:flex' : 'space-y-10' ?>">
+				class="relative z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:space-y-0 space-y-10 xl:flex' : 'space-y-10' ?>">
 				<?php
 				$todate = date('Y-m-d');
 				$todate_format = date('d/m/Y');
 				?>
-				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:mr-5' : '' ?>">
+				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:mr-5' : '' ?>">
 					<div class="md:flex md:gap-6 md:items-center md:space-y-0 space-y-5 md:mb-7 mb-6 wow fadeIn"
 						data-wow-duration="2s">
 						<?php if (get_sub_field('title')) { ?>
@@ -159,7 +159,7 @@
 
 					</div>
 				</div>
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[33.181%] w-full' : 'w-full' ?>">
+				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[33.181%] w-full' : 'w-full' ?>">
 					<div
 						class="flex items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-12' : 'mb-6' ?>">
 						<?php if ( get_sub_field( 'title_2' ) ) { ?>
