@@ -1071,6 +1071,7 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$(document).click(function (e) {
+			if (e.isTrigger) return;
 			if (
 				!$(e.target).closest(
 					'.utilities_button, .utilities_button-list'
