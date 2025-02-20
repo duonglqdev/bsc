@@ -1665,7 +1665,7 @@ function filter_details_symbol()
 															<?php _e('Mã CK', 'bsc') ?>
 														</th>
 														<?php if ($check_linh_vuc == 'Bank') { ?>
-															<th><?php _e('Tỉ lệ đòn bẩy (lần)', 'bsc') ?></th>
+															<th><?php _e('Tỷ lệ đòn bẩy (lần)', 'bsc') ?></th>
 															<th><?php _e('Tỷ lệ nợ xấu (%)', 'bsc') ?></th>
 															<th><?php _e('Tỷ lệ dự phòng nợ xấu (%)', 'bsc') ?></th>
 														<?php } else {
@@ -1680,7 +1680,7 @@ function filter_details_symbol()
 															<?php if ($check_linh_vuc == 'Company') { ?>
 																<th><?php _e('Nợ vay/Tổng tài sản', 'bsc') ?></th>
 															<?php } else { ?>
-																<th><?php _e('Tỉ lệ đòn bẩy', 'bsc') ?></th>
+																<th><?php _e('Tỷ lệ đòn bẩy', 'bsc') ?></th>
 															<?php } ?>
 														<?php
 														} ?>
@@ -2345,7 +2345,7 @@ function filter_details_symbol()
 															</th>
 															<th>
 																<div class="flex items-center justify-center">
-																	<?php _e('Tỉ lệ CASA  (%)', 'bsc') ?>
+																	<?php _e('Tỷ lệ CASA (%)', 'bsc') ?>
 																	<button data-tooltip-target="tooltip-animations4-<?php echo $freq ?>"
 																		data-tooltip-placement="top" class="ml-1" type="button">
 																		<?php echo svg('tooltip', '20', '20') ?>
@@ -2631,7 +2631,7 @@ function filter_details_symbol()
 											<div class="flex flex-col">
 												<h4
 													class="text-center uppercase text-primary-300 py-2 px-3 bg-[#E8F5FF] font-bold lg:text-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6' : 'mb-4' ?>">
-													<?php _e('TỈ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU', 'bsc') ?>
+													<?php _e('TỶ LỆ CHI PHÍ BẢO HIỂM TRÊN DOANH THU', 'bsc') ?>
 												</h4>
 												<?php
 												$business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
