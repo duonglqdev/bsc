@@ -81,7 +81,7 @@ if (isset($_GET['type_search'])) {
 								<a href="<?php echo $current_url ?>?s=<?php echo $search ?>&type_search=news"
 									class="<?php if ($type_search == 'news')
 												echo 'active' ?> flex items-center justify-between w-full px-5 py-[15px] lg:text-lg font-semibold transition-all text-left hover:!text-white hover:!bg-primary-400 hover:!rounded-tr-xl hover:!rounded-br-xl [&:not(.active)]:text-black text-white [&:not(.active)]:bg-white bg-primary-400 [&:not(.active)]:rounded-br-none rounded-br-xl [&:not(.active)]:rounded-tr-none rounded-tr-xl">
-									<?php _e('Tin tức BSC', 'bsc') ?>
+									<?php _e('Tin tức', 'bsc') ?>
 									<?php echo svg('arrow-right-tab') ?>
 								</a>
 							</li>
