@@ -38,63 +38,57 @@ $class = $check_logout['class'];
 								class="py-2 px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'min-w-[180px]' ?>">
 								<?php _e('Quan điểm', 'bsc') ?>
 								<?php
-								if ($response_nganh->d[0]->colnamE1) {
-									echo $response_nganh->d[0]->colnamE1;
-								} elseif ($response_nganh->d[1]->colnamE1) {
-									echo $response_nganh->d[1]->colnamE1;
-								} elseif ($response_nganh->d[2]->colnamE1) {
-									echo $response_nganh->d[2]->colnamE1;
-								} elseif ($response_nganh->d[3]->colnamE1) {
-									echo $response_nganh->d[3]->colnamE1;
-								} elseif ($response_nganh->d[4]->colnamE1) {
-									echo $response_nganh->d[4]->colnamE1;
-								} elseif ($response_nganh->d[5]->colnamE1) {
-									echo $response_nganh->d[5]->colnamE1;
-								}
-								?>/<?php
-									if ($response_nganh->d[0]->forecastyeaR1) {
-										echo $response_nganh->d[0]->forecastyeaR1;
-									} elseif ($response_nganh->d[1]->forecastyeaR1) {
-										echo $response_nganh->d[1]->forecastyeaR1;
-									} elseif ($response_nganh->d[2]->forecastyeaR1) {
-										echo $response_nganh->d[2]->forecastyeaR1;
-									} elseif ($response_nganh->d[3]->forecastyeaR1) {
-										echo $response_nganh->d[3]->forecastyeaR1;
-									} elseif ($response_nganh->d[4]->forecastyeaR1) {
-										echo $response_nganh->d[4]->forecastyeaR1;
-									} elseif ($response_nganh->d[5]->forecastyeaR1) {
-										echo $response_nganh->d[5]->forecastyeaR1;
+								$first_1 = '';
+								for ($i = 0; $i < 6; $i++) {
+									if (!empty($response_nganh->d[$i]->colnamE1)) {
+										$first_1 = $response_nganh->d[$i]->colnamE1;
+										break;
 									}
-									?>
+								}
+								if (!empty($first_1) && !is_numeric($first_1)) {
+									echo $first_1 . "/";
+								}
+								if ($response_nganh->d[0]->forecastyeaR1) {
+									echo $response_nganh->d[0]->forecastyeaR1;
+								} elseif ($response_nganh->d[1]->forecastyeaR1) {
+									echo $response_nganh->d[1]->forecastyeaR1;
+								} elseif ($response_nganh->d[2]->forecastyeaR1) {
+									echo $response_nganh->d[2]->forecastyeaR1;
+								} elseif ($response_nganh->d[3]->forecastyeaR1) {
+									echo $response_nganh->d[3]->forecastyeaR1;
+								} elseif ($response_nganh->d[4]->forecastyeaR1) {
+									echo $response_nganh->d[4]->forecastyeaR1;
+								} elseif ($response_nganh->d[5]->forecastyeaR1) {
+									echo $response_nganh->d[5]->forecastyeaR1;
+								}
+								?>
 							</div>
 							<div
 								class="py-2 px-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-1/3' : 'min-w-[180px]' ?>">
 								<?php _e('Quan điểm', 'bsc') ?>
-								<?php if ($response_nganh->d[0]->colnamE2) {
-									echo $response_nganh->d[0]->colnamE2;
-								} elseif ($response_nganh->d[1]->colnamE2) {
-									echo $response_nganh->d[1]->colnamE2;
-								} elseif ($response_nganh->d[2]->colnamE2) {
-									echo $response_nganh->d[2]->colnamE2;
-								} elseif ($response_nganh->d[3]->colnamE2) {
-									echo $response_nganh->d[3]->colnamE2;
-								} elseif ($response_nganh->d[4]->colnamE2) {
-									echo $response_nganh->d[4]->colnamE2;
-								} elseif ($response_nganh->d[5]->colnamE2) {
-									echo $response_nganh->d[5]->colnamE2;
-								} ?>/<?php if ($response_nganh->d[0]->forecastyeaR2) {
-											echo $response_nganh->d[0]->forecastyeaR2;
-										} elseif ($response_nganh->d[1]->forecastyeaR2) {
-											echo $response_nganh->d[1]->forecastyeaR2;
-										} elseif ($response_nganh->d[2]->forecastyeaR2) {
-											echo $response_nganh->d[2]->forecastyeaR2;
-										} elseif ($response_nganh->d[3]->forecastyeaR2) {
-											echo $response_nganh->d[3]->forecastyeaR2;
-										} elseif ($response_nganh->d[4]->forecastyeaR2) {
-											echo $response_nganh->d[4]->forecastyeaR2;
-										} elseif ($response_nganh->d[5]->forecastyeaR2) {
-											echo $response_nganh->d[5]->forecastyeaR2;
-										} ?>
+								<?php $first_2 = '';
+								for ($i = 0; $i < 6; $i++) {
+									if (!empty($response_nganh->d[$i]->colnamE2)) {
+										$first_2 = $response_nganh->d[$i]->colnamE2;
+										break;
+									}
+								}
+								if (!empty($first_2) && !is_numeric($first_2)) {
+									echo $first_2 . "/";
+								};
+								if ($response_nganh->d[0]->forecastyeaR2) {
+									echo $response_nganh->d[0]->forecastyeaR2;
+								} elseif ($response_nganh->d[1]->forecastyeaR2) {
+									echo $response_nganh->d[1]->forecastyeaR2;
+								} elseif ($response_nganh->d[2]->forecastyeaR2) {
+									echo $response_nganh->d[2]->forecastyeaR2;
+								} elseif ($response_nganh->d[3]->forecastyeaR2) {
+									echo $response_nganh->d[3]->forecastyeaR2;
+								} elseif ($response_nganh->d[4]->forecastyeaR2) {
+									echo $response_nganh->d[4]->forecastyeaR2;
+								} elseif ($response_nganh->d[5]->forecastyeaR2) {
+									echo $response_nganh->d[5]->forecastyeaR2;
+								} ?>
 							</div>
 						</div>
 						<div

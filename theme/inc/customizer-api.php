@@ -1,40 +1,40 @@
 <?php
 function callApi($url, $data = false, $method = "GET")
 {
-	// $curl = curl_init();
-	// curl_setopt_array($curl, array(
-	// 	CURLOPT_URL => $url,
-	// 	CURLOPT_RETURNTRANSFER => true,
-	// 	CURLOPT_ENCODING => '',
-	// 	CURLOPT_MAXREDIRS => 10,
-	// 	CURLOPT_TIMEOUT => 0,
-	// 	CURLOPT_FOLLOWLOCATION => true,
-	// 	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	// 	CURLOPT_CUSTOMREQUEST => $method,
-	// 	CURLOPT_POSTFIELDS => $data,
-	// 	CURLOPT_HTTPHEADER => array(
-	// 		'Content-Type: application/json'
-	// 	),
-	// ));
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => $method,
+		CURLOPT_POSTFIELDS => $data,
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json'
+		),
+	));
 
-	// $response = curl_exec($curl);
-	// $error = curl_error($curl); // Lấy lỗi nếu có
-	// $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
-	// curl_close($curl);
+	$response = curl_exec($curl);
+	$error = curl_error($curl); // Lấy lỗi nếu có
+	$http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE); // Mã HTTP trả về
+	curl_close($curl);
 
-	// if ($error) {
-	// 	// Ghi log lỗi
-	// 	error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
-	// 	return null;
-	// }
+	if ($error) {
+		// Ghi log lỗi
+		error_log("API Error: " . $error . " | URL: " . $url . " | Data: " . json_encode($data));
+		return null;
+	}
 
-	// // Nếu mã HTTP không phải 2xx, ghi log lỗi
-	// if ($http_code < 200 || $http_code >= 300) {
-	// 	error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
-	// 	return null;
-	// }
+	// Nếu mã HTTP không phải 2xx, ghi log lỗi
+	if ($http_code < 200 || $http_code >= 300) {
+		error_log("API HTTP Error: " . $http_code . " | URL: " . $url . " | Response: " . $response);
+		return null;
+	}
 
-	// return json_decode($response);
+	return json_decode($response);
 }
 
 
@@ -160,7 +160,7 @@ function custom_template_redirect()
 			"newstype" => "0"
 		);
 		$get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
-		if ($get_news_detail) {
+		if (!empty($get_news_detail->d) && is_array($get_news_detail->d)) {
 		} else {
 			$array_data = array(
 				"id" => $news_id,
@@ -290,6 +290,7 @@ function custom_template_redirect_for_co_phieu()
 	if ($co_phieu_id) {
 		$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
 		$array_data = array(
+			'lang' => pll_current_language(),
 			"symbol" => $co_phieu_id,
 		);
 		$get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);
@@ -577,13 +578,24 @@ add_action('init', function () {
 
 function bsc_handle_sso_callback()
 {
+	// Lấy state từ query string
+	if (isset($_GET['state'])) {
+		$state = $_GET['state'] ?? '';
+		// Kiểm tra và giải mã URL đúng cách
+		if (strpos($state, '%25') !== false) {
+			$redirect_url = urldecode(urldecode($state));
+		} else {
+			$redirect_url = urldecode($state);
+		}
+	} else {
+		$redirect_url = home_url();
+	}
 	if (isset($_GET['code'])) {
 		$code = sanitize_text_field($_GET['code']);
 		$redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
 		$client_id = get_field('cdapi_ip_address_clientid', 'option');
 		$client_secret = get_field('cdapi_ip_address_clientsecret', 'option');
 		$token_url = get_field('cdapi_ip_address_apiurl', 'option') . 'sso/oauth/token';
-
 		// Gửi yêu cầu lấy access_token
 		$response = wp_remote_post($token_url, [
 			'method' => 'POST',
@@ -604,7 +616,6 @@ function bsc_handle_sso_callback()
 			// Ghi vào debug.log
 			error_log($error_message);
 			// wp_die('Lỗi khi kết nối đến API: ' . $response->get_error_message());
-			$redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
 			wp_redirect($redirect_url);
 			exit;
 		}
@@ -618,14 +629,21 @@ function bsc_handle_sso_callback()
 			set_transient($user_logged_in_key, true, 60 * MINUTE_IN_SECONDS);
 			// Lưu vào cookie
 			setcookie('access_token', $access_token, time() + 60 * 60, COOKIEPATH, COOKIE_DOMAIN);
-			$redirect_url = isset($_GET['state']) ? esc_url_raw($_GET['state']) : home_url();
 			wp_redirect($redirect_url);
 			exit;
 		} else {
+			$error_message = 'Lỗi khi lấy token: ' . $body;
+			error_log($error_message);
 			// wp_die('Lỗi khi lấy token: ' . $body);
+			wp_redirect($redirect_url);
+			exit;
 		}
 	} else {
 		// wp_die('Code không hợp lệ hoặc không tồn tại.');
+		$error_message = 'Code không hợp lệ hoặc không tồn tại.';
+		error_log($error_message);
+		wp_redirect($redirect_url);
+		exit;
 	}
 }
 
@@ -932,7 +950,7 @@ function bsc_proxy_newspdf_content()
 			"newstype" => "0"
 		);
 		$get_news_detail = get_data_with_cache('GetNewsDetail', $array_data, $time_cache);
-		if ($get_news_detail) {
+		if (!empty($get_news_detail->d) && is_array($get_news_detail->d)) {
 		} else {
 			$array_data = array(
 				"id" => $id,
@@ -945,8 +963,8 @@ function bsc_proxy_newspdf_content()
 			$pdf_url = $news->attachedfileurl;
 		} else {
 			// Nếu không có dữ liệu từ API
-			wp_redirect(home_url('/404'));
-			exit;
+			// wp_redirect(home_url('/404'));
+			// exit;
 		}
 	}
 	// Tạo URL PDF dựa trên ID
