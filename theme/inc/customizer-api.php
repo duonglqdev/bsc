@@ -590,7 +590,6 @@ function bsc_handle_sso_callback()
 	} else {
 		$redirect_url = home_url();
 	}
-	error_log($redirect_url);
 	if (isset($_GET['code'])) {
 		$code = sanitize_text_field($_GET['code']);
 		$redirect_uri = get_field('cdapi_ip_address_url_call_back', 'option');
