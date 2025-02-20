@@ -825,8 +825,8 @@ function bsc_format_string($data, $style = 'text')
 
 	// Kiểm tra kiểu định dạng
 	if ($style === 'number') {
-		// Chỉ giữ lại số
-		return esc_html(preg_replace('/[^0-9]/', '', $data));
+		// Chỉ giữ lại số và ép kiểu về int
+		return (int) preg_replace('/[^0-9]/', '', $data);
 	} elseif ($style === 'text') {
 		// Chỉ giữ lại số và chữ cái
 		return esc_html(preg_replace('/[^a-zA-Z0-9]/', '', $data));
@@ -835,6 +835,6 @@ function bsc_format_string($data, $style = 'text')
 		return esc_html($data);
 	}
 
-	// Trường hợp không hợp lệ, trả về chuỗi rỗng
-	return '';
+	// Trường hợp không hợp lệ, trả về 0 (tránh lỗi)
+	return 0;
 }

@@ -16,6 +16,11 @@ if (isset($_GET['type_search'])) {
 } else {
 	$type_search = 'default';
 }
+if (isset($_GET['post_page'])) {
+	$post_page = $_GET['post_page'];
+} else {
+	$post_page = 1;
+}
 ?>
 <main>
 	<section class="py-[88px] bg-no-repeat bg-cover"
@@ -231,7 +236,7 @@ if (isset($_GET['type_search'])) {
 									if (($post_thieu_GetNews != $post_per_page) || ($current_total_post == 0)) {
 										$index_GetNews = 1;
 									} else {
-										$index_GetNews = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page - $total_news + 1;
+										$index_GetNews = (bsc_format_string($post_page, 'number') - 1) * $post_per_page - $total_news + 1;
 									}
 									$array_data_GetNews = array(
 										'lang' => pll_current_language(),
@@ -260,7 +265,7 @@ if (isset($_GET['type_search'])) {
 										if ($post_thieu_GetReportsBySymbol != $post_per_page) {
 											$index_GetReportsBySymbol = 1;
 										} else {
-											$index_GetReportsBySymbol = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
+											$index_GetReportsBySymbol = (bsc_format_string($post_page, 'number') - 1) * $post_per_page - ($total_GetNews + $total_news) + 1;
 										}
 										$array_data_GetReportsBySymbol = array(
 											'lang' => pll_current_language(),
@@ -275,6 +280,7 @@ if (isset($_GET['type_search'])) {
 													'type' => 'news',
 													'title' => htmlspecialchars($news->title),
 													'permalink' => slug_report(htmlspecialchars($news->id), htmlspecialchars($news->title)),
+													'body' => bsc_get_text_excerpt($news->description, 300),
 												);
 											}
 										}
@@ -304,7 +310,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'news') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -336,7 +342,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'cong_dong') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -367,7 +373,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'khuyen_mai') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -419,7 +425,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'bao_cao') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -451,7 +457,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'kien_thuc') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
@@ -483,7 +489,7 @@ if (isset($_GET['type_search'])) {
 							}
 						} elseif ($type_search == 'co_dong') {
 							if (isset($_GET['post_page'])) {
-								$index = (bsc_format_string($_GET['post_page'], 'number') - 1) * $post_per_page + 1;
+								$index = (bsc_format_string($post_page, 'number') - 1) * $post_per_page + 1;
 							} else {
 								$index = 1;
 							}
