@@ -3688,7 +3688,7 @@ function filter_details_symbol()
 							<ul
 								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 ' : 'gap-[12px] sm:w-full w-fit' ?>">
 								<li
-									class="whitespace-nowrap <?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[8%] min-w-[60px]' ?>">
+									class="whitespace-nowrap <?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[16%] min-w-[60px]' ?>">
 									<?php _e('Mã', 'bsc') ?>
 								</li>
 								<li
@@ -3725,7 +3725,7 @@ function filter_details_symbol()
 												<ul class="flex text-center justify-between items-center [&:nth-child(odd)]:bg-white [&:nth-child(even)]:bg-primary-50 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:px-[30px] px-5 py-4 gap-5' : 'gap-[12px] w-max' ?> bsc_need_crawl_price"
 													data-symbol="<?php echo $symbol ?>">
 													<li
-														class="<?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[8%] py-3 min-w-[60px]' ?> font-medium">
+														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[16%] py-3 min-w-[60px]' ?> font-medium">
 														<a
 															href="<?php echo slug_co_phieu($list_bsc->machungkhoan) ?>"><?php echo $list_bsc->machungkhoan ?></a>
 													</li>
