@@ -94,29 +94,29 @@
 									</div>
 								</div>
 							</div>
-							<div class="flex items-center gap-2 btn-chart_date">
+							<div class="flex items-center gap-2 btn-chart_date flex-1">
 								<button type="button" data-month="1"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="3"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="6"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('6M', 'bsc') ?>
 								</button>
 								<button type="button" data-month="12"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('1Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="36"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('3Y', 'bsc') ?>
 								</button>
 								<button type="button" data-month="0"
-									class="inline-block h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'[&:not(.active)]:bg-[#F8F8FF]':'[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e('YTD', 'bsc') ?>
 								</button>
 							</div>
