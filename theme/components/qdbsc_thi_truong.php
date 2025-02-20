@@ -199,7 +199,7 @@ $time_cache = 300;
 								}
 								?>
 								<div class="m-auto">
-									<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?></p>
+									<p class="lg:mt-[38px] mt-8"><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?></p>
 								</div>
 							</div>
 							<div
@@ -230,7 +230,7 @@ $time_cache = 300;
 								}
 								?>
 								<div class="m-auto">
-									<p><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ) ?></p>
+									<p class="lg:mt-[38px] mt-8"><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ) ?></p>
 								</div>
 							</div>
 						</div>

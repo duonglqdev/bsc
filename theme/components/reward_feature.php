@@ -39,7 +39,7 @@ $icon_global = get_sub_field('icon');
                         </div>
                         <div
                             class="award__item-content cursor-default transition-all w-0 overflow-hidden opacity-0 invisible <?php if ($i !== 1) echo 'hidden' ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'':'text-xs' ?>">
-                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[470px] lg:pr-0 pr-4':'w-full' ?>">
+                            <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'max-w-[470px] xl:pr-0 pr-4':'w-full' ?>">
                                 <?php if (get_sub_field('title')) { ?>
                                     <h3 class="font-bold mb-4 font-body <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:text-2xl text-xl':'text-lg text-center' ?>">
                                         <?php the_sub_field('title') ?>

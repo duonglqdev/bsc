@@ -6,7 +6,7 @@
             </h2>
         <?php } ?>
         <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex lg:gap-8' : '' ?>">
-            <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'gap-8 lg:w-[530px] lg:max-w-[45%]' : 'gap-4' ?>">
+            <div class="flex flex-col <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:gap-8 gap-6 lg:w-[530px] lg:max-w-[45%] justify-between' : 'gap-4' ?>">
                 <?php if (wp_is_mobile() && bsc_is_mobile()) : ?>
                     <?php
                     if (get_sub_field('img_1_mobile')) {
@@ -37,16 +37,16 @@
                     <div class="table_custom rounded-[10px] <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'overflow-hidden' : 'overflow-x-auto scroll-bar-custom scroll-bar-x text-xs' ?>">
                         <div
                             class="table_custom-header bg-[#E6F2FA] font-bold lg:leading-loose text-primary-400 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'grid grid-cols-7 gap-5' : 'flex gap-x-10 w-max p-4 ' ?>">
-                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 py-6 px-4 text-center' : 'min-w-14 text-center' ?>">
+                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 xl:py-6 py-4 px-4 text-center' : 'min-w-14 text-center' ?>">
                                 <?php _e('STT', 'bsc') ?>
                             </div>
-                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 py-6 px-4' : 'min-w-[110px]' ?>">
+                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 xl:py-6 py-4 px-4' : 'min-w-[110px]' ?>">
                                 <?php _e('Đối tượng', 'bsc') ?>
                             </div>
-                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 py-6 px-4' : 'min-w-[110px]' ?>">
+                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 xl:py-6 py-4 px-4' : 'min-w-[110px]' ?>">
                                 <?php _e('Số lượng cổ phiếu', 'bsc') ?>
                             </div>
-                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 py-6 px-4' : 'min-w-[110px]' ?>">
+                            <div class="whitespace-nowrap <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-2 xl:py-6 py-4 px-4' : 'min-w-[110px]' ?>">
                                 <?php _e('Tỷ lệ sở hữu', 'bsc') ?>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 }
                             ?>
                                 <?php if (have_rows('content_row')) { ?>
-                                    <div class="table_custom-item  <?php echo $class ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'py-5' : 'w-max p-4 space-y-4' ?>">
+                                    <div class="table_custom-item  <?php echo $class ?> <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:py-5 py-3' : 'w-max p-4 space-y-4' ?>">
                                         <?php
                                         $y = 0;
                                         while (have_rows('content_row')): the_row();

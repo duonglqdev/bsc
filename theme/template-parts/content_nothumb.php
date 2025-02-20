@@ -34,7 +34,7 @@
 		$weekday_name = date( 'l', strtotime( $day ) );
 	}
 	?>
-	<div class="news_service-item md:flex items-center justify-between g:gap-20 gap-5">
+	<div class="news_service-item md:flex items-center justify-between lg:gap-10 gap-5">
 		<div class="flex items-center">
 			<div
 				class="md:w-[100px] md:h-[100px] w-20 h-20 flex-col flex items-center justify-center rounded overflow-hidden shrink-0">
@@ -77,7 +77,7 @@
 		</div>
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 			<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-				class="text-green font-semibold lg:inline-flex hidden gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap">
+				class="text-green font-semibold lg:inline-flex hidden gap-x-3 items-center transition-all duration-500 hover:text-primary-300 text-xs whitespace-nowrap shrink-0">
 				<?php _e( 'Xem chi tiết', 'bsc' ) ?>
 				<?php echo svg( 'arrow-btn', '12', '12' ) ?>
 			</a>

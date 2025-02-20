@@ -73,7 +73,7 @@
 				</div>
 			</div>
 			<div
-				class="col-span-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-2 order-1' : 'order-1' ?>">
+				class="col-span-1 relative z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:order-2 order-1' : 'order-1' ?>">
 				<?php if ( get_sub_field( 'title_2' ) ) { ?>
 					<h2 class="heading-title mb-8 wow fadeIn" data-wow-duration="2s">
 						<?php the_sub_field( 'title_2' ) ?>
@@ -134,7 +134,7 @@
 									<?php echo wp_get_attachment_image( get_sub_field( 'avatar' ), 'large', '', array( 'class' => 'absolute w-full h-full inset-0 object-cover' ) ) ?>
 									<div
 										class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 transition-all duration-500 hover:scale-110">
-										<?php echo svgClass( 'play', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[82px] h-[82px]' : 'w-[67px] h-[67px]' ) ?>
+										<?php echo svgClass( 'play', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:w-[82px] 2xl:h-[82px] w-12 h-12' : 'w-[67px] h-[67px]' ) ?>
 									</div>
 									<?php if ( get_sub_field( 'title' ) && ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 										<div

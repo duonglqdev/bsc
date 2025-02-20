@@ -201,14 +201,14 @@ if ( get_field( 'check_tuyen_xong' ) || $deadline_date < $current_date )
 
 	<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 	{ ?>
-		<div class="xl:col-span-1 col-span-2 job_status mx-auto lg:mt-9 my-auto lg:block hidden">
+		<div class="xl:col-span-1 col-span-2 job_status mx-auto lg:mt-8 my-auto lg:block hidden">
 			<div
 				class="urgent inline-block rounded-full px-4 py-2 font-bold text-xs min-w-28 text-center <?php echo $class ?> ">
 				<?php echo $label ?>
 			</div>
 		</div>
 	<?php } ?>
-	<div class="xl:col-span-1 col-span-2 ml-auto  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:mt-10 mt-4':'' ?>">
+	<div class="xl:col-span-1 col-span-2 ml-auto  <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:mt-[38px] mt-4':'' ?>">
 		<a href="<?php the_permalink() ?>"
 			class="text-green font-bold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 text-xs">
 			<?php _e( 'Xem chi tiết', 'bsc' ) ?>

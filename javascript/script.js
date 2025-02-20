@@ -47,6 +47,7 @@ import { DataTable } from 'simple-datatables';
 		loadMoreJob();
 		handleUnwrap();
 		searchAddress();
+		handleValidateForm();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -1070,6 +1071,7 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$(document).click(function (e) {
+			if (e.isTrigger) return;
 			if (
 				!$(e.target).closest(
 					'.utilities_button, .utilities_button-list'
@@ -2107,10 +2109,15 @@ import { DataTable } from 'simple-datatables';
 		document.querySelectorAll('.scroll-container').forEach((el) => {
 			enableHorizontalScroll(el);
 		});
-		$(".scroll-container-content, .scroll-container-header").on("scroll", function () {
-			let scrollLeft = $(this).scrollLeft();
-			$(".scroll-container-content, .scroll-container-header").not(this).scrollLeft(scrollLeft);
-		});
+		$('.scroll-container-content, .scroll-container-header').on(
+			'scroll',
+			function () {
+				let scrollLeft = $(this).scrollLeft();
+				$('.scroll-container-content, .scroll-container-header')
+					.not(this)
+					.scrollLeft(scrollLeft);
+			}
+		);
 	}
 
 	function filterTable() {
@@ -4264,6 +4271,25 @@ import { DataTable } from 'simple-datatables';
 				}
 			} else {
 				$noResult.remove(); // Xóa thông báo nếu có kết quả
+			}
+		});
+	}
+
+	function handleValidateForm() {
+		$('#phone_number').on('input', function () {
+			// Loại bỏ tất cả các ký tự không phải số
+			$(this).val(
+				$(this)
+					.val()
+					.replace(/[^0-9]/g, '')
+			);
+		});
+
+		$('#phone_number').on('keypress', function (e) {
+			// Chỉ cho phép nhập số (0-9)
+			var charCode = e.which ? e.which : e.keyCode;
+			if (charCode < 48 || charCode > 57) {
+				e.preventDefault();
 			}
 		});
 	}
