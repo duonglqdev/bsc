@@ -290,6 +290,7 @@ function custom_template_redirect_for_co_phieu()
 	if ($co_phieu_id) {
 		$time_cache = get_field('cdttcp1_time_cache', 'option') ?: 300;
 		$array_data = array(
+			'lang' => pll_current_language(),
 			"symbol" => $co_phieu_id,
 		);
 		$get_co_phieu_detail = get_data_with_cache('GetInstrumentInfo', $array_data, $time_cache);

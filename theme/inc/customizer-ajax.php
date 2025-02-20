@@ -2405,7 +2405,7 @@ function filter_details_symbol()
 																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_TONG_TAI_SAN)); ?>
 																</td>
 															<?php } elseif ($check_linh_vuc == 'Insurance') { ?>
-																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET)); ?>
+																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->TY_LE_CHI_PHI_BAO_HIEM_TREN_DOANH_THU)); ?>
 																</td>
 																<td><?php echo bsc_number_format(($response_GetFinanceDetail->d->Bussiness[0][0]->VONG_QUAY_KHOAN_PHAI_THU)); ?>
 																</td>
@@ -2637,7 +2637,7 @@ function filter_details_symbol()
 												$business_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
 													return [
 														'date' => date('Y-m-d', strtotime(trim($item->REPORT_DATE))),
-														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+														'value' => $item->TY_LE_CHI_PHI_BAO_HIEM_TREN_DOANH_THU,
 													];
 												}, $businessData);
 												$industry_data_TY_LE_DOANH_THU_MOI_GIOI_TREN_NET = array_map(function ($item) {
@@ -2649,7 +2649,7 @@ function filter_details_symbol()
 													}
 													return [
 														'date' => $date,
-														'value' => $item->TY_LE_DOANH_THU_MOI_GIOI_TREN_NET,
+														'value' => $item->TY_LE_CHI_PHI_BAO_HIEM_TREN_DOANH_THU,
 													];
 												}, $industryData);
 												?>
