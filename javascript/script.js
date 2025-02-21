@@ -48,11 +48,13 @@ import { DataTable } from 'simple-datatables';
 		handleUnwrap();
 		searchAddress();
 		handleValidateForm();
+		updateTableHeight();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
 		adjustFormSearchWidth();
 		handleUnwrap();
+		updateTableHeight();
 	});
 
 	function menuMobile() {
@@ -3812,6 +3814,29 @@ import { DataTable } from 'simple-datatables';
 				}
 			});
 		}
+		function updateLayout() {
+			if ($(window).width() > 1280) {
+				var headingHeight = $('.ttnc_khuyen_nghi .heading-title').outerHeight(true);
+				var tabHeight = $('.ttnc_khuyen_nghi .list_code_tab').outerHeight(true);
+				var headerHeight = $('.ttnc_khuyen_nghi .list_code_header').outerHeight(true) || 58;
+				var block_ttpt_header = $('.ttnc_khuyen_nghi .block_ttpt-table').outerHeight(true);
+				var block_ttpt_video = $('.ttnc_khuyen_nghi .block_ttpt-video').outerHeight(true);
+				var block_ttpt_height = block_ttpt_header + block_ttpt_video;
+		
+				$('.block_ttpt').css('max-height', block_ttpt_height + 'px');
+				var blockHeight = $('.ttnc_khuyen_nghi .block_ttpt').outerHeight(true);
+				var tableHeight = blockHeight - (headingHeight + tabHeight + headerHeight);
+				
+				$('.list_code_table').css('max-height', tableHeight + 'px');
+			}
+		}
+		
+		// Gọi hàm khi tải trang và khi resize cửa sổ
+		$(document).ready(updateLayout);
+		$(window).on('resize', updateLayout);
+		$(document).on("click",".ttnc_khuyen_nghi .list_code_tab button",function() {
+			updateLayout();
+		});
 	};
 	window.bsc_need_crawl_price = function () {
 		if ('.bsc_need_crawl_price'.length) {
@@ -4293,4 +4318,15 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	}
+
+	window.updateTableHeight = function () {
+		
+		if ($(window).width() < 1280 && $(window).width() > 991) {
+			let tableHeightContent = $('.block_ttpt .block_ttpt-table-content').outerHeight(true);
+			$('.block_ttpt-video a').css('height', tableHeightContent + 'px');
+			console.log(tableHeightContent);
+			
+		}
+	}
+	
 })(jQuery);
