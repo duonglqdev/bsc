@@ -84,7 +84,7 @@ $id_post = get_the_ID();
 						?>
 					</div>
 					<?php if ( get_field( 'duong_dan_tai_file' ) ) { ?>
-						<div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 text-right' : 'mt-6' ?>">
+						<div class="text-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 ' : 'mt-6' ?>">
 							<a href="<?php the_field( 'duong_dan_tai_file' ) ?>"
 								class=" px-6 py-3 btn-base-yellow <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block' : 'block text-xs' ?>"
 								target="_blank">
