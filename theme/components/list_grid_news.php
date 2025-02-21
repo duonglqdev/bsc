@@ -23,7 +23,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                                     $i++;
                                 ?>
                                     <li class="">
-                                        <a href="#<?php echo $term->slug ?>"
+                                        <a href="#<?php echo sanitize_title($term->slug); ?>"
                                             class="flex items-center gap-4 md:text-lg font-bold <?php if ($i == 1) echo 'active' ?> [&:not(.active)]:text-black text-white relative py-[12px] px-5 before:w-2 before:h-2 before:rounded-[2px] [&:not(.active)]:before:bg-[#051D36] [&:not(.active)]:before:bg-opacity-50 before:bg-white before:bg-opacity-100 bg-primary-300 [&:not(.active)]:bg-white [&:not(.active)]:hover:!bg-[#ebf4fa] rounded-tr-xl rounded-br-xl">
                                             <?php echo esc_html($term->name); ?>
                                         </a>
@@ -67,7 +67,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                     <?php
                     foreach ($terms as $term) :
                     ?>
-                        <div id="<?php echo $term->slug ?>" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : '[&:not(:last-child)]:pb-6 [&:not(:last-child)]:mb-6 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1]' ?>">
+                        <div id="<?php echo sanitize_title($term->slug); ?>" class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : '[&:not(:last-child)]:pb-6 [&:not(:last-child)]:mb-6 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-[#E1E1E1]' ?>">
 
                             <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'mb-6 flex justify-between items-center ' : 'mb-4 uppercase' ?>">
                                 <h2 class="heading-title normal-case"><?php echo esc_html($term->name); ?></h2>

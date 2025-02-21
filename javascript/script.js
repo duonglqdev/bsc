@@ -48,11 +48,14 @@ import { DataTable } from 'simple-datatables';
 		handleUnwrap();
 		searchAddress();
 		handleValidateForm();
+		handleLogin();
+		
 	});
 	$(window).resize(function () {
 		handleMegamenu();
 		adjustFormSearchWidth();
 		handleUnwrap();
+		
 	});
 
 	function menuMobile() {
@@ -1159,6 +1162,7 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$(document).click(function (event) {
+			if (event.isTrigger) return;
 			if (
 				!$(event.target).closest('.form-search-mb, .open-search').length
 			) {
@@ -3812,6 +3816,29 @@ import { DataTable } from 'simple-datatables';
 				}
 			});
 		}
+		function updateLayout() {
+			if ($(window).width() > 1280) {
+				var headingHeight = $('.ttnc_khuyen_nghi .heading-title').outerHeight(true);
+				var tabHeight = $('.ttnc_khuyen_nghi .list_code_tab').outerHeight(true);
+				var headerHeight = $('.ttnc_khuyen_nghi .list_code_header').outerHeight(true) || 58;
+				var block_ttpt_header = $('.ttnc_khuyen_nghi .block_ttpt-table').outerHeight(true);
+				var block_ttpt_video = $('.ttnc_khuyen_nghi .block_ttpt-video').outerHeight(true);
+				var block_ttpt_height = block_ttpt_header + block_ttpt_video;
+		
+				$('.block_ttpt').css('max-height', block_ttpt_height + 'px');
+				var blockHeight = $('.ttnc_khuyen_nghi .block_ttpt').outerHeight(true);
+				var tableHeight = blockHeight - (headingHeight + tabHeight + headerHeight);
+				
+				$('.list_code_table').css('max-height', tableHeight + 'px');
+			}
+		}
+		
+		// Gọi hàm khi tải trang và khi resize cửa sổ
+		$(document).ready(updateLayout);
+		$(window).on('resize', updateLayout);
+		$(document).on("click",".ttnc_khuyen_nghi .list_code_tab button",function() {
+			updateLayout();
+		});
 	};
 	window.bsc_need_crawl_price = function () {
 		if ('.bsc_need_crawl_price'.length) {
@@ -4293,4 +4320,39 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	}
+
+	window.ttnc_khuyen_nghi_height = function () {
+		if ($(window).width() < 1280 && $(window).width() > 991) {
+			let tableHeightContent = $('.block_ttpt .block_ttpt-table-content').outerHeight(true);
+			$('.block_ttpt-video a').css('height', tableHeightContent + 'px');
+			console.log(tableHeightContent);
+			
+		}
+	};
+	$(document).ready(window.ttnc_khuyen_nghi_height);
+	$(window).on('resize', function () {
+		setTimeout(window.ttnc_khuyen_nghi_height, 100);
+	});
+
+	function handleLogin() {
+		$('.show-login-form,.back-form-login').click(function () {
+			$('.form-login-wrapper,.form-login').toggleClass('active');
+		});
+		$('.select_language').click(function () {
+			$(this).next().toggleClass('active');
+		})
+		$(document).click(function (e) {
+			if (e.isTrigger) return;
+			if (
+				!$(e.target).closest(
+					'.select_language,.select_language_list'
+				).length
+			) {
+				$('.select_language_list').removeClass(
+					'active'
+				);
+			}
+		});
+	}
+	
 })(jQuery);

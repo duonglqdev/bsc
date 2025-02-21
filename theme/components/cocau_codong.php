@@ -10,25 +10,25 @@
                 <?php if (wp_is_mobile() && bsc_is_mobile()) : ?>
                     <?php
                     if (get_sub_field('img_1_mobile')) {
-                        echo wp_get_attachment_image(get_sub_field('img_1_mobile'), 'large', '', array('class' => 'w-full'));
+                        echo wp_get_attachment_image(get_sub_field('img_1_mobile'), 'full', '', array('class' => 'w-full'));
                     } else {
-                        echo wp_get_attachment_image(get_sub_field('img_1'), 'large', '', array('class' => 'w-full'));
+                        echo wp_get_attachment_image(get_sub_field('img_1'), 'full', '', array('class' => 'w-full'));
                     }
                     ?>
                 <?php else : ?>
-                    <?php echo wp_get_attachment_image(get_sub_field('img_1'), 'large', '', array('class' => 'w-full')) ?>
+                    <?php echo wp_get_attachment_image(get_sub_field('img_1'), 'full', '', array('class' => 'w-full')) ?>
                 <?php endif; ?>
 
                 <?php if (wp_is_mobile() && bsc_is_mobile()) : ?>
                     <?php
                     if (get_sub_field('img_2_mobile')) {
-                        echo wp_get_attachment_image(get_sub_field('img_2_mobile'), 'large', '', array('class' => 'w-full'));
+                        echo wp_get_attachment_image(get_sub_field('img_2_mobile'), 'full', '', array('class' => 'w-full'));
                     } else {
-                        echo wp_get_attachment_image(get_sub_field('img_2'), 'large', '', array('class' => 'w-full'));
+                        echo wp_get_attachment_image(get_sub_field('img_2'), 'full', '', array('class' => 'w-full'));
                     }
                     ?>
                 <?php else : ?>
-                    <?php echo wp_get_attachment_image(get_sub_field('img_2'), 'large', '', array('class' => 'w-full')) ?>
+                    <?php echo wp_get_attachment_image(get_sub_field('img_2'), 'full', '', array('class' => 'w-full')) ?>
                 <?php endif; ?>
 
             </div>

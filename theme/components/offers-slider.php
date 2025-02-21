@@ -12,7 +12,7 @@
 					</h2>
 				<?php } ?>
 				<?php if ( get_sub_field( 'mota' ) ) { ?>
-					<p class="uppercase text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-2xl text-xl lg:mb-10 mb-6' : 'sm:text-xl text-base mb-6' ?> font-bold  wow fadeIn"
+					<p class="uppercase text-primary-300 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-2xl text-xl lg:mb-10 mb-6' : 'sm:text-xl text-base mb-6 text-center' ?> font-bold  wow fadeIn"
 						data-wow-duration="2s">
 						<?php the_sub_field( 'mota' ) ?>
 					</p>

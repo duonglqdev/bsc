@@ -78,6 +78,25 @@
   @apply hidden;
 }
 
+.btn-light {
+  @apply relative transition-all overflow-hidden;
+}
+.btn-light:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: none;
+}
+.btn-light:hover::after {
+  width: 120%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: all 0.4s ease-in-out;
+}
+
 .btn-base-yellow {
   @apply bg-yellow-100;
   @apply inline-block 2xl:px-7 px-5 2xl:py-[15px] py-3 rounded-md text-black font-semibold relative transition-all duration-500 leading-none overflow-hidden;
@@ -661,6 +680,7 @@
 }
 .is-mobile .heading-title {
   @apply uppercase font-bold sm:text-[28px] text-[22px];
+  text-align: center;
 }
 .is-mobile .font-base * {
   font-size: 14px !important;
@@ -709,6 +729,9 @@
 }
 .is-mobile .datatable-bottom .datatable-dropdown {
   @apply hidden;
+}
+.is-mobile .about_mission .fli-dots-blue .flickity-page-dots {
+  @apply -bottom-7;
 }
 
 .about_culture-swiper .is-selected .about_culture-item {

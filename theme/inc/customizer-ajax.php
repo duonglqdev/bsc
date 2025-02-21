@@ -3656,13 +3656,13 @@ function filter_details_symbol()
 		if ($response_GetAllDanhMuc) {
 		?>
 			<ul
-				class="customtab-nav flex items-center flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 mb-6' : 'gap-2 mb-4' ?>">
+				class="customtab-nav flex items-center flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 mb-6 list_code_tab' : 'gap-2 mb-4' ?>">
 				<?php
 				$i = 0;
 				foreach ($response_GetAllDanhMuc->d as $news) {
 					$i++; ?>
 					<li>
-						<button data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
+						<button <?php echo ! $check_logout || $public == 'Y' ?'':'disable'  ?> data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
 							class="<?php if ($i == 1)
 										echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 							<?php echo $news->tendanhmuc ?>
@@ -3677,15 +3677,15 @@ function filter_details_symbol()
 				$public = $news->ispublic; ?>
 				<div class="tab-content <?php echo $m == 1 ? 'block' : 'hidden' ?>" id="<?php echo $tab ?>-<?php echo $m ?>">
 					<div
-						class="rounded-lg overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:pt-[78.1%] pt-[80%] w-full' : 'text-xs' ?>">
-						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'absolute w-full h-full inset-0' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> 
+						class="rounded-lg overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-full' : 'text-xs' ?>">
+						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> 
 							<?php
 							if ($public == 'N') {
 								echo $class;
 							}
 							?>">
 							<ul
-								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 ' : 'gap-[12px] sm:w-full w-fit' ?>">
+								class="flex items-center flex-nowrap font-bold text-center text-white bg-primary-300 prose-li:py-3 justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-[7px] gap-5 2xl:px-[30px] px-5 list_code_header' : 'gap-[12px] sm:w-full w-fit' ?>">
 								<li
 									class="whitespace-nowrap <?php echo (get_locale() == 'en_GB') ? 'w-[16%]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() && get_locale() !== 'en_GB' ? 'w-[8%]' : 'w-[16%] min-w-[60px]' ?>">
 									<?php _e('Mã', 'bsc') ?>
@@ -3715,7 +3715,7 @@ function filter_details_symbol()
 								if ($response_list_bsc) {
 							?>
 									<div
-										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'overflow-y-auto scroll-bar-custom max-h-[90%]' : '' ?>">
+										class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'overflow-y-auto scroll-bar-custom max-h-[520px] list_code_table' : '' ?>">
 										<?php
 										foreach ($response_list_bsc->d as $list_bsc) {
 											$symbol = $list_bsc->machungkhoan;
@@ -3770,7 +3770,7 @@ function filter_details_symbol()
 							} else {
 								?>
 								<!-- Data Demo -->
-								<div class="overflow-y-auto scroll-bar-custom max-h-[90%]">
+								<div class="overflow-y-auto scroll-bar-custom max-h-[520px] list_code_table">
 									<?php for ($i = 0; $i < 9; $i++) { ?>
 										<ul
 											class="flex gap-5 text-center justify-between 2xl:px-[30px] px-5 py-4 items-center [&amp;:nth-child(odd)]:bg-white [&amp;:nth-child(even)]:bg-primary-50">

@@ -122,7 +122,7 @@
 							</div>
 							<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 																																															? 'bg-[#E8F5FF] group'
-																																															: 'bg-white group'; ?>">
+																																															: 'bg-[#CEEAFF] group'; ?>">
 								<?php echo svgClass('reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform') ?>
 							</button>
 						</div>

@@ -8,7 +8,7 @@
 
 		<?php } ?>
 		<?php if (get_sub_field('mota')) { ?>
-			<p class="uppercase text-primary-300 2xl:text-2xl font-bold wow fadeIn <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'sm:text-xl text-base' ?>"
+			<p class="uppercase text-primary-300 2xl:text-2xl font-bold wow fadeIn <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-xl' : 'sm:text-xl text-base text-center' ?>"
 				data-wow-duration="2s">
 				<?php the_sub_field('mota') ?>
 			</p>
@@ -142,7 +142,7 @@
 			</div>
 			<?php if (have_rows('trai_nghiem')) {
 			?>
-				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-2 order-1 lg:-mt-20 relative' : 'col-span-full order-1' ?>">
+				<div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'col-span-1 lg:order-2 order-1 lg:-mt-20 relative' : 'col-span-full order-1 relative' ?>">
 					<?php
 					$i = 0;
 					while (have_rows('trai_nghiem')) :
