@@ -1587,6 +1587,26 @@ import { DataTable } from 'simple-datatables';
 			$('#search_job')[0].reset();
 			load_jobs(1);
 		});
+		$(document).on('click', '#tuyen-dung-tim-kiem', function (e) {
+			$('.show-more-recruitment').addClass('hidden');
+		});
+
+		let $select = $("#nghiep_vu,#noi_lam_viec");
+
+			// Đặt màu chữ cho option đầu tiên
+			$select.css("color", "#898a8d");
+			
+
+			// Thay đổi màu khi chọn option khác
+			$select.on("change", function () {
+				if ($(this).val() === "") {
+					$(this).css("color", "#898a8d"); // Nếu chọn lại option đầu tiên
+					$(this).css("font-weight", "400");
+				} else {
+					$(this).css("color", "black"); // Nếu chọn option khác
+					$(this).css("font-weight", "500");
+				}
+			});
 
 		function getMaxValue(dataSets) {
 			return (
