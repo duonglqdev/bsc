@@ -2,10 +2,12 @@
     <div class="container">
         <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1 col-span-1' : 'order-2' ?>">
-                <?php if (get_sub_field('title')) { ?>
-                    <h2 class="heading-title <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'2xl:mb-12 mb-10':'mb-4' ?>">
-                        <?php the_sub_field('title') ?>
-                    </h2>
+                <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
+                    <?php if (get_sub_field('title')) { ?>
+                        <h2 class="heading-title 2xl:mb-12 mb-10">
+                            <?php the_sub_field('title') ?>
+                        </h2>
+                    <?php } ?>
                 <?php } ?>
                 <?php if (get_sub_field('mota')) { ?>
                     <div class="font-Helvetica text-justify <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'mb-10':'mb-8' ?>">
@@ -33,6 +35,13 @@
             </div>
             <?php if (have_rows('content')) { ?>
                 <div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-2 col-span-1' : 'order-1 pb-[80px] relative' ?>">
+                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+                    <?php if (get_sub_field('title')) { ?>
+                        <h2 class="heading-title mb-8">
+                            <?php the_sub_field('title') ?>
+                        </h2>
+                    <?php } ?>
+                <?php } ?>
                     <div
                         class="community_nav flex flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full m-auto justify-between' : 'relative flex justify-around ' ?>">
                         <?php
