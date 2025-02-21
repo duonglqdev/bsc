@@ -1161,6 +1161,7 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		$(document).click(function (event) {
+			if (event.isTrigger) return;
 			if (
 				!$(event.target).closest('.form-search-mb, .open-search').length
 			) {
