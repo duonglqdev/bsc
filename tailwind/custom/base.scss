@@ -560,6 +560,7 @@
 	}
 	.heading-title {
 		@apply uppercase font-bold sm:text-[28px] text-[22px];
+		text-align: center;
 	}
 	.font-base * {
 		font-size: 14px !important;

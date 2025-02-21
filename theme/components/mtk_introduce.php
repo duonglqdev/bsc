@@ -48,7 +48,7 @@
                         </div>
                     <?php } ?>
                 </div>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-1':'relative pt-8' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ?'col-span-1':'relative pt-8 overflow-hidden' ?>">
                 <?php if ( wp_is_mobile() && bsc_is_mobile() )
 						{ ?>
 							<div class="absolute top-0 -right-10 pointer-events-none w-4/5 h-full">
