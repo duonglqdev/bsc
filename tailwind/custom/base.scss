@@ -613,6 +613,13 @@
 			@apply hidden;
 		}
 	}
+	.about_mission {
+		.fli-dots-blue {
+			.flickity-page-dots {
+				@apply -bottom-7;
+			}
+		}
+	}
 }
 
 .about_culture-swiper {
@@ -956,8 +963,8 @@ header {
 		}
 	}
 }
-.chart{
-	.apexcharts-legend{
+.chart {
+	.apexcharts-legend {
 		@apply md:flex grid grid-cols-3 gap-2;
 	}
 }
@@ -1056,7 +1063,7 @@ header {
 		input[type="file"] {
 			@apply absolute w-full h-full top-0 left-0 opacity-0;
 		}
-		.wpcf7-form-control-wrap{
+		.wpcf7-form-control-wrap {
 			@apply static;
 		}
 		.upload_file {
@@ -1474,12 +1481,13 @@ button#ib-button-messaging {
 	}
 }
 @media (max-width: 1280px) and (min-width: 1025px) {
-	.custom-tranx{
+	.custom-tranx {
 		@apply translate-x-[120px];
 		grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 	}
 }
 
 .grecaptcha-badge {
-    display: none !important;
+	display: none !important;
 }
+
