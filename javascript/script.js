@@ -48,6 +48,7 @@ import { DataTable } from 'simple-datatables';
 		handleUnwrap();
 		searchAddress();
 		handleValidateForm();
+		handleLogin();
 		
 	});
 	$(window).resize(function () {
@@ -4332,5 +4333,26 @@ import { DataTable } from 'simple-datatables';
 	$(window).on('resize', function () {
 		setTimeout(window.ttnc_khuyen_nghi_height, 100);
 	});
+
+	function handleLogin() {
+		$('.show-login-form,.back-form-login').click(function () {
+			$('.form-login-wrapper,.form-login').toggleClass('active');
+		});
+		$('.select_language').click(function () {
+			$(this).next().toggleClass('active');
+		})
+		$(document).click(function (e) {
+			if (e.isTrigger) return;
+			if (
+				!$(e.target).closest(
+					'.select_language,.select_language_list'
+				).length
+			) {
+				$('.select_language_list').removeClass(
+					'active'
+				);
+			}
+		});
+	}
 	
 })(jQuery);
