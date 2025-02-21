@@ -48,13 +48,13 @@ import { DataTable } from 'simple-datatables';
 		handleUnwrap();
 		searchAddress();
 		handleValidateForm();
-		updateTableHeight();
+		
 	});
 	$(window).resize(function () {
 		handleMegamenu();
 		adjustFormSearchWidth();
 		handleUnwrap();
-		updateTableHeight();
+		
 	});
 
 	function menuMobile() {
@@ -4319,14 +4319,17 @@ import { DataTable } from 'simple-datatables';
 		});
 	}
 
-	window.updateTableHeight = function () {
-		
+	window.ttnc_khuyen_nghi_height = function () {
 		if ($(window).width() < 1280 && $(window).width() > 991) {
 			let tableHeightContent = $('.block_ttpt .block_ttpt-table-content').outerHeight(true);
 			$('.block_ttpt-video a').css('height', tableHeightContent + 'px');
 			console.log(tableHeightContent);
 			
 		}
-	}
+	};
+	$(document).ready(window.ttnc_khuyen_nghi_height);
+	$(window).on('resize', function () {
+		setTimeout(window.ttnc_khuyen_nghi_height, 100);
+	});
 	
 })(jQuery);

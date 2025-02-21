@@ -39,8 +39,8 @@ $time_cache = 300;
 			$get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
 		?>
 			<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
-				<div class="lg:flex 2xl:gap-[70px] gap-10 lg:space-y-0 space-y-10">
-					<div class="lg:w-[843px] lg:max-w-[66%]">
+				<div class="xl:flex 2xl:gap-[70px] gap-10 xl:space-y-0 space-y-10">
+					<div class="xl:w-[843px] xl:max-w-[66%]">
 					<?php } ?>
 					<div
 						class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid-cols-2 gap-x-[23px] gap-y-6' : 'sm:grid-cols-2 grid-cols-1 gap-4' ?>">
@@ -161,7 +161,7 @@ $time_cache = 300;
 						<?php } ?>
 					<?php } ?>
 					<?php if (have_rows('tien_ich')) { ?>
-						<div class="lg:space-y-[14px] md:space-y-0 space-y-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto lg:block grid grid-cols-2 gap-4' : 'hidden tab-content' ?>"
+						<div class="xl:space-y-[14px] md:space-y-0 space-y-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto xl:block grid grid-cols-2 gap-4' : 'hidden tab-content' ?>"
 							<?php if (wp_is_mobile() && bsc_is_mobile()) { ?> id="ttnc-2" <?php } ?>>
 							<?php while (have_rows('tien_ich')) :
 								the_row(); ?>

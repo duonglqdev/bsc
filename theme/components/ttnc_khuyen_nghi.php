@@ -75,8 +75,8 @@
 						}
 						?>
 					</div>
-					<div class="bsc-ajax-api <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 block_ttpt-table-content' : '' ?>"
-						data-api="ttnc_khuyen_nghi_GetForecastMacro" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+					<div class="bsc-ajax-api <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' block_ttpt-table-content' : '' ?>"
+						data-api="ttnc_khuyen_nghi_GetForecastMacro" data-chart="ttnc_khuyen_nghi_height" <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
 							data-chart="ttnc_khuyen_nghi_slider"	
 						<?php } ?>>
 						
