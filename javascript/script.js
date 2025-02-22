@@ -41,7 +41,6 @@ import { DataTable } from 'simple-datatables';
 		resetForm();
 		centerActiveMenu();
 		handleLoading();
-		bsc_need_crawl_price();
 		adjustFormSearchWidth();
 		transformText();
 		loadMoreJob();
@@ -49,13 +48,12 @@ import { DataTable } from 'simple-datatables';
 		searchAddress();
 		handleValidateForm();
 		handleLogin();
-		
+		running_api_price();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
 		adjustFormSearchWidth();
 		handleUnwrap();
-		
 	});
 
 	function menuMobile() {
@@ -3057,7 +3055,6 @@ import { DataTable } from 'simple-datatables';
 		}
 	};
 
-	let isAjaxInProgress = false;
 	let globalShares = [];
 	window.onchangeInstrument = function (symbol, wrapper_price) {
 		var CONNECTION_METADATA_PARAMS = {
@@ -3818,73 +3815,80 @@ import { DataTable } from 'simple-datatables';
 		}
 		function updateLayout() {
 			if ($(window).width() > 1280) {
-				var headingHeight = $('.ttnc_khuyen_nghi .heading-title').outerHeight(true);
-				var tabHeight = $('.ttnc_khuyen_nghi .list_code_tab').outerHeight(true);
-				var headerHeight = $('.ttnc_khuyen_nghi .list_code_header').outerHeight(true) || 58;
-				var block_ttpt_header = $('.ttnc_khuyen_nghi .block_ttpt-table').outerHeight(true);
-				var block_ttpt_video = $('.ttnc_khuyen_nghi .block_ttpt-video').outerHeight(true);
+				var headingHeight = $(
+					'.ttnc_khuyen_nghi .heading-title'
+				).outerHeight(true);
+				var tabHeight = $(
+					'.ttnc_khuyen_nghi .list_code_tab'
+				).outerHeight(true);
+				var headerHeight =
+					$('.ttnc_khuyen_nghi .list_code_header').outerHeight(
+						true
+					) || 58;
+				var block_ttpt_header = $(
+					'.ttnc_khuyen_nghi .block_ttpt-table'
+				).outerHeight(true);
+				var block_ttpt_video = $(
+					'.ttnc_khuyen_nghi .block_ttpt-video'
+				).outerHeight(true);
 				var block_ttpt_height = block_ttpt_header + block_ttpt_video;
-		
+
 				$('.block_ttpt').css('max-height', block_ttpt_height + 'px');
-				var blockHeight = $('.ttnc_khuyen_nghi .block_ttpt').outerHeight(true);
-				var tableHeight = blockHeight - (headingHeight + tabHeight + headerHeight);
-				
+				var blockHeight = $(
+					'.ttnc_khuyen_nghi .block_ttpt'
+				).outerHeight(true);
+				var tableHeight =
+					blockHeight - (headingHeight + tabHeight + headerHeight);
+
 				$('.list_code_table').css('max-height', tableHeight + 'px');
 			}
 		}
-		
+
 		// Gọi hàm khi tải trang và khi resize cửa sổ
 		$(document).ready(updateLayout);
 		$(window).on('resize', updateLayout);
-		$(document).on("click",".ttnc_khuyen_nghi .list_code_tab button",function() {
-			updateLayout();
-		});
-	};
-	window.bsc_need_crawl_price = function () {
-		if ('.bsc_need_crawl_price'.length) {
-			running_api_price();
-			sameHeight();
-		}
+		$(document).on(
+			'click',
+			'.ttnc_khuyen_nghi .list_code_tab button',
+			function () {
+				updateLayout();
+			}
+		);
 	};
 	window.running_api_price = function () {
 		const sharesResult = $('.shares-result');
 		const loader = sharesResult.find('.loader');
 		loader.removeClass('hidden');
+		$.ajax({
+			url: slug_api_price + 'datafeed/instruments',
+			type: 'GET',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'JSON',
+			success: function (data) {
+				if (data && data.s === 'ok') {
+					const noResults = sharesResult.find('.no-results');
+					sharesResult.empty();
+					sharesResult.append(noResults);
 
-		if (isAjaxInProgress) {
-			bsc_need_crawl_price();
-		} else {
-			isAjaxInProgress = true;
-			$.ajax({
-				url: slug_api_price + 'datafeed/instruments',
-				type: 'GET',
-				contentType: 'application/json; charset=utf-8',
-				dataType: 'JSON',
-				success: function (data) {
-					if (data && data.s === 'ok') {
-						const noResults = sharesResult.find('.no-results');
-						sharesResult.empty();
-						sharesResult.append(noResults);
-
-						let hasResults = false;
-						const filteredShares = data.d.filter(
-							(share) => share.StockType === '2'
+					let hasResults = false;
+					const filteredShares = data.d.filter(
+						(share) => share.StockType === '2'
+					);
+					filteredShares.forEach(function (share) {
+						sharesResult.append(
+							`<li><a href="${slug_co_phieu}${share.symbol}" target="_blank">${share.symbol}</a></li>`
 						);
-						filteredShares.forEach(function (share) {
-							sharesResult.append(
-								`<li><a href="${slug_co_phieu}${share.symbol}" target="_blank">${share.symbol}</a></li>`
-							);
-							hasResults = true;
-						});
-						globalShares = data.d;
-						bsc_need_crawl_price_display();
-						noResults.toggleClass('hidden', hasResults);
-					}
-					loader.addClass('hidden');
-				},
-			});
-		}
+						hasResults = true;
+					});
+					globalShares = data.d;
+					bsc_need_crawl_price_display();
+					noResults.toggleClass('hidden', hasResults);
+				}
+				loader.addClass('hidden');
+			},
+		});
 	};
+
 	window.handleSearch = function () {
 		// Hàm kiểm tra nếu checkbox #cp được chọn
 		function isCheckboxChecked() {
@@ -3897,8 +3901,6 @@ import { DataTable } from 'simple-datatables';
 			const sharesResult = $('.shares-result');
 
 			sharesResult.addClass('active');
-
-			running_api_price();
 		});
 
 		// Khi input thay đổi
@@ -4323,10 +4325,11 @@ import { DataTable } from 'simple-datatables';
 
 	window.ttnc_khuyen_nghi_height = function () {
 		if ($(window).width() < 1280 && $(window).width() > 991) {
-			let tableHeightContent = $('.block_ttpt .block_ttpt-table-content').outerHeight(true);
+			let tableHeightContent = $(
+				'.block_ttpt .block_ttpt-table-content'
+			).outerHeight(true);
 			$('.block_ttpt-video a').css('height', tableHeightContent + 'px');
 			console.log(tableHeightContent);
-			
 		}
 	};
 	$(document).ready(window.ttnc_khuyen_nghi_height);
@@ -4340,19 +4343,15 @@ import { DataTable } from 'simple-datatables';
 		});
 		$('.select_language').click(function () {
 			$(this).next().toggleClass('active');
-		})
+		});
 		$(document).click(function (e) {
 			if (e.isTrigger) return;
 			if (
-				!$(e.target).closest(
-					'.select_language,.select_language_list'
-				).length
+				!$(e.target).closest('.select_language,.select_language_list')
+					.length
 			) {
-				$('.select_language_list').removeClass(
-					'active'
-				);
+				$('.select_language_list').removeClass('active');
 			}
 		});
 	}
-	
 })(jQuery);
