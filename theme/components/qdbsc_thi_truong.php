@@ -1,6 +1,6 @@
 <?php
 $check_logout = bsc_is_user_logged_out();
-// $class = $check_logout['class'];
+// $class = $check_logout['class'] ?? '';
 $class = '';
 $time_cache = 300;
 ?>
@@ -199,7 +199,8 @@ $time_cache = 300;
 								}
 								?>
 								<div class="m-auto">
-									<p class="lg:mt-[38px] mt-8"><?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?></p>
+									<p class="lg:mt-[38px] mt-8">
+										<?php echo bsc_number_format( $response_GetForecastMacro->d->C[1][4]->value ); ?></p>
 								</div>
 							</div>
 							<div
@@ -230,7 +231,8 @@ $time_cache = 300;
 								}
 								?>
 								<div class="m-auto">
-									<p class="lg:mt-[38px] mt-8"><?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ) ?></p>
+									<p class="lg:mt-[38px] mt-8">
+										<?php echo bsc_number_format( $response_GetForecastMacro->d->C[4][4]->value ) ?></p>
 								</div>
 							</div>
 						</div>

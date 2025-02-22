@@ -17,8 +17,8 @@ function filter_jobs_ajax() {
 		'meta_key' => 'deadline',
 		'order' => 'DESC',
 		'tax_query' => array(
-				'relation' => 'AND',
-			),
+			'relation' => 'AND',
+		),
 	);
 
 	if ( ! empty( $nghiep_vu ) ) {
@@ -128,8 +128,8 @@ function filter_chuyengia_ajax() {
 		'order' => 'ASC',
 		'paged' => $paged,
 		'tax_query' => array(
-				'relation' => 'AND',
-			),
+			'relation' => 'AND',
+		),
 	);
 	if ( ! empty( $thanh_pho ) ) {
 		$args['tax_query'][] = array(
@@ -517,7 +517,7 @@ function filter_details_symbol() {
 	$current_url = isset( $_POST['current_url'] ) ? esc_url_raw( $_POST['current_url'] ) : '';
 	$get_array_id_taxonomy = get_array_id_taxonomy( 'danh-muc-bao-cao-phan-tich' );
 	$check_logout = bsc_is_user_logged_out( $current_url );
-	$class = $check_logout['class'];
+	$class = $check_logout['class'] ?? '';
 	if ( $type_form == 'lichsugiaodich' ) {
 		?>
 		<?php
@@ -4603,7 +4603,8 @@ function renderMenu( $menuData, $response_GetDetailFinanceReportBySymbol = null,
 					</div>
 				</div>
 				<?php if ( ! empty( $item['children'] ) ) { ?>
-					<div class="sub-collapse hidden text-xs upper-first" style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
+					<div class="sub-collapse hidden text-xs upper-first"
+						style="<?php echo ( $level === 0 ) ? 'display: block;' : '' ?>">
 						<?php renderMenu( $item['children'], $response_GetDetailFinanceReportBySymbol, $level + 1 ); ?>
 					</div>
 				<?php } ?>

@@ -26,7 +26,7 @@ if ( $args['data'] ) {
 	exit;
 }
 $check_logout = bsc_is_user_logged_out();
-$class = $check_logout['class'];
+$class = $check_logout['class'] ?? '';
 get_header();
 ?>
 <main>
@@ -48,7 +48,7 @@ get_header();
 				class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 flex gap-5 flex-wrap' : 'mt-8 block_slider block_slider-show-1 fli-dots-blue dot-30' ?>">
 				<div
 					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[547px] xl:max-w-[41%] w-full' : 'w-full block_slider-item sameheight_item' ?>">
-					<div class="<?php echo (get_locale() == 'en_GB' && ! wp_is_mobile()) ? 'px-6' : ''; ?> <?php echo (get_locale() !== 'en_GB' && ! wp_is_mobile()) ? 'px-10' : ''; ?> bg-gradient-blue-to-bottom-100 rounded-xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' py-6' : 'p-6 min-h-[250px]' ?> space-y-6 h-full bsc_need_crawl_price"
+					<div class="<?php echo ( get_locale() == 'en_GB' && ! wp_is_mobile() ) ? 'px-6' : ''; ?> <?php echo ( get_locale() !== 'en_GB' && ! wp_is_mobile() ) ? 'px-10' : ''; ?> bg-gradient-blue-to-bottom-100 rounded-xl <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' py-6' : 'p-6 min-h-[250px]' ?> space-y-6 h-full bsc_need_crawl_price"
 						data-symbol="<?php echo $symbol ?>" data-socket="true">
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex items-center justify-between' ?> ">
@@ -87,7 +87,8 @@ get_header();
 								</div>
 							<?php } ?>
 						</div>
-						<div class="flex items-center gap-5 <?php echo (get_locale() == 'en_GB') ? '2xl:gap-4' : '2xl:gap-7'; ?>">
+						<div
+							class="flex items-center gap-5 <?php echo ( get_locale() == 'en_GB' ) ? '2xl:gap-4' : '2xl:gap-7'; ?>">
 							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="lg:w-[176px] lg:max-w-[37%]">
 									<div class="flex-col gap-2">
@@ -113,7 +114,8 @@ get_header();
 								class="flex-1 flex gap-3 justify-between font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4' : 'gap-6' ?>">
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?>">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?>">
 											<?php _e( 'Trần', 'bsc' ) ?>
 										</p>
 										<p
@@ -121,7 +123,8 @@ get_header();
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
 											<?php _e( 'Cao nhất', 'bsc' ) ?>
 										</p>
 										<p
@@ -131,7 +134,8 @@ get_header();
 								</div>
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
 											<?php _e( 'Tham chiếu', 'bsc' ) ?>
 										</p>
 										<p
@@ -139,7 +143,8 @@ get_header();
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
 											<?php _e( 'Thấp nhất', 'bsc' ) ?>
 										</p>
 										<p
@@ -149,7 +154,8 @@ get_header();
 								</div>
 								<div class="col-span-1 space-y-5">
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
 											<?php _e( 'Sàn', 'bsc' ) ?>
 										</p>
 										<p
@@ -157,7 +163,8 @@ get_header();
 										</p>
 									</div>
 									<div class="flex flex-col gap-0.5">
-										<p class="text-paragraph text-opacity-70 <?php echo (get_locale() == 'en_GB') ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
+										<p
+											class="text-paragraph text-opacity-70 <?php echo ( get_locale() == 'en_GB' ) ? 'text-[13px]' : '2xl:text-xs text-[13px]'; ?> ">
 											<?php _e( 'Trung bình', 'bsc' ) ?>
 										</p>
 										<p
@@ -345,10 +352,11 @@ get_header();
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[386px] xl:max-w-[29%] w-full xl:mb-0 mb-5' : 'w-full' ?>">
 							<h2
-								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo ( get_locale() == 'en_GB' ) ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'BÁO CÁO PHÂN TÍCH', 'bsc' ) ?>
 							</h2>
-							<div class="xl:space-y-4 md:space-y-0 space-y-4 xl:block md:grid md:grid-cols-2 gap-4 bsc-ajax-api" data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
+							<div class="xl:space-y-4 md:space-y-0 space-y-4 xl:block md:grid md:grid-cols-2 gap-4 bsc-ajax-api"
+								data-api="sg_bcpt" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
 									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
@@ -369,10 +377,11 @@ get_header();
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[414px] xl:max-w-[31%] lg:w-1/2' : 'mt-[50px]' ?>">
 							<h2
-								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?>  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo ( get_locale() == 'en_GB' ) ? 'lg:!text-[28px]' : ''; ?>  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'CƠ CẤU CỔ ĐÔNG', 'bsc' ) ?>
 							</h2>
-							<div class="lg:space-y-4 md:space-y-0 lg:block md:grid md:grid-cols-2 md:gap-5 space-y-4 bsc-ajax-api" data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
+							<div class="lg:space-y-4 md:space-y-0 lg:block md:grid md:grid-cols-2 md:gap-5 space-y-4 bsc-ajax-api"
+								data-api="sg_cccd" data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
 									<div role="status" class="mt-10">
 										<svg aria-hidden="true"
@@ -392,7 +401,7 @@ get_header();
 						</div>
 						<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'mt-14' ?>">
 							<h2
-								class="heading-title <?php echo (get_locale() == 'en_GB') ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
+								class="heading-title <?php echo ( get_locale() == 'en_GB' ) ? 'lg:!text-[28px]' : ''; ?> <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' mb-10' : 'mb-6' ?>">
 								<?php _e( 'DOANH NGHIỆP CÙNG NGÀNH', 'bsc' ) ?>
 							</h2>
 							<div class="rounded-tl-lg rounded-tr-lg overflow-hidden max-h-[580px] overflow-y-auto scroll-bar-custom relative bsc-ajax-api"
