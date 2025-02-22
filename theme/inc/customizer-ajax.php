@@ -3647,28 +3647,28 @@ function filter_details_symbol() {
 		<?php }
 	} elseif ( $type_form == 'ttnc_khuyen_nghi' ) {
 		$tab = generateRandomString();
-		if ( isset( $_GET['mck'] ) && trim( $_GET['mck'] ) !== '' ) {
-			$current_bsc = strtoupper( bsc_format_string( $_GET['mck'] ) );
-		} else {
-			$current_bsc = null; // Khởi tạo để tránh lỗi
-
-			if ( ! empty( $response_GetAllDanhMuc->d ) && is_array( $response_GetAllDanhMuc->d ) ) {
-				foreach ( $response_GetAllDanhMuc->d as $news ) {
-					if ( isset( $news->isdefault ) && $news->isdefault == 'Y' ) {
-						$current_bsc = $news->tendanhmuc ?? null;
-						break;
-					}
-				}
-
-				// Nếu không tìm thấy danh mục mặc định, lấy phần tử đầu tiên (nếu có)
-				if ( $current_bsc === null && isset( $response_GetAllDanhMuc->d[0]->tendanhmuc ) ) {
-					$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
-				}
-			}
-		}
 		$array_data_GetAllDanhMuc = array();
 		$response_GetAllDanhMuc = get_data_with_cache( 'GetAllDanhMuc', $array_data_GetAllDanhMuc, $time_cache, get_field( 'cdapi_ip_address_quanlydanhmuc', 'option' ) );
 		if ( $response_GetAllDanhMuc ) {
+			if ( isset( $_GET['mck'] ) && trim( $_GET['mck'] ) !== '' ) {
+				$current_bsc = strtoupper( bsc_format_string( $_GET['mck'] ) );
+			} else {
+				$current_bsc = null; // Khởi tạo để tránh lỗi
+
+				if ( ! empty( $response_GetAllDanhMuc->d ) && is_array( $response_GetAllDanhMuc->d ) ) {
+					foreach ( $response_GetAllDanhMuc->d as $news ) {
+						if ( isset( $news->isdefault ) && $news->isdefault == 'Y' ) {
+							$current_bsc = $news->tendanhmuc ?? null;
+							break;
+						}
+					}
+
+					// Nếu không tìm thấy danh mục mặc định, lấy phần tử đầu tiên (nếu có)
+					if ( $current_bsc === null && isset( $response_GetAllDanhMuc->d[0]->tendanhmuc ) ) {
+						$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
+					}
+				}
+			}
 			?>
 			<ul
 				class="customtab-nav flex items-center flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-4 mb-6 list_code_tab' : 'gap-2 mb-4' ?>">
@@ -3682,7 +3682,7 @@ function filter_details_symbol() {
 							data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
 							class="<?php if ( $current_bsc == $single_bsc )
 								echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-							<?php echo $news->tendanhmuc ?>
+							<?php echo $single_bsc ?>
 						</button>
 					</li>
 				<?php } ?>
