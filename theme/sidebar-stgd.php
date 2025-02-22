@@ -186,6 +186,7 @@ $current_post_id = get_the_ID();
 				</li>
 			<?php endforeach; ?>
 		</ul>
-	<?php endif; ?>
+	<?php endif;
+	wp_reset_postdata() ?>
 
 </div>
