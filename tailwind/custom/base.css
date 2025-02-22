@@ -1494,4 +1494,8 @@ button#ib-button-messaging {
   display: none !important;
 }
 
+#nghiep_vu option:first-child {
+  color: red;
+}
+
 /*# sourceMappingURL=base.css.map */

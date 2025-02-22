@@ -150,45 +150,45 @@ $time_cache = 300;
 					if ( $search_template == 'default' ) { ?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'hidden' ?>">
 							<form method="get"
-								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-nowrap flex-wrap gap-5 mb-12' : 'mb-6 flex-wrap gap-[12px]' ?>"
+								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-nowrap flex-wrap gap-4 mb-12' : 'mb-6 flex-wrap gap-[12px]' ?>"
 								action="<?php echo get_term_link( get_queried_object() ); ?>">
 								<div
-									class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[270px] lg:max-w-[33.33%] h-[50px] 2xl:px-[26px] px-5' : 'w-full p-[12px] h-[46px]' ?> shrink-0">
+									class="rounded-[10px] border border-[#EAEEF4] flex items-center gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[260px] lg:max-w-[33.33%] h-[50px] px-4' : 'w-full p-[12px] h-[46px]' ?> shrink-0">
 									<?php echo svgClass( 'search', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-6 h-6 shrink-0' : 'w-5 h-5 shrink-0' ) ?>
 									<input type="text" name="key"
 										class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 										placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-												 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
+											   echo bsc_format_string( $_GET['key'], 'all' ) ?>">
 									</div>
 									<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 										datepicker-autohide datepicker-orientation="bottom right"
-										class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 lg:w-auto w-full px-5' : 'px-[12px] w-full text-xs' ?>">
-									<p class="font-medium mr-5 2xl:min-w-[94px] whitespace-nowrap">
+										class="flex items-center h-[50px] rounded-[10px] border border-[#EAEEF4] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex-1 lg:w-auto w-full px-4' : 'px-[12px] w-full text-xs' ?>">
+									<p class="font-medium mr-4 whitespace-nowrap">
 										<?php _e( 'Thời gian:', 'bsc' ) ?>
 									</p>
-									<div class="flex items-center gap-5">
+									<div class="flex items-center gap-1">
 										<input id="datepicker-range-start" name="fromdate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
+											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[80px] max-w-[70px] 2xl:text-base text-xs p-0"
 											autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-													 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
+												   echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
+
+										</div>
+										<span class="mx-3 text-gray-500">-</span>
+										<div class="flex items-center gap-5">
+											<input id="datepicker-range-end" name="todate" type="text"
+												class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[80px] max-w-[70px] 2xl:text-base text-xs p-0"
+												autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
+													   echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
+
+										</div>
 									</div>
-									<span class="2xl:mx-4 mx-3 text-gray-500">-</span>
-									<div class="flex items-center gap-5">
-										<input id="datepicker-range-end" name="todate" type="text"
-											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
-											autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-													 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
-										<?php echo svg( 'day', '20', '20' ) ?>
-									</div>
-								</div>
-								<button type="submit"
-									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg text-xs' ?>">
+									<button type="submit"
+										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg text-xs' ?>">
 									<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 								</button>
 								<a href="<?php echo get_term_link( get_queried_object() ) ?>"
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[50px] h-[50px]' : 'w-10 h-10' ?> rounded-lg flex items-center justify-center p-3 bg-[#E8F5FF] group cursor-pointer">
-									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform shrink-0' ) ?>
 								</a>
 							</form>
 						</div>
