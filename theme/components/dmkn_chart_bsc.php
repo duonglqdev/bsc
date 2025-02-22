@@ -22,7 +22,21 @@ if ( $response_GetAllDanhMuc ) {
 			if ( isset( $_GET['mck'] ) && trim( $_GET['mck'] ) !== '' ) {
 				$current_bsc = strtoupper( bsc_format_string( $_GET['mck'] ) );
 			} else {
-				$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
+				$current_bsc = null; // Khởi tạo để tránh lỗi
+		
+				if ( ! empty( $response_GetAllDanhMuc->d ) && is_array( $response_GetAllDanhMuc->d ) ) {
+					foreach ( $response_GetAllDanhMuc->d as $news ) {
+						if ( isset( $news->isdefault ) && $news->isdefault == 'Y' ) {
+							$current_bsc = $news->tendanhmuc ?? null;
+							break;
+						}
+					}
+
+					// Nếu không tìm thấy danh mục mặc định, lấy phần tử đầu tiên (nếu có)
+					if ( $current_bsc === null && isset( $response_GetAllDanhMuc->d[0]->tendanhmuc ) ) {
+						$current_bsc = $response_GetAllDanhMuc->d[0]->tendanhmuc;
+					}
+				}
 			}
 			if ( get_sub_field( 'title' ) ) { ?>
 				<h2
@@ -35,12 +49,13 @@ if ( $response_GetAllDanhMuc ) {
 				<?php
 				$i = 0;
 				foreach ( $response_GetAllDanhMuc->d as $news ) {
+					$single_bsc = $news->tendanhmuc;
 					$i++; ?>
 					<li class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:flex-auto flex-1' ?>">
-						<button data-chart="<?php echo $news->tendanhmuc ?>" data-stt="<?php echo $i ?>"
-							class="<?php if ( $current_bsc == $news->tendanhmuc )
+						<button data-chart="<?php echo $single_bsc ?>" data-stt="<?php echo $i ?>"
+							class="<?php if ( $current_bsc == $single_bsc )
 								echo 'active' ?>  lg:px-[40px] px-4 py-3 lg:min-w-[207px] text-center rounded-[10px] lg:text-lg [&:not(.active)]:bg-[#EBF4FA] bg-primary-300 [&:not(.active)]:text-black text-white transition-all duration-500 hover:!bg-primary-300 hover:!text-white <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'inline-block font-bold' : 'block font-semibold w-full' ?>">
-							<?php echo $news->tendanhmuc ?>
+							<?php echo $single_bsc ?>
 						</button>
 					</li>
 				<?php } ?>
