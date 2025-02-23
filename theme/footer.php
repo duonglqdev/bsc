@@ -489,129 +489,144 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-<div id="popup-login" tabindex="-1"
-	class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">
-	<div class="relative md:max-w-[374px] w-full max-w-[95%] max-h-full">
-		<div class="relative">
-			<button type="button"
-				class="absolute top-1.5 end-2 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center"
-				data-modal-hide="popup-login">
-				<?php echo svg( 'close-login' ) ?>
-			</button>
-			<div
-				class="active w-full text-center md:py-[37px] py-8 md:px-[57px] px-8 font-Helvetica bg-[#242729] rounded-lg [&:not(.active)]:pointer-events-none [&:not(.active)]:opacity-0 [&:not(.active)]:invisible [&:not(.active)]:absolute [&:not(.active)]:top-0 form-login-wrapper">
-				<?php
-				$custom_logo_id = get_field( 'h0_logo', 'option' );
-				if ( $custom_logo_id ) {
-					$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
-					?>
-					<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
-						title="<?php echo get_bloginfo( 'description' ); ?>">
-						<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
-							loading="lazy">
-					</a>
+<?php if ( bsc_is_user_logged_out() ) { ?>
+	<div id="popup-login" tabindex="-1"
+		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-80">
+		<div class="relative md:max-w-[374px] w-full max-w-[95%] max-h-full">
+			<div class="relative">
+				<button type="button"
+					class="absolute top-1.5 end-2 rounded-lg text-sm w-6 h-6 ms-auto inline-flex justify-center items-center"
+					data-modal-hide="popup-login">
+					<?php echo svg( 'close-login' ) ?>
+				</button>
+				<div
+					class="active w-full text-center md:py-[37px] py-8 md:px-[57px] px-8 font-Helvetica bg-[#242729] rounded-lg [&:not(.active)]:pointer-events-none [&:not(.active)]:opacity-0 [&:not(.active)]:invisible [&:not(.active)]:absolute [&:not(.active)]:top-0 form-login-wrapper">
 					<?php
-				}
-				?>
-				<div class="md:mt-5 mt-[18px] md:mb-[51px] mb-8 text-white ">
-					<p><?php _e( 'Quý khách vui lòng ', 'bsc' ) ?></p>
-					<p><?php _e( 'chọn loại tài khoản để đăng nhập', 'bsc' ) ?></p>
-				</div>
-				<div class="space-y-4  font-medium text-white ">
-					<a href="<?php echo bsc_url_sso() ?>"
-						class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center">
-						<?php _e( 'Tài khoản chứng khoán', 'bsc' ) ?>
-					</a>
-					<a href="javascript:void(0)"
-						class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center show-login-form">
-						<?php _e( 'Tài khoản khác', 'bsc' ) ?>
-					</a>
-				</div>
-			</div>
-			<div
-				class="text-center w-full md:pt-[30px] pt-8 md:pb-0 pb-8 md:px-[27px] px-8 font-Helvetica bg-[#242729] rounded-lg form-login [&:not(.active)]:pointer-events-none [&:not(.active)]:opacity-0 [&:not(.active)]:invisible [&:not(.active)]:absolute [&:not(.active)]:top-0">
-				<?php
-				$custom_logo_id = get_field( 'h0_logo', 'option' );
-				if ( $custom_logo_id ) {
-					$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
+					$custom_logo_id = get_field( 'h0_logo', 'option' );
+					if ( $custom_logo_id ) {
+						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
+						?>
+						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
+							title="<?php echo get_bloginfo( 'description' ); ?>">
+							<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
+								loading="lazy">
+						</a>
+						<?php
+					}
 					?>
-					<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
-						title="<?php echo get_bloginfo( 'description' ); ?>">
-						<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
-							loading="lazy">
-					</a>
-					<?php
-				}
-				?>
-				<form action="" class="mt-8">
-					<div class="space-y-[12px]">
-						<div class="user_name border-b border-[#3F4247] h-12 flex items-center gap-3">
-							<?php echo svgClass( 'user', '', '', 'shrink-0' ) ?>
-							<input type="text" placeholder="<?php _e( 'Tên đăng nhập', 'bsc' ) ?>"
-								class="w-full h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
-
-						</div>
-						<div class="user_password border-b border-[#3F4247] h-12 flex items-center gap-3">
-							<?php echo svg( 'password', '', '', 'shrink-0' ) ?>
-							<input type="text" placeholder="<?php _e( 'Mật khẩu', 'bsc' ) ?>"
-								class="w-full flex-1 h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
-							<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 hide-pass cursor-pointer' ) ?>
-						</div>
+					<div class="md:mt-5 mt-[18px] md:mb-[51px] mb-8 text-white ">
+						<p><?php _e( 'Quý khách vui lòng ', 'bsc' ) ?></p>
+						<p><?php _e( 'chọn loại tài khoản để đăng nhập', 'bsc' ) ?></p>
 					</div>
-					<div class="md:mt-14 mt-8 space-y-2 text-white">
-						<button type="submit"
-							class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center w-full">
-							<?php _e( 'Đăng nhập', 'bsc' ) ?>
-						</button>
+					<div class="space-y-4  font-medium text-white ">
+						<a href="<?php echo bsc_url_sso() ?>"
+							class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center">
+							<?php _e( 'Tài khoản chứng khoán', 'bsc' ) ?>
+						</a>
 						<a href="javascript:void(0)"
-							class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center back-form-login w-full">
-							<?php _e( 'Quay lại', 'bsc' ) ?>
+							class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center show-login-form">
+							<?php _e( 'Tài khoản khác', 'bsc' ) ?>
 						</a>
 					</div>
-				</form>
-				<div class="md:mt-[119px] mt-10 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 space-y-4">
-					<a href="#"
-						class="flex items-center gap-[12px] text-xxs text-white text-opacity-40 transition-all duration-300 hover:text-opacity-100">
-						<?php echo svgClass( 'call', '', '', 'shrink-0' ) ?>
-						<?php _e( 'Hotline trợ giúp', 'bsc' ) ?>
-					</a>
-					<a href="#"
-						class="flex items-center gap-[12px] text-xxs text-white text-opacity-40 transition-all duration-300 hover:text-opacity-100">
-						<?php echo svgClass( 'chatt', '', '', 'shrink-0' ) ?>
-						<?php _e( 'Chat với nhân viên', 'bsc' ) ?>
-					</a>
 				</div>
-				<div class="h-[1px] bg-[#3F4247] mt-4 md:-mx-[27px]"></div>
-				<div class="pt-4 md:pb-4 relative text-center">
-					<div
-						class="inline-flex items-center justify-center gap-2 text-white text-opacity-40 text-xs cursor-pointer select_language">
-						<?php
-						$languages = pll_the_languages( array( 'raw' => 1 ) );
-						$current_lang = pll_current_language();
-
-						if ( ! empty( $languages[ $current_lang ] ) ) {
-							$lang_info = $languages[ $current_lang ];
-							echo '<img src="' . esc_url( $lang_info['flag'] ) . '" alt="' . esc_attr( $lang_info['name'] ) . '" style="width: 20px; height: auto;">';
-							echo esc_html( $lang_info['name'] );
-						}
+				<div
+					class="text-center w-full md:pt-[30px] pt-8 md:pb-0 pb-8 md:px-[27px] px-8 font-Helvetica bg-[#242729] rounded-lg form-login [&:not(.active)]:pointer-events-none [&:not(.active)]:opacity-0 [&:not(.active)]:invisible [&:not(.active)]:absolute [&:not(.active)]:top-0">
+					<?php
+					$custom_logo_id = get_field( 'h0_logo', 'option' );
+					if ( $custom_logo_id ) {
+						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
 						?>
-						<?php echo svgClass( 'down-3', '', '', 'shrink-0' ) ?>
+						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
+							title="<?php echo get_bloginfo( 'description' ); ?>">
+							<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
+								loading="lazy">
+						</a>
+						<?php
+					}
+					?>
+					<?php $current_url = home_url( $_SERVER['REQUEST_URI'] ); ?>
+					<form id="form_login_khtcc" class="mt-8" data-url="<?php echo $current_url ?>">
+						<div class="space-y-[12px]">
+							<div class="user_name border-b border-[#3F4247] h-12 flex items-center gap-3">
+								<?php echo svgClass( 'user', '', '', 'shrink-0' ) ?>
+								<input autocomplete="off" type="text" placeholder="<?php _e( 'Tên đăng nhập', 'bsc' ) ?>"
+									class="username w-full h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
+							</div>
+							<div class="user_password border-b border-[#3F4247] h-12 flex items-center gap-3">
+								<?php echo svg( 'password', '', '', 'shrink-0' ) ?>
+								<input autocomplete="off" type="password" placeholder="<?php _e( 'Mật khẩu', 'bsc' ) ?>"
+									class="password w-full flex-1 h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
+								<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 hide-pass cursor-pointer' ) ?>
+							</div>
+						</div>
+						<div class="md:mt-14 mt-8 space-y-2 text-white">
+							<button type="submit"
+								class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center w-full">
+								<span><?php _e( 'Đăng nhập', 'bsc' ) ?></span>
+								<div role="status" class="loading hidden">
+									<svg aria-hidden="true"
+										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+										viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+											fill="currentColor" />
+										<path
+											d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+											fill="currentFill" />
+									</svg>
+									<span class="sr-only">Loading...</span>
+								</div>
+							</button>
+							<p id="login_message" class="text-red-500"></p>
+							<a href="javascript:void(0)"
+								class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center back-form-login w-full">
+								<?php _e( 'Quay lại', 'bsc' ) ?>
+							</a>
+						</div>
+					</form>
+					<div class="md:mt-[119px] mt-10 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 space-y-4">
+						<?php if ( get_field( 'f5_link_hotline', 'option' ) ) { ?>
+							<a href="<?php the_field( 'f5_link_hotline', 'option' ) ?>"
+								class="flex items-center gap-[12px] text-xxs text-white text-opacity-40 transition-all duration-300 hover:text-opacity-100">
+								<?php echo svgClass( 'call', '', '', 'shrink-0' ) ?>
+								<?php _e( 'Hotline trợ giúp', 'bsc' ) ?>
+							</a>
+						<?php } ?>
+						<?php if ( get_field( 'f5_link_chat', 'option' ) ) { ?>
+							<a href="<?php the_field( 'f5_link_chat', 'option' ) ?>"
+								class="flex items-center gap-[12px] text-xxs text-white text-opacity-40 transition-all duration-300 hover:text-opacity-100">
+								<?php echo svgClass( 'chatt', '', '', 'shrink-0' ) ?>
+								<?php _e( 'Chat với nhân viên', 'bsc' ) ?>
+							</a>
+						<?php } ?>
 					</div>
-					<ul
-						class="absolute select_language_list transition-all [&:not(.active)]:opacity-0 [&:not(.active)]:pointer-events-none left-1/2 -translate-x-1/2 bottom-full bg-white p-2 rounded text-white text-xs prose-a:text-black w-[150px] text-left space-y-1 prose-a:py-1.5 prose-a:px-2 prose-a:block prose-a:rounded prose-a:text-xxs hover:prose-a:text-white hover:prose-a:bg-primary-300 prose-a:transition-all after:absolute after:left-1/2 after:-bottom-[9px] after:-translate-x-1/2 after:border-l-[8px] after:border-l-transparent after:border-t-[10px] after:border-t-white after:border-r-[8px] after:border-r-transparent">
-						<?php pll_the_languages( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
+					<div class="h-[1px] bg-[#3F4247] mt-4 md:-mx-[27px]"></div>
+					<div class="pt-4 md:pb-4 relative text-center">
+						<div
+							class="inline-flex items-center justify-center gap-2 text-white text-opacity-40 text-xs cursor-pointer select_language">
+							<?php
+							$languages = pll_the_languages( array( 'raw' => 1 ) );
+							$current_lang = pll_current_language();
 
-					</ul>
+							if ( ! empty( $languages[ $current_lang ] ) ) {
+								$lang_info = $languages[ $current_lang ];
+								echo '<img src="' . esc_url( $lang_info['flag'] ) . '" alt="' . esc_attr( $lang_info['name'] ) . '" style="width: 20px; height: auto;">';
+								echo esc_html( $lang_info['name'] );
+							}
+							?>
+							<?php echo svgClass( 'down-3', '', '', 'shrink-0' ) ?>
+						</div>
+						<ul
+							class="absolute select_language_list transition-all [&:not(.active)]:opacity-0 [&:not(.active)]:pointer-events-none left-1/2 -translate-x-1/2 bottom-full bg-white p-2 rounded text-white text-xs prose-a:text-black w-[150px] text-left space-y-1 prose-a:py-1.5 prose-a:px-2 prose-a:block prose-a:rounded prose-a:text-xxs hover:prose-a:text-white hover:prose-a:bg-primary-300 prose-a:transition-all after:absolute after:left-1/2 after:-bottom-[9px] after:-translate-x-1/2 after:border-l-[8px] after:border-l-transparent after:border-t-[10px] after:border-t-white after:border-r-[8px] after:border-r-transparent">
+							<?php pll_the_languages( array( 'show_flags' => 0, 'show_names' => 1 ) ); ?>
+
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
+<?php } ?>
 
 <?php wp_footer(); ?>
 

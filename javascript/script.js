@@ -1589,22 +1589,21 @@ import { DataTable } from 'simple-datatables';
 			$('.show-more-recruitment').addClass('hidden');
 		});
 
-		let $select = $("#nghiep_vu,#noi_lam_viec");
+		let $select = $('#nghiep_vu,#noi_lam_viec');
 
-			// Đặt màu chữ cho option đầu tiên
-			$select.css("color", "#898a8d");
-			
+		// Đặt màu chữ cho option đầu tiên
+		$select.css('color', '#898a8d');
 
-			// Thay đổi màu khi chọn option khác
-			$select.on("change", function () {
-				if ($(this).val() === "") {
-					$(this).css("color", "#898a8d"); // Nếu chọn lại option đầu tiên
-					$(this).css("font-weight", "400");
-				} else {
-					$(this).css("color", "black"); // Nếu chọn option khác
-					$(this).css("font-weight", "500");
-				}
-			});
+		// Thay đổi màu khi chọn option khác
+		$select.on('change', function () {
+			if ($(this).val() === '') {
+				$(this).css('color', '#898a8d'); // Nếu chọn lại option đầu tiên
+				$(this).css('font-weight', '400');
+			} else {
+				$(this).css('color', 'black'); // Nếu chọn option khác
+				$(this).css('font-weight', '500');
+			}
+		});
 
 		function getMaxValue(dataSets) {
 			return (
@@ -4374,4 +4373,41 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 	}
+	jQuery('#form_login_khtcc').submit(function (e) {
+		e.preventDefault();
+		var $loading = jQuery(this).find('.loading');
+		var username = jQuery(this).find('.username').val();
+		var password = jQuery(this).find('.password').val();
+		var current_url = jQuery(this).attr('data-url');
+		var $button = jQuery(this).find('button[type="submit"]');
+		if ($button.prop('disabled')) {
+			return false; // Ngăn chặn submit nhiều lần
+		}
+		$button.prop('disabled', true);
+		$loading.removeClass('hidden');
+		jQuery.ajax({
+			url: ajaxurl.ajaxurl,
+			type: 'POST',
+			data: {
+				action: 'ajax_login_khtc',
+				username: username,
+				password: password,
+				current_url: current_url,
+				security: ajaxurl.security,
+			},
+			success: function (response) {
+				$loading.addClass('hidden');
+				if (response.success) {
+					window.location.href = current_url;
+				} else {
+					$('#login_message').text(response.data.message);
+					$button.prop('disabled', false);
+				}
+			},
+			error: function () {
+				$button.prop('disabled', false); // Kích hoạt lại nếu lỗi
+				$loading.addClass('hidden');
+			},
+		});
+	});
 })(jQuery);

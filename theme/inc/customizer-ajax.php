@@ -4670,3 +4670,78 @@ function bsc_count_download_ajax() {
 	$response = curl_exec( $ch );
 	die();
 }
+
+
+// Xử lý đăng nhập qua AJAX trong WordPress
+function ajax_login_khtc() {
+	check_ajax_referer( 'common_nonce', 'security' );
+	$username = strip_tags( trim( $_POST['username'] ) ?? '' );
+	$password = strip_tags( trim( $_POST['password'] ) ?? '' );
+	$current_url = strip_tags( trim( $_POST['current_url'] ) ?? '' );
+	if ( empty( $username ) || empty( $password ) ) {
+		wp_send_json_error( [ 'message' => __( 'Vui lòng nhập đầy đủ thông tin.', 'bsc' ) ] );
+	}
+
+	// API Endpoint của bạn
+	$api_url = get_field( 'cdapi_ip_address_loginkhtcc', 'option' );
+
+	$post_data = json_encode( [ 
+		"username" => trim( $username ),
+		"password" => trim( $password )
+	] );
+
+	$curl = curl_init();
+	curl_setopt_array( $curl, [ 
+		CURLOPT_URL => $api_url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 10,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS => $post_data,
+		CURLOPT_HTTPHEADER => [ 
+			'Content-Type: application/json'
+		],
+	] );
+
+	$response = curl_exec( $curl );
+	$error = curl_error( $curl );
+	$http_code = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
+	curl_close( $curl );
+
+	if ( $error ) {
+		error_log( "API Error: " . $error . " | URL: " . $api_url . " | Data: " . $post_data );
+		wp_send_json_error( [ 'message' => 'Lỗi kết nối API.' ] );
+	}
+
+	// Kiểm tra HTTP Code
+	if ( $http_code < 200 || $http_code >= 300 ) {
+		error_log( "API HTTP Error: " . $http_code . " | URL: " . $api_url . " | Response: " . $response );
+		wp_send_json_error( [ 'message' => __( 'API trả về lỗi HTTP ', 'bsc' ) . $http_code ] );
+	}
+
+	// Giải mã JSON
+	$response = json_decode( $response );
+	if ( $response === null ) {
+		wp_send_json_error( [ 'message' => __( 'API trả về dữ liệu không hợp lệ.', 'bsc' ) ] );
+	}
+
+	// Kiểm tra phản hồi API
+	if ( ! empty( $response->d ) && $response->d === true ) {
+		$access_token = 'login_khtc' . $username;
+		$user_logged_in_key = 'user_logged_in_' . md5( $access_token );
+
+		set_transient( $user_logged_in_key, true, 60 * MINUTE_IN_SECONDS );
+		setcookie( 'access_token', $access_token, time() + 60 * 60, COOKIEPATH, COOKIE_DOMAIN );
+
+		wp_send_json_success( [ 'message' => __( 'Đăng nhập thành công!', 'bsc' ), 'redirect' => $current_url ] );
+	} else {
+		wp_send_json_error( [ 'message' => $response->message ?? __( 'Đăng nhập thất bại.', 'bsc' ) ] );
+	}
+}
+
+// Đăng ký action AJAX cho logged-in và guest users
+add_action( 'wp_ajax_ajax_login_khtc', 'ajax_login_khtc' );
+add_action( 'wp_ajax_nopriv_ajax_login_khtc', 'ajax_login_khtc' );

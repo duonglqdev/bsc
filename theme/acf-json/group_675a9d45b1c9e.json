@@ -78,6 +78,26 @@
             "append": ""
         },
         {
+            "key": "field_67bb5d53109cf",
+            "label": "IP Address LoginKHTC",
+            "name": "cdapi_ip_address_loginkhtcc",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "http:\/\/10.21.170.17:86\/",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_675bb43891d7b",
             "label": "API Algo",
             "name": "",
@@ -287,5 +307,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734631484
+    "modified": 1740334567
 }

@@ -265,26 +265,40 @@
 														<?php _e( 'Hot', 'bsc' ) ?>
 													</p>
 													<?php if ( $news->reporturl ) {
-														$count_download = true;
+														$check_log = false;
 														$url_download = slug_file_report( htmlspecialchars( $news->id ) );
 														$viewerpermission = $news->viewerpermission;
 														if ( $viewerpermission == 'USER_BSC' ) {
 															$datetimeopen = $news->datetimeopen;
 															if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
 																if ( bsc_is_user_logged_out() ) {
-																	$count_download = false;
+																	$check_log = true;
 																	$url_download = bsc_url_sso( $url_download );
 																}
 															}
 														}
 														?>
 														<p class="min-w-5">
-															<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
-															}
-															?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
-																	echo 'bsc_up-download' ?>" target="_blank">
-																<?php echo svg( 'download', '20', '20' ) ?>
-															</a>
+															<?php if ( $check_log ) {
+																$current_url = home_url( $_SERVER['REQUEST_URI'] );
+																?>
+																<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+																	data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
+																	class="bsc_login_checker">
+																	<?php
+															} else { ?>
+																	<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
+																		data-id="<?php echo $news->id; ?>">
+																	<?php } ?>
+																	<?php echo svg( 'download', '20', '20' ) ?>
+																	<?php if ( $check_log ) {
+																		?>
+																</button>
+																<?php
+																	} else {
+																		?>
+																</a>
+															<?php } ?>
 														</p>
 													<?php } ?>
 												</li>
@@ -311,26 +325,40 @@
 															<?php _e( 'Hot', 'bsc' ) ?>
 														</p>
 														<?php if ( $news->reporturl ) {
-															$count_download = true;
+															$check_log = false;
 															$url_download = slug_file_report( htmlspecialchars( $news->id ) );
 															$viewerpermission = $news->viewerpermission;
 															if ( $viewerpermission == 'USER_BSC' ) {
 																$datetimeopen = $news->datetimeopen;
 																if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
 																	if ( bsc_is_user_logged_out() ) {
-																		$count_download = false;
+																		$check_log = true;
 																		$url_download = bsc_url_sso( $url_download );
 																	}
 																}
 															}
 															?>
 															<p class="min-w-5">
-																<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
-																}
-																?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
-																		echo 'bsc_up-download' ?>" target="_blank">
-																	<?php echo svg( 'download', '20', '20' ) ?>
-																</a>
+																<?php if ( $check_log ) {
+																	$current_url = home_url( $_SERVER['REQUEST_URI'] );
+																	?>
+																	<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+																		data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
+																		class="bsc_login_checker">
+																		<?php
+																} else { ?>
+																		<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
+																			data-id="<?php echo $news->id; ?>">
+																		<?php } ?>
+																		<?php echo svg( 'download', '20', '20' ) ?>
+																		<?php if ( $check_log ) {
+																			?>
+																	</button>
+																	<?php
+																		} else {
+																			?>
+																	</a>
+																<?php } ?>
 															</p>
 														<?php } ?>
 													</li>
@@ -414,26 +442,40 @@
 																<?php _e( 'Hot', 'bsc' ) ?>
 															</p>
 															<?php if ( $news->reporturl ) {
-																$count_download = true;
+																$check_log = false;
 																$url_download = slug_file_report( htmlspecialchars( $news->id ) );
 																$viewerpermission = $news->viewerpermission;
 																if ( $viewerpermission == 'USER_BSC' ) {
 																	$datetimeopen = $news->datetimeopen;
 																	if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
 																		if ( bsc_is_user_logged_out() ) {
-																			$count_download = false;
+																			$check_log = true;
 																			$url_download = bsc_url_sso( $url_download );
 																		}
 																	}
 																}
 																?>
 																<p class="min-w-5">
-																	<a <?php if ( $count_download ) { ?> data-id="<?php echo $news->id; ?>" <?php
-																	}
-																	?> href="<?php echo $url_download ?>" clas="<?php if ( $count_download )
-																			echo 'bsc_up-download' ?>" target="_blank">
-																		<?php echo svg( 'download', '20', '20' ) ?>
-																	</a>
+																	<?php if ( $check_log ) {
+																		$current_url = home_url( $_SERVER['REQUEST_URI'] );
+																		?>
+																		<button data-modal-target="popup-login" data-modal-toggle="popup-login"
+																			type="button" data-url="<?php echo $url_download ?>"
+																			data-current="<?php echo $current_url ?>" class="bsc_login_checker">
+																			<?php
+																	} else { ?>
+																			<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
+																				data-id="<?php echo $news->id; ?>">
+																			<?php } ?>
+																			<?php echo svg( 'download', '20', '20' ) ?>
+																			<?php if ( $check_log ) {
+																				?>
+																		</button>
+																		<?php
+																			} else {
+																				?>
+																		</a>
+																	<?php } ?>
 																</p>
 															<?php } ?>
 
