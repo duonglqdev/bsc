@@ -1,4 +1,4 @@
-<u?php if ( $args['data'] ) { $news=$args['data']; $symbol=strtoupper( $args['symbol'] ); $first_symbol=substr( $symbol,
+<?php if ( $args['data'] ) { $news=$args['data']; $symbol=strtoupper( $args['symbol'] ); $first_symbol=substr( $symbol,
 	0, 1 ); $time_cache=get_field( 'cdttcp1_time_cache' , 'option' ) ?: 300; $banner=wp_get_attachment_image_url(
 	wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile' , 'option' ) ?
 	get_field( 'cdc1_background_banner_mobile' , 'option' ) : get_field( 'cdc1_background_banner' , 'option' ), 'full'
