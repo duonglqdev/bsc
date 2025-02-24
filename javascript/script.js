@@ -3988,22 +3988,13 @@ import { DataTable } from 'simple-datatables';
 		});
 
 		// Xử lý mouseleave và focusout
-		$(document).on(
-			'focusout',
-			'.shares-result, #search-shares',
-			function (e) {
-				if (!isCheckboxChecked()) return;
-
-				if (
-					!$(e.relatedTarget).closest(
-						'.shares-result, #search-shares'
-					).length
-				) {
-					$('.shares-result').removeClass('active');
-					$('#search-shares').val('');
-				}
+		$(document).on('click', function (e) {
+			if (e.isTrigger) return;
+			if (!$(e.target).closest('.shares-result, #search-shares').length) {
+				$('.shares-result').removeClass('active');
+				$('#search-shares').val('');
 			}
-		);
+		});
 
 		$(document).on('click', '#lich-su_kien_submit', function (e) {
 			e.preventDefault();
