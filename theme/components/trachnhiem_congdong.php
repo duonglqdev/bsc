@@ -1,5 +1,12 @@
 <section class="relative <?php echo !wp_is_mobile() && !bsc_is_mobile() ?'lg:pt-[130px] lg:pb-[100px] py-16':'bg-gradient-blue-50 py-10' ?> trachnhiem_congdong" <?php if (get_sub_field('id_class')) { ?> id="<?php echo get_sub_field('id_class') ?>" <?php } ?>>
     <div class="container">
+        <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
+            <?php if (get_sub_field('title')) { ?>
+                <h2 class="heading-title mb-8">
+                    <?php the_sub_field('title') ?>
+                </h2>
+            <?php } ?>
+        <?php } ?>
         <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid lg:grid-cols-2 flex flex-col-reverse gap-20' : 'gap-10 flex flex-col' ?>">
             <div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-1 col-span-1' : 'order-2' ?>">
                 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
@@ -35,13 +42,7 @@
             </div>
             <?php if (have_rows('content')) { ?>
                 <div class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'order-2 col-span-1' : 'order-1 pb-[80px] relative' ?>">
-                <?php if ( wp_is_mobile() && bsc_is_mobile()) { ?> 
-                    <?php if (get_sub_field('title')) { ?>
-                        <h2 class="heading-title mb-8">
-                            <?php the_sub_field('title') ?>
-                        </h2>
-                    <?php } ?>
-                <?php } ?>
+                
                     <div
                         class="community_nav flex flex-wrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[470px] h-full m-auto justify-between' : 'relative flex justify-around ' ?>">
                         <?php
