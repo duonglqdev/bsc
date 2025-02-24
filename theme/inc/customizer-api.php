@@ -1025,3 +1025,39 @@ function bsc_handle_pdf_proxy_newsrequest() {
 	}
 }
 add_action( 'template_redirect', 'bsc_handle_pdf_proxy_newsrequest' );
+
+/**
+ * Code BCTC with MCK
+ */
+function custom_rewrite_rule_mck() {
+	$cdc7_page_bao_cao_tai_chinh = 1883;
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		$post_id_lang = pll_get_post( $cdc7_page_bao_cao_tai_chinh, $lang );
+		$sub_url = get_post_field( 'post_name', $post_id_lang );
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?mck=$matches[1]', 'top' );
+	}
+
+}
+add_action( 'init', 'custom_rewrite_rule_mck' );
+
+function custom_query_vars_mck( $vars ) {
+	$vars[] = 'mck';
+	return $vars;
+}
+add_filter( 'query_vars', 'custom_query_vars_mck' );
+
+function custom_redirect_mck() {
+	if ( get_query_var( 'mck' ) ) {
+		$cdc7_page_bao_cao_tai_chinh = get_field( 'cdc7_page_bao_cao_tai_chinh', 'option' );
+		$post_id_lang = pll_get_post( $cdc7_page_bao_cao_tai_chinh, pll_current_language( 'slug' ) );
+		get_template_part( 'home', null, array(
+			'page_id' => $post_id_lang,
+		) );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'custom_redirect_mck' );

@@ -1062,7 +1062,7 @@ function filter_details_symbol() {
 				</ul>
 				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 					<?php if ( get_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ) { ?>
-						<a href="<?php the_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ?>?mck=<?php echo $symbol ?>"
+						<a href="<?php echo get_permalink( get_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ) ?><?php echo $symbol ?>"
 							class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 text-lg font-Helvetica">
 							<?php _e( 'Xem chi tiết', 'bsc' ) ?>
 							<?php echo svg( 'arrow-btn', '12', '12' ) ?>
@@ -1339,7 +1339,7 @@ function filter_details_symbol() {
 								<?php if ( get_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ) { ?>
 
 									<div class="mt-8">
-										<a href="<?php the_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ?>?mck=<?php echo $symbol ?>"
+										<a href="<?php echo get_permalink( get_field( 'cdc7_page_bao_cao_tai_chinh', 'option' ) ) ?><?php echo $symbol ?>"
 											class="btn-base-yellow py-[12px] pl-4 pr-6 flex justify-center items-center gap-x-3 text-xs">
 											<?php echo svg( 'arrow-btn', '16', '16' ) ?>
 											<?php _e( 'Xem chi tiết', 'bsc' ) ?>
