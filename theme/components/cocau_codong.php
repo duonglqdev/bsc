@@ -89,12 +89,13 @@
                         </div>
                     </div>
                 <?php } ?>
-                <?php if (get_sub_field('mota_nho') && !wp_is_mobile()) { ?>
-                    <div class="text-right italic mt-4 font-Helvetica">
+               
+            </div>
+        </div>
+        <?php if (get_sub_field('mota_nho') && !wp_is_mobile()) { ?>
+                    <div class="text-right italic mt-1 font-Helvetica">
                         <?php the_sub_field('mota_nho') ?>
                     </div>
                 <?php } ?>
-            </div>
-        </div>
     </div>
 </section>

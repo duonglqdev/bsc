@@ -939,20 +939,20 @@ $time_cache = 300;
 									<div
 										class="flex gap-5 text-white bg-primary-300 font-semibold items-center min-h-[60px] py-2 prose-p:font-normal mb-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-full w-max' : 'w-max' ?>">
 										<div
-											class="w-[15%] whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[64px]' : 'min-w-[64px]' ?>">
+											class="w-[8%] whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 ' : 'min-w-[64px]' ?>">
 											<?php _e( 'Mã CK', 'bsc' ) ?>
 										</div>
 										<div
-											class="w-[15%] whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[130px]' : 'min-w-[130px]' ?>">
+											class="flex-1 whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[130px]' : 'min-w-[130px]' ?>">
 											<?php _e( 'Ngành', 'bsc' ) ?>
 										</div>
 										<div
-											class="w-[16%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
+											class="w-[10%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
 											<?php _e( 'DTT', 'bsc' ) ?> 	<?php echo date( 'Y' ) ?>
 											<p>(<?php _e( 'tỷ VND', 'bsc' ) ?>)</p>
 										</div>
 										<div
-											class="w-[20%] whitespace-nowrap flex items-center justify-end gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
+											class="w-[15%] whitespace-nowrap flex items-center justify-end gap-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
 											<?php _e( 'LNST CĐTS', 'bsc' ) ?>
 											<button data-tooltip-target="tooltip-animations" data-tooltip-placement="top"
 												class="ml-1" type="button">
@@ -969,7 +969,7 @@ $time_cache = 300;
 											<?php _e( 'EPS', 'bsc' ) ?>
 										</div>
 										<div
-											class="w-[19%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-10 lg:min-w-0 min-w-[120px]' : 'min-w-[120px] pr-5' ?>">
+											class="w-[15%] whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 lg:min-w-0 min-w-[120px]' : 'min-w-[120px] pr-5' ?>">
 											<?php _e( 'Giá mục tiêu', 'bsc' ) ?>
 										</div>
 									</div>
@@ -996,22 +996,22 @@ $time_cache = 300;
 													?>
 													<div class=" flex items-center min-h-[30px] gap-5">
 														<div
-															class="w-[15%] py-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[64px]' : 'min-w-[64px]' ?>">
+															class="w-[8%] py-1 whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[64px]' : 'min-w-[64px]' ?>">
 															<?php if ( $GetForecastBussinessResults->symbol ) { ?>
 																<a
 																	href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ) ?>"><?php echo $GetForecastBussinessResults->symbol ?></a>
 															<?php } ?>
 														</div>
 														<div
-															class="w-[15%] py-1 whitespace-nowrap text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[130px]' : 'min-w-[130px]' ?>">
+															class="flex-1 py-1 lg:whitespace-normal text-left <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[130px]' : 'min-w-[130px]' ?>">
 															<?php echo $GetForecastBussinessResults->industryname ?>
 														</div>
 														<div
-															class="w-[16%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
+															class="w-[10%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[90px]' : 'min-w-[90px]' ?>">
 															<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ) ?>
 														</div>
 														<div
-															class="w-[20%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
+															class="w-[15%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:min-w-0 min-w-[100px]' : 'min-w-[100px]' ?>">
 															<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
 																<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
 															<?php } ?>
@@ -1021,7 +1021,7 @@ $time_cache = 300;
 															<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
 														</div>
 														<div
-															class="w-[19%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-10 lg:min-w-0 min-w-[120px]' : 'pr-5 min-w-[120px]' ?>">
+															class="w-[15%] py-1 whitespace-nowrap text-right <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pr-5 lg:min-w-0 min-w-[120px]' : 'pr-5 min-w-[120px]' ?>">
 															<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
 														</div>
 													</div>
