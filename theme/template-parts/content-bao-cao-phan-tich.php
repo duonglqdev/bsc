@@ -104,7 +104,7 @@
 					<?php if ( $check_log ) {
 						$current_url = home_url( $_SERVER['REQUEST_URI'] );
 						?>
-						<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+						<button type="button"
 							data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
 							class="bsc_login_checker inline-flex items-center gap-3 text-green font-bold transition-all duration-500 hover:scale-105">
 							<?php

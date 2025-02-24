@@ -282,7 +282,7 @@
 															<?php if ( $check_log ) {
 																$current_url = home_url( $_SERVER['REQUEST_URI'] );
 																?>
-																<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+																<button type="button"
 																	data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
 																	class="bsc_login_checker">
 																	<?php
@@ -342,7 +342,7 @@
 																<?php if ( $check_log ) {
 																	$current_url = home_url( $_SERVER['REQUEST_URI'] );
 																	?>
-																	<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+																	<button type="button"
 																		data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
 																		class="bsc_login_checker">
 																		<?php
@@ -459,7 +459,7 @@
 																	<?php if ( $check_log ) {
 																		$current_url = home_url( $_SERVER['REQUEST_URI'] );
 																		?>
-																		<button data-modal-target="popup-login" data-modal-toggle="popup-login"
+																		<button 
 																			type="button" data-url="<?php echo $url_download ?>"
 																			data-current="<?php echo $current_url ?>" class="bsc_login_checker">
 																			<?php

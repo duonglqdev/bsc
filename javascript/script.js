@@ -4360,6 +4360,15 @@ import { DataTable } from 'simple-datatables';
 		$('.show-login-form,.back-form-login').click(function () {
 			$('.form-login-wrapper,.form-login').toggleClass('active');
 		});
+		$('.hide-pass').click(function () {
+			$(this).toggleClass('active');
+			var input = $(this).prev();
+			if (input.attr('type') == 'password') {
+				input.attr('type', 'text');
+			} else {
+				input.attr('type', 'password');
+			}
+		});
 		$('.select_language').click(function () {
 			$(this).next().toggleClass('active');
 		});
@@ -4372,42 +4381,53 @@ import { DataTable } from 'simple-datatables';
 				$('.select_language_list').removeClass('active');
 			}
 		});
-	}
-	jQuery('#form_login_khtcc').submit(function (e) {
-		e.preventDefault();
-		var $loading = jQuery(this).find('.loading');
-		var username = jQuery(this).find('.username').val();
-		var password = jQuery(this).find('.password').val();
-		var current_url = jQuery(this).attr('data-url');
-		var $button = jQuery(this).find('button[type="submit"]');
-		if ($button.prop('disabled')) {
-			return false; // Ngăn chặn submit nhiều lần
-		}
-		$button.prop('disabled', true);
-		$loading.removeClass('hidden');
-		jQuery.ajax({
-			url: ajaxurl.ajaxurl,
-			type: 'POST',
-			data: {
-				action: 'ajax_login_khtc',
-				username: username,
-				password: password,
-				current_url: current_url,
-				security: ajaxurl.security,
-			},
-			success: function (response) {
-				$loading.addClass('hidden');
-				if (response.success) {
-					window.location.href = current_url;
-				} else {
-					$('#login_message').text(response.data.message);
-					$button.prop('disabled', false);
-				}
-			},
-			error: function () {
-				$button.prop('disabled', false); // Kích hoạt lại nếu lỗi
-				$loading.addClass('hidden');
-			},
+		jQuery('#form_login_khtcc').submit(function (e) {
+			e.preventDefault();
+			var $loading = jQuery(this).find('.loading');
+			var username = jQuery(this).find('.username').val();
+			var password = jQuery(this).find('.password').val();
+			var current_url = jQuery(this).attr('data-url');
+			var $button = jQuery(this).find('button[type="submit"]');
+			if ($button.prop('disabled')) {
+				return false; // Ngăn chặn submit nhiều lần
+			}
+			$button.prop('disabled', true);
+			$loading.removeClass('hidden');
+			jQuery.ajax({
+				url: ajaxurl.ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'ajax_login_khtc',
+					username: username,
+					password: password,
+					current_url: current_url,
+					security: ajaxurl.security,
+				},
+				success: function (response) {
+					$loading.addClass('hidden');
+					if (response.success) {
+						window.location.href = current_url;
+					} else {
+						$('#login_message').text(response.data.message);
+						$button.prop('disabled', false);
+					}
+				},
+				error: function () {
+					$button.prop('disabled', false); // Kích hoạt lại nếu lỗi
+					$loading.addClass('hidden');
+				},
+			});
 		});
-	});
+		
+		$(document).on("click",".bsc_login_checker",function() {
+			var dataUrl = $(this).attr("data-url");
+			var dataCurrent = $(this).attr("data-current");
+			var $btnTrigger = $(".btn-login-trigger");
+			$btnTrigger.trigger("click");
+			$(".login-sso").attr("href", dataUrl);
+			$("#form_login_khtcc").attr("data-url", dataCurrent);
+		});
+
+
+	}
 })(jQuery);
