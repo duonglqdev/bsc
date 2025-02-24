@@ -733,6 +733,9 @@
 .is-mobile .about_mission .fli-dots-blue .flickity-page-dots {
   @apply -bottom-7;
 }
+.is-mobile #wpadminbar + header .main_menu-navbar {
+  @apply mt-14;
+}
 
 .about_culture-swiper .is-selected .about_culture-item {
   @apply after:bg-opacity-0;
