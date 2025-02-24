@@ -177,7 +177,7 @@ get_header();
 							<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 								<?php if ( $check_log ) {
 									?>
-									<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+									<button type="button"
 										data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
 										class="bsc_login_checker bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-6 py-3 font-semibold relative transition-all duration-500 leading-tight flex-1 rounded-lg w-full h-10 text-center text-xs">
 										<?php

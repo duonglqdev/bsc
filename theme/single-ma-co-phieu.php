@@ -1,4 +1,4 @@
-<u?php if ( $args['data'] ) { $news=$args['data']; $symbol=strtoupper( $args['symbol'] ); $first_symbol=substr( $symbol,
+<?php if ( $args['data'] ) { $news=$args['data']; $symbol=strtoupper( $args['symbol'] ); $first_symbol=substr( $symbol,
 	0, 1 ); $time_cache=get_field( 'cdttcp1_time_cache' , 'option' ) ?: 300; $banner=wp_get_attachment_image_url(
 	wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile' , 'option' ) ?
 	get_field( 'cdc1_background_banner_mobile' , 'option' ) : get_field( 'cdc1_background_banner' , 'option' ), 'full'
@@ -238,7 +238,7 @@
 								<?php if ( $check_logout ) {
 									$current_url = home_url( $_SERVER['REQUEST_URI'] );
 									?>
-									<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button"
+									<button type="button"
 										data-url="<?php echo bsc_url_sso() ?>" data-current="<?php echo $current_url ?>"
 										class="bsc_login_checker none-tab has-icon inline-flex items-center gap-2 transition-all duration-500 pb-6 lg:text-xl font-bold uppercase [&:not(.active)]:text-black text-primary-300 [&:not(.active)]:opacity-70 opacity-100 relative after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:transition-all after:duration-500 [&:not(.active)]:after:opacity-0 after:opacity-100 after:bg-primary-300 hover:!text-primary-300 hover:!opacity-100 hover:after:!opacity-100">
 										<?php echo svgClass( 'star', '', '', 'w-6 h-6 shrink-0' ) ?>

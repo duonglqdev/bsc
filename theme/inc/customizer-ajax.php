@@ -3681,7 +3681,7 @@ function filter_details_symbol() {
 						<button <?php echo ! $check_logout || $public == 'Y' ? '' : 'disable' ?>
 							data-tabs="#<?php echo $tab ?>-<?php echo $i ?>"
 							class="<?php if ( $current_bsc == $single_bsc )
-								echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+								echo 'active' ?> inline-block px-6 py-2 [&:not(.active)]:text-paragraph text-white font-bold rounded-lg [&:not(.active)]:bg-primary-50 bg-primary-300 hover:!bg-primary-300 hover:!text-white transition-all duration-500 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?> disable:pointer-events-none">
 							<?php echo $single_bsc ?>
 						</button>
 					</li>

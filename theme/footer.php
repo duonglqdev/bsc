@@ -520,7 +520,7 @@
 					</div>
 					<div class="space-y-4  font-medium text-white ">
 						<a href="<?php echo bsc_url_sso() ?>"
-							class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center">
+							class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center login-sso">
 							<?php _e( 'Tài khoản chứng khoán', 'bsc' ) ?>
 						</a>
 						<a href="javascript:void(0)"
@@ -555,17 +555,19 @@
 							<div class="user_password border-b border-[#3F4247] h-12 flex items-center gap-3">
 								<?php echo svg( 'password', '', '', 'shrink-0' ) ?>
 								<input autocomplete="off" type="password" placeholder="<?php _e( 'Mật khẩu', 'bsc' ) ?>"
-									class="password w-full flex-1 h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
-								<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 hide-pass cursor-pointer' ) ?>
+									class="password w-full flex-1 h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0 ">
+									<div class="hide-pass relative after:absolute after:w-0.5 after:h-6 after:bg-white after:top-0 after:left-1/2 after:-translate-x-1/2 after:-skew-x-[30deg] [&:not(.active)]:after:opacity-0">
+										<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 cursor-pointer' ) ?>
+									</div>
 							</div>
 						</div>
 						<div class="md:mt-14 mt-8 space-y-2 text-white">
 							<button type="submit"
-								class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center w-full">
+								class="bg-gradient-blue-600 py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex gap-3 items-center justify-center w-full">
 								<span><?php _e( 'Đăng nhập', 'bsc' ) ?></span>
 								<div role="status" class="loading hidden">
 									<svg aria-hidden="true"
-										class="w-10 h-10 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
+										class="w-4 h-4 m-auto text-gray-200 animate-spin dark:text-gray-600 fill-primary-500"
 										viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
@@ -577,11 +579,12 @@
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
-							<p id="login_message" class="text-red-500"></p>
+							
 							<a href="javascript:void(0)"
 								class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center back-form-login w-full">
 								<?php _e( 'Quay lại', 'bsc' ) ?>
 							</a>
+							<p id="login_message" class="text-red-500 text-xs"></p>
 						</div>
 					</form>
 					<div class="md:mt-[119px] mt-10 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 space-y-4">
@@ -626,6 +629,7 @@
 			</div>
 		</div>
 	</div>
+	<button data-modal-target="popup-login" data-modal-toggle="popup-login"  type="button" class="btn-login-trigger" data-url="" data-current=""></button>
 <?php } ?>
 
 <?php wp_footer(); ?>
