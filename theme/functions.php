@@ -15,7 +15,7 @@ if ( ! defined( 'bsc_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'bsc_VERSION', '0.1.9' );
+	define( 'bsc_VERSION', '0.2.0' );
 }
 
 if ( ! defined( 'bsc_TYPOGRAPHY_CLASSES' ) ) {

@@ -508,7 +508,7 @@
 						?>
 						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
 							title="<?php echo get_bloginfo( 'description' ); ?>">
-							<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
+							<img class="object-contain max-w-[150px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
 								loading="lazy">
 						</a>
 						<?php
