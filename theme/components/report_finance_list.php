@@ -1,6 +1,6 @@
 <?php
-if ( get_query_var( 'mck' ) ) {
-	$symbol = bsc_format_string( get_query_var( 'mck' ) );
+if ( get_query_var( 'mck_bctc' ) ) {
+	$symbol = bsc_format_string( get_query_var( 'mck_bctc' ) );
 	$id_class = get_sub_field( 'id_class' );
 	$tab = generateRandomString();
 	$stt_re = array( '1', '2', '3', '4' );

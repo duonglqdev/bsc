@@ -1,5 +1,5 @@
 <?php
-if ( ( is_page() || get_query_var( 'mck' ) ) && have_rows( 'breacrumb' ) ) {
+if ( ( is_page() || get_query_var( 'mck_bctc' ) ) && have_rows( 'breacrumb' ) ) {
 	?>
 	<nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
 		<p>

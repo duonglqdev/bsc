@@ -687,7 +687,7 @@ function add_custom_class_to_current_lang( $args ) {
 				<?php
 			}
 		}
-	} elseif ( get_query_var( 'mck' ) ) {
+	} elseif ( get_query_var( 'mck_bctc' ) ) {
 		$languages = pll_languages_list( 'slug' );
 
 		if ( $languages ) {
@@ -711,7 +711,7 @@ function add_custom_class_to_current_lang( $args ) {
 				$url = trailingslashit( pll_home_url( $lang ) ) . $sub_url_translated;
 
 				// 6) Nếu bạn muốn thêm $co_phieu_id phía sau
-				$url = trailingslashit( $url ) . get_query_var( 'mck' );
+				$url = trailingslashit( $url ) . get_query_var( 'mck_bctc' );
 				?>
 
 				<li class="lang-item lang-item-<?php echo esc_attr( $lang ); ?> <?php echo esc_attr( $lang_current_class ); ?>">

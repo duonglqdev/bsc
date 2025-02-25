@@ -784,6 +784,31 @@
             "endpoint": 0
         },
         {
+            "key": "field_67bd35aad6a08",
+            "label": "Logo",
+            "name": "f5_link_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_67bb527e18195",
             "label": "Đường dẫn Hotline trợ giúp",
             "name": "f5_link_hotline",
@@ -842,5 +867,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740332319
+    "modified": 1740453315
 }

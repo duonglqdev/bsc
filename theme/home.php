@@ -8,7 +8,7 @@ get_header();
 ?>
 <main>
 	<?php
-	if ( get_query_var( 'mck' ) && isset( $args['page_id'] ) ) {
+	if ( get_query_var( 'mck_bctc' ) && isset( $args['page_id'] ) ) {
 		$page_id = $args['page_id'];
 	} else {
 		$page_id = get_the_ID();
