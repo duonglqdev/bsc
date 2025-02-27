@@ -8,14 +8,18 @@ get_header();
 ?>
 <main>
 	<?php
-	$page_id = get_the_ID();
-	if (have_rows('home_components', $page_id)) {
-		while (have_rows('home_components', $page_id)) :
+	if ( get_query_var( 'mck_bctc' ) && isset( $args['page_id'] ) ) {
+		$page_id = $args['page_id'];
+	} else {
+		$page_id = get_the_ID();
+	}
+	if ( have_rows( 'home_components', $page_id ) ) {
+		while ( have_rows( 'home_components', $page_id ) ) :
 			the_row();
 			$module_name = get_row_layout();
-			switch ($module_name):
+			switch ( $module_name ) :
 				case $module_name:
-					get_template_part('components/' . $module_name);
+					get_template_part( 'components/' . $module_name );
 			endswitch;
 		endwhile;
 	}

@@ -329,24 +329,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_6791b812734ae",
-            "label": "Ngày\/giờ hiển thị",
-            "name": "cdc3_youtube_open_time",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "d\/m\/Y g:i a",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 1
-        },
-        {
             "key": "field_670e32bf607bc",
             "label": "Đường dẫn",
             "name": "cdc3_link",
@@ -935,7 +917,7 @@
             "label": "Trang báo cáo tài chính",
             "name": "cdc7_page_bao_cao_tai_chinh",
             "aria-label": "",
-            "type": "page_link",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -947,9 +929,12 @@
             "post_type": "",
             "post_status": "",
             "taxonomy": "",
-            "allow_archives": 1,
+            "return_format": "id",
             "multiple": 0,
-            "allow_null": 0
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
         },
         {
             "key": "field_6759582cb8758",
@@ -1066,5 +1051,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737603234
+    "modified": 1740412760
 }

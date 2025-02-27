@@ -508,7 +508,7 @@
 						?>
 						<a class="block" href="<?php echo get_bloginfo( 'url' ); ?>"
 							title="<?php echo get_bloginfo( 'description' ); ?>">
-							<img class="object-contain max-w-[103px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
+							<img class="object-contain max-w-[150px] mx-auto" src="<?php echo esc_url( $image[0] ); ?>"
 								loading="lazy">
 						</a>
 						<?php
@@ -532,7 +532,7 @@
 				<div
 					class="text-center w-full md:pt-[30px] pt-8 md:pb-0 pb-8 md:px-[27px] px-8 font-Helvetica bg-[#242729] rounded-lg form-login [&:not(.active)]:pointer-events-none [&:not(.active)]:opacity-0 [&:not(.active)]:invisible [&:not(.active)]:absolute [&:not(.active)]:top-0">
 					<?php
-					$custom_logo_id = get_field( 'h0_logo', 'option' );
+					$custom_logo_id = get_field( 'f5_link_logo', 'option' );
 					if ( $custom_logo_id ) {
 						$image = wp_get_attachment_image_src( $custom_logo_id, 'medium' );
 						?>
@@ -545,20 +545,23 @@
 					}
 					?>
 					<?php $current_url = home_url( $_SERVER['REQUEST_URI'] ); ?>
-					<form id="form_login_khtcc" class="mt-8" data-url="<?php echo $current_url ?>">
+					<form id="form_login_khtcc" class="mt-8" data-url="<?php echo $current_url ?>" autocomplete=off>
 						<div class="space-y-[12px]">
 							<div class="user_name border-b border-[#3F4247] h-12 flex items-center gap-3">
 								<?php echo svgClass( 'user', '', '', 'shrink-0' ) ?>
-								<input autocomplete="off" type="text" placeholder="<?php _e( 'Tên đăng nhập', 'bsc' ) ?>"
+								<input autocomplete="off" type="text" name="username_dktc"
+									placeholder="<?php _e( 'Tên đăng nhập', 'bsc' ) ?>"
 									class="username w-full h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0">
 							</div>
 							<div class="user_password border-b border-[#3F4247] h-12 flex items-center gap-3">
 								<?php echo svg( 'password', '', '', 'shrink-0' ) ?>
-								<input autocomplete="off" type="password" placeholder="<?php _e( 'Mật khẩu', 'bsc' ) ?>"
+								<input autocomplete="off" type="password" name="password_dktc"
+									placeholder="<?php _e( 'Mật khẩu', 'bsc' ) ?>"
 									class="password w-full flex-1 h-full bg-transparent text-white placeholder-white placeholder:opacity-25 focus:outline-none border-none focus:ring-0 p-0 ">
-									<div class="hide-pass relative after:absolute after:w-0.5 after:h-6 after:bg-white after:top-0 after:left-1/2 after:-translate-x-1/2 after:-skew-x-[30deg] [&:not(.active)]:after:opacity-0">
-										<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 cursor-pointer' ) ?>
-									</div>
+								<div
+									class="hide-pass relative after:absolute after:w-0.5 after:h-6 after:bg-white after:top-0 after:left-1/2 after:-translate-x-1/2 after:-skew-x-[30deg] [&:not(.active)]:after:opacity-0">
+									<?php echo svgClass( 'hidepassword', '', '', 'shrink-0 cursor-pointer' ) ?>
+								</div>
 							</div>
 						</div>
 						<div class="md:mt-14 mt-8 space-y-2 text-white">
@@ -579,7 +582,7 @@
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
-							
+
 							<a href="javascript:void(0)"
 								class="bg-[#363A43] py-2 px-4 rounded transition-all duration-500 btn-light h-10 flex flex-col items-center justify-center back-form-login w-full">
 								<?php _e( 'Quay lại', 'bsc' ) ?>
@@ -629,7 +632,8 @@
 			</div>
 		</div>
 	</div>
-	<button data-modal-target="popup-login" data-modal-toggle="popup-login"  type="button" class="btn-login-trigger" data-url="" data-current=""></button>
+	<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button" class="btn-login-trigger"
+		data-url="" data-current=""></button>
 <?php } ?>
 
 <?php wp_footer(); ?>

@@ -6,7 +6,7 @@ $banner = wp_get_attachment_image_url(
 	'full'
 );
 $style = get_field( 'cdc1_background_display', 'option' ) ?: 'default';
-if ( ( get_sub_field( 'background' ) || get_sub_field( 'background_mobile' ) ) && ( is_single() || is_page() ) ) {
+if ( ( get_sub_field( 'background' ) || get_sub_field( 'background_mobile' ) ) && ( is_single() || is_page() || get_query_var( 'mck_bctc' ) ) ) {
 	$banner = wp_get_attachment_image_url(
 		wp_is_mobile() && bsc_is_mobile() && get_sub_field( 'background_mobile' )
 		? get_sub_field( 'background_mobile' )
@@ -83,7 +83,7 @@ if ( isset( $args['title'] ) && $args['title'] ) {
 	} else {
 		$title = __( 'Sổ tay giao dịch', 'bsc' );
 	}
-} elseif ( get_sub_field( 'title' ) && ( is_single() || is_page() ) ) {
+} elseif ( get_sub_field( 'title' ) && ( is_single() || is_page() || get_query_var( 'mck_bctc' ) ) ) {
 	$title = get_sub_field( 'title' );
 } elseif ( is_tax() || is_category() ) {
 	if ( get_field( 'title', get_queried_object() ) ) {

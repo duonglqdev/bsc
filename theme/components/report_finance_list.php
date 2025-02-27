@@ -1,6 +1,6 @@
 <?php
-if ( isset( $_GET['mck'] ) && $_GET['mck'] ) {
-	$symbol = bsc_format_string( $_GET['mck'] );
+if ( get_query_var( 'mck_bctc' ) ) {
+	$symbol = bsc_format_string( get_query_var( 'mck_bctc' ) );
 	$id_class = get_sub_field( 'id_class' );
 	$tab = generateRandomString();
 	$stt_re = array( '1', '2', '3', '4' );
@@ -34,12 +34,10 @@ if ( isset( $_GET['mck'] ) && $_GET['mck'] ) {
 		foreach ( $stt_re as $i ) {
 			?>
 			<section class="tab-content <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-[54px] mb-[100px]' : 'my-[50px]' ?> <?php if ( $i == 1 )
-					   echo 'block bsc-ajax-api';
-				   else
-					   echo 'hidden' ?>" id="<?php echo $tab . $i ?>"
-				<?php if ( $i == 1 )
-					echo 'data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?>
-					data-chart="collapseChart,toggle_content_baocao">
+							echo 'block bsc-ajax-api';
+						else
+							echo 'hidden' ?>" id="<?php echo $tab . $i ?>" <?php if ( $i == 1 )
+									   echo 'data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?> data-chart="collapseChart,toggle_content_baocao">
 					<div class="hidden">
 						<div role="status">
 							<svg aria-hidden="true"
