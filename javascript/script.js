@@ -1090,7 +1090,6 @@ import { DataTable } from 'simple-datatables';
 				.siblings('.open-utilities-box')
 				.toggle(350);
 			$('.open-ytb').addClass('active');
-			$('html').toggleClass('overflow-hidden');
 		});
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
@@ -1103,9 +1102,7 @@ import { DataTable } from 'simple-datatables';
 				!$(e.target).closest('.open-utilities, .open-utilities-box')
 					.length
 			) {
-				$('.open-utilities-box').hide(350);
 				$('.open-utilities,.open-ytb').removeClass('active');
-				$('html').removeClass('overflow-hidden');
 			}
 		});
 		$('.award__item').click(function () {
