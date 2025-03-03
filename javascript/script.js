@@ -98,7 +98,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function handleMegamenu() {
-		if ($(window).width() > 1024) {
+		if ($(window).width() > 1025) {
 			// Thêm data-menu vào các mục menu chính
 			$('.main_menu > ul > li:not(.menu-home)').each(function () {
 				var menuId = $(this).attr('id');

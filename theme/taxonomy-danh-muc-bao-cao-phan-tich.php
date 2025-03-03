@@ -129,7 +129,7 @@ $time_cache = 300;
 
 					</div>
 				<?php } ?>
-				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[65%]' : 'relative' ?>">
+				<div class="flex-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'max-w-[75%]' : 'relative' ?>">
 					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 						<div class="toggle-form mb-[12px] inline-block">
 							<div class="hidden">
@@ -682,7 +682,7 @@ $time_cache = 300;
 													</div>
 												</div>
 												<div
-													class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:w-[27%] lg:min-w-0 min-w-full snap-start border-r-[4px] border-white' : 'w-full block_slider-item' ?>">
+													class="grid grid-cols-2 text-right bg-[#EBF4FA] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:w-[27%] lg:min-w-0 min-w-full snap-start border-r-[4px] border-white w-1/3' : 'w-full block_slider-item' ?>">
 													<div class="text-[#FF0017]">
 														<div
 															class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-[12px] pb-[6px]' : 'py-3' ?> min-h-[58px] border-b-[4px] border-white">
