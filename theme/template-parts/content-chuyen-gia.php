@@ -65,9 +65,9 @@ $fullname = get_the_title();
 		</div>
 		<?php if ( get_field( 'ma_qr' ) && !wp_is_mobile() && ! bsc_is_mobile() )
 		{ ?>
-			<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-				<?php echo wp_get_attachment_image( get_field( 'ma_qr' ), 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) ) ?>
-			</div>
+			<a href="<?php echo esc_url( wp_get_attachment_image_src( get_field( 'ma_qr' ), 'large' )[0] ); ?>" class="max-w-[65px] flex-1 shrink-0 expert-qr block" data-fancybox>
+			<?php echo wp_get_attachment_image( get_field( 'ma_qr' ), 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) ); ?>
+		</a>
 		<?php } ?>
 	</div>
 	<ul
