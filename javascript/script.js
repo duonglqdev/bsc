@@ -205,6 +205,11 @@ import { DataTable } from 'simple-datatables';
 
 				clearTimeout(timeout);
 			});
+ 			$('.close-menu').click(function () {
+				$('.main_menu-navbar,.main_menu li').removeClass('active')
+			})
+
+
 		} else {
 			// Gỡ bỏ submenu-wrapper và submenu-content khi màn hình nhỏ hơn 1024px
 			if ($('.submenu-wrapper').length > 0) {

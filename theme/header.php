@@ -311,6 +311,9 @@
 								'depth' => 3,
 							) );
 							?>
+							<div class="absolute xl:hidden top-4 right-3 w-6 h-6 rounded-full flex justify-center items-center bg-primary-300 z-10 close-menu">
+								 <?php echo svgpath('close', '16','16','stroke-white') ?>
+							</div>
 						</ul>
 						<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
 							<?php if ( have_rows( 'h1_button', 'option' ) ) : ?>
