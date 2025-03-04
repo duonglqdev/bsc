@@ -73,7 +73,11 @@ function slug_news( $postid, $title ) {
 	$url = pll_home_url() . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
 	return $url;
 }
-
+function slug_news_mck( $postid, $title ) {
+	$sub_url = __( 'tin-tuc/tin-tuc-ma-co-phieu', 'bsc' );
+	$url = pll_home_url() . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
+	return $url;
+}
 function slug_report( $postid, $title ) {
 	$sub_url = __( 'bao-cao', 'bsc' );
 	$url = pll_home_url() . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
@@ -179,6 +183,79 @@ function custom_template_redirect() {
 	}
 }
 add_action( 'template_redirect', 'custom_template_redirect' );
+
+/**
+ *  News MCP
+ */
+// Thêm rewrite rule cho 'tin-tuc' vào functions.php
+function custom_rewrite_rule_for_news_mck() {
+	$sub_url = __( 'tin-tuc/tin-tuc-ma-co-phieu', 'bsc' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		$sub_url = pll_translate_string( 'tin-tuc/tin-tuc-ma-co-phieu', $lang );
+		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+
+		add_rewrite_rule(
+			'^' . $lang_prefix . $sub_url . '/([0-9]+)(?:-[^/]+)?/?$',
+			'index.php?news_id_mck=$matches[1]',
+			'top'
+		);
+	}
+}
+add_action( 'init', 'custom_rewrite_rule_for_news_mck' );
+
+
+// Thêm query var 'news_id_mck' vào hệ thống query vars của WordPress
+function custom_query_vars_news_mck( $vars ) {
+	$vars[] = 'news_id_mck';
+	return $vars;
+}
+add_filter( 'query_vars', 'custom_query_vars_news_mck' );
+
+
+function custom_template_redirect_news_mck() {
+	// Lấy giá trị của 'news_id_mck' từ query vars
+	$news_id_mck = get_query_var( 'news_id_mck' );
+	// Kiểm tra nếu có 'news_id_mck' trong URL
+	if ( $news_id_mck ) {
+		$time_cache = get_field( 'cdtt2_time_cache', 'option' ) ?: 300;
+		$array_data = array(
+			"id" => $news_id_mck,
+			"newstype" => "0"
+		);
+		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
+		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
+		} else {
+			$array_data = array(
+				"id" => $news_id_mck,
+				"newstype" => "1"
+			);
+			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
+		}
+		if ( $get_news_detail ) {
+			// Lấy chi tiết tin tức từ API response
+			$news = $get_news_detail->d[0];
+			// Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+			global $custom_meta_data;
+			$custom_meta_data = array(
+				'title' => $news->title,
+				'description' => $news->description,
+				'thumbnail' => $news->imagethumbnail
+			);
+			get_template_part( 'single', null, array(
+				'data' => $news,
+			) );
+			exit; // Dừng WordPress để tránh bị 404
+		} else {
+			// Nếu không có dữ liệu từ API
+			wp_redirect( home_url( '/404' ) );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'custom_template_redirect_news_mck' );
 
 /**
  *  Report
