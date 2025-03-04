@@ -1022,7 +1022,7 @@ function filter_details_symbol() {
 							</div>
 						</div>
 						<div class="lg:ml-[30px] ml-4">
-							<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
+							<a href="<?php echo slug_news_mck( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
 								class="lg:font-bold font-semibold leading-normal lg:line-clamp-2 line-clamp-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg mb-2' : 'text-base' ?>  transition-all duration-500 hover:text-primary-300 main_title">
 								<?php echo htmlspecialchars( $news->title ) ?>
 							</a>
