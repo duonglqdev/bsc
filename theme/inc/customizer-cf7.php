@@ -39,9 +39,11 @@ function create_shortcode_bscc_email_tuyen_dung() {
 			<?php
 		}
 	}
-	$current_url = urlencode( home_url( $_SERVER['REQUEST_URI'] ) );
+	$current_url = home_url( $_SERVER['REQUEST_URI'] );
 	?>
-	<input value="<?php echo $current_url ?>" type="text" name="current_url">
+	<div class="hidden">
+		<input value="<?php echo $current_url ?>" type="text" name="current_url">
+	</div>
 	<?php
 	$list_post = ob_get_contents();
 
