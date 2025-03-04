@@ -495,6 +495,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm hàng con",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_672ce4c4c0efa",
                                     "sub_fields": [
                                         {
                                             "key": "field_672ce692c0efe",
@@ -517,8 +518,7 @@
                                             "delay": 0,
                                             "parent_repeater": "field_672ce4c4c0efb"
                                         }
-                                    ],
-                                    "parent_repeater": "field_672ce4c4c0efa"
+                                    ]
                                 },
                                 {
                                     "key": "field_672ce749c0eff",
@@ -540,6 +540,7 @@
                                     "collapsed": "",
                                     "button_label": "Thêm hàng con",
                                     "rows_per_page": 20,
+                                    "parent_repeater": "field_672ce4c4c0efa",
                                     "sub_fields": [
                                         {
                                             "key": "field_672ce749c0f00",
@@ -562,14 +563,43 @@
                                             "delay": 0,
                                             "parent_repeater": "field_672ce749c0eff"
                                         }
-                                    ],
-                                    "parent_repeater": "field_672ce4c4c0efa"
+                                    ]
                                 }
                             ]
                         },
                         {
                             "key": "field_672ce4c4c0efd",
                             "label": "Ghi chú",
+                            "name": "content",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67c6ccce0889b": {
+                    "key": "layout_67c6ccce0889b",
+                    "name": "editor",
+                    "label": "Nội dung",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67c6ccd90889d",
+                            "label": "Nội dung",
                             "name": "content",
                             "aria-label": "",
                             "type": "wysiwyg",
@@ -615,5 +645,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731333189
+    "modified": 1741081934
 }
