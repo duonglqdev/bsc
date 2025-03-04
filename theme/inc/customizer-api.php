@@ -70,39 +70,39 @@ function get_data_with_cache( $endpoint, $array_data, $ttl = 300, $url_end = nul
 
 function slug_news( $postid, $title ) {
 	$sub_url = __( 'tin-tuc', 'bsc' );
-	$url = get_home_url() . '/' . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
+	$url = pll_home_url() . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
 	return $url;
 }
 
 function slug_report( $postid, $title ) {
 	$sub_url = __( 'bao-cao', 'bsc' );
-	$url = get_home_url() . '/' . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
+	$url = pll_home_url() . $sub_url . '/' . $postid . '-' . sanitize_title( $title );
 	return $url;
 }
 
 function slug_co_phieu( $title = null ) {
 	$sub_url = __( 'cong-ty/tong-quan', 'bsc' );
 	if ( $title ) {
-		$url = get_home_url() . '/' . $sub_url . '/' . sanitize_title( $title );
+		$url = pll_home_url() . $sub_url . '/' . sanitize_title( $title );
 	} else {
-		$url = get_home_url() . '/' . $sub_url . '/';
+		$url = pll_home_url() . $sub_url . '/';
 	}
 	return $url;
 }
 
 function slug_calendar( $postid ) {
 	$sub_url = __( 'lich-su-kien', 'bsc' );
-	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
+	$url = pll_home_url() . $sub_url . '/' . $postid;
 	return $url;
 }
 function slug_file_report( $postid ) {
 	$sub_url = __( 'Report/ReportFile', 'bsc' );
-	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
+	$url = pll_home_url() . $sub_url . '/' . $postid;
 	return $url;
 }
 function slug_file_news( $postid ) {
 	$sub_url = __( 'News/NewsAttachedFile', 'bsc' );
-	$url = get_home_url() . '/' . $sub_url . '/' . $postid;
+	$url = pll_home_url() . $sub_url . '/' . $postid;
 	return $url;
 }
 
