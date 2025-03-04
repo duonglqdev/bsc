@@ -269,7 +269,7 @@
 							</h2>
 							<div
 								class="rounded-2xl bg-[#F5FCFF] relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:py-8 lg:px-6 p-5 h-[84%] lg:min-h-0 min-h-[400px] ' : 'p-4 -mx-5 min-h-[340px]' ?>">
-								<iframe width='100%' height='100%' class="lg:static absolute inset-0 w-full h-full"
+								<iframe width='100%' height='100%' class="lg:static absolute inset-0 w-full h-full lg:min-h-[350px] min-h-[350px]"
 									src='https://itrade.bsc.com.vn:8080/?symbol=<?php echo $symbol ?>&screen=tradingview&theme=light'
 									frameBorder='0' allowFullScreen></iframe>
 							</div>

@@ -116,35 +116,35 @@
 							</div>
 							<div class="flex items-center gap-2 btn-chart_date flex-1">
 								<button type="button" data-month="1"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( '1M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="3"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="nline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( '3M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="6"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( '6M', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="12"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( '1Y', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="36"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( '3Y', 'bsc' ) ?>
 								</button>
 								<button type="button" data-month="0"
-									class="inline-block flex-1 h-11 2xl:px-4 px-[12px] rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
+									class="inline-block flex-1 sm:h-11 h-10 2xl:px-4 sm:px-[12px] px-2 rounded-lg <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '[&:not(.active)]:bg-[#F8F8FF]' : '[&:not(.active)]:bg-white border border-[#ECE9F1]' ?> bg-primary-700 [&:not(.active)]:text-black text-white font-medium text-xs">
 									<?php _e( 'YTD', 'bsc' ) ?>
 								</button>
+								<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="sm:w-11 sm:h-11 w-10 h-10 shrink-0 rounded-lg flex items-center justify-center p-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
+									   ? 'bg-[#E8F5FF] group'
+									   : 'bg-[#CEEAFF] group'; ?>">
+									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
+								</button>
 							</div>
-							<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="w-11 h-11 shrink-0 rounded-lg flex items-center justify-center p-3 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-							   	? 'bg-[#E8F5FF] group'
-							   	: 'bg-[#CEEAFF] group'; ?>">
-								<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
-							</button>
 						</div>
 						<div class="flex-1 chart-info flex flex-col <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
 							? 'min-h-0 bg-none rounded-none py-0 px-0'

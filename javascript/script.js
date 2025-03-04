@@ -98,7 +98,7 @@ import { DataTable } from 'simple-datatables';
 	}
 
 	function handleMegamenu() {
-		if ($(window).width() > 1024) {
+		if ($(window).width() > 1025) {
 			// Thêm data-menu vào các mục menu chính
 			$('.main_menu > ul > li:not(.menu-home)').each(function () {
 				var menuId = $(this).attr('id');
@@ -205,6 +205,11 @@ import { DataTable } from 'simple-datatables';
 
 				clearTimeout(timeout);
 			});
+ 			$('.close-menu').click(function () {
+				$('.main_menu-navbar,.main_menu li').removeClass('active')
+			})
+
+
 		} else {
 			// Gỡ bỏ submenu-wrapper và submenu-content khi màn hình nhỏ hơn 1024px
 			if ($('.submenu-wrapper').length > 0) {
@@ -523,19 +528,17 @@ import { DataTable } from 'simple-datatables';
 		const buttons = $('.btn-autoclick');
 		let currentIndex = 0;
 
-		// Hàm thực hiện tự động click
 		function autoClick() {
-			// Trigger click cho nút hiện tại
-			buttons.eq(currentIndex).trigger('click');
-
-			// Tính chỉ số nút tiếp theo
-			currentIndex = (currentIndex + 1) % buttons.length;
-
-			// Lặp lại sau 3 giây
-			setTimeout(autoClick, 3500);
+			if ($(window).width() > 1025) {
+				buttons.eq(currentIndex).trigger('click');
+	
+				currentIndex = (currentIndex + 1) % buttons.length;
+	
+				setTimeout(autoClick, 3500);
+			}
 		}
 
-		// Bắt đầu chu trình auto click
+	
 		autoClick();
 
 		$(document).on(

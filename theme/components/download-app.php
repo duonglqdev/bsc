@@ -40,12 +40,12 @@
 												</div>
 											<?php } ?>
 											<ul
-												class="lg:flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4 block' : 'flex flex-wrap gap-y-3 px-3 -mx-1 space-y-0.5 justify-between' ?>">
+												class="lg:flex-1 list-icon <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'space-y-4 block' : 'block__slider-marquee block_slider-show-2' ?>">
 												<?php if (have_rows('mota')) {
 													while (have_rows('mota')) :
 														the_row(); ?>
 														<li
-															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-full text-lg' : 'px-1 sm:text-base text-xs' ?>">
+															class="font-semibold list-icon-item <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'w-full text-lg' : 'px-1 sm:text-base text-xs w-1/2 block_slider-item' ?>">
 															<?php the_sub_field('content') ?>
 														</li>
 												<?php

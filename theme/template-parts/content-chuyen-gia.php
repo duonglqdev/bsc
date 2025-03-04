@@ -3,7 +3,7 @@ $post_id = get_the_ID();
 $fullname = get_the_title();
 ?>
 <div
-	class="bg-gradient-blue-200 flex flex-col h-full font-Helvetica expert_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-2xl py-6 gap-4 px-[12px]' : 'rounded-xl py-[12px] gap-2 px-2' ?>">
+	class="bg-gradient-blue-200 flex flex-col h-full font-Helvetica expert_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-2xl py-6 gap-4 px-[12px]' : 'rounded-xl py-[12px] space-y-2 px-2' ?>">
 	<div class="flex flex-col items-center">
 		<div
 			class="rounded-full overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[120px]' : 'w-[73px]' ?>">
@@ -34,11 +34,14 @@ $fullname = get_the_title();
 			class="font-bold mt-1 expert-name <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl' : 'text-xs text-center' ?>">
 			<?php echo $fullname ?>
 		</h4>
+		<div class="text-center mt-1 sm:text-xs text-xxs">
+		  	<?php _e('Mã tư vấn:', 'bsc') ?> <strong>0022</strong>
+		</div>
 	</div>
 	<div
-		class=" expert-contact <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] bg-white px-[14px] py-4 flex items-center' : '' ?>">
+		class="expert-contact <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] bg-white px-[14px] py-4 flex items-center' : '' ?>">
 		<div
-			class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 2xl:pr-4 pr-3  2xl:mr-4 mr-3 border-r border-[#E9E9E9] max-w-[75%]' : '' ?>">
+			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 2xl:pr-4 pr-3  2xl:mr-4 mr-3 border-r border-[#E9E9E9] max-w-[75%]' : 'hidden' ?>">
 			<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
 			{ ?>
 				<p class="font-bold mb-[12px]">
@@ -65,9 +68,9 @@ $fullname = get_the_title();
 		</div>
 		<?php if ( get_field( 'ma_qr' ) && !wp_is_mobile() && ! bsc_is_mobile() )
 		{ ?>
-			<div class="max-w-[65px] flex-1 shrink-0 expert-qr">
-				<?php echo wp_get_attachment_image( get_field( 'ma_qr' ), 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) ) ?>
-			</div>
+			<a href="<?php echo esc_url( wp_get_attachment_image_src( get_field( 'ma_qr' ), 'large' )[0] ); ?>" class="max-w-[65px] flex-1 shrink-0 expert-qr block" data-fancybox>
+			<?php echo wp_get_attachment_image( get_field( 'ma_qr' ), 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) ); ?>
+		</a>
 		<?php } ?>
 	</div>
 	<ul
