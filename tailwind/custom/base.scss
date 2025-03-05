@@ -1500,3 +1500,10 @@ button#ib-button-messaging {
 #nghiep_vu option:first-child {
     color: red;
 }
+#expert-modal{
+	.expert-info{
+		.expert-qr{
+			@apply hidden;
+		}
+	}
+}

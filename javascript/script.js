@@ -49,6 +49,7 @@ import { DataTable } from 'simple-datatables';
 		handleValidateForm();
 		handleLogin();
 		running_api_price();
+		triggerPopup();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -205,11 +206,9 @@ import { DataTable } from 'simple-datatables';
 
 				clearTimeout(timeout);
 			});
- 			$('.close-menu').click(function () {
-				$('.main_menu-navbar,.main_menu li').removeClass('active')
-			})
-
-
+			$('.close-menu').click(function () {
+				$('.main_menu-navbar,.main_menu li').removeClass('active');
+			});
 		} else {
 			// Gỡ bỏ submenu-wrapper và submenu-content khi màn hình nhỏ hơn 1024px
 			if ($('.submenu-wrapper').length > 0) {
@@ -531,14 +530,13 @@ import { DataTable } from 'simple-datatables';
 		function autoClick() {
 			if ($(window).width() > 1025) {
 				buttons.eq(currentIndex).trigger('click');
-	
+
 				currentIndex = (currentIndex + 1) % buttons.length;
-	
+
 				setTimeout(autoClick, 3500);
 			}
 		}
 
-	
 		autoClick();
 
 		$(document).on(
@@ -4409,16 +4407,33 @@ import { DataTable } from 'simple-datatables';
 				},
 			});
 		});
-		
-		$(document).on("click",".bsc_login_checker",function() {
-			var dataUrl = $(this).attr("data-url");
-			var dataCurrent = $(this).attr("data-current");
-			var $btnTrigger = $(".btn-login-trigger");
-			$btnTrigger.trigger("click");
-			$(".login-sso").attr("href", dataUrl);
-			$("#form_login_khtcc").attr("data-url", dataCurrent);
+
+		$(document).on('click', '.bsc_login_checker', function () {
+			var dataUrl = $(this).attr('data-url');
+			var dataCurrent = $(this).attr('data-current');
+			var $btnTrigger = $('.btn-login-trigger');
+			$btnTrigger.trigger('click');
+			$('.login-sso').attr('href', dataUrl);
+			$('#form_login_khtcc').attr('data-url', dataCurrent);
 		});
+	}
 
+	function triggerPopup() {
+		const urlParams = new URLSearchParams(window.location.search);
+		console.log(urlParams);
 
+		const mmgValue = urlParams.get('mmg');
+		console.log(mmgValue);
+
+		if (mmgValue) {
+			const $wrapper = $('.mmg-wrapper[data-mmg="' + mmgValue + '"]');
+
+			if ($wrapper.length) {
+				setTimeout(function () {
+					$('.trigger-button').trigger('click');
+                }, 300);
+				
+			}
+		}
 	}
 })(jQuery);

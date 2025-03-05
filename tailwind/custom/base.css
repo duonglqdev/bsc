@@ -1501,4 +1501,8 @@ button#ib-button-messaging {
   color: red;
 }
 
+#expert-modal .expert-info .expert-qr {
+  @apply hidden;
+}
+
 /*# sourceMappingURL=base.css.map */
