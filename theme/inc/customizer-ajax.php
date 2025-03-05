@@ -2917,7 +2917,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->NET_REV ) && $GetForecastBussiness->NET_REV !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->NET_REV / 1000000000 );
+														echo bsc_number_format( $GetForecastBussiness->NET_REV );
 													}
 													?>
 												</td>
@@ -2960,7 +2960,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?>  !text-right">
 													<?php
 													if ( isset( $GetForecastBussiness->LNST_CONG_TY_ME ) && $GetForecastBussiness->LNST_CONG_TY_ME !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->LNST_CONG_TY_ME / 1000000000 );
+														echo bsc_number_format( $GetForecastBussiness->LNST_CONG_TY_ME );
 													}
 													?>
 												</td>
@@ -3070,7 +3070,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROE ) && $GetForecastBussiness->ROE !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROE * 100, false ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROE, false ) . '%';
 													}
 													?>
 												</td>
@@ -3092,7 +3092,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROA ) && $GetForecastBussiness->ROA !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROA * 100, false ) . '%';
+														echo bsc_number_format( $GetForecastBussiness->ROA, false ) . '%';
 													}
 													?>
 												</td>
