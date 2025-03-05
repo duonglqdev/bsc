@@ -3,7 +3,7 @@ $post_id = get_the_ID();
 $fullname = get_the_title();
 ?>
 <div class="bg-gradient-blue-200 flex flex-col h-full font-Helvetica expert_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-2xl py-6 gap-4 px-[12px]' : 'rounded-xl py-[12px] space-y-2 px-2' ?>"
-	data-id="<?php the_sub_field( 'ma_moi_gioi' ) ?>">
+	data-id="<?php the_field( 'ma_moi_gioi' ) ?>">
 	<div class="flex flex-col items-center">
 		<div
 			class="rounded-full overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[120px]' : 'w-[73px]' ?>">
@@ -31,9 +31,16 @@ $fullname = get_the_title();
 			class="font-bold mt-1 expert-name <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl' : 'text-xs text-center' ?>">
 			<?php echo $fullname ?>
 		</h4>
-		<div class="text-center mt-1 sm:text-xs text-xxs">
-			<?php _e( 'Mã tư vấn:', 'bsc' ) ?> <strong>0022</strong>
-		</div>
+		
+		<?php if(get_field('ma_moi_gioi')) : ?>
+			<div class="text-center mt-1 sm:text-xs text-xxs">
+				<?php _e( 'Mã tư vấn:', 'bsc' ) ?> <strong><?php the_field('ma_moi_gioi'); ?></strong>
+			</div>
+		<?php else : ?>
+			<div class="text-center mt-1 sm:text-xs text-xxs">
+				<?php _e( 'Mã tư vấn:', 'bsc' ) ?> <strong><?php _e('Đang cập nhật', 'bsc') ?></strong>
+			</div>
+		<?php endif; ?>
 	</div>
 	<div
 		class="expert-contact <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] bg-white px-[14px] py-4 flex items-center' : '' ?>">
