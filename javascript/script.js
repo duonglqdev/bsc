@@ -1519,7 +1519,10 @@ import { DataTable } from 'simple-datatables';
 			$('#expert-modal .expert-qr').html(
 				parent.find('.expert-qr img').clone()
 			);
-
+			$('#expert-modal .expert-qr').attr(
+				'href',
+				parent.find('.expert-qr').attr('href')
+			);
 			$('#expert-modal .expert-info').html(
 				parent.find('.expert-contact a').clone()
 			);
@@ -4431,8 +4434,7 @@ import { DataTable } from 'simple-datatables';
 			if ($wrapper.length) {
 				setTimeout(function () {
 					$('.trigger-button').trigger('click');
-                }, 300);
-				
+				}, 300);
 			}
 		}
 	}

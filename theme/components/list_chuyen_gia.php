@@ -8,25 +8,19 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 	?>
 	<section
 		class="bg-[#EBF4FA]  list_chuyen_gia <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'py-4' : 'py-[12px]' ?>"
-		<?php if ( get_sub_field( 'id_class' ) )
-		{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>"
-		<?php } ?>>
+		<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
 		<div class="container">
-			<ul
-				class="flex justify-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-10' : 'gap-4' ?>">
+			<ul class="flex justify-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-10' : 'gap-4' ?>">
 				<?php
 				$i = 0;
 				foreach ( $thanh_phos as $thanh_pho ) :
 					$i++;
-					if ( $i == 1 )
-					{
+					if ( $i == 1 ) {
 						$custom_taxterms = $thanh_pho->term_id;
 					}
 					?>
-					<li
-						class="cursor-pointer <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
-						<input type="radio" name="thanh_pho" class="hidden peer"
-							value="<?php echo $thanh_pho->term_id ?>"
+					<li class="cursor-pointer <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'flex-1' ?>">
+						<input type="radio" name="thanh_pho" class="hidden peer" value="<?php echo $thanh_pho->term_id ?>"
 							id="chuyen_gia<?php echo $thanh_pho->term_id ?>" <?php if ( $i == 1 )
 								   echo 'checked' ?>>
 							<label
@@ -42,8 +36,8 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:mt-[62px] mt-14 xl:mb-[100px] mb-14' : 'my-[30px]' ?>">
 	<div class="container">
 		<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) : ?>
-			<form class="flex xl:gap-6 lg:gap-4 gap-3 items-end mb-10 flex-wrap" id="form-search-expert"
-				data-scale="pc" data-paged="1">
+			<form class="flex xl:gap-6 lg:gap-4 gap-3 items-end mb-10 flex-wrap" id="form-search-expert" data-scale="pc"
+				data-paged="1">
 				<?php
 				$kinh_nghiems = get_terms( array(
 					'taxonomy' => 'kinh-nghiem',
@@ -120,8 +114,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 					<p class="font-semibold mb-2 max-[991px]:text-sm">
 						<?php _e( 'Tên chuyên gia', 'bsc' ) ?>
 					</p>
-					<input id="name_chuyen_gia" type="text"
-						placeholder="<?php _e( 'Nhập họ tên chuyên gia', 'bsc' ) ?>"
+					<input id="name_chuyen_gia" type="text" placeholder="<?php _e( 'Nhập họ tên chuyên gia', 'bsc' ) ?>"
 						class="xl:w-[273px] min-[992px]:w-[220px] w-[186px] bg-[#F3F4F6] h-[50px] rounded-[10px] lg:px-5 px-3 max-[991px]:text-sm border-[#E4E4E4]">
 				</div>
 				<button type="submit" id="chuyen_gia_submit"
@@ -133,8 +126,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 			</form>
 		<?php else : ?>
 			<div class="flex gap-2 items-center mb-4 text-xs font-bold font-Helvetica">
-				<button type="button"
-					class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2]"
+				<button type="button" class="inline-flex gap-3 items-center py-2 px-4 rounded-lg border border-[#C9CCD2]"
 					data-modal-target="expert-modal-filter" data-modal-toggle="expert-modal-filter">
 					<?php echo svgClass( 'filter-icon', '', '', 'shrink-0' ) ?>
 					<?php _e( 'Bộ lọc', 'bsc' ) ?>
@@ -225,10 +217,9 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 					class="text-primary-300 flex items-center justify-center rounded-full bg-white shadow-base expert-modal-close <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-9 h-9' : 'w-8 h-8 ' ?>"
 					data-modal-toggle="expert-modal">
 					<svg class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[14px] h-[14px]' : 'w-[12px] h-[12px]' ?>"
-						aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-						viewBox="0 0 14 14">
-						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-							stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+						aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
 					</svg>
 					<span class="sr-only">Close modal</span>
 				</button>
@@ -237,8 +228,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 
 			$has_post = false;
 
-			if ( isset( $_GET['mmg'] ) && ! empty( $_GET['mmg'] ) )
-			{
+			if ( isset( $_GET['mmg'] ) && ! empty( $_GET['mmg'] ) ) {
 				$mmg = sanitize_text_field( $_GET['mmg'] );
 				$args = array(
 					'post_type' => 'chuyen-gia',
@@ -254,16 +244,13 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 
 				$query = new WP_Query( $args );
 
-				if ( $query->have_posts() )
-				{
+				if ( $query->have_posts() ) {
 					$has_post = true;
 				}
 			}
 
-			if ( $has_post )
-			{
-				while ( $query->have_posts() )
-				{
+			if ( $has_post ) {
+				while ( $query->have_posts() ) {
 					$query->the_post();
 					$post_id = get_the_ID();
 					$fullname = get_the_title();
@@ -282,9 +269,8 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									<div
 										class="rounded-full overflow-hidden mr-4 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[100px]' : 'w-[92px]' ?>">
 										<div class="relative w-full pt-[100%] group expert-img">
-											<img loading="lazy"
-												src="<?php echo get_the_post_thumbnail_url( $post_id, 'medium' ); ?>"
-												alt="<?php echo esc_attr( $fullname ); ?>"
+											<img loading="lazy" src="<?php echo bsc_post_thumbnail_medium() ?>"
+												alt="<?php echo $fullname ?>" alt="<?php echo esc_attr( $fullname ); ?>"
 												class="absolute w-full h-full inset-0 m-auto object-cover transition-all duration-500 group-hover:scale-105">
 										</div>
 									</div>
@@ -294,42 +280,43 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 											<?php echo esc_html( $fullname ); ?>
 										</p>
 										<?php
-											$menh = get_the_terms( $post_id, 'menh' );
-											if ( $menh ) {
-												?>
-												<div class="expert-destiny <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '-mt-5' : '-mt-3' ?>">
-													<div class="rounded-[45px]  py-1 inline-flex gap-[6px] items-center font-semibold relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[12px] px-[14px]' : 'sm:text-[12px] text-[10px] pl-[7px] pr-3' ?>"
-														style="background-color:<?php the_field( 'background', $menh[0] ) ?>; color:<?php the_field( 'color', $menh[0] ) ?>;">
-														<div
-															class="bg-white rounded-full flex items-center justify-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-5 h-5' : 'w-4 h-4' ?>">
-															<?php echo wp_get_attachment_image( get_field( 'icon', $menh[0] ), 'medium', '', array( 'class' => 'w-[12px] h-[12px] object-contain' ) ) ?>
-														</div>
-														<?php echo $menh[0]->name; ?>
+										$menh = get_the_terms( $post_id, 'menh' );
+										if ( $menh ) {
+											?>
+											<div
+												class="expert-destiny <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '-mt-5' : '-mt-3' ?>">
+												<div class="rounded-[45px]  py-1 inline-flex gap-[6px] items-center font-semibold relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-[12px] px-[14px]' : 'sm:text-[12px] text-[10px] pl-[7px] pr-3' ?>"
+													style="background-color:<?php the_field( 'background', $menh[0] ) ?>; color:<?php the_field( 'color', $menh[0] ) ?>;">
+													<div
+														class="bg-white rounded-full flex items-center justify-center <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-5 h-5' : 'w-4 h-4' ?>">
+														<?php echo wp_get_attachment_image( get_field( 'icon', $menh[0] ), 'medium', '', array( 'class' => 'w-[12px] h-[12px] object-contain' ) ) ?>
 													</div>
+													<?php echo $menh[0]->name; ?>
 												</div>
-											<?php } ?>
+											</div>
+										<?php } ?>
 									</div>
-									<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-									{ ?>
-										<div class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
-											<?php if ( $qr_code )
-											{
+									<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) {
+										if ( $qr_code ) { ?>
+											<a href="<?php echo wp_get_attachment_image__url( $qr_code, 'large' ) ?>" data-fancybox
+												class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
+												<?php
 												echo wp_get_attachment_image( $qr_code, 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) );
-											} ?>
-										</div>
-									<?php } ?>
+												?>
+											</a>
+											<?php
+										}
+									} ?>
 								</div>
 								<ul class="space-y-2 text-xs expert-info">
-									<?php if ( $number )
-									{ ?>
+									<?php if ( $number ) { ?>
 										<a href="tel:<?php echo esc_attr( $number ); ?>"
 											class="block relative pl-6 text-xs break-words">
 											<?php echo svgClass( 'fone', '19', '19', 'absolute top-0.5 left-0' ); ?>
 											<?php echo esc_html( $number ); ?>
 										</a>
 									<?php } ?>
-									<?php if ( $email )
-									{ ?>
+									<?php if ( $email ) { ?>
 										<a href="mailto:<?php echo esc_attr( $email ); ?>"
 											class="block relative pl-6 text-xs break-words">
 											<?php echo svgClass( 'e-mail', '19', '19', 'absolute top-0.5 left-0' ); ?>
@@ -338,8 +325,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									<?php } ?>
 									<?php
 									$kinh_nghiem = get_the_terms( $post_id, 'kinh-nghiem' );
-									if ( $kinh_nghiem )
-									{
+									if ( $kinh_nghiem ) {
 										?>
 										<li
 											class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2 items-start' : 'gap-1 show-gap-2' ?>">
@@ -356,8 +342,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									<?php } ?>
 									<?php
 									$trinh_do_hoc_van = get_the_terms( $post_id, 'trinh-do-hoc-van' );
-									if ( $trinh_do_hoc_van )
-									{
+									if ( $trinh_do_hoc_van ) {
 										?>
 										<li
 											class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2 items-start' : 'gap-1 show-gap-2' ?>">
@@ -374,8 +359,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									<?php } ?>
 									<?php
 									$truong_phai_dau_tu = get_field( 'truong_phai_dau_tu', $post_id );
-									if ( $truong_phai_dau_tu )
-									{
+									if ( $truong_phai_dau_tu ) {
 										?>
 										<li
 											class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2 items-start' : 'gap-1 show-gap-2' ?>">
@@ -392,8 +376,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									<?php } ?>
 									<?php
 									$dia_chi = get_the_terms( $post_id, 'thanh-pho' );
-									if ( $dia_chi )
-									{
+									if ( $dia_chi ) {
 										?>
 										<li
 											class="flex  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-2 items-start' : 'gap-1 show-flex hidden show-gap-2' ?>">
@@ -409,22 +392,20 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										</li>
 									<?php } ?>
 								</ul>
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() && $link )
-								{ ?>
+								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() && $link ) { ?>
 									<div class="expert-btn">
-									<a href="<?php echo check_link( $link ) ?>" target="_blank"
-										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-3 rounded-lg font-bold relative transition-all duration-500 text-center w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xs py-3' : 'sm:text-xs text-xxs py-1.5' ?>">
-										<span class="block relative z-10">
-											<?php _e( 'Mở tài khoản', 'bsc' ) ?>
-										</span>
-									</a>
+										<a href="<?php echo check_link( $link ) ?>" target="_blank"
+											class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-3 rounded-lg font-bold relative transition-all duration-500 text-center w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xs py-3' : 'sm:text-xs text-xxs py-1.5' ?>">
+											<span class="block relative z-10">
+												<?php _e( 'Mở tài khoản', 'bsc' ) ?>
+											</span>
+										</a>
 									</div>
 								<?php } ?>
 							</div>
 							<div
 								class="expert-modal-desc rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-full overflow-y-auto scroll-bar-custom expert-desc <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'text-xs p-[12px]' ?>">
-								<?php if ( get_field( 'introduce', $post_id ) )
-								{ ?>
+								<?php if ( get_field( 'introduce', $post_id ) ) { ?>
 									<div class="intro">
 										<p class="font-bold mb-2">
 											<?php _e( 'Giới thiệu bản thân', 'bsc' ) ?>
@@ -434,8 +415,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										</div>
 									</div>
 								<?php } ?>
-								<?php if ( get_field( 'exp', $post_id ) )
-								{ ?>
+								<?php if ( get_field( 'exp', $post_id ) ) { ?>
 									<div class="intro">
 										<p class="font-bold mb-2">
 											<?php _e( 'Kinh nghiệm', 'bsc' ) ?>
@@ -446,10 +426,9 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									</div>
 								<?php } ?>
 							</div>
-							<?php if ( wp_is_mobile() && bsc_is_mobile() )
-							{ ?>
+							<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 								<div class="expert-btn prose-a:py-3">
-								<a href="<?php echo check_link( $link ) ?>" target="_blank"
+									<a href="<?php echo check_link( $link ) ?>" target="_blank"
 										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block px-3 rounded-lg font-bold relative transition-all duration-500 text-center w-full <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xs py-3' : 'sm:text-xs text-xxs py-1.5' ?>">
 										<span class="block relative z-10">
 											<?php _e( 'Mở tài khoản', 'bsc' ) ?>
@@ -463,8 +442,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 					<?php
 				}
 				wp_reset_postdata();
-			} else
-			{
+			} else {
 				?>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-6' : 'p-4' ?>">
 					<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
@@ -487,18 +465,16 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 
 									</div>
 								</div>
-								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-								{ ?>
-									<div class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
+								<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+									<a data-fancybox href="" class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
 
-									</div>
+									</a>
 								<?php } ?>
 							</div>
 							<ul class="space-y-2 text-xs expert-info">
 
 							</ul>
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() )
-							{ ?>
+							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
 								<div class="expert-btn">
 
 								</div>
@@ -508,8 +484,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 							class="expert-modal-desc rounded-2xl bg-gradient-blue-50 font-Helvetica max-h-full overflow-y-auto scroll-bar-custom expert-desc <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'text-xs p-[12px]' ?>">
 
 						</div>
-						<?php if ( wp_is_mobile() && bsc_is_mobile() )
-						{ ?>
+						<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 							<div class="expert-btn prose-a:py-3">
 
 							</div>
@@ -529,33 +504,29 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 	</div>
 </div>
 
-<?php if ( wp_is_mobile() && bsc_is_mobile() )
-{ ?>
+<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
 	<div id="expert-modal-filter" tabindex="-1" aria-hidden="true"
 		class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] justify-center items-center w-full md:inset-0 h-full max-h-full bg-[#000] bg-opacity-70">
 		<div class="relative w-full max-w-[946px] max-h-full">
 			<div class="relative bg-white shadow overflow-hidden p-5">
 				<div class="flex items-center justify-between mb-4 pb-5 border-b border-[#C9CCD2]">
-					<button type="button"
-						class="inline-flex gap-3 items-center font-Helvetica font-bold text-xl">
+					<button type="button" class="inline-flex gap-3 items-center font-Helvetica font-bold text-xl">
 						<?php echo svgClass( 'filter-icon', '', '', 'shrink-0' ) ?>
 						<?php _e( 'Bộ lọc', 'bsc' ) ?>
 					</button>
 					<button type="button" class="text-black w-8 h-8 expert-modal-filter_btn-close"
 						data-modal-toggle="expert-modal-filter">
 						<svg class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[14px] h-[14px]' : 'w-[12px] h-[12px]' ?>"
-							aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-							viewBox="0 0 14 14">
-							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-								stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+							aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
 						</svg>
 						<span class="sr-only">Close modal</span>
 					</button>
 				</div>
 
 				<form id="form-search-expert" data-paged="1" data-scale="mobile">
-					<div
-						class="h-12 py-[12px] px-6 border border-[#DADADA] rounded-lg flex items-center gap-[12px] mb-4">
+					<div class="h-12 py-[12px] px-6 border border-[#DADADA] rounded-lg flex items-center gap-[12px] mb-4">
 						<div class="flex-shrink-0">
 							<?php echo svgpath( 'search', '24', '24', ' fill-[#B2B2B2]' ) ?>
 						</div>
@@ -602,8 +573,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 							<p class="font-bold mb-4 text-lg">
 								<?php _e( 'Mệnh', 'bsc' ) ?>
 							</p>
-							<div id="menh"
-								class="border-b border-[#C9CCD2] flex flex-wrap gap-[12px] mb-6 pb-6">
+							<div id="menh" class="border-b border-[#C9CCD2] flex flex-wrap gap-[12px] mb-6 pb-6">
 								<?php foreach ( $menhs as $menh ) :
 									$icon = get_field( 'icon', $menh );
 									$background = get_field( 'background', $menh );
@@ -615,8 +585,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										<label for="<?php echo $menh->term_id; ?>"
 											class="rounded-[45px] py-1 inline-flex gap-[6px] items-center font-medium relative text-xs pl-2 pr-[12px] border-2 border-transparent peer-checked:border-black peer-checked:shadow-lg"
 											style="background-color: <?php echo esc_attr( $background ); ?>; color: <?php echo esc_attr( $color ); ?>;">
-											<div
-												class="bg-white rounded-full flex items-center justify-center w-4 h-4">
+											<div class="bg-white rounded-full flex items-center justify-center w-4 h-4">
 												<?php if ( $icon ) : ?>
 													<?php echo wp_get_attachment_image( $icon, 'full' ) ?>
 												<?php endif; ?>
