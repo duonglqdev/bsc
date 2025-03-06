@@ -1520,7 +1520,7 @@ import { DataTable } from 'simple-datatables';
 				parent.find('.expert-qr img').clone()
 			);
 			$('#expert-modal .expert-mmg').html(
-				parent.find('.expert-mmg').clone()
+				parent.find('.expert-mmg').html()
 			);
 			$('#expert-modal .expert-qr').attr(
 				'href',

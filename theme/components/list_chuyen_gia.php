@@ -282,7 +282,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										<?php
 										$ma_moi_gioi = get_field( 'ma_moi_gioi', $post_id ) ?: __( 'Đang cập nhật', 'bsc' );
 										?>
-										<div class="text-center mt-1text-xxs expert-mmg">
+										<div class="mt-1 text-xxs expert-mmg">
 											<?php _e( 'Mã tư vấn:', 'bsc' ); ?>
 											<strong><?php echo esc_html( $ma_moi_gioi ); ?></strong>
 										</div>
@@ -305,7 +305,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 									</div>
 									<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) {
 										if ( $qr_code ) { ?>
-											<a href="<?php echo wp_get_attachment_image__url( $qr_code, 'large' ) ?>" data-fancybox
+											<a href="<?php echo wp_get_attachment_image_url( $qr_code, 'large' ) ?>" data-fancybox
 												class="w-[74px] shrink-0 ml-auto expert-qr bg-white p-1">
 												<?php
 												echo wp_get_attachment_image( $qr_code, 'medium', '', array( 'class' => 'w-full h-auto transition-all duration-500 hover:scale-105' ) );
@@ -467,7 +467,7 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										class="font-bold mt-1 expert-name <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl' : 'text-base' ?>">
 
 									</p>
-									<div class="text-center mt-1text-xxs expert-mmg">
+									<div class="mt-1 text-xxs expert-mmg">
 									</div>
 									<div class="expert-destiny">
 
