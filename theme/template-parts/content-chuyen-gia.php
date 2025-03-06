@@ -31,16 +31,13 @@ $fullname = get_the_title();
 			class="font-bold mt-1 expert-name <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl' : 'text-xs text-center' ?>">
 			<?php echo $fullname ?>
 		</h4>
-		
-		<?php if(get_field('ma_moi_gioi')) : ?>
-			<div class="text-center mt-1 sm:text-xs text-xxs">
-				<?php _e( 'Mã tư vấn:', 'bsc' ) ?> <strong><?php the_field('ma_moi_gioi'); ?></strong>
-			</div>
-		<?php else : ?>
-			<div class="text-center mt-1 sm:text-xs text-xxs">
-				<?php _e( 'Mã tư vấn:', 'bsc' ) ?> <strong><?php _e('Đang cập nhật', 'bsc') ?></strong>
-			</div>
-		<?php endif; ?>
+
+		<?php
+		$ma_moi_gioi = get_field( 'ma_moi_gioi' ) ?: __( 'Đang cập nhật', 'bsc' );
+		?>
+		<div class="text-center mt-1 sm:text-xs text-xxs expert-mmg">
+			<?php _e( 'Mã tư vấn:', 'bsc' ); ?> <strong><?php echo esc_html( $ma_moi_gioi ); ?></strong>
+		</div>
 	</div>
 	<div
 		class="expert-contact <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-[10px] bg-white px-[14px] py-4 flex items-center' : '' ?>">

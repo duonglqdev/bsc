@@ -280,6 +280,13 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 											<?php echo esc_html( $fullname ); ?>
 										</p>
 										<?php
+										$ma_moi_gioi = get_field( 'ma_moi_gioi', $post_id ) ?: __( 'Đang cập nhật', 'bsc' );
+										?>
+										<div class="text-center mt-1text-xxs expert-mmg">
+											<?php _e( 'Mã tư vấn:', 'bsc' ); ?>
+											<strong><?php echo esc_html( $ma_moi_gioi ); ?></strong>
+										</div>
+										<?php
 										$menh = get_the_terms( $post_id, 'menh' );
 										if ( $menh ) {
 											?>
@@ -460,6 +467,8 @@ if ( ! empty( $thanh_phos ) && ! is_wp_error( $thanh_phos ) ) :
 										class="font-bold mt-1 expert-name <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-xl' : 'text-base' ?>">
 
 									</p>
+									<div class="text-center mt-1text-xxs expert-mmg">
+									</div>
 									<div class="expert-destiny">
 
 

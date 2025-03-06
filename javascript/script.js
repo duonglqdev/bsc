@@ -1519,6 +1519,9 @@ import { DataTable } from 'simple-datatables';
 			$('#expert-modal .expert-qr').html(
 				parent.find('.expert-qr img').clone()
 			);
+			$('#expert-modal .expert-mmg').html(
+				parent.find('.expert-mmg').clone()
+			);
 			$('#expert-modal .expert-qr').attr(
 				'href',
 				parent.find('.expert-qr').attr('href')
