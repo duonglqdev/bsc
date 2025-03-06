@@ -3220,7 +3220,7 @@ function filter_details_symbol() {
 							<?php _e( 'P/E', 'bsc' ) ?>
 						</p>
 						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-lg' : '' ?>">
-							<?php echo $response_securityBasicInfo->data[0]->PE ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->PE, false, false, 1 ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3228,7 +3228,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROA (%)', 'bsc' ) ?>
 						</p>
 						<p class="font-medium 2xl:text-lg">
-							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROA, false ) ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROA, false, false, 1 ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3238,7 +3238,7 @@ function filter_details_symbol() {
 						<p class="font-medium <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '2xl:text-lg' : '' ?>">
 							<?php
 							if ( $response_securityBasicInfo->data[0]->MarketCapital ) {
-								echo bsc_number_format( $response_securityBasicInfo->data[0]->MarketCapital );
+								echo bsc_number_format( $response_securityBasicInfo->data[0]->MarketCapital, false, false, 1 );
 							}
 							?>
 						</p>
@@ -3248,7 +3248,7 @@ function filter_details_symbol() {
 							<?php _e( 'P/B', 'bsc' ) ?>
 						</p>
 						<p class="font-medium 2xl:text-lg">
-							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->PB ) ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->PB, false, false, 1 ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3256,7 +3256,7 @@ function filter_details_symbol() {
 							<?php _e( 'ROE (%)', 'bsc' ) ?>
 						</p>
 						<p class="font-medium 2xl:text-lg">
-							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROE, false ) ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->ROE, false, false, 1 ) ?>
 						</p>
 					</div>
 					<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'space-y-2' : 'space-y-1' ?>">
@@ -3264,7 +3264,7 @@ function filter_details_symbol() {
 							<?php _e( 'EPS (đồng)', 'bsc' ) ?>
 						</p>
 						<p class="font-medium 2xl:text-lg">
-							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->EPS, false ) ?>
+							<?php echo bsc_number_format( $response_securityBasicInfo->data[0]->EPS, false, false, 1 ) ?>
 						</p>
 					</div>
 				</div>
