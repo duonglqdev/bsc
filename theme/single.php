@@ -354,11 +354,6 @@ get_header();
 								<ul
 									class="flex items-center  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-3' : 'gap-1.5' ?>">
 									<li>
-										<a href="" target="_blank">
-											<?php echo svgClass( 'ins', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6' ) ?>
-										</a>
-									</li>
-									<li>
 										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>"
 											target="_blank">
 											<?php echo svgClass( 'linkedin', '', '', ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-6 h-6' ) ?>
@@ -402,11 +397,6 @@ get_header();
 
 								<?php } ?>
 								<ul class="flex items-center gap-3">
-									<li>
-										<a href="" target="_blank">
-											<?php echo svg( 'ins' ) ?>
-										</a>
-									</li>
 									<li>
 										<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>"
 											target="_blank">

@@ -846,3 +846,25 @@ function bsc_format_string( $data, $style = 'text' ) {
 	// Trường hợp không hợp lệ, trả về 0 (tránh lỗi)
 	return 0;
 }
+
+function shorten_url( $url, $max_length = 20 ) {
+	// Tách URL thành các phần
+	$parsed_url = parse_url( $url );
+
+	// Lấy phần path (đường dẫn file)
+	$path = $parsed_url['path'];
+
+	// Lấy tên file từ đường dẫn
+	$filename = basename( $path );
+
+	// Tách phần mở rộng file (nếu có)
+	$ext = pathinfo( $filename, PATHINFO_EXTENSION ); // Lấy phần mở rộng (ví dụ: pdf, docx)
+	$name = pathinfo( $filename, PATHINFO_FILENAME ); // Lấy phần tên file (không có đuôi)
+
+	// Nếu tên file quá dài, rút gọn nó
+	if ( strlen( $name ) > $max_length ) {
+		$name = substr( $name, 0, $max_length ) . '...';
+	}
+
+	return $name . '.' . $ext; // Ghép lại với phần mở rộng
+}

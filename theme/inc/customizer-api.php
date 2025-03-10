@@ -223,14 +223,14 @@ function custom_template_redirect_news_mck() {
 		$time_cache = get_field( 'cdtt2_time_cache', 'option' ) ?: 300;
 		$array_data = array(
 			"id" => $news_id_mck,
-			"newstype" => "0"
+			"newstype" => "1"
 		);
 		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
 		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
 		} else {
 			$array_data = array(
 				"id" => $news_id_mck,
-				"newstype" => "1"
+				"newstype" => "0"
 			);
 			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
 		}
@@ -244,7 +244,7 @@ function custom_template_redirect_news_mck() {
 				'description' => $news->description,
 				'thumbnail' => $news->imagethumbnail
 			);
-			get_template_part( 'single', null, array(
+			get_template_part( 'single-mcp', null, array(
 				'data' => $news,
 			) );
 			exit; // Dừng WordPress để tránh bị 404
