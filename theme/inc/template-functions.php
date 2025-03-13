@@ -824,6 +824,21 @@ function bsc_number_format( $input, $format = true, $int = false, $thap_phan = 2
 	}
 }
 
+function bsc_number_format_not_include_tp( $number ) {
+	// Tách phần nguyên và phần thập phân
+	$parts = explode( '.', (string) $number );
+
+	// Định dạng phần nguyên với dấu phân cách hàng nghìn
+	$integer_part = number_format( (int) $parts[0] );
+
+	// Nếu có phần thập phân, giữ nguyên
+	if ( isset( $parts[1] ) ) {
+		return $integer_part . '.' . $parts[1];
+	}
+
+	return $integer_part;
+}
+
 /**
  * Function format string
  */

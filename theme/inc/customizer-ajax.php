@@ -2938,7 +2938,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->TANG_TRUONG_DT ) && $GetForecastBussiness->TANG_TRUONG_DT !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_DT ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->TANG_TRUONG_DT ) . '%';
 													}
 													?>
 												</td>
@@ -2982,7 +2982,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?>  !text-right">
 													<?php
 													if ( isset( $GetForecastBussiness->TANG_TRUONG_LS ) && $GetForecastBussiness->TANG_TRUONG_LS !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_LS ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->TANG_TRUONG_LS ) . '%';
 													}
 													?>
 												</td>
@@ -3026,7 +3026,7 @@ function filter_details_symbol() {
 													class="italic <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->TANG_TRUONG_EPS ) && $GetForecastBussiness->TANG_TRUONG_EPS !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->TANG_TRUONG_EPS ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->TANG_TRUONG_EPS ) . '%';
 													}
 													?>
 												</td>
@@ -3070,7 +3070,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROE ) && $GetForecastBussiness->ROE !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROE, false ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->ROE ) . '%';
 													}
 													?>
 												</td>
@@ -3092,7 +3092,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->ROA ) && $GetForecastBussiness->ROA !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->ROA, false ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->ROA ) . '%';
 													}
 													?>
 												</td>
@@ -3114,7 +3114,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->PE ) && $GetForecastBussiness->PE !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->PE );
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->PE );
 													}
 													?>
 												</td>
@@ -3138,7 +3138,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->PB ) && $GetForecastBussiness->PB !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->PB );
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->PB );
 													}
 													?>
 												</td>
@@ -3161,7 +3161,7 @@ function filter_details_symbol() {
 													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'min-w-[70px]' ?> !text-right ">
 													<?php
 													if ( isset( $GetForecastBussiness->HS_CO_PHIEU ) && $GetForecastBussiness->HS_CO_PHIEU !== null ) {
-														echo bsc_number_format( $GetForecastBussiness->HS_CO_PHIEU ) . '%';
+														echo bsc_number_format_not_include_tp( $GetForecastBussiness->HS_CO_PHIEU ) . '%';
 													}
 													?>
 												</td>
