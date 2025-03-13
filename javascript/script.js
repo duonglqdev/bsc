@@ -1091,11 +1091,16 @@ import { DataTable } from 'simple-datatables';
 				.siblings('.open-utilities-box')
 				.toggle(350);
 			$('.open-ytb').addClass('active');
+			if ($(window).width() < 1025) {
+				$('html').addClass('overflow-hidden');
+			}
 		});
+
 		$('.hidden-utilities').click(function (e) {
 			e.stopPropagation();
 			$('.open-utilities-box').hide(350);
 			$('.open-utilities').removeClass('active');
+			$('html').removeClass('overflow-hidden');
 		});
 		$(document).click(function (e) {
 			if (e.isTrigger) return;
@@ -1104,6 +1109,7 @@ import { DataTable } from 'simple-datatables';
 					.length
 			) {
 				$('.open-utilities,.open-ytb').removeClass('active');
+				$('html').removeClass('overflow-hidden');
 			}
 		});
 		$('.award__item').click(function () {

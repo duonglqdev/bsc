@@ -35,7 +35,7 @@ $time_cache = 300;
 
 				<div class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white ">
 					<div
-						class="text-white bg-primary-300 font-semibold flex items-center min-h-[60px] leading-[1.5] text-center sticky top-0 z-10 overflow-x-auto overflow-y-hidden no-scrollbar scroll-container-header">
+						class="text-white bg-primary-300 font-semibold flex items-center min-h-[60px] leading-[1.5] text-center sticky top-0 z-10 overflow-x-auto no-scrollbar scroll-container-header">
 						<div
 							class="w-20 shrink-0 text-center border-r border-[#c3c3c3] flex justify-center flex-col min-h-[60px]">
 							<?php _e( 'Mã CK', 'bsc' ) ?>
@@ -54,7 +54,7 @@ $time_cache = 300;
 							<?php _e( 'LNST', 'bsc' ) ?> <br>
 							<?php _e( 'CĐTS', 'bsc' ) ?>
 
-							<button data-tooltip-target="tooltip-animation1" class="ml-1" type="button">
+							<button data-tooltip-target="tooltip-animation1" data-tooltip-placement="bottom" class="ml-1" type="button">
 								<?php echo svg( 'tooltip', '20', '20' ) ?>
 							</button>
 							<div id="tooltip-animation1" role="tooltip"
@@ -97,7 +97,7 @@ $time_cache = 300;
 							?>
 
 
-							<button data-tooltip-target="tooltip-animation2" class="ml-1" type="button">
+							<button data-tooltip-target="tooltip-animation2" data-tooltip-placement="bottom" class="ml-1" type="button">
 								<?php echo svg( 'tooltip', '20', '20' ) ?>
 							</button>
 							<div id="tooltip-animation2" role="tooltip"

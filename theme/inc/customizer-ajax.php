@@ -4153,7 +4153,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4249,7 +4249,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4344,7 +4344,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4439,7 +4439,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
