@@ -10,7 +10,7 @@ if ( get_query_var( 'mck_bctc' ) ) {
 				id="<?php echo $id_class ?>" <?php } ?>>
 			<div class="container">
 				<ul
-					class="customtab-nav flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between gap-10' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
+					class="customtab-nav flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'justify-between 2xl:gap-10 gap-5' : 'overflow-x-auto gap-4  nav-scroll-mb' ?>">
 					<?php
 					foreach ( $stt_re as $i ) {
 						?>
@@ -18,7 +18,7 @@ if ( get_query_var( 'mck_bctc' ) ) {
 							<button data-tabs="#<?php echo $tab . $i ?>" <?php if ( $i > 1 )
 									 echo 'data-ajax="true" data-api="report_finance_list-' . $i . '" data-symbol="' . $symbol . '"' ?>
 									class="<?php if ( $i == 1 )
-									 echo 'active' ?> block text-center font-bold lg:text-lg text-xs lg:py-[12px] py-3 px-10 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
+									 echo 'active' ?> block text-center font-bold lg:text-lg text-xs lg:py-[12px] py-3 2xl:px-10 px-4 [&:not(.active)]:text-black text-white [&:not(.active)]:bg-transparent bg-primary-300 transition-all duration-500 hover:!text-white hover:!bg-primary-300 rounded-lg whitespace-nowrap">
 									<?php
 								 the_sub_field( 'title_' . $i );
 								 ?>
