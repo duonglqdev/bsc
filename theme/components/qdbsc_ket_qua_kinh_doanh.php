@@ -5,15 +5,20 @@ $time_cache = 300;
 ?>
 <section
 	class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?> qdbsc_ket_qua_kinh_doanh"
-	<?php if ( get_sub_field( 'id_class' ) ) { ?> id="<?php echo get_sub_field( 'id_class' ) ?>" <?php } ?>>
+	<?php if ( get_sub_field( 'id_class' ) )
+	{ ?> id="<?php echo get_sub_field( 'id_class' ) ?>"
+	<?php } ?>>
 	<div class="container">
-		<?php if ( get_sub_field( 'title' ) ) { ?>
-			<?php if ( get_sub_field( 'link' ) ) { ?>
+		<?php if ( get_sub_field( 'title' ) )
+		{ ?>
+			<?php if ( get_sub_field( 'link' ) )
+			{ ?>
 				<a href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?> block">
 					<?php the_sub_field( 'title' ) ?>
 				</a>
-			<?php } else { ?>
+			<?php } else
+			{ ?>
 				<h3
 					class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'text-[22px] mb-4' ?>">
 					<?php the_sub_field( 'title' ) ?>
@@ -22,169 +27,186 @@ $time_cache = 300;
 		<?php } ?>
 
 		<?php
-		if ( ! $check_logout ) {
+		if ( ! $check_logout )
+		{
 			$array_data_GetForecastBussinessResults = array(
 				'lang' => 'VI',
 				'forecastperiod' => date( 'Y' ),
 				'maxitem' => 200
 			);
 			$response_GetForecastBussinessResults = get_data_with_cache( 'GetForecastBussinessResults', $array_data_GetForecastBussinessResults, $time_cache );
-			if ( $response_GetForecastBussinessResults ) {
+			if ( $response_GetForecastBussinessResults )
+			{
 				?>
 
 
-				<div class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white ">
-					<div
-						class="text-white bg-primary-300 font-semibold flex items-center min-h-[60px] leading-[1.5] text-center sticky top-0 z-10 overflow-x-auto no-scrollbar scroll-container-header">
+				<div
+					class="rounded-[10px] border border-[#EAEEF4] text-xs font-medium overflow-hidden bg-white ">
+					<div class="overflow-x-auto scroll-bar-custom scroll-bar-x">
 						<div
-							class="w-20 shrink-0 text-center border-r border-[#c3c3c3] flex justify-center flex-col min-h-[60px]">
-							<?php _e( 'Mã CK', 'bsc' ) ?>
-						</div>
-						<div
-							class="min-w-[190px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'Ngành', 'bsc' ) ?>
-						</div>
-						<div
-							class="min-w-[120px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'DTT', 'bsc' ) ?> 		<?php echo date( 'Y' ) ?>
-							<p>(<?php _e( 'tỷ VND', 'bsc' ) ?>)</p>
-						</div>
-						<div
-							class="min-w-[110px] font-semibold flex items-center justify-center min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'LNST', 'bsc' ) ?> <br>
-							<?php _e( 'CĐTS', 'bsc' ) ?>
-
-							<button data-tooltip-target="tooltip-animation1" data-tooltip-placement="bottom" class="ml-1" type="button">
-								<?php echo svg( 'tooltip', '20', '20' ) ?>
-							</button>
-							<div id="tooltip-animation1" role="tooltip"
-								class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
-								<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
-								<div class="tooltip-arrow" data-popper-arrow></div>
+							class="text-white bg-primary-300 font-semibold flex items-center min-h-[60px] leading-[1.5] text-center sticky top-0 z-10 scroll-container-header w-max">
+							<div
+								class="w-20 shrink-0 text-center border-r border-[#c3c3c3] flex justify-center flex-col min-h-[60px]">
+								<?php _e( 'Mã CK', 'bsc' ) ?>
+							</div>
+							<div
+								class="min-w-[190px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'Ngành', 'bsc' ) ?>
+							</div>
+							<div
+								class="min-w-[120px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'DTT', 'bsc' ) ?> 		<?php echo date( 'Y' ) ?>
+								<p>(<?php _e( 'tỷ VND', 'bsc' ) ?>)</p>
+							</div>
+							<div
+								class="min-w-[110px] font-semibold flex items-center justify-center min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'LNST', 'bsc' ) ?> <br>
+								<?php _e( 'CĐTS', 'bsc' ) ?>
+	
+								<button data-tooltip-target="tooltip-animation1" data-tooltip-placement="bottom"
+									class="ml-1" type="button">
+									<?php echo svg( 'tooltip', '20', '20' ) ?>
+								</button>
+								<div id="tooltip-animation1" role="tooltip"
+									class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+									<?php _e( 'Lợi nhuận sau thuế của cổ đông thiểu số', 'bsc' ) ?>
+									<div class="tooltip-arrow" data-popper-arrow></div>
+								</div>
+							</div>
+							<div
+								class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'EPS', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>
+							</div>
+							<div
+								class="min-w-[108px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'P/E FWD', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>
+							</div>
+							<div
+								class="min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'P/B FWD', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>
+							</div>
+							<div
+								class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'ROA (%)', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>
+							</div>
+							<div
+								class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'ROE (%)', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>
+							</div>
+							<div
+								class="min-w-[130px] font-semibold flex items-center justify-center min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'Giá gần nhất', 'bsc' ) ?> <br>
+								<?php $date = new DateTime( $response_GetForecastBussinessResults->d[0]->tradedatebefore );
+								$tradedatebefore = $date->format( 'd/m/Y' );
+								echo $tradedatebefore;
+								?>
+	
+	
+								<button data-tooltip-target="tooltip-animation2" data-tooltip-placement="bottom"
+									class="ml-1" type="button">
+									<?php echo svg( 'tooltip', '20', '20' ) ?>
+								</button>
+								<div id="tooltip-animation2" role="tooltip"
+									class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
+									<?php echo __( 'Giá đóng cửa tại ngày', 'bsc' ) . ' ' . $tradedatebefore ?>
+									<div class="tooltip-arrow" data-popper-arrow></div>
+								</div>
+							</div>
+							<div
+								class="min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
+								<?php _e( 'Giá mục tiêu', 'bsc' ) ?> <br>
+								<?php echo date( 'Y' ) ?>/<?php echo date( 'Y' ) + 1 ?>
+							</div>
+							<div
+								class="2xl:min-w-[105px] min-w-[90px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]">
+								<?php _e( 'Upside', 'bsc' ) ?> <br>
+								(%)
 							</div>
 						</div>
 						<div
-							class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'EPS', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>
+							class="max-h-[600px] overflow-y-auto scroll-bar-custom scroll-bar-x scroll-container-content w-max">
+							<?php
+							$i = 0;
+							$data = $response_GetForecastBussinessResults->d;
+	
+							// Sắp xếp theo trường 'symbol'
+							usort( $data, function ($a, $b) {
+								return strcmp( $a->symbol, $b->symbol );
+							} );
+							foreach ( $data as $GetForecastBussinessResults ) :
+								$i++;
+								?>
+								<ul
+									class="flex items-center text-right w-max <?php echo $i % 6 == 0 ? 'border-b border-[#C9CCD2]' : '' ?>">
+									<li
+										class="w-20 text-primary-300 shrink-0 font-bold px-2 text-left border-r-[0.1px] border-[#c3c3c3] min-h-10 flex items-center justify-center">
+										<?php if ( $GetForecastBussinessResults->symbol ) : ?>
+											<a
+												href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ); ?>">
+												<?php echo $GetForecastBussinessResults->symbol; ?>
+											</a>
+										<?php endif; ?>
+									</li>
+									<li class="w-[190px] text-left pl-3 line-clamp-1">
+										<?php echo $GetForecastBussinessResults->industryname; ?>
+									</li>
+									<li class="min-w-[120px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ); ?>
+									</li>
+									<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php if ( $GetForecastBussinessResults->npatmi )
+										{ ?>
+											<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
+										<?php } ?>
+									</li>
+									<li
+										class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
+									</li>
+									<li class="min-w-[108px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->pe ) ?>
+									</li>
+									<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->pb ) ?>
+									</li>
+									<li
+										class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->roa, false ) . '%'; ?>
+									</li>
+									<li
+										class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->roe, false ) . '%' ?>
+									</li>
+									<li class="min-w-[130px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->closeprice ) ?>
+									</li>
+									<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
+									</li>
+									<li
+										class="2xl:min-w-[105px] min-w-[90px] flex items-center justify-end pr-3 min-h-10">
+										<?php echo $GetForecastBussinessResults->upside ?>
+									</li>
+								</ul>
+	
+							<?php endforeach; ?>
+	
+	
+	
 						</div>
-						<div
-							class="min-w-[108px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'P/E FWD', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>
-						</div>
-						<div
-							class="min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'P/B FWD', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>
-						</div>
-						<div
-							class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'ROA (%)', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>
-						</div>
-						<div
-							class="lg:min-w-[90px] min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'ROE (%)', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>
-						</div>
-						<div
-							class="min-w-[130px] font-semibold flex items-center justify-center min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'Giá gần nhất', 'bsc' ) ?> <br>
-							<?php $date = new DateTime( $response_GetForecastBussinessResults->d[0]->tradedatebefore );
-							$tradedatebefore = $date->format( 'd/m/Y' );
-							echo $tradedatebefore;
-							?>
-
-
-							<button data-tooltip-target="tooltip-animation2" data-tooltip-placement="bottom" class="ml-1" type="button">
-								<?php echo svg( 'tooltip', '20', '20' ) ?>
-							</button>
-							<div id="tooltip-animation2" role="tooltip"
-								class="absolute z-10 invisible inline-block p-2 text-xs font-normal text-black transition-opacity duration-300 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 font-Helvetica max-w-[150px]">
-								<?php echo __( 'Giá đóng cửa tại ngày', 'bsc' ) . ' ' . $tradedatebefore ?>
-								<div class="tooltip-arrow" data-popper-arrow></div>
-							</div>
-						</div>
-						<div
-							class="min-w-[110px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]  relative border-r border-[#c3c3c3]">
-							<?php _e( 'Giá mục tiêu', 'bsc' ) ?> <br>
-							<?php echo date( 'Y' ) ?>/<?php echo date( 'Y' ) + 1 ?>
-						</div>
-						<div
-							class="2xl:min-w-[105px] min-w-[90px] font-semibold flex justify-center flex-col min-h-[60px] leading-[1.5]">
-							<?php _e( 'Upside', 'bsc' ) ?> <br>
-							(%)
-						</div>
-					</div>
-					<div class="max-h-[600px] overflow-y-auto scroll-bar-custom scroll-bar-x scroll-container-content">
-						<?php
-						$i = 0;
-						$data = $response_GetForecastBussinessResults->d;
-
-						// Sắp xếp theo trường 'symbol'
-						usort( $data, function ($a, $b) {
-							return strcmp( $a->symbol, $b->symbol );
-						} );
-						foreach ( $data as $GetForecastBussinessResults ) :
-							$i++;
-							?>
-							<ul
-								class="flex items-center text-right w-max <?php echo $i % 6 == 0 ? 'border-b border-[#C9CCD2]' : '' ?>">
-								<li
-									class="w-20 text-primary-300 shrink-0 font-bold px-2 text-left border-r-[0.1px] border-[#c3c3c3] min-h-10 flex items-center justify-center">
-									<?php if ( $GetForecastBussinessResults->symbol ) : ?>
-										<a href="<?php echo slug_co_phieu( $GetForecastBussinessResults->symbol ); ?>">
-											<?php echo $GetForecastBussinessResults->symbol; ?>
-										</a>
-									<?php endif; ?>
-								</li>
-								<li class="w-[190px] text-left pl-3 line-clamp-1">
-									<?php echo $GetForecastBussinessResults->industryname; ?>
-								</li>
-								<li class="min-w-[120px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->revenue ); ?>
-								</li>
-								<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php if ( $GetForecastBussinessResults->npatmi ) { ?>
-										<?php echo bsc_number_format( $GetForecastBussinessResults->npatmi ) ?>
-									<?php } ?>
-								</li>
-								<li class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->eps ) ?>
-								</li>
-								<li class="min-w-[108px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->pe ) ?>
-								</li>
-								<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->pb ) ?>
-								</li>
-								<li class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->roa, false ) . '%'; ?>
-								</li>
-								<li class="lg:min-w-[90px] min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->roe, false ) . '%' ?>
-								</li>
-								<li class="min-w-[130px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->closeprice ) ?>
-								</li>
-								<li class="min-w-[110px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo bsc_number_format( $GetForecastBussinessResults->pricerecommended ) ?>
-								</li>
-								<li class="2xl:min-w-[105px] min-w-[90px] flex items-center justify-end pr-3 min-h-10">
-									<?php echo $GetForecastBussinessResults->upside ?>
-								</li>
-							</ul>
-
-						<?php endforeach; ?>
-
-
 
 					</div>
+
 				</div>
 
 			<?php }
-		} else {
+		} else
+		{
 			?>
 			<!-- Data Demo -->
 			<div class="relative max-h-[600px] overflow-y-auto scroll-bar-custom">
