@@ -632,8 +632,8 @@
 			</div>
 		</div>
 	</div>
-	<button data-modal-target="popup-login" data-modal-toggle="popup-login" type="button" class="btn-login-trigger"
-		data-url="" data-current=""></button>
+	<div data-modal-target="popup-login" data-modal-toggle="popup-login" type="button" class="btn-login-trigger"
+		data-url="" data-current=""></div>
 <?php } ?>
 
 <?php wp_footer(); ?>
