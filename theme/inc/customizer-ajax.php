@@ -3387,9 +3387,6 @@ function filter_details_symbol() {
 		);
 		$data = get_data_with_cache( 'GetPortfolioPerformance', $array_data, $time_cache );
 
-		$maxValue = 0;
-		$minValue = PHP_INT_MAX;
-
 		if ( $data ) {
 			$stocksData = array();
 			foreach ( $list_array_chart as $chart ) {
@@ -3413,14 +3410,6 @@ function filter_details_symbol() {
 							'portclose' => $portclose,
 							'percentagedifference' => $percentagedifference
 						);
-
-						if ( $portclose > $maxValue ) {
-							$maxValue = $portclose;
-						}
-						if ( $portclose < $minValue ) {
-							$minValue = $portclose;
-						}
-
 						if ( ! $earliestDate || $date < $earliestDate ) {
 							$earliestDate = $date;
 						}
@@ -3430,12 +3419,9 @@ function filter_details_symbol() {
 
 			$fromdate = $earliestDate;
 			$stocksDataJson = json_encode( $stocksData );
-			$maxValue = ceil( $maxValue / 10 ) * 10;
-			$minValue = floor( $minValue / 10 ) * 10;
 			$listArrayJson = htmlspecialchars( json_encode( $list_array_chart ), ENT_QUOTES, 'UTF-8' );
 			?>
 			<div id="chart" data-height="514" data-fromdate="<?php echo $fromdate; ?>" data-time_cache="<?php echo $time_cache; ?>"
-				data-maxvalue="<?php echo $maxValue; ?>" data-minvalue="<?php echo $minValue; ?>"
 				data-stock='<?php echo $stocksDataJson; ?>' data-array="<?php echo $listArrayJson; ?>"></div>
 			<?php
 		}
@@ -4031,9 +4017,6 @@ function filter_details_symbol() {
 		);
 		$data = get_data_with_cache( 'GetPortfolioPerformance', $array_data, $time_cache );
 
-		$maxValue = 0;
-		$minValue = PHP_INT_MAX;
-
 		if ( $data ) {
 			$stocksData = array();
 			foreach ( $list_array_chart as $chart ) {
@@ -4058,13 +4041,6 @@ function filter_details_symbol() {
 							'percentagedifference' => $percentagedifference
 						);
 
-						if ( $portclose > $maxValue ) {
-							$maxValue = $portclose;
-						}
-						if ( $portclose < $minValue ) {
-							$minValue = $portclose;
-						}
-
 						if ( ! $earliestDate || $date < $earliestDate ) {
 							$earliestDate = $date;
 						}
@@ -4074,13 +4050,10 @@ function filter_details_symbol() {
 
 			$fromdate = $earliestDate;
 			$stocksDataJson = json_encode( $stocksData );
-			$maxValue = ceil( $maxValue / 10 ) * 10;
-			$minValue = floor( $minValue / 10 ) * 10;
 			$listArrayJson = htmlspecialchars( json_encode( $list_array_chart ), ENT_QUOTES, 'UTF-8' );
 			?>
 			<div id="chart" data-height="380px" class="h-full" data-fromdate="<?php echo $fromdate ?>"
-				data-time_cache="<?php echo $time_cache ?>" data-maxvalue="<?php echo $maxValue; ?>"
-				data-minvalue="<?php echo $minValue; ?>" data-stock='<?php echo $stocksDataJson ?>'
+				data-time_cache="<?php echo $time_cache ?>" data-stock='<?php echo $stocksDataJson ?>'
 				data-array="<?php echo $listArrayJson; ?>"></div>
 			<?php
 		}

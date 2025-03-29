@@ -478,11 +478,11 @@ import { DataTable } from 'simple-datatables';
 					chartFunctions.forEach(function (functionName) {
 						if (typeof window[functionName] === 'function') {
 							window[functionName]();
-							if (functionName === 'running_chart') {
-								setTimeout(function () {
-									window['running_chart']();
-								}, 1000);
-							}
+							// if (functionName === 'running_chart') {
+							// 	setTimeout(function () {
+							// 		window['running_chart']();
+							// 	}, 1000);
+							// }
 						}
 					});
 				}
@@ -1615,23 +1615,32 @@ import { DataTable } from 'simple-datatables';
 			}
 		});
 
-		function getMaxValue(dataSets) {
-			return (
-				Math.ceil(
-					Math.max(
-						...dataSets.flat().filter((value) => value !== null)
-					) / 100
-				) * 100
-			);
+		function getMaxValue(arrays) {
+			let maxVal = -Infinity;
+			arrays.forEach((arr) => {
+				arr.forEach((val) => {
+					if (val !== null && val > maxVal) {
+						maxVal = val;
+					}
+				});
+			});
+			return maxVal;
 		}
 
-		function updateChart(
-			dataType,
-			dateRange,
-			stocksData,
-			maxYAxisValue,
-			minYAxisValue
-		) {
+		// Hàm tính giá trị nhỏ nhất
+		function getMinValue(arrays) {
+			let minVal = Infinity;
+			arrays.forEach((arr) => {
+				arr.forEach((val) => {
+					if (val !== null && val < minVal) {
+						minVal = val;
+					}
+				});
+			});
+			return minVal;
+		}
+
+		function updateChart(dataType, dateRange, stocksData) {
 			const filteredDateRange = dateRange.filter((date) => {
 				const hasBSC10Data =
 					stocksData[dataType] &&
@@ -1672,29 +1681,24 @@ import { DataTable } from 'simple-datatables';
 					? stocksData[dataType][date].portclose
 					: null
 			);
-
-			const maxValue = getMaxValue([
+			const dynamicMax = getMaxValue([
 				hoseData,
 				vndiamondData,
 				selectedData,
 			]);
-
-			const newYAxisOptions = {
-				min: minYAxisValue,
-				max: maxYAxisValue,
-				tickAmount: 10,
-				labels: {
-					formatter: function (value) {
-						return value.toFixed(0);
-					},
-				},
-			};
+			const dynamicMin = getMinValue([
+				hoseData,
+				vndiamondData,
+				selectedData,
+			]);
+			const yAxisMin = Math.floor(dynamicMin / 10) * 10;
+			const yAxisMax = Math.ceil(dynamicMax / 10) * 10;
 
 			const chartData = [
 				{
 					name: dataType,
 					data: filteredDateRange.map((date) => ({
-						x: new Date(date).getTime(),
+						x: new Date(date + 'T00:00:00').getTime(),
 						y:
 							stocksData[dataType] &&
 							stocksData[dataType][date] &&
@@ -1714,7 +1718,7 @@ import { DataTable } from 'simple-datatables';
 				{
 					name: 'VNINDEX',
 					data: filteredDateRange.map((date) => ({
-						x: new Date(date).getTime(),
+						x: new Date(date + 'T00:00:00').getTime(),
 						y:
 							stocksData['HOSE'] &&
 							stocksData['HOSE'][date] &&
@@ -1733,7 +1737,7 @@ import { DataTable } from 'simple-datatables';
 				{
 					name: 'VNDIAMOND',
 					data: filteredDateRange.map((date) => ({
-						x: new Date(date).getTime(),
+						x: new Date(date + 'T00:00:00').getTime(),
 						y:
 							stocksData['VNDIAMOND'] &&
 							stocksData['VNDIAMOND'][date] &&
@@ -1751,7 +1755,16 @@ import { DataTable } from 'simple-datatables';
 					})),
 				},
 			];
-
+			const newYAxisOptions = {
+				min: yAxisMin,
+				max: yAxisMax,
+				tickAmount: 10,
+				labels: {
+					formatter: function (value) {
+						return value.toFixed(0);
+					},
+				},
+			};
 			jQuery('#chart').empty();
 			handleChart(chartData, newYAxisOptions);
 		}
@@ -1797,28 +1810,14 @@ import { DataTable } from 'simple-datatables';
 				const initialDateRange = get_current_date_chart();
 				var stocksData = $('#chart').attr('data-stock');
 				var first_bsc = $(
-					'section.chart .btn-chart button[data-stt="1"]'
+					'section.chart .btn-chart button.active'
 				).attr('data-chart');
 				if (typeof stocksData === 'string') {
 					stocksData = JSON.parse(stocksData);
 				} else {
 					stocksData = stocksData;
 				}
-				var maxYAxisValue = parseInt(
-					$('#chart').attr('data-maxvalue'),
-					10
-				);
-				var minYAxisValue = parseInt(
-					$('#chart').attr('data-minvalue'),
-					10
-				);
-				updateChart(
-					first_bsc,
-					initialDateRange,
-					stocksData,
-					maxYAxisValue,
-					minYAxisValue
-				);
+				updateChart(first_bsc, initialDateRange, stocksData);
 			}
 		};
 		$(document).on(
@@ -1837,20 +1836,10 @@ import { DataTable } from 'simple-datatables';
 					} else {
 						stocksData = stocksData;
 					}
-					var maxYAxisValue = parseInt(
-						$('#chart').attr('data-maxvalue'),
-						10
-					);
-					var minYAxisValue = parseInt(
-						$('#chart').attr('data-minvalue'),
-						10
-					);
 					updateChart(
 						chart_name,
 						get_current_date_chart(),
-						stocksData,
-						maxYAxisValue,
-						minYAxisValue
+						stocksData
 					);
 				}
 			}
@@ -1925,18 +1914,8 @@ import { DataTable } from 'simple-datatables';
 					} else {
 						newinitialDateRange = dateRange;
 					}
-					var maxYAxisValue = parseInt(data_new.maxvalue, 10);
-					var minYAxisValue = parseInt(data_new.minvalue, 10);
 					$('#chart').attr('data-stock', data_new.data);
-					$('#chart').attr('data-maxvalue', maxYAxisValue);
-					$('#chart').attr('data-minvalue', minYAxisValue);
-					updateChart(
-						activeChart,
-						newinitialDateRange,
-						parsedData,
-						maxYAxisValue,
-						minYAxisValue
-					);
+					updateChart(activeChart, newinitialDateRange, parsedData);
 				},
 				error: function (error) {
 					console.error('Error fetching data:', error);
@@ -4349,7 +4328,6 @@ import { DataTable } from 'simple-datatables';
 				'.block_ttpt .block_ttpt-table-content'
 			).outerHeight(true);
 			$('.block_ttpt-video a').css('height', tableHeightContent + 'px');
-			console.log(tableHeightContent);
 		}
 	};
 	$(document).ready(window.ttnc_khuyen_nghi_height);
@@ -4432,10 +4410,8 @@ import { DataTable } from 'simple-datatables';
 
 	function triggerPopup() {
 		const urlParams = new URLSearchParams(window.location.search);
-		console.log(urlParams);
 
 		const mmgValue = urlParams.get('mmg');
-		console.log(mmgValue);
 
 		if (mmgValue) {
 			const $wrapper = $('.mmg-wrapper[data-mmg="' + mmgValue + '"]');
