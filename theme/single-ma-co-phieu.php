@@ -294,7 +294,7 @@
 									</button>
 								</li>
 							</ul>
-							<div class="tab-content block bsc-ajax-api" id="lichsugiaodich" data-api="lichsugiaodich"
+							<div class="tab-content block bsc-ajax-api font-Helvetica" id="lichsugiaodich" data-api="lichsugiaodich"
 								data-symbol="<?php echo $symbol ?>">
 								<div class="hidden">
 									<div role="status" class="mt-10">
@@ -312,7 +312,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-content hidden" id="ndtnn">
+							<div class="tab-content hidden font-Helvetica" id="ndtnn">
 								<div class="hidden">
 									<div role="status" class="mt-10">
 										<svg aria-hidden="true"

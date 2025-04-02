@@ -3683,7 +3683,7 @@ function filter_details_symbol() {
 				echo ( $current_bsc == $single_bsc ) ? 'block' : 'hidden';
 				?>" id="<?php echo $tab ?>-<?php echo $m ?>">
 					<div
-						class="rounded-lg overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-full' : 'text-xs' ?>">
+						class="rounded-lg overflow-hidden relative font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-full' : 'text-xs' ?>">
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> 
 							<?php
 							if ( $public == 'N' ) {
@@ -3832,7 +3832,7 @@ function filter_details_symbol() {
 		if ( $response_GetForecastMacro ) {
 			?>
 			<div
-				class="font-medium text-xs <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue slider' ?>">
+				class="font-medium text-xs font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'rounded-lg flex overflow-hidden' : 'block_slider-show-1 blue slider' ?>">
 				<div
 					class="text-primary-300 font-medium  <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'border-white border-r-[4px] w-[48.8%]' : 'w-full block_slider-item' ?>">
 					<div
@@ -4102,7 +4102,7 @@ function filter_details_symbol() {
 								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
 									<?php _e( 'Đơn vị tính theo triệu VNĐ', 'bsc' ) ?>
 								</p>
-								<div class="overflow-x-auto">
+								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
@@ -4198,7 +4198,7 @@ function filter_details_symbol() {
 								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
 									<?php _e( 'Đơn vị tính theo triệu VNĐ', 'bsc' ) ?>
 								</p>
-								<div class="overflow-x-auto">
+								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
@@ -4293,7 +4293,7 @@ function filter_details_symbol() {
 								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
 									<?php _e( 'Đơn vị tính theo triệu VNĐ', 'bsc' ) ?>
 								</p>
-								<div class="overflow-x-auto">
+								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
@@ -4388,7 +4388,7 @@ function filter_details_symbol() {
 								<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
 									<?php _e( 'Đơn vị tính theo triệu VNĐ', 'bsc' ) ?>
 								</p>
-								<div class="overflow-x-auto">
+								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
