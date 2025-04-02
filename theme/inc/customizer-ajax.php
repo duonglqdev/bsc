@@ -4104,7 +4104,7 @@ function filter_details_symbol() {
 								</p>
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 2xl:w-full w-max text-right">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4126,7 +4126,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium w-max 2xl:w-full scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium min-[1366px]:w-full w-max scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-balance-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4200,7 +4200,7 @@ function filter_details_symbol() {
 								</p>
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4222,7 +4222,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium min-[1366px]:w-full w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-income-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4295,7 +4295,7 @@ function filter_details_symbol() {
 								</p>
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4317,7 +4317,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium min-[1366px]:w-full w-max scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-cfindrirect-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
@@ -4390,7 +4390,7 @@ function filter_details_symbol() {
 								</p>
 								<div class="overflow-x-auto">
 									<div
-										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 text-right sticky top-0 z-[2] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
+										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
 										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
@@ -4412,7 +4412,7 @@ function filter_details_symbol() {
 										</p>
 									</div>
 									<div
-										class="list_content-collapse font-medium w-max  scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
+										class="list_content-collapse font-medium min-[1366px]:w-full w-max scroll-bar-custom scroll-bar-x max-h-[600px] overflow-y-auto">
 										<?php if ( $industryname == 'Insurance' ) {
 											$menuData = require get_template_directory() . '/data/report_finance-cfdirect-insurance.php';
 										} elseif ( $industryname == 'Security' ) {
