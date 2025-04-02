@@ -1505,4 +1505,8 @@ button#ib-button-messaging {
   @apply hidden;
 }
 
+table > * {
+  font-family: "Helvetica Neue", sans-serif !important;
+}
+
 /*# sourceMappingURL=base.css.map */
