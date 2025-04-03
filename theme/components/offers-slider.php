@@ -17,8 +17,7 @@
 						<?php the_sub_field( 'mota' ) ?>
 					</p>
 				<?php } ?>
-				<div
-					class="md:flex items-center gap-6 mb-7 relative z-[2]">
+				<div class="md:flex items-center gap-6 mb-7 relative z-[2]">
 					<?php if ( have_rows( 'button' ) ) {
 						while ( have_rows( 'button' ) ) :
 							the_row();
@@ -41,14 +40,14 @@
 							the_row();
 							if ( get_sub_field( 'title' ) ) {
 								?>
-									<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
-											echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
-										class="flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs md:mt-0 mt-4' ?>"
-										data-wow-duration="2s">
-										<?php echo svg( 'keyvisual', '24', '24' ) ?>
-										<?php the_sub_field( 'title' ) ?>
-										<?php echo svg( 'arrow-btn', '14', '14' ) ?>
-									</a>
+								<a rel="<?php the_sub_field( 'rel' ) ?>" <?php if ( get_sub_field( 'open_tab' ) )
+										echo 'target="_blank"' ?> href="<?php echo check_link( get_sub_field( 'link' ) ) ?>"
+									class="flex items-center gap-x-[12px] font-bold transition-all duration-500 hover:scale-105 wow fadeIn <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'sm:text-base text-xs md:mt-0 mt-4' ?>"
+									data-wow-duration="2s">
+									<?php echo svg( 'keyvisual', '24', '24' ) ?>
+									<?php the_sub_field( 'title' ) ?>
+									<?php echo svg( 'arrow-btn', '14', '14' ) ?>
+								</a>
 								<?php
 							}
 						endwhile;
@@ -57,7 +56,8 @@
 				</div>
 
 
-				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto' : 'mt-[82px]' ?> relative z-[1]">
+				<div
+					class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-auto' : 'mt-[82px]' ?> relative z-[1]">
 					<?php if ( get_sub_field( 'icon' ) ) { ?>
 						<div
 							class="absolute -z-[1] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-auto -top-28 right-0' : 'w-1/2 -top-4 right-4' ?>  pointer-events-none">
@@ -98,29 +98,82 @@
 						$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
 					}
 				}
-				if ( $response ) {
+				$id_danh_muc_bo_sung = get_sub_field( 'id_danh_muc_bo_sung' );
+				if ( $id_danh_muc_bo_sung ) {
+					$array_data_dmbs = array(
+						'lang' => pll_current_language(),
+						'groupid' => $id_danh_muc_bo_sung,
+						'maxitem' => 5,
+						'index' => 1
+					);
+					$response_dmbs = get_data_with_cache( 'GetNews', $array_data_dmbs, $time_cache );
+				}
+				if ( $response || $response_dmbs ) {
 					?>
 					<div class="block_slider block_slider-show-2 no-dots md:-mx-4 -mx-2 block_sameheight">
-						<?php foreach ( $response->d as $news ) { ?>
-							<div class="block_slider-item md:w-3/5 w-4/5 md:px-4 px-2">
-								<div
-									class="bg-white sameheight_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'p-5' ?> rounded-lg ">
-									<div class="max-h-44 overflow-hidden">
-										<p
-											class="relative font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?> after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
-											<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
-												class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'line-clamp-3' : 'line-clamp-2' ?>">
-												<?php echo htmlspecialchars( $news->title ) ?>
-											</a>
-										</p>
+						<?php
+						$check_stt = 0;
+						foreach ( $response->d as $news ) {
+							if ( $news->promotionended && $news->promotionstarted ) {
+								$endDate = new DateTime( $news->promotionended );
+								$endDate = $endDate->setTime( 0, 0, 0 );
+								$today = new DateTime();
+								$today = $today->setTime( 0, 0, 0 );
+								if ( $today > $endDate ) {
+								} else {
+									$check_stt++;
+									?>
+									<div class="block_slider-item md:w-3/5 w-4/5 md:px-4 px-2">
 										<div
-											class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs text-paragraph font-Helvetica line-clamp-4' ?>">
-											<?php echo htmlspecialchars( $news->description ) ?>
+											class="bg-white sameheight_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'p-5' ?> rounded-lg ">
+											<div class="max-h-44 overflow-hidden">
+												<p
+													class="relative font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?> after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+													<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
+														class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'line-clamp-3' : 'line-clamp-2' ?>">
+														<?php echo htmlspecialchars( $news->title ) ?>
+													</a>
+												</p>
+												<div
+													class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs text-paragraph font-Helvetica line-clamp-4' ?>">
+													<?php echo htmlspecialchars( $news->description ) ?>
+												</div>
+											</div>
+										</div>
+									</div>
+									<?php
+								}
+							}
+						}
+						if ( ( $check_stt < 5 ) && $response_dmbs ) {
+							foreach ( $response_dmbs->d as $news ) {
+								$check_stt++;
+								if ( $check_stt == 5 ) {
+									break;
+								}
+								?>
+								<div class="block_slider-item md:w-3/5 w-4/5 md:px-4 px-2">
+									<div
+										class="bg-white sameheight_item <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'p-8' : 'p-5' ?> rounded-lg ">
+										<div class="max-h-44 overflow-hidden">
+											<p
+												class="relative font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-lg' : 'text-base' ?> after:absolute after:w-[51px] after:h-[2px] after:bottom-0 after:left-0 after:bg-primary-400 mb-4 pb-4 transition-all duration-500 hover:text-primary-500 !leading-tight">
+												<a href="<?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ); ?>"
+													class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'line-clamp-3' : 'line-clamp-2' ?>">
+													<?php echo htmlspecialchars( $news->title ) ?>
+												</a>
+											</p>
+											<div
+												class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs text-paragraph font-Helvetica line-clamp-4' ?>">
+												<?php echo htmlspecialchars( $news->description ) ?>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						<?php } ?>
+								<?php
+							}
+						}
+						?>
 					</div>
 				<?php }
 				?>
