@@ -1116,7 +1116,11 @@ function bsc_register_pdf_proxy_newsroute() {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		$sub_url = pll_translate_string( 'News/NewsAttachedFile', $lang );
-		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([0-9]+)$', 'index.php?news_pdf_id=$matches[1]', 'top' );
+		add_rewrite_rule(
+			'^' . $lang_prefix . $sub_url . '/([0-9\-]+)/?$',
+			'index.php?news_pdf_id=$matches[1]',
+			'top'
+		);
 	}
 }
 add_action( 'init', 'bsc_register_pdf_proxy_newsroute' );
