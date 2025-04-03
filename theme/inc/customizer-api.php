@@ -963,7 +963,13 @@ add_action( 'template_redirect', 'bsc_handle_pdf_proxy_request' );
 function bsc_proxy_newspdf_content() {
 	// Lấy ID từ URL
 	$id = get_query_var( 'news_pdf_id' );
-
+	if ( preg_match( '/^(\d+)-(\d+)$/', $id, $matches ) ) {
+		$id = $matches[1]; // '123123'
+		$number_order = $matches[2]; // '1'
+		$number_order = (int) $number_order;
+	} else {
+		$number_order = null; // hoặc gán giá trị mặc định nếu không có '-'
+	}
 	if ( ! $id ) {
 		wp_redirect( home_url( '/404' ) );
 		exit;
@@ -975,16 +981,57 @@ function bsc_proxy_newspdf_content() {
 			"newstype" => "0"
 		);
 		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
-		if ( $get_news_detail ) {
-			$news = $get_news_detail->d[0];
-			$pdf_url = $news->attachedfileurl;
+		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
+			if ( $get_news_detail && empty( $number_order ) ) {
+				$news = $get_news_detail->d[0];
+				$pdf_url = $news->attachedfileurl;
+			} else {
+				// Nếu không có dữ liệu từ API
+				wp_redirect( home_url( '/404' ) );
+				exit;
+			}
 		} else {
-			// Nếu không có dữ liệu từ API
+			$array_data = array(
+				"id" => $id,
+				"newstype" => "1"
+			);
+			$check_number_order = false;
+			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
+			if ( $get_news_detail ) {
+				$news = $get_news_detail->d[0];
+				if ( is_array( $news->attachedfileurl ) ) {
+					$count_att = count( $news->attachedfileurl );
+					if ( $count_att == 1 ) {
+						$pdf_url = $news->attachedfileurl[0];
+					} else {
+						$i = 0;
+						foreach ( $news->attachedfileurl as $att ) {
+							$i++;
+							if ( $i == $number_order ) {
+								$pdf_url = $att;
+								$check_number_order = true;
+							}
+						}
+						if ( ! $check_number_order ) {
+							wp_redirect( home_url( '/404' ) );
+							exit;
+						}
+					}
+				} else {
+					$pdf_url = $news->attachedfileurl;
+				}
+			} else {
+				// Nếu không có dữ liệu từ API
+				wp_redirect( home_url( '/404' ) );
+				exit;
+			}
+		}
+		if ( empty( $pdf_url ) ) {
 			wp_redirect( home_url( '/404' ) );
 			exit;
 		}
 	}
-	// Tạo URL PDF dựa trên ID
+	// Tạo URL PDF dựa trên ID	
 
 	// Gửi yêu cầu đến URL PDF gốc
 	$args = array(
