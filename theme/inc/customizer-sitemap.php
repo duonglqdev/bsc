@@ -517,8 +517,7 @@ add_action( 'template_redirect', function () {
 							$filter_job->the_post();
 							?>
 							<url>
-								<loc><?php the_permalink() ?>
-								</loc>
+								<loc><?php the_permalink() ?></loc>
 								<lastmod><?php echo get_the_modified_time( 'c' ) ?></lastmod>
 							</url>
 							<?php
@@ -544,11 +543,17 @@ add_action( 'template_redirect', function () {
 					$response_GetEvents = get_data_with_cache( 'GetEvents', $array_data_GetEvents );
 					if ( $response_GetEvents ) {
 						foreach ( $response_GetEvents->d as $GetEvents ) {
+							$date = $GetEvents->exdate;
+							if ( ! empty( $date ) ) {
+								$dt = new DateTime( $date );
+								$only_date = $dt->format( 'Y-m-d' );
+							} else {
+								$only_date = date( 'Y-m-d' );
+							}
 							?>
 							<url>
-								<loc><?php echo slug_calendar( $GetEvents->eventid ) ?>
-								</loc>
-								<lastmod><?php echo $GetEvents->exdate ?></lastmod>
+								<loc><?php echo slug_calendar( $GetEvents->eventid ) ?></loc>
+								<lastmod><?php echo $only_date ?></lastmod>
 							</url>
 						<?php }
 					} ?>
@@ -573,8 +578,7 @@ add_action( 'template_redirect', function () {
 							if ( $news->SYMBOL ) {
 								?>
 								<url>
-									<loc><?php echo slug_co_phieu( $news->SYMBOL ) ?>
-									</loc>
+									<loc><?php echo slug_co_phieu( $news->SYMBOL ) ?></loc>
 									<lastmod><?php echo date( 'Y-m-d' ) ?></lastmod>
 								</url>
 							<?php }
@@ -601,11 +605,17 @@ add_action( 'template_redirect', function () {
 						$response = get_data_with_cache( 'GetReportsBySymbol', $array_data );
 						if ( $response ) {
 							foreach ( $response->d as $news ) {
+								$date = $news->datetimepublished;
+								if ( ! empty( $date ) ) {
+									$dt = new DateTime( $date );
+									$only_date = $dt->format( 'Y-m-d' );
+								} else {
+									$only_date = date( 'Y-m-d' );
+								}
 								?>
 								<url>
-									<loc><?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ) ?>
-									</loc>
-									<lastmod> <?php echo $news->datetimepublished ?></lastmod>
+									<loc><?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ) ?></loc>
+									<lastmod> <?php echo $only_date ?></lastmod>
 								</url>
 								<?php
 							}
@@ -632,11 +642,17 @@ add_action( 'template_redirect', function () {
 						$response_GetNews = get_data_with_cache( 'GetNews', $array_data );
 						if ( $response_GetNews && $response_GetNews->d ) {
 							foreach ( $response_GetNews->d as $news ) {
+								$date = $news->createddate;
+								if ( ! empty( $date ) ) {
+									$dt = new DateTime( $date );
+									$only_date = $dt->format( 'Y-m-d' );
+								} else {
+									$only_date = date( 'Y-m-d' );
+								}
 								?>
 								<url>
-									<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?>
-									</loc>
-									<lastmod><?php echo $news->createddate ?></lastmod>
+									<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+									<lastmod><?php echo $only_date ?></lastmod>
 								</url>
 								<?php
 							}
@@ -663,11 +679,17 @@ add_action( 'template_redirect', function () {
 						$response_GetNews = get_data_with_cache( 'GetNews', $array_data );
 						if ( $response_GetNews && $response_GetNews->d ) {
 							foreach ( $response_GetNews->d as $news ) {
+								$date = $news->createddate;
+								if ( ! empty( $date ) ) {
+									$dt = new DateTime( $date );
+									$only_date = $dt->format( 'Y-m-d' );
+								} else {
+									$only_date = date( 'Y-m-d' );
+								}
 								?>
 								<url>
-									<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?>
-									</loc>
-									<lastmod><?php echo $news->createddate ?></lastmod>
+									<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+									<lastmod><?php echo $only_date ?></lastmod>
 								</url>
 								<?php
 							}
@@ -695,8 +717,7 @@ add_action( 'template_redirect', function () {
 							$filter_job->the_post();
 							?>
 							<url>
-								<loc><?php the_permalink() ?>
-								</loc>
+								<loc><?php the_permalink() ?></loc>
 								<lastmod><?php echo get_the_modified_time( 'c' ) ?></lastmod>
 							</url>
 							<?php
@@ -803,8 +824,7 @@ add_action( 'template_redirect', function () {
 							$filter_job->the_post();
 							?>
 							<url>
-								<loc><?php the_permalink() ?>
-								</loc>
+								<loc><?php the_permalink() ?></loc>
 								<lastmod><?php echo get_the_modified_time( 'c' ) ?></lastmod>
 							</url>
 							<?php
@@ -833,8 +853,7 @@ add_action( 'template_redirect', function () {
 							$filter_job->the_post();
 							?>
 							<url>
-								<loc><?php the_permalink() ?>
-								</loc>
+								<loc><?php the_permalink() ?></loc>
 								<lastmod><?php echo get_the_modified_time( 'c' ) ?></lastmod>
 							</url>
 							<?php
@@ -874,11 +893,17 @@ add_action( 'template_redirect', function () {
 										$response_GetNews = get_data_with_cache( 'GetNews', $array_data_GetNews, $time_cache );
 										if ( $response_GetNews && $response_GetNews->d ) {
 											foreach ( $response_GetNews->d as $news ) {
+												$date = $news->createddate;
+												if ( ! empty( $date ) ) {
+													$dt = new DateTime( $date );
+													$only_date = $dt->format( 'Y-m-d' );
+												} else {
+													$only_date = date( 'Y-m-d' );
+												}
 												?>
 												<url>
-													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?>
-													</loc>
-													<lastmod><?php echo $news->createddate ?></lastmod>
+													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+													<lastmod><?php echo $only_date ?></lastmod>
 												</url>
 											<?php }
 										}
@@ -918,11 +943,17 @@ add_action( 'template_redirect', function () {
 											$response = get_data_with_cache( 'GetReportsBySymbol', $array_data_GetNews );
 											if ( $response ) {
 												foreach ( $response->d as $news ) {
+													$date = $news->datetimepublished;
+													if ( ! empty( $date ) ) {
+														$dt = new DateTime( $date );
+														$only_date = $dt->format( 'Y-m-d' );
+													} else {
+														$only_date = date( 'Y-m-d' );
+													}
 													?>
 													<url>
-														<loc><?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ) ?>
-														</loc>
-														<lastmod> <?php echo $news->datetimepublished ?></lastmod>
+														<loc><?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ) ?></loc>
+														<lastmod> <?php echo $only_date ?></lastmod>
 													</url>
 													<?php
 												}
@@ -963,11 +994,17 @@ add_action( 'template_redirect', function () {
 										$response_GetNews = get_data_with_cache( 'GetNews', $array_data_GetNews, $time_cache );
 										if ( $response_GetNews && $response_GetNews->d ) {
 											foreach ( $response_GetNews->d as $news ) {
+												$date = $news->createddate;
+												if ( ! empty( $date ) ) {
+													$dt = new DateTime( $date );
+													$only_date = $dt->format( 'Y-m-d' );
+												} else {
+													$only_date = date( 'Y-m-d' );
+												}
 												?>
 												<url>
-													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?>
-													</loc>
-													<lastmod><?php echo $news->createddate ?></lastmod>
+													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+													<lastmod><?php echo $only_date ?></lastmod>
 												</url>
 											<?php }
 										}
@@ -1006,11 +1043,17 @@ add_action( 'template_redirect', function () {
 										$response_GetNews = get_data_with_cache( 'GetNews', $array_data_GetNews, $time_cache );
 										if ( $response_GetNews && $response_GetNews->d ) {
 											foreach ( $response_GetNews->d as $news ) {
+												$date = $news->createddate;
+												if ( ! empty( $date ) ) {
+													$dt = new DateTime( $date );
+													$only_date = $dt->format( 'Y-m-d' );
+												} else {
+													$only_date = date( 'Y-m-d' );
+												}
 												?>
 												<url>
-													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?>
-													</loc>
-													<lastmod><?php echo $news->createddate ?></lastmod>
+													<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+													<lastmod><?php echo $only_date ?></lastmod>
 												</url>
 											<?php }
 										}

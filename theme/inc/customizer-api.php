@@ -153,14 +153,6 @@ function custom_template_redirect() {
 			"newstype" => "0"
 		);
 		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
-		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
-		} else {
-			$array_data = array(
-				"id" => $news_id,
-				"newstype" => "1"
-			);
-			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
-		}
 		if ( $get_news_detail ) {
 			// Lấy chi tiết tin tức từ API response
 			$news = $get_news_detail->d[0];
@@ -226,14 +218,6 @@ function custom_template_redirect_news_mck() {
 			"newstype" => "1"
 		);
 		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
-		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
-		} else {
-			$array_data = array(
-				"id" => $news_id_mck,
-				"newstype" => "0"
-			);
-			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
-		}
 		if ( $get_news_detail ) {
 			// Lấy chi tiết tin tức từ API response
 			$news = $get_news_detail->d[0];
@@ -883,7 +867,9 @@ function bsc_proxy_pdf_content() {
 	$response = wp_remote_get( $pdf_url, $args );
 	if ( is_wp_error( $response ) ) {
 		$error_message = $response->get_error_message();
-		wp_die( 'Không thể tải nội dung file. Lỗi: ' . $error_message );
+		// wp_die( 'Không thể tải nội dung file. Lỗi: ' . $error_message );
+		wp_redirect( home_url( '/404' ) );
+		exit;
 	}
 
 	// 5. Lấy Content-Type từ header trả về
@@ -896,7 +882,9 @@ function bsc_proxy_pdf_content() {
 	// 6. Lấy nội dung file
 	$body = wp_remote_retrieve_body( $response );
 	if ( ! $body ) {
-		wp_die( 'Nội dung file trống hoặc không khả dụng.' );
+		// wp_die( 'Nội dung file trống hoặc không khả dụng.' );
+		wp_redirect( home_url( '/404' ) );
+		exit;
 	}
 
 	// 7. Lấy extension từ URL (dùng parse_url + pathinfo)
@@ -975,7 +963,13 @@ add_action( 'template_redirect', 'bsc_handle_pdf_proxy_request' );
 function bsc_proxy_newspdf_content() {
 	// Lấy ID từ URL
 	$id = get_query_var( 'news_pdf_id' );
-
+	if ( preg_match( '/^(\d+)-(\d+)$/', $id, $matches ) ) {
+		$id = $matches[1]; // '123123'
+		$number_order = $matches[2]; // '1'
+		$number_order = (int) $number_order;
+	} else {
+		$number_order = null; // hoặc gán giá trị mặc định nếu không có '-'
+	}
 	if ( ! $id ) {
 		wp_redirect( home_url( '/404' ) );
 		exit;
@@ -988,23 +982,56 @@ function bsc_proxy_newspdf_content() {
 		);
 		$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
 		if ( ! empty( $get_news_detail->d ) && is_array( $get_news_detail->d ) ) {
+			if ( $get_news_detail && empty( $number_order ) ) {
+				$news = $get_news_detail->d[0];
+				$pdf_url = $news->attachedfileurl;
+			} else {
+				// Nếu không có dữ liệu từ API
+				wp_redirect( home_url( '/404' ) );
+				exit;
+			}
 		} else {
 			$array_data = array(
 				"id" => $id,
 				"newstype" => "1"
 			);
+			$check_number_order = false;
 			$get_news_detail = get_data_with_cache( 'GetNewsDetail', $array_data, $time_cache );
+			if ( $get_news_detail ) {
+				$news = $get_news_detail->d[0];
+				if ( is_array( $news->attachedfileurl ) ) {
+					$count_att = count( $news->attachedfileurl );
+					if ( $count_att == 1 ) {
+						$pdf_url = $news->attachedfileurl[0];
+					} else {
+						$i = 0;
+						foreach ( $news->attachedfileurl as $att ) {
+							$i++;
+							if ( $i == $number_order ) {
+								$pdf_url = $att;
+								$check_number_order = true;
+							}
+						}
+						if ( ! $check_number_order ) {
+							wp_redirect( home_url( '/404' ) );
+							exit;
+						}
+					}
+				} else {
+					$pdf_url = $news->attachedfileurl;
+				}
+			} else {
+				// Nếu không có dữ liệu từ API
+				wp_redirect( home_url( '/404' ) );
+				exit;
+			}
 		}
-		if ( $get_news_detail ) {
-			$news = $get_news_detail->d[0];
-			$pdf_url = $news->attachedfileurl;
-		} else {
-			// Nếu không có dữ liệu từ API
-			// wp_redirect(home_url('/404'));
-			// exit;
+		if ( empty( $pdf_url ) ) {
+			wp_redirect( home_url( '/404' ) );
+			exit;
 		}
 	}
-	// Tạo URL PDF dựa trên ID
+	// Tạo URL PDF dựa trên ID	
 
 	// Gửi yêu cầu đến URL PDF gốc
 	$args = array(
@@ -1017,7 +1044,9 @@ function bsc_proxy_newspdf_content() {
 	$response = wp_remote_get( $pdf_url, $args );
 	if ( is_wp_error( $response ) ) {
 		$error_message = $response->get_error_message();
-		wp_die( 'Không thể tải nội dung file. Lỗi: ' . $error_message );
+		// wp_die( 'Không thể tải nội dung file. Lỗi: ' . $error_message );
+		wp_redirect( home_url( '/404' ) );
+		exit;
 	}
 
 	// 5. Lấy Content-Type từ header trả về
@@ -1030,7 +1059,9 @@ function bsc_proxy_newspdf_content() {
 	// 6. Lấy nội dung file
 	$body = wp_remote_retrieve_body( $response );
 	if ( ! $body ) {
-		wp_die( 'Nội dung file trống hoặc không khả dụng.' );
+		// wp_die( 'Nội dung file trống hoặc không khả dụng.' );
+		wp_redirect( home_url( '/404' ) );
+		exit;
 	}
 
 	// 7. Lấy extension từ URL (dùng parse_url + pathinfo)
@@ -1085,7 +1116,11 @@ function bsc_register_pdf_proxy_newsroute() {
 		// Thêm tiền tố ngôn ngữ nếu không phải ngôn ngữ mặc định
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		$sub_url = pll_translate_string( 'News/NewsAttachedFile', $lang );
-		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([0-9]+)$', 'index.php?news_pdf_id=$matches[1]', 'top' );
+		add_rewrite_rule(
+			'^' . $lang_prefix . $sub_url . '/([0-9\-]+)/?$',
+			'index.php?news_pdf_id=$matches[1]',
+			'top'
+		);
 	}
 }
 add_action( 'init', 'bsc_register_pdf_proxy_newsroute' );

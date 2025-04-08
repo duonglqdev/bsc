@@ -1072,6 +1072,26 @@
                             "append": ""
                         },
                         {
+                            "key": "field_67ee53dac74de",
+                            "label": "ID danh mục bổ sung",
+                            "name": "id_danh_muc_bo_sung",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_671f89f8cc35b",
                             "label": "Time Cache",
                             "name": "t2_time_cache",
@@ -17218,5 +17238,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737383643
+    "modified": 1743672304
 }
