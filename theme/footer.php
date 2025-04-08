@@ -460,7 +460,7 @@
 			</div>
 
 			<div
-				class="font-Helvetica space-y-4 document-modal-content pr-4 mb-12 scroll-bar-custom max-h-80 overflow-y-auto font-content text-justify">
+				class="font-Helvetica space-y-4 document-modal-content pr-4 mb-12 scroll-bar-custom max-h-80 overflow-y-auto font-content text-justify prose-a:text-primary-300">
 
 			</div>
 			<div class="hidden document-popup-loading">

@@ -4105,7 +4105,7 @@ function filter_details_symbol() {
 								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]">
-										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
+										<p class="flex-1 min-w-[200px] text-left xl:max-w-[356px]"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4201,7 +4201,7 @@ function filter_details_symbol() {
 								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
+										<p class="flex-1 min-w-[200px] text-left xl:max-w-[356px]"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4296,7 +4296,7 @@ function filter_details_symbol() {
 								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
+										<p class="flex-1 min-w-[200px] text-left xl:max-w-[356px]"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
@@ -4391,7 +4391,7 @@ function filter_details_symbol() {
 								<div class="overflow-x-auto font-Helvetica">
 									<div
 										class="flex bg-primary-300 text-white font-bold 2xl:gap-10 gap-5 px-[30px] py-4 min-[1366px]:w-full w-max text-right sticky top-0 z-[2]<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'w-max' ?>">
-										<p class="flex-1 min-w-[200px] text-left"><?php _e( 'Danh sách', 'bsc' ) ?></p>
+										<p class="flex-1 min-w-[200px] text-left xl:max-w-[356px]"><?php _e( 'Danh sách', 'bsc' ) ?></p>
 										<?php
 										$yearData = $response_GetDetailFinanceReportBySymbol->d[0];
 										$yearDataArray = (array) $yearData;
