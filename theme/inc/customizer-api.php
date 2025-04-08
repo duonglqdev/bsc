@@ -169,7 +169,8 @@ function custom_template_redirect() {
 			exit; // Dừng WordPress để tránh bị 404
 		} else {
 			// Nếu không có dữ liệu từ API
-			wp_redirect( home_url( '/404' ) );
+			$redirect_url = get_field( 'cdc7_page_tin_tuc_tong', 'option' );
+			wp_redirect( $redirect_url ? $redirect_url : home_url( '/404' ) );
 			exit;
 		}
 	}
@@ -234,7 +235,8 @@ function custom_template_redirect_news_mck() {
 			exit; // Dừng WordPress để tránh bị 404
 		} else {
 			// Nếu không có dữ liệu từ API
-			wp_redirect( home_url( '/404' ) );
+			$redirect_url = get_field( 'cdc7_page_tin_tuc_tong', 'option' );
+			wp_redirect( $redirect_url ? $redirect_url : home_url( '/404' ) );
 			exit;
 		}
 	}
