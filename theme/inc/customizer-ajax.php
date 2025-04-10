@@ -3448,9 +3448,9 @@ function filter_details_symbol() {
 							<div
 								class="flex-1 min-w-[110px] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'min-h-[60px] py-1' : 'py-[12px]' ?> flex items-center justify-center leading-[1.125] px-3 font-semibold">
 								<?php
-								$status = $list_bsc->hinhthuc;
+								$status = $list_bsc->idhinhthuc;
 								$check_status = get_color_by_number_bsc( $status );
-								$title_status = $check_status['title_status'];
+								$title_status = $list_bsc->hinhthuc;
 								$text_status = $check_status['text_status'];
 								$background_status = $check_status['background_status'];
 								?>
