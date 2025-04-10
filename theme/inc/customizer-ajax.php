@@ -3454,7 +3454,7 @@ function filter_details_symbol() {
 								$text_status = $check_status['text_status'];
 								$background_status = $check_status['background_status'];
 								?>
-								<?php if ( $list_bsc->hinhthuc ) { ?>
+								<?php if ( $list_bsc->idhinhthuc ) { ?>
 									<span
 										class="min-w-[78px] min-h-[28px] inline-flex items-center justify-center px-4 py-0.5 font-semibold rounded-full"
 										style=" background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
@@ -3735,15 +3735,15 @@ function filter_details_symbol() {
 															href="<?php echo slug_co_phieu( $list_bsc->machungkhoan ) ?>"><?php echo $list_bsc->machungkhoan ?></a>
 													</li>
 													<?php
-													$status = $list_bsc->hinhthuc;
+													$status = $list_bsc->idhinhthuc;
 													$check_status = get_color_by_number_bsc( $status );
-													$title_status = $check_status['title_status'];
+													$title_status = $list_bsc->hinhthuc;
 													$text_status = $check_status['text_status'];
 													$background_status = $check_status['background_status'];
 													?>
 													<li
 														class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[16%]' : 'w-[16%] py-3 min-w-[96px]' ?> font-medium">
-														<?php if ( $list_bsc->hinhthuc ) { ?>
+														<?php if ( $list_bsc->idhinhthuc ) { ?>
 															<span class="inline-block rounded-[45px] px-4 py-0.5  min-w-[78px]"
 																style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
 																<?php
