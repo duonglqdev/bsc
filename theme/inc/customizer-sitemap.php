@@ -863,6 +863,78 @@ add_action( 'template_redirect', function () {
 				</urlset>
 				<?php
 				exit;
+			} elseif ( $custom_sitemap == 'news' ) {
+				if ( get_field( 'cdc9_sitemap_post_new', 'option' ) ) {
+					$post_per_page = get_field( 'cdc9_sitemap_number_news', 'option' ) ?: 10;
+					$groupid = get_field( 'cdc9_sitemap_post_new', 'option' );
+					?>
+					<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+						xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd"
+						xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+						<?php
+						$array_data = array(
+							'lang' => pll_current_language(),
+							'groupid' => $groupid,
+							'maxitem' => $post_per_page,
+							'index' => $index,
+						);
+						$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
+						if ( $response ) {
+							foreach ( $response->d as $news ) {
+								$date = $news->createddate;
+								if ( ! empty( $date ) ) {
+									$dt = new DateTime( $date );
+									$only_date = $dt->format( 'Y-m-d' );
+								} else {
+									$only_date = date( 'Y-m-d' );
+								}
+								?>
+								<url>
+									<loc><?php echo slug_news( htmlspecialchars( $news->newsid ), htmlspecialchars( $news->title ) ) ?></loc>
+									<lastmod><?php echo $only_date ?></lastmod>
+								</url>
+								<?php
+							}
+						} ?>
+					</urlset>
+					<?php
+					exit;
+				}
+			} elseif ( $custom_sitemap == 'bao-cao-phan-tich' ) {
+				$post_per_page = get_field( 'cdc9_sitemap_number_news', 'option' ) ?: 10;
+				?>
+				<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+					xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd"
+					xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+					<?php
+					$array_data = array(
+						'lang' => pll_current_language(),
+						'maxitem' => $post_per_page,
+						'index' => $index,
+					);
+					$response = get_data_with_cache( 'GetReportsBySymbol', $array_data, $time_cache );
+					if ( $response ) {
+						foreach ( $response->d as $news ) {
+							$date = $news->datetimepublished;
+							if ( ! empty( $date ) ) {
+								$dt = new DateTime( $date );
+								$only_date = $dt->format( 'Y-m-d' );
+							} else {
+								$only_date = date( 'Y-m-d' );
+							}
+							?>
+							<url>
+								<loc><?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ) ?></loc>
+								<lastmod> <?php echo $only_date ?></lastmod>
+							</url>
+							<?php
+						}
+					} ?>
+				</urlset>
+				<?php
+				exit;
 			} else {
 				$excluded_category_id = get_array_id_taxonomy_hide( 'category' );
 				$terms = get_terms( array(

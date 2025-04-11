@@ -203,5 +203,5 @@ require get_template_directory() . '/inc/customizer-sitemap.php';
 /**
  * Hide Custom Theme
  */
-define( 'DISALLOW_FILE_EDIT', true );
-add_filter( 'acf/settings/show_admin', '__return_false' );
+// define( 'DISALLOW_FILE_EDIT', true );
+// add_filter( 'acf/settings/show_admin', '__return_false' );
