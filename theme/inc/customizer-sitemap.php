@@ -1,9 +1,14 @@
 <?php
 add_action( 'init', function () {
 	// Thêm rewrite rules cho sitemap index và các sitemap con
-	add_rewrite_rule( 'sitemap_index\.xml$', 'index.php?custom_sitemap=index', 'top' );
-	add_rewrite_rule( '([^/]+)-sitemap\.xml$', 'index.php?custom_sitemap=$matches[1]', 'top' );
-	add_rewrite_rule( '([^/]+)-sitemap-([0-9]+)\.xml$', 'index.php?custom_sitemap=$matches[1]&sitemap_page=$matches[2]', 'top' );
+	$languages = pll_languages_list( 'slug' ); // Lấy tất cả các ngôn ngữ
+	$default_language = pll_default_language(); // Lấy ngôn ngữ mặc định
+	foreach ( $languages as $lang ) {
+		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
+		add_rewrite_rule( '^' . $lang_prefix . 'sitemap_index\.xml$', 'index.php?custom_sitemap=index', 'top' );
+		add_rewrite_rule( '^' . $lang_prefix . '([^/]+)-sitemap\.xml$', 'index.php?custom_sitemap=$matches[1]', 'top' );
+		add_rewrite_rule( '^' . $lang_prefix . '([^/]+)-sitemap-([0-9]+)\.xml$', 'index.php?custom_sitemap=$matches[1]&sitemap_page=$matches[2]', 'top' );
+	}
 } );
 
 add_filter( 'query_vars', function ($query_vars) {
