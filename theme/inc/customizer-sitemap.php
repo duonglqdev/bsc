@@ -901,7 +901,7 @@ add_action( 'template_redirect', function () {
 					<?php
 					exit;
 				}
-			} elseif ( $custom_sitemap == 'bao-cao-phan-tich' ) {
+			} elseif ( $custom_sitemap == 'reports' ) {
 				$post_per_page = get_field( 'cdc9_sitemap_number_news', 'option' ) ?: 10;
 				?>
 				<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
