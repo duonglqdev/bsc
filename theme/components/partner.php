@@ -24,7 +24,7 @@
         ?>
             <!-- Slider cho PC (hiển thị tất cả ảnh) -->
 			 <?php if ( !wp_is_mobile() && !bsc_is_mobile()) { ?> 
-				<div class="block__slider-marquee marquee-rtl block_slider-show-6 partner_list !hidden md:block">
+				<div class="block__slider-marquee marquee-rtl block_slider-show-6 partner_list hidden md:block">
 					<?php 
 					foreach ($gallery_items as $item) : 
 					?>
