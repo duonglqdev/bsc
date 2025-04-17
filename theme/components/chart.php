@@ -218,27 +218,13 @@
 									</p>
 								<?php } ?>
 								<?php
-								$categoryid_kn = get_field( 'cddmkn1_id_danh_muc', 'option' );
-								if ( $categoryid_kn ) {
 									$array_data = array(
 										'lang' => pll_current_language(),
-										'maxitem' => 5,
-										'categoryid' => $categoryid_kn,
-										"recommendation" => 3
+										'top' => 5,
+										"recommendation" => 5
 									);
-									$response = get_data_with_cache( 'GetReportsBySymbol', $array_data, $time_cache );
+									$response = get_data_with_cache( 'GetTopReportsRecommended', $array_data, $time_cache );
 									if ( $response ) {
-										$count = count( $response->d );
-										if ( $count < 5 ) {
-											$total = 5 - $count;
-											$array_data_more = array(
-												'lang' => pll_current_language(),
-												'maxitem' => $total,
-												'categoryid' => $categoryid_kn,
-												"recommendation" => 4
-											);
-											$response_more = get_data_with_cache( 'GetReportsBySymbol', $array_data_more, $time_cache );
-										}
 										?>
 										<ul class="space-y-4">
 											<?php foreach ( $response->d as $news ) {
@@ -304,71 +290,9 @@
 												</li>
 												<?php
 											}
-											if ( $response_more ) {
-												foreach ( $response_more->d as $news ) {
-													?>
-													<li
-														class="flex font-bold gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-														<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
-															class="line-clamp-1 flex-1">
-															<?php echo htmlspecialchars( $news->symbols ) ?>
-															<?php if ( $news->upside ) { ?>
-																<span
-																	style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars( $news->upside ) ?>)</span>
-															<?php } ?>
-															<?php if ( $title_status != '' ) { ?>
-																<span style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
-															<?php } ?> - <?php echo htmlspecialchars( $news->title ) ?>
-														</a>
-														<p
-															class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-															<?php _e( 'Hot', 'bsc' ) ?>
-														</p>
-														<?php if ( $news->reporturl ) {
-															$check_log = false;
-															$url_download = slug_file_report( htmlspecialchars( $news->id ) );
-															$viewerpermission = $news->viewerpermission;
-															if ( $viewerpermission == 'USER_BSC' ) {
-																$datetimeopen = $news->datetimeopen;
-																if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
-																	if ( bsc_is_user_logged_out() ) {
-																		$check_log = true;
-																		$url_download = bsc_url_sso( $url_download );
-																	}
-																}
-															}
-															?>
-															<p class="min-w-5">
-																<?php if ( $check_log ) {
-																	$current_url = home_url( $_SERVER['REQUEST_URI'] );
-																	?>
-																	<button type="button"
-																		data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
-																		class="bsc_login_checker">
-																		<?php
-																} else { ?>
-																		<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
-																			data-id="<?php echo $news->id; ?>">
-																		<?php } ?>
-																		<?php echo svg( 'download', '20', '20' ) ?>
-																		<?php if ( $check_log ) {
-																			?>
-																	</button>
-																	<?php
-																		} else {
-																			?>
-																	</a>
-																<?php } ?>
-															</p>
-														<?php } ?>
-													</li>
-													<?php
-												}
-											}
 											?>
 										</ul>
 									<?php }
-								}
 								?>
 								<?php if ( have_rows( 'button_xem_them' ) ) {
 									while ( have_rows( 'button_xem_them' ) ) :
