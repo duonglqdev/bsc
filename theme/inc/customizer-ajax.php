@@ -2853,7 +2853,7 @@ function filter_details_symbol()
 									</div>
 								<?php } ?>
 								<?php
-								if ($response_GetForecastBussiness->d1[0]->RECOMMENDATION) {
+								if (isset($response_GetForecastBussiness->d1[0]->RECOMMENDATION)) {
 									$status = $response_GetForecastBussiness->d1[0]->RECOMMENDATION;
 									$check_status = get_color_by_number_bsc($status);
 									$title_status = $check_status['title_status'];
