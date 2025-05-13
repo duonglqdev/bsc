@@ -3680,6 +3680,15 @@ function filter_details_symbol()
 				<div class="tab-content <?php
 										echo ($current_bsc == $single_bsc) ? 'block' : 'hidden';
 										?>" id="<?php echo $tab ?>-<?php echo $m ?>">
+					<?php if (get_field('cdc7_page_danh_muc_khuyen_nghi', 'option')) { ?>
+						<div class="text-right">
+							<a href="<?php echo get_the_permalink(get_field('cdc7_page_danh_muc_khuyen_nghi', 'option')) ?>?mck=<?php echo $single_bsc ?>"
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 mb-4">
+								<?php echo svg('arrow-btn', '16', '16') ?>
+								<?php _e('Xem chi tiết', 'bsc') ?>
+							</a>
+						</div>
+					<?php } ?>
 					<div
 						class="rounded-lg overflow-hidden relative font-Helvetica <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-full' : 'text-xs' ?>">
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'overflow-x-auto scroll-bar-custom scroll-bar-x' ?> 
