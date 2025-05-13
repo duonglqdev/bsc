@@ -17211,6 +17211,56 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_682378b1682b9": {
+                    "key": "layout_682378b1682b9",
+                    "name": "margin_list_ck",
+                    "label": "[Margin] Danh mục chứng khoán",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_682378b1682ba",
+                            "label": "ID Class",
+                            "name": "id_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_682378be682bb",
+                            "label": "Tiêu đề",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -17238,5 +17288,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743672304
+    "modified": 1747155156
 }
