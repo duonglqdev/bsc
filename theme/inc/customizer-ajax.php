@@ -1065,6 +1065,9 @@ function filter_details_symbol()
 					<?php } ?>
 				<?php } ?>
 			</div>
+			<p class="text-right lg:text-lg text-xs italic font-medium mb-[12px] mr-1">
+				<?php _e('Đơn vị tính theo triệu VNĐ', 'bsc') ?>
+			</p>
 			<?php
 			$freq_cttc = array('Q', 'Y');
 			if ($freq_cttc) {
