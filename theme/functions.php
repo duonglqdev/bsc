@@ -203,6 +203,11 @@ require get_template_directory() . '/inc/customizer-cf7.php';
 require get_template_directory() . '/inc/customizer-sitemap.php';
 
 /**
+ * Customizer User.
+ */
+require get_template_directory() . '/inc/customizer-user.php';
+
+/**
  * Hide Custom Theme
  */
 // define( 'DISALLOW_FILE_EDIT', true );
