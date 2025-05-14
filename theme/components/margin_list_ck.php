@@ -31,7 +31,7 @@
                     <tr>
                         <td><?php echo $i ?></td>
                         <td><?php echo $news->SYMBOL ?></td>
-                        <td>Tên công ty sẽ hiển thị ở đây</td>
+                        <td><?php echo $news->ISSUERNAME ?></td>
                         <td><?php echo $news->MRRATIORATE ?></td>
                     </tr>
                 <?php } ?>
