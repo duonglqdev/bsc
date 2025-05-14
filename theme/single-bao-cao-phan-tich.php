@@ -2,6 +2,7 @@
 if ($args['data']) {
 	$news = $args['data'];
 	$authorid = $news->authorid;
+	$symbol = $news->symbols;
 	$get_array_id_taxonomy = get_array_id_taxonomy('danh-muc-bao-cao-phan-tich');
 	$time_cache = get_field('cdbcpt2_time_cache', 'option') ?: 300;
 	$link = 'javascript:void(0)';
@@ -219,73 +220,125 @@ get_header();
 	</section>
 	<?php
 	if ($args['data'] && $categoryid) {
-		$array_data = array(
-			'lang' => pll_current_language(),
-			'maxitem' => 7,
-			'categoryid' => $categoryid,
-		);
-		$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
-
-		$array_data_author = array(
-			'lang' => pll_current_language(),
-			'maxitem' => 7,
-			'authorid' => $authorid
-		);
-		$response_author = get_data_with_cache('GetReportsBySymbol', $array_data_author, $time_cache);
-
-		// Chỉ xử lý nếu có dữ liệu
-		if ($response || $response_author) {
-			$rendered_ids = []; // Dùng để kiểm tra trùng
-			$final_posts = [];
-
-			// Lấy tối đa 3 bài từ response
-			if ($response && isset($response->d)) {
-				foreach ($response->d as $item) {
-					if (count($final_posts) >= 3) break;
-
-					if (
-						$item->id != $id_current_post &&
-						!in_array($item->id, $rendered_ids)
-					) {
-						$final_posts[] = $item;
-						$rendered_ids[] = $item->id;
-					}
-				}
+		$khoi_template = 'taxonomy';
+		if ($news->categoryid) {
+			$categoryid = $news->categoryid;
+			$term = get_name_by_tax_id($categoryid, $get_array_id_taxonomy);
+			if ($term) {
+				$link = get_term_link($term);
+				$khoi_template = get_field('khoi_template', $term);
 			}
+		}
+		if ($khoi_template == 'price') {
+			$array_data = array(
+				'lang' => pll_current_language(),
+				'maxitem' => 7,
+				'symbol' => $symbol,
+			);
+			$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
 
-			// Lấy tối đa 3 bài từ response_author
-			if ($response_author && isset($response_author->d)) {
-				foreach ($response_author->d as $item) {
-					if (count($final_posts) >= 6) break;
+			$array_data_author = array(
+				'lang' => pll_current_language(),
+				'maxitem' => 7,
+				'authorid' => $authorid
+			);
+			$response_author = get_data_with_cache('GetReportsBySymbol', $array_data_author, $time_cache);
 
-					if (
-						$item->id != $id_current_post &&
-						!in_array($item->id, $rendered_ids)
-					) {
-						$final_posts[] = $item;
-						$rendered_ids[] = $item->id;
-					}
-				}
-			}
-	?>
-			<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
-				<div class="container">
-					<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center text-[32px] md:text-2xl mb-8' : ' text-xl mb-6' ?>">
-						<?php echo __('Các', 'bsc') . ' ' . $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
-					</h3>
-					<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-3 md:grid-cols-2 gap-6' : ' md:grid-cols-2 grid-cols-1 gap-4' ?>">
-						<?php
-						foreach ($final_posts as $news) {
-							get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
-								'data' => $news,
-								'get_array_id_taxonomy' => $get_array_id_taxonomy,
-							));
+			// Chỉ xử lý nếu có dữ liệu
+			if ($response || $response_author) {
+				$rendered_ids = []; // Dùng để kiểm tra trùng
+				$final_posts = [];
+
+				// Lấy tối đa 3 bài từ response
+				if ($response && isset($response->d)) {
+					foreach ($response->d as $item) {
+						if (count($final_posts) >= 3) break;
+
+						if (
+							$item->id != $id_current_post &&
+							!in_array($item->id, $rendered_ids)
+						) {
+							$final_posts[] = $item;
+							$rendered_ids[] = $item->id;
 						}
-						?>
+					}
+				}
+
+				// Lấy tối đa 3 bài từ response_author
+				if ($response_author && isset($response_author->d)) {
+					foreach ($response_author->d as $item) {
+						if (count($final_posts) >= 6) break;
+
+						if (
+							$item->id != $id_current_post &&
+							!in_array($item->id, $rendered_ids)
+						) {
+							$final_posts[] = $item;
+							$rendered_ids[] = $item->id;
+						}
+					}
+				}
+				usort($final_posts, function ($a, $b) {
+					$dateA = new DateTime($a->datetimepublished);
+					$dateB = new DateTime($b->datetimepublished);
+					return $dateB <=> $dateA;
+				});
+	?>
+				<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+					<div class="container">
+						<h3 class="font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-center text-[32px] md:text-2xl mb-8' : ' text-xl mb-6' ?>">
+							<?php echo __('Các', 'bsc') . ' ' . $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
+						</h3>
+						<div class="grid <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:grid-cols-3 md:grid-cols-2 gap-6' : ' md:grid-cols-2 grid-cols-1 gap-4' ?>">
+							<?php
+							foreach ($final_posts as $news) {
+								get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+									'data' => $news,
+									'get_array_id_taxonomy' => $get_array_id_taxonomy,
+								));
+							}
+							?>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			<?php
+			}
+		} else {
+			$array_data = array(
+				'lang' => pll_current_language(),
+				'maxitem' => 7,
+				'categoryid' => $categoryid
+			);
+			$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
+			if ($response) {
+			?>
+				<section class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
+					<div class="container">
+						<h3
+							class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-center text-[32px] md:text-2xl mb-8' : ' text-xl mb-6' ?>">
+							<?php echo __('Các', 'bsc') . ' ' . $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
+						</h3>
+						<div
+							class="grid <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:grid-cols-3 md:grid-cols-2 gap-6' : ' md:grid-cols-2 grid-cols-1 gap-4' ?>">
+							<?php
+							$check_p = 0;
+							foreach ($response->d as $news) {
+								if ($check_p < 6) {
+									if ($id_current_post != $news->id) {
+										$check_p++;
+										get_template_part('template-parts/content', 'bao-cao-phan-tich', array(
+											'data' => $news,
+											'get_array_id_taxonomy' => $get_array_id_taxonomy,
+										));
+									}
+								}
+							}
+							?>
+						</div>
+					</div>
+				</section>
 	<?php
+			}
 		}
 	}
 	?>

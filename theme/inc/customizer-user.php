@@ -27,3 +27,17 @@ add_action('admin_head', function () {
         </style>
 <?php }
 });
+
+add_action('pre_get_posts', function ($query) {
+    $khu_vuc_quan_ly = get_field('khu_vuc_quan_ly', 'user_' . get_current_user_id());
+    if (is_admin() && $query->is_main_query() && current_user_can('phcns_hs') && ($query->get('post_type') === 'tuyen-dung') && $khu_vuc_quan_ly) {
+
+        $query->set('tax_query', array(
+            array(
+                'taxonomy' => 'noi-lam-viec',
+                'field'    => 'term_id',
+                'terms'    => $khu_vuc_quan_ly,
+            ),
+        ));
+    }
+});
