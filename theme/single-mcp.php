@@ -1,51 +1,50 @@
 <?php
 $banner = wp_get_attachment_image_url(
-	wp_is_mobile() && bsc_is_mobile() && get_field( 'cdc1_background_banner_mobile', 'option' )
-	? get_field( 'cdc1_background_banner_mobile', 'option' )
-	: get_field( 'cdc1_background_banner', 'option' ),
+	wp_is_mobile() && bsc_is_mobile() && get_field('cdc1_background_banner_mobile', 'option')
+		? get_field('cdc1_background_banner_mobile', 'option')
+		: get_field('cdc1_background_banner', 'option'),
 	'full'
 );
-if ( isset( $args['data'] ) && $args['data'] ) {
+if (isset($args['data']) && $args['data']) {
 	$news = $args['data'];
 	$title = $news->title;
 	$body = $news->body;
-	$postdate = new DateTime( $news->postdate );
-	$postdate = $postdate->format( 'd/m/Y' );
+	$postdate = new DateTime($news->postdate);
+	$postdate = $postdate->format('d/m/Y');
 	$id_current_post = $news->newsid;
-	$title_lienquan = __( 'Bài viết', 'bsc' );
+	$title_lienquan = __('Bài viết', 'bsc');
 	$style = 'default';
 	$breadcrumb = 'post';
-	$tax_name = __( 'Tin tức mã cổ phiếu', 'bsc' );
+	$tax_name = __('Tin tức mã cổ phiếu', 'bsc');
 } else {
-	wp_redirect( home_url( '/404' ), 301 );
+	wp_redirect(home_url('/404'), 301);
 	exit;
 }
 get_header();
 ?>
 <main>
-	<?php get_template_part( 'components/page-banner', null, array(
+	<?php get_template_part('components/page-banner', null, array(
 		'banner' => $banner,
 		'style' => $style,
 		'title' => $tax_name,
 		'breadcrumb' => $breadcrumb,
-	) ) ?>
+	)) ?>
 	<section
 		class=" <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'pt-12 lg:pb-16 pb-10 bg-gradient-blue-to-bottom-50' : 'pt-[50px] mb-12' ?>">
 		<div class="container">
 			<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex lg:gap-[70px] gap-6' : '' ?>">
-				<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+				<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 					<div class="w-80 max-w-[35%] shrink-0">
 						<div class="sticky top-5 z-10 space-y-12">
 							<?php
-							$hinh_anh_sidebar = get_field( 'cdctkm1_hinh_anh_sidebar', 'option' );
-							if ( $hinh_anh_sidebar ) { ?>
+							$hinh_anh_sidebar = get_field('cdctkm1_hinh_anh_sidebar', 'option');
+							if ($hinh_anh_sidebar) { ?>
 
-								<a href="<?php echo check_link( $hinh_anh_sidebar['link'] ) ?>" class="block">
-									<?php echo wp_get_attachment_image( $hinh_anh_sidebar['img'], 'large', '', array( 'class' => 'rounded-lg transition-all duration-500 hover:scale-105' ) ) ?>
+								<a href="<?php echo check_link($hinh_anh_sidebar['link']) ?>" class="block">
+									<?php echo wp_get_attachment_image($hinh_anh_sidebar['img'], 'large', '', array('class' => 'rounded-lg transition-all duration-500 hover:scale-105')) ?>
 								</a>
 
-							<?php }
-							;
+							<?php };
 							?>
 						</div>
 					</div>
@@ -58,7 +57,7 @@ get_header();
 					</h1>
 					<div
 						class="flex items-center text-xs gap-[12px] font-Helvetica lg:flex-nowrap flex-wrap justify-start <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-8' : ' mb-[26px]' ?>">
-						<?php if ( $news->sourcename ) { ?>
+						<?php if ($news->sourcename) { ?>
 							<a href="<?php echo $news->sourcelink ?>"
 								class="font-medium inline-block transition-all duration-500 hover:text-primary-300"
 								target="_blank">
@@ -66,33 +65,33 @@ get_header();
 							</a>
 						<?php } ?>
 
-						<?php if ( $news->sourcename ) { ?>
+						<?php if ($news->sourcename) { ?>
 							-
 						<?php } ?>
 
 						<div class="flex gap-[12px] items-center">
-							<?php echo svgClass( 'date', '', '', 'shrink-0' ) ?>
+							<?php echo svgClass('date', '', '', 'shrink-0') ?>
 							<span><?php echo $postdate ?></span>
 						</div>
 
 						<div class="share flex items-center gap-[12px] lg:ml-12 lg:w-auto w-full">
-							<?php if ( ! wp_is_mobile() && ! bsc_is_mobile() ) { ?>
+							<?php if (! wp_is_mobile() && ! bsc_is_mobile()) { ?>
 								<strong>
-									<?php _e( 'Chia sẻ:', 'bsc' ) ?>
+									<?php _e('Chia sẻ:', 'bsc') ?>
 								</strong>
 
 							<?php } ?>
 							<ul class="flex items-center gap-3">
 								<li>
-									<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>"
+									<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>"
 										target="_blank">
-										<?php echo svg( 'linkedin' ) ?>
+										<?php echo svg('linkedin') ?>
 									</a>
 								</li>
 								<li>
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>"
 										target="_blank">
-										<?php echo svg( 'fb' ) ?>
+										<?php echo svg('fb') ?>
 									</a>
 								</li>
 							</ul>
@@ -102,24 +101,24 @@ get_header();
 						class="the_content font-Helvetica font-content text-justify prose-img:!h-auto prose-img:object-contain prose-p:!ml-0 prose-h2:text-[length:inherit] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-mb' ?>">
 						<?php echo $body ?>
 						<?php
-						if ( $news->attachedfileurl ) {
-							if ( is_array( $news->attachedfileurl ) ) {
-								$count_att = count( $news->attachedfileurl );
-								if ( $count_att == 1 ) {
-									?>
-									<a target="_blank" href="<?php echo slug_file_news( htmlspecialchars( $news->newsid ) ) ?>"
+						if ($news->attachedfileurl) {
+							if (is_array($news->attachedfileurl)) {
+								$count_att = count($news->attachedfileurl);
+								if ($count_att == 1) {
+						?>
+									<a target="_blank" href="<?php echo slug_file_news(htmlspecialchars($news->newsid)) ?>"
 										class="bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 										<span class="block relative z-10">
-											<?php _e( 'Tải file đính kèm', 'bsc' ) ?>
+											<?php _e('Tải file đính kèm', 'bsc') ?>
 										</span>
 									</a>
-									<?php
+								<?php
 								} else {
-									?>
+								?>
 									<div class="text-[#448AF4] mt-3">
 										<?php
 										$i = 0;
-										foreach ( $news->attachedfileurl as $att ) {
+										foreach ($news->attachedfileurl as $att) {
 											$i++; ?>
 											<div class="flex items-center">
 												<svg style="min-width: 20px" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -129,24 +128,24 @@ get_header();
 														fill="#448AF4" />
 												</svg>
 												<a class="ml-2 overflow-hidden text-ellipsis whitespace-nowrap w-100"
-													href="<?php echo slug_file_news( htmlspecialchars( $news->newsid ) ) . '-' . $i ?>"
+													href="<?php echo slug_file_news(htmlspecialchars($news->newsid)) . '-' . $i ?>"
 													target="_blank">
-													<?php echo shorten_url( $att ) ?>
+													<?php echo shorten_url($att) ?>
 												</a>
 											</div>
 										<?php } ?>
 									</div>
-									<?php
+								<?php
 								}
 							} else {
 								?>
-								<a target="_blank" href="<?php echo slug_file_news( htmlspecialchars( $news->newsid ) ) ?>"
+								<a target="_blank" href="<?php echo slug_file_news(htmlspecialchars($news->newsid)) ?>"
 									class="bg-green text-white hover:shadow-[0px_4px_16px_0px_rgba(0,158,135,0.4)] hover:bg-[#20b39d] inline-block 2xl:px-6 px-4 2xl:py-3 py-2 rounded-md font-semibold relative transition-all duration-500">
 									<span class="block relative z-10">
-										<?php _e( 'Tải file đính kèm', 'bsc' ) ?>
+										<?php _e('Tải file đính kèm', 'bsc') ?>
 									</span>
 								</a>
-								<?php
+						<?php
 							}
 						}
 						?>
@@ -162,37 +161,37 @@ get_header();
 		'index' => 1,
 		"newstype" => "1"
 	);
-	$response = get_data_with_cache( 'GetNews', $array_data, $time_cache );
-	if ( $response ) {
-		?>
+	$response = get_data_with_cache('GetNews', $array_data, $time_cache);
+	if ($response) {
+	?>
 		<section
 			class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:pt-16 pt-10 lg:pb-[106px] pb-10' : 'mt-[18px] mb-12' ?>">
 			<div class="container">
 				<h2 class="heading-title mb-6 normal-case">
-					<?php echo $title_lienquan . ' ' . __( 'liên quan', 'bsc' ) ?>
+					<?php echo $title_lienquan . ' ' . __('liên quan', 'bsc') ?>
 				</h2>
 				<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'grid md:grid-cols-3 grid-cols-1 gap-x-6 gap-y-8' : 'block_slider-show-1 dots-blue' ?>"
-					<?php if ( wp_is_mobile() && bsc_is_mobile() ) { ?>
-						data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
+					<?php if (wp_is_mobile() && bsc_is_mobile()) { ?>
+					data-flickity='{ "draggable": true,"wrapAround": true,"imagesLoaded": true,"prevNextButtons": false, "pageDots": true, "cellAlign": "left","contain": true, "autoPlay":3000}'
 					<?php } ?>>
 					<?php
 					$check_p = 0;
-					foreach ( $response->d as $news ) {
-						if ( $check_p < 3 ) {
-							if ( $id_current_post != $news->newsid ) {
+					foreach ($response->d as $news) {
+						if ($check_p < 3) {
+							if ($id_current_post != $news->newsid) {
 								$check_p++;
-								get_template_part( 'template-parts/content', $template_lienquan, array(
+								get_template_part('template-parts/content', $template_lienquan, array(
 									'data' => $news,
-								) );
+								));
 							}
 						}
 					}
 					?>
 				</div>
 			</div>
-			<?php
+		<?php
 	}
-	?>
+		?>
 </main>
 <?php
 get_footer();
