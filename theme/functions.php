@@ -7,7 +7,7 @@
  *
  * @package bsc
  */
-if (! defined('bsc_VERSION')) {
+if (!defined('bsc_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -18,7 +18,7 @@ if (! defined('bsc_VERSION')) {
 	define('bsc_VERSION', '0.2.7');
 }
 
-if (! defined('bsc_TYPOGRAPHY_CLASSES')) {
+if (!defined('bsc_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +42,7 @@ if (! defined('bsc_TYPOGRAPHY_CLASSES')) {
 	);
 }
 
-if (! function_exists('bsc_setup')) :
+if (!function_exists('bsc_setup')):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
