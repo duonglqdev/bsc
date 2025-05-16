@@ -26,6 +26,12 @@
 							if (isset($_GET['s'])) {
 								$endpoint .= '&s=' . bsc_format_string($_GET['s'], 'all');
 							}
+							if (isset($_GET['fromdate'])) {
+								$endpoint .= '&fromdate=' . bsc_format_string($_GET['fromdate'], 'all');
+							}
+							if (isset($_GET['todate'])) {
+								$endpoint .= '&todate=' . bsc_format_string($_GET['todate'], 'all');
+							}
 							if (isset($_GET['type_search'])) {
 								$endpoint .= '&type_search=' . bsc_format_string($_GET['type_search'], 'all');
 							}

@@ -292,6 +292,34 @@
             "placeholder": ""
         },
         {
+            "key": "field_6823512e64dcb",
+            "label": "Đường dẫn xem chi tiết loại danh mục",
+            "name": "url_type_loai_danh_muc",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_673df86193336",
+                        "operator": "!=",
+                        "value": "default"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_673e3f307dab9",
             "label": "Hiển thị giao diện khối",
             "name": "khoi_template",
@@ -490,5 +518,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734426516
+    "modified": 1747145062
 }

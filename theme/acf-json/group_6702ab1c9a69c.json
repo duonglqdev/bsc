@@ -961,6 +961,30 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_68234edb3e7c5",
+            "label": "Trang danh mục khuyến nghị",
+            "name": "cdc7_page_danh_muc_khuyen_nghi",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_6759582cb8758",
             "label": "App iOS\/Android",
             "name": "",
@@ -1117,5 +1141,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1744346717
+    "modified": 1747144437
 }

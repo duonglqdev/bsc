@@ -3,7 +3,7 @@
         <div
             class="rounded-[10px] bg-gradient-blue-to-right-100 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:flex items-center gap-4 px-6 py-12 lg:space-y-0 space-y-5' : 'p-6' ?>">
             <?php if (get_sub_field('title')) { ?>
-                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[345px] lg:max-w-[33.333%]' : 'mb-6' ?>">
+                <div class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:w-[400px] lg:max-w-[33.333%]' : 'mb-6' ?>">
                     <h2 class="uppercase font-bold <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'text-[28px] !leading-[1.57]' : 'text-[22px]' ?>">
                         <?php the_sub_field('title') ?>
                     </h2>
