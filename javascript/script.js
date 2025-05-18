@@ -27,6 +27,7 @@ import { DataTable } from 'simple-datatables';
 		livechat();
 		marqueeSlider();
 		handleScrollTable();
+		initListSorting();
 		filterTable();
 		//Chart
 		candleChart();
@@ -2130,6 +2131,46 @@ import { DataTable } from 'simple-datatables';
 		);
 	}
 
+	function initListSorting() {
+		function getBody($header) {
+			let $b = $header.nextAll('.content-list-data').first();
+			if ($b.length) return $b;
+			$b = $header.nextAll().find('.content-list-data').first();
+			if ($b.length) return $b;
+			return $header.parent().find('.content-list-data').first();
+		}
+
+		$(document).on('click', '.header-list-data .sort-btn', function () {
+			const $btn = $(this);
+			const asc = !$btn.data('asc');
+			$btn.data('asc', asc);
+
+			const $header = $btn.closest('.header-list-data');
+			const $body = getBody($header);
+			if (!$body.length) return;
+
+			const colIdx = $header.children().index($btn);
+			if (colIdx === -1) return;
+
+			const rows = $body.find('.content-data').get();
+			rows.sort((a, b) => {
+				const ta = $(a).children().eq(colIdx).text().trim();
+				const tb = $(b).children().eq(colIdx).text().trim();
+
+				const na = parseFloat(ta.replace(/[^0-9.\-]/g, ''));
+				const nb = parseFloat(tb.replace(/[^0-9.\-]/g, ''));
+				const numeric = !isNaN(na) && !isNaN(nb);
+
+				if (numeric) return asc ? na - nb : nb - na;
+				return asc
+					? ta.toUpperCase().localeCompare(tb.toUpperCase())
+					: tb.toUpperCase().localeCompare(ta.toUpperCase());
+			});
+
+			$(rows).appendTo($body);
+		});
+	}
+
 	function filterTable() {
 		$(document).on('click', '.filter-table', function () {
 			var $header = $(this);
@@ -2910,19 +2951,55 @@ import { DataTable } from 'simple-datatables';
 			chart.render();
 		}
 	};
-	window.handleDatatables = function () {
-		const tableElement = document.querySelector('#ttcp-table');
-		if (!tableElement) {
-			// Thoát khỏi hàm nếu không tìm thấy #ttcp-table
-			return;
-		}
+
+	// Chuẩn hóa số trong bảng
+	function preprocessSortValues(table) {
+		const NUMERIC_COLS = [4, 7, 8]; // Vốn hóa, PE, PB (đếm từ 0)
+
+		table.querySelectorAll('tbody tr').forEach((tr) => {
+			NUMERIC_COLS.forEach((idx) => {
+				const td = tr.children[idx];
+				if (!td) return;
+
+				const raw = td.textContent.trim();
+				let cleaned = raw.replace(/[^\d,.\-]/g, '');
+
+				// "2,798,249.31"  →  2798249.31
+				if (/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(cleaned)) {
+					cleaned = cleaned.replace(/,/g, '');
+				}
+				// "1.234.567,89"  →  1234567.89
+				else if (/^\d{1,3}(\.\d{3})+(,\d+)?$/.test(cleaned)) {
+					cleaned = cleaned.replace(/\./g, '').replace(',', '.');
+				}
+
+				const num = parseFloat(cleaned);
+				if (!isNaN(num)) td.dataset.order = num;
+			});
+		});
+	}
+
+	window.handleDatatables = async function () {
+		const tableEl = document.querySelector('#ttcp-table');
+		if (!tableEl) return;
+		preprocessSortValues(tableEl);
 		// Khởi tạo DataTable với chức năng searchable
 		const dataTable = new DataTable('#ttcp-table', {
 			searchable: true,
 			fixedHeight: true,
 			perPage: 10,
 			perPageSelect: [10, 20, 30, 40],
-			sortable: false,
+			columns: [
+				{ select: 0, sortable: true },
+				{ select: 1, sortable: false },
+				{ select: 2, sortable: false },
+				{ select: 3, sortable: false },
+				{ select: 4, sortable: true },
+				{ select: 5, sortable: false },
+				{ select: 6, sortable: false },
+				{ select: 7, sortable: true },
+				{ select: 8, sortable: true },
+			],
 		});
 		$('.block-loading').addClass('active');
 		// Ẩn input mặc định của searchable bằng CSS
