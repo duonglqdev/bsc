@@ -7,7 +7,7 @@
  *
  * @package bsc
  */
-if (!defined('bsc_VERSION')) {
+if ( ! defined( 'bsc_VERSION' ) ) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +15,10 @@ if (!defined('bsc_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('bsc_VERSION', '0.2.7');
+	define( 'bsc_VERSION', '0.2.8' );
 }
 
-if (!defined('bsc_TYPOGRAPHY_CLASSES')) {
+if ( ! defined( 'bsc_TYPOGRAPHY_CLASSES' ) ) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +42,7 @@ if (!defined('bsc_TYPOGRAPHY_CLASSES')) {
 	);
 }
 
-if (!function_exists('bsc_setup')):
+if ( ! function_exists( 'bsc_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,18 +50,17 @@ if (!function_exists('bsc_setup')):
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function bsc_setup()
-	{
+	function bsc_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on bsc, use a find and replace
 		 * to change 'bsc' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain('bsc', get_template_directory() . '/languages');
+		load_theme_textdomain( 'bsc', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support('automatic-feed-links');
+		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -69,20 +68,20 @@ if (!function_exists('bsc_setup')):
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support('title-tag');
+		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support('post-thumbnails');
+		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-top-header' => __('Menu Top Header', 'bsc'),
-				'menu-1' => __('Menu Chính', 'bsc'),
+				'menu-top-header' => __( 'Menu Top Header', 'bsc' ),
+				'menu-1' => __( 'Menu Chính', 'bsc' ),
 			)
 		);
 
@@ -104,17 +103,17 @@ if (!function_exists('bsc_setup')):
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support('customize-selective-refresh-widgets');
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		// Add support for editor styles.
-		add_theme_support('editor-styles');
+		add_theme_support( 'editor-styles' );
 
 		// Enqueue editor styles.
-		add_editor_style('style-editor.css');
-		add_editor_style('style-editor-extra.css');
+		add_editor_style( 'style-editor.css' );
+		add_editor_style( 'style-editor-extra.css' );
 
 		// Add support for responsive embedded content.
-		add_theme_support('responsive-embeds');
+		add_theme_support( 'responsive-embeds' );
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -123,42 +122,41 @@ if (!function_exists('bsc_setup')):
 
 
 		// Remove support for block templates.
-		remove_theme_support('block-templates');
+		remove_theme_support( 'block-templates' );
 	}
 endif;
-add_action('after_setup_theme', 'bsc_setup');
+add_action( 'after_setup_theme', 'bsc_setup' );
 
 
 /**
  * Enqueue scripts and styles.
  */
-function bsc_scripts()
-{
+function bsc_scripts() {
 
-	if (is_404()) {
-		wp_enqueue_style('bsc-404', get_template_directory_uri() . '/css/404.min.css', array(), bsc_VERSION);
+	if ( is_404() ) {
+		wp_enqueue_style( 'bsc-404', get_template_directory_uri() . '/css/404.min.css', array(), bsc_VERSION );
 	}
-	wp_enqueue_style('bsc-css-libs', get_template_directory_uri() . '/assets/libs/frontend-libs.min.css');
-	wp_enqueue_style('bsc-css-font', get_template_directory_uri() . '/assets/fonts/font.css');
-	wp_enqueue_style('bsc-style', get_stylesheet_uri(), array(), bsc_VERSION);
+	wp_enqueue_style( 'bsc-css-libs', get_template_directory_uri() . '/assets/libs/frontend-libs.min.css' );
+	wp_enqueue_style( 'bsc-css-font', get_template_directory_uri() . '/assets/fonts/font.css' );
+	wp_enqueue_style( 'bsc-style', get_stylesheet_uri(), array(), bsc_VERSION );
 
 	//JS
-	wp_enqueue_script('bsc-js-libs', get_template_directory_uri() . '/assets/libs/frontend-libs.js', array(), bsc_VERSION, true);
-	if (class_exists('WPCF7')) {
-		wp_enqueue_style('bsc-alert', get_template_directory_uri() . '/assets/libs/frontend-alert.min.css');
-		wp_enqueue_script('bsc-jquery_alert', get_template_directory_uri() . '/assets/libs/frontend-alert.js', array(), bsc_VERSION, true);
+	wp_enqueue_script( 'bsc-js-libs', get_template_directory_uri() . '/assets/libs/frontend-libs.js', array(), bsc_VERSION, true );
+	if ( class_exists( 'WPCF7' ) ) {
+		wp_enqueue_style( 'bsc-alert', get_template_directory_uri() . '/assets/libs/frontend-alert.min.css' );
+		wp_enqueue_script( 'bsc-jquery_alert', get_template_directory_uri() . '/assets/libs/frontend-alert.js', array(), bsc_VERSION, true );
 	}
-	wp_enqueue_script('bsc-script', get_template_directory_uri() . '/js/script.min.js', array(), bsc_VERSION, true);
+	wp_enqueue_script( 'bsc-script', get_template_directory_uri() . '/js/script.min.js', array(), bsc_VERSION, true );
 
-	wp_localize_script('bsc-script', 'ajaxurl', array(
-		'ajaxurl' => admin_url('admin-ajax.php'),
-		'security' => wp_create_nonce('common_nonce'),
-	));
-	if (is_singular() && comments_open() && get_option('thread_comments')) {
-		wp_enqueue_script('comment-reply');
+	wp_localize_script( 'bsc-script', 'ajaxurl', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'security' => wp_create_nonce( 'common_nonce' ),
+	) );
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action('wp_enqueue_scripts', 'bsc_scripts');
+add_action( 'wp_enqueue_scripts', 'bsc_scripts' );
 
 
 
@@ -210,5 +208,5 @@ require get_template_directory() . '/inc/customizer-user.php';
 /**
  * Hide Custom Theme
  */
-// define( 'DISALLOW_FILE_EDIT', true );
-// add_filter( 'acf/settings/show_admin', '__return_false' );
+define( 'DISALLOW_FILE_EDIT', true );
+add_filter( 'acf/settings/show_admin', '__return_false' );

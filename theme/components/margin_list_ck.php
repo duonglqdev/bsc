@@ -14,7 +14,7 @@
 	$response = get_data_with_cache( 'GetBSCMargin', $array_data, $time_cache );
 	if ( $response ) {
 		?>
-		<div class="w-full max-h-[90vh] rounded-lg scroll-bar-custom overflow-y-auto">
+		<div class="w-full max-h-screen rounded-lg scroll-bar-custom overflow-y-auto">
 			<table class="min-w-full text-center border-separate border-spacing-0">
 				<thead class="bg-primary-300 text-white sticky top-0">
 					<tr class="divide-x divide-[#C9CCD2] text-sm leading-5 font-body">
