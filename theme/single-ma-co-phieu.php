@@ -61,7 +61,7 @@ get_header(); ?>
 							<div
 								class="flex <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'gap-6' : 'gap-4' ?> items-center">
 								<div
-									class="text-[#6B6F78] lg:text-[52px] text-3xl overflow-hidden p-2 <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px]' : 'w-14 h-14' ?> bg-white rounded-full flex items-center justify-center ">
+									class="text-[#6B6F78] lg:text-[52px] text-3xl overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'w-[90px] h-[90px]' : 'w-14 h-14' ?> bg-white rounded-full flex items-center justify-center ">
 									<?php
 									$array_data = array(
 										'lang' => pll_current_language(),
@@ -70,7 +70,8 @@ get_header(); ?>
 									$response = get_data_with_cache( 'GetSymbolLogo', $array_data, $time_cache );
 									if ( $response && $response->d[0]->logo ) {
 										?>
-										<img src="<?php echo $response->d[0]->logo ?>" alt="<?php echo $symbol ?>">
+										<img src="<?php echo $response->d[0]->logo ?>" alt="<?php echo $symbol ?>"
+											class="w-full h-full object-cover">
 										<?php
 									} else {
 										echo $first_symbol;
