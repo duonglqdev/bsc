@@ -33,7 +33,7 @@
 		</td>
 		<td class="text-left">
 			<?php if ( $GetEvents->title ) { ?>
-				<a target="_blank" href="<?php echo ( $GetEvents->originlink ) ?>"><?php echo $GetEvents->title ?></a>
+				<a href="<?php echo slug_calendar( $GetEvents->eventid ) ?>"><?php echo $GetEvents->title ?></a>
 			<?php } ?>
 		</td>
 	</tr>
