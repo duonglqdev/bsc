@@ -3307,15 +3307,22 @@ function filter_details_symbol()
 							</p>
 						</div>
 					<?php } ?>
-					<?php if ($response_GetRecommendedInstrument->d[0]->recommendation) { ?>
+					
 						<div class="flex items-center justify-between text-xs">
 							<p class="text-xs">
 								<?php _e('Khuyến nghị', 'bsc') ?>:
 							</p>
-							<?php
+							<?php if ($response_GetRecommendedInstrument->d[0]->recommendation) {
 							$status = $response_GetRecommendedInstrument->d[0]->recommendation;
+							} else {
+							$status = 2;
+							};
 							$check_status = get_color_by_number_bsc($status);
+							if ($response_GetRecommendedInstrument->d[0]->recommendation) {
 							$title_status = $check_status['title_status'];
+							} else {
+								$title_status = __('Không khuyến nghị','bsc');
+							}
 							$text_status = $check_status['text_status'];
 							$background_status = $check_status['background_status'];
 							?>
