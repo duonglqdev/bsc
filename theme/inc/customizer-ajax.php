@@ -3355,8 +3355,8 @@ function filter_details_symbol()
 					<?php } ?>
 				</div>
 			</div>
-			<?php
-		}
+			<?php 
+		
 	} elseif ($type_form == 'dmkn_chart_bsc') {
 		$time_cache = 300;
 		date_default_timezone_set('Asia/Bangkok');
@@ -3674,13 +3674,13 @@ function filter_details_symbol()
 				$single_bsc = $news->tendanhmuc;
 				$m++;
 				$public = $news->ispublic; ?>
-				<div class="tab-content <?php
+				<div class="tab-content <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:-mt-14' : '' ?> <?php
 				echo ($current_bsc == $single_bsc) ? 'block' : 'hidden';
 				?>" id="<?php echo $tab ?>-<?php echo $m ?>">
 					<?php if (get_field('cdc7_page_danh_muc_khuyen_nghi', 'option')) { ?>
 						<div class="text-right">
 							<a href="<?php echo get_the_permalink(get_field('cdc7_page_danh_muc_khuyen_nghi', 'option')) ?>?mck=<?php echo $single_bsc ?>"
-								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500  hover:scale-105 mb-4">
+								class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'lg:mb-10' : '' ?> mb-4">
 								<?php echo svg('arrow-btn', '16', '16') ?>
 								<?php _e('Xem chi tiết', 'bsc') ?>
 							</a>
