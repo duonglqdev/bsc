@@ -372,9 +372,21 @@ add_filter( 'posts_search', 'wpse_11826_search_by_title', 10, 2 );
  */
 add_action( 'template_redirect', function () {
 	if ( isset( $_GET['investment'] ) && isset( $_GET['s'] ) && $_GET['investment'] === 'co_phieu' ) {
-		$redirect_url = get_field( 'cdttcp1_page', 'option' ) . '?mcp=' . bsc_format_string( $_GET['s'], 'all' );
+		$co_phieu_id = bsc_format_string( $_GET['s'] );
+		$time_cache = get_field( 'cdttcp1_time_cache', 'option' ) ?: 300;
+		$array_data = array(
+			'lang' => pll_current_language(),
+			"symbol" => $co_phieu_id,
+		);
+		$get_co_phieu_detail = get_data_with_cache( 'GetInstrumentInfo', $array_data, $time_cache );
+		if ( $get_co_phieu_detail && $get_co_phieu_detail->d[0] ) {
+			$redirect_url = slug_co_phieu( $co_phieu_id );
+		} else {
+			$redirect_url = get_field( 'cdttcp1_page', 'option' ) . '?mcp=' . bsc_format_string( $_GET['s'], 'all' );
+		}
 		wp_redirect( $redirect_url );
 		exit;
+
 	}
 } );
 

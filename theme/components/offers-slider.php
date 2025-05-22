@@ -99,6 +99,7 @@
 					}
 				}
 				$id_danh_muc_bo_sung = get_sub_field( 'id_danh_muc_bo_sung' );
+				$response_dmbs = false;
 				if ( $id_danh_muc_bo_sung ) {
 					$array_data_dmbs = array(
 						'lang' => pll_current_language(),

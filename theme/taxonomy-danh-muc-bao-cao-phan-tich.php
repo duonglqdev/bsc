@@ -158,7 +158,7 @@ $time_cache = 300;
 									<input type="text" name="key"
 										class="flex-1 border-none focus:border-none focus:outline-0 focus:ring-0 placeholder:text-[#898A8D] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs p-0 w-[calc(100%-50px)]' ?>"
 										placeholder="<?php _e( 'Từ khóa tìm kiếm', 'bsc' ) ?>" value="<?php if ( isset( $_GET['key'] ) )
-											   echo bsc_format_string( $_GET['key'], 'all' ) ?>">
+												 echo bsc_format_string( $_GET['key'], 'all' ) ?>">
 									</div>
 									<div id="date-range-picker" date-rangepicker datepicker-format="dd/mm/yyyy"
 										datepicker-autohide datepicker-orientation="bottom right"
@@ -170,20 +170,24 @@ $time_cache = 300;
 										<input id="datepicker-range-start" name="fromdate" type="text"
 											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[80px] max-w-[70px] 2xl:text-base text-xs p-0"
 											autocomplete="off" placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
-												   echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
-
-										</div>
-										<span class="mx-3 text-gray-500">-</span>
-										<div class="flex items-center gap-5">
-											<input id="datepicker-range-end" name="todate" type="text"
-												class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[80px] max-w-[70px] 2xl:text-base text-xs p-0"
-												autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
-													   echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
-
-										</div>
+													 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
+											<i class="w-5 h-5 shrink-0">
+											<?php echo svg( 'day', '20', '20' ) ?>
+										</i>
 									</div>
-									<button type="submit"
-										class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg text-xs' ?>">
+									<span class="mx-3 text-gray-500">-</span>
+									<div class="flex items-center gap-5">
+										<input id="datepicker-range-end" name="todate" type="text"
+											class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[80px] max-w-[70px] 2xl:text-base text-xs p-0"
+											autocomplete="off" placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
+													 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
+											<i class="w-5 h-5 shrink-0">
+											<?php echo svg( 'day', '20', '20' ) ?>
+										</i>
+									</div>
+								</div>
+								<button type="submit"
+									class="bg-yellow-100 text-black hover:shadow-[0px_4px_16px_0px_rgba(255,184,28,0.5)] hover:bg-[#ffc547] inline-block  font-semibold relative transition-all duration-500 leading-tight whitespace-nowrap <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'flex-1 px-6 py-3 h-[50px] rounded-xl' : 'h-10 px-5 py-2 w-[calc(100%-52px)] rounded-lg text-xs' ?>">
 									<?php _e( 'Tìm kiếm', 'bsc' ) ?>
 								</button>
 								<a href="<?php echo get_term_link( get_queried_object() ) ?>"
@@ -255,7 +259,9 @@ $time_cache = 300;
 												class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 												placeholder="<?php _e( 'Từ ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['fromdate'] ) )
 														 echo bsc_format_string( $_GET['fromdate'], 'all' ) ?>">
-											<?php echo svg( 'day', '20', '20' ) ?>
+												<i class="w-5 h-5 shrink-0">
+												<?php echo svg( 'day', '20', '20' ) ?>
+											</i>
 										</div>
 										<span class="2xl:mx-4 mx-2 text-gray-500">-</span>
 										<div class="flex items-center 2xl:gap-5 gap-3">
@@ -263,7 +269,9 @@ $time_cache = 300;
 												class="border-none focus:border-none focus:outline-0 focus:ring-0 2xl:max-w-[100px] max-w-[70px] 2xl:text-base text-xs p-0"
 												placeholder="<?php _e( 'Đến ngày', 'bsc' ) ?>" value="<?php if ( isset( $_GET['todate'] ) )
 														 echo bsc_format_string( $_GET['todate'], 'all' ) ?>">
-											<?php echo svg( 'day', '20', '20' ) ?>
+												<i class="w-5 h-5 shrink-0">
+												<?php echo svg( 'day', '20', '20' ) ?>
+											</i>
 										</div>
 									</div>
 									<button type="submit"
@@ -424,14 +432,25 @@ $time_cache = 300;
 					$check_logout = bsc_is_user_logged_out();
 					$class = $check_logout['class'] ?? '';
 					$type_danh_muc = get_field( 'type_danh_muc', get_queried_object() );
+					$url_type_loai_danh_muc = get_field( 'url_type_loai_danh_muc', get_queried_object() );
 					if ( $type_danh_muc == 'thitruong' ) {
 						$class = '';
 						?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[59px]' : 'mb-[50px] mt-6' ?>">
-							<h3
-								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-6 text-2xl' : 'mb-4 text-lg' ?>">
-								<?php _e( 'Dự báo thị trường', 'bsc' ) ?>
-							</h3>
+							<div
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-6' : 'mb-4' ?>">
+								<h3
+									class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-2xl mb-0' : ' text-lg mb-2' ?>">
+									<?php _e( 'Dự báo thị trường', 'bsc' ) ?>
+								</h3>
+								<?php if ( $url_type_loai_danh_muc ) { ?>
+									<a href="<?php echo $url_type_loai_danh_muc ?>"
+										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
+										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										<?php _e( 'Xem chi tiết', 'bsc' ) ?>
+									</a>
+								<?php } ?>
+							</div>
 							<div class="relative">
 								<div
 									class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'lg:flex xl:gap-8 gap-5 lg:space-y-0 space-y-5' : 'grid gap-4' ?> <?php echo $class ?>">
@@ -591,10 +610,20 @@ $time_cache = 300;
 						$class = '';
 						?>
 						<div class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mb-[60px]' : 'mt-6 mb-16' ?>">
-							<h3
-								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
-								<?php _e( 'Dự báo vĩ mô', 'bsc' ) ?>
-							</h3>
+							<div
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-6' : 'mb-4' ?>">
+								<h3
+									class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-2xl mb-0' : ' text-lg mb-2' ?>">
+									<?php _e( 'Dự báo vĩ mô', 'bsc' ) ?>
+								</h3>
+								<?php if ( $url_type_loai_danh_muc ) { ?>
+									<a href="<?php echo $url_type_loai_danh_muc ?>"
+										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
+										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										<?php _e( 'Xem chi tiết', 'bsc' ) ?>
+									</a>
+								<?php } ?>
+							</div>
 							<div class="relative">
 								<?php
 								if ( ! $check_logout || 1 == 1 ) {
@@ -928,10 +957,21 @@ $time_cache = 300;
 
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 mb-[82px]' : 'mt-6 mb-[50px]' ?>">
-							<h2
-								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
-								<?php _e( 'Dự báo KQKD', 'bsc' ) ?>
-							</h2>
+
+							<div
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-6' : 'mb-4' ?>">
+								<h2
+									class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-2xl mb-0' : ' text-lg mb-2' ?>">
+									<?php _e( 'Dự báo KQKD', 'bsc' ) ?>
+								</h2>
+								<?php if ( $url_type_loai_danh_muc ) { ?>
+									<a href="<?php echo $url_type_loai_danh_muc ?>"
+										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
+										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										<?php _e( 'Xem chi tiết', 'bsc' ) ?>
+									</a>
+								<?php } ?>
+							</div>
 							<div
 								class="rounded-[10px] overflow-hidden relative <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 								<div
@@ -1077,10 +1117,20 @@ $time_cache = 300;
 
 						<div
 							class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-10 mb-[82px]' : 'mt-6 mb-[50px]' ?>">
-							<h2
-								class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'text-2xl' : 'text-lg' ?>">
-								<?php _e( 'Dự báo triển vọng ngành', 'bsc' ) ?>
-							</h2>
+							<div
+								class="<?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'xl:flex justify-between items-center mb-6' : 'mb-4' ?>">
+								<h2
+									class="font-bold <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? ' text-2xl mb-0' : ' text-lg mb-2' ?>">
+									<?php _e( 'Dự báo triển vọng ngành', 'bsc' ) ?>
+								</h2>
+								<?php if ( $url_type_loai_danh_muc ) { ?>
+									<a href="<?php echo $url_type_loai_danh_muc ?>"
+										class="text-green font-semibold inline-flex gap-x-3 items-center transition-all duration-500 hover:scale-105">
+										<?php echo svg( 'arrow-btn', '20', '20' ) ?>
+										<?php _e( 'Xem chi tiết', 'bsc' ) ?>
+									</a>
+								<?php } ?>
+							</div>
 							<div
 								class="relative rounded-[10px] overflow-hidden <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? 'mt-6' : 'mt-4' ?>">
 								<div

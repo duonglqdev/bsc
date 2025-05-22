@@ -12,8 +12,8 @@ function callApi( $url, $data = false, $method = "GET" ) {
 		CURLOPT_CUSTOMREQUEST => $method,
 		CURLOPT_POSTFIELDS => $data,
 		CURLOPT_HTTPHEADER => array(
-			'Content-Type: application/json'
-		),
+				'Content-Type: application/json'
+			),
 	) );
 
 	$response = curl_exec( $curl );
@@ -169,7 +169,8 @@ function custom_template_redirect() {
 			exit; // Dừng WordPress để tránh bị 404
 		} else {
 			// Nếu không có dữ liệu từ API
-			wp_redirect( home_url( '/404' ) );
+			$redirect_url = get_field( 'cdc7_page_tin_tuc_tong', 'option' );
+			wp_redirect( $redirect_url ? $redirect_url : home_url( '/404' ) );
 			exit;
 		}
 	}
@@ -234,7 +235,8 @@ function custom_template_redirect_news_mck() {
 			exit; // Dừng WordPress để tránh bị 404
 		} else {
 			// Nếu không có dữ liệu từ API
-			wp_redirect( home_url( '/404' ) );
+			$redirect_url = get_field( 'cdc7_page_tin_tuc_tong', 'option' );
+			wp_redirect( $redirect_url ? $redirect_url : home_url( '/404' ) );
 			exit;
 		}
 	}
@@ -741,11 +743,11 @@ function get_name_by_tax_id( $taxid, $array_id_tax ) {
  */
 
 function get_color_by_number_bsc( $status ) {
-	if ( $status ) {
+	if ( isset( $status ) ) {
 		if ( $status == '0' ) {
 			$text_status = '#00ad2b';
 			$background_status = '#b7f2c6';
-			$title_status = __( 'Khả quan', 'bsc' );
+			$title_status = __( 'Tích cực', 'bsc' );
 		} elseif ( $status == '1' ) {
 			$text_status = '#f5a800';
 			$background_status = '#ffebbe';
@@ -753,7 +755,7 @@ function get_color_by_number_bsc( $status ) {
 		} elseif ( $status == '2' ) {
 			$text_status = '#FF0017';
 			$background_status = '#FFD9DC';
-			$title_status = __( 'Kém khả quan', 'bsc' );
+			$title_status = __( 'Tiêu cực', 'bsc' );
 		} elseif ( $status == '3' ) {
 			$text_status = '#00ad2b';
 			$background_status = '#b7f2c6';
@@ -1152,7 +1154,6 @@ function custom_rewrite_rule_mck() {
 		$lang_prefix = $lang !== $default_language ? $lang . '/' : '';
 		add_rewrite_rule( '^' . $lang_prefix . $sub_url . '/([^/]+)/?', 'index.php?mck_bctc=$matches[1]', 'top' );
 	}
-
 }
 add_action( 'init', 'custom_rewrite_rule_mck' );
 

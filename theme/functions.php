@@ -15,7 +15,7 @@ if ( ! defined( 'bsc_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'bsc_VERSION', '0.2.6' );
+	define( 'bsc_VERSION', '0.2.8' );
 }
 
 if ( ! defined( 'bsc_TYPOGRAPHY_CLASSES' ) ) {
@@ -199,6 +199,11 @@ require get_template_directory() . '/inc/customizer-cf7.php';
  * Customizer Sitemap.
  */
 require get_template_directory() . '/inc/customizer-sitemap.php';
+
+/**
+ * Customizer User.
+ */
+require get_template_directory() . '/inc/customizer-user.php';
 
 /**
  * Hide Custom Theme

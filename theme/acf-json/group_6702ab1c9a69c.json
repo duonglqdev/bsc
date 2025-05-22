@@ -892,6 +892,30 @@
             "allow_null": 0
         },
         {
+            "key": "field_67f4dc0e5a17b",
+            "label": "Trang tin tức tổng",
+            "name": "cdc7_page_tin_tuc_tong",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_67591d7b90235",
             "label": "Tin tức mã cổ  phẩn",
             "name": "cdc7_page_tin_tuc_ma_co_phan",
@@ -916,6 +940,30 @@
             "key": "field_6768e6e335078",
             "label": "Trang báo cáo tài chính",
             "name": "cdc7_page_bao_cao_tai_chinh",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_68234edb3e7c5",
+            "label": "Trang danh mục khuyến nghị",
+            "name": "cdc7_page_danh_muc_khuyen_nghi",
             "aria-label": "",
             "type": "post_object",
             "instructions": "",
@@ -1031,6 +1079,48 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_67f897e9b6d24",
+            "label": "ID bài viết mới tin tức",
+            "name": "cdc9_sitemap_post_new",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67f8988fb6d25",
+            "label": "Số lượng bài sitemap tin mới",
+            "name": "cdc9_sitemap_number_news",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "min": "",
+            "max": "",
+            "placeholder": 10,
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -1051,5 +1141,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1740412760
+    "modified": 1747144437
 }
