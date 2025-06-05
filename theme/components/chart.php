@@ -140,8 +140,8 @@
 									<?php _e( 'YTD', 'bsc' ) ?>
 								</button>
 								<button type="button" data-todate="<?php echo $todate ?>" id="chart_btn-reload" class="sm:w-11 sm:h-11 w-10 h-10 shrink-0 rounded-lg flex items-center justify-center p-1 <?php echo ! wp_is_mobile() && ! bsc_is_mobile()
-									   ? 'bg-[#E8F5FF] group'
-									   : 'bg-[#CEEAFF] group'; ?>">
+								   	? 'bg-[#E8F5FF] group'
+								   	: 'bg-[#CEEAFF] group'; ?>">
 									<?php echo svgClass( 'reload', '20', '20', 'transition-all duration-500 group-hover:rotate-[360deg] will-change-transform' ) ?>
 								</button>
 							</div>
@@ -218,81 +218,80 @@
 									</p>
 								<?php } ?>
 								<?php
-									$array_data = array(
-										'lang' => pll_current_language(),
-										'top' => 5,
-										"recommendation" => 5
-									);
-									$response = get_data_with_cache( 'GetTopReportsRecommended', $array_data, $time_cache );
-									if ( $response ) {
-										?>
-										<ul class="space-y-4">
-											<?php foreach ( $response->d as $news ) {
-												$status = $news->recommendation;
-												$check_status = get_color_by_number_bsc( $status );
-												$title_status = $check_status['title_status'];
-												$text_status = $check_status['text_status'];
-												?>
-												<li
-													class="flex font-bold gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
-													<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
-														class="line-clamp-1 flex-1">
-														<?php echo htmlspecialchars( $news->symbols ) ?>
-														<?php if ( $news->upside ) { ?>
-															<span
-																style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars( $news->upside ) ?>)</span>
-														<?php } ?>
-														<?php if ( $title_status != '' ) { ?>
-															<span style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
-														<?php } ?> - <?php echo htmlspecialchars( $news->title ) ?>
-													</a>
-													<p
-														class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
-														<?php _e( 'Hot', 'bsc' ) ?>
-													</p>
-													<?php if ( $news->reporturl ) {
-														$check_log = false;
-														$url_download = slug_file_report( htmlspecialchars( $news->id ) );
-														$viewerpermission = $news->viewerpermission;
-														if ( $viewerpermission == 'USER_BSC' ) {
-															$datetimeopen = $news->datetimeopen;
-															if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
-																if ( bsc_is_user_logged_out() ) {
-																	$check_log = true;
-																	$url_download = bsc_url_sso( $url_download );
-																}
+								$array_data = array(
+									'lang' => pll_current_language(),
+									'top' => 5,
+									"recommendation" => 5
+								);
+								$response = get_data_with_cache( 'GetTopReportsRecommended', $array_data, $time_cache );
+								if ( $response ) {
+									?>
+									<ul class="space-y-4">
+										<?php foreach ( $response->d as $news ) {
+											$status = $news->recommendation;
+											$check_status = get_color_by_number_bsc( $status );
+											$title_status = $check_status['title_status'];
+											$text_status = $check_status['text_status'];
+											?>
+											<li
+												class="flex font-bold gap-[14px] items-center justify-between <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+												<a href="<?php echo slug_report( htmlspecialchars( $news->id ), htmlspecialchars( $news->title ) ); ?>"
+													class="line-clamp-1 flex-1">
+													<?php echo htmlspecialchars( $news->symbols ) ?>
+													<?php if ( $news->upside ) { ?>
+														<span
+															style="color: <?php echo $text_status ?>">(<?php echo htmlspecialchars( $news->upside ) ?>)</span>
+													<?php } ?>
+													<?php if ( $title_status != '' ) { ?>
+														<span style="color: <?php echo $text_status ?>"><?php echo $title_status ?></span>
+													<?php } ?> - <?php echo htmlspecialchars( $news->title ) ?>
+												</a>
+												<p
+													class="inline-block bg-[#FF5353] rounded text-white uppercase py-1 px-2 font-normal text-[13px] leading-none">
+													<?php _e( 'Hot', 'bsc' ) ?>
+												</p>
+												<?php if ( $news->reporturl ) {
+													$check_log = false;
+													$url_download = slug_file_report( htmlspecialchars( $news->id ) );
+													$viewerpermission = $news->viewerpermission;
+													if ( $viewerpermission == 'USER_BSC' ) {
+														$datetimeopen = $news->datetimeopen;
+														if ( is_null( $datetimeopen ) || strtotime( $datetimeopen ) > time() ) {
+															if ( bsc_is_user_logged_out() ) {
+																$check_log = true;
+																$url_download = bsc_url_sso( $url_download );
 															}
 														}
-														?>
-														<p class="min-w-5">
-															<?php if ( $check_log ) {
-																$current_url = home_url( $_SERVER['REQUEST_URI'] );
-																?>
-																<button type="button"
-																	data-url="<?php echo $url_download ?>" data-current="<?php echo $current_url ?>"
-																	class="bsc_login_checker">
-																	<?php
-															} else { ?>
-																	<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
-																		data-id="<?php echo $news->id; ?>">
-																	<?php } ?>
-																	<?php echo svg( 'download', '20', '20' ) ?>
-																	<?php if ( $check_log ) {
-																		?>
-																</button>
+													}
+													?>
+													<p class="min-w-5">
+														<?php if ( $check_log ) {
+															$current_url = home_url( $_SERVER['REQUEST_URI'] );
+															?>
+															<button type="button" data-url="<?php echo $url_download ?>"
+																data-current="<?php echo $current_url ?>" class="bsc_login_checker">
 																<?php
-																	} else {
-																		?>
-																</a>
-															<?php } ?>
-														</p>
-													<?php } ?>
-												</li>
-												<?php
-											}
-											?>
-										</ul>
-									<?php }
+														} else { ?>
+																<a href="<?php echo $url_download ?>" target="_blank" class="bsc_up-download"
+																	data-id="<?php echo $news->id; ?>">
+																<?php } ?>
+																<?php echo svg( 'download', '20', '20' ) ?>
+																<?php if ( $check_log ) {
+																	?>
+															</button>
+															<?php
+																} else {
+																	?>
+															</a>
+														<?php } ?>
+													</p>
+												<?php } ?>
+											</li>
+											<?php
+										}
+										?>
+									</ul>
+								<?php }
 								?>
 								<?php if ( have_rows( 'button_xem_them' ) ) {
 									while ( have_rows( 'button_xem_them' ) ) :
@@ -383,8 +382,7 @@
 																	<?php if ( $check_log ) {
 																		$current_url = home_url( $_SERVER['REQUEST_URI'] );
 																		?>
-																		<button 
-																			type="button" data-url="<?php echo $url_download ?>"
+																		<button type="button" data-url="<?php echo $url_download ?>"
 																			data-current="<?php echo $current_url ?>" class="bsc_login_checker">
 																			<?php
 																	} else { ?>

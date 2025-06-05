@@ -12,8 +12,8 @@ function callApi( $url, $data = false, $method = "GET" ) {
 		CURLOPT_CUSTOMREQUEST => $method,
 		CURLOPT_POSTFIELDS => $data,
 		CURLOPT_HTTPHEADER => array(
-				'Content-Type: application/json'
-			),
+			'Content-Type: application/json'
+		),
 	) );
 
 	$response = curl_exec( $curl );

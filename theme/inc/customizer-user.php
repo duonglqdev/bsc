@@ -10,7 +10,8 @@ function remove_default_post_type() {
 add_action( 'admin_head', function () {
 
 	if ( current_user_can( 'ppr_mkt' ) ) {
-		if ( isset( $_GET['page'] ) && $_GET['page'] === 'cai-dat-api' ) {
+		global $pagenow;
+		if ( ( isset( $_GET['page'] ) && $_GET['page'] === 'cai-dat-api' ) || ( $pagenow === 'themes.php' ) ) {
 
 			// Kiểm tra nếu user không phải admin (hoặc không đủ quyền)
 			wp_die( 'Bạn không có quyền truy cập trang này.', 'Truy cập bị từ chối', array( 'response' => 403 ) );
@@ -18,7 +19,7 @@ add_action( 'admin_head', function () {
 		?>
 		<style>
 			/* Ví dụ: ẩn ACF Option Page cụ thể */
-			#adminmenu #menu-appearance li:nth-child(6) {
+			#adminmenu #menu-appearance :is(li:nth-child(6), li:nth-child(2)) {
 				display: none !important;
 			}
 		</style>
