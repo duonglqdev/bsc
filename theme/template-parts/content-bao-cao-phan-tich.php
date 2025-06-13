@@ -61,12 +61,16 @@
 				</a>
 			<?php } ?>
 			<div class="space-y-1.5 text-right">
-				<?php if (isset($news->recommendation)) { ?>
-					<span class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold whitespace-nowrap"
-						style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
-						<?php echo $title_status ?>
-					</span>
-				<?php } ?>
+				<?php if (isset($news->recommendation)) {
+				} else {
+					$title_status = __('Không đánh giá', 'bsc');
+					$background_status = '#ffebbe';
+					$text_status = '#f5a800';
+				} ?>
+				<span class="inline-block rounded-[45px] px-4 py-0.5 text-[12px] font-semibold whitespace-nowrap"
+					style="background-color:<?php echo $background_status; ?>; color:<?php echo $text_status ?>">
+					<?php echo $title_status ?>
+				</span>
 				<?php
 				$date = new DateTime($news->datetimepublished);
 				?>
