@@ -623,7 +623,10 @@ function detectDevice()
  */
 add_action('init', function () {
 	$callback_url = get_field('cdapi_ip_address_url_call_back', 'option');
-	$parsed_url = parse_url($callback_url, PHP_URL_PATH);
+	$parsed_url = null;
+	if (!empty($callback_url) && is_string($callback_url)) {
+		$parsed_url = parse_url($callback_url, PHP_URL_PATH);
+	}
 	if ($callback_url && strpos($_SERVER['REQUEST_URI'], $parsed_url) !== false) {
 		bsc_handle_sso_callback();
 		exit;
