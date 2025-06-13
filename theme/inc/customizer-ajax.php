@@ -612,7 +612,7 @@ function filter_details_symbol()
 									</div>
 									<div
 										class="px-3 py-2 min-h-10 flex items-center justify-end sm:flex-1 <?php echo !wp_is_mobile() && !bsc_is_mobile() ? '' : 'min-w-[136px]' ?> pr-10">
-										<?php echo bsc_number_format($record['TOT_VALUE']) ?>
+										<?php echo bsc_number_format($record['TOT_VALUE'], true, true) ?>
 									</div>
 								</li>
 						<?php
