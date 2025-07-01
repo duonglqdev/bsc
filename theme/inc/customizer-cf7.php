@@ -38,6 +38,11 @@ function create_shortcode_bscc_email_tuyen_dung() {
 			</div>
 			<?php
 		}
+		?>
+		<div class="hidden">
+			<input value="<?php echo $noi_lam_viec[0]->name ?>" type="text" name="bsc_dia_diem">
+		</div>
+		<?php
 	}
 	$current_url = home_url( $_SERVER['REQUEST_URI'] );
 	?>
