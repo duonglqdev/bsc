@@ -85,12 +85,12 @@ pre.wp-block-code {
     margin-bottom: 30px;
 }
 
-.the_content table:not(.shop_table) > tbody > tr > td,
-.the_content table:not(.shop_table) > tbody > tr > th,
-.the_content table:not(.shop_table) > tfoot > tr > td,
-.the_content table:not(.shop_table) > tfoot > tr > th,
-.the_content table:not(.shop_table) > thead > tr > td,
-.the_content table:not(.shop_table) > thead > tr > th {
+.the_content:not(.table_editor) table:not(.shop_table) > tbody > tr > td,
+.the_content:not(.table_editor) table:not(.shop_table) > tbody > tr > th,
+.the_content:not(.table_editor) table:not(.shop_table) > tfoot > tr > td,
+.the_content:not(.table_editor) table:not(.shop_table) > tfoot > tr > th,
+.the_content:not(.table_editor) table:not(.shop_table) > thead > tr > td,
+.the_content:not(.table_editor) table:not(.shop_table) > thead > tr > th {
     border: 1px solid #ddd;
     padding: 7px 10px;
 }
@@ -122,4 +122,13 @@ pre.wp-block-code {
 }
 .wcgr-FE5353{
     background: #FE5353;
+}
+
+.table_editor table, th, td {
+    border: 4px solid white;
+    border-collapse: collapse;
+}
+
+.table_editor tr:first-child td {
+    color: #295CA9;
 }
