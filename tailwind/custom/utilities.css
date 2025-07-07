@@ -61,13 +61,14 @@
 }
 
 .the_content ol {
-    list-style: decimal;
-    padding-left: 18px;
+  list-style: decimal;
+  padding-left: 18px;
+  padding-bottom: 5px;
 }
 
 .the_content ol li {
-    line-height: 1.5;
-    margin-bottom: 10px;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 .the_content blockquote {

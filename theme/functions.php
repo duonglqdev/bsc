@@ -7,7 +7,7 @@
  *
  * @package bsc
  */
-if (!defined('bsc_VERSION')) {
+if (! defined('bsc_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +15,10 @@ if (!defined('bsc_VERSION')) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define('bsc_VERSION', '0.2.7');
+	define('bsc_VERSION', '0.2.8');
 }
 
-if (!defined('bsc_TYPOGRAPHY_CLASSES')) {
+if (! defined('bsc_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +42,7 @@ if (!defined('bsc_TYPOGRAPHY_CLASSES')) {
 	);
 }
 
-if (!function_exists('bsc_setup')):
+if (! function_exists('bsc_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -210,5 +210,5 @@ require get_template_directory() . '/inc/customizer-user.php';
 /**
  * Hide Custom Theme
  */
-// define( 'DISALLOW_FILE_EDIT', true );
-// add_filter( 'acf/settings/show_admin', '__return_false' );
+define('DISALLOW_FILE_EDIT', true);
+add_filter('acf/settings/show_admin', '__return_false');

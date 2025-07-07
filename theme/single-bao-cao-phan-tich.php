@@ -209,7 +209,7 @@ get_header();
 								<?php _e('Báo cáo chi tiết', 'bsc') ?>
 							</h2>
 							<div
-								class="text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
+								class="the_content text-justify font-Helvetica prose-img:rounded-[10px] prose-img:mx-auto prose-img:mt-6 prose-img:mb-8 prose-ul:pl-3 prose-ul:list-disc prose-ul:space-y-2 text-[#000] <?php echo ! wp_is_mobile() && ! bsc_is_mobile() ? '' : 'text-xs' ?>">
 								<?php echo $news->description ?>
 							</div>
 						</div>
@@ -220,27 +220,20 @@ get_header();
 	</section>
 	<?php
 	if ($args['data'] && $categoryid) {
-		$khoi_template = 'taxonomy';
-		if ($news->categoryid) {
-			$categoryid = $news->categoryid;
-			$term = get_name_by_tax_id($categoryid, $get_array_id_taxonomy);
-			if ($term) {
-				$link = get_term_link($term);
-				$khoi_template = get_field('khoi_template', $term);
-			}
-		}
-		if ($khoi_template == 'price') {
+		if ($categoryid == 1) {
 			$array_data = array(
 				'lang' => pll_current_language(),
 				'maxitem' => 7,
 				'symbol' => $symbol,
+				'categoryid' => $categoryid
 			);
 			$response = get_data_with_cache('GetReportsBySymbol', $array_data, $time_cache);
 
 			$array_data_author = array(
 				'lang' => pll_current_language(),
 				'maxitem' => 7,
-				'authorid' => $authorid
+				'authorid' => $authorid,
+				'categoryid' => $categoryid
 			);
 			$response_author = get_data_with_cache('GetReportsBySymbol', $array_data_author, $time_cache);
 
@@ -278,11 +271,6 @@ get_header();
 						}
 					}
 				}
-				usort($final_posts, function ($a, $b) {
-					$dateA = new DateTime($a->datetimepublished);
-					$dateB = new DateTime($b->datetimepublished);
-					return $dateB <=> $dateA;
-				});
 	?>
 				<section class="<?php echo !wp_is_mobile() && !bsc_is_mobile() ? 'xl:my-[100px] my-20' : 'my-[50px]' ?>">
 					<div class="container">

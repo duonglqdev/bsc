@@ -263,11 +263,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_673df86193336",
-            "label": "Loại danh mục",
-            "name": "type_danh_muc",
+            "key": "field_684bd62b7568d",
+            "label": "Hiển thị bản đồ\/bảng",
+            "name": "display_table_chart",
             "aria-label": "",
-            "type": "select",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -276,48 +276,65 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "default": "Mặc định",
-                "thitruong": "Dự báo thị trường",
-                "vimo": "Dự báo vĩ mô",
-                "kqkd": "Dự báo KQKD",
-                "nganh": "Dự báo triển vọng ngành"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_6823512e64dcb",
-            "label": "Đường dẫn xem chi tiết loại danh mục",
-            "name": "url_type_loai_danh_muc",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_673df86193336",
-                        "operator": "!=",
-                        "value": "default"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Thêm bản đồ\/bảng",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_684bd64f7568e",
+                    "label": "Bản đồ\/bảng",
+                    "name": "table_chart",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "thitruong": "Dự báo thị trường",
+                        "vimo": "Dự báo vĩ mô",
+                        "kqkd": "Dự báo KQKD",
+                        "nganh": "Dự báo triển vọng ngành"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_684bd62b7568d"
+                },
+                {
+                    "key": "field_684bd6737568f",
+                    "label": "Đường dẫn",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_684bd62b7568d"
+                }
+            ]
         },
         {
             "key": "field_673e3f307dab9",
@@ -518,5 +535,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1747145062
+    "modified": 1749800683
 }
