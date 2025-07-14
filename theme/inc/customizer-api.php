@@ -169,17 +169,24 @@ function custom_template_redirect()
 		if ($get_news_detail) {
 			// Lấy chi tiết tin tức từ API response
 			$news = $get_news_detail->d[0];
-			// Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
-			global $custom_meta_data;
-			$custom_meta_data = array(
-				'title' => $news->title,
-				'description' => $news->description,
-				'thumbnail' => $news->imagethumbnail
-			);
-			get_template_part('single', null, array(
-				'data' => $news,
-			));
-			exit; // Dừng WordPress để tránh bị 404
+			if ($news->originlink) {
+				// Nếu không có dữ liệu từ API
+				$redirect_url = get_field('cdc7_page_tin_tuc_tong', 'option');
+				wp_redirect($redirect_url ? $redirect_url : home_url('/404'));
+				exit;
+			} else {
+				// Lưu dữ liệu vào biến toàn cục để dùng trong Rank Math
+				global $custom_meta_data;
+				$custom_meta_data = array(
+					'title' => $news->title,
+					'description' => $news->description,
+					'thumbnail' => $news->imagethumbnail
+				);
+				get_template_part('single', null, array(
+					'data' => $news,
+				));
+				exit; // Dừng WordPress để tránh bị 404
+			}
 		} else {
 			// Nếu không có dữ liệu từ API
 			$redirect_url = get_field('cdc7_page_tin_tuc_tong', 'option');
