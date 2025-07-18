@@ -171,7 +171,7 @@ function custom_template_redirect()
 			$news = $get_news_detail->d[0];
 			if ($news->originlink) {
 				// Nếu không có dữ liệu từ API
-				$redirect_url = get_field('cdc7_page_tin_tuc_tong', 'option');
+				$redirect_url = $news->originlink;
 				wp_redirect($redirect_url ? $redirect_url : home_url('/404'));
 				exit;
 			} else {
