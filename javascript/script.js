@@ -51,6 +51,7 @@ import { DataTable } from 'simple-datatables';
 		handleLogin();
 		running_api_price();
 		triggerPopup();
+		handleTabSearchHeader();
 	});
 	$(window).resize(function () {
 		handleMegamenu();
@@ -4499,5 +4500,49 @@ import { DataTable } from 'simple-datatables';
 				}, 300);
 			}
 		}
+	}
+
+	function handleTabSearchHeader() {
+		$('.tab-wrapper').each(function () {
+			var $wrapper = $(this);
+			var $buttons = $wrapper.find('.tab-button > div');
+			var $panels = $wrapper.find('.tab-content > div');
+			var len = $buttons.length;
+
+			// guard: phải có cùng số button và panel
+			if (!len || $panels.length !== len) return;
+
+			// cho phép focus
+			$buttons.attr('tabindex', '0');
+
+			// Hàm bật tab idx
+			function activateTab(idx) {
+				if (idx < 0 || idx >= len) return;
+				$buttons.removeClass('active');
+				$panels.addClass('hidden');
+				$buttons.eq(idx).addClass('active');
+				$panels.eq(idx).removeClass('hidden');
+			}
+
+			// Khởi tạo tab 0
+			activateTab(0);
+
+			// click chọn tab
+			$wrapper.on('click', '.tab-button > div', function () {
+				activateTab($buttons.index(this));
+			});
+
+			// chuyển tab bằng phím Tab (key=9)
+			$wrapper.on('keydown', '.tab-button > div', function (e) {
+				if (e.key === 'Tab' && !e.altKey && !e.ctrlKey && !e.metaKey) {
+					e.preventDefault();
+					var current = $buttons.filter('.active').index();
+					if (current < 0) current = 0;
+					var next = (current + 1) % len;
+					activateTab(next);
+					$buttons.eq(next).focus();
+				}
+			});
+		});
 	}
 })(jQuery);
